@@ -1,0 +1,111 @@
+#!/bin/sh
+set -eu
+
+script_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+corpus_root=$(CDPATH= cd -- "$script_dir/.." && pwd)
+plan="$corpus_root/canonical/persona-plan.json"
+workspace="$corpus_root/workspace"
+
+for required in \
+  "$corpus_root/AGENTS.md" \
+  "$corpus_root/README.md" \
+  "$corpus_root/runbooks/COMMON_RULES.md" \
+  "$corpus_root/runbooks/BATCH_PROTOCOL.md" \
+  "$corpus_root/runbooks/PERSONA_INDEX.md" \
+  "$corpus_root/runbooks/SESSION_HANDOFF.md" \
+  "$corpus_root/runbooks/PERSONA_PC_CONTRACT.md" \
+  "$corpus_root/canonical/persona-schedule.json" \
+  "$corpus_root/canonical/persona-render.json" \
+  "$corpus_root/canonical/materialized/persona-materialization.json" \
+  "$workspace/persona-workspace-owner.json"; do
+  if [ ! -f "$required" ]; then
+    echo "missing required file: $required" >&2
+    exit 1
+  fi
+done
+
+"$corpus_root/bin/persona" --help >/dev/null
+
+if ! cmp -s "$plan" "$workspace/persona-plan.json"; then
+  echo "canonical and workspace plans differ" >&2
+  exit 1
+fi
+
+materialization="$corpus_root/canonical/materialized/persona-materialization.json"
+plan_sha=$(shasum -a 256 "$plan" | awk '{print $1}')
+schedule_sha=$(shasum -a 256 "$corpus_root/canonical/persona-schedule.json" | awk '{print $1}')
+render_sha=$(shasum -a 256 "$corpus_root/canonical/persona-render.json" | awk '{print $1}')
+expected_plan_sha=$(jq -r '.plan.sha256 | sub("^sha256:"; "")' "$materialization")
+expected_schedule_sha=$(jq -r '.schedule.sha256 | sub("^sha256:"; "")' "$materialization")
+expected_render_sha=$(jq -r '.render.sha256 | sub("^sha256:"; "")' "$materialization")
+owner_plan_sha=$(jq -r '.plan_sha256 | sub("^sha256:"; "")' "$workspace/persona-workspace-owner.json")
+owner_root=$(jq -r '.workspace_root' "$workspace/persona-workspace-owner.json")
+
+if [ "$plan_sha" != "$expected_plan_sha" ] ||
+   [ "$plan_sha" != "$owner_plan_sha" ] ||
+   [ "$schedule_sha" != "$expected_schedule_sha" ] ||
+   [ "$render_sha" != "$expected_render_sha" ]; then
+  echo "canonical artifact digest mismatch" >&2
+  exit 1
+fi
+if [ "$owner_root" != "$workspace" ]; then
+  echo "workspace owner root mismatch: $owner_root" >&2
+  exit 1
+fi
+
+summary=$(jq -r '
+  [.personas[].scopes[]] as $scopes |
+  [(.personas | length), ($scopes | length), ([.personas[].raw_files] | add)] |
+  @tsv
+' "$plan")
+set -- $summary
+persona_count=$1
+scope_count=$2
+raw_file_count=$3
+
+if [ "$persona_count" -ne 20 ] || [ "$scope_count" -ne 400 ] || [ "$raw_file_count" -ne 195000 ]; then
+  echo "unexpected plan totals: personas=$persona_count scopes=$scope_count files=$raw_file_count" >&2
+  exit 1
+fi
+
+persona_dirs=$(find "$workspace/people" -mindepth 1 -maxdepth 1 -type d | wc -l | tr -d ' ')
+persona_control_dirs=$(find "$workspace/_control/personas" -mindepth 1 -maxdepth 1 -type d | wc -l | tr -d ' ')
+scope_dirs=$(find "$workspace/_control/scopes" -mindepth 2 -maxdepth 2 -type d | wc -l | tr -d ' ')
+active_leases=$(find "$workspace/_control" -name lease.json -type f | wc -l | tr -d ' ')
+
+if [ "$persona_dirs" -ne 20 ] || [ "$persona_control_dirs" -ne 20 ] || [ "$scope_dirs" -ne 400 ]; then
+  echo "unexpected workspace totals: personas=$persona_dirs persona_controls=$persona_control_dirs scopes=$scope_dirs" >&2
+  exit 1
+fi
+
+jq -r '.personas[] | [.id, (.id + "-" + .role)] | @tsv' "$plan" |
+  while IFS="$(printf '\t')" read -r persona_id persona_slug; do
+    if [ ! -d "$workspace/people/$persona_slug" ]; then
+      echo "missing planned persona directory: $persona_slug" >&2
+      exit 1
+    fi
+    if [ ! -d "$workspace/_control/personas/$persona_id" ]; then
+      echo "missing planned persona control directory: $persona_id" >&2
+      exit 1
+    fi
+  done
+
+jq -r '
+  .personas[] as $persona |
+  $persona.scopes[] |
+  [$persona.id, .id, ($persona.id + "-" + $persona.role + "/home/" + .path)] |
+  @tsv
+' "$plan" |
+  while IFS="$(printf '\t')" read -r persona_id scope_id home_path; do
+    if [ ! -d "$workspace/_control/scopes/$persona_id/$scope_id" ]; then
+      echo "missing planned scope control directory: $persona_id/$scope_id" >&2
+      exit 1
+    fi
+    if [ ! -d "$workspace/people/$home_path" ]; then
+      echo "missing planned final leaf directory: $home_path" >&2
+      exit 1
+    fi
+  done
+
+printf 'ready: personas=%s scopes=%s full_files=%s active_leases=%s\n' \
+  "$persona_count" "$scope_count" "$raw_file_count" "$active_leases"

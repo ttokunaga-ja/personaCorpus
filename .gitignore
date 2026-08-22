@@ -1,0 +1,7 @@
+.DS_Store
+.runtime/
+canonical/
+workspace/
+scratch/
+progress/*/
+!progress/README.md

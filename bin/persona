@@ -1,0 +1,25 @@
+#!/bin/sh
+set -eu
+
+script_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+corpus_root=$(CDPATH= cd -- "$script_dir/.." && pwd)
+runtime="$corpus_root/.runtime/kio-eval"
+digest_file="$corpus_root/config/kio-eval.sha256"
+
+if [ ! -x "$runtime" ]; then
+  echo "persona runtime is missing: $runtime" >&2
+  exit 1
+fi
+if [ ! -f "$digest_file" ]; then
+  echo "persona runtime digest is missing: $digest_file" >&2
+  exit 1
+fi
+
+expected=$(awk '{print $1}' "$digest_file")
+actual=$(shasum -a 256 "$runtime" | awk '{print $1}')
+if [ "$actual" != "$expected" ]; then
+  echo "persona runtime digest mismatch" >&2
+  exit 1
+fi
+
+exec "$runtime" persona "$@"
