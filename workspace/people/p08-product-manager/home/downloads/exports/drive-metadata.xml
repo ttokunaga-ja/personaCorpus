@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<driveExport exportId="JW-EXPORT-0713" tenant="Juniper Works" generatedAt="2026-07-13T09:04:12Z" integrityMarker="expected1">
+  <context product="Product Alpha Q3" milestone="M-27" adoptionRate="0.184"/>
+  <meeting id="MTG-M27-0713" startUtc="2026-07-13T08:30:00Z" endUtc="2026-07-13T09:00:00Z" invitedCount="4" attendedCount="3"/>
+  <artifacts count="6">
+    <artifact name="drive-metadata.xml" kind="structured_xml"/>
+    <artifact name="drive-roadmap-export.xlsx" kind="xlsx"/>
+    <artifact name="export-run.log" kind="txt_log"/>
+    <artifact name="synthetic-product-sync.pcap" kind="domain_binary"/>
+    <artifact name="teams-attendance-export.csv" kind="csv"/>
+    <artifact name="teams-meeting-export.pdf" kind="pdf_text"/>
+  </artifacts>
+</driveExport>

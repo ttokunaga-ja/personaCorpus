@@ -1,0 +1,60 @@
+schema_version: juniper-works.product-alpha-roadmap/v1
+portfolio: Product Alpha Q3
+organization: Juniper Works
+as_of: 2026-07-13
+population:
+  synthetic_workspaces: 1240
+adoption:
+  baseline_percent: 18.4
+  target_percent: 26.0
+milestones:
+  - id: M-24
+    name: Discovery closeout
+    date: 2026-07-24
+    status: complete
+    owner_role: Product Management
+    depends_on: []
+  - id: M-25
+    name: Design and instrumentation ready
+    date: 2026-08-07
+    status: on_track
+    owner_role: Design + Data
+    depends_on: [M-24]
+  - id: M-26
+    name: Beta cohort enabled
+    date: 2026-08-28
+    status: at_risk
+    owner_role: Engineering + Customer Success
+    depends_on: [M-25]
+  - id: M-27
+    name: Q3 adoption decision
+    date: 2026-09-18
+    status: planned
+    owner_role: Product Management
+    depends_on: [M-26]
+status_definitions:
+  complete: Work is accepted and its handoff is closed.
+  on_track: Delivery is expected on the stated date.
+  at_risk: A dependency needs active mitigation to hold the date.
+  planned: Work is scheduled but has not yet entered execution.
+dependency_register:
+  - id: DEP-01
+    milestone_id: M-25
+    dependency: Event naming review
+    accountable_role: Data
+    status: on_track
+  - id: DEP-02
+    milestone_id: M-26
+    dependency: Entitlement service capacity confirmation
+    accountable_role: Engineering
+    status: at_risk
+  - id: DEP-03
+    milestone_id: M-26
+    dependency: Beta onboarding playbook
+    accountable_role: Customer Success
+    status: on_track
+  - id: DEP-04
+    milestone_id: M-27
+    dependency: Adoption metric readout
+    accountable_role: Product Management
+    status: planned

@@ -1,0 +1,23 @@
+Juniper Works | Product Alpha Q3 triage capture
+Date: 2026-07-13 15:10 JST | synthetic Teams follow-up
+
+Decision context
+- Adoption is 18.4% across 1,240 synthetic workspaces; the Q3 target remains 26.0%.
+- M-27 (2026-09-18) is the release gate for the guided setup and reporting polish bundle.
+
+What we heard
+1. Setup owners can finish the first workflow, but cannot tell which teammate needs to act next.
+2. Admins asked for a weekly adoption pulse before adding another export surface.
+3. Support wants the empty-state language fixed before broadening the pilot.
+
+Working calls
+- Keep the guided setup checklist and the adoption pulse in the M-27 candidate set.
+- Move the advanced CSV export request behind the reporting schema decision.
+- Ask Analytics to validate the 26.0% definition against activated, not merely invited, workspaces.
+
+Open items
+- Priya / Product: confirm the Sep 18 cut line by Jul 17.
+- Luca / Design: bring two empty-state variants to Thursday critique.
+- Ren / Analytics: publish the synthetic-workspace cohort note by Jul 16.
+
+Risk note: a late dependency on the reporting schema could turn the adoption pulse into a partial release. No customer data is represented in this capture.

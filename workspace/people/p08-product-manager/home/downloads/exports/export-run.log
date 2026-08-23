@@ -1,0 +1,5 @@
+2026-07-13T09:00:00Z INFO export_id=JW-EXPORT-0713 tenant=Juniper Works product=Product Alpha Q3 milestone=M-27
+2026-07-13T09:00:02Z INFO meeting_id=MTG-M27-0713 start=2026-07-13T08:30:00Z invited=4 attended=3
+2026-07-13T09:00:05Z INFO adoption_rate=18.4% roadmap_records=3 attendance_rows=4
+2026-07-13T09:00:08Z INFO pcap_packets=3 payload_class=synthetic-offline
+2026-07-13T09:04:12Z INFO completed export_id=JW-EXPORT-0713 artifacts=6 integrity_marker=expected1

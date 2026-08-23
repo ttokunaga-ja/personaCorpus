@@ -1,0 +1,5 @@
+export_id,meeting_id,meeting_start_utc,participant_role_id,attendance_status,join_utc,leave_utc,duration_minutes,source
+JW-EXPORT-0713,MTG-M27-0713,2026-07-13T08:30:00Z,pm-001,Attended,2026-07-13T08:30:00Z,2026-07-13T09:00:00Z,30,Teams
+JW-EXPORT-0713,MTG-M27-0713,2026-07-13T08:30:00Z,eng-017,Attended,2026-07-13T08:32:00Z,2026-07-13T09:00:00Z,28,Teams
+JW-EXPORT-0713,MTG-M27-0713,2026-07-13T08:30:00Z,design-004,Attended,2026-07-13T08:31:00Z,2026-07-13T09:00:00Z,29,Teams
+JW-EXPORT-0713,MTG-M27-0713,2026-07-13T08:30:00Z,ops-009,NoShow,,,0,Teams

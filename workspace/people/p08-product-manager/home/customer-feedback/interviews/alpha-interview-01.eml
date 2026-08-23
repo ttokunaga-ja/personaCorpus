@@ -1,0 +1,36 @@
+From: Research Operations <research-ops@juniperworks.example>
+To: Product Alpha Team <product-alpha@juniperworks.example>
+Subject: Notes - Alpha interview A-01: setup ownership and first value
+Date: Mon, 13 Jul 2026 10:05:00 +0900
+Message-ID: <alpha-a01-20260713@juniperworks.example>
+In-Reply-To: <alpha-export-20260713@juniperworks.example>
+References: <alpha-export-20260713@juniperworks.example>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+X-Juniper-Participant-ID: Participant A-01
+X-Juniper-Research-Method: moderated synthetic interview notes
+
+Participant: Participant A-01 (synthetic workspace administrator)
+Portfolio: Juniper Works / Product Alpha Q3
+Interview date: 2026-07-13
+
+Q: When did the product feel useful for the first time?
+A: "After I connected one team and saw its work queue, I understood the
+promise. Before that, the welcome screen asked me to choose a workflow without
+showing what a finished workspace would look like." The participant estimated
+the useful moment came after 35-45 minutes of setup and two retries.
+
+Q: What made the retries necessary?
+A: The invite step used terms such as owner, manager, and contributor without
+showing effective rights. A-01 expected a manager to be able to change a queue
+rule; the preview showed read-only access after the invitation was sent.
+
+Q: What would make setup easier for a new admin?
+A: A small sample workspace with a visible before/after queue and a checklist:
+connect source, invite the first operator, create one rule, review the result.
+They preferred clear language over a long guided tour.
+
+Initial codes: time-to-first-value; permissions comprehension; admin automation.
+Researcher note: Evidence is detailed for first value and permissions, but this
+single account should not set a duration benchmark for all 1,240 synthetic
+workspaces.

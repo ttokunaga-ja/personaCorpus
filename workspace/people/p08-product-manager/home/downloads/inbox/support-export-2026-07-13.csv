@@ -1,0 +1,5 @@
+case_id,opened_date,workspace_segment,topic,tag,status,product
+SUP-1001,2026-07-13,mid-market,Activation event unclear,activation-definition,open,Product Alpha
+SUP-1002,2026-07-13,enterprise,Workspace invite delayed,onboarding-invite,resolved,Product Alpha
+SUP-1003,2026-07-12,small-business,Dashboard count question,adoption-metric,open,Product Alpha
+SUP-1004,2026-07-11,startup,First-use checklist,activation-definition,resolved,Product Alpha

@@ -1,0 +1,31 @@
+context:
+  organization: Juniper Works
+  product: Product Alpha Q3
+  baseline_date: 2026-07-13
+  milestone: M-27
+  rollout_gate: 2026-09-18
+  adoption_baseline_pct: 18.4
+  q3_target_pct: 26.0
+  synthetic_workspaces: 1240
+tags:
+  - id: EV-01
+    theme: first_value_arrival
+    source: moderated_prototype
+    count: 8
+    finding: Participants paused before completing the first guided task.
+  - id: EV-02
+    theme: permission_understanding
+    source: teach_back
+    count: 7
+    finding: Access choices were perceived as risky or permanent.
+  - id: EV-03
+    theme: notification_fatigue
+    source: preference_probe
+    count: 9
+    finding: Participants preferred a bounded digest to event alerts.
+  - id: EV-04
+    theme: export_confidence
+    source: export_walkthrough
+    count: 6
+    finding: Participants wanted fields and provenance before sharing.
+

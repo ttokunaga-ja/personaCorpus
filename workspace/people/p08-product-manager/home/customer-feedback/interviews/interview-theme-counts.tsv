@@ -1,0 +1,6 @@
+theme	coded_mentions	unique_participants	evidence_confidence	illustrative_participants	interpretation
+time-to-first-value	4	4	high	Participant A-01; Participant A-02; Participant A-03; Participant B-02	First useful outcome needs a visible, reversible path.
+permissions comprehension	4	3	high	Participant A-01; Participant A-03; Participant B-01	Role consequences must be visible at the decision point.
+notification fatigue	2	2	medium	Participant A-02; Participant B-01	Targeted summaries are preferred over repetitive event alerts.
+export confidence	3	2	high	Participant A-02; Participant B-02	Exports need explicit scope and omission context.
+admin automation	3	3	high	Participant A-01; Participant A-03; Participant B-02	Templates and schedules require preview and ownership safeguards.

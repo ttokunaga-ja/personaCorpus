@@ -1,0 +1,19 @@
+From: Product Alpha PM <pm@juniperworks.example>
+To: Alpha Stakeholders <alpha-stakeholders@juniperworks.example>
+Subject: Recap: Product Alpha Q3 discovery and M-27 next step
+Date: Mon, 13 Jul 2026 17:30:00 +0900
+Message-ID: <p08-m27-recap@juniperworks.example>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+Team,
+
+Today's discovery synthesis keeps the M-27 decision focused on four themes: first-value arrival, permission understanding, notification fatigue, and export confidence.
+
+We will test a guided path with 16 synthetic workspaces from July 20-31. The baseline is 18.4% adoption; the Q3 target is 26.0% across 1,240 synthetic workspaces. The guided rollout gate remains September 18, 2026.
+
+Decision criteria: faster first outcomes, at least 80% permission comprehension, notification opt-out at or below 12%, and export confidence of at least 4/5.
+
+Regards,
+Product Alpha PM
+

@@ -1,0 +1,17 @@
+portfolio_glossary:
+  organization: Juniper Works
+  as_of: 2026-07-13
+  milestone: M-27
+  terms:
+    - term: adoption
+      definition: Eligible workspaces completing a first governed workflow within 14 days of enablement.
+      formula: activated / eligible
+      q3_target: 26.0%
+    - term: activated
+      definition: Workspace with governed_workflow_completed recorded in the Q3 cohort.
+    - term: eligible_workspace
+      definition: Provisioned and invited workspace, excluding test and paused tenants.
+    - term: governed_workflow
+      definition: Workflow meeting portfolio policy and recorded with owner, intent, and outcome.
+    - term: M-27
+      definition: July 2026 portfolio decision checkpoint.

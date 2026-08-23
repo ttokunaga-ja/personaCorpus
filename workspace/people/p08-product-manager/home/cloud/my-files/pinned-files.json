@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "workspace": "personal-cloud",
+  "owner": "PM-local-08",
+  "updated": "2026-07-13",
+  "program": "Product Alpha Q3",
+  "pinned_files": [
+    {
+      "file": "alpha-q3-pre-read.pptx",
+      "purpose": "Decision pre-read",
+      "anchor_ids": [
+        "M-27",
+        "ACT-27A",
+        "ACT-27D"
+      ]
+    },
+    {
+      "file": "personal-roadmap-draft.docx",
+      "purpose": "Personal decision memo",
+      "anchor_ids": [
+        "M-27",
+        "ACT-27A",
+        "ACT-27D"
+      ]
+    },
+    {
+      "file": "personal-action-tracker.tsv",
+      "purpose": "Action follow-through",
+      "anchor_ids": [
+        "ACT-27A",
+        "ACT-27B",
+        "ACT-27C",
+        "ACT-27D"
+      ]
+    },
+    {
+      "file": "cloud-sync-notes.txt",
+      "purpose": "Offline sync notes",
+      "anchor_ids": [
+        "M-27",
+        "ACT-27A"
+      ]
+    },
+    {
+      "file": "synthetic-sync-trace.pcap",
+      "purpose": "Synthetic offline packet trace",
+      "anchor_ids": [
+        "M-27"
+      ]
+    }
+  ]
+}

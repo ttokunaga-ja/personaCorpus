@@ -1,0 +1,37 @@
+From: Research Operations <research-ops@juniperworks.example>
+To: Product Alpha Team <product-alpha@juniperworks.example>
+Subject: Notes - Alpha interview A-02: alerts, handoffs, and confidence
+Date: Mon, 13 Jul 2026 11:20:00 +0900
+Message-ID: <alpha-a02-20260713@juniperworks.example>
+In-Reply-To: <alpha-export-20260713@juniperworks.example>
+References: <alpha-export-20260713@juniperworks.example>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+X-Juniper-Participant-ID: Participant A-02
+X-Juniper-Research-Method: moderated synthetic interview notes
+
+Participant: Participant A-02 (synthetic operations lead)
+Portfolio: Juniper Works / Product Alpha Q3
+Interview date: 2026-07-13
+
+Q: Which notifications help you act, and which do not?
+A: A-02 valued a single daily exception digest because it named the queue and
+owner. Individual status-change alerts were described as "a running commentary
+on work I already know about." During a busy morning, six similar alerts made
+the participant mute the channel for the rest of the day.
+
+Q: Tell us about sharing results outside the product.
+A: The CSV export downloaded successfully, but A-02 paused before sending it:
+"I cannot tell whether this is the whole queue or only the current filter."
+The filename contained a date but no filter or row count. They manually copied
+the visible total into a message as a workaround.
+
+Q: What would a trustworthy export show?
+A: The first row or a cover panel should state workspace, applied filters,
+timezone, generated time, and row count. The participant also wanted an
+explicit warning when hidden columns or permissions change the export.
+
+Initial codes: notification fatigue; export confidence; time-to-first-value.
+Researcher note: This record distinguishes noisy event volume from actionable
+exceptions; do not code a preference for fewer alerts as a request to remove
+all alerts.

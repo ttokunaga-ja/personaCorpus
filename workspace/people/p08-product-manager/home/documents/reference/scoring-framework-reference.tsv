@@ -1,0 +1,6 @@
+criterion	definition	weight	0	3	5	evidence
+Outcome fit	Contribution to Q3 adoption	30	No link	Plausible link	Direct 14-day adoption path	Metric contract
+Evidence quality	Strength of observed signal	20	Assumption	Directional data	Cohort evidence	Research or analytics note
+Delivery confidence	Ability to ship in window	20	Unknown	Known risks	Scoped and owned	Engineering assessment
+Governance readiness	Policy and decision clarity	15	Missing	Partial	Named owner and gate	Decision note
+Learning value	Value of feedback	15	Low	Useful	Decision-changing	Experiment plan

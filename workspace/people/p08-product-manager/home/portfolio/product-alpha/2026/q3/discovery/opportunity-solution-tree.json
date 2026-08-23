@@ -1,0 +1,15 @@
+{
+  "product": "Product Alpha Q3",
+  "organization": "Juniper Works",
+  "baselineDate": "2026-07-13",
+  "milestone": "M-27",
+  "outcome": {"name": "Adoption", "baselinePercent": 18.4, "q3TargetPercent": 26.0, "workspaces": 1240},
+  "opportunities": [
+    {"id": "O1", "theme": "first_value_arrival", "solution": "Named guided first outcome", "test": "10-minute completion task"},
+    {"id": "O2", "theme": "permission_understanding", "solution": "Scope and reversibility explainer", "test": "Teach-back"},
+    {"id": "O3", "theme": "notification_fatigue", "solution": "Single weekly digest", "test": "Preference and opt-out"},
+    {"id": "O4", "theme": "export_confidence", "solution": "Field and provenance preview", "test": "Export walkthrough"}
+  ],
+  "gate": "2026-09-18"
+}
+

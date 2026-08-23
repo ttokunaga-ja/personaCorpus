@@ -1,0 +1,7 @@
+requirement_id,requirement,acceptance_criterion,verification_method,owner,m27_gate
+FR-1,Guided setup persists progress,Owner resumes same step after new session,Manual scenario plus event check,Onboarding,yes
+FR-2,Invite includes role and next action,Recipient sees role rationale expiry and accepts or declines,Accessibility and UX test,Collaboration,yes
+FR-3,Admin controls elevation,Policy-required role elevation has review and audit event,Authorization test,Admin Experience,yes
+NFR-1,Accessible completion,Keyboard and screen reader path completes three use cases,Assistive technology test,Accessibility,yes
+NFR-2,Event completeness,Required events are valid and deduplicated at >=99%,Telemetry audit,Analytics,yes
+NFR-3,Rollback safety,Cohort entry can be disabled without state loss,Launch rehearsal,Release Engineering,yes

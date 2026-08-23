@@ -1,0 +1,52 @@
+{
+  "schema": "juniper-works.product-alpha.prd-status/v1",
+  "as_of": "2026-07-13",
+  "product": "Product Alpha Q3",
+  "milestone": {
+    "id": "M-27",
+    "name": "guided rollout gate",
+    "target_date": "2026-09-18"
+  },
+  "population": {
+    "eligible_workspaces": 1240
+  },
+  "metrics": {
+    "adoption_baseline": 0.184,
+    "adoption_q3_target": 0.26,
+    "setup_completion_gate": 0.62,
+    "invite_acceptance_gate": 0.45,
+    "event_completeness_gate": 0.99,
+    "permission_contacts_per_100_active_max": 2
+  },
+  "workstreams": [
+    {
+      "name": "guided setup",
+      "status": "planned"
+    },
+    {
+      "name": "permission review",
+      "status": "planned"
+    },
+    {
+      "name": "instrumentation",
+      "status": "ready_for_build"
+    },
+    {
+      "name": "accessibility",
+      "status": "requirements_defined"
+    }
+  ],
+  "risks": [
+    {
+      "id": "R-01",
+      "risk": "permission confusion",
+      "mitigation": "role-specific copy, approval policy, revoke action"
+    },
+    {
+      "id": "R-02",
+      "risk": "metric inflation",
+      "mitigation": "workspace-week deduplication"
+    }
+  ],
+  "synthetic": true
+}

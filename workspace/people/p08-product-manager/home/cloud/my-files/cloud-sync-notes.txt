@@ -1,0 +1,13 @@
+Juniper Works | Product Alpha Q3 | local cloud sync notes
+Date: 2026-07-13
+Owner: PM-local-08
+
+Decision thread
+- The adoption objective moves from 18.4% to 26.0% by M-27 on 2026-09-18.
+- ACT-27A establishes the activation event dictionary by 2026-07-20.
+- ACT-27B defines the lifecycle prompt experiment and holdout by 2026-07-27.
+- ACT-27C is the recurring weekly review beginning 2026-08-03.
+- ACT-27D is the M-27 readiness review on 2026-09-11.
+
+Offline trace note
+synthetic-sync-trace.pcap contains fabricated UDP sync frames for M-27 validation only. It contains no real traffic, credentials, personal names, email addresses, or external destinations.

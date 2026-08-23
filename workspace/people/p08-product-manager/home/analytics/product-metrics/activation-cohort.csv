@@ -1,0 +1,5 @@
+cohort_start,cohort_label,eligible_workspaces,activated_workspaces,activation_rate,window_days,notes
+2026-06-01,Jun W1,310,55,0.1774193548,14,Invitation-to-activation cohort
+2026-06-08,Jun W2,305,56,0.1836065574,14,Invitation-to-activation cohort
+2026-06-15,Jun W3,315,61,0.1936507937,14,Invitation-to-activation cohort
+2026-06-22,Jun W4,310,56,0.1806451613,14,Invitation-to-activation cohort

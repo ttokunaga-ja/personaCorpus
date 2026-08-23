@@ -1,0 +1,24 @@
+From: Research Operations <research-ops@juniperworks.example>
+To: Product Alpha Team <product-alpha@juniperworks.example>
+Subject: Product Alpha Q3 - synthetic interview export and handling note
+Date: Mon, 13 Jul 2026 09:10:00 +0900
+Message-ID: <alpha-export-20260713@juniperworks.example>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+X-Juniper-Export: synthetic-research-export/v1
+X-Portfolio: Juniper Works / Product Alpha Q3
+
+This is a synthetic research export for the Product Alpha Q3 portfolio.
+
+Export date: 2026-07-13
+Decision milestone: M-27, 2026-09-18
+Population context: 1,240 synthetic workspaces
+Adoption reference: 18.4% baseline; Q3 target 26.0%
+
+The linked interview records use anonymous synthetic participant IDs only.
+They are written notes, not recordings or transcripts, and contain no contact
+details. Code using the shared guide before combining themes. Read quotes as
+illustrative evidence rather than prevalence estimates.
+
+Included Alpha records: A-01, A-02, A-03. Scheduling and research-ops recap
+are retained separately for operational context.

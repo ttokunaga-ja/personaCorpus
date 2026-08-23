@@ -1,0 +1,6 @@
+hypothesis_id,theme,statement,baseline,success_criterion,status,next_action
+H-01,first_value_arrival,A named first outcome improves completion,18.4% adoption,60% complete within 10 minutes,planned,prototype task
+H-02,permission_understanding,Scope plus reversibility copy improves comprehension,unknown,80% accurate teach-back,planned,comprehension probe
+H-03,notification_fatigue,A weekly digest reduces burden,unknown,opt-out at or below 12%,planned,preference check
+H-04,export_confidence,Field preview improves sharing confidence,unknown,median confidence at least 4 of 5,planned,export walkthrough
+

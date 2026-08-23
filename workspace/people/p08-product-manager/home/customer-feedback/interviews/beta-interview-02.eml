@@ -1,0 +1,33 @@
+From: Research Operations <research-ops@juniperworks.example>
+To: Product Beta Discovery <product-beta@juniperworks.example>
+Subject: Notes - Beta interview B-02: exports as a handoff contract
+Date: Mon, 13 Jul 2026 16:05:00 +0900
+Message-ID: <beta-b02-20260713@juniperworks.example>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+X-Juniper-Participant-ID: Participant B-02
+X-Juniper-Research-Method: moderated synthetic interview notes
+
+Participant: Participant B-02 (synthetic reporting lead)
+Context: comparative discovery; Product Alpha Q3 portfolio anchors retained
+Interview date: 2026-07-13
+
+Q: What do you check before trusting an exported report?
+A: B-02 compares the visible count to the downloaded rows and looks for the
+time range. They said, "A download is not proof that I exported the right
+thing." Missing filters create a second manual review before a leadership
+handoff.
+
+Q: What would reduce that review?
+A: A stable export summary with query scope, row count, generation timestamp,
+and omitted fields. If a permission excludes records, the export should say so
+without exposing the records themselves.
+
+Q: Is automation useful here?
+A: A scheduled weekly export is useful only after the first manual export has
+been verified. B-02 wanted the schedule owner and recipient group visible,
+plus a preview that can be cancelled before delivery.
+
+Initial codes: export confidence; admin automation; time-to-first-value.
+Researcher note: The participant described auditability of a handoff, not a
+request for unrestricted data access.

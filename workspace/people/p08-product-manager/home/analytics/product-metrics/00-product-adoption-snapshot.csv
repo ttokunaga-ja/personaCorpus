@@ -1,0 +1,2 @@
+as_of_date,product,metric_definition,eligible_workspaces,adopted_workspaces,adoption_rate,q3_target,definition_note
+2026-07-13,Product Alpha,Activated workspace completed setup and first core workflow within 14 days of invitation,1240,228,0.1838709677,0.26,Eligible denominator excludes internal/test/suspended workspaces; as-of snapshot is synthetic

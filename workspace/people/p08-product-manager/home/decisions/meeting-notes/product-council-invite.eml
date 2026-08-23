@@ -1,0 +1,31 @@
+From: Product Council <product-council@juniperworks.example>
+To: Product Management <pm@juniperworks.example>
+Cc: Engineering <engineering@juniperworks.example>, Product Design <design@juniperworks.example>, Data Analytics <analytics@juniperworks.example>, Security and Privacy <security@juniperworks.example>, Customer Support <support@juniperworks.example>
+Subject: Invitation: Product Alpha Q3 M-27 guided rollout gate
+Date: Mon, 13 Jul 2026 00:00:00 +0000
+Message-ID: <product-council-m27-20260713@juniperworks.example>
+MIME-Version: 1.0
+Content-Type: text/calendar; charset=UTF-8; method=REQUEST
+Content-Transfer-Encoding: 8bit
+
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Juniper Works//Product Council//EN
+METHOD:REQUEST
+BEGIN:VEVENT
+UID:product-alpha-m27-20260918@juniperworks.example
+DTSTAMP:20260713T000000Z
+DTSTART:20260918T000000Z
+DTEND:20260918T004500Z
+SUMMARY:Product Alpha Q3 M-27 guided rollout gate
+DESCRIPTION:Decision review for the 120-workspace controlled pilot. Review adoption from 18.4% toward 26.0% across the 1\,240-workspace baseline\, export confidence\, notification signals\, and rollback readiness. Synthetic planning material only.
+STATUS:CONFIRMED
+SEQUENCE:0
+ORGANIZER:mailto:product-council@juniperworks.example
+ATTENDEE;ROLE=REQ-PARTICIPANT;CN=Product Management:mailto:pm@juniperworks.example
+ATTENDEE;ROLE=REQ-PARTICIPANT;CN=Engineering:mailto:engineering@juniperworks.example
+ATTENDEE;ROLE=REQ-PARTICIPANT;CN=Product Design:mailto:design@juniperworks.example
+ATTENDEE;ROLE=REQ-PARTICIPANT;CN=Data Analytics:mailto:analytics@juniperworks.example
+ATTENDEE;ROLE=REQ-PARTICIPANT;CN=Security and Privacy:mailto:security@juniperworks.example
+END:VEVENT
+END:VCALENDAR

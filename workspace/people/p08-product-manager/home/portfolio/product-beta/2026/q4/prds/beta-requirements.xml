@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<productRequirements product="Product Beta" organization="Juniper Works" quarter="Q4 FY2026">
+  <context alphaAdoption="18.4%" alphaTarget="26.0%" syntheticWorkspaces="1240" guidedRolloutGate="M-27" gateDate="2026-09-18"/>
+  <theme>Admin automation and trusted reporting</theme>
+  <dependency product="Product Alpha" quarter="Q3">Configuration telemetry and guided rollout learnings must be available before expansion.</dependency>
+  <requirements>
+    <requirement id="BETA-01" priority="must">Administrators can configure governed settings using role-gated actions.</requirement>
+    <requirement id="BETA-02" priority="must">Reports disclose owner, freshness, and export policy.</requirement>
+    <requirement id="BETA-03" priority="should">Setup offers actionable validation before irreversible changes.</requirement>
+  </requirements>
+  <successMetrics><metric name="selfServeCompletion" target="70%"/><metric name="criticalAuditDefects" target="0"/></successMetrics>
+</productRequirements>

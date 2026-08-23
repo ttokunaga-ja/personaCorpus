@@ -1,0 +1,47 @@
+Juniper Works — Product Alpha Q3
+Q2 closeout archive note | Baseline: 2026-07-13 | Decision gate: M-27, 2026-09-18
+Classification: synthetic planning material; no customer, employee, or production-recording data.
+
+Purpose
+-------
+Preserve the decisions and measurement guardrails that carry the Q2 closeout into
+the Product Alpha Q3 guided-rollout review. The operating objective is to move
+activation adoption from 18.4% to 26.0% without changing the comparison basis.
+
+Metric record
+-------------
+* Baseline: 228 of 1,240 eligible synthetic workspaces activated (18.3871%,
+  reported as 18.4%) on 2026-07-13.
+* Target: 26.0% using the same definition: an eligible admin completes setup and
+  the first core workflow within 14 days of invitation.
+* Exclusions: internal, test, suspended, and duplicate synthetic workspaces.
+  Later cohorts must be reported separately rather than added to the baseline.
+* Pilot: retain the 120-workspace controlled cohort through the M-27 review.
+
+Closeout decisions
+------------------
+1. Freeze event semantics and the 1,240-workspace denominator for the M-27
+   comparison. Analytics documents any instrumentation correction before use.
+2. Treat M-27 on 2026-09-18 as an expand, hold, or rollback decision; it is not
+   a feature-complete date and does not authorize automatic broad expansion.
+3. Keep guided setup and role explanation as the pilot intervention. Defer the
+   advanced CSV export until the adoption evidence and export-context review are
+   complete.
+4. Require a tested rollback drill, severity-one defect review, support-signal
+   summary, and telemetry-continuity check in the M-27 packet.
+
+Lessons for the retrospective
+------------------------------
+* A target is not a forecast: the 26.0% target remains an outcome threshold.
+* Keep discovery evidence separate from rollout evidence; neither substitutes for
+  the other.
+* State unresolved privacy, export-context, and support risks with an owner and
+  a measurable follow-up before the gate.
+* Archive synthetic evidence with its scope and measurement definition so it
+  cannot be misread as a live customer record.
+
+Archive cross-reference
+-----------------------
+The paired synthetic audio briefings restate this baseline, target, and M-27
+decision frame. The adjacent PCAP is an offline fixture containing only synthetic
+Ethernet/IPv4/UDP archive-transfer packets; it represents no network activity.

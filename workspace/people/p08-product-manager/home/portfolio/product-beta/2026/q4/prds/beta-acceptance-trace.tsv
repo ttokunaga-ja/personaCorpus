@@ -1,0 +1,5 @@
+requirement_id	capability	acceptance_evidence	metric	rollout_gate
+BETA-01	Role-gated admin actions	Audit event contains actor, scope, and result	Unauthorized actions: 0	M-27 2026-09-18
+BETA-02	Trusted reports	Freshness, owner, and export labels displayed	Freshness label coverage: 100%	Internal pilot
+BETA-03	Guided configuration	Admin completes setup without support handoff	Self-serve completion: >=70%	Controlled availability
+BETA-04	Rollback control	Flag disables capability within one release window	Rollback drill: pass	Pre-expansion review

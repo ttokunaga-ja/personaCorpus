@@ -1,0 +1,32 @@
+From: Research Operations <research-ops@juniperworks.example>
+To: Product Beta Discovery <product-beta@juniperworks.example>
+Subject: Notes - Beta interview B-01: role clarity before rollout
+Date: Mon, 13 Jul 2026 14:50:00 +0900
+Message-ID: <beta-b01-20260713@juniperworks.example>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+X-Juniper-Participant-ID: Participant B-01
+X-Juniper-Research-Method: moderated synthetic interview notes
+
+Participant: Participant B-01 (synthetic program coordinator)
+Context: comparative discovery; Product Alpha Q3 portfolio anchors retained
+Interview date: 2026-07-13
+
+Q: What stops you from inviting a broader group?
+A: B-01 said the role picker sounds precise but its consequences are invisible.
+"I know who should edit work, but I do not know who can change the rules that
+affect everyone." They delayed invitations until an administrator could join.
+
+Q: What explanation would be enough?
+A: A concise role comparison beside the picker: can view queue, edit assigned
+work, manage rules, manage members, export data. The participant preferred a
+default recommendation labelled as reversible, not a mandatory setup choice.
+
+Q: How should the product announce a permission change?
+A: A summary sent to affected members only, with the old and new capability in
+plain language. Repeated reminder alerts would be unwanted once the change was
+acknowledged.
+
+Initial codes: permissions comprehension; notification fatigue.
+Researcher note: This is directional discovery evidence, not a committed Beta
+requirement or a measure of Alpha adoption.

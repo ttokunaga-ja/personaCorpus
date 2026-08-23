@@ -1,0 +1,11 @@
+Unread downloads - Product Alpha Q3
+
+[ ] analyst-note-alpha.pdf - external field note; read before M-27 packet
+[ ] release-checklist-export.pdf - review open release gate items
+[ ] beta-dashboard-screenshot.png - reference snapshot, 13 Jul 2026
+[ ] partner-roadmap-share.pptx - partner planning share; no commitments
+[ ] support-export-2026-07-13.csv - map tags to support taxonomy
+[ ] vendor-integration-overview.docx - fictional vendor briefing
+[ ] workshop-handout-scan.pdf - image scan from adoption workshop
+
+Processing note: all downloads are synthetic planning material. M-27 review: 18 Sep 2026.

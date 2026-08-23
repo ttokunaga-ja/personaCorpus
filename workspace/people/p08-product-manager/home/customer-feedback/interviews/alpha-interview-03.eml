@@ -1,0 +1,36 @@
+From: Research Operations <research-ops@juniperworks.example>
+To: Product Alpha Team <product-alpha@juniperworks.example>
+Subject: Notes - Alpha interview A-03: repeatable administration
+Date: Mon, 13 Jul 2026 13:40:00 +0900
+Message-ID: <alpha-a03-20260713@juniperworks.example>
+In-Reply-To: <alpha-export-20260713@juniperworks.example>
+References: <alpha-export-20260713@juniperworks.example>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+X-Juniper-Participant-ID: Participant A-03
+X-Juniper-Research-Method: moderated synthetic interview notes
+
+Participant: Participant A-03 (synthetic portfolio administrator)
+Portfolio: Juniper Works / Product Alpha Q3
+Interview date: 2026-07-13
+
+Q: What repeated work would you hand to the product?
+A: "Every Monday I recreate the same routing rule for each new project." A-03
+could copy a prior rule, but had to reopen it, change the owner, and re-enable
+notifications one workspace at a time. They wanted a template that previews
+which settings will be inherited before applying it.
+
+Q: Where did permissions become confusing?
+A: The participant could create a template but not publish it to other admins.
+The error message said access was required without naming the missing role or
+the person who could approve it. A role matrix at the point of action would
+have prevented a support request.
+
+Q: What result would demonstrate value in the first session?
+A: Applying one approved template to a new project and then seeing the first
+routed item arrive. A-03 did not need a dashboard first; they needed proof
+that a repeated administrative task would stay repeated correctly.
+
+Initial codes: admin automation; permissions comprehension; time-to-first-value.
+Researcher note: A template request includes both speed and safeguards. Code
+preview/rollback needs separately if future evidence names them.

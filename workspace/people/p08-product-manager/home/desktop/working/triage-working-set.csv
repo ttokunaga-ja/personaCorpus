@@ -1,0 +1,6 @@
+initiative,decision,status,owner_role,target_milestone,workspace_count,adoption_baseline_pct,expected_lift_pp,dependency
+Guided setup checklist,Keep in M-27 candidate,In review,Product,2026-09-18,1240,18.4,4.2,Content readiness
+Weekly adoption pulse,Keep in M-27 candidate,In review,Analytics,2026-09-18,1240,18.4,2.6,Reporting schema
+Empty-state rewrite,Commit before pilot,Ready,Design,2026-08-28,1240,18.4,1.1,Localization review
+Advanced CSV export,Defer,Parked,Engineering,2026-10-09,1240,18.4,0.7,Reporting schema
+Admin reminder nudges,Research,Discovery,Product,2026-09-18,1240,18.4,1.8,Consent language

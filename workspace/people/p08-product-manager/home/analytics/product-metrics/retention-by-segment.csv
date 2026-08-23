@@ -1,0 +1,5 @@
+segment,activated_workspaces,retained_day_30,day_30_retention,denominator,window_end,unknown_reason
+Self-serve,90,56,0.6222222222,Activated workspaces,2026-07-13,
+Assisted,78,55,0.7051282051,Activated workspaces,2026-07-13,
+Partner-led,60,42,0.7,Activated workspaces,2026-07-13,
+Unclassified,,,,,,Segment assignment unavailable in source export

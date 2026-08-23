@@ -1,0 +1,5 @@
+action_id,decision_id,program,milestone,milestone_date,owner_role,due_date,status,title,success_signal,source_message_id
+M27-ACT-01,D-M27-01,Juniper Works / Product Alpha Q3,M-27,2026-09-18,role:analytics-lead,2026-07-17,open,Publish baseline and target definition,Dashboard shows 18.4% baseline and 26.0% M-27 target.,MSG-M27-0713-01
+M27-ACT-02,D-M27-01,Juniper Works / Product Alpha Q3,M-27,2026-09-18,role:research-ops,2026-07-22,open,Convert activation friction themes into setup requirements,Top three friction themes are mapped to acceptance criteria.,MSG-M27-0713-02
+M27-ACT-03,D-M27-01,Juniper Works / Product Alpha Q3,M-27,2026-09-18,role:engineering-lead,2026-07-29,open,Confirm M-27 scope and rollback check,"Release plan names guided setup, instrumentation, and rollback owner.",MSG-M27-0713-03
+M27-ACT-04,D-M27-01,Juniper Works / Product Alpha Q3,M-27,2026-09-18,role:customer-success,2026-08-05,open,Draft pilot-cohort enablement note,Pilot cohort receives a reviewed enablement note before release readiness.,MSG-M27-0713-04

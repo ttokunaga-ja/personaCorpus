@@ -1,0 +1,273 @@
+program:
+  name: Product Alpha Q3
+  snapshot_date: 2026-07-13
+  m27_gate: 2026-09-18
+  adoption:
+  baseline: 0.184
+  target: 0.260
+  synthetic_workspaces: 1240
+dependencies:
+  - id: D-01
+    name: "SSO metadata confirmation"
+    upstream_team: "Platform Identity"
+    owner_role: "Identity Lead"
+    status: "In progress"
+    due_date: 2026-07-24
+    severity: "High"
+    confidence: 0.75
+    upstream: "M-27 pilot enrollment"
+    downstream: "Tenant invitation"
+    mitigation: "Security review weekly"
+    workstream: "Identity"
+  - id: D-02
+    name: "API rate-limit baseline"
+    upstream_team: "Core Platform"
+    owner_role: "Platform Architect"
+    status: "In progress"
+    due_date: 2026-07-29
+    severity: "Critical"
+    confidence: 0.65
+    upstream: "Guided rollout API calls"
+    downstream: "Pilot task completion"
+    mitigation: "Load-test 1,240 synthetic workspaces"
+    workstream: "Platform"
+  - id: D-03
+    name: "Event taxonomy v3"
+    upstream_team: "Data Foundations"
+    owner_role: "Analytics PM"
+    status: "At risk"
+    due_date: 2026-08-03
+    severity: "High"
+    confidence: 0.55
+    upstream: "Adoption instrumentation"
+    downstream: "Weekly adoption scorecard"
+    mitigation: "Freeze v2 mapping and backfill"
+    workstream: "Analytics"
+  - id: D-04
+    name: "Consent copy approval"
+    upstream_team: "Trust Operations"
+    owner_role: "Privacy Counsel"
+    status: "In progress"
+    due_date: 2026-07-31
+    severity: "Medium"
+    confidence: 0.85
+    upstream: "Invite experience"
+    downstream: "Pilot activation"
+    mitigation: "Pre-review localized variants"
+    workstream: "Trust"
+  - id: D-05
+    name: "Lifecycle email templates"
+    upstream_team: "Growth Operations"
+    owner_role: "Lifecycle Manager"
+    status: "On track"
+    due_date: 2026-08-07
+    severity: "Medium"
+    confidence: 0.9
+    upstream: "Activation nudges"
+    downstream: "Adoption lift"
+    mitigation: "Use approved copy modules"
+    workstream: "Growth"
+  - id: D-06
+    name: "Support runbook training"
+    upstream_team: "Customer Experience"
+    owner_role: "Support Enablement"
+    status: "In progress"
+    due_date: 2026-08-14
+    severity: "High"
+    confidence: 0.7
+    upstream: "Guided rollout readiness"
+    downstream: "Escalation response"
+    mitigation: "Train 18 regional agents"
+    workstream: "CX"
+  - id: D-07
+    name: "Billing entitlement mapping"
+    upstream_team: "Monetization Systems"
+    owner_role: "Billing Product Lead"
+    status: "Blocked"
+    due_date: 2026-08-10
+    severity: "Critical"
+    confidence: 0.4
+    upstream: "Feature access check"
+    downstream: "Pilot enrollment"
+    mitigation: "Fallback to allowlist for beta"
+    workstream: "Monetization"
+  - id: D-08
+    name: "Workspace migration dry run"
+    upstream_team: "Delivery Engineering"
+    owner_role: "Migration Manager"
+    status: "At risk"
+    due_date: 2026-08-17
+    severity: "High"
+    confidence: 0.6
+    upstream: "Existing customer eligibility"
+    downstream: "Cohort expansion"
+    mitigation: "Run 100-workspace rehearsal"
+    workstream: "Delivery"
+  - id: D-09
+    name: "Accessibility audit"
+    upstream_team: "Experience Quality"
+    owner_role: "Accessibility Lead"
+    status: "In progress"
+    due_date: 2026-08-21
+    severity: "Medium"
+    confidence: 0.8
+    upstream: "Release candidate"
+    downstream: "M-27 gate evidence"
+    mitigation: "Test screen reader flow and keyboard nav"
+    workstream: "Quality"
+  - id: D-10
+    name: "Partner integration sandbox"
+    upstream_team: "Partner Engineering"
+    owner_role: "Partner Manager"
+    status: "At risk"
+    due_date: 2026-08-18
+    severity: "High"
+    confidence: 0.5
+    upstream: "Partner workflow validation"
+    downstream: "Partner cohort entry"
+    mitigation: "Hold twice-weekly sandbox office hours"
+    workstream: "Partners"
+  - id: D-11
+    name: "Security threat assessment"
+    upstream_team: "Product Security"
+    owner_role: "Security Architect"
+    status: "On track"
+    due_date: 2026-08-12
+    severity: "Critical"
+    confidence: 0.9
+    upstream: "Release candidate"
+    downstream: "M-27 gate evidence"
+    mitigation: "Track findings in security triage"
+    workstream: "Security"
+  - id: D-12
+    name: "Legal DPA addendum"
+    upstream_team: "Commercial Legal"
+    owner_role: "Commercial Counsel"
+    status: "In progress"
+    due_date: 2026-08-28
+    severity: "High"
+    confidence: 0.7
+    upstream: "Enterprise pilot contracts"
+    downstream: "Enterprise cohort entry"
+    mitigation: "Use standard addendum with redline SLA"
+    workstream: "Legal"
+  - id: D-13
+    name: "In-app guidance localization"
+    upstream_team: "Content Design"
+    owner_role: "Content Strategist"
+    status: "On track"
+    due_date: 2026-08-24
+    severity: "Medium"
+    confidence: 0.88
+    upstream: "International pilot"
+    downstream: "Activation completion"
+    mitigation: "Prioritize JP and DE critical paths"
+    workstream: "Content"
+  - id: D-14
+    name: "Experiment flag provisioning"
+    upstream_team: "Release Engineering"
+    owner_role: "Release Manager"
+    status: "On track"
+    due_date: 2026-08-05
+    severity: "High"
+    confidence: 0.92
+    upstream: "Cohort controls"
+    downstream: "Staged rollout"
+    mitigation: "Validate kill switch in preprod"
+    workstream: "Release"
+  - id: D-15
+    name: "Data retention job validation"
+    upstream_team: "Data Infrastructure"
+    owner_role: "Data Steward"
+    status: "In progress"
+    due_date: 2026-08-26
+    severity: "High"
+    confidence: 0.73
+    upstream: "Compliance signoff"
+    downstream: "M-27 gate evidence"
+    mitigation: "Run retention job against synthetic cohort"
+    workstream: "Data"
+  - id: D-16
+    name: "Sales enablement brief"
+    upstream_team: "Revenue Enablement"
+    owner_role: "Field Enablement Lead"
+    status: "On track"
+    due_date: 2026-08-19
+    severity: "Low"
+    confidence: 0.95
+    upstream: "Field feedback loop"
+    downstream: "Pipeline visibility"
+    mitigation: "Publish FAQ and objection guide"
+    workstream: "Revenue"
+  - id: D-17
+    name: "Mobile notification service check"
+    upstream_team: "Mobile Platform"
+    owner_role: "Mobile Engineering Lead"
+    status: "At risk"
+    due_date: 2026-08-16
+    severity: "Medium"
+    confidence: 0.58
+    upstream: "Mobile activation"
+    downstream: "Activation completion"
+    mitigation: "Use email fallback for unsupported devices"
+    workstream: "Mobile"
+  - id: D-18
+    name: "Provisioning SLA confirmation"
+    upstream_team: "Customer Operations"
+    owner_role: "Operations Lead"
+    status: "In progress"
+    due_date: 2026-08-11
+    severity: "High"
+    confidence: 0.78
+    upstream: "Pilot onboarding"
+    downstream: "Time-to-value"
+    mitigation: "Measure queue with 48h response target"
+    workstream: "Operations"
+  - id: D-19
+    name: "Usage export schema"
+    upstream_team: "Reporting Platform"
+    owner_role: "Reporting PM"
+    status: "On track"
+    due_date: 2026-09-01
+    severity: "Medium"
+    confidence: 0.86
+    upstream: "Admin reporting"
+    downstream: "Pilot renewal signal"
+    mitigation: "Ship v1 fields with documented gaps"
+    workstream: "Reporting"
+  - id: D-20
+    name: "Executive gate packet"
+    upstream_team: "Program Management"
+    owner_role: "Program Director"
+    status: "In progress"
+    due_date: 2026-09-11
+    severity: "Critical"
+    confidence: 0.68
+    upstream: "M-27 guided rollout gate"
+    downstream: "2026-09-18 gate decision"
+    mitigation: "Refresh evidence every Friday"
+    workstream: "Program"
+  - id: D-21
+    name: "Synthetic workspace load test"
+    upstream_team: "Quality Engineering"
+    owner_role: "Performance Lead"
+    status: "At risk"
+    due_date: 2026-08-09
+    severity: "Critical"
+    confidence: 0.52
+    upstream: "API baseline"
+    downstream: "M-27 gate evidence"
+    mitigation: "Simulate 1,240 workspaces with 20% burst"
+    workstream: "Quality"
+  - id: D-22
+    name: "Adoption cohort definition"
+    upstream_team: "Product Analytics"
+    owner_role: "Insights Lead"
+    status: "On track"
+    due_date: 2026-07-27
+    severity: "High"
+    confidence: 0.89
+    upstream: "18.4% to 26.0% target"
+    downstream: "Weekly adoption scorecard"
+    mitigation: "Lock denominator and cohort exclusions"
+    workstream: "Analytics"

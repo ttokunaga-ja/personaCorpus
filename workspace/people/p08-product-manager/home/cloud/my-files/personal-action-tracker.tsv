@@ -1,0 +1,5 @@
+action_id	action	owner	due_date	status	evidence
+ACT-27A	M-27 activation definition	PM-local-08	2026-07-20	In progress	Publish shared activation event dictionary.
+ACT-27B	Lifecycle prompt experiment brief	PM-local-08	2026-07-27	Planned	Choose onboarding message and holdout rules.
+ACT-27C	Weekly adoption review	PM-local-08	2026-08-03	Recurring	Review 18.4% baseline, segment movement, and blockers.
+ACT-27D	M-27 readiness review	PM-local-08	2026-09-11	Planned	Confirm launch criteria for 2026-09-18.
