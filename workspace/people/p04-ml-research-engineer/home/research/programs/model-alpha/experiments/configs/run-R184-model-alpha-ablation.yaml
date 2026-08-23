@@ -1,0 +1,12 @@
+run: {id: R184, label: run R184, evaluation_date: 2026-07-13}
+model: {name: Model Alpha M-14, checkpoint: m14.3-synthetic}
+dataset: {name: HF-Eval-S1/S2 v3.2, records: 2400, labels: 5}
+metric: {name: macro_f1, reference: 0.873, display: F1 0.873}
+ablation_plan:
+  controls: {token_normalization: enabled, calibration: temperature, class_weights: balanced}
+  arms:
+    - {id: A0, change: full_configuration, expected_macro_f1: 0.873}
+    - {id: A1, change: disable_class_weights, expected_macro_f1: 0.858}
+    - {id: A2, change: disable_temperature_calibration, expected_macro_f1: 0.869}
+    - {id: A3, change: truncate_at_96_tokens, expected_macro_f1: 0.864}
+  selection: paired_fold_mean_against_A0

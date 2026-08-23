@@ -1,0 +1,9 @@
+{
+  "run": {"id": "R184", "label": "run R184", "evaluation_date": "2026-07-13"},
+  "model": {"name": "Model Beta B-07", "revision": "b07.2-synthetic"},
+  "dataset": {"name": "HF-Eval-S1/S2 v3.2", "records": 2400, "split_records": {"S1": 1600, "S2": 800}},
+  "metric": {"name": "macro_f1", "value": 0.846, "display": "F1 0.846"},
+  "policy": {"mode": "per_label_minimum_confidence", "fallback": "synthetic_review_queue", "fit_split": "S1", "calibration": "isotonic_offline"},
+  "thresholds": {"account_access": 0.56, "delivery_status": 0.54, "plan_change": 0.57, "refund_request": 0.61, "technical_help": 0.55},
+  "guardrails": {"minimum_accepted_predictions": 120, "abstain_when_below_threshold": true, "network_access": false}
+}

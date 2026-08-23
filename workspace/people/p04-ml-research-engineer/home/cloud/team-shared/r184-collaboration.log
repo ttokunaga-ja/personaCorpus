@@ -1,0 +1,7 @@
+2026-07-13T09:10:00Z | Helix Forge Lab review opened for Alpha M-14 R184 and Beta B-07.
+2026-07-13T09:14:00Z | Evaluation reference confirmed: HF-Eval-S1/S2 v3.2, total 2400; S1=1600, S2=800.
+2026-07-13T09:18:00Z | Fixed labels recorded: account_access=492, delivery_status=476, plan_change=481, refund_request=462, technical_help=489.
+2026-07-13T09:24:00Z | Aggregate result recorded for Alpha M-14 R184: P=.881, R=.865, F1=.873.
+2026-07-13T09:26:00Z | Aggregate result recorded for Beta B-07: P=.852, R=.841, F1=.846.
+2026-07-13T09:31:00Z | Team noted Alpha M-14 leads the reported aggregate comparison; no release decision was made.
+2026-07-13T09:37:00Z | Follow-up assigned: retain the evaluation split, review error themes by fixed label, and keep Beta B-07 as comparator.

@@ -1,0 +1,11 @@
+slice_id	split	label	record_count	scenario_focus	review_priority
+S1-AA	S1	account_access	328	direct sign-in recovery	baseline
+S1-DS	S1	delivery_status	317	clear tracking request	baseline
+S1-PC	S1	plan_change	321	explicit subscription change	baseline
+S1-RR	S1	refund_request	307	completed-charge reversal	baseline
+S1-TH	S1	technical_help	327	feature malfunction	baseline
+S2-AA	S2	account_access	164	device-change ambiguity	stress
+S2-DS	S2	delivery_status	159	mixed timing cues	stress
+S2-PC	S2	plan_change	160	compound renewal wording	stress
+S2-RR	S2	refund_request	155	delivery-history distraction	stress
+S2-TH	S2	technical_help	162	terse error description	stress

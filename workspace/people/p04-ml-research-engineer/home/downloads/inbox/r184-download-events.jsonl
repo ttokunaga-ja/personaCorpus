@@ -1,0 +1,5 @@
+{"event":"inbox_received","artifact":"incoming-r184-error-review.ipynb","source":"helix_forge_lab","date":"2026-07-13","classification":"synthetic_aggregate"}
+{"event":"inbox_received","artifact":"incoming-alpha-threshold-audit.ipynb","source":"helix_forge_lab","date":"2026-07-13","classification":"synthetic_aggregate"}
+{"event":"inbox_received","artifact":"incoming-beta-comparison.ipynb","source":"helix_forge_lab","date":"2026-07-13","classification":"synthetic_aggregate"}
+{"event":"inbox_received","artifact":"incoming-hf-eval-profile.ipynb","source":"helix_forge_lab","date":"2026-07-13","classification":"synthetic_aggregate"}
+{"event":"integrity_review","artifact_count":8,"notebook_format":"nbformat-4.5","status":"ready_for_offline_review"}

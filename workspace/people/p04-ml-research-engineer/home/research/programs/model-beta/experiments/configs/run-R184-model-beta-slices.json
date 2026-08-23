@@ -1,0 +1,13 @@
+{
+  "run": {"id": "R184", "label": "run R184", "evaluation_date": "2026-07-13"},
+  "model": {"name": "Model Beta B-07", "macro_f1": 0.846},
+  "dataset": {"name": "HF-Eval-S1/S2 v3.2", "records": 2400, "labels": ["account_access", "delivery_status", "plan_change", "refund_request", "technical_help"]},
+  "metric": {"name": "macro_f1", "value": 0.846, "display": "F1 0.846"},
+  "slices": [
+    {"dimension": "split", "value": "S1", "records": 1600, "macro_f1": 0.852, "precision": 0.858, "recall": 0.847},
+    {"dimension": "split", "value": "S2", "records": 800, "macro_f1": 0.834, "precision": 0.841, "recall": 0.828},
+    {"dimension": "label", "value": "refund_request", "records": 320, "macro_f1": 0.816, "precision": 0.829, "recall": 0.804},
+    {"dimension": "confidence_band", "value": "0.80-1.00", "records": 1634, "macro_f1": 0.878, "precision": 0.887, "recall": 0.870}
+  ],
+  "reporting_rule": "publish only synthetic slices with at least 100 records"
+}

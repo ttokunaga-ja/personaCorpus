@@ -1,0 +1,34 @@
+From: Jonas Vale <jonas.vale@helixforge.invalid>
+To: Mira Chen <mira.chen@helixforge.invalid>
+Subject: HF-Eval-S1/S2 v3.2 handoff — manifest and review use
+Date: Mon, 13 Jul 2026 11:42:00 +0000
+Message-ID: <hf-eval-v32-handoff-20260713@helixforge.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+Mira,
+
+The synthetic HF-Eval-S1/S2 v3.2 manifest is ready for the R184 review.
+The set totals 2,400 examples: HF-Eval-S1 has 1,600 and HF-Eval-S2 has 800.
+The label counts sum to the same total:
+
+  account_access   492
+  delivery_status  476
+  plan_change      481
+  refund_request   462
+  technical_help   489
+
+Please use this version consistently when comparing Alpha M-14 with Beta B-07.
+The handoff is for internal synthetic evaluation only; it does not represent a
+customer dataset or a deployment readiness statement.
+
+For the review packet, include the version identifier, the split counts, and
+the five-label inventory. If a reviewer identifies a likely annotation issue,
+record the example identifier in the discussion notes and leave the manifest
+unchanged pending the next dataset revision.
+
+Regards,
+Jonas Vale
+Evaluation Systems
+Helix Forge Lab

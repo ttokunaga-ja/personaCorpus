@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<featureContract organization="Helix Forge Lab" synthetic="true">
+  <run id="R184" label="run R184" evaluationDate="2026-07-13" />
+  <model name="Model Beta B-07" /><dataset name="HF-Eval-S1/S2 v3.2" records="2400" />
+  <metric name="macro_f1" value="0.846" display="F1 0.846" />
+  <features version="b07-contract-2">
+    <feature name="normalized_text" source="synthetic_prompt" required="true" />
+    <feature name="lexical_length_bucket" source="derived_locally" required="true" />
+    <feature name="label_prior" source="fixed_synthetic_manifest" required="false" />
+  </features>
+  <constraints networkAccess="disabled" externalLookup="forbidden" personalData="absent" />
+</featureContract>

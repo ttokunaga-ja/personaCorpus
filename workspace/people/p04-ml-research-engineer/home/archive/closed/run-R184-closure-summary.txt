@@ -1,0 +1,19 @@
+Helix Forge Lab — Run R184 Closure Summary
+Closed: 2026-07-13
+
+Scope
+Alpha M-14 completed the synthetic classification loop for the archived R184 evaluation window. The closure package records model-level metrics, split totals, and trace provenance only; no source records, credentials, or person-level material are included.
+
+Final metrics
+Model Alpha M-14: precision 0.881, recall 0.865, F1 0.873.
+Model Beta B-07 reference: precision 0.852, recall 0.841, F1 0.846.
+Alpha M-14 therefore remains the retained comparison point for this archived run. The difference is documented as an internal synthetic benchmark observation, not a release claim.
+
+Evaluation inventory
+HF-Eval-S1/S2 v3.2 contains 2,400 synthetic evaluation items: S1 = 1,600 and S2 = 800. Label accounting is complete: account_access 492; delivery_status 476; plan_change 481; refund_request 462; technical_help 489. The label total is 2,400.
+
+Closure checks
+The accompanying capture is a deliberately offline-constructed classic libpcap trace. Its packets use documentation-only addresses and descriptive synthetic payloads to preserve a realistic network artifact shape without representing an executed network session. The trace is retained as capture-format evidence for archive inspection.
+
+Disposition
+R184 is closed for the 2026-07-13 archive snapshot. Follow-on experiments must create a new run record and should not overwrite these closure materials.

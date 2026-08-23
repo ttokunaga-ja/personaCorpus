@@ -1,0 +1,27 @@
+Helix Forge Lab — Alpha/Beta review actions
+Review date: 2026-07-13
+
+Evidence anchor
+HF-Eval-S1/S2 v3.2 contains 2,400 examples: 1,600 in S1 and 800 in S2. Fixed
+label counts are account_access 492, delivery_status 476, plan_change 481,
+refund_request 462, and technical_help 489.
+
+Observed aggregate comparison
+* Alpha M-14, R184: P=0.881, R=0.865, F1=0.873.
+* Beta B-07: P=0.852, R=0.841, F1=0.846.
+
+Actions
+1. Evaluation owner: rerun the reviewer checklist against the unchanged v3.2
+   split and attach only aggregate pass/fail observations to the review packet.
+2. Error-analysis owner: summarize recurring confusion themes by the five fixed
+   labels without adding or reclassifying evaluation examples.
+3. Comparison owner: preserve Beta B-07 as the baseline row and identify any
+   metric changes relative to Alpha M-14 R184 using precision, recall, and F1.
+4. Review chair: require a second reader to verify the 2,400-example total and
+   the S1=1,600/S2=800 partition before discussing promotion.
+5. Documentation owner: update the next handoff with resolved actions, open
+   questions, and any limitation of the aggregate-only review.
+
+Completion criteria
+An action is complete when its evidence cites HF-Eval-S1/S2 v3.2, preserves all
+five fixed label counts, and does not claim a release decision from this review.

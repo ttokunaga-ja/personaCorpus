@@ -1,0 +1,14 @@
+run: {id: R184, label: run R184, date: 2026-07-13}
+model: {name: Model Alpha M-14, revision: m14.3-synthetic}
+dataset: {name: HF-Eval-S1/S2 v3.2, records: 2400, evaluation_splits: [S1, S2]}
+metric:
+  name: macro_f1
+  value: 0.873
+  display: F1 0.873
+  secondary: {precision: 0.881, recall: 0.865, ece: 0.031}
+evaluation:
+  folds: 5
+  confidence_interval: [0.861, 0.884]
+  decision_rule: argmax_with_calibrated_confidence
+  slice_reporting: [split, label, confidence_band]
+  comparator: {name: Model Beta B-07, macro_f1: 0.846}

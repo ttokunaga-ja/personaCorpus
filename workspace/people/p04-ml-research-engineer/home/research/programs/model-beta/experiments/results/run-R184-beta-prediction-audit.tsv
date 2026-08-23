@@ -1,0 +1,11 @@
+run_id	organization	evaluation_date	model	split	label	records	correct	incorrect	accuracy
+R184	Helix Forge Lab	2026-07-13	Model Beta B-07	S1	account_access	328	281	47	0.857
+R184	Helix Forge Lab	2026-07-13	Model Beta B-07	S1	delivery_status	317	264	53	0.833
+R184	Helix Forge Lab	2026-07-13	Model Beta B-07	S1	plan_change	321	271	50	0.844
+R184	Helix Forge Lab	2026-07-13	Model Beta B-07	S1	refund_request	307	256	51	0.834
+R184	Helix Forge Lab	2026-07-13	Model Beta B-07	S1	technical_help	327	278	49	0.850
+R184	Helix Forge Lab	2026-07-13	Model Beta B-07	S2	account_access	164	140	24	0.854
+R184	Helix Forge Lab	2026-07-13	Model Beta B-07	S2	delivery_status	159	132	27	0.830
+R184	Helix Forge Lab	2026-07-13	Model Beta B-07	S2	plan_change	160	135	25	0.844
+R184	Helix Forge Lab	2026-07-13	Model Beta B-07	S2	refund_request	155	129	26	0.832
+R184	Helix Forge Lab	2026-07-13	Model Beta B-07	S2	technical_help	162	138	24	0.852

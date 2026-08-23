@@ -1,0 +1,6 @@
+run_id	example_id	slice_name	actual_label	predicted_label	confidence	error_category	reviewer_note
+R184	ERR-001	negation	technical_help	delivery_status	0.58	polarity_flip	Negated troubleshooting exception was underweighted.
+R184	ERR-002	numeric_claim	plan_change	refund_request	0.63	unit_confusion	Plan threshold requires explicit normalization.
+R184	ERR-003	short_context	account_access	technical_help	0.51	missing_qualifier	Access qualifier occurred outside retained span.
+R184	ERR-004	multilingual	refund_request	account_access	0.69	locale_transfer	Regional refund idiom mapped to an access token cluster.
+R184	ERR-005	long_context	delivery_status	plan_change	0.55	late_evidence	Final delivery correction dominated early context.

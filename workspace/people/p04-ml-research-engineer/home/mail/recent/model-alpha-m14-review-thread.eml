@@ -1,0 +1,32 @@
+From: Mira Chen <mira.chen@helixforge.invalid>
+To: Model Review Circle <model-review@helixforge.invalid>
+Cc: Priya Nair <priya.nair@helixforge.invalid>
+Subject: Re: Alpha M-14 R184 — review questions for Thursday
+Date: Mon, 13 Jul 2026 17:18:00 +0000
+Message-ID: <m14-r184-review-20260713@helixforge.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+Thanks for the early read. I have attached the review questions below rather
+than treating the aggregate score as the decision by itself.
+
+R184 on Alpha M-14 is P=0.881, R=0.865, F1=0.873. The current comparison
+model, Beta B-07, is P=0.852, R=0.841, F1=0.846. The F1 difference is 0.027.
+
+For Thursday, please inspect these questions:
+
+1. Are account_access and technical_help errors concentrated in ambiguous
+   language, or do they suggest a taxonomy boundary problem?
+2. Does the Alpha gain persist across both HF-Eval-S1 and HF-Eval-S2 rather
+   than being carried by one split?
+3. Which false positives would be costly enough to hold the candidate?
+
+HF-Eval-S1/S2 v3.2 contains 2,400 synthetic examples: S1=1,600 and S2=800.
+Please reply in this thread with the slice you plan to examine. I will compile
+comments into the meeting notes and leave Alpha M-14 in candidate status until
+the circle records a disposition.
+
+Mira
+Research Engineering
+Helix Forge Lab

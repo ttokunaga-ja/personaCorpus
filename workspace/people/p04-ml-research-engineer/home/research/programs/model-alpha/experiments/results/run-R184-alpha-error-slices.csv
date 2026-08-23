@@ -1,0 +1,7 @@
+run_id,slice_name,examples,errors,error_rate,dominant_error,triage_priority
+R184,short_context,280,47,0.168,missing_qualifier,high
+R184,long_context,340,34,0.100,late_evidence,medium
+R184,numeric_claim,250,32,0.128,unit_confusion,high
+R184,negation,180,29,0.161,polarity_flip,high
+R184,multilingual,210,27,0.129,locale_transfer,medium
+R184,clean_reference,1140,156,0.137,ambiguous_label,low

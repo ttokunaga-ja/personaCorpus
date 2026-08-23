@@ -1,0 +1,9 @@
+2026-07-13T16:42:18+09:00 Helix Forge Lab export validation
+scope=R184 suite=HF-Eval-S1/S2 version=3.2
+dataset_total=2400 S1=1600 S2=800 labels_total=2400
+metric_check Alpha M-14 precision=0.881 recall=0.865 f1=0.873 result=pass
+metric_check Beta B-07 precision=0.852 recall=0.841 f1=0.846 result=pass
+file_inventory expected=6 observed=6 result=pass
+content_checks utf8=pass duplicate_digests=none prohibited_markers=none
+runtime_checks python=pass rust_tests=pass typescript=pass
+result=accepted-for-internal-review

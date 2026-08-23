@@ -1,0 +1,7 @@
+label,total_records,s1_records,s2_records,share_percent
+account_access,492,328,164,20.50
+delivery_status,476,317,159,19.83
+plan_change,481,321,160,20.04
+refund_request,462,307,155,19.25
+technical_help,489,327,162,20.38
+total,2400,1600,800,100.00

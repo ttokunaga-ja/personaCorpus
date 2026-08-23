@@ -1,0 +1,6 @@
+run_id	organization	evaluation_date	model	slice	records	precision	recall	f1
+R184	Helix Forge Lab	2026-07-13	Model Beta B-07	S1	1600	0.851	0.839	0.845
+R184	Helix Forge Lab	2026-07-13	Model Beta B-07	S2	800	0.854	0.841	0.847
+R184	Helix Forge Lab	2026-07-13	Model Beta B-07	short_utterance	620	0.842	0.828	0.835
+R184	Helix Forge Lab	2026-07-13	Model Beta B-07	long_utterance	590	0.860	0.849	0.854
+R184	Helix Forge Lab	2026-07-13	Model Beta B-07	mixed_context	1190	0.846	0.840	0.843

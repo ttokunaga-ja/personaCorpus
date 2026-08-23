@@ -1,0 +1,31 @@
+Helix Forge Lab — R184 team handoff
+Issued: 2026-07-13
+
+Scope
+Alpha M-14 and Beta B-07 were reviewed against HF-Eval-S1/S2 v3.2. The
+evaluation set contains 2,400 fixed-label examples: S1 has 1,600 examples and
+S2 has 800 examples. This handoff records aggregate review outcomes only.
+
+Run summary
+Alpha M-14, run R184: precision 0.881, recall 0.865, F1 0.873.
+Beta B-07: precision 0.852, recall 0.841, F1 0.846.
+Alpha M-14 is the current comparison leader on all three reported metrics.
+
+Label distribution used for review
+account_access 492; delivery_status 476; plan_change 481; refund_request 462;
+technical_help 489. These counts total 2,400 and remain fixed for this review
+cycle.
+
+Handoff notes
+1. Keep the S1/S2 split unchanged when repeating the comparison.
+2. Record per-label error themes separately from aggregate metrics so that a
+   future decision can distinguish coverage gaps from ranking changes.
+3. Use Alpha M-14 R184 as the reference row for the next review packet; retain
+   Beta B-07 as the baseline comparator.
+4. Before any promotion decision, have a reviewer confirm that the same fixed
+   label counts and HF-Eval-S1/S2 v3.2 were used.
+
+Decision status
+No release or deployment decision is implied by this handoff. The requested
+next step is a focused review of actionable error categories and collaboration
+notes.

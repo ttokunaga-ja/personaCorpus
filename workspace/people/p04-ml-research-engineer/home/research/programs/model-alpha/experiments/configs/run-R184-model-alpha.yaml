@@ -1,0 +1,29 @@
+organization: Helix Forge Lab
+evaluation_date: 2026-07-13
+run:
+  id: R184
+  label: run R184
+model:
+  name: Model Alpha M-14
+  revision: m14.3-synthetic
+  task: five-way intent classification
+dataset:
+  name: HF-Eval-S1/S2 v3.2
+  records: 2400
+  partitions: {S1: 1600, S2: 800}
+  labels: [account_access, delivery_status, plan_change, refund_request, technical_help]
+metric:
+  name: macro_f1
+  display: F1 0.873
+  value: 0.873
+  precision: 0.881
+  recall: 0.865
+training:
+  seed: 184
+  epochs: 6
+  batch_size: 48
+  optimizer: {name: adamw, learning_rate: 0.00018, weight_decay: 0.012}
+governance:
+  data_classification: synthetic-only
+  network_access: disabled
+  gpu_execution: prohibited

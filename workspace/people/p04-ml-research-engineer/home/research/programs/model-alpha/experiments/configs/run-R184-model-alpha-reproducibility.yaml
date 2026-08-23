@@ -1,0 +1,10 @@
+run: {id: R184, label: run R184, evaluation_date: 2026-07-13}
+model: {name: Model Alpha M-14, artifact_family: alpha-m14-synthetic}
+dataset: {name: HF-Eval-S1/S2 v3.2, records: 2400, manifest_digest: synthetic-sha256-7f3e}
+metric: {name: macro_f1, expected_value: 0.873, display: F1 0.873, tolerance: 0.003}
+reproducibility:
+  random_seeds: [184, 185, 186]
+  deterministic_ops: true
+  environment: {runtime: offline-python-3.12, accelerator: none, network: disabled}
+  required_artifacts: [data_manifest, evaluation_protocol, threshold_policy]
+  acceptance: all_seed_means_within_tolerance

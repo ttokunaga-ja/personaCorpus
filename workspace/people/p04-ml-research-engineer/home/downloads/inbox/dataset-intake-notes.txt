@@ -1,0 +1,7 @@
+Dataset intake notes — HF-Eval-S1/S2 v3.2
+
+Declared evaluation total: 2,400 synthetic aggregate records.
+Split inventory: S1 contains 1,600; S2 contains 800.
+Label inventory: account_access 492; delivery_status 476; plan_change 481; refund_request 462; technical_help 489.
+
+Handling note: this intake describes only counts and label names. Source samples, customer text, identifiers, and routable endpoints were intentionally excluded.

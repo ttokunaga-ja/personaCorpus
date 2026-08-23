@@ -1,0 +1,6 @@
+run_id,class_label,support,true_positive,false_positive,false_negative,precision,recall,f1
+R184,account_access,492,430,62,62,0.874,0.874,0.874
+R184,delivery_status,476,416,60,60,0.874,0.874,0.874
+R184,plan_change,481,420,61,61,0.873,0.873,0.873
+R184,refund_request,462,403,59,59,0.872,0.872,0.872
+R184,technical_help,489,427,62,62,0.873,0.873,0.873

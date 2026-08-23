@@ -1,0 +1,9 @@
+{
+  "run": {"id": "R184", "label": "run R184", "evaluation_date": "2026-07-13"},
+  "model": {"name": "Model Beta B-07", "revision": "b07.2-synthetic"},
+  "dataset": {"name": "HF-Eval-S1/S2 v3.2", "records": 2400},
+  "metric": {"name": "macro_f1", "value": 0.846, "display": "F1 0.846"},
+  "runtime": {"engine": "offline_cpu_simulation", "python": "3.12", "threads": 4, "accelerator": "none", "gpu_execution": false, "network_access": false},
+  "budgets": {"per_record_ms_p50": 6.8, "per_record_ms_p95": 10.9, "memory_mb_peak": 548, "batch_records": 64},
+  "reproducibility": {"seed": 18407, "deterministic_ordering": true, "artifact_classification": "synthetic"}
+}

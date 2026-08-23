@@ -1,0 +1,4 @@
+organization,project,model,dataset,evaluation_date,run_id,experiment_reference,split,examples,correct,precision,recall,f1,primary_metric,auroc,mean_latency_ms,status
+Helix Forge Lab,Model Alpha,Model Alpha M-14,HF-Eval-S1/S2 v3.2,2026-07-13,R184,run R184,S1,1600,1384,0.884,0.865,0.874,F1 0.873,0.941,18.7,accepted
+Helix Forge Lab,Model Alpha,Model Alpha M-14,HF-Eval-S1/S2 v3.2,2026-07-13,R184,run R184,S2,800,692,0.875,0.865,0.871,F1 0.873,0.939,19.1,accepted
+Helix Forge Lab,Model Alpha,Model Alpha M-14,HF-Eval-S1/S2 v3.2,2026-07-13,R184,run R184,combined,2400,2076,0.881,0.865,0.873,F1 0.873,0.940,18.9,accepted

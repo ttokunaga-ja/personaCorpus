@@ -1,0 +1,6 @@
+run_id,perturbation,evaluation_basis,examples,baseline_f1,perturbed_f1,delta_f1,pass_rate
+R184,punctuation_noise,repeated_full_dataset_evaluation,2400,0.873,0.865,-0.008,0.991
+R184,whitespace_noise,repeated_full_dataset_evaluation,2400,0.873,0.869,-0.004,0.996
+R184,case_variation,repeated_full_dataset_evaluation,2400,0.873,0.868,-0.005,0.994
+R184,paraphrase_shift,repeated_full_dataset_evaluation,2400,0.873,0.854,-0.019,0.978
+R184,term_substitution,repeated_full_dataset_evaluation,2400,0.873,0.849,-0.024,0.972

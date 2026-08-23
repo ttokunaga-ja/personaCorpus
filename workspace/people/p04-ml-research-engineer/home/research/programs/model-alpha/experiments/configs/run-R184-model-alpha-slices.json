@@ -1,0 +1,12 @@
+{
+  "run": {"id": "R184", "label": "run R184", "evaluation_date": "2026-07-13"},
+  "model": {"name": "Model Alpha M-14", "revision": "m14.3-synthetic"},
+  "dataset": {"name": "HF-Eval-S1/S2 v3.2", "records": 2400},
+  "metric": {"name": "macro_f1", "value": 0.873, "display": "F1 0.873"},
+  "slices": [
+    {"dimension": "split", "value": "S1", "records": 1600, "macro_f1": 0.879},
+    {"dimension": "split", "value": "S2", "records": 800, "macro_f1": 0.861},
+    {"dimension": "confidence_band", "value": "0.80-1.00", "records": 1712, "macro_f1": 0.901}
+  ],
+  "release_rule": "report slices with at least 100 synthetic records"
+}

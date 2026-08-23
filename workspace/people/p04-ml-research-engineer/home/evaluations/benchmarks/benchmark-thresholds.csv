@@ -1,0 +1,6 @@
+metric_id,threshold,operator,scope,rationale,run_id
+macro_f1_release_floor,0.860,>=,overall,Synthetic release-readiness floor,R184
+slice_lower_bound,0.840,>=,robustness slices,Synthetic minimum observed slice F1,R184
+calibration_gap_abs,0.030,<=,confidence bins,Governance calibration tolerance,R184
+latency_p50_ms,90,<=,serving profile,Interactive synthetic serving budget,R184
+reproducibility_score,0.950,>=,evidence scorecard,Minimum replay evidence completeness,R184

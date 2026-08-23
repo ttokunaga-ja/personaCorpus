@@ -1,0 +1,15 @@
+run: {id: R184, label: run R184, evaluation_date: 2026-07-13}
+model: {name: Model Alpha M-14, revision: m14.3-synthetic}
+dataset:
+  name: HF-Eval-S1/S2 v3.2
+  record_count: 2400
+  sources:
+    - {split: S1, records: 1600, role: development_holdout}
+    - {split: S2, records: 800, role: shift_holdout}
+  label_distribution: {account_access: 492, delivery_status: 476, plan_change: 481, refund_request: 462, technical_help: 489}
+  handling: {synthetic_only: true, subject_data: absent, network_access: disabled}
+metric: {name: macro_f1, value: 0.873, display: F1 0.873}
+preprocessing:
+  normalization: unicode_nfc_and_whitespace_fold
+  max_tokens: 192
+  leakage_checks: [split_hash_disjointness, label_dictionary_freeze]

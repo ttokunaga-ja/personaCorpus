@@ -1,0 +1,7 @@
+Export integrity notes — Helix Forge Lab
+
+Package class: synthetic evaluation handoff
+Review scope: Alpha M-14 R184 and Beta B-07 aggregate metrics
+Checksum procedure: compute a SHA-256 digest for each delivered artifact after transfer; compare against the receiving workspace record.
+Acceptance cues: eight files present, four notebooks parse as nbformat 4.5, and each notebook has deterministic saved output.
+No archive was created because the recipient requested individual inbox files.

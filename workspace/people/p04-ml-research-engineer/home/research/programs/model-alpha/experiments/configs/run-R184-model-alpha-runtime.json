@@ -1,0 +1,8 @@
+{
+  "run": {"id": "R184", "label": "run R184", "evaluation_date": "2026-07-13"},
+  "model": {"name": "Model Alpha M-14", "execution": "offline_cpu_simulation"},
+  "dataset": {"name": "HF-Eval-S1/S2 v3.2", "records": 2400},
+  "metric": {"name": "macro_f1", "value": 0.873, "display": "F1 0.873"},
+  "runtime": {"python": "3.12", "threads": 4, "accelerator": "none", "network_access": false, "gpu_execution": false},
+  "budgets": {"per_record_ms_p50": 7.4, "per_record_ms_p95": 11.8, "memory_mb_peak": 612}
+}

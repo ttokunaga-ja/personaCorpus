@@ -1,0 +1,5 @@
+run_id,organization,evaluation_date,model,batch_size,records,median_ms,p95_ms,throughput_records_per_s
+R184,Helix Forge Lab,2026-07-13,Model Beta B-07,1,2400,14.2,22.8,70.4
+R184,Helix Forge Lab,2026-07-13,Model Beta B-07,8,2400,41.8,62.1,191.4
+R184,Helix Forge Lab,2026-07-13,Model Beta B-07,32,2400,118.5,168.7,270.0
+R184,Helix Forge Lab,2026-07-13,Model Beta B-07,64,2400,222.6,309.4,287.5

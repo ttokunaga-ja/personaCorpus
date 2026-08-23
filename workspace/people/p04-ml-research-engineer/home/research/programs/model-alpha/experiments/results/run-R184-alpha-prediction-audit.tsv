@@ -1,0 +1,6 @@
+run_id	audit_batch	decision_band	examples	accepted_predictions	overrides	override_rate	reviewer_agreement
+R184	A01	0.90_to_1.00	300	286	14	0.047	0.953
+R184	A02	0.75_to_0.90	460	429	31	0.067	0.933
+R184	A03	0.53_to_0.75	570	507	63	0.111	0.889
+R184	A04	0.35_to_0.53	610	511	99	0.162	0.838
+R184	A05	0.00_to_0.35	460	363	97	0.211	0.789

@@ -1,0 +1,6 @@
+2026-07-13T10:00:00Z | Dataset card review started for HF-Eval-S1/S2 v3.2.
+2026-07-13T10:03:00Z | Cardinality check passed: total=2400, S1=1600, S2=800.
+2026-07-13T10:06:00Z | Label-count check passed: account_access=492; delivery_status=476; plan_change=481; refund_request=462; technical_help=489.
+2026-07-13T10:09:00Z | Label-count sum confirmed as 2400; counts are fixed for the R184 comparison.
+2026-07-13T10:13:00Z | Review context recorded: Alpha M-14 R184 P=.881 R=.865 F1=.873; Beta B-07 P=.852 R=.841 F1=.846.
+2026-07-13T10:17:00Z | Card review concluded: preserve version and split identifiers in subsequent aggregate reports.

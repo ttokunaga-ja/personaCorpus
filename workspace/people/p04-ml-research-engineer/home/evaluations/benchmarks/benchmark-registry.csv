@@ -1,0 +1,4 @@
+run_id,suite_version,model_id,macro_f1,precision,recall,records,evaluation_date,lineage
+R184,HF-Eval-S1/S2 v3.2,Model Alpha M-14,0.873,0.881,0.865,2400,2026-07-13,Helix Forge Lab synthetic benchmark
+R184,HF-Eval-S1/S2 v3.2,Model Beta B-07,0.846,0.853,0.839,2400,2026-07-13,Helix Forge Lab synthetic benchmark
+R184,HF-Eval-S1/S2 v3.2,Model Gamma G-03,0.824,0.831,0.818,2400,2026-07-13,Helix Forge Lab synthetic benchmark

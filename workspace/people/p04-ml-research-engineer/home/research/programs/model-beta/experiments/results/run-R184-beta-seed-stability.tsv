@@ -1,0 +1,6 @@
+run_id	organization	evaluation_date	model	seed	records	precision	recall	f1
+R184	Helix Forge Lab	2026-07-13	Model Beta B-07	17	2400	0.850	0.841	0.845
+R184	Helix Forge Lab	2026-07-13	Model Beta B-07	29	2400	0.852	0.839	0.845
+R184	Helix Forge Lab	2026-07-13	Model Beta B-07	43	2400	0.851	0.842	0.846
+R184	Helix Forge Lab	2026-07-13	Model Beta B-07	61	2400	0.854	0.840	0.847
+R184	Helix Forge Lab	2026-07-13	Model Beta B-07	73	2400	0.853	0.844	0.848

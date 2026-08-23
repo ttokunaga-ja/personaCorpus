@@ -1,0 +1,9 @@
+{
+  "run": {"id": "R184", "label": "run R184", "date": "2026-07-13"},
+  "model": {"name": "Model Alpha M-14"},
+  "dataset": {"name": "HF-Eval-S1/S2 v3.2", "records": 2400},
+  "metric": {"name": "macro_f1", "baseline": 0.873, "display": "F1 0.873"},
+  "policy": {"mode": "class_specific_minimum_confidence", "fallback": "manual_review_simulation"},
+  "thresholds": {"account_access": 0.53, "delivery_status": 0.51, "plan_change": 0.55, "refund_request": 0.58, "technical_help": 0.52},
+  "calibration": {"method": "temperature_scaling", "temperature": 1.07, "fit_split": "S1"}
+}

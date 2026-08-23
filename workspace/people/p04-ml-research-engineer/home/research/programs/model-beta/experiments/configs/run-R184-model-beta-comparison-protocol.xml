@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<comparisonProtocol organization="Helix Forge Lab" synthetic="true">
+  <run id="R184" label="run R184" evaluationDate="2026-07-13" />
+  <dataset name="HF-Eval-S1/S2 v3.2" records="2400"><split name="S1" records="1600" /><split name="S2" records="800" /></dataset>
+  <models><reference name="Model Alpha M-14" macroF1="0.873" precision="0.881" recall="0.865" /><candidate name="Model Beta B-07" macroF1="0.846" precision="0.852" recall="0.841" /></models>
+  <metric name="macro_f1" labels="5" aggregation="unweighted_mean" displayReference="F1 0.873" />
+  <review criterion="candidate_macro_f1_less_than_reference" action="retain_reference" />
+</comparisonProtocol>

@@ -1,0 +1,20 @@
+Helix Forge Lab — team object-store map
+
+research/evaluations/R184/
+  metrics.json              Alpha M-14 summary: P=.881, R=.865, F1=.873
+  predictions.jsonl         synthetic, review-scoped prediction trace
+  error-slices.csv          label-oriented inspection table
+
+research/baselines/B-07/
+  metrics.json              Beta B-07 summary: P=.852, R=.841, F1=.846
+
+research/datasets/HF-Eval-S1-S2-v3.2/
+  manifest.txt              total 2400; S1 1600; S2 800
+  label-counts.txt          account_access 492; delivery_status 476;
+                            plan_change 481; refund_request 462;
+                            technical_help 489
+
+Ownership convention: evaluation leads may append dated review artifacts;
+dataset curators maintain manifests; cross-team consumers read approved metric
+summaries rather than raw traces. This map describes naming conventions, not a
+live storage endpoint.

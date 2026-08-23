@@ -1,0 +1,21 @@
+Helix Forge Lab Archive Index
+Collection: Model Alpha M-14
+Archive state: closed
+Snapshot date: 2026-07-13
+Run: R184
+
+Indexed artifacts
+- run-R184-closure-summary.txt — synthetic closure record for the retained Alpha M-14 evaluation.
+- run-R184-synthetic-loopback-capture.pcap — classic libpcap with synthetic IPv4 documentation-address traffic.
+- hf-eval-reserved-network-capture.pcap — classic libpcap with synthetic IPv6 documentation-address traffic for HF-Eval-S1/S2 v3.2.
+
+Metric register
+Alpha M-14: P=0.881, R=0.865, F1=0.873.
+Beta B-07: P=0.852, R=0.841, F1=0.846.
+
+Evaluation register
+HF-Eval-S1/S2 v3.2: 2,400 total synthetic items (S1 1,600; S2 800).
+Labels: account_access 492; delivery_status 476; plan_change 481; refund_request 462; technical_help 489.
+
+Archive notes
+This index is an offline, synthetic archive locator. It deliberately contains no seed material, source examples, access tokens, personal data, or live endpoints. The two captures are format-verification artifacts and are not evidence of a network transfer or service deployment.
