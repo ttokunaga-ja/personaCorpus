@@ -1,0 +1,4 @@
+{"event_id":"EVT-001","session_id":"UX-184","export_id":"EXP-UX184-01","timestamp":"2026-07-13T09:02:14+09:00","recorder_clock":"09:02:14","speaker":"FAC","event":"opening context recorded","fixture":"synthetic"}
+{"event_id":"EVT-002","session_id":"UX-184","export_id":"EXP-UX184-01","timestamp":"2026-07-13T09:17:42+09:00","recorder_clock":"09:17:42","speaker":"P01","event":"task transition observed","fixture":"synthetic"}
+{"event_id":"EVT-003","session_id":"UX-184","export_id":"EXP-UX184-01","timestamp":"2026-07-13T09:31:06+09:00","recorder_clock":"09:31:06","speaker":"P02","event":"brief pause noted","fixture":"synthetic"}
+{"event_id":"EVT-004","session_id":"UX-184","export_id":"EXP-UX184-01","timestamp":"2026-07-13T09:44:39+09:00","recorder_clock":"09:44:39","speaker":"FAC","event":"session wrap recorded","fixture":"synthetic"}

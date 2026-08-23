@@ -1,0 +1,8 @@
+issue_id	theme	issue	observation_count	affected_rate	impact_score	severity	priority_rank	synthetic_evidence_codes
+B01	Comprehension barriers	Unfamiliar labels	10	0.417	5	High	1	UX-201|UX-202|UX-203|UX-204|UX-205|UX-206|UX-207|UX-208
+B02	Comprehension barriers	Missing context	8	0.333	4	High	2	UX-201|UX-202|UX-203|UX-205|UX-206|UX-208
+B03	Comprehension barriers	Dense instructions	7	0.292	4	Medium	4	UX-201|UX-203|UX-204|UX-205|UX-207
+B04	Comprehension barriers	Unclear next step	6	0.250	4	Medium	5	UX-202|UX-204|UX-206|UX-207
+B05	Navigation ambiguity	Backtrack pattern	9	0.375	5	High	3	UX-201|UX-202|UX-203|UX-205|UX-206|UX-207|UX-208
+B06	Confidence signals	Confirmation gap	8	0.333	4	Medium	6	UX-201|UX-202|UX-204|UX-205|UX-206|UX-208
+B07	Recovery support	Recovery path hard to find	7	0.292	4	Medium	7	UX-201|UX-203|UX-204|UX-206|UX-207|UX-208

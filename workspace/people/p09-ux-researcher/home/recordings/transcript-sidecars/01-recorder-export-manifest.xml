@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recorderExport schemaVersion="1.0" fixtureNotice="Synthetic fixture values; no source media is included.">
+  <organization>Beacon Field Research</organization>
+  <study>Study Alpha</study>
+  <studyDate>2026-07-13</studyDate>
+  <session id="UX-184" sampleSize="24" timezone="Asia/Tokyo" />
+  <export id="EXP-UX184-01" createdAt="2026-07-13T10:10:00+09:00">
+    <artifact id="REC-UX184-A" role="recorder-media" filename="ux-184-recorder-a.wav" syntheticFixtureSha256="7f429455634d70d0c35f3cfb0f203f8cb2edec0ea71e7a49e5727a4f4608d45c" availability="not_included" />
+    <artifact id="SC-UX184-01" role="transcript-sidecar" filename="00-ux-184-transcript-sidecar.json" syntheticFixtureSha256="e91e1bc8c0a9bb0e0d7f6ed5de3ceff165bf2d6f35cb8a4f3fb3b08eec542bf9" />
+    <artifact id="RD-UX184-01" role="research-drive-handoff" filename="research-drive/UX-184/EXP-UX184-01" syntheticFixtureSha256="5bf49b3313a3a12e2b7f437cdacf133b3fbad92145e1becfddf3e74dce2c43fa" availability="fixture_reference" />
+  </export>
+</recorderExport>

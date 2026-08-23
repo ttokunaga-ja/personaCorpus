@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Beacon Field Research Study Alpha synthetic survey response",
+  "type": "object",
+  "required": [
+    "study_name",
+    "study_date",
+    "session_id",
+    "sample_size",
+    "participant_id",
+    "response_status",
+    "segment",
+    "platform",
+    "visit_frequency",
+    "task_completion",
+    "task_confidence_1_5",
+    "overall_ease_1_5",
+    "findability_1_5",
+    "clarity_1_5"
+  ],
+  "properties": {
+    "study_name": { "const": "Study Alpha" },
+    "study_date": { "const": "2026-07-13" },
+    "session_id": { "const": "UX-184" },
+    "sample_size": { "const": 24 },
+    "participant_id": { "type": "string", "pattern": "^S(0[1-9]|1[0-9]|2[0-4])$" },
+    "response_status": { "const": "Complete" },
+    "segment": { "enum": ["Novice", "Occasional", "Frequent"] },
+    "platform": { "enum": ["macOS", "Windows", "iPadOS"] },
+    "visit_frequency": { "enum": ["First visit", "Monthly", "Weekly or more"] },
+    "task_completion": { "enum": ["Completed", "Not completed"] },
+    "task_confidence_1_5": { "type": "integer", "minimum": 1, "maximum": 5 },
+    "overall_ease_1_5": { "type": "integer", "minimum": 1, "maximum": 5 },
+    "findability_1_5": { "type": "integer", "minimum": 1, "maximum": 5 },
+    "clarity_1_5": { "type": "integer", "minimum": 1, "maximum": 5 },
+    "trust_1_5": { "type": ["integer", "null"], "minimum": 1, "maximum": 5 },
+    "open_text_feedback": { "type": "string", "minLength": 1 }
+  },
+  "additionalProperties": false
+}

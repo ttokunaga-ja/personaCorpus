@@ -1,0 +1,15 @@
+Beacon Field Research | Study Beta | fully synthetic usability transcript
+Session: UX-204 | Date: 2026-07-15 | Participant code: P-B04 | Moderator code: MOD-02
+Context: Follow-on study referencing Study Alpha, 2026-07-13, session UX-184, and n=24. No recording or real participant data.
+Task 1: Locate the July field record. Task 2: Compare two saved options. Task 3: Add a one-sentence note and review the summary.
+
+[00:00:09] MOD-02: Start from the study home; please narrate only what feels useful.
+[00:00:20] P-B04: I expect the record to be under recent work, but I am checking the left navigation first.
+[00:00:47] OBS: Participant opens a non-target navigation section, returns immediately, and then opens the July record card.
+[00:01:15] MOD-02: What did you expect that section to contain?
+[00:01:23] P-B04: I interpreted the icon as a history view. The label became clear after I opened it.
+[00:02:01] OBS: Participant compares options after one return to the record list; note text is entered successfully.
+[00:02:38] MOD-02: Please review the summary before moving on.
+[00:02:46] P-B04: The summary is fine, but I cannot tell whether the note is still editable or already final.
+[00:03:19] MOD-02: What would you change first in the debrief?
+[00:03:26] P-B04: Label the navigation icon and distinguish draft from saved in the summary.

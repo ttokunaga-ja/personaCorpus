@@ -1,0 +1,15 @@
+Beacon Field Research | Study Beta | fully synthetic usability transcript
+Session: UX-208 | Date: 2026-07-17 | Participant code: P-B08 | Moderator code: MOD-04
+Context: Follow-on study referencing Study Alpha, 2026-07-13, session UX-184, and n=24. No recording or real participant data.
+Task 1: Locate the July field record. Task 2: Compare two saved options. Task 3: Add a one-sentence note and review the summary.
+
+[00:00:09] MOD-04: Start from the home view and proceed as you normally would.
+[00:00:23] P-B08: I can see the July record by date, so I will open it from the card.
+[00:00:52] OBS: Participant reaches the record directly and identifies the comparison panels on first view.
+[00:01:17] MOD-04: What makes the two options distinguishable?
+[00:01:26] P-B08: The status treatment and description are enough; I scan the dates as a check.
+[00:02:05] OBS: Participant enters a concise note, reviews it in the summary, and does not request help.
+[00:02:40] MOD-04: How confident are you that the note was retained?
+[00:02:47] P-B08: Confident because it appears under the selected option; the summary gives me a final check.
+[00:03:16] MOD-04: Final debrief: what should we investigate next?
+[00:03:23] P-B08: Test whether the filter language is clear for people who start with search rather than the cards.

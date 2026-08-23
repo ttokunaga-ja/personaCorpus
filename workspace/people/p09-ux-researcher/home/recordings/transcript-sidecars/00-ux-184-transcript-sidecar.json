@@ -1,0 +1,34 @@
+{
+  "schema_version": "beacon.transcript-sidecar/v1",
+  "fixture_notice": "Synthetic fixture values; no source media is present or implied.",
+  "organization": "Beacon Field Research",
+  "study": "Study Alpha",
+  "study_date": "2026-07-13",
+  "session_id": "UX-184",
+  "sample_size": 24,
+  "export_id": "EXP-UX184-01",
+  "recording_fixture_id": "REC-UX184-A",
+  "research_drive_object_id": "RD-UX184-01",
+  "timezone": "Asia/Tokyo",
+  "source_media": {
+    "filename": "ux-184-recorder-a.wav",
+    "synthetic_fixture_sha256": "7f429455634d70d0c35f3cfb0f203f8cb2edec0ea71e7a49e5727a4f4608d45c",
+    "availability": "not_included"
+  },
+  "transcript": {
+    "sidecar_id": "SC-UX184-01",
+    "filename": "ux-184-transcript-sidecar.json",
+    "synthetic_fixture_sha256": "e91e1bc8c0a9bb0e0d7f6ed5de3ceff165bf2d6f35cb8a4f3fb3b08eec542bf9",
+    "language_mix": ["en", "ja"],
+    "speaker_labels": ["FAC", "P01", "P02", "P03"],
+    "redaction_policy": "participant codes only; no names, voice, face, or contact data"
+  },
+  "timeline": [
+    {"event_id": "EVT-001", "recorder_clock": "09:02:14", "speaker": "FAC", "event": "opening context recorded"},
+    {"event_id": "EVT-002", "recorder_clock": "09:17:42", "speaker": "P01", "event": "task transition observed"},
+    {"event_id": "EVT-003", "recorder_clock": "09:31:06", "speaker": "P02", "event": "brief pause noted"},
+    {"event_id": "EVT-004", "recorder_clock": "09:44:39", "speaker": "FAC", "event": "session wrap recorded"}
+  ],
+  "validation_query": "03-sidecar-validation-query.sql",
+  "created_at": "2026-07-13T10:10:00+09:00"
+}

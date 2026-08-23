@@ -1,0 +1,28 @@
+study:
+  organization: Beacon Field Research
+  name: Study Alpha
+  date: "2026-07-13"
+  session_id: UX-184
+  synthetic_sample_size: 24
+seed_file: 00-study-alpha-survey-results.csv
+output_encoding: UTF-8
+csv:
+  delimiter: ","
+  quote_character: '"'
+  line_ending: LF
+cleaning:
+  completion_mapping:
+    Completed: 1
+    Not completed: 0
+  segment_mapping:
+    First visit: Novice
+    Monthly: Occasional
+    Weekly or more: Frequent
+  missing_value_policy:
+    blank_trust_1_5: retain_as_missing
+    imputation: none
+summaries:
+  scale_range: [1, 5]
+  top_two_box_values: [4, 5]
+  standard_deviation: sample_n_minus_1
+  rounding_decimal_places: 3

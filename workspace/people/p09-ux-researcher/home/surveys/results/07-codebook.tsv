@@ -1,0 +1,13 @@
+field_name	file	definition	allowed_values_or_rule
+participant_id	00-study-alpha-survey-results.csv	Synthetic respondent identifier	S01 through S24
+segment	01-response-level-clean.csv	Visit-frequency segment	Novice; Occasional; Frequent
+task_completed	01-response-level-clean.csv	Normalized completion outcome	1=Completed; 0=Not completed
+task_confidence_1_5	01-response-level-clean.csv	Self-reported confidence after task	Integer 1 to 5; higher is more confident
+overall_ease_1_5	01-response-level-clean.csv	Overall perceived ease	Integer 1 to 5; higher is easier
+findability_1_5	01-response-level-clean.csv	Ease of finding the needed option	Integer 1 to 5; higher is easier
+clarity_1_5	01-response-level-clean.csv	Clarity of labels and instructions	Integer 1 to 5; higher is clearer
+trust_1_5	01-response-level-clean.csv	Confidence in the result shown	Integer 1 to 5; blank retained when unanswered
+trust_missing	01-response-level-clean.csv	Indicator for retained missing trust response	1=blank source value; 0=observed source value
+scale_item_mean	01-response-level-clean.csv	Mean of observed ease findability clarity and trust items	Three or four observed items; no imputation
+primary_code	05-open-text-coding.csv	Single inductive paraphrase code	Lowercase snake_case descriptive code
+sentiment	05-open-text-coding.csv	Tone of paraphrased feedback	Positive; Negative; Neutral; Suggestion

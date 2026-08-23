@@ -1,0 +1,25 @@
+participant_id,segment,platform,visit_frequency,task_completed,task_confidence_1_5,overall_ease_1_5,findability_1_5,clarity_1_5,trust_1_5,trust_missing,scale_item_count,scale_item_mean
+S01,Novice,macOS,First visit,1,4,4,3,4,4,0,4,3.750
+S02,Novice,Windows,First visit,1,3,3,3,4,3,0,4,3.250
+S03,Novice,macOS,First visit,1,4,4,4,4,4,0,4,4.000
+S04,Novice,Windows,First visit,0,2,2,2,3,3,0,4,2.500
+S05,Novice,macOS,First visit,1,3,3,2,3,3,0,4,2.750
+S06,Novice,iPadOS,First visit,1,4,4,3,4,4,0,4,3.750
+S07,Novice,Windows,First visit,1,3,3,3,3,3,0,4,3.000
+S08,Novice,macOS,First visit,1,4,4,4,4,,1,3,4.000
+S09,Occasional,macOS,Monthly,1,4,4,4,4,4,0,4,4.000
+S10,Occasional,Windows,Monthly,1,5,5,4,5,4,0,4,4.500
+S11,Occasional,macOS,Monthly,1,4,4,3,4,4,0,4,3.750
+S12,Occasional,iPadOS,Monthly,1,3,3,3,4,3,0,4,3.250
+S13,Occasional,macOS,Monthly,1,4,4,4,4,4,0,4,4.000
+S14,Occasional,Windows,Monthly,1,5,4,5,5,5,0,4,4.750
+S15,Occasional,macOS,Monthly,1,4,4,4,4,4,0,4,4.000
+S16,Occasional,Windows,Monthly,0,2,2,2,3,3,0,4,2.500
+S17,Frequent,macOS,Weekly or more,1,5,5,5,5,5,0,4,5.000
+S18,Frequent,Windows,Weekly or more,1,4,4,4,5,4,0,4,4.250
+S19,Frequent,macOS,Weekly or more,1,5,5,5,4,5,0,4,4.750
+S20,Frequent,iPadOS,Weekly or more,1,4,4,4,4,4,0,4,4.000
+S21,Frequent,macOS,Weekly or more,1,5,5,4,5,5,0,4,4.750
+S22,Frequent,Windows,Weekly or more,1,4,4,5,4,4,0,4,4.250
+S23,Frequent,macOS,Weekly or more,1,3,3,4,4,4,0,4,3.750
+S24,Frequent,Windows,Weekly or more,1,5,5,5,5,5,0,4,5.000

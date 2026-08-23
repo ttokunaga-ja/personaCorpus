@@ -1,0 +1,14 @@
+Beacon Field Research — Study Alpha
+Date: 2026-07-13 | Session: UX-184 | Sample frame: n=24
+
+Purpose
+This desktop working set documents a synthetic recorder handoff check for the daily synthesis workflow.
+The WAV files are deliberately non-speech: calibration tones, low room-noise beds, chirps, and stereo levels.
+
+Diagnostic note
+09-local-capture-diagnostic.pcap is a tiny fabricated Ethernet/IPv4/UDP capture using documentation-only addresses
+192.0.2.18 and 198.51.100.42. Payloads state only test status; no credentials, participant content, or production traffic.
+
+Review cue
+Use this packet as a visual/audio workflow anchor while clustering Study Alpha observations. The research board image
+and session-wall image are staged synthetic reference visuals, not photographs of real people or sessions.

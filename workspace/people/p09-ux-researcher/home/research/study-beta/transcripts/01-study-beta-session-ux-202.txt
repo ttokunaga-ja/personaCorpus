@@ -1,0 +1,15 @@
+Beacon Field Research | Study Beta | fully synthetic usability transcript
+Session: UX-202 | Date: 2026-07-14 | Participant code: P-B02 | Moderator code: MOD-01
+Context: Follow-on study referencing Study Alpha, 2026-07-13, session UX-184, and n=24. No recording or real participant data.
+Task 1: Locate the July field record. Task 2: Compare two saved options. Task 3: Add a one-sentence note and review the summary.
+
+[00:00:07] MOD-01: Begin where you think the July field record would be.
+[00:00:22] P-B02: I am going to use the filter, although the card might already be enough.
+[00:00:48] OBS: Participant opens the filter, pauses on an unlabeled saved filter, then closes it without applying a change.
+[00:01:16] MOD-01: What made you close that control?
+[00:01:25] P-B02: I did not know whether it would change the whole study or just this list.
+[00:02:02] OBS: Participant locates the record from the card list and compares both options successfully.
+[00:02:41] MOD-01: Please save a note, then review the summary.
+[00:02:54] P-B02: The note saved, but I looked for a message. I only knew after I saw it in the summary.
+[00:03:22] MOD-01: What would make that step more certain?
+[00:03:28] P-B02: A brief saved message next to the button, plus clearer filter scope.

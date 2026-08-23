@@ -1,0 +1,8 @@
+2026-07-13T09:00:00Z recorder synthetic-session=UX-184 participant=S08 status=opened
+2026-07-13T09:05:00Z marker task=find_workspace
+2026-07-13T10:20:00Z marker behavior=filter_pause
+2026-07-13T17:10:00Z marker task=save_observation
+2026-07-13T25:20:00Z marker follow_up=confirmation_cue
+2026-07-13T30:00:00Z marker task=share_summary
+2026-07-13T49:20:00Z analyst_note=labels_scanned_confirmation_late
+2026-07-13T54:30:00Z recorder synthetic-session=UX-184 status=closed

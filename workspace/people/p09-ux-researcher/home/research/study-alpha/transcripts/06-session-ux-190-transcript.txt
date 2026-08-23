@@ -1,0 +1,32 @@
+Beacon Field Research / Study Alpha / 2026-07-13 / session UX-190 / n=24
+SYNTHETIC NOTICE: This is a fully synthetic moderated-research record. S11 is a synthetic participant code; no real person, voice, quote, or contact detail is represented.
+
+Session metadata
+Duration represented: 55 minutes. Method: moderated usability session using a synthetic prototype. Moderator: MOD. Participant: S11.
+Primary task: review a synthetic recording marker, flag a moment, and save a coding draft.
+
+[00:00] MOD: Thanks for joining this synthetic prototype session. I will ask you to think aloud. There are no right answers; I am evaluating the interface, not you.
+[02:15] S11: Understood. I will describe what I expect as I go.
+[05:00] MOD: Please begin with the first task when you are ready.
+[07:40] S11: I am looking at the starting view. The marker rail seems like the next place to check.
+[10:20] OBSERVED BEHAVIOR: Participant scans the top navigation, pauses before activating the marker rail, then resumes without moderator instruction.
+[13:35] MOD: What are you noticing as you decide where to go next?
+[13:50] S11: I am matching the labels to the goal and checking whether this view changes the current context.
+[17:10] MOD: Please continue with the next part of the task.
+[19:45] OBSERVED BEHAVIOR: Participant opens a secondary panel, reads labels from top to bottom, and returns once to verify the selected item.
+[22:30] S11: I expected a small cue that the action had been kept. I am not sure yet whether it is final.
+[25:05] MOD: What would you look for to confirm that?
+[25:20] S11: A short status message close to the action, or the item appearing in the next view.
+[30:00] MOD: Please complete the final task step.
+[33:10] OBSERVED BEHAVIOR: Participant completes the intended action, then checks the destination view before moving on.
+[36:25] S11: The route works, but I had to read the wording carefully before committing.
+[39:40] MOD: Tell me more about that wording.
+[39:55] S11: I could infer the result, but a more direct label would reduce the pause.
+[43:15] MOD: We are moving into debrief. Looking back, what felt most clear?
+[44:00] S11: The main structure and the return path were clear once I understood the starting context.
+[46:30] MOD: What felt least clear?
+[46:45] S11: The confirmation point. I wanted it sooner and closer to the action.
+[49:20] ANALYST NOTE: timeline marker was understood; draft status was sought after saving. This is an observation from a synthetic session, not a measure or participant claim.
+[52:10] MOD: Any final feedback on the sequence?
+[52:25] S11: The sequence is understandable; the labels and status cues are the places I would refine.
+[54:30] MOD: Thank you. This concludes the synthetic session.

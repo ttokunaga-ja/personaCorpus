@@ -1,0 +1,5 @@
+{"session_id":"UX-184","participant_code":"S08","timestamp":"00:00","speaker":"MOD","turn_type":"intro","synthetic":true,"text":"Think aloud while using the synthetic prototype."}
+{"session_id":"UX-184","participant_code":"S08","timestamp":"07:40","speaker":"S08","turn_type":"observation","synthetic":true,"text":"The filter control seems like the next place to check."}
+{"session_id":"UX-184","participant_code":"S08","timestamp":"13:35","speaker":"MOD","turn_type":"neutral_follow_up","synthetic":true,"text":"What are you noticing as you decide where to go next?"}
+{"session_id":"UX-184","participant_code":"S08","timestamp":"25:20","speaker":"S08","turn_type":"reflection","synthetic":true,"text":"A status message close to the action would confirm the result."}
+{"session_id":"UX-184","participant_code":"S08","timestamp":"49:20","speaker":"ANALYST","turn_type":"note","synthetic":true,"text":"Labels scanned; confirmation noticed late."}

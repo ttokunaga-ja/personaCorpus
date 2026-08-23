@@ -1,0 +1,6 @@
+session_id	participant_code	timestamp	code	evidence	synthetic
+UX-184	S08	07:40	navigation	filter control identified	true
+UX-184	S08	10:20	friction	paused before activating filter	true
+UX-184	S08	19:45	comprehension	labels scanned before selection	true
+UX-184	S08	25:20	confidence	requested nearby status cue	true
+UX-184	S08	49:20	follow_up	confirmation noticed late	true

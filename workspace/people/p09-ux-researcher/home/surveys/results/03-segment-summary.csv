@@ -1,0 +1,4 @@
+segment,n_responses,n_completed,completion_rate_pct,mean_task_confidence,mean_overall_ease,mean_findability,mean_clarity,trust_n_valid,mean_trust
+Novice,8,7,87.500,3.375,3.375,3.000,3.625,7,3.429
+Occasional,8,7,87.500,3.875,3.750,3.625,4.125,8,3.875
+Frequent,8,8,100.000,4.375,4.375,4.500,4.500,8,4.500

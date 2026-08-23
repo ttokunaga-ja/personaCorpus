@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<speakerLabelMap schemaVersion="1.0" fixtureNotice="Synthetic participant codes only.">
+  <context organization="Beacon Field Research" study="Study Alpha" studyDate="2026-07-13" sessionId="UX-184" sampleSize="24" exportId="EXP-UX184-01" />
+  <labels>
+    <speaker code="FAC" role="facilitator" identity="synthetic-role-label" />
+    <speaker code="P01" role="participant" identity="participant-code-only" />
+    <speaker code="P02" role="participant" identity="participant-code-only" />
+    <speaker code="P03" role="participant" identity="participant-code-only" />
+  </labels>
+  <handling rule="No real names, voiceprints, faces, contact data, or credentials are represented." />
+</speakerLabelMap>

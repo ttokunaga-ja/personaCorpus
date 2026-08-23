@@ -1,0 +1,9 @@
+study,session_id,date,participant_code,moderator_code,task_outcome,primary_code,transcript_file
+Study Beta,UX-201,2026-07-14,P-B01,MOD-01,completed,scan_and_return,00-study-beta-session-ux-201.txt
+Study Beta,UX-202,2026-07-14,P-B02,MOD-01,completed_with_hesitation,filter_hesitation,01-study-beta-session-ux-202.txt
+Study Beta,UX-203,2026-07-15,P-B03,MOD-02,completed,clear_comparison,02-study-beta-session-ux-203.txt
+Study Beta,UX-204,2026-07-15,P-B04,MOD-02,completed_with_recovery,navigation_recovery,03-study-beta-session-ux-204.txt
+Study Beta,UX-205,2026-07-16,P-B05,MOD-03,completed,summary_confirmation,04-study-beta-session-ux-205.txt
+Study Beta,UX-206,2026-07-16,P-B06,MOD-03,completed_with_hesitation,filter_visibility,05-study-beta-session-ux-206.txt
+Study Beta,UX-207,2026-07-17,P-B07,MOD-04,completed,confirmation_gap,06-study-beta-session-ux-207.txt
+Study Beta,UX-208,2026-07-17,P-B08,MOD-04,completed,clear_comparison,07-study-beta-session-ux-208.txt

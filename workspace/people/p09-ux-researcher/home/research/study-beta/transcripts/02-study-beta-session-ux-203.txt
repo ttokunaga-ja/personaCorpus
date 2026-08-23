@@ -1,0 +1,15 @@
+Beacon Field Research | Study Beta | fully synthetic usability transcript
+Session: UX-203 | Date: 2026-07-15 | Participant code: P-B03 | Moderator code: MOD-02
+Context: Follow-on study referencing Study Alpha, 2026-07-13, session UX-184, and n=24. No recording or real participant data.
+Task 1: Locate the July field record. Task 2: Compare two saved options. Task 3: Add a one-sentence note and review the summary.
+
+[00:00:10] MOD-02: Please work through the tasks as you normally would.
+[00:00:24] P-B03: The July label is visible, so I will open that record directly.
+[00:00:51] OBS: Participant opens the target record and reads the detail headings aloud silently; no navigation error observed.
+[00:01:19] MOD-02: What information are you using to compare the options?
+[00:01:27] P-B03: Status, date, and the short description. I do not need to leave this view.
+[00:02:10] OBS: Participant selects an option, writes a note, and reaches the summary on the first path.
+[00:02:44] MOD-02: How did the summary support your review?
+[00:02:51] P-B03: It reflects the choice and the note together, which lets me check both quickly.
+[00:03:14] MOD-02: Any friction to capture in the debrief?
+[00:03:20] P-B03: The note field could be a little taller, but the flow was predictable.

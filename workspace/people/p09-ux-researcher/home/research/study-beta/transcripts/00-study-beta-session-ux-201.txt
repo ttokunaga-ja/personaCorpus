@@ -1,0 +1,15 @@
+Beacon Field Research | Study Beta | fully synthetic usability transcript
+Session: UX-201 | Date: 2026-07-14 | Participant code: P-B01 | Moderator code: MOD-01
+Context: Follow-on study referencing Study Alpha, 2026-07-13, session UX-184, and n=24. No recording or real participant data.
+Task 1: Locate the July field record. Task 2: Compare two saved options. Task 3: Add a one-sentence note and review the summary.
+
+[00:00:08] MOD-01: Please start from the study home and say what you expect to happen.
+[00:00:19] P-B01: I see the study cards first, so I would choose the July field record card.
+[00:00:43] OBS: Participant opens the record without pausing; the selected state is noticed.
+[00:01:12] MOD-01: What, if anything, are you looking for before comparing?
+[00:01:20] P-B01: The dates and the short labels. I can tell these are two different options, but I scan twice for the source detail.
+[00:02:04] OBS: Participant compares details, returns to the list once, then selects the preferred option.
+[00:02:33] MOD-01: Please add a short note in your own words.
+[00:02:45] P-B01: I wrote that the July entry is easier to review. The confirmation is clear because the note appears in the summary.
+[00:03:11] MOD-01: In the debrief, what would you change first?
+[00:03:17] P-B01: Put the source detail closer to each option so I do not need the return trip.

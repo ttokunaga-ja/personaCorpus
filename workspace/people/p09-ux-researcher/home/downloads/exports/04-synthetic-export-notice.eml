@@ -1,0 +1,32 @@
+From: export-desk@beaconfield.example.invalid
+To: analysis-archive@beaconfield.example.invalid
+Date: Mon, 13 Jul 2026 16:20:00 +0000
+Message-ID: <study-alpha-ux-184-export-20260713@beaconfield.example.invalid>
+Subject: Study Alpha synthetic export package - UX-184
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Hello Analysis Archive,
+
+The synthetic outgoing export package for Beacon Field Research / Study Alpha
+has been prepared for the 2026-07-13 internal workflow.
+
+Reference: UX-184
+Sample reference: n=24
+
+Package items:
+- 00-synthetic-audio-redacted.wav (non-speech tonal redaction cue)
+- 01-synthetic-highlight-cues.wav (non-speech highlight cue sequence)
+- 02-synthetic-analysis-mix.wav (non-speech analysis timing mix)
+- 03-study-alpha-export-summary.html
+- 05-export-cover-sheet-scan.pdf
+
+All audio in this package is synthesized tones and noise only. No participant
+recordings, human voice data, contact details, credentials, or consent records
+are included.
+
+This is a fictional local delivery notice for a synthetic corpus workflow.
+
+Export Desk
+Beacon Field Research

@@ -1,0 +1,7 @@
+screen_id,file_name,viewport,primary_goal,prototype_path,accessibility_state,review_status
+ALPHA-01,00-alpha-prototype-annotated-export.png,1440x810,Start Study Alpha,onboarding/start,Focus order; contrast; keyboard action; accessible name,Ready for review
+ALPHA-02,01-alpha-onboarding-flow.png,1440x810,Choose a study focus,onboarding/preferences,Keyboard Tab/Enter guidance; visible selection,Ready for review
+ALPHA-03,02-alpha-search-results-state.png,1440x810,Find study materials,library/search,Live region announces result count,Ready for review
+ALPHA-04,03-alpha-filter-panel-state.png,1440x810,Refine study search,library/filter-drawer,Focus return; selected state announced,Ready for review
+ALPHA-05,04-alpha-error-recovery-state.png,1440x810,Recover unsaved field note,task/error-recovery,Error summary receives focus; draft retained,Needs copy review
+ALPHA-M01,05-alpha-mobile-navigation.png,390x844,Move between study areas,mobile/home,44px target; label plus icon; visible focus ring,Ready for review

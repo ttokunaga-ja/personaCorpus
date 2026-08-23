@@ -1,0 +1,5 @@
+study,study_month,anchor_study,anchor_date,anchor_session,anchor_n,theme,observation_count,affected_rate,severity,confidence_signal,synthetic_evidence_codes,recommendation
+Study Beta,2026-07,Study Alpha,2026-07-13,UX-184,24,Comprehension barriers,10,0.417,High,Label clarity,"UX-201|UX-202|UX-203|UX-204|UX-205|UX-206|UX-207|UX-208",Clarify labels and front-load task context
+Study Beta,2026-07,Study Alpha,2026-07-13,UX-184,24,Navigation ambiguity,9,0.375,High,Wayfinding,"UX-201|UX-202|UX-203|UX-205|UX-206|UX-207|UX-208",Make sections and next steps easier to scan
+Study Beta,2026-07,Study Alpha,2026-07-13,UX-184,24,Confidence signals,8,0.333,Medium,Confirmation,"UX-201|UX-202|UX-204|UX-205|UX-206|UX-208",Show progress and outcome confirmation
+Study Beta,2026-07,Study Alpha,2026-07-13,UX-184,24,Recovery support,7,0.292,Medium,Recovery guidance,"UX-201|UX-203|UX-204|UX-206|UX-207|UX-208",Make recovery paths visible and reversible

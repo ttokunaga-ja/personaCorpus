@@ -1,0 +1,18 @@
+{
+  "study": "Study Alpha",
+  "organization": "Beacon Field Research",
+  "date": "2026-07-13",
+  "anchorSession": "UX-184",
+  "sampleSize": 24,
+  "sessionDurationMinutes": 60,
+  "method": "moderated remote research",
+  "cohorts": {
+    "S2": 12,
+    "S3": 12
+  },
+  "consentConfirmationRequired": true,
+  "observerProtocol": "muted evidence-first observation",
+  "accessibleRemoteFallback": true,
+  "identifiers": "synthetic codes only",
+  "analysisHandoff": "coded evidence with confidence and accessibility implications"
+}

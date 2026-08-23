@@ -1,0 +1,15 @@
+Beacon Field Research | Study Beta | fully synthetic usability transcript
+Session: UX-205 | Date: 2026-07-16 | Participant code: P-B05 | Moderator code: MOD-03
+Context: Follow-on study referencing Study Alpha, 2026-07-13, session UX-184, and n=24. No recording or real participant data.
+Task 1: Locate the July field record. Task 2: Compare two saved options. Task 3: Add a one-sentence note and review the summary.
+
+[00:00:11] MOD-03: Please locate the July record and continue through the remaining tasks.
+[00:00:25] P-B05: The card title and date make that easy; I am opening it now.
+[00:00:54] OBS: Participant uses the expected path and pauses briefly before choosing between the two detail panels.
+[00:01:22] MOD-03: What are you weighing in that comparison?
+[00:01:30] P-B05: The entries look alike at first. The highlighted status tells me which one I want.
+[00:02:07] OBS: Participant writes a note and confirms it by opening the review summary.
+[00:02:43] MOD-03: What did you notice after saving?
+[00:02:49] P-B05: The summary updates, so I trust it worked. A small message would make it even faster.
+[00:03:15] MOD-03: Final debrief question: what should remain unchanged?
+[00:03:22] P-B05: Keep the card entry point and the side-by-side comparison.

@@ -1,0 +1,15 @@
+Beacon Field Research | Study Beta | fully synthetic usability transcript
+Session: UX-206 | Date: 2026-07-16 | Participant code: P-B06 | Moderator code: MOD-03
+Context: Follow-on study referencing Study Alpha, 2026-07-13, session UX-184, and n=24. No recording or real participant data.
+Task 1: Locate the July field record. Task 2: Compare two saved options. Task 3: Add a one-sentence note and review the summary.
+
+[00:00:08] MOD-03: Begin from the home view and tell me where you would look first.
+[00:00:21] P-B06: I would filter by month, because I do not immediately see whether the list is sorted.
+[00:00:50] OBS: Participant opens the filter, selects July, then recognizes the record after the list refreshes.
+[00:01:18] MOD-03: What did the refresh communicate to you?
+[00:01:27] P-B06: It changed the results, but I needed a moment to see that the July filter was active.
+[00:02:03] OBS: Participant compares two options, selects one, and saves a note without error.
+[00:02:39] MOD-03: Please review the saved note in the summary.
+[00:02:47] P-B06: I found it. The comparison feels stable; the active filter badge should be stronger.
+[00:03:18] MOD-03: What is the most useful improvement from this session?
+[00:03:25] P-B06: Make applied filters more visible, especially after the result list moves.

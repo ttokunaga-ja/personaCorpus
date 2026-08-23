@@ -1,0 +1,13 @@
+study: Study Alpha
+organization: Beacon Field Research
+date: 2026-07-13
+anchor_session: UX-184
+sample_size: 24
+method: 60-minute moderated remote sessions
+cohorts:
+  S2: {target: 12, purpose: lower_or_mixed_familiarity}
+  S3: {target: 12, purpose: higher_or_mixed_familiarity}
+consent: confirmation_required_before_notes
+accessibility: accessible_remote_fallback_available
+identifiers: synthetic_codes_only
+analysis_handoff: evidence_id_and_confidence_required

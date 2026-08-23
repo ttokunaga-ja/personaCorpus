@@ -1,0 +1,10 @@
+participant_code,session_id,study,date,task_focus,duration_minutes,synthetic
+S08,UX-184,Study Alpha,2026-07-13,workspace-save-share,55,true
+S03,UX-185,Study Alpha,2026-07-13,compare-tag-export,55,true
+S14,UX-186,Study Alpha,2026-07-13,route-pin-queue,55,true
+S21,UX-187,Study Alpha,2026-07-13,search-note-review,55,true
+S05,UX-188,Study Alpha,2026-07-13,group-share-link,55,true
+S17,UX-189,Study Alpha,2026-07-13,filter-compare-handoff,55,true
+S11,UX-190,Study Alpha,2026-07-13,marker-flag-draft,55,true
+S24,UX-191,Study Alpha,2026-07-13,evidence-reminder,55,true
+S19,UX-192,Study Alpha,2026-07-13,workspace-summary-review,55,true

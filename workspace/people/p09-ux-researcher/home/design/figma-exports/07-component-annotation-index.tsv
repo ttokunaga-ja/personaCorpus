@@ -1,0 +1,15 @@
+component_id	component_name	used_on	annotation_or_state	finding_or_decision	owner
+CMP-PROG-01	Progress indicator	ALPHA-01	A11Y-01: read before step content	Keep current order	Design
+CMP-BTN-01	Begin study button	ALPHA-01	A11Y-03 keyboard; A11Y-04 accessible name	Use visible label as accessible name	Design
+CMP-STEP-01	Onboarding step	ALPHA-02	Current step and selection state	Keep one clear current state	Design
+CMP-BTN-02	Continue button	ALPHA-02	Tab and Enter guidance	Confirm focus indicator in build	Engineering
+CMP-SRCH-01	Study search	ALPHA-03	Result count announced	Add aria-live status in build	Engineering
+CMP-RESULT-01	Search result row	ALPHA-03	Result metadata is scan-friendly	Preserve heading-first reading order	Design
+CMP-DRAWER-01	Filter drawer	ALPHA-04	Focus returns to Filters	Restore trigger focus on close	Engineering
+CMP-FILTER-01	Filter control	ALPHA-04	Selected state announced	Expose checked state	Engineering
+CMP-CHIP-02	Applied filter chip	ALPHA-04	Removable selected chip	Provide descriptive remove label	Engineering
+CMP-ALERT-01	Save error alert	ALPHA-05	Error summary receives focus	Prioritize recovery path	Engineering
+CMP-RETRY-01	Retry action	ALPHA-05	Draft remains available	Keep retry and copy options	Design
+CMP-STATUS-01	Save status	ALPHA-05	Not-saved status shown	Avoid false saved confirmation	Design
+CMP-NAV-01	Mobile navigation	ALPHA-M01	44px target	Maintain minimum touch target	Engineering
+CMP-TAB-03	Notes navigation tab	ALPHA-M01	Label plus icon; visible focus	Do not rely on icon alone	Design

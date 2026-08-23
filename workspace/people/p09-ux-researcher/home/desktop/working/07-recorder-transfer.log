@@ -1,0 +1,10 @@
+2026-07-13 16:42:08 JST  Beacon Field Research / Study Alpha
+session=UX-184 cohort=n=24 source=synthetic-recorder-kit
+transfer-mode=local diagnostic capture only; no participant audio present
+asset=00-synthetic-recorder-check-tone.wav status=verified sha-note=calibration-tone
+asset=01-synthetic-room-tone-a.wav status=verified sha-note=mono-room-bed
+asset=02-synthetic-room-tone-b.wav status=verified sha-note=stereo-room-bed
+asset=03-synthetic-marker-cues.wav status=verified sha-note=marker-cues
+asset=04-synthetic-stereo-level-check.wav status=verified sha-note=channel-check
+pcap=09-local-capture-diagnostic.pcap endpoints=192.0.2.18->198.51.100.42
+result=complete; generated content contains tones, noise, and harmless test metadata only.

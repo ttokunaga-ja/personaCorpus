@@ -1,0 +1,8 @@
+2026-07-13T16:10:00Z INPUT 00-study-alpha-survey-results.csv loaded; 24 complete survey records detected.
+2026-07-13T16:10:01Z CHECK participant_id values verified as unique synthetic IDs S01-S24.
+2026-07-13T16:10:02Z TRANSFORM task_completion normalized: Completed to 1 and Not completed to 0.
+2026-07-13T16:10:03Z TRANSFORM visit_frequency mapped to segment: First visit=Novice; Monthly=Occasional; Weekly or more=Frequent.
+2026-07-13T16:10:04Z MISSING S08 trust_1_5 retained blank; trust_missing set to 1; no score imputation performed.
+2026-07-13T16:10:05Z DERIVE scale_item_mean calculated from observed overall_ease_1_5 findability_1_5 clarity_1_5 and trust_1_5 values.
+2026-07-13T16:10:06Z DERIVE summaries calculated from 01-response-level-clean.csv; trust uses 23 valid responses and other Likert items use 24.
+2026-07-13T16:10:07Z OUTPUT response-level and analysis-ready files written with 24 rows each; no records removed.

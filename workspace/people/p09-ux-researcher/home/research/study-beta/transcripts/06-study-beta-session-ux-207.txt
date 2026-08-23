@@ -1,0 +1,15 @@
+Beacon Field Research | Study Beta | fully synthetic usability transcript
+Session: UX-207 | Date: 2026-07-17 | Participant code: P-B07 | Moderator code: MOD-04
+Context: Follow-on study referencing Study Alpha, 2026-07-13, session UX-184, and n=24. No recording or real participant data.
+Task 1: Locate the July field record. Task 2: Compare two saved options. Task 3: Add a one-sentence note and review the summary.
+
+[00:00:12] MOD-04: Please complete the tasks in the order that makes sense to you.
+[00:00:26] P-B07: The main card looks like the start, so I will choose it.
+[00:00:55] OBS: Participant locates the record directly and compares details without returning to the list.
+[00:01:21] MOD-04: What is helping you orient in this view?
+[00:01:29] P-B07: The repeated headings and the selected state. I know where I am.
+[00:02:08] OBS: Participant writes a note, then revisits the summary after a short pause at the confirmation area.
+[00:02:42] MOD-04: What were you waiting to see there?
+[00:02:50] P-B07: I expected a confirmation before I left the editor, so I checked the summary to be sure.
+[00:03:17] MOD-04: In the debrief, what would reduce that uncertainty?
+[00:03:24] P-B07: A clear saved state beside the note action; the rest of the flow is straightforward.

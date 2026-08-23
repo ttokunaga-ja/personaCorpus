@@ -1,0 +1,25 @@
+participant_id,segment,primary_code,sentiment,paraphrased_feedback
+S01,Novice,navigation_label,Neutral,Sidebar navigation was ultimately usable but the initial menu label delayed orientation.
+S02,Novice,navigation_placement,Negative,The expected task link was absent from the overview and its wording was too general.
+S03,Novice,progress_feedback,Positive,A progress cue made the next step apparent.
+S04,Novice,save_action,Negative,The save action was unclear and led to task abandonment.
+S05,Novice,filter_discoverability,Negative,Filters helped after discovery but the icon did not communicate their purpose.
+S06,Novice,instruction_alignment,Positive,Brief instructions matched the on-screen experience.
+S07,Novice,information_architecture,Negative,The task was sought in the Research area rather than Projects.
+S08,Novice,completion_confirmation,Positive,A clear confirmation made completion feel final.
+S09,Occasional,orientation_summary,Suggestion,A compact top-of-page summary would improve initial orientation.
+S10,Occasional,navigation_predictability,Positive,Expected locations and a return path were consistent.
+S11,Occasional,option_description,Negative,Similar export descriptions created hesitation.
+S12,Occasional,content_density,Negative,Helpful content was present but more verbose than needed.
+S13,Occasional,familiar_labels,Positive,Labels matched prior experience.
+S14,Occasional,visual_hierarchy,Positive,Visual hierarchy supported rapid scanning.
+S15,Occasional,session_context,Suggestion,A reminder of the previous action would support return visits.
+S16,Occasional,timing_of_warning,Negative,A warning appeared after details were entered.
+S17,Frequent,accessibility_feedback,Positive,Keyboard focus and status messages were easy to follow.
+S18,Frequent,repeat_action,Suggestion,A faster repeat-export action would save time.
+S19,Frequent,workflow_predictability,Positive,The workflow behaved predictably across steps.
+S20,Frequent,orientation_feedback,Positive,Page title and selected state maintained orientation.
+S21,Frequent,consistency,Positive,Labels confirmation and navigation felt consistent.
+S22,Frequent,quick_access,Suggestion,The setting was easy to find but could be pinned for repeated use.
+S23,Frequent,submission_confidence,Negative,The submission option prompted a second check.
+S24,Frequent,low_effort,Positive,The task required less attention than expected.

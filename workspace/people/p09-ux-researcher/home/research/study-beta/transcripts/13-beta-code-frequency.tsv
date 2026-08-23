@@ -1,0 +1,8 @@
+code	count	sessions	interpretation
+summary_confirmation	4	UX-201|UX-203|UX-205|UX-208	Summary is used as evidence that the note and choice persisted.
+clear_comparison	3	UX-203|UX-205|UX-208	Status and description support a direct comparison.
+confirmation_gap	3	UX-202|UX-204|UX-207	Participants seek a clearer saved or final state.
+filter_hesitation	2	UX-202|UX-206	Filter scope or active state needs stronger signaling.
+scan_and_return	1	UX-201	Source detail prompts a return path during comparison.
+navigation_recovery	1	UX-204	An unlabeled navigation icon causes a short recovery.
+filter_visibility	1	UX-206	Applied-month state is difficult to notice after refresh.
