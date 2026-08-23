@@ -1,0 +1,8 @@
+evidence_window,metric,numerator,denominator,value,unit,note
+2026-07-13..2026-07-20,requests,84200,,84200,requests,synthetic observed requests
+2026-07-13..2026-07-20,success,84149,84200,99.94,percent,rounded to two decimals
+2026-07-13..2026-07-20,unsuccessful,51,84200,51,requests,84200 - 84149
+2026-07-13..2026-07-20,gate approvals,8883,9000,98.7,percent,rounded to one decimal
+2026-07-13..2026-07-20,non-approved,117,9000,117,decisions,9000 - 8883
+2026-07-13..2026-07-20,end-to-end p95,184,,184,ms,sum of six ordered stages
+2026-07-17,rollback drill,702,,702,seconds,11m42s controlled drill

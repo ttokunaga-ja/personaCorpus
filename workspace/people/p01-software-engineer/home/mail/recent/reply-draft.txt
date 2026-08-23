@@ -1,0 +1,7 @@
+Unsent draft - synthetic internal reply
+
+Aster Loop 株式会社 / Product Alpha R7 / 2026-07-13 / p95 184 ms / ADR-042
+
+The R7 readiness thread is close to complete. Before the 10% gate, please attach role-based evidence only: Software Engineering should provide the duplicate-event and timeout test result; Platform should provide the v1 schema guard and queue-lag snapshot; Release Engineering should provide the synthetic canary and stop-condition acknowledgement.
+
+The remaining decision is whether the observed p95 remains at or below 184 ms for the full ten-minute window. If any gate fails, keep durable decisions intact, disable new async routing, and record the reason against ADR-042. No customer data or credentials are needed in the reply.

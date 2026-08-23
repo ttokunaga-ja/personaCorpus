@@ -1,0 +1,1 @@
+{"anchor":"Aster Loop 株式会社 | Product Alpha R7 | 2026-07-13 | p95 184 ms | ADR-042","risks":[{"risk":"queue backlog","likelihood":"medium","impact":"high","mitigation":"depth alert","role":"Release Engineering","due_date":"2026-07-12"},{"risk":"schema mismatch","likelihood":"low","impact":"high","mitigation":"schema guard","role":"Platform","due_date":"2026-07-11"}]}

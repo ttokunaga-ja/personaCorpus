@@ -1,0 +1,19 @@
+Product Alpha R7 — synthetic release QA summary
+Release date: 2026-07-13
+Organization: Aster Loop 株式会社
+Decision: ADR-042 asynchronous release gate
+
+Test totals
+  Unit:                 186 passed / 0 failed
+  Contract:              42 passed / 0 failed
+  Compatibility (R6):    18 passed / 0 failed
+  Synthetic canary:      48 terminal / 48 submitted
+  Manual recovery drill:  6 steps observed / 6 expected
+
+Role sign-off (synthetic role labels; no individual identities)
+  Release engineering: approved — terminal gate polling verified
+  Platform operations: approved — p95 184 ms observed
+  Quality engineering: approved — regression suite complete
+  Product delivery: approved — release notes and known issues reviewed
+
+Disposition: approved for controlled promotion under ADR-042.

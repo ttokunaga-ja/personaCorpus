@@ -1,0 +1,23 @@
+From: release-engineering@aster-loop.invalid
+To: software-engineering@aster-loop.invalid, platform@aster-loop.invalid
+Subject: R7 readiness thread - synthetic review
+Date: Sun, 12 Jul 2026 09:20:00 +0000
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="r7-ready-boundary"
+
+--r7-ready-boundary
+Content-Type: text/plain; charset=UTF-8
+
+Aster Loop 株式会社 / Product Alpha R7 / 2026-07-13 / p95 184 ms / ADR-042
+
+Release Engineering: readiness is conditional on a final synthetic canary.
+Software Engineering: duplicate requests return the original durable ticket.
+Platform: v1 schema guard and queue-depth dashboard are ready.
+Risks: p95 above 184 ms, admission error above 0.2%, or incompatible event fields stop rollout.
+Actions: attach test output, schema result, and canary evidence before the 10% gate.
+
+--r7-ready-boundary
+Content-Type: text/html; charset=UTF-8
+
+<html><body><h1>R7 readiness</h1><p>Aster Loop 株式会社 / Product Alpha R7 / 2026-07-13 / p95 184 ms / ADR-042</p><p>Readiness is conditional on a synthetic canary. Durable tickets, schema guard, and queue dashboard are prepared.</p><ul><li>Stop: p95 &gt; 184 ms</li><li>Stop: admission error &gt; 0.2%</li><li>Evidence: tests, schema, canary</li></ul></body></html>
+--r7-ready-boundary--

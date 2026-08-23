@@ -1,0 +1,5 @@
+evaluation: {organization: 'Aster Loop株式会社', product: 'Product Alpha R7', release: '2026-07-13', p95TargetMs: 184, decision: 'ADR-042'}
+packages:
+  - {name: nimbus-control-sdk, version: 3.4.1, tier: Nimbus, compatibility: 'r7-control-v1', reviewDate: '2026-07-06'}
+  - {name: orbit-ops-sdk, version: 2.8.0, tier: Orbit, compatibility: 'r7-observe-v1', reviewDate: '2026-07-06'}
+  - {name: harbor-portability-sdk, version: 1.9.3, tier: Harbor, compatibility: 'r7-adapter-v1', reviewDate: '2026-07-06'}

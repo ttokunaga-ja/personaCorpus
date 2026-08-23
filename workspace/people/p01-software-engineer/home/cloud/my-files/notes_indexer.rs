@@ -1,0 +1,3 @@
+#[derive(Debug,PartialEq)] pub struct Note{pub title:String,pub tags:Vec<String>}
+pub fn index_markdown(input:&str)->Note{let title=input.lines().find_map(|l|l.strip_prefix("# ")).unwrap_or("Untitled").to_string();let tags=input.lines().find_map(|l|l.strip_prefix("tags:")).map(|v|v.split(',').map(|x|x.trim().to_string()).collect()).unwrap_or_default();Note{title,tags}}
+#[cfg(test)] mod tests{use super::*;#[test]fn deterministic_title_and_tags(){assert_eq!(index_markdown("# Product Alpha R7\ntags: async, ADR-042"),Note{title:"Product Alpha R7".into(),tags:vec!["async".into(),"ADR-042".into()]});}#[test]fn fallback(){assert_eq!(index_markdown("body").title,"Untitled");}}

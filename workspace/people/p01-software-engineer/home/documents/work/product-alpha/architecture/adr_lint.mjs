@@ -1,0 +1,1 @@
+import{readFileSync}from'node:fs';const t=readFileSync(process.argv[2],'utf8'),r=['status: accepted','ADR-042','Aster Loop','Product Alpha R7','2026-07-13','p95 184 ms'];const m=r.filter(x=>!t.includes(x));if(m.length){console.error(m.join(','));process.exit(2)}console.log('ADR-042 lint passed');

@@ -1,0 +1,24 @@
+SHARED RETRO NOTES — synthetic, blameless
+Aster Loop 株式会社 | Product Alpha R7 | 2026-07-13 | p95 184 ms | ADR-042
+
+What helped
+- Release Engineering posted a small, repeatable gate-evidence template; the
+  Platform Engineering role could attach checkpoint comparisons without reformatting.
+- Reliability Operations rehearsed rollback before the release window, making the
+  stop condition concrete rather than hypothetical.
+
+What hurt
+- The first latency discussion mixed a single p95 184 ms sample with a sustained
+  threshold; that delayed agreement about what evidence ADR-042 requires.
+- Handoff notes named systems but not the next role, so one validation wait was
+  visible without an owner.
+
+Experiments for the next window
+- Platform Engineering will add a one-line cohort and percentile-method label to
+  every metric excerpt.
+- Release Engineering will use a dependency checklist that has an explicit role
+  owner and evidence link field.
+- Reliability Operations will run a short cursor-recovery drill at window open.
+
+No blame is assigned. These notes describe process signals only; identities,
+customer records, and access details are intentionally absent.

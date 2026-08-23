@@ -1,0 +1,20 @@
+release:
+  product: Product Alpha
+  version: R7
+  date: 2026-07-13
+  organization: Aster Loop 株式会社
+  artifact: product-alpha-r7
+compatibility:
+  source_version: R6
+  status_polling: supported
+  window_days: 14
+performance:
+  gate_completion_p95_ms: 184
+decision_references:
+  - ADR-042
+roles:
+  - release-engineering
+  - platform-operations
+  - quality-engineering
+  - product-delivery
+status: approved-controlled-promotion

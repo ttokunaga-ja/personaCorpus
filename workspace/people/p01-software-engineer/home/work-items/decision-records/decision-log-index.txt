@@ -1,0 +1,4 @@
+2026-07-13 | ADR-039 | Accepted | R7 p95 184 ms budget | supports ADR-042
+2026-07-13 | ADR-040 | Accepted | Event compatibility and deprecation | supports ADR-042
+2026-07-13 | ADR-041 | Accepted | Beta flag ownership and fallback | constrains Beta
+2026-07-13 | ADR-042 | Accepted | Async release gate | cross-ref ADR-039, ADR-040, ADR-041

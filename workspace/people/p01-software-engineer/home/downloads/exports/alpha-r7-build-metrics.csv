@@ -1,0 +1,5 @@
+timestamp,build_id,stage,duration_ms,status,p95_ms,anchor
+2026-07-13T08:30:00Z,r7-081,compile,42000,passed,184,"Aster Loop 株式会社 Product Alpha R7 ADR-042"
+2026-07-13T08:31:00Z,r7-081,test,61000,passed,184,"Aster Loop 株式会社 Product Alpha R7 ADR-042"
+2026-07-13T08:32:00Z,r7-081,package,17000,passed,184,"Aster Loop 株式会社 Product Alpha R7 ADR-042"
+2026-07-13T08:33:00Z,r7-081,total,120000,passed,184,"Aster Loop 株式会社 Product Alpha R7 ADR-042"

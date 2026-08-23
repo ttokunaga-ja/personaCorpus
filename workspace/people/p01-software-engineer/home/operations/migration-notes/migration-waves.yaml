@@ -1,0 +1,28 @@
+migration:
+  organization: Aster Loop 株式会社
+  source_release: Product Alpha R7
+  release_date: 2026-07-13
+  decision_reference: ADR-042
+  cohorts:
+    - id: synthetic-canary
+      size: 120
+    - id: synthetic-staged
+      size: 240
+  waves:
+    - id: wave-0
+      date: 2026-07-11
+      cohort: synthetic-canary
+      gate: dual-run parity
+    - id: wave-1
+      date: 2026-07-13
+      cohort: synthetic-staged
+      gate: cutover validation
+  thresholds:
+    checkpoint_lag_seconds: 30
+    queue_lag_seconds: 60
+    gate_p95_ms: 200
+    reference_p95_ms: 184
+  rollback:
+    owner: release-engineering
+    support_role: platform-operations
+    action: restore-alpha-reads-retain-beta-checkpoint

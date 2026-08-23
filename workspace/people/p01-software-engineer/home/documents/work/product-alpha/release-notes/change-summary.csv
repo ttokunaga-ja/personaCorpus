@@ -1,0 +1,5 @@
+change,area,compatibility,risk,role,doc_link
+Asynchronous gate request and terminal polling,release gate,R6 polling supported,medium,release-engineering,product-alpha-r7-release-notes.md
+Decision reference in timeline,observability,unknown fields ignorable,low,developer-experience,product-alpha-r7-release-notes.md
+Worker warm-pool adjustment,platform runtime,no interface change,low,platform-operations,known-issues.md
+Rollback evidence checklist,operations,R6-compatible control plane,medium,platform-operations,rollback-notes.md

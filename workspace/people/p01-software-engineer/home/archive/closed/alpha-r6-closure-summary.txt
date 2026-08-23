@@ -1,0 +1,18 @@
+ARCHIVED CLOSURE SUMMARY — Product Alpha R6
+
+Closure date: 2026-06-28 (predates Product Alpha R7 release 2026-07-13)
+Organization: Aster Loop 株式会社
+Archive purpose: retain resolved R6 follow-ups for later R7 context only.
+
+Resolved follow-ups
+- Replay cursor cleanup was exercised against synthetic R6 fixture records; the
+  bounded job skipped non-R6 input and produced an auditable count.
+- The terminal-decision retry note was consolidated into the R7 migration review.
+- A synthetic latency sample was labelled as historical context, not an approval
+  signal. The later R7 baseline is p95 184 ms.
+
+Disposition
+R6 closure is complete and no production action remains under this archive item.
+ADR-042 was adopted for the subsequent asynchronous R7 release-gate process; it
+does not retroactively change this R6 closure. No customer data, identities, or
+access material is included.

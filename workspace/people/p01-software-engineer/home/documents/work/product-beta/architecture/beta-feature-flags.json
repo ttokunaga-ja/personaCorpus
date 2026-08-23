@@ -1,0 +1,9 @@
+{
+  "release": "Product Alpha R7",
+  "date": "2026-07-13",
+  "decision_reference": "ADR-042",
+  "flags": [
+    {"name":"beta_async_projection","cohort":"synthetic-canary","default":false,"expiry":"2026-10-13","audit":"required"},
+    {"name":"beta_alpha_r7_adapter","cohort":"synthetic-canary","default":false,"expiry":"2026-10-13","audit":"required"}
+  ]
+}

@@ -1,0 +1,9 @@
+endpoint,method,status,error_code,retryable,notes
+/v1/releases,POST,202,,false,ADR-042 gate awaiting approval
+/v1/releases,POST,400,idempotency_key_required,false,Provide key
+/v1/releases,POST,409,idempotency_conflict,false,Do not change replay body
+/v1/releases,POST,422,validation_failed,false,Correct request
+/v1/releases,POST,504,upstream_timeout,true,Reuse idempotency key
+/v1/releases/{releaseId},GET,200,,false,Status target p95 184 ms
+/v1/releases/{releaseId},GET,404,release_not_found,false,Check opaque identifier
+/v1/releases,GET,200,,false,Stable cursor pagination

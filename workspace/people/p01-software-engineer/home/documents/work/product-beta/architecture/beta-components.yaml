@@ -1,0 +1,24 @@
+product: Product Beta
+organization: Aster Loop 株式会社
+release_context: Product Alpha R7
+date: 2026-07-13
+decision_reference: ADR-042
+components:
+  - crate: beta-domain
+    role: state transitions
+    dependencies: []
+    maturity: prototype
+  - crate: beta-store
+    role: optimistic event append
+    dependencies: [beta-domain]
+    maturity: evaluated
+  - crate: beta-projection
+    role: idempotent read model
+    dependencies: [beta-store]
+    maturity: prototype
+  - crate: beta-alpha-adapter
+    role: terminal Alpha R7 event adapter
+    dependencies: [beta-domain]
+    maturity: prototype
+performance_reference:
+  alpha_gate_p95_ms: 184

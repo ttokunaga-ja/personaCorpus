@@ -1,0 +1,6 @@
+[09:03] Software Engineering: pre-read confirms durable admission is the decision boundary.
+[09:07] Platform: event v1 remains additive; schema guard blocks incompatible publisher changes.
+[09:15] Release Engineering: staged rollout needs p95 184 ms stop condition.
+[09:21] Software Engineering: timeout must never imply approval.
+[09:28] Platform: observability is evidence-only and correlation uses synthetic ids.
+[09:35] Release Engineering: action owners and synthetic dates recorded.

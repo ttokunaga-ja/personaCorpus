@@ -1,0 +1,8 @@
+Architecture review notes - 2026-07-10
+Scope: Aster Loop 株式会社 | Product Alpha R7 | 2026-07-13 | p95 184 ms | ADR-042
+09:05 JP: 同期gateは説明が簡単という意見。
+09:12 EN: Platform disagreed; durable admission gives a clearer recovery boundary.
+09:24 Decision: idempotency ledger and explicit timed_out state are mandatory.
+09:37 JP: observability failure is non-blocking but alertable.
+09:49 Follow-up: rehearse schema-guard failure before 2026-07-13.
+10:16 Resolution: ADR-042 accepted; staged rollout and p95 stop condition retained.

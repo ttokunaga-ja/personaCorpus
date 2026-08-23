@@ -1,0 +1,2 @@
+// Aster Loop Product Alpha R7 2026-07-13 p95 184 ms ADR-042
+export type Service="edge-api"|"release-coordinator"|"event-bus"|"observability";export type Event="release.gate.requested.v1"|"release.gate.decided.v1";export interface Topology{services:Service[];edges:[Service,Service][]}export function validate(t:Topology):string[]{const s=new Set(t.services),e:string[]=[];if(!s.has("release-coordinator"))e.push("coordinator required");if(!t.edges.some(x=>x[0]==="edge-api"&&x[1]==="release-coordinator"))e.push("admission edge required");return e}

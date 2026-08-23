@@ -1,0 +1,20 @@
+2026-07-12T08:55:00Z INFO fixture loaded records=1200 source=alpha-r7-v1
+2026-07-12T08:55:04Z INFO dry run started mode=preview
+2026-07-12T08:55:08Z INFO adapter validation passed required_fields=8
+2026-07-12T08:55:12Z INFO dual-read enabled cohort=0
+2026-07-12T08:55:18Z INFO checkpoint baseline alpha=428 beta=0
+2026-07-12T08:55:24Z WARN optional beta_label absent record=synthetic-047
+2026-07-12T08:55:25Z INFO recovered incompatibility default=unlabeled record=synthetic-047
+2026-07-12T08:55:31Z INFO projection batch accepted records=250
+2026-07-12T08:55:42Z INFO projection batch accepted records=500
+2026-07-12T08:55:54Z INFO projection batch accepted records=750
+2026-07-12T08:56:05Z INFO projection batch accepted records=1000
+2026-07-12T08:56:12Z INFO projection batch accepted records=1200
+2026-07-12T08:56:14Z INFO checkpoint parity alpha=428 beta=428
+2026-07-12T08:56:16Z INFO record-count invariant alpha=1200 beta=1200
+2026-07-12T08:56:18Z INFO queue_lag_seconds=3 threshold_seconds=300
+2026-07-12T08:56:20Z INFO latency_p95_ms=184 budget_ms=184
+2026-07-12T08:56:23Z INFO feature_flag desired=0 observed=0
+2026-07-12T08:56:26Z INFO rollback rehearsal disabled_projection=true alpha_reads=true
+2026-07-12T08:56:30Z INFO verifier findings=0
+2026-07-12T08:56:34Z SUMMARY status=passed recovered_incompatibilities=1 rollback_verified=true evidence=synthetic

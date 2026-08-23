@@ -1,0 +1,20 @@
+asyncapi: 3.0.0
+info: {title: Aster Loop Product Alpha R7 release events, version: r7.0, description: ADR-042 events for 2026-07-13.}
+channels:
+  release.events:
+    address: release.events
+    messages:
+      releaseRequested: {$ref: '#/components/messages/ReleaseRequested'}
+      releaseApproved: {$ref: '#/components/messages/ReleaseApproved'}
+      releaseCompleted: {$ref: '#/components/messages/ReleaseCompleted'}
+operations:
+  publishRequested: {action: send, channel: {$ref: '#/channels/release.events'}, messages: [{$ref: '#/channels/release.events/messages/releaseRequested'}]}
+  publishApproved: {action: send, channel: {$ref: '#/channels/release.events'}, messages: [{$ref: '#/channels/release.events/messages/releaseApproved'}]}
+  publishCompleted: {action: send, channel: {$ref: '#/channels/release.events'}, messages: [{$ref: '#/channels/release.events/messages/releaseCompleted'}]}
+components:
+  messages:
+    ReleaseRequested: {name: release.requested, correlationId: {$ref: '$message.payload#/releaseId'}, payload: {$ref: '#/components/schemas/Event'}}
+    ReleaseApproved: {name: release.approved, correlationId: {$ref: '$message.payload#/releaseId'}, payload: {$ref: '#/components/schemas/Event'}}
+    ReleaseCompleted: {name: release.completed, correlationId: {$ref: '$message.payload#/releaseId'}, payload: {$ref: '#/components/schemas/Event'}}
+  schemas:
+    Event: {type: object, required: [eventId, releaseId, state, occurredAt, requestId, retryAttempt], properties: {eventId: {type: string}, releaseId: {type: string}, state: {type: string, enum: [requested, approved, completed]}, occurredAt: {type: string, format: date-time}, requestId: {type: string}, retryAttempt: {type: integer, minimum: 0, description: Consumers deduplicate by eventId; retries preserve correlation releaseId.}}}

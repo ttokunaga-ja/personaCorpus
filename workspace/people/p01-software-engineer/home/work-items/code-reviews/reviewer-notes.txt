@@ -1,0 +1,8 @@
+Synthetic reviewer notes - Product Alpha R7
+
+Release engineering: the pending-to-terminal contract is now clear; retain the gate_id in the timeline.
+Platform operations: p95 184 ms is credible for the synthetic canary sample; do not interpret it as a production SLO.
+Quality engineering: stale version, cancellation, and incomplete decision-reference paths need fixture coverage.
+Developer experience: ADR-042 is the release-gate decision; the storage proposal is a separate concern.
+
+All role labels and examples are synthetic. No individual reviewer identity or customer information is included.

@@ -1,0 +1,5 @@
+extends: [['spectral:oas', all]]
+rules:
+  beta-operation-id: {description: Preview operations need stable IDs., given: '$.paths[*][get,post]', then: {field: operationId, function: truthy}}
+  beta-description: {description: Preview operations must disclose their scope., given: '$.paths[*][get,post]', then: {field: description, function: truthy}}
+  beta-deprecation: {description: Preview changes document deprecation before removal., given: '$.info', then: {field: description, function: truthy}}

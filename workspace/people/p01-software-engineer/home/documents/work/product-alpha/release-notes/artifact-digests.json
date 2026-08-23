@@ -1,0 +1,11 @@
+{
+  "algorithm": "sha256",
+  "release": "Product Alpha R7",
+  "date": "2026-07-13",
+  "artifacts": [
+    {"name": "product-alpha-r7-control-plane.tar", "sha256": "a3c9d4e51c4a5e8f1a65c6b02e5b0e7974c1c0f0ed7b7c1ed6c0ab26ef9bdb23"},
+    {"name": "product-alpha-r7-worker.tar", "sha256": "68e4d2a1501c7c8211358183419d1c64db2c8d2d2c2ad977a0e77c61075cc5b1"},
+    {"name": "product-alpha-r7-notes.html", "sha256": "de8b73f2c9981cfb783cf1f4e51cda5886540311d11ab50c50e675cf38f0fa4e"}
+  ],
+  "fixture_notice": "Synthetic digest fixtures; not production artifact identifiers."
+}

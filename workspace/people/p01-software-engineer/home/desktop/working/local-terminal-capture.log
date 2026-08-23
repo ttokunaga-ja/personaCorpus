@@ -1,0 +1,7 @@
+2026-07-12T10:02:03Z $ cargo test --lib release_gate
+2026-07-12T10:02:05Z error: synthetic fixture missing decision-store row
+2026-07-12T10:03:11Z $ ./scripts/seed_synthetic_fixture.sh
+2026-07-12T10:03:14Z seeded releases=120 events=240
+2026-07-12T10:03:20Z $ cargo test --lib release_gate
+2026-07-12T10:03:23Z test duplicate_event_returns_original_ticket ... ok
+2026-07-12T10:03:24Z result: pass; p95 budget 184 ms; ADR-042 local evidence

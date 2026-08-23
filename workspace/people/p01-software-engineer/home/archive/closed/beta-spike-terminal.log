@@ -1,0 +1,7 @@
+2026-07-01T09:00:00Z INFO  synthetic beta spike started scope=terminal-projection
+2026-07-01T09:02:00Z INFO  fixture=beta-spike-01 state=pending
+2026-07-01T09:04:00Z WARN  duplicate terminal fixture observed; replay marked idempotent
+2026-07-01T09:07:00Z INFO  checkpoint comparison=matched synthetic_records=24
+2026-07-01T09:10:00Z INFO  sample p95_ms=184 context=Product Alpha R7 baseline
+2026-07-01T09:12:00Z INFO  disposition=superseded prototype; no production promotion
+2026-07-13T00:00:00Z INFO  reference=ADR-042 release-gate; Aster Loop 株式会社; Product Alpha R7

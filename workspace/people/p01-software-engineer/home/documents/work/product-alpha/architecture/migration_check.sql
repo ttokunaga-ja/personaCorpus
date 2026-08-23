@@ -1,0 +1,2 @@
+-- Aster Loop Product Alpha R7 2026-07-13 p95 184 ms ADR-042
+BEGIN;ALTER TABLE IF EXISTS release_decisions ADD COLUMN IF NOT EXISTS contract_version integer;UPDATE release_decisions SET contract_version=1 WHERE contract_version IS NULL;DO $$ BEGIN IF EXISTS(SELECT 1 FROM release_decisions WHERE contract_version<>1) THEN RAISE EXCEPTION 'ADR-042 invariant failed';END IF;END $$;-- rollback: ALTER TABLE release_decisions DROP COLUMN IF EXISTS contract_version;ROLLBACK;

@@ -1,0 +1,18 @@
+extends: [['spectral:oas', all]]
+rules:
+  operation-id-required:
+    description: Every operation needs a stable operationId.
+    given: '$.paths[*][get,post,put,patch,delete]'
+    then: {field: operationId, function: truthy}
+  description-required:
+    description: Operations require reader-facing descriptions.
+    given: '$.paths[*][get,post,put,patch,delete]'
+    then: {field: description, function: truthy}
+  request-id-header:
+    description: Responses must describe request identity.
+    given: '$.components.parameters'
+    then: {field: RequestId, function: truthy}
+  example-required:
+    description: Release schema includes concrete examples.
+    given: '$.components.schemas.Release.properties.releaseId'
+    then: {field: example, function: truthy}

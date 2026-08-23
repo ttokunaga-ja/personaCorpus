@@ -12,7 +12,9 @@ with ordinary Git:
 - `manifests/corpus-sha256.jsonl`, which covers every managed final artifact.
 
 Line-ending conversion is disabled for identity-sensitive corpus, authority,
-ledger, and manifest bytes. A clone verifies the accepted final tree with:
+ledger, and manifest bytes. Corpus artifacts are also excluded from Git's
+textual diff driver; byte review uses the deterministic manifest rather than
+binary/text heuristics. A clone verifies the accepted final tree with:
 
 ```bash
 ./bin/corpus-manifest verify --manifest manifests/corpus-sha256.jsonl

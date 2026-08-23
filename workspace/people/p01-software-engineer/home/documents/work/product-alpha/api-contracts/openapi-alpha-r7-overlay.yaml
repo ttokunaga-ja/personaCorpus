@@ -1,0 +1,7 @@
+overlay: 1.0.0
+info: {title: Product Alpha R7 internal release overlay, version: 2026-07-13}
+actions:
+  - target: $.paths['/v1/releases'].post.description
+    update: 'Add internal routing note: accept requests during the 09:00-12:00 JST R7 release window; ADR-042 approval remains authoritative.'
+  - target: $.paths['/v1/releases/{releaseId}'].get.description
+    update: Internal operators reconcile requested, approved, running, and completed transitions here.

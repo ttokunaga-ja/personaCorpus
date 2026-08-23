@@ -1,0 +1,6 @@
+2026-07-11T09:00:00Z rehearsal=beta-wave-0 cohort=synthetic-canary alpha_events=120 beta_events=120 checkpoint_lag_s=4 queue_lag_s=7 p95_ms=181 status=pass
+2026-07-11T09:08:00Z rehearsal=beta-wave-0 schema_guard=ADR-042 terminal_refs=120/120 status=pass
+2026-07-11T09:15:00Z rehearsal=beta-wave-1 cohort=synthetic-staged alpha_events=240 beta_events=240 checkpoint_lag_s=9 queue_lag_s=14 p95_ms=184 status=pass
+2026-07-11T09:18:00Z rehearsal=beta-wave-1 warning="queue lag reached 34 seconds during worker recycle" mitigation="restored warm worker before cutover" status=resolved
+2026-07-11T09:30:00Z rehearsal=rollback-drill alpha_reads=restored beta_checkpoint=retained evidence=complete status=pass
+2026-07-11T09:35:00Z organization="Aster Loop 株式会社" release="Product Alpha R7" date=2026-07-13 decision=ADR-042 outcome=ready

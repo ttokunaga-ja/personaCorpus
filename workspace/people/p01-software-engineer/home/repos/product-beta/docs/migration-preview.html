@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Beta migration preview</title>
+<style>body{font:17px system-ui;margin:2rem auto;max-width:60rem;color:#162b42}header{border-bottom:4px solid #1789c9}section{margin:2rem 0}.card{padding:1rem;border:1px solid #b9d6e7;border-radius:8px;margin:.6rem 0}.callout{background:#fff5d8;padding:1rem;border-left:5px solid #d88b00}table{border-collapse:collapse;width:100%}th,td{border:1px solid #9eb8c8;padding:.55rem;text-align:left}</style></head>
+<body><header><h1>Beta migration preview</h1><p>Aster Loop 株式会社 · Product Alpha R7 · 2026-07-13 · p95 184 ms · ADR-042</p></header><main>
+<section><h2>Summary</h2><p>Reversible synthetic projection from Alpha R7 to Beta.</p></section>
+<section><h2>Phases</h2><div class="card">1. Adapter validation</div><div class="card">2. Dual-read dry run</div><div class="card">3. Beta projection and verification</div></section>
+<section><h2>Compatibility</h2><table><thead><tr><th>Surface</th><th>Rule</th><th>Evidence</th></tr></thead><tbody><tr><td>Event</td><td>v1 dual-read</td><td>checkpoint parity</td></tr><tr><td>Storage</td><td>derived only</td><td>record counts</td></tr></tbody></table></section>
+<section><h2>Gates</h2><p>5%, 25%, 100%; stop if p95 exceeds 184 ms, lag exceeds five minutes, or the verifier finds mismatch.</p></section>
+<aside class="callout"><h2>Rollback</h2><p>Freeze cohort, disable Beta projection, retain Alpha reads, and verify an Alpha canary.</p></aside></main></body></html>

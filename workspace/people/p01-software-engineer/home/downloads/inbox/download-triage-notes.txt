@@ -1,0 +1,37 @@
+DOWNLOAD TRIAGE NOTES — synthetic inbox review
+Scope: Aster Loop 株式会社 / Product Alpha R7 / release 2026-07-13
+Reference baseline: p95 184 ms; ADR-042 asynchronous release gate.
+
+1. candidate-migration-script.ts
+   Source class: untrusted code attachment; provenance intentionally withheld.
+   Relevance: claims to translate Alpha event records for a Beta trial.
+   Decision: archive for static review only. Do not execute or grant filesystem,
+   network, credential, or production access. The candidate is retained because
+   its assumptions are useful for the migration threat review.
+
+2. candidate-latency-analysis.ipynb
+   Source class: untrusted analysis notebook with deterministic synthetic samples.
+   Relevance: compares a small p95 sample against the 184 ms release target.
+   Decision: keep in review queue. Outputs are illustrative, not evidence for a
+   release decision; reproduce in an approved environment before citing it.
+
+3. scanned-incident-note.pdf
+   Source class: scanned rehearsal note; image-only by design.
+   Relevance: describes an internal, synthetic ADR-042 recovery rehearsal.
+   Decision: archive as training context. It contains no customer data and no
+   deployable instruction, but its visual source should not be treated as signed evidence.
+
+4. vendor-migration-advisory.pdf
+   Source class: generic synthetic advisory.
+   Relevance: flags compatibility checks for the Alpha R7 to Beta dual-run.
+   Decision: keep with a caution label; validate every claim against internal
+   interfaces and current release controls.
+
+5. r7-support-export.zip
+   Source class: redacted synthetic support export.
+   Relevance: contains rehearsal log excerpts and a manifest only.
+   Decision: retain for schema and redaction tests; archive after review closure.
+
+Triage outcome: no item is approved for execution or production use. Review owner
+roles are Release Engineering and Platform Reliability; names and contact details
+are deliberately omitted.

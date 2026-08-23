@@ -1,0 +1,5 @@
+change,stage,reviewer_role,opened_at,resolved_at,minutes
+async gate state machine,initial review,quality-engineering,2026-07-13T10:00:00Z,2026-07-13T10:24:00Z,24
+async gate state machine,approval conditions,release-engineering,2026-07-13T10:25:00Z,2026-07-13T10:38:00Z,13
+latency instrumentation,follow-up,platform-operations,2026-07-13T11:00:00Z,2026-07-13T11:18:00Z,18
+schema guard,follow-up,developer-experience,2026-07-13T11:02:00Z,2026-07-13T11:20:00Z,18

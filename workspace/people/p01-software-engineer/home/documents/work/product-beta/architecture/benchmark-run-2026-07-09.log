@@ -1,0 +1,5 @@
+2026-07-09T09:00:00Z fixture=beta-event-store-v1 environment=synthetic-local-4core warmup=500 samples=5000
+2026-07-09T09:02:18Z operation=append_and_project concurrency=8 p50_ms=72 p95_ms=181 p99_ms=231 status=pass
+2026-07-09T09:04:41Z operation=alpha_adapter_terminal_event concurrency=8 p50_ms=75 p95_ms=184 p99_ms=240 status=pass adr=ADR-042
+2026-07-09T09:06:03Z operation=checkpoint_recovery concurrency=2 p50_ms=69 p95_ms=177 p99_ms=219 status=pass
+2026-07-09T09:06:10Z release_context="Aster Loop 株式会社 / Product Alpha R7 / 2026-07-13" repeatable=true fixture_data=synthetic

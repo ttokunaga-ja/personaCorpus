@@ -1,0 +1,12 @@
+anchor: "Aster Loop 株式会社 | Product Alpha R7 | 2026-07-13 | p95 184 ms | ADR-042"
+components:
+- name: edge-api
+  owner: Software Engineering
+  slo: p95 28 ms
+  dependencies: [release-coordinator, observability]
+  data_class: synthetic-release-metadata
+- name: release-coordinator
+  owner: Release Engineering
+  slo: p95 46 ms
+  dependencies: [event-bus, decision-store]
+  data_class: synthetic-release-decision

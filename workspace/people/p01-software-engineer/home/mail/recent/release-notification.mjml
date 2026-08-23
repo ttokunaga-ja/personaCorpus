@@ -1,0 +1,12 @@
+<mjml>
+  <mj-head><mj-title>Product Alpha R7 readiness</mj-title></mj-head>
+  <mj-body background-color="#f6f8fb">
+    <mj-section background-color="#ffffff"><mj-column>
+      <mj-text font-size="24px" font-weight="bold">R7 readiness update</mj-text>
+      <mj-text>Aster Loop 株式会社 · Product Alpha R7 · 2026-07-13 · p95 184 ms · ADR-042</mj-text>
+      <mj-text>Audience: {{role_alias}}. This synthetic internal notice summarizes release readiness and required evidence.</mj-text>
+      <mj-text>Gate: synthetic canary, v1 schema compatibility, durable-ticket tests, and a ten-minute p95 observation.</mj-text>
+      <mj-text>If a gate fails, disable new async routing and retain durable decisions for review.</mj-text>
+    </mj-column></mj-section>
+  </mj-body>
+</mjml>

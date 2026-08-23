@@ -1,0 +1,1 @@
+{"request":{"version":"beta-r7.0","requestId":"req_beta_001"},"response":{"betaReleaseId":"betarel_001","state":"awaiting_approval","approvalGate":"ADR-042","createdAt":"2026-07-13T00:20:00Z","requestId":"req_beta_001","p95TargetMs":184},"event":{"eventId":"evt_beta_001","kind":"release.requested","delivery":{"deliveryId":"del_beta_001","attempt":0},"releaseId":"betarel_001"}}

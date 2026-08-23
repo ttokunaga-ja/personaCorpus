@@ -1,0 +1,22 @@
+From: platform@aster-loop.invalid
+To: release-engineering@aster-loop.invalid, software-engineering@aster-loop.invalid
+Subject: ADR-042 approval record - synthetic thread
+Date: Mon, 13 Jul 2026 08:00:00 +0000
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="adr-approval-boundary"
+
+--adr-approval-boundary
+Content-Type: text/plain; charset=UTF-8
+
+Aster Loop 株式会社 / Product Alpha R7 / 2026-07-13 / p95 184 ms / ADR-042
+
+Objection: a synchronous gate is easier for a client to reason about.
+Evidence: the synthetic R7 cohort is 184 ms p95; durable admission is 45 ms against a 46 ms allocation.
+Resolution: a durable ticket gives explicit recovery and duplicate-event handling.
+Approval: Platform, Software Engineering, and Release Engineering approve subject to p95, error, and schema stop conditions.
+
+--adr-approval-boundary
+Content-Type: text/html; charset=UTF-8
+
+<html><body><h1>ADR-042 approval</h1><p>Aster Loop 株式会社 / Product Alpha R7 / 2026-07-13 / p95 184 ms / ADR-042</p><h2>Objection</h2><p>Synchronous flow is simpler for clients.</p><h2>Evidence and resolution</h2><p>184 ms p95 evidence supports durable admission and explicit recovery.</p><h2>Approval</h2><p>Approved subject to p95, error, and schema conditions.</p></body></html>
+--adr-approval-boundary--

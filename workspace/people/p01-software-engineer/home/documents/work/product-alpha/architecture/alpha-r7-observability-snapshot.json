@@ -1,0 +1,50 @@
+{
+  "organization": "Aster Loop株式会社（synthetic）",
+  "product": "Product Alpha R7",
+  "release_date": "2026-07-13",
+  "decision": "ADR-042",
+  "review_date": "2026-07-20",
+  "evidence_window": "2026-07-13..2026-07-20",
+  "requests": 84200,
+  "successful": 84149,
+  "unsuccessful": 51,
+  "gate_sampled": 9000,
+  "approved": 8883,
+  "non_approved": 117,
+  "rollback_drill": "2026-07-17",
+  "recovery_seconds": 702,
+  "recovery_duration": "11m42s",
+  "disposition": "keep ADR-042",
+  "p95_ms": 184,
+  "stages": [
+    [
+      "Request intake",
+      28
+    ],
+    [
+      "Edge API",
+      32
+    ],
+    [
+      "Release Coordinator",
+      46
+    ],
+    [
+      "Decision Store",
+      24
+    ],
+    [
+      "Event Bus",
+      18
+    ],
+    [
+      "Observability confirmation",
+      36
+    ]
+  ],
+  "success_rate_rounded_pct": 99.94,
+  "approval_rate_rounded_pct": 98.7,
+  "approval_boundary": "between Release Coordinator and Decision Store",
+  "event_bus_sequence": "after Decision Store gate decision",
+  "synthetic": true
+}

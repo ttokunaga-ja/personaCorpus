@@ -1,0 +1,25 @@
+openapi: 3.1.0
+info:
+  title: Aster Loop Product Beta preview API
+  version: beta-r7.0
+  description: Preview companion to Product Alpha R7 for 2026-07-13. Uses ADR-042 and targets p95 184 ms.
+paths:
+  /v1/beta/releases:
+    post:
+      operationId: createBetaRelease
+      description: Create a cancellable preview release request before ADR-042 approval.
+      requestBody: {required: true, content: {application/json: {schema: {$ref: '#/components/schemas/Create'}, example: {version: beta-r7.0}}}}
+      responses: {'202': {description: Preview release accepted, content: {application/json: {schema: {$ref: '#/components/schemas/Release'}}}}, '422': {$ref: '#/components/responses/Validation'}}
+  /v1/beta/releases/{betaReleaseId}:
+    get:
+      operationId: getBetaRelease
+      description: Read preview status; Alpha R7 uses releaseId while this preview uses betaReleaseId.
+      parameters: [{name: betaReleaseId, in: path, required: true, description: Opaque beta identifier, schema: {type: string}}]
+      responses: {'200': {description: Preview release, content: {application/json: {schema: {$ref: '#/components/schemas/Release'}}}}}
+components:
+  schemas:
+    Create: {type: object, required: [version], properties: {version: {type: string, pattern: '^beta-r7\\.'}}}
+    Release: {type: object, required: [betaReleaseId, state, approvalGate, createdAt, requestId, p95TargetMs], properties: {betaReleaseId: {type: string, example: betarel_001}, state: {type: string, enum: [preview_requested, awaiting_approval, approved, running, completed, cancelled, failed]}, approvalGate: {type: string, const: ADR-042}, createdAt: {type: string, format: date-time}, requestId: {type: string, example: req_beta_001}, p95TargetMs: {type: integer, const: 184}}}
+    Error: {type: object, required: [code, message, retryable], properties: {code: {type: string}, message: {type: string}, retryable: {type: boolean}}}
+  responses:
+    Validation: {description: Invalid preview request, content: {application/json: {schema: {$ref: '#/components/schemas/Error'}}}}

@@ -1,0 +1,4 @@
+review_id,stage,role_label,timestamp,disposition,anchor
+rvw-r7-001,architecture,Software Engineering,2026-07-10T09:00:00Z,approved,ADR-042
+rvw-r7-002,platform,Platform,2026-07-11T10:00:00Z,approved-with-schema-guard,ADR-042
+rvw-r7-003,release,Release Engineering,2026-07-12T11:00:00Z,approved-with-stop-conditions,ADR-042

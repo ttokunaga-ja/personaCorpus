@@ -1,0 +1,6 @@
+2026-07-13T08:55:00Z canary=alpha-r7-01 requests=12 terminal=12 p50_ms=91 p95_ms=176 p99_ms=221 status=pass
+2026-07-13T09:10:00Z canary=alpha-r7-02 requests=12 terminal=12 p50_ms=94 p95_ms=184 p99_ms=236 status=pass
+2026-07-13T09:25:00Z canary=alpha-r7-03 requests=12 terminal=12 p50_ms=88 p95_ms=181 p99_ms=271 status=warning reason="worker warm pool below target"
+2026-07-13T09:32:00Z canary=alpha-r7-03 action="warm pool restored" status=resolved
+2026-07-13T09:40:00Z canary=alpha-r7-04 requests=12 terminal=12 p50_ms=90 p95_ms=179 p99_ms=228 status=pass
+2026-07-13T09:45:00Z release=Product-Alpha-R7 adr=ADR-042 aggregate_p95_ms=184 status=approved

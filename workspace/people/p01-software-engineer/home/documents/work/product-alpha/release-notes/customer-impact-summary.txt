@@ -1,0 +1,17 @@
+Product Alpha R7 customer-impact summary (synthetic S1/S2)
+Date: 2026-07-13
+
+Scope: Release-gate control-plane behavior only. No real customer records, contacts, or tenant identifiers are represented.
+
+Expected experience
+  - Promotions may show a short pending state while ADR-042 evaluation completes.
+  - Existing R6 status polling remains supported during the compatibility window.
+  - No planned data migration or user-facing configuration action is required.
+
+Impact classification
+  S1: No confirmed impact. Terminal gate decisions completed for all synthetic canaries.
+  S2: One transient p99 latency warning was resolved by restoring the worker warm pool.
+
+Support posture
+  Use the release timeline and gate_id when investigating a delayed promotion.
+  Escalate only when the rollback triggers in rollback-notes.md are met.

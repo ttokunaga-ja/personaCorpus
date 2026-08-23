@@ -1,0 +1,8 @@
+stage,target_ms,observed_ms,source,anchor
+edge_routing,28,26,edge_span,ADR-042 Product Alpha R7 2026-07-13
+api_validation,32,31,validation_span,ADR-042 Product Alpha R7 2026-07-13
+durable_admission,46,45,transaction,ADR-042 Product Alpha R7 2026-07-13
+event_publish,24,22,broker_ack,ADR-042 Product Alpha R7 2026-07-13
+observability,18,16,telemetry,ADR-042 Product Alpha R7 2026-07-13
+reserve,36,44,variance,ADR-042 Product Alpha R7 2026-07-13
+total,184,184,synthetic_r7_cohort,ADR-042 Product Alpha R7 2026-07-13
