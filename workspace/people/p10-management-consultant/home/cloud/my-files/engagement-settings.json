@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "export_kind": "engagement_settings",
+  "exported_at": "2026-07-10T09:15:00Z",
+  "provider": "Summit Vale Advisory",
+  "tenant": {
+    "tenant_id": "sva-demo-2026",
+    "display_name": "Summit Vale Advisory Demonstration Tenant",
+    "data_classification": "synthetic-internal"
+  },
+  "engagement": {
+    "engagement_id": "eng-sva-alpha-2026-p1",
+    "portfolio_id": "portfolio-sva-ops-finance-2026",
+    "client_label": "Client Alpha",
+    "phase": 1,
+    "workstream": "Finance",
+    "budget_jpy": 42800000,
+    "currency": "JPY",
+    "milestone_date": "2026-07-13",
+    "workspace_channel": "alpha-finance-phase-1"
+  },
+  "controls": {
+    "retention_days": 365,
+    "external_sharing": "disabled",
+    "export_status": "frozen",
+    "source_system": "SVA Workspace Cloud"
+  }
+}

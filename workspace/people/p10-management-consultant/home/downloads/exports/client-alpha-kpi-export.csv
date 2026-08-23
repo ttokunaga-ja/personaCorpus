@@ -1,0 +1,37 @@
+kpi_id,period,workstream,portfolio_reference,actual_value,target_value,variance_value,status,as_of_date,source
+CA-KPI-01,2026-W01,Finance,Client Alpha Phase 1,68,82,-14,Watch,2026-07-13,Synthetic Finance KPI extract
+CA-KPI-02,2026-W02,Finance,Client Alpha Phase 1,75,83,-8,Watch,2026-07-13,Synthetic Finance KPI extract
+CA-KPI-03,2026-W03,Finance,Client Alpha Phase 1,82,84,-2,Watch,2026-07-13,Synthetic Finance KPI extract
+CA-KPI-04,2026-W04,Finance,Client Alpha Phase 1,89,85,4,On track,2026-07-13,Synthetic Finance KPI extract
+CA-KPI-05,2026-W05,Finance,Client Alpha Phase 1,69,86,-17,Watch,2026-07-13,Synthetic Finance KPI extract
+CA-KPI-06,2026-W06,Finance,Client Alpha Phase 1,76,82,-6,Watch,2026-07-13,Synthetic Finance KPI extract
+CA-KPI-07,2026-W07,Finance,Client Alpha Phase 1,83,83,0,On track,2026-07-13,Synthetic Finance KPI extract
+CA-KPI-08,2026-W08,Finance,Client Alpha Phase 1,90,84,6,On track,2026-07-13,Synthetic Finance KPI extract
+CA-KPI-09,2026-W09,Finance,Client Alpha Phase 1,70,85,-15,Watch,2026-07-13,Synthetic Finance KPI extract
+CA-KPI-10,2026-W10,Finance,Client Alpha Phase 1,77,86,-9,Watch,2026-07-13,Synthetic Finance KPI extract
+CA-KPI-11,2026-W11,Finance,Client Alpha Phase 1,84,82,2,On track,2026-07-13,Synthetic Finance KPI extract
+CA-KPI-12,2026-W12,Finance,Client Alpha Phase 1,91,83,8,On track,2026-07-13,Synthetic Finance KPI extract
+CA-KPI-13,2026-W13,Finance,Client Alpha Phase 1,71,84,-13,Watch,2026-07-13,Synthetic Finance KPI extract
+CA-KPI-14,2026-W14,Finance,Client Alpha Phase 1,78,85,-7,Watch,2026-07-13,Synthetic Finance KPI extract
+CA-KPI-15,2026-W15,Finance,Client Alpha Phase 1,85,86,-1,Watch,2026-07-13,Synthetic Finance KPI extract
+CA-KPI-16,2026-W16,Finance,Client Alpha Phase 1,92,82,10,On track,2026-07-13,Synthetic Finance KPI extract
+CA-KPI-17,2026-W17,Finance,Client Alpha Phase 1,72,83,-11,Watch,2026-07-13,Synthetic Finance KPI extract
+CA-KPI-18,2026-W18,Finance,Client Alpha Phase 1,79,84,-5,Watch,2026-07-13,Synthetic Finance KPI extract
+CA-KPI-19,2026-W19,Finance,Client Alpha Phase 1,86,85,1,On track,2026-07-13,Synthetic Finance KPI extract
+CA-KPI-20,2026-W20,Finance,Client Alpha Phase 1,93,86,7,On track,2026-07-13,Synthetic Finance KPI extract
+CA-KPI-21,2026-W21,Finance,Client Alpha Phase 1,73,82,-9,Watch,2026-07-13,Synthetic Finance KPI extract
+CA-KPI-22,2026-W22,Finance,Client Alpha Phase 1,80,83,-3,Watch,2026-07-13,Synthetic Finance KPI extract
+CA-KPI-23,2026-W23,Finance,Client Alpha Phase 1,87,84,3,On track,2026-07-13,Synthetic Finance KPI extract
+CA-KPI-24,2026-W24,Finance,Client Alpha Phase 1,94,85,9,On track,2026-07-13,Synthetic Finance KPI extract
+CA-KPI-25,2026-W25,Finance,Client Alpha Phase 1,74,86,-12,Watch,2026-07-13,Synthetic Finance KPI extract
+CA-KPI-26,2026-W26,Finance,Client Alpha Phase 1,81,82,-1,Watch,2026-07-13,Synthetic Finance KPI extract
+CA-KPI-27,2026-W27,Finance,Client Alpha Phase 1,88,83,5,On track,2026-07-13,Synthetic Finance KPI extract
+CA-KPI-28,2026-W28,Finance,Client Alpha Phase 1,68,84,-16,Watch,2026-07-13,Synthetic Finance KPI extract
+CA-KPI-29,2026-W29,Finance,Client Alpha Phase 1,75,85,-10,Watch,2026-07-13,Synthetic Finance KPI extract
+CA-KPI-30,2026-W30,Finance,Client Alpha Phase 1,82,86,-4,Watch,2026-07-13,Synthetic Finance KPI extract
+CA-KPI-31,2026-W31,Finance,Client Alpha Phase 1,89,82,7,On track,2026-07-13,Synthetic Finance KPI extract
+CA-KPI-32,2026-W32,Finance,Client Alpha Phase 1,69,83,-14,Watch,2026-07-13,Synthetic Finance KPI extract
+CA-KPI-33,2026-W33,Finance,Client Alpha Phase 1,76,84,-8,Watch,2026-07-13,Synthetic Finance KPI extract
+CA-KPI-34,2026-W34,Finance,Client Alpha Phase 1,83,85,-2,Watch,2026-07-13,Synthetic Finance KPI extract
+CA-KPI-35,2026-W35,Finance,Client Alpha Phase 1,90,86,4,On track,2026-07-13,Synthetic Finance KPI extract
+CA-KPI-36,2026-W36,Finance,Client Alpha Phase 1,70,82,-12,Watch,2026-07-13,Synthetic Finance KPI extract

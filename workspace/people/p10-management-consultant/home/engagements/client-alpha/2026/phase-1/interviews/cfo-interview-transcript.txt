@@ -1,0 +1,47 @@
+Client Alpha Phase 1 — Finance workstream interview transcript
+Program anchor: Summit Vale Advisory | 2026-07-13 | budget ¥42.8M
+Date: 2026-07-14 | Interviewer: Avery Calder, Summit Vale Advisory | Participant: Priya Dast, synthetic CFO
+
+[14:00] Avery Calder (Summit Vale Advisory): Thank you for joining. This is a fact-finding interview for Client Alpha Phase 1. We will test hypotheses with records before reaching conclusions. Our context is the ¥42.8M planning budget. What outcomes matter most?
+
+[14:03] Priya Dast (synthetic CFO): Reliable monthly insight and faster decisions matter more than a single cost number. I receive a consolidated view several days after close, then spend time resolving questions about margin and cash. The Finance workstream should identify which delays are structural and which are just normal close discipline.
+
+[14:08] Avery: Hypothesis one is that manual consolidation adjustments delay management reporting. What evidence would confirm or reject it?
+
+[14:10] Priya: Compare adjustment counts, preparer and approver timestamps, and the number of re-opened reports across three closes. A high count alone is not a problem; late or repeated adjustments are. The Finance Director and Controller own those records. Please avoid assuming the consolidation tool is the cause before seeing the workflow.
+
+[14:16] Avery: Hypothesis two is that working-capital visibility is fragmented across receivables, inventory, and payables. Does that reflect your experience?
+
+[14:18] Priya: Partly. The teams have detailed operational views, but the executive view is assembled manually. The key question is whether aging definitions agree. Evidence should include the weekly cash forecast, aging reports, inventory exceptions, and the meeting notes where actions are assigned. I need an explanation of decision rights, not merely a dashboard proposal.
+
+[14:25] Avery: We also heard that commercial rebates and service credits can obscure margin timing. Is that a material risk?
+
+[14:27] Priya: It is plausible, but I have not seen a quantified effect. Revenue policy may be sound while the reporting extract is late. Test a small sample from contract approval through revenue recognition and management reporting. Rowan Ives can explain policy; the Controller can provide close entries. Label this as a hypothesis until the sample is complete.
+
+[14:34] Avery: How should we distinguish achievable savings from an aspirational sourcing pipeline?
+
+[14:36] Priya: Use three categories: identified opportunity, approved case, and realized benefit. Realized benefit needs a baseline, an approved decision, and spending evidence. Procurement should not be penalized for opportunities still awaiting operational approval. The Finance workstream should reconcile any claimed savings to the ledger, even if that is only a directional test in Phase 1.
+
+[14:43] Avery: Are there guardrails for our recommendations and the ¥42.8M planning budget?
+
+[14:45] Priya: Do not treat the planning budget as a savings target. It is the approved planning envelope for this work. Recommendations should state owner, prerequisite, evidence strength, and expected timing. Bring cross-functional trade-offs to the steering committee rather than resolving them in interviews.
+
+[14:52] Avery: Our actions are to request three-close adjustment data, working-capital packs, a revenue sample, and realized-savings support. We will send notes for correction. Anything else?
+
+[14:54] Priya: Include forecast-version history. When a forecast changes, I need to know whether assumptions changed, actual performance changed, or the data changed. That distinction will make the final Client Alpha Phase 1 discussion more useful.
+
+[14:58] Avery: Agreed. We will maintain an evidence register, return observations to owners for validation, and keep hypotheses separate from findings. Thank you.
+
+[15:01] Priya: One additional point: the interview sequence should not become a substitute for management decisions. If the evidence reveals a conflict between cash preservation and margin presentation, document both effects and bring a choice to the steering committee. The responsible business owner should decide after Finance provides a balanced analysis.
+
+[15:05] Avery: Understood. For evidence quality, may we classify sources as confirmed records, stakeholder perspective, or incomplete support?
+
+[15:07] Priya: Yes. That classification is useful, especially when a statement has not yet been reconciled. Please also record the reporting period and the specific definition used. An apparently small terminology difference can produce a lengthy executive debate after the pack is issued.
+
+[15:12] Avery: We will add those fields. Our next synthesis will show the question, hypothesis, available evidence, gap, owner, and action. We will not calculate benefits from partial material. Is there a preferred escalation threshold?
+
+[15:14] Priya: Escalate when a gap can alter a steering-committee choice, when an owner cannot provide evidence within the agreed timeframe, or when teams use irreconcilable definitions. Otherwise, resolve ordinary clarifications with the named owners. This keeps Client Alpha Phase 1 focused without adding unnecessary governance.
+
+[15:19] Avery: Noted. The working conclusion is therefore that reporting reliability, evidence traceability, and decision ownership are the evaluation criteria. The potential causes remain hypotheses pending data. We will share a concise action register with you and Elena Marrow.
+
+[15:22] Priya: Please do. I will review the register for accuracy, but my review should not be treated as validation of the underlying data. The records and owner confirmations must carry that weight.

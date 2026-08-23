@@ -1,0 +1,47 @@
+Client Alpha Phase 1 — Finance workstream interview transcript
+Program anchor: Summit Vale Advisory | 2026-07-13 | budget ¥42.8M
+Date: 2026-07-16 | Interviewer: Nina Solberg, Summit Vale Advisory | Participant: Soren Hale, synthetic Finance Director
+
+[09:00] Nina Solberg (Summit Vale Advisory): We are mapping the Finance workstream for Client Alpha Phase 1, with the ¥42.8M planning budget as agreed context. Which reporting decision is least well supported today?
+
+[09:03] Soren Hale (synthetic Finance Director): Margin reviews require too much interpretation after close. Executives ask whether a variance is price, volume, mix, cost allocation, or timing. We can usually answer, but the explanation is assembled from several people and versions.
+
+[09:09] Nina: Hypothesis one is that the margin bridge lacks stable definitions across Finance and Commercial Operations. How can we test it?
+
+[09:11] Soren: Take the June bridge and trace each component to an approved source. Confirm definitions for gross margin, contribution margin, intercompany eliminations, and rebates. A definition mismatch is more likely than a calculation failure. Ask Mara Venn for the close report and Rowan Ives for the revenue policy interpretation.
+
+[09:18] Nina: We also heard that consolidation adjustments delay the executive pack. What is your view?
+
+[09:20] Soren: Delays exist, but the cause varies. Some adjustments are necessary responses to new facts. The pain is uncertainty: we do not know early enough which open items will materially change the story. Analyze late adjustments by type and materiality, then review the escalation meeting. Do not infer that every manual step is waste.
+
+[09:27] Nina: How does forecast governance work when actuals diverge?
+
+[09:29] Soren: FP&A owns the forecast calendar and business leaders own operational assumptions. Forecast versions sometimes change without a plain-language reason captured centrally. The useful evidence is version history, assumption files, and executive commentary. We need to distinguish changed demand from revised pricing or a data correction.
+
+[09:36] Nina: What priorities should guide recommendations?
+
+[09:38] Soren: Accuracy first, then speed, then presentation. A rapid pack that prompts rework is not progress. For each recommendation, specify the control owner, data dependency, and whether the expected benefit is measured or directional. The steering committee should resolve any request that affects the scope or ¥42.8M planning budget.
+
+[09:45] Nina: Hypothesis three is that savings reporting mixes pipeline and realized benefits. Is that within your team’s remit?
+
+[09:47] Soren: Finance validates realized benefit, while Procurement owns sourcing cases. I want a clear bridge from approved baseline to ledger effect. A favorable purchase order is not automatically a realized saving; volumes, timing, and substitutions matter. Darcy Pell can provide case files and I can designate a finance reviewer.
+
+[09:54] Nina: Actions: issue definition questions, obtain June bridge support, forecast versions, and adjustment segmentation; schedule a joint review with Procurement. We will return an evidence-based summary.
+
+[09:56] Soren: Please include what evidence is missing, not just what you received. That will make Client Alpha Phase 1 decisions transparent.
+
+[09:59] Nina: Agreed. Summit Vale Advisory will keep a traceable evidence register and mark all preliminary hypotheses. Thank you.
+
+[10:02] Soren: When you present the margin bridge, use one primary view and a short appendix of reconciliations. People can debate a bridge indefinitely if definitions are not settled first. The evidence register should point to the exact report version, period, and accountable owner.
+
+[10:07] Nina: We will do that. For hypothesis testing, should we prioritize data completeness or the decision consequences of a gap?
+
+[10:09] Soren: Prioritize decision consequence. A minor missing field may be tolerable, while an untraceable rebate or allocation can alter a management judgment. State the consequence neutrally, then ask the owner what record would resolve it. That avoids turning the Finance workstream into an audit exercise.
+
+[10:14] Nina: We will use that prioritization. If the working-capital data disagrees with the forecast, should the team reconcile it now?
+
+[10:16] Soren: Establish whether there is a definitional or timing reason first. A weekly cash forecast and a month-end balance can both be correct. The action should be a reconciliation path, named owner, and due date—not a claim that one report is wrong.
+
+[10:21] Nina: Understood. We will submit a steering-committee-ready decision list only where evidence demonstrates a material cross-functional issue. Routine data clarification will remain with the operational owner.
+
+[10:23] Soren: That is the right boundary. Keep the planning budget at ¥42.8M in scope documentation, but do not imply that every process finding changes it. Thank you for the disciplined approach.

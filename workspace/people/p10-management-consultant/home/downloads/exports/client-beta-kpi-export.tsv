@@ -1,0 +1,37 @@
+kpi_id	period	workstream	portfolio_reference	actual_value	target_value	variance_value	status	as_of_date	source
+CB-KPI-01	2026-W01	Portfolio	Client Beta Phase 2	54	70	-16	Develop	2026-07-13	Synthetic portfolio reference
+CB-KPI-02	2026-W02	Portfolio	Client Beta Phase 2	63	71	-8	Develop	2026-07-13	Synthetic portfolio reference
+CB-KPI-03	2026-W03	Portfolio	Client Beta Phase 2	72	72	0	On track	2026-07-13	Synthetic portfolio reference
+CB-KPI-04	2026-W04	Portfolio	Client Beta Phase 2	81	73	8	On track	2026-07-13	Synthetic portfolio reference
+CB-KPI-05	2026-W05	Portfolio	Client Beta Phase 2	56	74	-18	Develop	2026-07-13	Synthetic portfolio reference
+CB-KPI-06	2026-W06	Portfolio	Client Beta Phase 2	65	75	-10	Develop	2026-07-13	Synthetic portfolio reference
+CB-KPI-07	2026-W07	Portfolio	Client Beta Phase 2	74	70	4	On track	2026-07-13	Synthetic portfolio reference
+CB-KPI-08	2026-W08	Portfolio	Client Beta Phase 2	83	71	12	On track	2026-07-13	Synthetic portfolio reference
+CB-KPI-09	2026-W09	Portfolio	Client Beta Phase 2	58	72	-14	Develop	2026-07-13	Synthetic portfolio reference
+CB-KPI-10	2026-W10	Portfolio	Client Beta Phase 2	67	73	-6	Develop	2026-07-13	Synthetic portfolio reference
+CB-KPI-11	2026-W11	Portfolio	Client Beta Phase 2	76	74	2	On track	2026-07-13	Synthetic portfolio reference
+CB-KPI-12	2026-W12	Portfolio	Client Beta Phase 2	85	75	10	On track	2026-07-13	Synthetic portfolio reference
+CB-KPI-13	2026-W13	Portfolio	Client Beta Phase 2	60	70	-10	Develop	2026-07-13	Synthetic portfolio reference
+CB-KPI-14	2026-W14	Portfolio	Client Beta Phase 2	69	71	-2	Develop	2026-07-13	Synthetic portfolio reference
+CB-KPI-15	2026-W15	Portfolio	Client Beta Phase 2	78	72	6	On track	2026-07-13	Synthetic portfolio reference
+CB-KPI-16	2026-W16	Portfolio	Client Beta Phase 2	87	73	14	On track	2026-07-13	Synthetic portfolio reference
+CB-KPI-17	2026-W17	Portfolio	Client Beta Phase 2	62	74	-12	Develop	2026-07-13	Synthetic portfolio reference
+CB-KPI-18	2026-W18	Portfolio	Client Beta Phase 2	71	75	-4	Develop	2026-07-13	Synthetic portfolio reference
+CB-KPI-19	2026-W19	Portfolio	Client Beta Phase 2	80	70	10	On track	2026-07-13	Synthetic portfolio reference
+CB-KPI-20	2026-W20	Portfolio	Client Beta Phase 2	55	71	-16	Develop	2026-07-13	Synthetic portfolio reference
+CB-KPI-21	2026-W21	Portfolio	Client Beta Phase 2	64	72	-8	Develop	2026-07-13	Synthetic portfolio reference
+CB-KPI-22	2026-W22	Portfolio	Client Beta Phase 2	73	73	0	On track	2026-07-13	Synthetic portfolio reference
+CB-KPI-23	2026-W23	Portfolio	Client Beta Phase 2	82	74	8	On track	2026-07-13	Synthetic portfolio reference
+CB-KPI-24	2026-W24	Portfolio	Client Beta Phase 2	57	75	-18	Develop	2026-07-13	Synthetic portfolio reference
+CB-KPI-25	2026-W25	Portfolio	Client Beta Phase 2	66	70	-4	Develop	2026-07-13	Synthetic portfolio reference
+CB-KPI-26	2026-W26	Portfolio	Client Beta Phase 2	75	71	4	On track	2026-07-13	Synthetic portfolio reference
+CB-KPI-27	2026-W27	Portfolio	Client Beta Phase 2	84	72	12	On track	2026-07-13	Synthetic portfolio reference
+CB-KPI-28	2026-W28	Portfolio	Client Beta Phase 2	59	73	-14	Develop	2026-07-13	Synthetic portfolio reference
+CB-KPI-29	2026-W29	Portfolio	Client Beta Phase 2	68	74	-6	Develop	2026-07-13	Synthetic portfolio reference
+CB-KPI-30	2026-W30	Portfolio	Client Beta Phase 2	77	75	2	On track	2026-07-13	Synthetic portfolio reference
+CB-KPI-31	2026-W31	Portfolio	Client Beta Phase 2	86	70	16	On track	2026-07-13	Synthetic portfolio reference
+CB-KPI-32	2026-W32	Portfolio	Client Beta Phase 2	61	71	-10	Develop	2026-07-13	Synthetic portfolio reference
+CB-KPI-33	2026-W33	Portfolio	Client Beta Phase 2	70	72	-2	Develop	2026-07-13	Synthetic portfolio reference
+CB-KPI-34	2026-W34	Portfolio	Client Beta Phase 2	79	73	6	On track	2026-07-13	Synthetic portfolio reference
+CB-KPI-35	2026-W35	Portfolio	Client Beta Phase 2	54	74	-20	Develop	2026-07-13	Synthetic portfolio reference
+CB-KPI-36	2026-W36	Portfolio	Client Beta Phase 2	63	75	-12	Develop	2026-07-13	Synthetic portfolio reference

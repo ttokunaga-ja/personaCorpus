@@ -1,0 +1,25 @@
+download_id	client_code	received_at	source_file	received_by	file_status	row_count	retention_note
+DL-260713-001	CA	2026-07-13T09:07:00+09:00	ca-portfolio-export-01.csv	Portfolio PMO	Received	21	Working export; weekly review
+DL-260713-002	CA	2026-07-13T10:14:00+09:00	ca-portfolio-export-02.csv	Portfolio PMO	Held	22	Working export; weekly review
+DL-260713-003	CA	2026-07-13T11:21:00+09:00	ca-portfolio-export-03.csv	Portfolio PMO	Superseded	23	Working export; weekly review
+DL-260713-004	CA	2026-07-13T12:28:00+09:00	ca-portfolio-export-04.csv	Portfolio PMO	Validated	24	Working export; weekly review
+DL-260713-005	CA	2026-07-13T13:35:00+09:00	ca-portfolio-export-05.csv	Portfolio PMO	Received	25	Working export; weekly review
+DL-260713-006	CA	2026-07-13T14:42:00+09:00	ca-portfolio-export-06.csv	Portfolio PMO	Held	26	Working export; weekly review
+DL-260713-007	CA	2026-07-13T15:49:00+09:00	ca-portfolio-export-07.csv	Portfolio PMO	Superseded	27	Working export; weekly review
+DL-260713-008	CA	2026-07-13T16:56:00+09:00	ca-portfolio-export-08.csv	Portfolio PMO	Validated	28	Working export; weekly review
+DL-260713-009	CA	2026-07-13T08:03:00+09:00	ca-portfolio-export-09.csv	Portfolio PMO	Received	29	Working export; weekly review
+DL-260713-010	CA	2026-07-13T09:10:00+09:00	ca-portfolio-export-10.csv	Portfolio PMO	Held	30	Working export; weekly review
+DL-260713-011	CA	2026-07-13T10:17:00+09:00	ca-portfolio-export-11.csv	Portfolio PMO	Superseded	31	Working export; weekly review
+DL-260713-012	CA	2026-07-13T11:24:00+09:00	ca-portfolio-export-12.csv	Portfolio PMO	Validated	32	Working export; weekly review
+DL-260713-013	CB	2026-07-13T12:31:00+09:00	cb-portfolio-export-13.csv	Portfolio PMO	Received	33	Working export; weekly review
+DL-260713-014	CB	2026-07-13T13:38:00+09:00	cb-portfolio-export-14.csv	Portfolio PMO	Held	34	Working export; weekly review
+DL-260713-015	CB	2026-07-13T14:45:00+09:00	cb-portfolio-export-15.csv	Portfolio PMO	Superseded	35	Working export; weekly review
+DL-260713-016	CB	2026-07-13T15:52:00+09:00	cb-portfolio-export-16.csv	Portfolio PMO	Validated	36	Working export; weekly review
+DL-260713-017	CB	2026-07-13T16:59:00+09:00	cb-portfolio-export-17.csv	Portfolio PMO	Received	37	Working export; weekly review
+DL-260713-018	CB	2026-07-13T08:06:00+09:00	cb-portfolio-export-18.csv	Portfolio PMO	Held	38	Working export; weekly review
+DL-260713-019	CB	2026-07-13T09:13:00+09:00	cb-portfolio-export-19.csv	Portfolio PMO	Superseded	39	Working export; weekly review
+DL-260713-020	CB	2026-07-13T10:20:00+09:00	cb-portfolio-export-20.csv	Portfolio PMO	Validated	40	Working export; weekly review
+DL-260713-021	CB	2026-07-13T11:27:00+09:00	cb-portfolio-export-21.csv	Portfolio PMO	Received	41	Working export; weekly review
+DL-260713-022	CB	2026-07-13T12:34:00+09:00	cb-portfolio-export-22.csv	Portfolio PMO	Held	42	Working export; weekly review
+DL-260713-023	CB	2026-07-13T13:41:00+09:00	cb-portfolio-export-23.csv	Portfolio PMO	Superseded	43	Working export; weekly review
+DL-260713-024	CB	2026-07-13T14:48:00+09:00	cb-portfolio-export-24.csv	Portfolio PMO	Validated	44	Working export; weekly review

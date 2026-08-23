@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<teamsChannelExport xmlns="urn:summitvale:teams-export:1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:summitvale:teams-export:1 teams-channel-export-v1.xsd" exportId="synthetic-p10-260717" exportedAt="2026-07-17T18:30:00+09:00" source="synthetic-training-data">
+  <metadata>
+    <organization>Summit Vale Advisory</organization>
+    <team id="portfolio-ops">Portfolio Operations</team>
+    <channel id="client-delivery">client-delivery</channel>
+    <portfolioLink>sva://portfolio/client-alpha-phase-1</portfolioLink>
+    <dataClassification>Fictional internal training artifact</dataClassification>
+  </metadata>
+  <messages>
+    <message id="t-001" createdAt="2026-07-13T09:15:00+09:00" author="Avery Calder" topic="Client Alpha Phase 1">
+      <body>Kickoff is complete. Please keep the finance/value workstream evidence-led and separate validated facts from working assumptions.</body>
+      <actions><action type="assign" owner="Nina Solberg" due="2026-07-14">Draft value-driver tree</action><action type="assign" owner="Theo Mercer" due="2026-07-15">Confirm operating-cost evidence</action></actions>
+      <replies><reply id="t-001-r1" createdAt="2026-07-13T09:27:00+09:00" author="Nina Solberg">Draft will use revenue quality, cost discipline, and cash confidence as the three branches.</reply><reply id="t-001-r2" createdAt="2026-07-13T09:34:00+09:00" author="Keiko Ward">Portfolio page is ready for a short internal status once the baseline is confirmed.</reply></replies>
+    </message>
+    <message id="t-002" createdAt="2026-07-13T16:55:00+09:00" author="Theo Mercer" topic="Client Alpha workshop readout">
+      <body>The workshop surfaced a ¥42.8M working estimate. It remains a hypothesis pending evidence review.</body>
+      <actions><action type="review" owner="Avery Calder" due="2026-07-16">Review assumptions and confidence levels</action></actions>
+      <replies><reply id="t-002-r1" createdAt="2026-07-13T17:11:00+09:00" author="Avery Calder">Please label the number as working estimate in every portfolio reference.</reply></replies>
+    </message>
+    <message id="t-003" createdAt="2026-07-14T14:20:00+09:00" author="Keiko Ward" topic="Client Beta Phase 2 gemba walk">
+      <body>Observation plan is approved: marked routes, required PPE, no individual performance assessment, and no identifiable images.</body>
+      <actions><action type="assign" owner="Theo Mercer" due="2026-07-15">Capture flow and handoff observations</action><action type="assign" owner="p10-management-consultant" due="2026-07-16">Synthesize evidence and actions</action></actions>
+      <replies><reply id="t-003-r1" createdAt="2026-07-14T14:34:00+09:00" author="Theo Mercer">Confirmed. The walk will focus on process conditions rather than people.</reply></replies>
+    </message>
+    <message id="t-004" createdAt="2026-07-15T12:50:00+09:00" author="Theo Mercer" topic="Client Beta morning observations">
+      <body>Several recurring handoffs merit validation against volume and timing data. No safety exceptions were observed.</body>
+      <actions><action type="request" owner="Nina Solberg" due="2026-07-16">Check volume context before estimating impact</action></actions>
+      <replies><reply id="t-004-r1" createdAt="2026-07-15T13:06:00+09:00" author="Nina Solberg">I will pair the observation log with available aggregate measures only.</reply><reply id="t-004-r2" createdAt="2026-07-15T13:19:00+09:00" author="Avery Calder">Keep the synthesis specific about what is observed versus inferred.</reply></replies>
+    </message>
+    <message id="t-005" createdAt="2026-07-17T09:25:00+09:00" author="Avery Calder" topic="Portfolio review">
+      <body>For this week's review, link Client Alpha Phase 1 and Client Beta Phase 2 as complementary evidence streams, not a combined value claim.</body>
+      <actions><action type="publish" owner="Keiko Ward" due="2026-07-17">Refresh internal portfolio status</action><action type="review" owner="p10-management-consultant" due="2026-07-17">Confirm wording and evidence boundaries</action></actions>
+      <replies><reply id="t-005-r1" createdAt="2026-07-17T09:42:00+09:00" author="Keiko Ward">Portfolio link retained: sva://portfolio/client-alpha-phase-1.</reply><reply id="t-005-r2" createdAt="2026-07-17T10:03:00+09:00" author="p10-management-consultant">Confirmed. Alpha retains the ¥42.8M working-estimate label; Beta remains observation-led.</reply></replies>
+    </message>
+  </messages>
+</teamsChannelExport>

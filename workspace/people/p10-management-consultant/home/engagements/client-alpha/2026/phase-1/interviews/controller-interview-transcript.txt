@@ -1,0 +1,47 @@
+Client Alpha Phase 1 — Finance workstream interview transcript
+Program anchor: Summit Vale Advisory | 2026-07-13 | budget ¥42.8M
+Date: 2026-07-17 | Interviewer: Theo Mercer, Summit Vale Advisory | Participant: Mara Venn, synthetic Controller
+
+[10:00] Theo Mercer (Summit Vale Advisory): We are documenting evidence for Client Alpha Phase 1. The current ¥42.8M planning budget is context only. Please describe the close process from local submission to management reporting.
+
+[10:03] Mara Venn (synthetic Controller): Local teams submit by day three. Corporate accounting checks intercompany positions, posts standard allocations, then consolidates. We target a management pack on day seven. Exceptions occur when a business unit changes a driver or when a late commercial credit needs review.
+
+[10:09] Theo: Our first hypothesis is that shared-service allocations use stale activity drivers and distort product-line margins. What evidence exists?
+
+[10:11] Mara: The policy requires annual driver refreshes, but business changes can outpace the refresh. We keep driver files, allocation journals, and monthly variance reviews. Distortion is possible, but you must separate a policy issue from a legitimate change in mix. Compare June allocations to current headcount, transactions, or occupied space as relevant.
+
+[10:18] Theo: Who approves adjustments, and where does rework arise?
+
+[10:20] Mara: Preparers enter support in the close workspace; I review material journals and Soren Hale approves threshold exceptions. Rework typically comes from incomplete support or a changed intercompany counterparty. The timestamps will show it, though a late entry may have been requested for a valid reason. Interview the Finance Director about escalation rules.
+
+[10:27] Theo: Does the consolidation system create manual work?
+
+[10:29] Mara: It handles the standard load. Manual work is mainly reconciliation and commentary. The system does not decide whether an exception is economically correct. Evidence: three close calendars, adjustment registers, rejected journal reasons, and pack publication dates. A meaningful test would count recurring exception types, not just all journals.
+
+[10:36] Theo: How do revenue credits and rebates flow into the ledger?
+
+[10:38] Mara: Commercial Operations approves source documents; Accounting evaluates the period and posts entries. The ledger is generally controlled, but management reporting can use an extract before all commentary is refreshed. Rowan Ives should explain the policy. Use anonymized examples and compare approval date, posting date, and report date.
+
+[10:45] Theo: What would improve the process without disrupting close?
+
+[10:47] Mara: Standardize the evidence checklist for recurring adjustments and make driver ownership explicit. Do not introduce a new approval layer unless data shows control failure. The Finance workstream should test whether the existing monthly review actually catches stale drivers. That is more useful than a generic automation recommendation.
+
+[10:53] Theo: Actions: provide allocation policy, June journals, three adjustment registers, and rejected-entry reasons; identify owners for drivers. We will code the hypothesis as unvalidated until reconciled.
+
+[10:55] Mara: Correct. Also provide your reconciliation template before requesting a large extract. We can then ensure the same definitions are used across Client Alpha Phase 1.
+
+[10:59] Theo: Agreed. Summit Vale Advisory will send a concise template and notes for your correction. Thank you.
+
+[11:02] Mara: The template should separate recurring allocations from one-time restructuring or project entries. Otherwise a valid exceptional item can be mistaken for a recurring control issue. Please include journal identifier, amount range, accounting period, driver, preparer, approver, and reason for change.
+
+[11:07] Theo: That is practical. We will use amount ranges in the interview working papers and will avoid retaining unnecessary transaction detail. How should we interpret a driver change that receives a timely approval?
+
+[11:09] Mara: It may be entirely appropriate. The question is whether the change followed the documented policy and whether users understood its margin effect. Evidence of an approved refresh rejects the stale-driver hypothesis for that item; it does not prove every driver is current.
+
+[11:14] Theo: We will record evidence item by item. Could the close calendar also show where accountability changes from local Finance to corporate Finance?
+
+[11:16] Mara: Yes. Local teams own source accuracy. Corporate owns consolidation controls, while business owners explain commercial movements. That split is useful when you code interview statements; a delay can have several contributing owners and should not automatically be assigned to Accounting.
+
+[11:21] Theo: Our synthesis will show process handoffs, recurring exceptions, and evidence strength. We will test a representative period before discussing improvement options with the Finance Director.
+
+[11:23] Mara: Good. Please send the draft summary before the next steering committee. It should make clear that the ¥42.8M planning budget is unrelated to any allocation adjustment identified in the evidence.

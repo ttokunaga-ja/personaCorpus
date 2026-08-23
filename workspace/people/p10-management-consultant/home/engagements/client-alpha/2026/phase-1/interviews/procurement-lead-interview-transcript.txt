@@ -1,0 +1,49 @@
+Client Alpha Phase 1 — Finance workstream interview transcript
+Program anchor: Summit Vale Advisory | 2026-07-13 | budget ¥42.8M
+Date: 2026-07-21 | Interviewer: Theo Mercer, Summit Vale Advisory | Participant: Darcy Pell, synthetic Procurement Lead
+
+[15:00] Theo Mercer (Summit Vale Advisory): Thank you. We are testing Finance workstream evidence for Client Alpha Phase 1. The ¥42.8M planning budget is separate from any savings estimate. How do you track sourcing benefits?
+
+[15:03] Darcy Pell (synthetic Procurement Lead): We record opportunities, develop cases, secure approvals, negotiate suppliers, then monitor implementation. The pipeline is useful for planning, but only an implemented case with evidence should be called realized. Finance validates the reported amount.
+
+[15:09] Theo: Hypothesis one is that the pipeline combines forecast benefits with booked benefits, weakening decision visibility. What evidence could test it?
+
+[15:11] Darcy: The sourcing tracker flags stage, owner, baseline, and target date. Approved cases include a business sign-off. Realization needs purchase-order or invoice support and a baseline calculation. Compare a sample of tracker entries to Finance’s savings bridge. Labels are more important than a single headline number.
+
+[15:18] Theo: What makes the baseline difficult?
+
+[15:20] Darcy: Demand can change, suppliers can substitute items, and contracts can phase in. A lower invoice can reflect volume reduction rather than negotiation. We document assumptions, but operational owners must validate them. A sound test considers normalized unit price, volume, timing, and implementation status.
+
+[15:27] Theo: How is Finance involved before reporting?
+
+[15:29] Darcy: Finance reviews material cases when the baseline is set and challenges benefit claims during monthly reporting. The timing varies. The Finance Director can designate a reviewer, while the Controller can show how a realized amount appears in the ledger. Procurement should remain accountable for source evidence.
+
+[15:36] Theo: Is there a connection to margin analysis?
+
+[15:38] Darcy: Yes, but not every sourcing action moves margin in the same period. Inventory drawdown and contract timing can delay the ledger effect. If the June margin bridge shows no impact, that does not disprove a valid negotiated saving. The bridge should reconcile timing rather than force a conclusion.
+
+[15:45] Theo: What change would make governance clearer?
+
+[15:47] Darcy: Define stage gates and require an evidence link at each gate. Keep the tracker simple, with a clear owner and date. I would avoid a new scorecard unless it replaces an existing one. The real issue is consistent language between Procurement and Finance.
+
+[15:53] Theo: Actions: share anonymized approved cases, baseline guidance, and realized-support samples; arrange a Finance reconciliation. Summit Vale Advisory will log missing evidence and return a draft classification.
+
+[15:55] Darcy: That works. Please make clear that a pipeline estimate is not a commitment. We can validate the classifications together before the Client Alpha Phase 1 steering committee.
+
+[15:59] Theo: Agreed. Thank you.
+
+[16:02] Darcy: There is another evidence nuance. A case may be approved centrally but not adopted at every operating location. The tracker can show approval while local purchasing behavior remains unchanged. For a realized claim, the test should include implementation confirmation as well as a contract or invoice artifact.
+
+[16:07] Theo: We will include that condition. Would a comparison of baseline and actual unit prices be sufficient?
+
+[16:09] Darcy: It is a starting point, not sufficient by itself. Confirm specification, supplier, currency basis, and any service-level change. If the purchase is not comparable, then price variance needs an explanatory note. Finance can decide how it appears in management reporting, but Procurement must provide the commercial context.
+
+[16:14] Theo: That supports a structured evidence test. What would disprove the mixed-classification hypothesis?
+
+[16:16] Darcy: If the sampled tracker records consistently distinguish opportunity, approved case, and realized benefit, and those labels agree with Finance’s bridge, then the hypothesis should be rejected. An isolated data-quality problem does not establish a systemic issue. Record the sample size and limitations.
+
+[16:21] Theo: We will do so. The action register will name Procurement for case support, Finance for ledger reconciliation, and Summit Vale Advisory for neutral synthesis. Any finding will distinguish timing from non-realization.
+
+[16:23] Darcy: Good. Retain the ¥42.8M planning budget only as Client Alpha Phase 1 scope context. Our pipeline is not a substitute for that budget, and neither should be described as an approved savings commitment.
+
+[16:26] Theo: Recorded; validation will remain evidence-led, bounded, and transparent.

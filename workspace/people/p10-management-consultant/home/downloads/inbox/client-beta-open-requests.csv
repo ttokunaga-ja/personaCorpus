@@ -1,0 +1,25 @@
+request_id,client_code,workstream,request_summary,owner,status,opened_date,due_date,source_download_id,next_evidence
+CB-REQ-001,CB,Process design,Confirm process design evidence for weekly review,Daisuke Ito,Pending client,2026-07-13,2026-07-15,DL-260713-013,Standard follow-up
+CB-REQ-002,CB,Change adoption,Confirm change adoption evidence for weekly review,Mina Okada,Needs decision,2026-07-13,2026-07-16,DL-260713-014,Standard follow-up
+CB-REQ-003,CB,Data readiness,Confirm data readiness evidence for weekly review,Ryo Kanda,In review,2026-07-13,2026-07-17,DL-260713-015,Decision note required
+CB-REQ-004,CB,Service operations,Confirm service operations evidence for weekly review,Aya Fujimoto,Closed,2026-07-13,2026-07-18,DL-260713-016,Standard follow-up
+CB-REQ-005,CB,Process design,Confirm process design evidence for weekly review,Toru Seki,Open,2026-07-13,2026-07-19,DL-260713-017,Standard follow-up
+CB-REQ-006,CB,Change adoption,Confirm change adoption evidence for weekly review,Keiko Mori,Pending client,2026-07-13,2026-07-20,DL-260713-018,Standard follow-up
+CB-REQ-007,CB,Data readiness,Confirm data readiness evidence for weekly review,Daisuke Ito,Needs decision,2026-07-13,2026-07-21,DL-260713-019,Standard follow-up
+CB-REQ-008,CB,Service operations,Confirm service operations evidence for weekly review,Mina Okada,In review,2026-07-13,2026-07-22,DL-260713-020,Decision note required
+CB-REQ-009,CB,Process design,Confirm process design evidence for weekly review,Ryo Kanda,Closed,2026-07-13,2026-07-23,DL-260713-021,Standard follow-up
+CB-REQ-010,CB,Change adoption,Confirm change adoption evidence for weekly review,Aya Fujimoto,Open,2026-07-13,2026-07-24,DL-260713-022,Standard follow-up
+CB-REQ-011,CB,Data readiness,Confirm data readiness evidence for weekly review,Toru Seki,Pending client,2026-07-13,2026-07-25,DL-260713-023,Standard follow-up
+CB-REQ-012,CB,Service operations,Confirm service operations evidence for weekly review,Keiko Mori,Needs decision,2026-07-13,2026-07-14,DL-260713-024,Standard follow-up
+CB-REQ-013,CB,Process design,Confirm process design evidence for weekly review,Daisuke Ito,In review,2026-07-13,2026-07-15,DL-260713-025,Decision note required
+CB-REQ-014,CB,Change adoption,Confirm change adoption evidence for weekly review,Mina Okada,Closed,2026-07-13,2026-07-16,DL-260713-026,Standard follow-up
+CB-REQ-015,CB,Data readiness,Confirm data readiness evidence for weekly review,Ryo Kanda,Open,2026-07-13,2026-07-17,DL-260713-027,Standard follow-up
+CB-REQ-016,CB,Service operations,Confirm service operations evidence for weekly review,Aya Fujimoto,Pending client,2026-07-13,2026-07-18,DL-260713-028,Standard follow-up
+CB-REQ-017,CB,Process design,Confirm process design evidence for weekly review,Toru Seki,Needs decision,2026-07-13,2026-07-19,DL-260713-029,Standard follow-up
+CB-REQ-018,CB,Change adoption,Confirm change adoption evidence for weekly review,Keiko Mori,In review,2026-07-13,2026-07-20,DL-260713-030,Decision note required
+CB-REQ-019,CB,Data readiness,Confirm data readiness evidence for weekly review,Daisuke Ito,Closed,2026-07-13,2026-07-21,DL-260713-031,Standard follow-up
+CB-REQ-020,CB,Service operations,Confirm service operations evidence for weekly review,Mina Okada,Open,2026-07-13,2026-07-22,DL-260713-032,Standard follow-up
+CB-REQ-021,CB,Process design,Confirm process design evidence for weekly review,Ryo Kanda,Pending client,2026-07-13,2026-07-23,DL-260713-033,Standard follow-up
+CB-REQ-022,CB,Change adoption,Confirm change adoption evidence for weekly review,Aya Fujimoto,Needs decision,2026-07-13,2026-07-24,DL-260713-034,Standard follow-up
+CB-REQ-023,CB,Data readiness,Confirm data readiness evidence for weekly review,Toru Seki,In review,2026-07-13,2026-07-25,DL-260713-035,Decision note required
+CB-REQ-024,CB,Service operations,Confirm service operations evidence for weekly review,Keiko Mori,Closed,2026-07-13,2026-07-14,DL-260713-036,Standard follow-up

@@ -1,0 +1,25 @@
+request_id,client_code,workstream,request_summary,owner,status,opened_date,due_date,source_download_id,next_evidence
+CA-REQ-001,CA,Forecast refresh,Confirm forecast refresh evidence for weekly review,Daisuke Ito,Pending client,2026-07-13,2026-07-15,DL-260713-001,Standard follow-up
+CA-REQ-002,CA,Commitment review,Confirm commitment review evidence for weekly review,Mina Okada,Needs decision,2026-07-13,2026-07-16,DL-260713-002,Standard follow-up
+CA-REQ-003,CA,Funding gate,Confirm funding gate evidence for weekly review,Ryo Kanda,In review,2026-07-13,2026-07-17,DL-260713-003,Decision note required
+CA-REQ-004,CA,Budget governance,Confirm budget governance evidence for weekly review,Aya Fujimoto,Closed,2026-07-13,2026-07-18,DL-260713-004,Standard follow-up
+CA-REQ-005,CA,Forecast refresh,Confirm forecast refresh evidence for weekly review,Toru Seki,Open,2026-07-13,2026-07-19,DL-260713-005,Standard follow-up
+CA-REQ-006,CA,Commitment review,Confirm commitment review evidence for weekly review,Keiko Mori,Pending client,2026-07-13,2026-07-20,DL-260713-006,Standard follow-up
+CA-REQ-007,CA,Funding gate,Confirm funding gate evidence for weekly review,Daisuke Ito,Needs decision,2026-07-13,2026-07-21,DL-260713-007,Standard follow-up
+CA-REQ-008,CA,Budget governance,Confirm budget governance evidence for weekly review,Mina Okada,In review,2026-07-13,2026-07-22,DL-260713-008,Decision note required
+CA-REQ-009,CA,Forecast refresh,Confirm forecast refresh evidence for weekly review,Ryo Kanda,Closed,2026-07-13,2026-07-23,DL-260713-009,Standard follow-up
+CA-REQ-010,CA,Commitment review,Confirm commitment review evidence for weekly review,Aya Fujimoto,Open,2026-07-13,2026-07-24,DL-260713-010,Standard follow-up
+CA-REQ-011,CA,Funding gate,Confirm funding gate evidence for weekly review,Toru Seki,Pending client,2026-07-13,2026-07-25,DL-260713-011,Standard follow-up
+CA-REQ-012,CA,Budget governance,Confirm budget governance evidence for weekly review,Keiko Mori,Needs decision,2026-07-13,2026-07-14,DL-260713-012,Standard follow-up
+CA-REQ-013,CA,Forecast refresh,Confirm forecast refresh evidence for weekly review,Daisuke Ito,In review,2026-07-13,2026-07-15,DL-260713-013,Decision note required
+CA-REQ-014,CA,Commitment review,Confirm commitment review evidence for weekly review,Mina Okada,Closed,2026-07-13,2026-07-16,DL-260713-014,Standard follow-up
+CA-REQ-015,CA,Funding gate,Confirm funding gate evidence for weekly review,Ryo Kanda,Open,2026-07-13,2026-07-17,DL-260713-015,Standard follow-up
+CA-REQ-016,CA,Budget governance,Confirm budget governance evidence for weekly review,Aya Fujimoto,Pending client,2026-07-13,2026-07-18,DL-260713-016,Standard follow-up
+CA-REQ-017,CA,Forecast refresh,Confirm forecast refresh evidence for weekly review,Toru Seki,Needs decision,2026-07-13,2026-07-19,DL-260713-017,Standard follow-up
+CA-REQ-018,CA,Commitment review,Confirm commitment review evidence for weekly review,Keiko Mori,In review,2026-07-13,2026-07-20,DL-260713-018,Decision note required
+CA-REQ-019,CA,Funding gate,Confirm funding gate evidence for weekly review,Daisuke Ito,Closed,2026-07-13,2026-07-21,DL-260713-019,Standard follow-up
+CA-REQ-020,CA,Budget governance,Confirm budget governance evidence for weekly review,Mina Okada,Open,2026-07-13,2026-07-22,DL-260713-020,Standard follow-up
+CA-REQ-021,CA,Forecast refresh,Confirm forecast refresh evidence for weekly review,Ryo Kanda,Pending client,2026-07-13,2026-07-23,DL-260713-021,Standard follow-up
+CA-REQ-022,CA,Commitment review,Confirm commitment review evidence for weekly review,Aya Fujimoto,Needs decision,2026-07-13,2026-07-24,DL-260713-022,Standard follow-up
+CA-REQ-023,CA,Funding gate,Confirm funding gate evidence for weekly review,Toru Seki,In review,2026-07-13,2026-07-25,DL-260713-023,Decision note required
+CA-REQ-024,CA,Budget governance,Confirm budget governance evidence for weekly review,Keiko Mori,Closed,2026-07-13,2026-07-14,DL-260713-024,Standard follow-up

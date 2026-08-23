@@ -1,0 +1,37 @@
+calendar_id	deliverable_name	owner	status	due_date	dependency_ids	deliverable_type	workstream	program	client	phase	kickoff_date	budget_jpy_m
+CAL-001	Baseline close assessment	Avery Calder	Complete	2026-07-17		Assessment memo	Finance operating model	Summit Vale Advisory	Client Alpha	Phase 1 Finance	2026-07-13	42.8
+CAL-002	Stakeholder map and cadence	Theo Mercer	Complete	2026-07-17		Stakeholder map	Program mobilization	Summit Vale Advisory	Client Alpha	Phase 1 Finance	2026-07-13	42.8
+CAL-003	Data source inventory	Nina Solberg	Complete	2026-07-20	SVA-FA-001	Data inventory	Finance data	Summit Vale Advisory	Client Alpha	Phase 1 Finance	2026-07-13	42.8
+CAL-004	Value tree workshop	Keiko Ward	Complete	2026-07-21	SVA-FA-001;SVA-FA-003	Workshop board	Value architecture	Summit Vale Advisory	Client Alpha	Phase 1 Finance	2026-07-13	42.8
+CAL-005	Close pain-point interviews	Avery Calder	Complete	2026-07-24	SVA-FA-001	Interview synthesis	Finance operating model	Summit Vale Advisory	Client Alpha	Phase 1 Finance	2026-07-13	42.8
+CAL-006	Revenue quality hypothesis	Nina Solberg	Complete	2026-07-28	SVA-FA-004	Opportunity brief	Revenue quality	Summit Vale Advisory	Client Alpha	Phase 1 Finance	2026-07-13	42.8
+CAL-007	Cost baseline segmentation	Theo Mercer	Complete	2026-07-29	SVA-FA-002;SVA-FA-004	Cost baseline	Cost discipline	Summit Vale Advisory	Client Alpha	Phase 1 Finance	2026-07-13	42.8
+CAL-008	Cash forecast diagnostic	Keiko Ward	Complete	2026-07-30	SVA-FA-002;SVA-FA-004	Diagnostic pack	Cash confidence	Summit Vale Advisory	Client Alpha	Phase 1 Finance	2026-07-13	42.8
+CAL-009	Target operating model principles	Avery Calder	In progress	2026-08-07	SVA-FA-005	Design principles	Finance operating model	Summit Vale Advisory	Client Alpha	Phase 1 Finance	2026-07-13	42.8
+CAL-010	Design review forum	Theo Mercer	Planned	2026-08-07	SVA-FA-009;SVA-FA-010;SVA-FA-011;SVA-FA-012	Review meeting	Program mobilization	Summit Vale Advisory	Client Alpha	Phase 1 Finance	2026-07-13	42.8
+CAL-011	Initiative scoring criteria	Avery Calder	In progress	2026-08-10	SVA-FA-006;SVA-FA-007;SVA-FA-008	Scoring rubric	Value architecture	Summit Vale Advisory	Client Alpha	Phase 1 Finance	2026-07-13	42.8
+CAL-012	Management reporting prototype	Nina Solberg	In progress	2026-08-10	SVA-FA-002;SVA-FA-006	Prototype dashboard	Finance data	Summit Vale Advisory	Client Alpha	Phase 1 Finance	2026-07-13	42.8
+CAL-013	Procure-to-pay opportunity scan	Theo Mercer	In progress	2026-08-12	SVA-FA-007	Opportunity scan	Cost discipline	Summit Vale Advisory	Client Alpha	Phase 1 Finance	2026-07-13	42.8
+CAL-014	Working capital levers	Keiko Ward	In progress	2026-08-12	SVA-FA-008	Lever catalogue	Cash confidence	Summit Vale Advisory	Client Alpha	Phase 1 Finance	2026-07-13	42.8
+CAL-015	Finance data quality rules	Nina Solberg	In progress	2026-08-14	SVA-FA-002;SVA-FA-010	Rulebook	Finance data	Summit Vale Advisory	Client Alpha	Phase 1 Finance	2026-07-13	42.8
+CAL-016	Close calendar redesign	Avery Calder	Planned	2026-08-21	SVA-FA-009	Process design	Finance operating model	Summit Vale Advisory	Client Alpha	Phase 1 Finance	2026-07-13	42.8
+CAL-017	Revenue leakage test plan	Nina Solberg	Planned	2026-08-21	SVA-FA-006;SVA-FA-013	Test plan	Revenue quality	Summit Vale Advisory	Client Alpha	Phase 1 Finance	2026-07-13	42.8
+CAL-018	Vendor spend rationalization	Theo Mercer	Planned	2026-08-24	SVA-FA-011;SVA-FA-013	Initiative charter	Cost discipline	Summit Vale Advisory	Client Alpha	Phase 1 Finance	2026-07-13	42.8
+CAL-019	Collections workflow design	Keiko Ward	Planned	2026-08-24	SVA-FA-012;SVA-FA-013	Workflow design	Cash confidence	Summit Vale Advisory	Client Alpha	Phase 1 Finance	2026-07-13	42.8
+CAL-020	Control catalog refresh	Avery Calder	Planned	2026-08-28	SVA-FA-009;SVA-FA-014	Control catalogue	Finance operating model	Summit Vale Advisory	Client Alpha	Phase 1 Finance	2026-07-13	42.8
+CAL-021	Data governance handoff	Nina Solberg	Planned	2026-08-28	SVA-FA-014	Governance pack	Finance data	Summit Vale Advisory	Client Alpha	Phase 1 Finance	2026-07-13	42.8
+CAL-022	Change impact assessment	Theo Mercer	Planned	2026-08-28	SVA-FA-015;SVA-FA-016;SVA-FA-018;SVA-FA-019	Impact assessment	Program mobilization	Summit Vale Advisory	Client Alpha	Phase 1 Finance	2026-07-13	42.8
+CAL-023	Forecast cadence pilot	Keiko Ward	Planned	2026-09-04	SVA-FA-019;SVA-FA-021	Pilot playbook	Cash confidence	Summit Vale Advisory	Client Alpha	Phase 1 Finance	2026-07-13	42.8
+CAL-024	Executive KPI set	Avery Calder	Planned	2026-09-04	SVA-FA-010;SVA-FA-017	KPI specification	Revenue quality	Summit Vale Advisory	Client Alpha	Phase 1 Finance	2026-07-13	42.8
+CAL-025	Month-end pilot readiness	Nina Solberg	Planned	2026-09-11	SVA-FA-016;SVA-FA-020;SVA-FA-021	Readiness checklist	Finance operating model	Summit Vale Advisory	Client Alpha	Phase 1 Finance	2026-07-13	42.8
+CAL-026	Spend controls pilot	Theo Mercer	Planned	2026-09-11	SVA-FA-018;SVA-FA-020	Pilot charter	Cost discipline	Summit Vale Advisory	Client Alpha	Phase 1 Finance	2026-07-13	42.8
+CAL-027	Collections pilot	Keiko Ward	Planned	2026-09-18	SVA-FA-019;SVA-FA-023	Pilot results	Cash confidence	Summit Vale Advisory	Client Alpha	Phase 1 Finance	2026-07-13	42.8
+CAL-028	Finance performance dashboard	Avery Calder	Planned	2026-09-18	SVA-FA-010;SVA-FA-024	Dashboard release	Finance data	Summit Vale Advisory	Client Alpha	Phase 1 Finance	2026-07-13	42.8
+CAL-029	Training needs analysis	Nina Solberg	Planned	2026-09-18	SVA-FA-022	Training plan	Program mobilization	Summit Vale Advisory	Client Alpha	Phase 1 Finance	2026-07-13	42.8
+CAL-030	Pilot outcome review	Theo Mercer	Planned	2026-09-22	SVA-FA-025;SVA-FA-026;SVA-FA-027	Outcome review	Value architecture	Summit Vale Advisory	Client Alpha	Phase 1 Finance	2026-07-13	42.8
+CAL-031	Scaling roadmap	Keiko Ward	Planned	2026-10-02	SVA-FA-030	Scaling roadmap	Value architecture	Summit Vale Advisory	Client Alpha	Phase 1 Finance	2026-07-13	42.8
+CAL-032	Operating model handover	Avery Calder	Planned	2026-10-02	SVA-FA-025;SVA-FA-029	Handover pack	Finance operating model	Summit Vale Advisory	Client Alpha	Phase 1 Finance	2026-07-13	42.8
+CAL-033	Benefits tracking model	Nina Solberg	Planned	2026-10-02	SVA-FA-028;SVA-FA-030	Benefits model	Finance data	Summit Vale Advisory	Client Alpha	Phase 1 Finance	2026-07-13	42.8
+CAL-034	Change champion activation	Theo Mercer	Planned	2026-10-02	SVA-FA-029	Activation kit	Program mobilization	Summit Vale Advisory	Client Alpha	Phase 1 Finance	2026-07-13	42.8
+CAL-035	Steering committee decision pack	Keiko Ward	Planned	2026-10-09	SVA-FA-031;SVA-FA-032;SVA-FA-033;SVA-FA-034	Decision pack	Program mobilization	Summit Vale Advisory	Client Alpha	Phase 1 Finance	2026-07-13	42.8
+CAL-036	Phase 1 closure report	Avery Calder	Planned	2026-10-16	SVA-FA-035	Closure report	Value architecture	Summit Vale Advisory	Client Alpha	Phase 1 Finance	2026-07-13	42.8

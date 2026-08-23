@@ -1,0 +1,47 @@
+Client Alpha Phase 1 — Finance workstream interview transcript
+Program anchor: Summit Vale Advisory | 2026-07-13 | budget ¥42.8M
+Date: 2026-07-20 | Interviewer: Keiko Ward, Summit Vale Advisory | Participant: Lian Cho, synthetic FP&A Lead
+
+[11:00] Keiko Ward (Summit Vale Advisory): This Client Alpha Phase 1 interview concerns planning and evidence. The ¥42.8M planning budget is not a forecast target. How is the monthly forecast assembled?
+
+[11:03] Lian Cho (synthetic FP&A Lead): We begin with actuals, receive business-unit assumptions, and load a working version. Finance challenges the version, then the executive team approves a published view. The process is calendar-driven, but explanatory notes are uneven between units.
+
+[11:09] Keiko: Hypothesis one is that forecast changes cannot be consistently attributed to assumptions, actual performance, or data correction. What files could test that?
+
+[11:11] Lian: May through July version exports, assumption templates, and executive-pack commentary. Each version has a timestamp, but the rationale may be in meeting notes or email. We should test a handful of material changes, not attempt to reconstruct every line in Phase 1.
+
+[11:18] Keiko: Where do the biggest rework loops occur?
+
+[11:20] Lian: In late local submissions and questions about margin definitions. A unit may update volume but not the associated rebate assumption. That produces a valid mathematical result with an incomplete business explanation. The Finance Director can help judge materiality; Commercial Operations owns some underlying inputs.
+
+[11:27] Keiko: We heard that the executive pack arrives after decisions have already been discussed informally. Is that accurate?
+
+[11:29] Lian: Sometimes leaders see preliminary views, but that is not inherently bad. The risk is when preliminary and published versions differ without an explanation. Compare the pre-read, the approved pack, and the decision log. Do not equate an early conversation with weak governance.
+
+[11:36] Keiko: How does FP&A use working-capital information?
+
+[11:38] Lian: Treasury supplies the cash view and operating teams supply assumptions. We incorporate broad trends, but detailed receivable aging and inventory exceptions remain with their owners. Better visibility could help, though an evidence test must first show whether mismatched timing creates a material forecast error.
+
+[11:45] Keiko: What would a practical recommendation look like?
+
+[11:47] Lian: A single change-reason taxonomy and an owner for each assumption class would help. It should fit the existing calendar. Avoid adding a workbook merely to create an audit trail; use the current version history where possible. State what evidence supports any expected benefit.
+
+[11:53] Keiko: Actions are to provide version exports, templates, commentary, and two examples of material change; Summit Vale Advisory will prepare a reason-code test. We will distinguish hypothesis from finding.
+
+[11:55] Lian: Please send the requested fields in advance. I can redact restricted operating details while preserving the pattern needed for Client Alpha Phase 1.
+
+[11:59] Keiko: Agreed. Thank you for the clarity.
+
+[12:02] Lian: Please remember that the forecast is a decision aid, not a promise that every driver will occur. A useful Phase 1 output identifies where uncertainty is concentrated and whether that uncertainty is explicitly owned. We should not manufacture precision simply because a template has a blank field.
+
+[12:07] Keiko: That aligns with our coding approach. We will classify the version exports as records, the interviews as perspectives, and missing rationale as an evidence gap. What would cause you to reject the change-reason hypothesis?
+
+[12:09] Lian: If sampled material changes consistently have clear, timely explanations linked to approved assumptions, then the hypothesis is weak. We may still find an opportunity to simplify reporting, but it would not be accurate to claim a governance failure. Sampling must include favorable and unfavorable changes.
+
+[12:14] Keiko: We will select the sample jointly with you and preserve the selection rationale. Are there dependencies outside FP&A?
+
+[12:16] Lian: Yes. Commercial Operations supplies pricing and volume assumptions, Treasury supplies cash inputs, and Accounting closes actuals. Explain the handoffs rather than attributing every late revision to FP&A. An owner should be accountable for an assumption, while we remain accountable for assembling the forecast.
+
+[12:21] Keiko: The action register will include owner, requested record, period, hypothesis, and due date. We will highlight only material gaps for the steering committee and retain the ¥42.8M planning budget as scope context.
+
+[12:23] Lian: That is appropriate. Share the field list today, and I will provide a usable redacted extract and explain any gaps before you draw Client Alpha Phase 1 observations.

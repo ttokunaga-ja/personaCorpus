@@ -1,0 +1,19 @@
+From: Theo Mercer <theo.mercer@summitvale.example>
+To: Rowan Ives <rowan.ives@clientalpha.example>
+Cc: Nina Solberg <nina.solberg@summitvale.example>
+Date: Wed, 22 Jul 2026 15:35:00 +0900
+Subject: Clarification request: pricing and revenue recognition
+Message-ID: <20260722.revenue.theo@summitvale.example>
+MIME-Version: 1.0
+X-Project-Date: 2026-07-13
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Rowan,
+
+For Client Alpha Phase 1, please clarify when approved rebates, service credits, and contract modifications enter the Finance workstream revenue view. Our working hypothesis is that timing differences can affect the monthly margin bridge; it is not yet supported by transaction testing.
+
+Could you send the policy summary and three anonymized close examples? Summit Vale Advisory will use them only to test process consistency. The ¥42.8M planning budget does not depend on this request.
+
+Regards,
+Theo

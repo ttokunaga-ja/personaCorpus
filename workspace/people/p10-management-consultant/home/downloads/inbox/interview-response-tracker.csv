@@ -1,0 +1,25 @@
+interview_id,client_code,cohort,participant_alias,coordinator,response_status,invited_date,target_date,handling_status,linked_request_id
+INT-CB-001,CB,Operations cohort 1,Participant 01,Aya Fujimoto,Scheduled,2026-07-14,2026-07-19,Consent recorded,CB-REQ-001
+INT-CB-002,CB,Operations cohort 1,Participant 02,Aya Fujimoto,Responded,2026-07-15,2026-07-20,Consent recorded,CB-REQ-002
+INT-CB-003,CB,Operations cohort 1,Participant 03,Aya Fujimoto,Deferred,2026-07-16,2026-07-21,Follow-up pending,CB-REQ-003
+INT-CB-004,CB,Operations cohort 1,Participant 04,Aya Fujimoto,Invited,2026-07-17,2026-07-22,Follow-up pending,CB-REQ-004
+INT-CB-005,CB,Operations cohort 1,Participant 05,Aya Fujimoto,Scheduled,2026-07-13,2026-07-23,Consent recorded,CB-REQ-005
+INT-CB-006,CB,Operations cohort 1,Participant 06,Aya Fujimoto,Responded,2026-07-14,2026-07-24,Consent recorded,CB-REQ-006
+INT-CB-007,CB,Operations cohort 2,Participant 07,Aya Fujimoto,Deferred,2026-07-15,2026-07-25,Follow-up pending,CB-REQ-007
+INT-CB-008,CB,Operations cohort 2,Participant 08,Aya Fujimoto,Invited,2026-07-16,2026-07-18,Follow-up pending,CB-REQ-008
+INT-CB-009,CB,Operations cohort 2,Participant 09,Aya Fujimoto,Scheduled,2026-07-17,2026-07-19,Consent recorded,CB-REQ-009
+INT-CB-010,CB,Operations cohort 2,Participant 10,Aya Fujimoto,Responded,2026-07-13,2026-07-20,Consent recorded,CB-REQ-010
+INT-CB-011,CB,Operations cohort 2,Participant 11,Aya Fujimoto,Deferred,2026-07-14,2026-07-21,Follow-up pending,CB-REQ-011
+INT-CB-012,CB,Operations cohort 2,Participant 12,Aya Fujimoto,Invited,2026-07-15,2026-07-22,Follow-up pending,CB-REQ-012
+INT-CB-013,CB,Operations cohort 3,Participant 13,Aya Fujimoto,Scheduled,2026-07-16,2026-07-23,Consent recorded,CB-REQ-013
+INT-CB-014,CB,Operations cohort 3,Participant 14,Aya Fujimoto,Responded,2026-07-17,2026-07-24,Consent recorded,CB-REQ-014
+INT-CB-015,CB,Operations cohort 3,Participant 15,Aya Fujimoto,Deferred,2026-07-13,2026-07-25,Follow-up pending,CB-REQ-015
+INT-CB-016,CB,Operations cohort 3,Participant 16,Aya Fujimoto,Invited,2026-07-14,2026-07-18,Follow-up pending,CB-REQ-016
+INT-CB-017,CB,Operations cohort 3,Participant 17,Aya Fujimoto,Scheduled,2026-07-15,2026-07-19,Consent recorded,CB-REQ-017
+INT-CB-018,CB,Operations cohort 3,Participant 18,Aya Fujimoto,Responded,2026-07-16,2026-07-20,Consent recorded,CB-REQ-018
+INT-CB-019,CB,Operations cohort 4,Participant 19,Aya Fujimoto,Deferred,2026-07-17,2026-07-21,Follow-up pending,CB-REQ-019
+INT-CB-020,CB,Operations cohort 4,Participant 20,Aya Fujimoto,Invited,2026-07-13,2026-07-22,Follow-up pending,CB-REQ-020
+INT-CB-021,CB,Operations cohort 4,Participant 21,Aya Fujimoto,Scheduled,2026-07-14,2026-07-23,Consent recorded,CB-REQ-021
+INT-CB-022,CB,Operations cohort 4,Participant 22,Aya Fujimoto,Responded,2026-07-15,2026-07-24,Consent recorded,CB-REQ-022
+INT-CB-023,CB,Operations cohort 4,Participant 23,Aya Fujimoto,Deferred,2026-07-16,2026-07-25,Follow-up pending,CB-REQ-023
+INT-CB-024,CB,Operations cohort 4,Participant 24,Aya Fujimoto,Invited,2026-07-17,2026-07-18,Follow-up pending,CB-REQ-024

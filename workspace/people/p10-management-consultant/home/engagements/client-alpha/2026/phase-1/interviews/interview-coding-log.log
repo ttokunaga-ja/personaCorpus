@@ -1,0 +1,13 @@
+2026-07-13T00:00:00+09:00 level=INFO anchor="Summit Vale Advisory | Client Alpha Phase 1 | Finance workstream" budget=¥42.8M source_date=2026-07-13 status=active
+2026-07-14T14:58:00+09:00 level=INFO artifact=cfo-interview-transcript.txt code=HYPOTHESIS id=H1 label=manual-adjustments status=unvalidated owner=Mara_Venn
+2026-07-14T14:58:01+09:00 level=INFO artifact=cfo-interview-transcript.txt code=EVIDENCE id=E1 label=three-close-adjustment-data source=Controller status=requested
+2026-07-14T14:58:02+09:00 level=INFO artifact=cfo-interview-transcript.txt code=ACTION id=A1 label=request-working-capital-packs owner=Avery_Calder due=2026-07-17
+2026-07-16T09:59:00+09:00 level=INFO artifact=finance-director-interview-transcript.txt code=HYPOTHESIS id=H2 label=margin-definitions status=unvalidated owner=Soren_Hale
+2026-07-16T09:59:01+09:00 level=INFO artifact=finance-director-interview-transcript.txt code=EVIDENCE id=E2 label=june-margin-bridge source=Finance_Director status=requested
+2026-07-17T10:59:00+09:00 level=INFO artifact=controller-interview-transcript.txt code=HYPOTHESIS id=H3 label=stale-allocation-drivers status=unvalidated owner=Mara_Venn
+2026-07-17T10:59:01+09:00 level=INFO artifact=controller-interview-transcript.txt code=ACTION id=A2 label=send-reconciliation-template owner=Theo_Mercer due=2026-07-20
+2026-07-20T11:59:00+09:00 level=INFO artifact=fpa-lead-interview-transcript.txt code=HYPOTHESIS id=H4 label=forecast-change-reasons status=unvalidated owner=Lian_Cho
+2026-07-20T11:59:01+09:00 level=INFO artifact=fpa-lead-interview-transcript.txt code=EVIDENCE id=E3 label=forecast-version-history source=FP&A status=requested
+2026-07-21T15:59:00+09:00 level=INFO artifact=procurement-lead-interview-transcript.txt code=HYPOTHESIS id=H5 label=savings-classification status=unvalidated owner=Darcy_Pell
+2026-07-21T15:59:01+09:00 level=INFO artifact=procurement-lead-interview-transcript.txt code=ACTION id=A3 label=reconcile-realized-savings owner=Nina_Solberg due=2026-07-24
+2026-07-24T17:30:00+09:00 level=INFO artifact=finance-workstream-actions.eml code=ANCHOR client=Client_Alpha phase=1 workstream=Finance budget=¥42.8M status=active

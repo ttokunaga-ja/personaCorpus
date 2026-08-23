@@ -1,0 +1,27 @@
+schema_version: "1.0"
+provider: "Summit Vale Advisory"
+export_kind: "workstream_tag_catalog"
+exported_at: "2026-07-10T09:15:00Z"
+classification: "synthetic-internal"
+portfolio:
+  id: "portfolio-sva-ops-finance-2026"
+  label: "Finance and Operations Portfolio"
+workstreams:
+  - id: "ws-alpha-finance-p1"
+    label: "Client Alpha Phase 1 Finance"
+    tags:
+      - "finance"
+      - "phase-1"
+      - "budget-42-8m-jpy"
+      - "milestone-2026-07-13"
+  - id: "ws-beta-operations-p2"
+    label: "Client Beta Phase 2 Operations"
+    portfolio_link: "ws-alpha-finance-p1"
+    tags:
+      - "operations"
+      - "phase-2"
+      - "portfolio-link-alpha-finance"
+      - "service-flow"
+      - "capacity"
+      - "controls"
+      - "rollout"
