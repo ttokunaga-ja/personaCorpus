@@ -14,6 +14,16 @@ for required in \
   "$corpus_root/runbooks/PERSONA_INDEX.md" \
   "$corpus_root/runbooks/SESSION_HANDOFF.md" \
   "$corpus_root/runbooks/PERSONA_PC_CONTRACT.md" \
+  "$corpus_root/runbooks/FULL_PRODUCTION_PROTOCOL.md" \
+  "$corpus_root/runbooks/FULL_LEDGER_SPEC.md" \
+  "$corpus_root/runbooks/CROSS_PC_PERSONA_BUNDLES.md" \
+  "$corpus_root/prompts/FULL_PARENT_TEMPLATE.md" \
+  "$corpus_root/prompts/MAC_PARALLEL_WAVE_01.md" \
+  "$corpus_root/prompts/p01-full-pilot.md" \
+  "$corpus_root/prompts/p01-full-pilot-content-spine.md" \
+  "$corpus_root/prompts/p01-full-pilot-assignment.jsonl" \
+  "$corpus_root/bin/full-ledger" \
+  "$corpus_root/bin/p01-m1-assignment" \
   "$corpus_root/canonical/persona-schedule.json" \
   "$corpus_root/canonical/persona-render.json" \
   "$corpus_root/canonical/materialized/persona-materialization.json" \
@@ -24,7 +34,16 @@ for required in \
   fi
 done
 
+for required_command in jq shasum pdftotext; do
+  if ! command -v "$required_command" >/dev/null 2>&1; then
+    echo "missing required command: $required_command" >&2
+    exit 1
+  fi
+done
+
 "$corpus_root/bin/persona" --help >/dev/null
+"$corpus_root/bin/full-ledger" --help >/dev/null
+"$corpus_root/bin/p01-m1-assignment" --help >/dev/null
 
 if ! cmp -s "$plan" "$workspace/persona-plan.json"; then
   echo "canonical and workspace plans differ" >&2

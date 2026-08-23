@@ -20,4 +20,9 @@ BRIEF_PATH=runbooks/personas/p09-ux-researcher.md
 最初に ./bin/check-ready を実行し、次にparent leaseを取得してください。
 異なるleaf scopeをフォルダ所有単位としてSubagentへ並列委譲し、
 同じscopeを同時に複数へ割り当てないでください。
+
+他personaのactive leaseは並列productionでは正常です。開始・完了で確認するのは
+p09自身のparent/scope leaseだけです。他personaをshow、recover、releaseせず、
+global `active_leases=0` をp09個別完了条件にしないでください。p09の所有pathだけを
+作成・検証してください。
 ```

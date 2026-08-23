@@ -27,6 +27,13 @@
 4. 親タスクはpersona leaseを取得し、異なるleaf scopeごとにSubagentを割り当てます。
 5. Subagentは指定された1フォルダと固定ファイル一覧だけを制作します。
 
+p08／p09／p10の最初の並列waveは
+[`prompts/MAC_PARALLEL_WAVE_01.md`](prompts/MAC_PARALLEL_WAVE_01.md)に固定しています。
+
+異なるpersonaの親タスクは同時に実行できます。他personaのleaseは正常な並列状態であり、
+個別タスクは自分のpersonaのleaseと成果物だけを操作します。全体の
+`active_leases=0`確認は、並列batch全体が終わった後にcoordinatorが行います。
+
 タスクを別worktreeで開始すると、Git管理外の `workspace/` がコピー・共有されません。
 20個の親タスクが同じ絶対パスを共有することが、この運用の前提です。
 
@@ -38,6 +45,9 @@
 - [workspace構造](runbooks/PRODUCTION_LAYOUT.md)
 - [別タスク引き継ぎ](runbooks/SESSION_HANDOFF.md)
 - [Rust契約](runbooks/PERSONA_PC_CONTRACT.md)
+- [Full制作protocol](runbooks/FULL_PRODUCTION_PROTOCOL.md)
+- [Full台帳仕様](runbooks/FULL_LEDGER_SPEC.md)
+- [別PC persona bundle](runbooks/CROSS_PC_PERSONA_BUNDLES.md)
 
 制作開始前のローカル確認は `./bin/check-ready` を実行します。成功時は20 personas、
 400 scopes、full profile 195,000 files、active lease数を表示します。
@@ -47,3 +57,10 @@
 初回は各briefに記載したseed artifactsから開始し、その後personaごとに200ファイル
 （全体4,000ファイル）を最初のmilestoneとします。full profileは長期目標です。
 この段階ではKioのindex、履歴、検索品質、性能達成を主張しません。
+
+Full追加制作はM1の200ファイルをbyte-for-byte保持し、canonical source inventory、
+凍結済みM1 assignment ledger／reservation、content spine、追加assignment、batch manifestを先に確定してから
+開始します。最初の検証対象は
+`prompts/p01-full-pilot.md`です。Windows clone単独はGit外のcanonical、workspace、
+runtime、leaseを持たないためproduction環境ではありません。別PCを使う場合は
+persona単位bundle手順に従い、同じpersonaを2台で同時に担当しません。

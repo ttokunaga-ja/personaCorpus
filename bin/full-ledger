@@ -1,0 +1,461 @@
+#!/bin/sh
+# Read-only/full-production ledger helper.  It deliberately has no lease API.
+set -eu
+
+script_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+root=$(CDPATH= cd -- "$script_dir/.." && pwd)
+plan="$root/canonical/persona-plan.json"
+render="$root/canonical/persona-render.json"
+workspace_plan="$root/workspace/persona-plan.json"
+owner="$root/workspace/persona-workspace-owner.json"
+materialization="$root/canonical/materialized/persona-materialization.json"
+
+die() { echo "full-ledger: $*" >&2; exit 1; }
+help() { cat <<'EOF'
+usage:
+  full-ledger inventory --persona pXX --out /absolute/new.jsonl
+  full-ledger manifest --persona pXX --out /absolute/new.jsonl
+  full-ledger reserve-m1 --persona pXX --inventory FILE --baseline FILE --m1-assignment FILE --out /absolute/new.jsonl
+  full-ledger verify --persona pXX --inventory FILE --m1-assignment FILE --reservations FILE --assignment FILE --baseline FILE [--before FILE] [--batch-id ID ...] [--after FILE]
+EOF
+}
+usage() { help >&2; exit 1; }
+
+sha256() {
+  if command -v shasum >/dev/null 2>&1; then shasum -a 256 "$1" | awk '{print $1}'
+  elif command -v sha256sum >/dev/null 2>&1; then sha256sum "$1" | awk '{print $1}'
+  else die "need shasum or sha256sum"; fi
+}
+
+absolute_new_file() {
+  case "$1" in /*) ;; *) die "--out must be an absolute path";; esac
+  [ ! -e "$1" ] || die "refusing to overwrite existing output: $1"
+  out_dir=$(dirname -- "$1")
+  [ -d "$out_dir" ] || die "output directory does not exist: $out_dir"
+  out=$1
+  tmp=$(mktemp "$out_dir/.full-ledger.XXXXXX") || die "cannot create temporary output"
+  trap 'rm -f "$tmp" "${observed:-}"' EXIT HUP INT TERM
+}
+
+publish_new_file() {
+  # link(2) is create-only: it fails if another process created out after preflight.
+  if ln "$tmp" "$out"; then rm -f "$tmp"; else die "refusing to overwrite existing output: $out"; fi
+  trap - EXIT HUP INT TERM
+}
+
+check_authority() {
+  [ -f "$plan" ] && [ -f "$render" ] && [ -f "$workspace_plan" ] && [ -f "$owner" ] && [ -f "$materialization" ] || die "canonical, materialization, or workspace authority is missing"
+  cmp -s "$plan" "$workspace_plan" || die "canonical and workspace plans differ"
+  plan_digest="sha256:$(sha256 "$plan")"
+  render_digest_actual="sha256:$(sha256 "$render")"
+  [ "$(jq -r '.plan_digest' "$render")" = "$plan_digest" ] || die "render plan digest mismatch"
+  [ "$(jq -r '.plan_digest // .plan_sha256' "$owner")" = "$plan_digest" ] || die "workspace owner plan digest mismatch"
+  [ "$(jq -r '.workspace_root // empty' "$owner")" = "$root/workspace" ] || die "workspace owner root mismatch"
+  [ "$(jq -r '.plan.sha256 // empty' "$materialization")" = "$plan_digest" ] || die "materialization plan SHA-256 mismatch"
+  [ "$(jq -r '.plan.digest // .plan.sha256 // empty' "$materialization")" = "$plan_digest" ] || die "materialization plan digest mismatch"
+  [ "$(jq -r '.render.sha256 // empty' "$materialization")" = "$render_digest_actual" ] || die "materialization render SHA-256 mismatch"
+}
+
+require_current_inventory() (
+  supplied_inventory=$1
+  [ -f "$supplied_inventory" ] || exit 1
+  observed_dir=$(mktemp -d "${TMPDIR:-/tmp}/full-ledger-inventory.XXXXXX") || exit 1
+  observed_inventory="$observed_dir/inventory.jsonl"
+  trap 'rm -f "$observed_inventory"; rmdir "$observed_dir" 2>/dev/null || true' EXIT HUP INT TERM
+  "$0" inventory --persona "$persona" --out "$observed_inventory" >/dev/null || exit 1
+  cmp -s "$supplied_inventory" "$observed_inventory"
+)
+
+persona_home() {
+  role=$(jq -r --arg p "$persona" '.personas[] | select(.id == $p) | .role' "$plan")
+  [ -n "$role" ] && [ "$role" != null ] || die "unknown persona: $persona"
+  printf '%s/workspace/people/%s-%s/home\n' "$root" "$persona" "$role"
+}
+
+inventory() {
+  check_authority
+  count=$(jq -r --arg p "$persona" '[.people[] | select(.persona_id == $p) | .sources[]] | length' "$render")
+  expected=$(jq -r --arg p "$persona" '.personas[] | select(.id == $p) | .raw_files' "$plan")
+  [ "$count" = "$expected" ] || die "render source count for $persona is $count, expected $expected"
+  render_digest=$(jq -r '.artifact_digest' "$render")
+  jq -ce --arg p "$persona" --arg d "$plan_digest" --arg rd "$render_digest" '
+    . as $plan | input as $render |
+    ($plan.personas[] | select(.id == $p)) as $person |
+    ([$render.people[] | select(.persona_id == $p) | .sources[]]) as $sources |
+    ($person.variants | map({key: .variant, value: .family}) | from_entries) as $families |
+    ($person.scopes | map({key: .id, value: {path: .path, kind: .kind}}) | from_entries) as $scopes |
+    if ($sources | length) != $person.raw_files then error("raw_files mismatch") else empty end,
+    {schema: "persona-corpus.full-inventory/v1", kind: "header", persona: $p, role: $person.role, raw_files: $person.raw_files, plan_digest: $d, render_digest: $rd, source_count: ($sources | length)},
+    ($sources | sort_by(.source_id)[] |
+      . as $s | ($scopes[$s.scope_id]) as $scope |
+      (if $s.extension == "pdf" then (if $s.planned_chunks == 0 then "pdf-scan" else "pdf-text" end) else $s.extension end) as $variant |
+      (if $s.extension == "pdf" then ($variant | gsub("-"; "_")) else $families[$variant] end) as $family |
+      if ($scope == null or $family == null) then error("unmapped source: " + $s.source_id) else
+      {schema: "persona-corpus.full-inventory/v1", kind: "source", persona: $p,
+       source_id: $s.source_id, scope_id: $s.scope_id, scope_path: $scope.path,
+       scope_kind: $scope.kind, family: $family, canonical_variant: $variant, canonical_extension: $s.extension,
+       media_type: $s.media_type, planned_chunks: $s.planned_chunks,
+       planned_identity: $s.planned_identity, renderer_byte_digest: $s.renderer_byte_digest}
+      end)
+  ' "$plan" "$render" > "$tmp" || die "could not build inventory"
+  publish_new_file
+}
+
+manifest() {
+  check_authority
+  home=$(persona_home)
+  [ -d "$home" ] || die "persona home does not exist: $home"
+  list=$(mktemp "${TMPDIR:-/tmp}/full-ledger-files.XXXXXX") || die "cannot create temporary list"
+  trap 'rm -f "$tmp" "$list"' EXIT HUP INT TERM
+  # A manifest is a record of regular files only.  Do this before enumerating
+  # files: find does not follow symlink directories, so a symlink otherwise
+  # could be silently omitted instead of making the input unsafe.
+  if ! find "$home" -mindepth 1 -exec sh -c '
+    for path do
+      case "$path" in *"
+"*) exit 42;; esac
+      [ -L "$path" ] && exit 43
+      [ -d "$path" ] || [ -f "$path" ] || exit 43
+    done
+  ' sh {} +; then
+    die "persona home contains a non-regular entry or newline-containing path"
+  fi
+  # Reject newline names before sorting; JSONL would otherwise be ambiguous.
+  if ! find "$home" -type f -exec sh -c 'case "$1" in *"
+"*) exit 42;; *) printf "%s\\n" "$1";; esac' sh {} \; > "$list"; then
+    die "newline-containing final path is not supported"
+  fi
+  file_count=$(wc -l < "$list" | tr -d ' ')
+  {
+    jq -cn --arg p "$persona" --arg d "$plan_digest" --argjson n "$file_count" '{schema:"persona-corpus.full-manifest/v1",kind:"header",persona:$p,plan_digest:$d,file_count:$n}'
+    LC_ALL=C sort "$list" | while IFS= read -r file; do
+      rel=${file#"$home"/}
+      case "$rel" in /*|.|..|*/./*|../*|*/../*|*/..) die "unsafe final path: $rel";; esac
+      bytes=$(wc -c < "$file" | tr -d ' ')
+      digest="sha256:$(sha256 "$file")"
+      jq -cn --arg p "$persona" --arg path "$rel" --arg sha "$digest" --argjson bytes "$bytes" \
+        '{schema:"persona-corpus.full-manifest/v1",kind:"file",persona:$p,path:$path,bytes:$bytes,sha256:$sha}'
+    done
+  } > "$tmp"
+  rm -f "$list"
+  publish_new_file
+}
+
+pdf_family() {
+  file=$1
+  command -v pdftotext >/dev/null 2>&1 || die "need pdftotext to classify PDF M1 files"
+  extracted=$(mktemp "${TMPDIR:-/tmp}/full-ledger-pdf.XXXXXX") || die "cannot create PDF text buffer"
+  if ! pdftotext "$file" "$extracted" >/dev/null 2>&1; then
+    rm -f "$extracted"
+    die "pdftotext failed for M1 PDF: $file"
+  fi
+  if LC_ALL=C tr -d '[:space:]' < "$extracted" | grep -q .; then
+    printf '%s\n' pdf_text
+  else
+    printf '%s\n' pdf_scan
+  fi
+  rm -f "$extracted"
+}
+
+reserve_m1() {
+  check_authority
+  [ -f "$inventory" ] && [ -f "$baseline" ] && [ -f "$m1_assignment" ] || die "inventory, baseline, and m1 assignment must be files"
+  require_current_inventory "$inventory" || die "inventory does not match the current canonical plan and render"
+  home=$(persona_home)
+  [ -d "$home" ] || die "persona home does not exist: $home"
+  inv_digest="sha256:$(sha256 "$inventory")"
+  assignment_digest="sha256:$(sha256 "$m1_assignment")"
+  base_digest="sha256:$(sha256 "$baseline")"
+  observed=$(mktemp "${TMPDIR:-/tmp}/full-ledger-m1-observed.XXXXXX") || die "cannot create M1 observation buffer"
+  trap 'rm -f "$tmp" "${observed:-}"' EXIT HUP INT TERM
+  jq -en --slurpfile rows "$inventory" --arg p "$persona" --arg d "$plan_digest" '
+    ($rows | map(select(.kind == "header" and .schema == "persona-corpus.full-inventory/v1"))) as $h |
+    if ($h|length) != 1 or $h[0].persona != $p or $h[0].plan_digest != $d then error("invalid inventory header") else true end
+  ' >/dev/null || die "invalid inventory"
+  jq -en --slurpfile rows "$baseline" --arg p "$persona" --arg d "$plan_digest" '
+    ($rows | map(select(.kind == "header" and .schema == "persona-corpus.full-manifest/v1"))) as $h |
+    ($rows | map(select(.kind == "file"))) as $f |
+    if ($h|length) != 1 or $h[0].persona != $p or $h[0].plan_digest != $d or ($h[0].file_count != ($f|length)) then error("invalid baseline header") else true end
+  ' >/dev/null || die "invalid baseline"
+  jq -r 'select(.kind == "file") | .path' "$baseline" | while IFS= read -r rel; do
+    case "$rel" in /*|.|..|*/./*|../*|*/../*|*/..) die "unsafe baseline path: $rel";; esac
+    absolute="$home/$rel"
+    [ ! -L "$absolute" ] && [ -f "$absolute" ] || die "baseline path is missing, symlinked, or non-regular in persona home: $rel"
+    bytes=$(wc -c < "$absolute" | tr -d ' ')
+    digest="sha256:$(sha256 "$absolute")"
+    case "$rel" in
+      *.pdf|*.PDF) jq -cn --arg path "$rel" --arg family "$(pdf_family "$absolute")" --arg sha "$digest" --argjson bytes "$bytes" '{path:$path,family:$family,bytes:$bytes,sha256:$sha}';;
+      *) jq -cn --arg path "$rel" --arg sha "$digest" --argjson bytes "$bytes" '{path:$path,bytes:$bytes,sha256:$sha}';;
+    esac
+  done > "$observed"
+  jq -nce --slurpfile inv "$inventory" --slurpfile base "$baseline" --slurpfile map "$m1_assignment" --slurpfile actual "$observed" \
+    --arg p "$persona" --arg d "$plan_digest" --arg invd "$inv_digest" --arg assignmentd "$assignment_digest" --arg based "$base_digest" '
+    def fail($m): error($m);
+    ($inv | map(select(.kind == "source"))) as $sources |
+    ($base | map(select(.kind == "file"))) as $base_files |
+    ($map | map(select(.kind == "artifact"))) as $m1 |
+    ([$map[] | select(.kind == "header" and .schema == "persona-corpus.m1-assignment/v1")]) as $map_headers |
+    if ($base|length) != 201 or ($base_files|length) != 200 then fail("baseline record set must be exactly 201") else . end |
+    if ([ $base_files[].path ]|unique|length) != 200 then fail("baseline path is not unique") else . end |
+    ([ $base_files[] | select(.schema != "persona-corpus.full-manifest/v1" or .persona != $p or (.path|type) != "string" or (.path|startswith("/")) or (.path|contains("\n")) or (.path|split("/")|any(. == "" or . == "." or . == "..")) or (.bytes|type) != "number" or (.bytes < 0) or (.bytes|floor) != .bytes or (.sha256|type) != "string" or (.sha256|test("^sha256:[0-9a-f]{64}$")|not)) | .path ]) as $bad_baseline |
+    if ($bad_baseline|length)>0 then fail("invalid baseline manifest rows") else . end |
+    if ($map|length) != 201 then fail("M1 assignment contains unexpected records") else . end |
+    if ($map_headers|length) != 1 or $map_headers[0].persona != $p or $map_headers[0].plan_digest != $d or ($map_headers[0].assignment_id|type) != "string" or ($map_headers[0].assignment_id|test("^[A-Za-z0-9][A-Za-z0-9._-]*$")|not) or $map_headers[0].artifact_count != 200 then fail("invalid M1 assignment header") else . end |
+    if ($m1|length) != 200 then fail("M1 baseline must contain exactly 200 files") else . end |
+    if ([ $m1[].artifact_id ]|unique|length) != ($m1|length) then fail("duplicate M1 artifact_id") else . end |
+    if ([ $m1[].path ]|unique|length) != ($m1|length) then fail("duplicate M1 path") else . end |
+    ($base_files | map({key:.path,value:.}) | from_entries) as $by_baseline_path |
+    ([ $m1[].path ]|sort) as $map_paths | ([ $base_files[].path ]|sort) as $baseline_paths |
+    if $map_paths != $baseline_paths then fail("M1 assignment path set does not match baseline") else . end |
+    ($sources | map({key:.scope_id,value:.scope_path}) | from_entries) as $scope_paths |
+    ([ $m1[] | .physical_extension as $ext | .scope_path as $path_prefix | select(.schema != "persona-corpus.m1-assignment/v1" or .kind != "artifact" or .persona != $p or (.artifact_id|type) != "string" or (.artifact_id|test("^[A-Za-z0-9][A-Za-z0-9._-]*$")|not) or (.path|type) != "string" or (.path|startswith("/")) or (.path|contains("\n")) or (.path|split("/")|any(. == "" or . == "." or . == "..")) or (.scope_id|type) != "string" or (.scope_path|type) != "string" or $scope_paths[.scope_id] != .scope_path or (.family|type) != "string" or (.physical_extension|type) != "string" or (.physical_extension|test("^[A-Za-z0-9][A-Za-z0-9._+-]*$")|not) or (.path|endswith("." + $ext)|not) or (.path|startswith($path_prefix + "/")|not) or .state != "frozen") | .path ]) as $bad_map |
+    if ($bad_map|length)>0 then fail("invalid M1 assignment rows") else . end |
+    ([ $m1[] | . as $m | select(([ $sources[] | select(.scope_id == $m.scope_id and .family == $m.family and (.canonical_extension|type) == "string" and .canonical_extension != "") ] | length) == 0) | .path ]) as $unsupported_extensions |
+    if ($unsupported_extensions|length)>0 then fail("M1 assignment has no canonical scope/family extension: " + ($unsupported_extensions|join(","))) else . end |
+    ($actual | map({key:.path,value:.}) | from_entries) as $by_actual_path |
+    ([ $base_files[] | . as $b | ($by_actual_path[$b.path]) as $actual_row | select($actual_row == null or $actual_row.bytes != $b.bytes or $actual_row.sha256 != $b.sha256) | .path ]) as $changed |
+    if ($changed|length)>0 then fail("baseline differs from observed M1 files: " + ($changed|join(","))) else . end |
+    ([ $actual[] | select(.family? != null) | . as $pdf_row | ($m1 | map(select(.path == $pdf_row.path))[0]) as $map_row | select($map_row == null or $map_row.family != $pdf_row.family) | .path ]) as $bad_pdf |
+    if ($bad_pdf|length)>0 then fail("M1 assignment PDF classification mismatch") else . end |
+    ($m1 | map(. as $m | . + ($by_baseline_path[$m.path] | {bytes,sha256}))) as $m1_with_observed |
+    ($sources | map({key:.scope_path,value:{scope_id:.scope_id}}) | from_entries) as $scopes |
+    ($m1_with_observed | map(. as $m | . + {scope_matches: [$scopes | to_entries[] | select(.key as $s | ($m.path == $s or ($m.path | startswith($s + "/"))))]})) as $mapped |
+    ([ $mapped[] | select((.scope_matches|length) != 1 or .scope_matches[0].value.scope_id != .scope_id) | .path ]) as $ambiguous |
+    if ($ambiguous|length)>0 then fail("M1 path has ambiguous or unknown scope: " + ($ambiguous|join(","))) else . end |
+    ($mapped | map(. + {scope_id:.scope_matches[0].value.scope_id} | del(.scope_matches))) as $m1_scoped |
+    ([ $m1_scoped[] | {key:(.scope_id + "|" + .family), value:.path}]) as $m1_pairs |
+    ([ $sources[] | {key:(.scope_id + "|" + .family), value:.source_id}]) as $source_pairs |
+    ($m1_pairs | group_by(.key) | map({key:.[0].key,value:(map(.value)|sort)}) | from_entries) as $m1_groups |
+    ($source_pairs | group_by(.key) | map({key:.[0].key,value:(map(.value)|sort)}) | from_entries) as $source_groups |
+    ([ $m1_groups | to_entries[] | select(($source_groups[.key] // [] | length) < (.value|length)) | .key ]) as $short |
+    if ($short|length)>0 then fail("canonical group shortage: " + ($short|join(","))) else . end |
+    {schema:"persona-corpus.full-m1-reservations/v1",kind:"header",persona:$p,plan_digest:$d,inventory_sha256:$invd,m1_assignment_sha256:$assignmentd,baseline_sha256:$based,reservation_count:($m1_scoped|length)},
+    ($m1_groups | to_entries[] | .key as $key | .value as $paths | $source_groups[$key] as $ids |
+      range(0; $paths|length) as $i |
+      ($m1_scoped | map(select(.path == $paths[$i]))[0]) as $m |
+      ($sources | map(select(.source_id == $ids[$i]))[0]) as $s |
+      {schema:"persona-corpus.full-m1-reservations/v1",kind:"reservation",persona:$p,source_id:$s.source_id,scope_id:$s.scope_id,scope_path:$s.scope_path,family:$s.family,m1_path:$m.path,bytes:$m.bytes,sha256:$m.sha256})
+  ' > "$tmp" || die "could not derive M1 reservations"
+  rm -f "$observed"
+  publish_new_file
+}
+
+verify() {
+  check_authority
+  [ -f "$inventory" ] && [ -f "$m1_assignment" ] && [ -f "$reservations" ] && [ -f "$assignment" ] && [ -f "$baseline" ] || die "inventory, M1 assignment, reservations, assignment, and baseline must be files"
+  require_current_inventory "$inventory" || die "inventory does not match the current canonical plan and render"
+  inv_digest="sha256:$(sha256 "$inventory")"
+  assignment_digest="sha256:$(sha256 "$m1_assignment")"
+  base_digest="sha256:$(sha256 "$baseline")"
+  before_file=${before:-$baseline}
+  if [ -n "$before" ]; then [ -f "$before" ] || die "before manifest must be a file"; has_before=true; else has_before=false; fi
+  after_file=${after:-/dev/null}
+  if [ -n "$after" ]; then
+    [ -f "$after" ] || die "after manifest must be a file"
+    has_after=true
+    observed_dir=$(mktemp -d "${TMPDIR:-/tmp}/full-ledger-after.XXXXXX") || die "cannot create observed-manifest directory"
+    observed_after="$observed_dir/after.jsonl"
+    trap 'rm -f "${observed_after:-}"; rmdir "${observed_dir:-}" 2>/dev/null || true' EXIT HUP INT TERM
+    "$0" manifest --persona "$persona" --out "$observed_after" >/dev/null || die "could not regenerate current persona manifest"
+    cmp -s "$after" "$observed_after" || die "after manifest does not match the current persona home"
+    rm -f "$observed_after"
+    rmdir "$observed_dir" || die "could not clean observed-manifest directory"
+    trap - EXIT HUP INT TERM
+  else
+    has_after=false
+  fi
+  pilot_assignment="$root/prompts/p01-full-pilot-assignment.jsonl"
+  if [ -f "$pilot_assignment" ] && cmp -s "$assignment" "$pilot_assignment"; then exact_pilot=true; else exact_pilot=false; fi
+  jq -n --slurpfile inv "$inventory" --slurpfile map "$m1_assignment" --slurpfile res "$reservations" --slurpfile asn "$assignment" --slurpfile base "$baseline" --slurpfile bef "$before_file" --slurpfile aft "$after_file" \
+    --arg p "$persona" --arg d "$plan_digest" --arg invd "$inv_digest" --arg assignmentd "$assignment_digest" --arg based "$base_digest" --arg batches "$batch_ids" --argjson exact_pilot "$exact_pilot" --argjson has_before "$has_before" --argjson has_after "$has_after" '
+    def fail($m): error($m);
+    def one_header($rows; $schema):
+      ($rows | map(select(.kind == "header" and .schema == $schema))) as $headers |
+      if ($headers | length) == 1 then $headers[0] else fail("missing or duplicate header for " + $schema) end;
+    (one_header($inv; "persona-corpus.full-inventory/v1")) as $ih |
+    (one_header($map; "persona-corpus.m1-assignment/v1")) as $mh |
+    (one_header($res; "persona-corpus.full-m1-reservations/v1")) as $rh |
+    (one_header($asn; "persona-corpus.full-addition-assignment/v1")) as $ah |
+    (one_header($base; "persona-corpus.full-manifest/v1")) as $bh |
+    (one_header($bef; "persona-corpus.full-manifest/v1")) as $before_header |
+    if (($ih.persona != $p or $mh.persona != $p or $rh.persona != $p or $ah.persona != $p or $bh.persona != $p) or
+        ($ih.plan_digest != $d or $mh.plan_digest != $d or $rh.plan_digest != $d or $ah.plan_digest != $d or $bh.plan_digest != $d))
+    then fail("header persona or plan digest mismatch") else . end |
+    if ($ah.render_digest != $ih.render_digest) then fail("assignment render digest mismatch") else . end |
+    if ($rh.inventory_sha256 != $invd or $rh.m1_assignment_sha256 != $assignmentd or $rh.baseline_sha256 != $based) then fail("reservation input digest mismatch") else . end |
+    ($inv | map(select(.kind == "source"))) as $sources |
+    ($map | map(select(.kind == "artifact"))) as $m1_assignment_files |
+    ($res | map(select(.kind == "reservation"))) as $reserved |
+    ($asn | map(select(.kind == "artifact"))) as $artifacts |
+    ($base | map(select(.kind == "file"))) as $files |
+    ($bef | map(select(.kind == "file"))) as $before_files |
+    if (($sources|length) != ($ih.source_count)) then fail("inventory source_count mismatch") else . end |
+    if ($map|length) != 201 then fail("M1 assignment contains unexpected records") else . end |
+    if (($m1_assignment_files|length) != 200 or $mh.artifact_count != 200 or ($mh.assignment_id|type) != "string" or ($mh.assignment_id|test("^[A-Za-z0-9][A-Za-z0-9._-]*$")|not)) then fail("M1 assignment count or header is invalid") else . end |
+    if ($res|length) != 201 or ($reserved|length) != 200 or $rh.reservation_count != 200 then fail("reservation count or record set must be exactly 201") else . end |
+    if ($base|length) != 201 or ($files|length) != ($bh.file_count) or ($files|length) != 200 then fail("baseline record set must be exactly 201") else . end |
+    if ($bef|length) != (($before_files|length) + 1) or $before_header.persona != $p or $before_header.plan_digest != $d or $before_header.file_count != ($before_files|length) then fail("before manifest header or record set mismatch") else . end |
+    if ($asn|length) != (($artifacts|length) + 1) or ($artifacts|length) != ($ah.artifact_count) then fail("assignment artifact_count or record set mismatch") else . end |
+    if (($ah.assignment_id|type) != "string" or ($ah.assignment_id|test("^[A-Za-z0-9][A-Za-z0-9._-]*$")|not) or ($ah.batch_id|type) != "string" or ($ah.batch_id|test("^[A-Za-z0-9][A-Za-z0-9._-]*$")|not) or ($ah.pilot|type) != "boolean") then fail("invalid assignment header identifiers") else . end |
+    if ([ $sources[].source_id ] | unique | length) != ($sources|length) then fail("inventory source_id is not unique") else . end |
+    if ([ $reserved[].source_id ] | unique | length) != ($reserved|length) then fail("reserved source_id is not unique") else . end |
+    if ([ $artifacts[].source_id ] | unique | length) != ($artifacts|length) then fail("assignment source_id is not unique") else . end |
+    if ([ $artifacts[].artifact_id ] | unique | length) != ($artifacts|length) then fail("assignment artifact_id is not unique") else . end |
+    ($artifacts | map({key:.artifact_id,value:true}) | from_entries) as $artifact_id_set |
+    ([ $artifacts[].source_id | select($artifact_id_set[.] == true) ]) as $overlapping_assignment_ids |
+    if ($overlapping_assignment_ids|length) != 0 then fail("assignment source_id and artifact_id namespaces overlap") else . end |
+    if ([ $artifacts[].path ] | unique | length) != ($artifacts|length) then fail("assignment path is not unique") else . end |
+    if ([ $files[].path ] | unique | length) != ($files|length) then fail("baseline path is not unique") else . end |
+    if ([ $files[].sha256 ] | unique | length) != ($files|length) then fail("baseline SHA-256 is not unique") else . end |
+    if ([ $before_files[].path ] | unique | length) != ($before_files|length) then fail("before path is not unique") else . end |
+    if ([ $before_files[].sha256 ] | unique | length) != ($before_files|length) then fail("before SHA-256 is not unique") else . end |
+    if ([ $m1_assignment_files[].artifact_id ] | unique | length) != ($m1_assignment_files|length) then fail("M1 assignment artifact_id is not unique") else . end |
+    if ([ $m1_assignment_files[].path ] | unique | length) != ($m1_assignment_files|length) then fail("M1 assignment path is not unique") else . end |
+    ([ $files[] | select(.schema != "persona-corpus.full-manifest/v1" or .persona != $p or (.path|type) != "string" or (.path|startswith("/")) or (.path|contains("\n")) or (.path|split("/")|any(. == "" or . == "." or . == "..")) or (.bytes|type) != "number" or (.bytes < 0) or (.bytes|floor) != .bytes or (.sha256|type) != "string" or (.sha256|test("^sha256:[0-9a-f]{64}$")|not)) | .path ]) as $bad_baseline_manifest |
+    if ($bad_baseline_manifest|length)>0 then fail("invalid baseline manifest rows") else . end |
+    ([ $before_files[] | select(.schema != "persona-corpus.full-manifest/v1" or .persona != $p or (.path|type) != "string" or (.path|startswith("/")) or (.path|contains("\n")) or (.path|split("/")|any(. == "" or . == "." or . == "..")) or (.bytes|type) != "number" or (.bytes < 0) or (.bytes|floor) != .bytes or (.sha256|type) != "string" or (.sha256|test("^sha256:[0-9a-f]{64}$")|not)) | .path ]) as $bad_before_manifest |
+    if ($bad_before_manifest|length)>0 then fail("invalid before manifest rows") else . end |
+    ($sources | map({key:.scope_id,value:.scope_path}) | from_entries) as $scope_paths |
+    ([ $m1_assignment_files[] | . as $m | .physical_extension as $ext | .scope_path as $path_prefix |
+       select(.schema != "persona-corpus.m1-assignment/v1" or .kind != "artifact" or .persona != $p or
+              (.path|type) != "string" or (.path|startswith("/")) or (.path|contains("\n")) or
+              (.path|split("/")|any(. == "" or . == "." or . == "..")) or
+              (.scope_id|type) != "string" or (.scope_path|type) != "string" or
+              (.family|type) != "string" or (.physical_extension|type) != "string" or (.physical_extension|test("^[A-Za-z0-9][A-Za-z0-9._+-]*$")|not) or
+              (.artifact_id|type) != "string" or (.artifact_id|test("^[A-Za-z0-9][A-Za-z0-9._-]*$")|not) or .state != "frozen" or
+              $scope_paths[.scope_id] != .scope_path or (.path|endswith("." + $ext)|not) or
+              (.path|startswith($path_prefix + "/")|not)) | .path ]) as $bad_m1_assignment |
+    if ($bad_m1_assignment|length)>0 then fail("invalid M1 assignment rows") else . end |
+    ([ $m1_assignment_files[] | . as $m | select(([ $sources[] | select(.scope_id == $m.scope_id and .family == $m.family and (.canonical_extension|type) == "string" and .canonical_extension != "") ] | length) == 0) | .path ]) as $unsupported_m1_extensions |
+    if ($unsupported_m1_extensions|length)>0 then fail("M1 assignment has no canonical scope/family extension: " + ($unsupported_m1_extensions|join(","))) else . end |
+    ([ $m1_assignment_files[].path ]|sort) as $m1_assignment_paths |
+    ([ $files[].path ]|sort) as $baseline_paths_from_manifest |
+    if $m1_assignment_paths != $baseline_paths_from_manifest then fail("M1 assignment path set does not match baseline") else . end |
+    ($sources | map({key:.source_id,value:.}) | from_entries) as $by_source |
+    ($reserved | map({key:.source_id,value:.}) | from_entries) as $by_reserved |
+    ($files | map({key:.path,value:.}) | from_entries) as $by_baseline_path |
+    ($before_files | map({key:.path,value:.}) | from_entries) as $by_before_path |
+    ($artifacts | map({key:.path,value:.}) | from_entries) as $by_artifact_path |
+    ($m1_assignment_files | map({key:.path,value:.}) | from_entries) as $by_m1_assignment_path |
+    ($files | map(.path) | INDEX(.)) as $baseline_paths |
+    ([ $artifacts[] |
+       . as $a | ($by_source[$a.source_id]) as $s |
+       (($s.family | if . == "docx" then "documents" elif . == "xlsx" then "spreadsheets" elif . == "pptx" then "presentations" elif . == "pdf_text" or . == "pdf_scan" then "pdf" elif . == "image" then "imagegen" else null end)) as $expected_skill |
+       select(.schema != "persona-corpus.full-addition-assignment/v1" or .persona != $p or $s == null or $by_reserved[$a.source_id] != null or .scope_id != $s.scope_id or .scope_path != $s.scope_path or .family != $s.family or .canonical_variant != $s.canonical_variant or .canonical_extension != $s.canonical_extension or .physical_extension != $s.canonical_extension or
+              (.artifact_id|type) != "string" or (.artifact_id|test("^[A-Za-z0-9][A-Za-z0-9._-]*$")|not) or (.batch_id|type) != "string" or (.batch_id|test("^[A-Za-z0-9][A-Za-z0-9._-]*$")|not) or (.state != "planned") or
+              ((.dependencies // null)|type) != "array" or ([.dependencies[] | select(type != "string")] | length) > 0 or
+              ((.content_spine_ids // null)|type) != "array" or ([.content_spine_ids[] | select(type != "string")] | length) > 0 or
+              .skill_required != $expected_skill or
+              (.path|type) != "string" or (.path|startswith("/")) or (.path|contains("\n")) or
+              (.path|split("/")|any(. == "" or . == "." or . == "..")) or
+              (.path|test("[^/]+\\." + $s.canonical_extension + "$")|not) or
+              (.path|startswith($s.scope_path + "/")|not) or $baseline_paths[.path]) |
+       (.artifact_id // .source_id)] ) as $bad |
+    if ($bad|length) > 0 then fail("invalid assignment rows: " + ($bad|join(","))) else . end |
+    ([ $reserved[] |
+       . as $r | ($by_source[$r.source_id]) as $s | ($by_baseline_path[$r.m1_path]) as $f | ($by_m1_assignment_path[$r.m1_path]) as $m |
+       select(.schema != "persona-corpus.full-m1-reservations/v1" or $s == null or $f == null or $m == null or .persona != $p or .scope_id != $s.scope_id or .scope_path != $s.scope_path or .family != $s.family or .scope_id != $m.scope_id or .scope_path != $m.scope_path or .family != $m.family or .bytes != $f.bytes or .sha256 != $f.sha256) |
+       (.source_id // .m1_path) ]) as $bad_reservations |
+    if ($bad_reservations|length)>0 then fail("invalid reservation rows: " + ($bad_reservations|join(","))) else . end |
+    if ([ $reserved[].m1_path ]|unique|length) != ($reserved|length) then fail("reservation m1_path is not unique") else . end |
+    ([ $reserved[].m1_path ]|sort) as $reservation_paths |
+    ([ $files[].path ]|sort) as $baseline_path_set |
+    if $reservation_paths != $baseline_path_set then fail("reservation m1_path set does not match baseline") else . end |
+    ($sources | group_by(.scope_id + "|" + .family) |
+      map({key:(.[0].scope_id + "|" + .[0].family),value:(map(.source_id)|sort)}) |
+      from_entries) as $canonical_source_groups |
+    ($reserved | group_by(.scope_id + "|" + .family)) as $reservation_groups |
+    ([ $reservation_groups[] |
+       . as $g | ($g[0].scope_id + "|" + $g[0].family) as $group_key |
+       ($g|map(.m1_path)|sort) as $paths | ($g|map(.source_id)|sort) as $ids |
+       ($canonical_source_groups[$group_key][0:($g|length)]) as $expected_ids |
+       range(0; ($g|length)) as $i |
+       ($g | map(select(.m1_path == $paths[$i]))[0].source_id) as $actual |
+       select($ids != $expected_ids or $actual != $ids[$i]) | $group_key ] | unique) as $nondeterministic |
+    if ($nondeterministic|length)>0 then fail("reservation pairing is not deterministic") else . end |
+    (($exact_pilot and $ah.pilot == true and $ah.persona == "p01" and $ah.assignment_id == "p01-full-pilot-v1" and $ah.batch_id == "p01-primary-01-full-pilot-b001" and $ah.artifact_count == 12 and ($artifacts|length) == 12)) as $is_pilot |
+    ([ $sources[].source_id ] - [ $reserved[].source_id ] | sort) as $unreserved_source_ids |
+    ([ $artifacts[].source_id ] | sort) as $assigned_source_ids |
+    if (($is_pilot | not) and ($assigned_source_ids != $unreserved_source_ids or ($artifacts|length) != (($sources|length) - 200))) then fail("mass assignment must cover every unreserved canonical source exactly once") else . end |
+    (if $batches == "" then [] else ($batches | split(",")) end) as $selected_batch_ids |
+    ($artifacts | map({key:.batch_id,value:true}) | from_entries) as $known_batches |
+    ([ $selected_batch_ids[] | . as $id | select($known_batches[$id] == null) ]) as $unknown_selected_batches |
+    if ($unknown_selected_batches|length)>0 then fail("batch_id selects no assignment rows: " + ($unknown_selected_batches|join(","))) else . end |
+    if (($is_pilot | not) and ($selected_batch_ids|length) > 0 and ($has_before | not)) then fail("mass batch verification requires --before") else . end |
+    if (($is_pilot | not) and ($selected_batch_ids|length) == 0 and ($has_before or $has_after)) then fail("mass cumulative verification requires a nonempty --batch-id") else . end |
+    ($artifacts | if ($selected_batch_ids|length) == 0 then . else map(select(.batch_id as $id | $selected_batch_ids | index($id))) end) as $current |
+    ($current | map({key:.path,value:true}) | from_entries) as $current_paths |
+    ($artifacts | map({key:.artifact_id,value:.}) + map({key:.source_id,value:.}) | from_entries) as $by_dependency_id |
+    ([ $files[] | . as $f | select($by_before_path[$f.path] != $f) | .path ]) as $changed_baseline_before |
+    if ($changed_baseline_before|length)>0 then fail("baseline files changed or missing in before manifest: " + ($changed_baseline_before|join(","))) else . end |
+    ([ $before_files[] | select($by_baseline_path[.path] == null) | .path ]) as $before_non_m1_paths |
+    ([ $before_non_m1_paths[] as $path |
+       select($by_artifact_path[$path] == null or $current_paths[$path] != null) | $path ]) as $bad_before_paths |
+    if ($bad_before_paths|length)>0 then fail("before contains a current, unknown, or ambiguous Full artifact path: " + ($bad_before_paths|join(","))) else . end |
+    ([ $current[] | select($by_before_path[.path] != null) | .path ]) as $current_in_before |
+    if ($current_in_before|length)>0 then fail("current batch paths already exist in before manifest: " + ($current_in_before|join(","))) else . end |
+    ([ $artifacts[] | (.dependencies? // [])[] ] | unique) as $deps |
+    ([ $deps[] | select($by_dependency_id[.] == null) ]) as $missing |
+    if ($missing|length) > 0 then fail("unknown dependency IDs: " + ($missing|join(","))) else . end |
+    ([ $current[] | . as $a | ($a.dependencies // [])[] as $dep |
+       ($by_dependency_id[$dep]) as $target |
+       select($target == null or $dep == $a.artifact_id or $dep == $a.source_id or
+              ($current_paths[$target.path] == null and $by_before_path[$target.path] == null)) |
+       ($a.artifact_id + ":" + $dep) ]) as $bad_selected_dependencies |
+    if ($bad_selected_dependencies|length)>0 then fail("invalid selected dependency: " + ($bad_selected_dependencies|join(","))) else . end |
+    if $has_after then
+      (one_header($aft; "persona-corpus.full-manifest/v1")) as $after_header |
+      ($aft | map(select(.kind == "file"))) as $after_files |
+      if ($aft|length) != (($after_files|length) + 1) or $after_header.persona != $p or $after_header.plan_digest != $d or $after_header.file_count != ($after_files|length) then fail("after manifest header or record set mismatch") else . end |
+      if (($after_files|length) != (($before_files|length) + ($current|length))) then fail("after file_count does not equal before plus current batch") else . end |
+      if ([ $after_files[].path ]|unique|length) != ($after_files|length) then fail("after path is not unique") else . end |
+      if ([ $after_files[].sha256 ]|unique|length) != ($after_files|length) then fail("after SHA-256 is not unique") else . end |
+      ([ $after_files[] | select(.schema != "persona-corpus.full-manifest/v1" or .persona != $p or (.path|type) != "string" or (.path|startswith("/")) or (.path|contains("\n")) or (.path|split("/")|any(. == "" or . == "." or . == "..")) or (.bytes|type) != "number" or (.bytes < 0) or (.bytes|floor) != .bytes or (.sha256|type) != "string" or (.sha256|test("^sha256:[0-9a-f]{64}$")|not)) | .path ]) as $bad_after_manifest |
+      if ($bad_after_manifest|length)>0 then fail("invalid after manifest rows") else . end |
+      ($after_files | map({key:.path,value:.}) | from_entries) as $by_after_path |
+      ([ $before_files[] | select(($by_after_path[.path] // null) != .) | .path ]) as $changed_before |
+      if ($changed_before|length)>0 then fail("before files changed in after manifest: " + ($changed_before|join(","))) else . end |
+      ([ $current[] | select($by_after_path[.path] == null) | .path ]) as $missing_new |
+      ([ $after_files[] | . as $af | select(($by_before_path[$af.path] == null) and $current_paths[$af.path] == null) | .path ]) as $unexpected_new |
+      if ($missing_new|length)>0 or ($unexpected_new|length)>0 then fail("after paths do not exactly match before plus current batch") else . end |
+      {persona:$p, plan_digest:$d, inventory_sources:($sources|length), m1_reservations:($reserved|length), assignment_artifacts:($artifacts|length), selected_batch_ids:$selected_batch_ids, current_batch_artifacts:($current|length), baseline_files:($files|length), before_files:($before_files|length), after_files:($after_files|length), result:"ok"}
+    else
+      {persona:$p, plan_digest:$d, inventory_sources:($sources|length), m1_reservations:($reserved|length), assignment_artifacts:($artifacts|length), selected_batch_ids:$selected_batch_ids, current_batch_artifacts:($current|length), baseline_files:($files|length), before_files:($before_files|length), result:"ok"}
+    end
+  '
+}
+
+case "${1:-}" in --help|-h) help; exit 0;; esac
+command=${1:-}; shift || true
+persona= out= inventory= reservations= assignment= baseline= m1_assignment= before= after= batch_ids=
+while [ "$#" -gt 0 ]; do
+  case "$1" in
+    --persona) persona=${2:-}; shift 2;;
+    --out) out=${2:-}; shift 2;;
+    --inventory) inventory=${2:-}; shift 2;;
+    --reservations) reservations=${2:-}; shift 2;;
+    --assignment) assignment=${2:-}; shift 2;;
+    --baseline) baseline=${2:-}; shift 2;;
+    --m1-assignment) m1_assignment=${2:-}; shift 2;;
+    --before) before=${2:-}; shift 2;;
+    --batch-id)
+      batch_candidate=${2:-}
+      [ -n "$batch_candidate" ] || die "--batch-id must be nonempty"
+      if ! printf '%s\n' "$batch_candidate" | LC_ALL=C grep -Eq '^[A-Za-z0-9][A-Za-z0-9._-]*$'; then
+        die "--batch-id contains unsafe characters"
+      fi
+      case ",$batch_ids," in *",$batch_candidate,"*) die "duplicate --batch-id: $batch_candidate";; esac
+      batch_ids=${batch_ids}${batch_ids:+,}$batch_candidate
+      shift 2;;
+    --after) after=${2:-}; shift 2;;
+    *) usage;;
+  esac
+done
+case "$persona" in p[0-9][0-9]) ;; *) die "--persona must be pXX";; esac
+case "$command" in
+  inventory) [ -n "$out" ] || usage; absolute_new_file "$out"; inventory;;
+  manifest) [ -n "$out" ] || usage; absolute_new_file "$out"; manifest;;
+  reserve-m1) [ -n "$inventory" ] && [ -n "$baseline" ] && [ -n "$m1_assignment" ] && [ -n "$out" ] || usage; absolute_new_file "$out"; reserve_m1;;
+  verify) [ -n "$inventory" ] && [ -n "$m1_assignment" ] && [ -n "$reservations" ] && [ -n "$assignment" ] && [ -n "$baseline" ] || usage; verify;;
+  *) usage;;
+esac

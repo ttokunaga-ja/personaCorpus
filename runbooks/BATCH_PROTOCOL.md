@@ -1,4 +1,8 @@
-# Batch production protocol
+# M1 batch production protocol
+
+This document governs only the first 200 files per persona. Additions beyond
+M1 use `FULL_PRODUCTION_PROTOCOL.md` and `FULL_LEDGER_SPEC.md`; never reuse the
+200-file proportional formula for Full production.
 
 ## Authority and paths
 
@@ -21,6 +25,9 @@ workspace-owner binding itself; it accepts no caller-supplied record digest.
 1. The parent reads the accepted plan row and chooses one persona and one
    unleased Rust scope ID. It preserves the plan's required home path and
    allocation; this protocol adds no semantic allocation or manifest.
+   Leases for other personas are normal during a parallel wave. Inspect and
+   operate only the selected persona's parent and scope leases; global
+   `active_leases=0` is a coordinator-only wave-end check.
 2. The parent obtains one persona coordination lease:
 
    ```bash
@@ -74,13 +81,29 @@ For the first milestone, a scope's target count is its full-plan
 persona brief's integer percentage multiplied by two, so its fifteen format
 targets also sum to 200.
 
-Before spawning workers, the parent writes a token-free operational assignment
-at `progress/<persona-id>/m1-assignments.md`. It lists all twenty Rust scope
-IDs, exact final folders, target counts, and fixed filenames/formats. The
-brief's named seed artifact occupies the matching primary scope first; the
-remaining entries complete the scope and format totals. This checkpoint is a
-persona-owned work allocation, not a replacement plan or canonical manifest.
-The parent passes each worker only that worker's fixed scope subset.
+Before spawning workers, the parent freezes the token-free operational
+assignment at `progress/<persona-id>/m1-assignment-ledger.jsonl`. This is the
+sole machine-readable M1 allocation authority, not a replacement plan or
+canonical manifest. It has one header and exactly 200 artifact rows, sorted by
+`scope_path`, then `path`, with schema `persona-corpus.m1-assignment/v1`:
+
+```json
+{"schema":"persona-corpus.m1-assignment/v1","kind":"header","persona":"p08","plan_digest":"sha256:<canonical-persona-plan-sha256>","assignment_id":"p08-m1","artifact_count":200}
+{"schema":"persona-corpus.m1-assignment/v1","kind":"artifact","persona":"p08","artifact_id":"p08-m1-000001","scope_id":"p08-primary-01","scope_path":"portfolio/product-alpha/2026/q3/prds","family":"docx","physical_extension":"docx","path":"portfolio/product-alpha/2026/q3/prds/product-alpha-q3-prd.docx","state":"frozen"}
+```
+
+There is one header only; every row has a stable unique `artifact_id`, a
+canonical Rust scope ID/path, a unique `home/`-relative `path`, a declared
+family, matching physical extension, and `state:"frozen"`. The brief's named
+seed artifact occupies the matching primary scope first; remaining rows
+complete the scope and format totals. Derive
+`progress/<persona-id>/m1-assignments.md` from the ledger as the human display
+of all twenty scope IDs, final folders, target counts, and filenames/formats.
+It is subordinate to the JSONL and must not become an independent allocation.
+Never re-infer family from an extension: `.sql` may be `code` or
+`structured_text` according to the frozen row. Validate the ledger and its
+derived display before the first scope claim. If either frozen record already
+exists, verify it instead of overwriting or silently revising it.
 
 Lease state is a duplicate-writer coordination aid, not a privilege boundary
 against another process under the same OS account. It is not evidence of Kio

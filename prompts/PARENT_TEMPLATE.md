@@ -1,4 +1,7 @@
-# Parent task prompt template
+# M1 parent task prompt template
+
+This template is only for the first 200 files. M1-complete personas must use
+`FULL_PARENT_TEMPLATE.md` for additions.
 
 Replace every placeholder before starting a separate Local task.
 
@@ -20,10 +23,20 @@ release tokenは親だけが保持し、ファイル、prompt、Subagentメッ�
 briefの初回seed artifactsから開始し、各plan-defined leaf scopeをそれぞれ1 Subagentへ
 排他的に割り当ててください。Subagentをspawnする直前に親がscope leaseを取得します。
 spawn前にrunbooks/BATCH_PROTOCOL.mdの初回200件計算へ従って、全20 scopeの件数と
-固定ファイル名・形式をprogress/<PERSONA_ID>/m1-assignments.mdへ確定してください。
+固定ファイル名・形式を、唯一のmachine-readable authorityである
+`persona-corpus.m1-assignment/v1` JSONL
+`progress/<PERSONA_ID>/m1-assignment-ledger.jsonl`へ固定してください。headerと200件の
+artifact rowにはstable artifact ID、home-relative path、Rust scope ID/path、宣言family、
+physical extension、`state:"frozen"`を入れます。次にそのledgerから人間向け表示として
+`progress/<PERSONA_ID>/m1-assignments.md`を作成してください。Markdownは独立した割当
+authorityではありません。familyを後から拡張子（特に`.sql`）で推測し直してはいけません。
 Subagentにはscope ID、最終absolute folder、作成する固定ファイル名・形式・内容要件だけを
 渡し、そのフォルダ以外を編集させないでください。同じscopeのSubagentを同時に2つ起動
 しないでください。
+
+他personaのactive leaseは正常な並列productionです。自分のpersona以外のleaseを
+show/recover/releaseせず、global active_leases=0を個別完了条件にしません。
+全体coordinatorだけがparallel wave終了後にglobal 0を確認します。
 
 DOCX/PDF/XLSX/PPTX/画像はDocuments/PDF/Spreadsheets/Presentations/ImageGenの
 該当skillを必ず読み、skill所定のrender・視覚確認まで行ってください。独自のKio検索QAは

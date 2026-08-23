@@ -15,6 +15,10 @@ Runbooks and prompts are operational guidance only.
 - One parent task owns exactly one persona (`p01` through `p20`).
 - A parent may run several subagents concurrently only when every subagent owns
   a different plan-defined leaf scope. Never assign one scope twice at once.
+- Parent tasks for different personas may run concurrently. Another persona's
+  lease is expected shared-workspace state: do not inspect, recover, release,
+  or use it as a reason to stop. Global `active_leases=0` is a coordinator-only
+  batch-end check, not an individual persona completion condition.
 - Each subagent writes final artifacts only below its assigned
   `workspace/people/<persona>-<role>/home/<scope-path>/` leaf folder.
 - The parent alone invokes `./bin/persona lease ...`, retains release tokens,
@@ -53,9 +57,23 @@ Runbooks and prompts are operational guidance only.
 - Do not commit from parallel persona production tasks. The coordinating task
   alone may commit tracked operational documentation.
 
-## Initial production boundary
+## Production milestones
 
 The first launch targets the persona brief's named seed artifacts, then the
-first 200 final files for that persona in bounded folder batches. The full
-profile (195,000 files total) is a long-term topology target, not a requirement
-for one task turn. Do not claim Kio indexing, history, search, or performance.
+first 200 final files for that persona in bounded folder batches. Freeze the
+machine-readable M1 assignment ledger before the first worker starts, then
+derive its human assignment display; Full production must never infer an
+accepted M1 family from extension alone. The full
+profile (195,000 files total) proceeds only through
+`runbooks/FULL_PRODUCTION_PROTOCOL.md` and a frozen, token-free Full addition
+assignment. Full work must preserve the first 200 files byte-for-byte, use
+bounded resumable batches, and never reinterpret the Rust plan. Do not claim
+Kio indexing, history, search, measured chunks, or performance from either
+milestone.
+
+For M1, the sole machine-readable allocation authority is
+`progress/<persona>/m1-assignment-ledger.jsonl` with schema
+`persona-corpus.m1-assignment/v1`. It is frozen before the first worker starts;
+the human `m1-assignments.md` is its derived display/narrative, never an
+independent allocation. Full reservations consume the frozen ledger directly;
+do not infer a family (especially `.sql`) from an extension.

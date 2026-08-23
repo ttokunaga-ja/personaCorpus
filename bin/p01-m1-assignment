@@ -1,0 +1,70 @@
+#!/bin/sh
+# Deterministically backfill p01's frozen M1 assignment ledger from its
+# accepted pre-production assignment.  This is not a lease tool.
+set -eu
+
+script_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+root=$(CDPATH= cd -- "$script_dir/.." && pwd)
+input="$root/progress/p01/m1-assignments.md"
+plan="$root/canonical/persona-plan.json"
+
+die() { echo "p01-m1-assignment: $*" >&2; exit 1; }
+
+case "${1:-}" in --help|-h)
+  echo "usage: p01-m1-assignment --out /absolute/new.jsonl"
+  exit 0
+esac
+[ "${1:-}" = --out ] && [ "$#" -eq 2 ] || die "usage: p01-m1-assignment --out /absolute/new.jsonl"
+out=$2
+case "$out" in /*) ;; *) die "--out must be an absolute path";; esac
+[ ! -e "$out" ] || die "refusing to overwrite existing output: $out"
+[ -f "$input" ] || die "missing frozen p01 M1 assignment: $input"
+[ -f "$plan" ] || die "missing canonical plan: $plan"
+out_dir=$(dirname -- "$out")
+[ -d "$out_dir" ] || die "output directory does not exist: $out_dir"
+
+rows=$(mktemp "${TMPDIR:-/tmp}/p01-m1-assignment-rows.XXXXXX") || die "cannot create row buffer"
+tmp=$(mktemp "$out_dir/.p01-m1-assignment.XXXXXX") || die "cannot create output buffer"
+trap 'rm -f "$rows" "$tmp"' EXIT HUP INT TERM
+
+awk '
+  /^## p01-(primary|secondary)-[0-9]+ / {
+    scope = $2
+    scope_path = ""
+    next
+  }
+  /^Final folder: `/ && scope != "" {
+    scope_path = $0
+    sub(/^Final folder: `.*\/home\//, "", scope_path)
+    sub(/`.*$/, "", scope_path)
+    next
+  }
+  /^- `[a-z_]+` `[^`]+`/ && scope != "" && scope_path != "" {
+    split($0, parts, "`")
+    printf "%s\t%s\t%s\t%s\n", scope, scope_path, parts[2], parts[4]
+  }
+' "$input" | LC_ALL=C sort -t "$(printf '\t')" -k2,2 -k4,4 > "$rows"
+
+count=$(wc -l < "$rows" | tr -d ' ')
+[ "$count" -eq 200 ] || die "expected 200 frozen assignment rows, found $count"
+plan_digest="sha256:$(shasum -a 256 "$plan" | awk '{print $1}')"
+
+{
+  jq -cn --arg d "$plan_digest" --argjson n "$count" \
+    '{schema:"persona-corpus.m1-assignment/v1",kind:"header",persona:"p01",plan_digest:$d,assignment_id:"p01-m1-frozen-v1",artifact_count:$n}'
+  row=0
+  while IFS="$(printf '\t')" read -r scope scope_path family filename; do
+    row=$((row + 1))
+    extension=${filename##*.}
+    jq -cn --arg id "$(printf 'p01-m1-%04d' "$row")" --arg scope "$scope" --arg scope_path "$scope_path" --arg family "$family" \
+      --arg extension "$extension" --arg path "$scope_path/$filename" \
+      '{schema:"persona-corpus.m1-assignment/v1",kind:"artifact",persona:"p01",artifact_id:$id,scope_id:$scope,scope_path:$scope_path,family:$family,physical_extension:$extension,path:$path,state:"frozen"}'
+  done < "$rows"
+} > "$tmp"
+
+if ln "$tmp" "$out"; then
+  rm -f "$tmp" "$rows"
+else
+  die "refusing to overwrite existing output: $out"
+fi
+trap - EXIT HUP INT TERM

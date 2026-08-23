@@ -33,6 +33,10 @@
    a time; the parent alone retains release tokens. Scope lease commands use
    `--scope-id <Rust scope id>`, never a home path. The CLI derives owner
    bindings itself; callers do not supply a record digest.
+   Different persona parents may run concurrently. Each parent ignores other
+   personas' leases and uses only its own persona/scope state as a completion
+   gate; the coordinator alone checks global `active_leases=0` after a planned
+   parallel wave ends.
 9. Workers may create only the planned final files in their assigned home path.
    They must not write `_control/`, replace the Rust plan/owner/materialization
    records, or alter lease, lock, or recovery files. The parent verifies planned
@@ -41,7 +45,7 @@
     cooperating sessions. They are not security boundaries against processes
     with direct write access as the same OS user. Forced recovery is a trusted
     parent/user action and must never be delegated to an artifact-producing
-   worker.
+    worker.
 11. After all leases are released, use Rust `kio-eval persona attest` for a
     create-only bounded observation of the materialized root. Its Kio evidence
     and history readiness claims remain false.
@@ -49,3 +53,9 @@
     Do not use Git worktrees for production because `canonical/`,
     `workspace/`, `scratch/`, and local progress are intentionally untracked
     and must remain shared across the twenty parent chats.
+13. The first 200 accepted files are M1 and become byte-frozen. Any Full
+    addition must follow `FULL_PRODUCTION_PROTOCOL.md` and
+    `FULL_LEDGER_SPEC.md`, use the frozen M1 assignment ledger as the sole M1
+    allocation authority, reserve all 200 M1 paths/SHA-256 values first, and use a fixed token-free
+    assignment. Never regenerate, rename, move, delete, or improve M1 during
+    Full production.

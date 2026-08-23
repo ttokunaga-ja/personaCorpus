@@ -1,4 +1,8 @@
-# Cross-session handoff
+# M1 cross-session handoff
+
+This handoff creates the first 200 files only. For additions to an M1-complete
+persona, use `prompts/FULL_PARENT_TEMPLATE.md` and the Full protocol/ledger;
+do not paste this M1 handoff again.
 
 The coordinator has already generated the accepted Rust artifacts and fresh
 workspace. Use this handoff only in a Local task opened directly at
@@ -42,6 +46,10 @@ ImageGen の該当 skill を読んで生成・検査し、完了または具体�
 報告してください。親は `./bin/persona lease scope release` で同じ `--scope-id` と
 返されたrelease tokenを使ってleaseを解放します。全scope完了後に
 `./bin/persona lease release` でparent leaseを解放します。
+
+他personaのactive leaseは正常な並列productionです。自分のpersona以外のleaseを
+show/recover/releaseせず、global active_leases=0を個別タスクの完了条件にしません。
+全体coordinatorだけがparallel wave終了後にglobal 0を確認します。
 
 Kio prepare/index/replay/search の実行、chunk 数、history readiness はこの手順の成果では
 ありません。Rust filesystem attestation は bounded bytes-only observation であり、Kio
