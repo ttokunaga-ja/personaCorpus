@@ -1,8 +1,11 @@
 # Local production checkpoints
 
-Persona parent tasks may keep resumable notes under `progress/<persona-id>/`.
-Those persona-owned folders are intentionally ignored by Git. Never write
-lease release tokens, real personal data, or final corpus artifacts here.
+Persona parent tasks keep resumable records under `progress/<persona-id>/`.
+The allowlisted assignment ledgers, content spines, accepted manifests, and
+token-free checkpoints are Git-managed after coordinator acceptance. Local
+failure notes, render output, caches, and other machine-specific state remain
+ignored. Never write lease release tokens, real personal data, or final corpus
+artifacts here.
 
 M1 production freezes `progress/<persona-id>/m1-assignment-ledger.jsonl`.
 It is the sole machine-readable M1 allocation authority; the adjacent
@@ -13,10 +16,11 @@ ledger plus the persona's `progress/.../full/` and
 - deterministic canonical source inventory;
 - frozen M1 artifact IDs, paths, scopes, families and physical extensions;
 - deterministic 200-row M1 source/path reservations;
-- byte-frozen M1 baseline manifest;
+- byte-frozen M1 baseline and cumulative accepted manifests;
 - immutable Full addition assignment;
 - content spine and batch checkpoints;
 - recomputed actual-file manifests and validation summaries.
 
 These records coordinate production but do not replace the Rust plan or owner
-record. Never store parent or scope release tokens in them.
+record. Production tasks never stage or commit them; the wave coordinator does
+so only after validation. Never store parent or scope release tokens in them.

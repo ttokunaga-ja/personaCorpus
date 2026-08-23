@@ -21,8 +21,10 @@
    artifacts. Read the applicable `SKILL.md` before use and inspect every final
    artifact as that skill requires.
 6. Temporary sources and render outputs stay under
-   `scratch/<persona-id>/<scope-id>/`; operational notes stay under
-   `progress/<persona-id>/`. Both are outside the Rust-published workspace.
+   `scratch/<persona-id>/<scope-id>/`; portable assignments, accepted manifests,
+   and token-free checkpoints stay under the allowlisted paths in
+   `progress/<persona-id>/`. Both are outside the Rust-published workspace;
+   scratch and nonportable logs remain Git-ignored.
 7. Do not design product-search QA or assert searchability from raw artifacts.
    This workflow produces files and visual/structural inspection only. It does
    not establish Kio prepare/index/replay, chunks, search correctness, history
@@ -50,9 +52,12 @@
     create-only bounded observation of the materialized root. Its Kio evidence
     and history readiness claims remain false.
 12. All persona chats use this exact repository in Local/same-directory mode.
-    Do not use Git worktrees for production because `canonical/`,
-    `workspace/`, `scratch/`, and local progress are intentionally untracked
-    and must remain shared across the twenty parent chats.
+    Do not use Git worktrees for production: accepted final artifacts are
+    tracked, but runtime, owner, lease topology, canonical render, scratch, and
+    in-flight local state must remain shared across the twenty parent chats.
+    A persona task does not stage, commit, push, or treat another persona's
+    working-tree changes as a failure; the wave coordinator performs Git
+    acceptance after all intended tasks stop.
 13. The first 200 accepted files are M1 and become byte-frozen. Any Full
     addition must follow `FULL_PRODUCTION_PROTOCOL.md` and
     `FULL_LEDGER_SPEC.md`, use the frozen M1 assignment ledger as the sole M1

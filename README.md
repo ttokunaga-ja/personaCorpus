@@ -8,11 +8,12 @@
 
 ```text
 /Users/ttokunaga-ja/dev/github.com/ttokunaga-ja/personaCorpus
-├── canonical/   # Rustが生成したplan/schedule/render/materialization（Git外）
-├── workspace/   # 20人×20 leaf scopeの最終制作先（Git外）
+├── canonical/   # portable plan/scheduleはGit管理、render/receiptはローカル
+├── workspace/   # people/**/homeの受入済み成果物はGit管理、_controlはローカル
 ├── runbooks/    # 共通規則と20人の個別brief
 ├── prompts/     # 別タスクへ貼り付ける親タスク用prompt
-├── progress/    # persona別のローカルcheckpoint（Git外）
+├── progress/    # portable assignment/manifest/checkpointのみGit管理
+├── manifests/   # Git管理成果物の全件SHA-256 manifest
 ├── scratch/     # skillの一時入力・render・視覚確認（Git外）
 ├── bin/         # 固定runtimeを呼ぶ薄いwrapper
 └── .runtime/    # 固定済みkio-eval binary（Git外）
@@ -27,15 +28,17 @@
 4. 親タスクはpersona leaseを取得し、異なるleaf scopeごとにSubagentを割り当てます。
 5. Subagentは指定された1フォルダと固定ファイル一覧だけを制作します。
 
-p08／p09／p10の最初の並列waveは
-[`prompts/MAC_PARALLEL_WAVE_01.md`](prompts/MAC_PARALLEL_WAVE_01.md)に固定しています。
+p08／p09／p10とp01 Full pilotは完了済みです。次のp11／p12／p13並列waveと
+p01 Full master allocationは
+[`prompts/MAC_PARALLEL_WAVE_02.md`](prompts/MAC_PARALLEL_WAVE_02.md)に固定しています。
 
 異なるpersonaの親タスクは同時に実行できます。他personaのleaseは正常な並列状態であり、
 個別タスクは自分のpersonaのleaseと成果物だけを操作します。全体の
 `active_leases=0`確認は、並列batch全体が終わった後にcoordinatorが行います。
 
-タスクを別worktreeで開始すると、Git管理外の `workspace/` がコピー・共有されません。
-20個の親タスクが同じ絶対パスを共有することが、この運用の前提です。
+cloneやworktreeには受入済み成果物は含まれますが、ローカルlease topology、workspace
+owner、canonical render、固定runtimeは含まれません。productionは引き続きこのLocal
+rootを共有し、別worktreeを作りません。
 
 ## 最初に読む文書
 
@@ -48,6 +51,7 @@ p08／p09／p10の最初の並列waveは
 - [Full制作protocol](runbooks/FULL_PRODUCTION_PROTOCOL.md)
 - [Full台帳仕様](runbooks/FULL_LEDGER_SPEC.md)
 - [別PC persona bundle](runbooks/CROSS_PC_PERSONA_BUNDLES.md)
+- [Git管理境界](runbooks/GIT_MANAGEMENT.md)
 
 制作開始前のローカル確認は `./bin/check-ready` を実行します。成功時は20 personas、
 400 scopes、full profile 195,000 files、active lease数を表示します。
@@ -61,6 +65,13 @@ p08／p09／p10の最初の並列waveは
 Full追加制作はM1の200ファイルをbyte-for-byte保持し、canonical source inventory、
 凍結済みM1 assignment ledger／reservation、content spine、追加assignment、batch manifestを先に確定してから
 開始します。最初の検証対象は
-`prompts/p01-full-pilot.md`です。Windows clone単独はGit外のcanonical、workspace、
-runtime、leaseを持たないためproduction環境ではありません。別PCを使う場合は
-persona単位bundle手順に従い、同じpersonaを2台で同時に担当しません。
+`prompts/p01-full-pilot.md`で完了しました。Git cloneは受入済み成果物、portable plan、
+台帳、manifestを共有できますが、runtime、owner、lease topology、100 MiB超のrenderを
+持たないためclone単独では正式production環境になりません。別PCを使う場合はpersona
+単位bundle手順に従い、同じpersonaを2台で同時に担当しません。
+
+受入済み成果物の全件照合は次で行います。
+
+```bash
+./bin/corpus-manifest verify --manifest manifests/corpus-sha256.jsonl
+```

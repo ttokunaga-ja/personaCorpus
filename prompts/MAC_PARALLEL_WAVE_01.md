@@ -1,4 +1,7 @@
-# Mac parallel wave 01
+# Mac parallel wave 01 (completed archive)
+
+> Completed with p08, p09, p10 M1 and the p01 Full pilot. Do not launch this
+> wave again; use `MAC_PARALLEL_WAVE_02.md` for the next tasks.
 
 This coordinator handoff launches production; it is not itself a persona
 production prompt.

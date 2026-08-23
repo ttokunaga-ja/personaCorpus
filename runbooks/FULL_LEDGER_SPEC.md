@@ -11,7 +11,7 @@ never merge them or overwrite an earlier record.
 | M1 assignment ledger | `progress/<persona>/m1-assignment-ledger.jsonl` | Sole machine-readable M1 allocation authority: frozen artifact ID, path, scope, declared family, physical extension and state; no source reservation yet. |
 | M1 reservations | `progress/<persona>/full/m1-reservations.jsonl` | Deterministic pairing of the existing 200 M1 paths and bytes to canonical source IDs. |
 | Fixed Full assignment | `progress/<persona>/full/full-assignment-ledger.jsonl` | Frozen destination path, batch and dependency allocation for each Full addition. |
-| Actual manifests/checkpoints | `scratch/<persona>/full/manifests/m1-baseline.jsonl`, `<batch-id>.{before,after}.jsonl`, and `progress/<persona>/full/checkpoints/<batch-id>.json` | Immutable M1 bytes, cumulative observed bytes, and token-free batch acceptance evidence. |
+| Actual manifests/checkpoints | `progress/<persona>/full/manifests/m1-baseline.jsonl`, `<batch-id>.{before,after}.jsonl`, and `progress/<persona>/full/checkpoints/<batch-id>.json` | Immutable M1 bytes, cumulative observed bytes, and token-free batch acceptance evidence. |
 
 All JSONL is UTF-8 with exactly one JSON object per line. Paths are POSIX paths
 relative to the selected persona's `home/`. Records must contain no release
@@ -36,7 +36,7 @@ pin the current canonical render bytes.
   --out /absolute/progress/p01/full/canonical-source-inventory.jsonl
 
 ./bin/full-ledger manifest --persona p01 \
-  --out /absolute/scratch/p01/full/manifests/m1-baseline.jsonl
+  --out /absolute/progress/p01/full/manifests/m1-baseline.jsonl
 
 # p01 legacy backfill only; new M1 tasks already publish this frozen ledger.
 ./bin/p01-m1-assignment \
@@ -45,7 +45,7 @@ pin the current canonical render bytes.
 ./bin/full-ledger reserve-m1 --persona p01 \
   --inventory /absolute/progress/p01/full/canonical-source-inventory.jsonl \
   --m1-assignment /absolute/progress/p01/m1-assignment-ledger-v2.jsonl \
-  --baseline /absolute/scratch/p01/full/manifests/m1-baseline.jsonl \
+  --baseline /absolute/progress/p01/full/manifests/m1-baseline.jsonl \
   --out /absolute/progress/p01/full/m1-reservations-v3.jsonl
 
 # Validate the complete mass ledger before any mass worker starts. This command
@@ -55,7 +55,7 @@ pin the current canonical render bytes.
   --m1-assignment /absolute/progress/p01/m1-assignment-ledger-v2.jsonl \
   --reservations /absolute/progress/p01/full/m1-reservations-v3.jsonl \
   --assignment /absolute/progress/p01/full/full-assignment-ledger.jsonl \
-  --baseline /absolute/scratch/p01/full/manifests/m1-baseline.jsonl
+  --baseline /absolute/progress/p01/full/manifests/m1-baseline.jsonl
 
 # At each mass batch boundary, first create <batch-id>.before.jsonl, then select
 # that batch from the same complete master ledger. After production, create the
@@ -65,10 +65,10 @@ pin the current canonical render bytes.
   --m1-assignment /absolute/progress/p01/m1-assignment-ledger-v2.jsonl \
   --reservations /absolute/progress/p01/full/m1-reservations-v3.jsonl \
   --assignment /absolute/progress/p01/full/full-assignment-ledger.jsonl \
-  --baseline /absolute/scratch/p01/full/manifests/m1-baseline.jsonl \
+  --baseline /absolute/progress/p01/full/manifests/m1-baseline.jsonl \
   --batch-id <batch-id> \
-  --before /absolute/scratch/p01/full/manifests/<batch-id>.before.jsonl \
-  --after /absolute/scratch/p01/full/manifests/<batch-id>.after.jsonl
+  --before /absolute/progress/p01/full/manifests/<batch-id>.before.jsonl \
+  --after /absolute/progress/p01/full/manifests/<batch-id>.after.jsonl
 ```
 
 For concurrently produced batches, capture one shared before manifest and
@@ -177,7 +177,7 @@ batch then receives one token-free
 checkpoint, for example:
 
 ```json
-{"schema":"persona-corpus.full-batch-checkpoint/v1","kind":"checkpoint","persona":"p01","scope_id":"p01-primary-01","batch_id":"p01-primary-01-b003","assignment_count":240,"accepted_additions":240,"m1_file_count":200,"m1_sha256_unchanged":true,"before_manifest":"scratch/p01/full/manifests/p01-primary-01-b003.before.jsonl","after_manifest":"scratch/p01/full/manifests/p01-primary-01-b003.after.jsonl","qa":{"pdf":true,"docx":true,"xlsx":true,"pptx":true,"image":true,"structure":true},"accepted_at":"2026-08-23T12:00:00Z","notes":"token-free; physical-artifact evidence only"}
+{"schema":"persona-corpus.full-batch-checkpoint/v1","kind":"checkpoint","persona":"p01","scope_id":"p01-primary-01","batch_id":"p01-primary-01-b003","assignment_count":240,"accepted_additions":240,"m1_file_count":200,"m1_sha256_unchanged":true,"before_manifest":"progress/p01/full/manifests/p01-primary-01-b003.before.jsonl","after_manifest":"progress/p01/full/manifests/p01-primary-01-b003.after.jsonl","qa":{"pdf":true,"docx":true,"xlsx":true,"pptx":true,"image":true,"structure":true},"accepted_at":"2026-08-23T12:00:00Z","notes":"token-free; physical-artifact evidence only"}
 ```
 
 Write a checkpoint only after parent QA. Release tokens stay solely in the

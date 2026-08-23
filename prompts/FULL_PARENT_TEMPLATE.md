@@ -8,6 +8,11 @@ production batchを担当してください。このタスクは
 /Users/ttokunaga-ja/dev/github.com/ttokunaga-ja/personaCorpus を直接使用する
 Localタスクです。別Git worktree・別workspace・canonical再生成はしません。
 
+受入済み成果物とportable evidenceはGit管理されていますが、このproductionタスクは
+git add／commit／pushを実行しません。他personaの未commit変更を正常な並列状態として扱い、
+Git cleanを開始・完了条件にしません。自分のpersona以外とroot corpus manifestは編集せず、
+wave coordinatorの受入を待ってください。
+
 最初にAGENTS.md、README.md、runbooks/COMMON_RULES.md、
 runbooks/FULL_PRODUCTION_PROTOCOL.md、runbooks/FULL_LEDGER_SPEC.md、
 対象personaのcontent spine、fixed Full assignment、<BRIEF_PATH>を完全に読んでください。
@@ -22,7 +27,7 @@ fixed Full assignmentにある追加行だけを作成してください。開�
 
 - `./bin/full-ledger inventory` → canonical source inventory
 - Full開始時に一度だけ`./bin/full-ledger manifest` → immutable 200-file
-  `m1-baseline.jsonl`（後続batchの累積beforeで置換しない）
+  `progress/<PERSONA_ID>/full/manifests/m1-baseline.jsonl`（後続batchの累積beforeで置換しない）
 - frozen M1 assignment ledger
   `progress/<PERSONA_ID>/m1-assignment-ledger.jsonl`（header + 200 artifact rows、拡張子推測は禁止）
 - `./bin/full-ledger reserve-m1 --m1-assignment ...` → 200-row M1 reservation ledger
@@ -37,7 +42,8 @@ ledgerはcanonicalの代替ではありません。
 親は一意session名で <PERSONA_ID> parent leaseを取得し、scopeごとにclaimしてから
 Subagentへ委譲します。workerは自分の固定scope leafだけに、checkpointで定めた追加
 ファイルだけを作ります。親は各scope batchをQAし、`./bin/full-ledger manifest`の
-累積before/after JSONLを作成し、完全master assignment、current `--batch-id`、
+`progress/<PERSONA_ID>/full/manifests/`へ累積before/after JSONLをcreate-onlyで作成し、
+完全master assignment、current `--batch-id`、
 immutable 200-file `--baseline`、`--before`、`--after`を指定した
 `full-ledger verify`でM1・既存Full不変と今回の追加pathを確定してから
 token-free checkpointを記録し、通常のscope releaseを完了してから

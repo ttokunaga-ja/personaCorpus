@@ -7,12 +7,16 @@ This runbook permits a Windows staging machine to produce a persona exclusively 
 ## Ownership boundary
 
 - Assign each persona to exactly one PC for the whole active production batch. Neither PC may create, alter, recover, release, or validate-as-final work for a persona assigned to the other.
-- Git synchronizes tracked control-plane material only: runbooks, prompts, scripts, and accepted code. It is not transport for corpus bytes, progress, scratch output, or leases.
+- Git synchronizes accepted final corpus bytes, portable plan/schedule records,
+  allowlisted token-free progress, runbooks, prompts, scripts, and accepted
+  code. It never synchronizes runtime binaries, workspace owner/lease topology,
+  canonical render/materialization receipts, scratch output, or release tokens.
 - Never use a shared folder or Git merge to make two PCs write the same persona. Transfer ownership only between completed batches, after verified import and explicit coordinator assignment.
 
 ## Windows staging bootstrap
 
-1. Clone the tracked repository for control-plane documents. A Kio runtime is
+1. Clone the tracked repository to obtain the last accepted artifact baseline,
+   its corpus SHA-256 manifest, and portable control records. A Kio runtime is
    neither required nor authorized for artifact staging; do not copy or run the
    macOS ARM64 runtime. Install only the document/render dependencies required
    by the assigned formats and record their versions.
@@ -21,7 +25,10 @@ This runbook permits a Windows staging machine to produce a persona exclusively 
    canonical-source inventory excerpt, M1 assignment-ledger/reservation digests,
    content spine, fixed assignment, and brief. Verify their recorded digests
    before production.
-4. Do not synchronize or reconstruct `workspace/_control`, any lease record, release token, `canonical/`, or `.runtime/` from the Mac. Windows staging has no authority to mutate the Mac lease topology.
+4. Do not synchronize or reconstruct `workspace/_control`, any lease record,
+   release token, ignored canonical render/receipt, or `.runtime/` from the Mac.
+   The tracked canonical plan/schedule are read-only inputs. Windows staging
+   has no authority to mutate the Mac lease topology.
 
 ## Required completion bundle
 

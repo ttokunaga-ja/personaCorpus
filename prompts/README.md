@@ -4,8 +4,9 @@
 `personaCorpus` プロジェクトの **Local** 環境で開始し、Worktreeは使いません。
 開始前にルートで `./bin/check-ready` が成功することを確認してください。
 
-今回のp08／p09／p10同時開始手順は
-[MAC_PARALLEL_WAVE_01.md](MAC_PARALLEL_WAVE_01.md)です。
+p08／p09／p10とp01 Full pilotは完了済みです。次のp11／p12／p13同時開始と
+p01 Full master allocation手順は
+[MAC_PARALLEL_WAVE_02.md](MAC_PARALLEL_WAVE_02.md)です。
 
 | ID | Persona | Start prompt |
 |---|---|---|
@@ -40,9 +41,13 @@ show/recover/releaseせず、全体の`active_leases=0`を完了条件にしま�
 M1完了済みpersonaをFullへ拡張するタスクでは、M1用promptを再利用しません。
 
 - 共通template: [FULL_PARENT_TEMPLATE.md](FULL_PARENT_TEMPLATE.md)
-- 最初の12ファイルpilot: [p01-full-pilot.md](p01-full-pilot.md)
+- 完了済み12ファイルpilot（履歴、再実行禁止）:
+  [p01-full-pilot.md](p01-full-pilot.md)
 - pilot固定content spine: [p01-full-pilot-content-spine.md](p01-full-pilot-content-spine.md)
 - pilot固定assignment: [p01-full-pilot-assignment.jsonl](p01-full-pilot-assignment.jsonl)
 
 Fullタスクも1親タスク＝1 personaです。既存M1 200ファイルの事前SHA-256 baselineを
 取得し、固定Full追加assignmentを検証してから、scope leaseをbatch境界で取得します。
+現在のp01はpilot後の212 filesです。mass制作前に
+[p01-full-master-allocation.md](p01-full-master-allocation.md)で11,800行の完全masterを
+固定・検証し、pilot promptを再利用しません。

@@ -52,10 +52,17 @@ Runbooks and prompts are operational guidance only.
 - Do not directly edit `canonical/`, the Rust plan/owner records, `_control/`,
   runbooks, prompts, scripts, or another persona's files during production.
   Only the pinned Rust lease commands may mutate `_control/`.
-- Corpus bytes, runtime binaries, leases, scratch files, and local progress are
-  intentionally ignored by Git. Do not force-add them.
-- Do not commit from parallel persona production tasks. The coordinating task
-  alone may commit tracked operational documentation.
+- Accepted final artifacts below `workspace/people/**/home/**`, portable
+  canonical plan/schedule records, and allowlisted token-free progress records
+  are Git-managed. Production tasks leave their own accepted additions as
+  ordinary working-tree changes; they never stage or commit them.
+- Runtime binaries, workspace owner/lease topology, canonical render and
+  materialization receipts, scratch renders, local logs, and release tokens
+  remain ignored. Never force-add an ignored path.
+- Do not require a globally clean Git status while parallel persona tasks are
+  active: another persona's uncommitted artifacts are expected shared state.
+  The coordinating task alone verifies the corpus manifest, stages only an
+  accepted wave, and commits directly to `main`. Production tasks never push.
 
 ## Production milestones
 

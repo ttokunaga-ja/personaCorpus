@@ -26,7 +26,9 @@ canonical schedule continues to be planning evidence only.
 ## Required preparation
 
 Before a Full worker writes a batch, its parent freezes all of the following
-under the persona's ignored operational area:
+under the persona's token-free operational area. Portable ledgers, accepted
+manifests, and checkpoints are committed later by the coordinator; active
+production tasks do not stage them:
 
 ```text
 progress/<persona>/
@@ -36,10 +38,12 @@ progress/<persona>/
     canonical-source-inventory.jsonl
     m1-reservations.jsonl
     full-assignment-ledger.jsonl
+    manifests/
+      m1-baseline.jsonl
+      <batch-id>.before.jsonl
+      <batch-id>.after.jsonl
     checkpoints/
 scratch/<persona>/full/
-  manifests/
-    m1-baseline.jsonl
   qa/
 ```
 
@@ -57,7 +61,7 @@ token-free synthetic facts contract: organizations, aliases, projects, dates,
 IDs, measures, terminology, and cross-format relationships.  It must not
 contain credentials, private facts, or release tokens.
 
-The M1 baseline is created once, while the persona contains exactly M1's 200
+The tracked M1 baseline is created once, while the persona contains exactly M1's 200
 files, and is never replaced by a later cumulative manifest. The
 full-assignment ledger is immutable once production starts.  Before mass
 expansion, it fixes every additional source ID, scope, final relative path,
@@ -139,7 +143,7 @@ or attempt manual recovery.
 
 Before work, create a cumulative SHA-256 JSONL manifest of the persona final
 root and retain it as
-`scratch/<persona>/full/manifests/<batch-id>.before.jsonl`. After work, create
+`progress/<persona>/full/manifests/<batch-id>.before.jsonl`. After work, create
 `<batch-id>.after.jsonl` and compare it against the complete master assignment.
 Both manifests are create-only outputs from `./bin/full-ledger manifest`. For a
 mass batch, run `./bin/full-ledger verify` with the immutable 200-file

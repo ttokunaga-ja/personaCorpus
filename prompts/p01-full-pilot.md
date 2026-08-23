@@ -1,4 +1,9 @@
-# p01 Full pilot start prompt
+# p01 Full pilot start prompt (completed archive)
+
+> This exact 12-file pilot completed and its accepted evidence was migrated to
+> `progress/p01/full/manifests/`. Do not paste or rerun this prompt: its
+> create-only scratch paths are historical, and p01 now has 212 files. Continue
+> only through `p01-full-master-allocation.md` and the Full mass protocol.
 
 以下を新しいCodex Localタスクへ貼り付けてください。
 

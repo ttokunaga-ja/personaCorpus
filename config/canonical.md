@@ -11,7 +11,7 @@ authoritative.
 - Plan-defined leaf scopes: `400`
 - Long-term raw-file target: `195,000`
 - Initial production milestone: `200 per persona / 4,000 total`
-- Workspace: `/Users/ttokunaga-ja/dev/github.com/ttokunaga-ja/personaCorpus/workspace`
+- Workspace: repository-relative `workspace/` (the Rust owner receipt remains local)
 - Replay ID: `replay-01`
 
 ## SHA-256

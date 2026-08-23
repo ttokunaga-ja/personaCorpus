@@ -11,6 +11,11 @@ Replace every placeholder before starting a separate Local task.
 直接使用するLocalタスクです。別Git worktreeへ移動したり、新しいworkspaceを作ったり
 してはいけません。
 
+受入済み成果物はGit管理されていますが、このproductionタスクはgit add／commit／pushを
+実行しません。他personaの未commit変更を正常な並列状態として扱い、Git cleanを開始・完了
+条件にしません。既存personaやroot manifestを編集せず、自分の成果物とportable progressだけを
+未stageのまま残し、wave coordinatorの受入を待ってください。
+
 最初に AGENTS.md、README.md、runbooks/COMMON_RULES.md、
 runbooks/BATCH_PROTOCOL.md、runbooks/PERSONA_INDEX.md、
 runbooks/SESSION_HANDOFF.md、runbooks/PERSONA_PC_CONTRACT.md、

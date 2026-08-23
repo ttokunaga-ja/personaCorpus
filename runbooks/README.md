@@ -15,6 +15,8 @@ guidance from the Kio planning repository. In this standalone project:
 - `./bin/full-ledger` publishes create-only Full inventories, manifests and M1
   reservations; `./bin/p01-m1-assignment` backfills the legacy p01 M1
   assignment ledger for the first pilot.
+- `GIT_MANAGEMENT.md` defines the tracked accepted-artifact boundary, and
+  `./bin/corpus-manifest` verifies all Git-managed final artifact bytes.
 
 The canonical plan and Rust owner record override prose if they disagree.
 Do not use these Markdown files to regenerate, reinterpret, or replace them.
