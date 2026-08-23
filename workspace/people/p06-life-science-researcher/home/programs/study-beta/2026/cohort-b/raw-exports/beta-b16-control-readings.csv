@@ -1,0 +1,4 @@
+control,run_id,signal_au,acceptance_band
+blank,BETA-B16-R02,0.021,0.00-0.05
+low,BETA-B16-R02,0.492,0.45-0.55
+high,BETA-B16-R02,1.246,1.15-1.35

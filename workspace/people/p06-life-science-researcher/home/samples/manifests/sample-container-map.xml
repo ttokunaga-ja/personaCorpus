@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<containerMap organization="Orchid Cellworks" study="Study Alpha" date="2026-07-13" synthetic="true">
+  <container id="BX-A1" rack="FZ-02/R1" positions="A01-A08" cohort="A-24" />
+  <container id="BX-A2" rack="FZ-02/R1" positions="B01-B08" cohort="A-24" />
+  <container id="BX-A3" rack="FZ-02/R1" positions="C01-C08" cohort="A-24" />
+  <assayTarget unit="ng/mL">6.8</assayTarget>
+</containerMap>

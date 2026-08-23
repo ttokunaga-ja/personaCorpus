@@ -1,0 +1,1 @@
+Orchid Cellworks synthetic Study Beta B-16 raw export bundle\nReference date: 2026-07-13\nAll records use synthetic OCW-B16 identifiers. No human or patient data.\nBaseline is normalized to 1.00; treated target is 1.18.\n

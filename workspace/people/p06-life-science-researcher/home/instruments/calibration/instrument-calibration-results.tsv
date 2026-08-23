@@ -1,0 +1,5 @@
+instrument	check	observed	unit	criterion	status
+SpectraNova SN-4	slope	0.998	ratio	0.995-1.005	ACCEPT
+SpectraNova SN-4	r_squared	0.9992	ratio	>=0.995	ACCEPT
+PipetSure P200	volume	199.7	uL	198-202	ACCEPT
+ThermoNest IN-2	map_range	0.4	C	<=0.5	ACCEPT

@@ -1,0 +1,25 @@
+sample_id,alias,container,position,matrix,volume_uL,storage,status
+OCW-A24-001,A24-01,BX-A1,A01,synthetic lysate,180,FZ-02/R1/A01,available
+OCW-A24-002,A24-02,BX-A1,A02,synthetic lysate,175,FZ-02/R1/A02,available
+OCW-A24-003,A24-03,BX-A1,A03,synthetic lysate,185,FZ-02/R1/A03,available
+OCW-A24-004,A24-04,BX-A1,A04,synthetic lysate,170,FZ-02/R1/A04,available
+OCW-A24-005,A24-05,BX-A1,A05,synthetic lysate,190,FZ-02/R1/A05,available
+OCW-A24-006,A24-06,BX-A1,A06,synthetic lysate,180,FZ-02/R1/A06,available
+OCW-A24-007,A24-07,BX-A1,A07,synthetic lysate,165,FZ-02/R1/A07,available
+OCW-A24-008,A24-08,BX-A1,A08,synthetic lysate,185,FZ-02/R1/A08,available
+OCW-A24-009,A24-09,BX-A2,B01,synthetic lysate,180,FZ-02/R1/B01,available
+OCW-A24-010,A24-10,BX-A2,B02,synthetic lysate,175,FZ-02/R1/B02,available
+OCW-A24-011,A24-11,BX-A2,B03,synthetic lysate,185,FZ-02/R1/B03,available
+OCW-A24-012,A24-12,BX-A2,B04,synthetic lysate,170,FZ-02/R1/B04,available
+OCW-A24-013,A24-13,BX-A2,B05,synthetic lysate,190,FZ-02/R1/B05,available
+OCW-A24-014,A24-14,BX-A2,B06,synthetic lysate,180,FZ-02/R1/B06,available
+OCW-A24-015,A24-15,BX-A2,B07,synthetic lysate,165,FZ-02/R1/B07,available
+OCW-A24-016,A24-16,BX-A2,B08,synthetic lysate,185,FZ-02/R1/B08,available
+OCW-A24-017,A24-17,BX-A3,C01,synthetic lysate,180,FZ-02/R1/C01,reserved
+OCW-A24-018,A24-18,BX-A3,C02,synthetic lysate,175,FZ-02/R1/C02,reserved
+OCW-A24-019,A24-19,BX-A3,C03,synthetic lysate,185,FZ-02/R1/C03,reserved
+OCW-A24-020,A24-20,BX-A3,C04,synthetic lysate,170,FZ-02/R1/C04,reserved
+OCW-A24-021,A24-21,BX-A3,C05,synthetic lysate,190,FZ-02/R1/C05,reserved
+OCW-A24-022,A24-22,BX-A3,C06,synthetic lysate,180,FZ-02/R1/C06,reserved
+OCW-A24-023,A24-23,BX-A3,C07,synthetic lysate,165,FZ-02/R1/C07,reserved
+OCW-A24-024,A24-24,BX-A3,C08,synthetic lysate,185,FZ-02/R1/C08,reserved

@@ -1,0 +1,9 @@
+standard_id,concentration_ng_ml,absorbance_au,run_id,record_type
+OCW-STD-01,1.0,0.1447,ALPHA-A24-R03,synthetic
+OCW-STD-02,2.0,0.2695,ALPHA-A24-R03,synthetic
+OCW-STD-03,3.0,0.3942,ALPHA-A24-R03,synthetic
+OCW-STD-04,4.0,0.519,ALPHA-A24-R03,synthetic
+OCW-STD-05,5.0,0.6438,ALPHA-A24-R03,synthetic
+OCW-STD-06,6.0,0.7685,ALPHA-A24-R03,synthetic
+OCW-STD-07,7.0,0.8932,ALPHA-A24-R03,synthetic
+OCW-STD-08,8.0,1.018,ALPHA-A24-R03,synthetic

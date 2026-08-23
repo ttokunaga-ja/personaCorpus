@@ -1,0 +1,4 @@
+event_utc,run_id,setpoint_c,observed_c,status
+2026-07-13T09:00:00Z,BETA-B16-R02,37.0,37.0,complete
+2026-07-13T09:30:00Z,BETA-B16-R02,37.0,36.9,complete
+2026-07-13T10:00:00Z,BETA-B16-R02,37.0,37.1,complete

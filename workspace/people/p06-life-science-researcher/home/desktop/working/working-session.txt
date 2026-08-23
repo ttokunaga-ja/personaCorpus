@@ -1,0 +1,7 @@
+Windows Lab Workstation - working session
+2026-07-13 09:08  Opened ALPHA-A24-R03 calculations
+2026-07-13 09:14  Retained Alpha A-24 wells C4:E6 for review
+2026-07-13 09:18  Target reference: 6.8 ng/mL (OCW-BIO-017)
+2026-07-13 09:24  Beta B-16 comparison: baseline 1.00, treated 1.18
+2026-07-13 09:27  QC shift remains within the 20% working limit
+2026-07-13 09:31  Plate map checked; readout snapshot still pending

@@ -1,0 +1,5 @@
+diagnostic,value,threshold,status
+n,16,16,PASS
+mean_response,1.136,≥1.10,PASS
+duplicate_cv,0.062,≤0.10,PASS
+formula_errors,0,0,PASS

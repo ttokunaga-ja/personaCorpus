@@ -1,0 +1,31 @@
+From: Maya Lin <maya.lin@orchidcellworks.example>
+To: Rowan Hale <rowan.hale@orchidcellworks.example>, Assay Review <assay-review@orchidcellworks.example>
+Cc: Instrument Operations <instrument-ops@orchidcellworks.example>
+Subject: Invitation: Study Alpha A-24 assay review — 13 July
+Date: Mon, 13 Jul 2026 10:12:00 -0700
+Message-ID: <20260713.101200.study-alpha-review-invitation@orchidcellworks.example>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Hello Rowan and Assay Review,
+
+Please join the Orchid Cellworks review of Study Alpha, cohort A-24, at
+15:30 Pacific on 2026-07-13. The session is a synthetic internal quality
+review for run ALPHA-A24-R03; it is not a clinical or participant record.
+
+Agenda
+1. Confirm the plate map and the instrument handoff from the SpectraNova SN-4.
+2. Review duplicate CV against the <=10.0% acceptance criterion.
+3. Confirm the reported median assay 6.8 ng/mL and the 90–110% recovery window.
+4. Decide whether the instrument export can move to the analysis queue.
+
+Instrument Operations expects the export package after the run checks finish.
+If the package arrives before the review, please bring the export identifier,
+file count, and checksum status rather than attaching raw material to this
+thread. The planned completion notice is titled “Instrument export complete —
+ALPHA-A24-R03” and will be indexed with this invitation in lab-mail-index.html.
+
+Regards,
+Maya Lin
+Study Operations Lead | Orchid Cellworks

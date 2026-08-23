@@ -1,0 +1,15 @@
+manifest: OCW-SA-A24-20260713
+organization: Orchid Cellworks
+synthetic_data: true
+chain_of_custody:
+  - event: synthetic batch registered
+    timestamp_utc: 2026-07-13T08:15:00Z
+    run: ALPHA-A24-R03
+    count: 24
+  - event: freezer placement verified
+    timestamp_utc: 2026-07-13T16:40:00Z
+    location: FZ-02/R1
+    count: 24
+  - event: manifest audit queued
+    timestamp_utc: 2026-07-13T17:10:00Z
+    threshold: assay 6.8 ng/mL

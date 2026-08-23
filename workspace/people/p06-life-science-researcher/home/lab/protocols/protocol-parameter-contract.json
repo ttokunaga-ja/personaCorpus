@@ -1,0 +1,10 @@
+{
+  "organization": "Orchid Cellworks",
+  "study": "Study Alpha",
+  "date": "2026-07-13",
+  "cohort": "cohort A-24",
+  "assay_target": "assay 6.8 ng/mL",
+  "synthetic": true,
+  "protocol": "OCW-BIO-017",
+  "run": "ALPHA-A24-R03"
+}

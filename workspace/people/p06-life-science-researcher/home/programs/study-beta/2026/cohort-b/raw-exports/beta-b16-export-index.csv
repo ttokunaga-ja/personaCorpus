@@ -1,0 +1,4 @@
+file_name,record_count,encoding,classification
+study-beta-cohort-b16-instrument-export.tsv,16,UTF-8,synthetic
+beta-b16-assay-raw-export.tsv,16,UTF-8,synthetic
+beta-b16-replicate-readings.csv,32,UTF-8,synthetic

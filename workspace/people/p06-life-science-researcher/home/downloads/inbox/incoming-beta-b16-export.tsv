@@ -1,0 +1,7 @@
+batch	condition	normalized_response	replicate	release_note
+B-16	baseline	1.00	B01	reference
+B-16	baseline	1.00	B02	reference
+B-16	baseline	1.00	B03	reference
+B-16	treated	1.18	T01	response shift
+B-16	treated	1.18	T02	response shift
+B-16	treated	1.18	T03	response shift

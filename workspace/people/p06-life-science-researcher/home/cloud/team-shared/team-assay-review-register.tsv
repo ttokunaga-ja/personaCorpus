@@ -1,0 +1,6 @@
+review_id	study	cohort	assay	assay_result_ng_ml	review_date	data_source	review_status	disposition	owner_role	handoff_target	notes
+AR-2026-0713-01	Study Alpha	A-24	Orchid cytokine panel	6.8	2026-07-13	instrument export / SMB staging	reviewed	accept for team review	assay analyst	Windows lab-workstation > team-shared	Calibration control in range; value retained for status discussion.
+AR-2026-0713-02	Study Alpha	A-24	Orchid cytokine panel	6.8	2026-07-13	analysis workbook reconciliation	reviewed	accept with annotation	study lead	Windows lab-workstation > team-shared	Confirm batch label and assay unit are displayed in downstream overview.
+BR-2026-0713-01	Study Beta	B-16	Comparator cytokine panel	6.1	2026-07-13	comparator export / SMB staging	reviewed	retain as comparator	assay analyst	Windows lab-workstation > team-shared	Comparator context only; no cross-study efficacy conclusion.
+BR-2026-0713-02	Study Beta	B-16	Comparator cytokine panel	6.1	2026-07-13	status review cross-check	reviewed	retain for meeting	data steward	Windows lab-workstation > team-shared	Review uses the same reporting convention as Study Alpha.
+HR-2026-0713-01	Study Alpha	A-24	Orchid cytokine panel	6.8	2026-07-13	handoff package manifest	ready for handoff	package complete	Windows workstation custodian	team-shared	Synthetic package; no patient, subject, or specimen identifiers included.

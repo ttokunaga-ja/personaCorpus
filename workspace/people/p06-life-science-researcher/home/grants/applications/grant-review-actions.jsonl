@@ -1,0 +1,4 @@
+{"action_id":"A24-REV-001","date":"2026-07-13","owner_role":"Program lead","action":"Lock OCW-BIO-017 and the synthetic A-24 coded roster before readiness release.","trigger":"Pre-verification","status":"open","due_week":3}
+{"action_id":"A24-REV-002","date":"2026-07-13","owner_role":"Assay lead","action":"Record duplicate CV for each planned verification run.","trigger":"Each run","status":"open","due_week":9}
+{"action_id":"A24-REV-003","date":"2026-07-13","owner_role":"Quality reviewer","action":"Investigate and close any recovery result outside 90\u2013110%.","trigger":"Recovery exception","status":"open","due_week":13}
+{"action_id":"A24-REV-004","date":"2026-07-13","owner_role":"Research lead","action":"Issue internal recommendation after evidence reconciliation.","trigger":"Decision-package gate","status":"open","due_week":16}

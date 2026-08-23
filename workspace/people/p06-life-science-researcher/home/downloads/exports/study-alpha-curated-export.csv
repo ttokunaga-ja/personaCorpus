@@ -1,0 +1,25 @@
+sample_id,cohort,run_id,assay_concentration_ng_mL,duplicate_ng_mL,duplicate_cv_percent,recovery_percent,qc_disposition
+OCW-A24-001,cohort A-24,ALPHA-A24-R03,6.2,6.13,1.14,96.2,Accepted
+OCW-A24-002,cohort A-24,ALPHA-A24-R03,6.4,6.4,0.0,97.5,Accepted
+OCW-A24-003,cohort A-24,ALPHA-A24-R03,6.5,6.58,1.22,98.8,Accepted
+OCW-A24-004,cohort A-24,ALPHA-A24-R03,6.6,6.76,2.4,100.0,Accepted
+OCW-A24-005,cohort A-24,ALPHA-A24-R03,6.7,6.54,2.42,101.2,Accepted
+OCW-A24-006,cohort A-24,ALPHA-A24-R03,6.8,6.72,1.18,102.5,Accepted
+OCW-A24-007,cohort A-24,ALPHA-A24-R03,6.8,6.8,0.0,103.8,Accepted
+OCW-A24-008,cohort A-24,ALPHA-A24-R03,6.9,6.98,1.15,105.0,Accepted
+OCW-A24-009,cohort A-24,ALPHA-A24-R03,6.9,7.07,2.43,95.0,Accepted
+OCW-A24-010,cohort A-24,ALPHA-A24-R03,7.0,6.83,2.46,96.2,Accepted
+OCW-A24-011,cohort A-24,ALPHA-A24-R03,7.0,6.92,1.15,97.5,Accepted
+OCW-A24-012,cohort A-24,ALPHA-A24-R03,6.8,6.8,0.0,98.8,Accepted
+OCW-A24-013,cohort A-24,ALPHA-A24-R03,6.2,6.27,1.12,100.0,Accepted
+OCW-A24-014,cohort A-24,ALPHA-A24-R03,6.4,6.55,2.32,101.2,Accepted
+OCW-A24-015,cohort A-24,ALPHA-A24-R03,6.5,6.34,2.49,102.5,Accepted
+OCW-A24-016,cohort A-24,ALPHA-A24-R03,6.6,6.52,1.22,103.8,Accepted
+OCW-A24-017,cohort A-24,ALPHA-A24-R03,6.7,6.7,0.0,105.0,Accepted
+OCW-A24-018,cohort A-24,ALPHA-A24-R03,6.8,6.88,1.17,95.0,Accepted
+OCW-A24-019,cohort A-24,ALPHA-A24-R03,6.8,6.96,2.33,96.2,Accepted
+OCW-A24-020,cohort A-24,ALPHA-A24-R03,6.9,6.73,2.49,97.5,Accepted
+OCW-A24-021,cohort A-24,ALPHA-A24-R03,6.9,6.82,1.17,98.8,Accepted
+OCW-A24-022,cohort A-24,ALPHA-A24-R03,7.0,7.0,0.0,100.0,Accepted
+OCW-A24-023,cohort A-24,ALPHA-A24-R03,7.0,7.08,1.14,101.2,Accepted
+OCW-A24-024,cohort A-24,ALPHA-A24-R03,6.8,6.96,2.33,102.5,Accepted

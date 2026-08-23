@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Synthetic Sample Manifest",
+  "type": "object",
+  "required": ["organization", "study", "reference_date", "cohort", "assay_target", "records"],
+  "properties": {
+    "organization": {"const": "Orchid Cellworks"},
+    "study": {"const": "Study Alpha"},
+    "reference_date": {"const": "2026-07-13"},
+    "cohort": {"const": "cohort A-24"},
+    "assay_target": {"const": "assay 6.8 ng/mL"},
+    "records": {"type": "array", "minItems": 24, "items": {"type": "object", "required": ["sample_id", "position", "volume_uL", "storage"], "properties": {"sample_id": {"pattern": "^OCW-A24-[0-9]{3}$"}, "position": {"pattern": "^[ABC][0-9]{2}$"}, "volume_uL": {"type": "number", "minimum": 1}, "storage": {"type": "string"}}}}
+  }
+}

@@ -1,0 +1,17 @@
+synthetic_sample_id,metric,value,threshold,flag
+OCW-B16-001,fold_change,1.18,1.1,reviewed
+OCW-B16-002,fold_change,1.18,1.1,reviewed
+OCW-B16-003,fold_change,1.18,1.1,reviewed
+OCW-B16-004,fold_change,1.18,1.1,reviewed
+OCW-B16-005,fold_change,1.18,1.1,reviewed
+OCW-B16-006,fold_change,1.18,1.1,reviewed
+OCW-B16-007,fold_change,1.18,1.1,reviewed
+OCW-B16-008,fold_change,1.18,1.1,reviewed
+OCW-B16-009,fold_change,1.18,1.1,reviewed
+OCW-B16-010,fold_change,1.18,1.1,reviewed
+OCW-B16-011,fold_change,1.18,1.1,reviewed
+OCW-B16-012,fold_change,1.18,1.1,reviewed
+OCW-B16-013,fold_change,1.18,1.1,reviewed
+OCW-B16-014,fold_change,1.18,1.1,reviewed
+OCW-B16-015,fold_change,1.18,1.1,reviewed
+OCW-B16-016,fold_change,1.18,1.1,reviewed

@@ -1,0 +1,12 @@
+ORCHID CELLWORKS - DESKTOP ASSAY CHECKLIST
+Date: 2026-07-13
+
+[done] Open Alpha A-24 calculation sheet (ALPHA-A24-R03)
+[done] Confirm protocol OCW-BIO-017 reference
+[done] Compare retained wells C4:E6 to 6.8 ng/mL target
+[done] Review Beta B-16 baseline 1.00 versus treated 1.18
+[done] Check working plate map before handoff
+[ ] Attach readout snapshot to run review
+[ ] Archive filtered exports after review sign-off
+
+Synthetic working materials only.

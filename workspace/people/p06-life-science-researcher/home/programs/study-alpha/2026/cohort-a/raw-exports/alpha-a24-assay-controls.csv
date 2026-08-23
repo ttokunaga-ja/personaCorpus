@@ -1,0 +1,5 @@
+control_id,control_type,expected_ng_ml,observed_ng_ml,status
+CTRL-LOW,low,2.0,2.03,PASS
+CTRL-MID,mid,6.8,6.79,PASS
+CTRL-HIGH,high,12.0,11.92,PASS
+BLANK,blank,0.0,0.02,PASS

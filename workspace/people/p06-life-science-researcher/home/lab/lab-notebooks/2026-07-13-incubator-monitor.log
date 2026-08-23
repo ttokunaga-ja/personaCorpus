@@ -1,0 +1,3 @@
+2026-07-13T08:00:00Z IN-2 setpoint=37.0C observed=37.0C status=OK
+2026-07-13T12:00:00Z IN-2 setpoint=37.0C observed=37.1C status=OK
+2026-07-13T17:30:00Z synthetic-study-review complete status=OK

@@ -1,0 +1,17 @@
+synthetic_sample_id	well	baseline_signal_au	treated_signal_au	fold_change	reference_note
+OCW-B16-001	B01	0.98	1.156	1.18	Cross-study calibration/reference: Orchid Cellworks | Study Alpha | 2026-07-13 | cohort A-24 | assay 6.8 ng/mL
+OCW-B16-002	B02	1.0	1.18	1.18	Cross-study calibration/reference: Orchid Cellworks | Study Alpha | 2026-07-13 | cohort A-24 | assay 6.8 ng/mL
+OCW-B16-003	B03	1.02	1.204	1.18	Cross-study calibration/reference: Orchid Cellworks | Study Alpha | 2026-07-13 | cohort A-24 | assay 6.8 ng/mL
+OCW-B16-004	B04	1.04	1.227	1.18	Cross-study calibration/reference: Orchid Cellworks | Study Alpha | 2026-07-13 | cohort A-24 | assay 6.8 ng/mL
+OCW-B16-005	B05	0.96	1.133	1.18	Cross-study calibration/reference: Orchid Cellworks | Study Alpha | 2026-07-13 | cohort A-24 | assay 6.8 ng/mL
+OCW-B16-006	B06	0.98	1.156	1.18	Cross-study calibration/reference: Orchid Cellworks | Study Alpha | 2026-07-13 | cohort A-24 | assay 6.8 ng/mL
+OCW-B16-007	B07	1.0	1.18	1.18	Cross-study calibration/reference: Orchid Cellworks | Study Alpha | 2026-07-13 | cohort A-24 | assay 6.8 ng/mL
+OCW-B16-008	B08	1.02	1.204	1.18	Cross-study calibration/reference: Orchid Cellworks | Study Alpha | 2026-07-13 | cohort A-24 | assay 6.8 ng/mL
+OCW-B16-009	B09	1.04	1.227	1.18	Cross-study calibration/reference: Orchid Cellworks | Study Alpha | 2026-07-13 | cohort A-24 | assay 6.8 ng/mL
+OCW-B16-010	B10	0.96	1.133	1.18	Cross-study calibration/reference: Orchid Cellworks | Study Alpha | 2026-07-13 | cohort A-24 | assay 6.8 ng/mL
+OCW-B16-011	B11	0.98	1.156	1.18	Cross-study calibration/reference: Orchid Cellworks | Study Alpha | 2026-07-13 | cohort A-24 | assay 6.8 ng/mL
+OCW-B16-012	B12	1.0	1.18	1.18	Cross-study calibration/reference: Orchid Cellworks | Study Alpha | 2026-07-13 | cohort A-24 | assay 6.8 ng/mL
+OCW-B16-013	B13	1.02	1.204	1.18	Cross-study calibration/reference: Orchid Cellworks | Study Alpha | 2026-07-13 | cohort A-24 | assay 6.8 ng/mL
+OCW-B16-014	B14	1.04	1.227	1.18	Cross-study calibration/reference: Orchid Cellworks | Study Alpha | 2026-07-13 | cohort A-24 | assay 6.8 ng/mL
+OCW-B16-015	B15	0.96	1.133	1.18	Cross-study calibration/reference: Orchid Cellworks | Study Alpha | 2026-07-13 | cohort A-24 | assay 6.8 ng/mL
+OCW-B16-016	B16	0.98	1.156	1.18	Cross-study calibration/reference: Orchid Cellworks | Study Alpha | 2026-07-13 | cohort A-24 | assay 6.8 ng/mL

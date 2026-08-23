@@ -1,0 +1,6 @@
+qc_id	baseline_response	treated_response	delta	percent_change	qc_limit	disposition
+B16-QC-01	1.00	1.18	0.18	0.180	0.200	PASS
+B16-QC-02	0.99	1.17	0.18	0.182	0.200	PASS
+B16-QC-03	1.01	1.19	0.18	0.178	0.200	PASS
+B16-QC-04	1.00	1.18	0.18	0.180	0.200	PASS
+B16-QC-05	1.00	1.18	0.18	0.180	0.200	PASS

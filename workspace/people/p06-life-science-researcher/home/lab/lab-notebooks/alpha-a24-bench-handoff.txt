@@ -1,0 +1,4 @@
+Synthetic bench handoff — Orchid Cellworks
+Study Alpha | 2026-07-13 | cohort A-24 | assay 6.8 ng/mL
+Run: ALPHA-A24-R03
+Status: review-ready; no real specimens.

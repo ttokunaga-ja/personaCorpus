@@ -1,0 +1,33 @@
+From: Instrument Operations <instrument-ops@orchidcellworks.example>
+To: Maya Lin <maya.lin@orchidcellworks.example>, Rowan Hale <rowan.hale@orchidcellworks.example>
+Cc: Assay Review <assay-review@orchidcellworks.example>
+Subject: Instrument export complete — ALPHA-A24-R03
+Date: Mon, 13 Jul 2026 16:48:00 -0700
+Message-ID: <20260713.164800.instrument-export-complete@orchidcellworks.example>
+In-Reply-To: <20260713.101200.study-alpha-review-invitation@orchidcellworks.example>
+References: <20260713.101200.study-alpha-review-invitation@orchidcellworks.example>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Maya, Rowan, and review team,
+
+The synthetic export for Orchid Cellworks Study Alpha, cohort A-24, run
+ALPHA-A24-R03 is complete and has passed the local transfer checklist.
+SpectraNova SN-4 export set SN4-20260713-1642 contains 24 coded assay rows,
+one calibration-control summary, and one transfer manifest. No participant,
+patient, or clinical material is represented in this notice.
+
+Release summary
+- Export status: complete; analysis queue handoff recorded at 16:42 Pacific.
+- Calibration lot: CAL-260713-A; slope 0.998; R² 0.9992; blank 0.02 AU.
+- Review result carried forward: median assay 6.8 ng/mL.
+- Duplicate CV criterion: <=10.0%; recovery window: 90–110%.
+- Integrity check: manifest and export file counts agree; no retry requested.
+
+This completes the handoff anticipated in “Invitation: Study Alpha A-24 assay
+review — 13 July.” The companion mail index and recent-mail-thread.txt record
+the sequence for the 2026-07-13 lab review.
+
+Instrument Operations
+Orchid Cellworks

@@ -1,0 +1,17 @@
+sample_id	alias	container	position	matrix	volume_uL	storage	status
+OCW-B16-001	B16-01	BX-B1	A01	synthetic buffer	160	FZ-02/R2/A01	available
+OCW-B16-002	B16-02	BX-B1	A02	synthetic buffer	165	FZ-02/R2/A02	available
+OCW-B16-003	B16-03	BX-B1	A03	synthetic buffer	170	FZ-02/R2/A03	available
+OCW-B16-004	B16-04	BX-B1	A04	synthetic buffer	175	FZ-02/R2/A04	available
+OCW-B16-005	B16-05	BX-B1	A05	synthetic buffer	160	FZ-02/R2/A05	available
+OCW-B16-006	B16-06	BX-B1	A06	synthetic buffer	165	FZ-02/R2/A06	available
+OCW-B16-007	B16-07	BX-B1	A07	synthetic buffer	170	FZ-02/R2/A07	available
+OCW-B16-008	B16-08	BX-B1	A08	synthetic buffer	175	FZ-02/R2/A08	available
+OCW-B16-009	B16-09	BX-B2	B01	synthetic buffer	160	FZ-02/R2/B01	reserved
+OCW-B16-010	B16-10	BX-B2	B02	synthetic buffer	165	FZ-02/R2/B02	reserved
+OCW-B16-011	B16-11	BX-B2	B03	synthetic buffer	170	FZ-02/R2/B03	reserved
+OCW-B16-012	B16-12	BX-B2	B04	synthetic buffer	175	FZ-02/R2/B04	reserved
+OCW-B16-013	B16-13	BX-B2	B05	synthetic buffer	160	FZ-02/R2/B05	reserved
+OCW-B16-014	B16-14	BX-B2	B06	synthetic buffer	165	FZ-02/R2/B06	reserved
+OCW-B16-015	B16-15	BX-B2	B07	synthetic buffer	170	FZ-02/R2/B07	reserved
+OCW-B16-016	B16-16	BX-B2	B08	synthetic buffer	175	FZ-02/R2/B08	reserved

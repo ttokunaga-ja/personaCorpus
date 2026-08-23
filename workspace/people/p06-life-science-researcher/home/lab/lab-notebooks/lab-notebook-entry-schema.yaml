@@ -1,0 +1,10 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Orchid Cellworks synthetic lab notebook entry
+type: object
+required: [study, cohort, run_id, assay_ng_ml, synthetic]
+properties:
+  study: {type: string, const: Study Alpha}
+  cohort: {type: string, const: cohort A-24}
+  run_id: {type: string, pattern: '^ALPHA-A24-R03$'}
+  assay_ng_ml: {type: number, unit: ng/mL}
+  synthetic: {type: boolean, const: true}

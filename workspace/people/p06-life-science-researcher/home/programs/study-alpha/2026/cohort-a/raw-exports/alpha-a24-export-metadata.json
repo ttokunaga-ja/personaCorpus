@@ -1,0 +1,12 @@
+{
+  "organization": "Orchid Cellworks",
+  "study": "Study Alpha",
+  "reference_date": "2026-07-13",
+  "cohort": "cohort A-24",
+  "assay_reference": "assay 6.8 ng/mL",
+  "protocol": "OCW-BIO-017",
+  "run_id": "ALPHA-A24-R03",
+  "synthetic_only": true,
+  "row_count": 24,
+  "integrity": "SHA-256 manifest generated after QA"
+}

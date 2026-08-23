@@ -1,0 +1,29 @@
+ORCHID CELLWORKS — RECENT MAIL THREAD
+Synthetic laboratory operations record | 2026-07-13
+
+Thread: Study Alpha / cohort A-24 / ALPHA-A24-R03
+Purpose: document the review invitation and follow-on instrument export handoff.
+All names, identifiers, and measurements in this record are synthetic.
+
+[10:12 PDT] Maya Lin <maya.lin@orchidcellworks.example>
+Subject: Invitation: Study Alpha A-24 assay review — 13 July
+
+Maya requested a 15:30 Pacific quality review for Study Alpha, cohort A-24.
+The agenda called for a plate-map and SpectraNova SN-4 handoff check, duplicate
+CV review against <=10.0%, confirmation of the median assay 6.8 ng/mL, and a
+decision on moving the export to analysis. The related source message is
+study-alpha-review-invitation.eml.
+
+[16:48 PDT] Instrument Operations <instrument-ops@orchidcellworks.example>
+Subject: Instrument export complete — ALPHA-A24-R03
+In reply to: Invitation: Study Alpha A-24 assay review — 13 July
+
+Instrument Operations confirmed completion of export set SN4-20260713-1642 for
+the same 24 coded synthetic assay rows. The transfer checklist matched the
+manifest and file counts. The notice retained calibration lot CAL-260713-A,
+slope 0.998, R² 0.9992, blank 0.02 AU, recovery window 90–110%, and the assay
+6.8 ng/mL review result. The related source message is
+instrument-export-complete.eml.
+
+Index: lab-mail-index.html presents this two-message sequence and the review
+context in a self-contained local page.
