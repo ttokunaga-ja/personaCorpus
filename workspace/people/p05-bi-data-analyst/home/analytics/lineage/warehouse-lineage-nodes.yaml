@@ -1,0 +1,22 @@
+lineage_graph: lin-mtr09-fy26q3
+organization: Mosaic Retail
+nodes:
+  - id: src_sales_order_lines
+    type: source
+    platform: Synthetic OneDrive
+    owner: Data Operations
+  - id: stg_order_lines
+    type: staging
+    platform: Synthetic Warehouse S2
+    owner: Analytics Engineering
+  - id: mart_daily_gmv
+    type: metric_mart
+    platform: Synthetic Warehouse S2
+    owner: BI Analytics
+edges:
+  - from: src_sales_order_lines
+    to: stg_order_lines
+    operation: ingest_validate
+  - from: stg_order_lines
+    to: mart_daily_gmv
+    operation: aggregate_daily_gmv

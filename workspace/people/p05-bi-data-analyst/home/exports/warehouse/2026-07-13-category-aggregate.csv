@@ -1,0 +1,6 @@
+extract_version,metric_id,category,gmv_jpy,unit_count,share_pct,data_classification
+warehouse-v3.2,MTR-09,Home,24800000,3712,29.45,synthetic_aggregate_only
+warehouse-v3.2,MTR-09,Electronics,22100000,1654,26.25,synthetic_aggregate_only
+warehouse-v3.2,MTR-09,Apparel,19300000,2889,22.92,synthetic_aggregate_only
+warehouse-v3.2,MTR-09,Beauty,10700000,1602,12.71,synthetic_aggregate_only
+warehouse-v3.2,MTR-09,Other,7300000,1093,8.67,synthetic_aggregate_only

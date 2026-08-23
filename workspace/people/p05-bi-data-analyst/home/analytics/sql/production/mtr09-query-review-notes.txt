@@ -1,0 +1,7 @@
+MTR-09 review notes — synthetic Mosaic Retail Analytics package
+
+Definition: completed order-line merchandise value, tax excluded, net of recognized refunds.
+Window: FY26 Q3 daily review through 2026-07-13.
+Observed: gross 86.0M JPY; recognized refunds 1.8M JPY; reported GMV 84.2M JPY.
+Controls: date guard, schema contract, late-arrival flag, reconciliation by channel.
+Disposition: approved for documented local analysis; not a live production connection.

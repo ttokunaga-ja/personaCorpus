@@ -1,0 +1,5 @@
+sequence,step_name,input,output,control
+1,deduplicate_order_line,sales-order-lines,unique_order_lines,order_id+line_id
+2,exclude_test_orders,unique_order_lines,valid_order_lines,is_test=false
+3,convert_to_jpy,valid_order_lines,jpy_order_lines,unit_price_jpy*quantity
+4,aggregate_daily_gmv,jpy_order_lines,mart_daily_gmv,sum gross_amount_jpy

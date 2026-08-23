@@ -1,0 +1,22 @@
+From: Data Warehouse Service <warehouse-service@mosaic-retail.example>
+To: BI Data Analyst <bi-analyst@mosaic-retail.example>
+Cc: Metrics Operations <metrics-ops@mosaic-retail.example>
+Date: Tue, 14 Jul 2026 00:07:00 +0900
+Message-ID: <mtr-09-refresh-complete-20260714@mosaic-retail.example>
+Subject: MTR-09 warehouse refresh complete through 2026-07-13 23:59 JST
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+MTR-09 warehouse refresh is complete.
+
+Refresh coverage ends at 2026-07-13 23:59 JST. The published review value is
+JPY 84.2M for order-line merchandise value, tax excluded, after netting
+recognized refunds. Reconciliation summary: gross JPY 86.0M minus recognized
+refunds JPY 1.8M equals JPY 84.2M.
+
+Reference comparisons are plan JPY 80.0M and prior JPY 78.6M. The next
+scheduled control is the 2026-07-14 06:00 JST quality review. No files or
+credentials are included in this message.
+
+Data Warehouse Service

@@ -1,0 +1,5 @@
+scenario	projected_gross_gmv_jpy	projected_refunds_jpy	projected_net_gmv_jpy	vs_plan_jpy	vs_prior_jpy
+Scenario model seed	91418000	1919778	89498222	9498222	10898222
+Base case	91418000	1919778	89498222	9498222	10898222
+Upside case	96062000	1729116	94332884	14332884	15732884
+Downside case	83592000	2340576	81251424	1251424	2651424

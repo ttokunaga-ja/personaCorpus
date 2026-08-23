@@ -1,0 +1,4 @@
+archive_status,data_classification,fiscal_period,reconciliation_step,source_scope,component_jpy,running_net_gmv_jpy,closed_control_total_jpy,variance_to_control_jpy,comparable_fy26_q3_close_jpy,record_note
+closed_archived,S2_synthetic,FY26 Q2,Booked GMV,all synthetic sales,81400000,81400000,79600000,1800000,84200000,Archived prior-period gross baseline; fictional training record.
+closed_archived,S2_synthetic,FY26 Q2,Refunds finalized,all synthetic sales,-1800000,79600000,79600000,0,84200000,Closed FY26 Q2 archive total reconciled; fictional training record.
+closed_archived,S2_synthetic,FY26 Q2,Close control,all synthetic sales,0,79600000,79600000,0,84200000,"Closed and archived; FY26 Q3 comparator is 84200000 JPY, not this archive total."

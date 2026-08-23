@@ -1,0 +1,5 @@
+control,threshold,comparison,response
+completeness,0.995,non_null_lines_over_eligible_lines,HOLD
+freshness_minutes,60,warehouse_load_age_minutes,WATCH
+reconciliation_variance,0.005,absolute_finance_variance,HOLD
+duplicate_order_line_id,0,duplicate_key_count,HOLD

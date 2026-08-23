@@ -1,0 +1,7 @@
+calendar_id,date_jst,cadence,activity,metric_or_control,owner_role,status,evidence_required
+CAL-01,2026-07-14,Daily,Close dataset availability,MTR-09 completed order-line merchandise value,Data Operations Lead,Scheduled,Refresh log through 2026-07-13 23:59 JST
+CAL-02,2026-07-14,Daily,QA reconciliation,Gross less net recognized refunds,BI Quality Analyst,Scheduled,84.2M JPY tie-out and exception note
+CAL-03,2026-07-14,Daily,Channel mix review,Online / Stores contribution,Commercial Analytics Lead,Scheduled,Channel split reviewed against total
+CAL-04,2026-07-15,Weekly,Plan variance review,MTR-09 versus 80.0M JPY plan,Finance Business Partner,Planned,Variance commentary and action owners
+CAL-05,2026-07-20,Weekly,Prior-period trend review,MTR-09 versus 78.6M JPY prior,Analytics Manager,Planned,Trend note and decision log
+CAL-06,2026-07-31,Monthly,Metric governance check,"Definition, source and refresh controls",Data Governance Steward,Planned,Control checklist and handoff update

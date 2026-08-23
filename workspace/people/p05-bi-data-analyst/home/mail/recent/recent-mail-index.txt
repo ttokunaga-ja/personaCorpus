@@ -1,0 +1,26 @@
+Mosaic Retail Analytics - Recent Mail Index
+Classification: S2 synthetic correspondence
+Mailbox: BI Data Analyst <bi-analyst@mosaic-retail.example>
+
+1. warehouse-refresh-complete.eml
+   Message-ID: <mtr-09-refresh-complete-20260714@mosaic-retail.example>
+   From: Data Warehouse Service <warehouse-service@mosaic-retail.example>
+   Date: 2026-07-14 00:07 JST
+   Subject: MTR-09 warehouse refresh complete through 2026-07-13 23:59 JST
+   Summary: Confirms refresh coverage and the MTR-09 reconciliation: JPY 86.0M
+   gross minus JPY 1.8M recognized refunds equals JPY 84.2M. References the
+   quality review scheduled for 06:00 JST.
+
+2. metric-review-invitation.eml
+   Message-ID: <mtr-09-review-invite-20260714@mosaic-retail.example>
+   From: Metrics Operations <metrics-ops@mosaic-retail.example>
+   Date: 2026-07-14 00:18 JST
+   Subject: Invitation: MTR-09 quality review at 06:00 JST
+   Summary: Invites BI and Finance Review to validate the tax-excluded,
+   net-refund treatment and refresh cutoff at the 2026-07-14 06:00 JST review.
+   Uses the refresh completion message
+   as the operational basis for reviewing JPY 84.2M against plan JPY 80.0M and
+   prior JPY 78.6M.
+
+Relationship: The refresh completion precedes and supplies the figures and
+cutoff for the quality-review invitation. Both messages are attachment-free.

@@ -1,0 +1,11 @@
+Date: Mon, 13 Jul 2026 09:18:00 +0900
+From: Erin Park <erin.park@mosaicretail.example>
+To: Mika Tan <mika.tan@mosaicretail.example>
+Cc: Jonah Lee <jonah.lee@mosaicretail.example>
+Subject: Definition request: MTR-09 FY26 Q3 GMV variance
+Message-ID: <sr-20260713-09@mosaicretail.example>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+Request ID: SR-2026-0713-09\nPriority: Standard | SLA: response within one business day\nOwner: Mika Tan | Due: 2026-07-14 17:00 JST | Status: Open\n\nHi Mika,\n\nFor Mosaic Retail, please confirm the stakeholder-facing definition behind the FY26 Q3 variance card as of 2026-07-13. The dashboard shows GMV ¥84.2M, while the order ledger shows gross ¥86.0M before ¥1.8M in refunds.\n\nIs metric MTR-09 intended to be net recognized GMV, and should the card use ¥84.2M with a gross/refund bridge? Please include inclusion/exclusion rules and a short note we can approve for the dashboard.\n\nThanks,\nErin\nVP Merchandising\n

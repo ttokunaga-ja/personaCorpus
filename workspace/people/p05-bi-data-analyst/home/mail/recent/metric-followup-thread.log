@@ -1,0 +1,20 @@
+Mosaic Retail Analytics | MTR-09 follow-up thread
+Classification: S2 synthetic correspondence
+Participants: Data Warehouse Service; Metrics Operations; BI Data Analyst;
+Finance Review
+
+2026-07-14 00:07 JST | Data Warehouse Service
+Reference: <mtr-09-refresh-complete-20260714@mosaic-retail.example>
+Status: Refresh completed through 2026-07-13 23:59 JST.
+Metric checkpoint: order-line merchandise value is tax excluded; JPY 86.0M
+gross less JPY 1.8M in net recognized refunds yields JPY 84.2M.
+
+2026-07-14 00:18 JST | Metrics Operations
+Reference: <mtr-09-review-invite-20260714@mosaic-retail.example>
+Status: Quality review requested for 2026-07-14 06:00 JST.
+Review focus: confirm the refresh cutoff and refund treatment, then compare
+JPY 84.2M with plan JPY 80.0M and prior JPY 78.6M.
+
+Thread linkage: The invitation follows the warehouse completion notice and
+uses its reconciliation figures as review input. No attachments, access
+instructions, credentials, or live endpoints are recorded in this thread.

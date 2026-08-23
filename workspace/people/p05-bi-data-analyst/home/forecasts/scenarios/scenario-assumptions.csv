@@ -1,0 +1,5 @@
+scenario,gross_growth,refund_rate,online_mix,stores_mix,promo_lift,assumption_note
+Scenario model seed,0.045,0.021,0.56,0.44,0.018,Seed model with central planning assumptions.
+Base case,0.045,0.021,0.56,0.44,0.018,Steady conversion recovery and planned retail traffic.
+Upside case,0.092,0.018,0.585,0.415,0.025,Stronger campaign response and lower return intensity.
+Downside case,-0.038,0.028,0.53,0.47,0.01,Demand softness with higher customer returns.

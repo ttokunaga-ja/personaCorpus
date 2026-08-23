@@ -1,0 +1,6 @@
+source_schema,aggregation_level,period,generated_at_jst,metric_definition,category,net_merchandise_value_jpy,share_pct,units,avg_order_value_jpy
+product_dashboard_v1,category,2026-07-07 to 2026-07-13 JST,2026-07-13T23:59:00+09:00,"MTR-09 completed order-line merchandise value, tax excluded, net recognized refunds, JPY",Home,24800000,0.2945,24100,1030
+product_dashboard_v1,category,2026-07-07 to 2026-07-13 JST,2026-07-13T23:59:00+09:00,"MTR-09 completed order-line merchandise value, tax excluded, net recognized refunds, JPY",Electronics,22100000,0.2625,10600,2085
+product_dashboard_v1,category,2026-07-07 to 2026-07-13 JST,2026-07-13T23:59:00+09:00,"MTR-09 completed order-line merchandise value, tax excluded, net recognized refunds, JPY",Apparel,19300000,0.2292,18400,1049
+product_dashboard_v1,category,2026-07-07 to 2026-07-13 JST,2026-07-13T23:59:00+09:00,"MTR-09 completed order-line merchandise value, tax excluded, net recognized refunds, JPY",Beauty,10700000,0.1271,15200,704
+product_dashboard_v1,category,2026-07-07 to 2026-07-13 JST,2026-07-13T23:59:00+09:00,"MTR-09 completed order-line merchandise value, tax excluded, net recognized refunds, JPY",Other,7300000,0.0867,8900,820

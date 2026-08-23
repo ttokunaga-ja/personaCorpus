@@ -1,0 +1,4 @@
+2026-07-13T23:59:00+09:00 INFO  synthetic refresh watermark accepted
+2026-07-14T06:00:00+09:00 INFO  MTR-09 data-quality checks: 0 negative, 0 excessive refunds, 0 missing completions
+2026-07-14T06:01:00+09:00 INFO  channel reconciliation: online=46300000 stores=37900000 total=84200000 JPY
+2026-07-14T06:02:00+09:00 INFO  review snapshot retained; no live warehouse connection attempted

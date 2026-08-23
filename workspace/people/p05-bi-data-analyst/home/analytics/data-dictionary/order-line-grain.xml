@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grain><entity>completed_order_line</entity><key>order_line_id</key><event_date>metric_date</event_date><currency>JPY</currency><rule>One row per eligible settled line</rule></grain>

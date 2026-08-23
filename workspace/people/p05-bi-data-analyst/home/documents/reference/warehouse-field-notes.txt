@@ -1,0 +1,36 @@
+MOSAIC RETAIL ANALYTICS - MTR-09 WAREHOUSE FIELD NOTES
+Fictional training reference. No production system names, endpoints, or PII.
+
+Metric ID: MTR-09
+Metric name: Completed Order-Line Merchandise Value
+Definition: Completed order-line merchandise value, tax excluded, net of recognized refunds, JPY.
+Refresh cutoff: 2026-07-13 23:59 JST
+Review point: 2026-07-14 06:00 JST
+
+Core fields
+- completed_order_line_merchandise_value_jpy: Gross tax-excluded merchandise for order lines completed by the cutoff.
+- recognized_refund_jpy: Refund amount recognized under the approved accounting rule by the cutoff.
+- mtr09_jpy: gross completed order-line merchandise value minus recognized refunds.
+- completed_at_jst: Completion timestamp used for close eligibility.
+- recognized_at_jst: Recognition timestamp used for refund eligibility.
+- channel_name, region_name, category_name: Reconciliation dimensions only; they do not modify the definition.
+
+Reference calculation
+gross_completed_order_line_merchandise_value_jpy = 86,000,000
+recognized_refund_jpy = 1,800,000
+mtr09_jpy = 84,200,000
+
+Reference checks
+- Plan: 80,000,000 JPY; MTR-09 is 4,200,000 JPY above plan.
+- Prior: 78,600,000 JPY; MTR-09 is 5,600,000 JPY above prior.
+- Channel tie-out: Online 46.3M + Stores 37.9M = 84.2M JPY.
+- Region tie-out: East 26.4M + West 22.8M + Central 18.6M + North 16.4M = 84.2M JPY.
+- Category tie-out: Home 24.8M + Electronics 22.1M + Apparel 19.3M + Beauty 10.7M + Other 7.3M = 84.2M JPY.
+
+Daily reference values, JPY M: Jul 7 10.8; Jul 8 11.2; Jul 9 11.5; Jul 10 12.1; Jul 11 12.4; Jul 12 13.0; Jul 13 13.2.
+
+Governance notes
+1. Exclude tax, shipping, cancelled lines, pending orders, and unrecognized refund activity.
+2. Investigate a failed dimensional tie-out before close review.
+3. Document any cutoff, eligibility, or recognition exception with the metric owner.
+4. Changes to definition boundaries require a versioned approval before reporting use.

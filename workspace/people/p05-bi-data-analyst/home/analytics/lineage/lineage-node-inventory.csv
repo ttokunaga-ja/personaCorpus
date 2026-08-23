@@ -1,0 +1,4 @@
+node_id,node_type,platform,owner,refresh_cadence
+src_sales_order_lines,source,Synthetic OneDrive,Data Operations,15 minutes
+stg_order_lines,staging,Synthetic Warehouse S2,Analytics Engineering,15 minutes
+mart_daily_gmv,metric_mart,Synthetic Warehouse S2,BI Analytics,daily

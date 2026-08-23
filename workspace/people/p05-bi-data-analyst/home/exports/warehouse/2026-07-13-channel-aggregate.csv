@@ -1,0 +1,3 @@
+extract_version,metric_id,channel,gmv_jpy,order_count,share_pct,data_classification
+warehouse-v3.2,MTR-09,Online,46300000,6924,54.99,synthetic_aggregate_only
+warehouse-v3.2,MTR-09,Stores,37900000,5681,45.01,synthetic_aggregate_only

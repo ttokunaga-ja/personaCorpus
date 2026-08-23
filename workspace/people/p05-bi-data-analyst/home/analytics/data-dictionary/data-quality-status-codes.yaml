@@ -1,0 +1,5 @@
+status_codes:
+  PASS: "All threshold controls met"
+  WATCH: "Refresh permitted with steward note"
+  HOLD: "Publication blocked pending remediation"
+thresholds: {completeness: 0.995, reconciliation_variance: 0.005}

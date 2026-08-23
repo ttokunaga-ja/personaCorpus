@@ -1,0 +1,7 @@
+metric_id: MTR-09
+as_of: 2026-07-13
+dimensions:
+  channel: [Marketplace, Direct, Partner]
+  region: [Kanto, Kansai, Chubu]
+  category: [Home, Beauty, Electronics]
+  fulfillment_status: [completed, returned, cancelled]

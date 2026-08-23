@@ -1,0 +1,13 @@
+Date: Tue, 14 Jul 2026 14:32:00 +0900
+From: Mika Tan <mika.tan@mosaicretail.example>
+To: Erin Park <erin.park@mosaicretail.example>
+Cc: Jonah Lee <jonah.lee@mosaicretail.example>
+Subject: RE: SR-2026-0713-09 - MTR-09 definition and dashboard follow-up
+In-Reply-To: <sr-20260713-09@mosaicretail.example>
+References: <sr-20260713-09@mosaicretail.example>
+Message-ID: <sr-20260714-09@mosaicretail.example>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+Request ID: SR-2026-0713-09\nStatus: Approved for publication | Owner: Mika Tan | Implementation due: 2026-07-15 16:00 JST\n\nHi Erin and Jonah,\n\nConfirmed: MTR-09 is net recognized GMV. For FY26 Q3 as of 2026-07-13, completed gross merchandise value of ¥86.0M less refunds posted through the cutoff of ¥1.8M equals net GMV of ¥84.2M.\n\nThe card will read “Net GMV (MTR-09).” Its hover note will state the gross/refund bridge. I reconciled Online ¥46.3M plus Stores ¥37.9M, and the regional and category totals, to the same ¥84.2M. Cancelled/uncompleted orders, taxes, shipping, gift-card load, and post-cutoff refunds are excluded.\n\nErin approved this reporting treatment and Jonah concurred. I will update the dashboard definition panel and attach closeout evidence to the register by the implementation due time.\n\nMika\n

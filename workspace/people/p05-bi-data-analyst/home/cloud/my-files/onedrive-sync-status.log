@@ -1,0 +1,7 @@
+2026-07-14 05:58:11 JST INFO  OneDrive sync monitor started | profile=personal-analysis | mode=offline-synthetic
+2026-07-14 05:58:12 JST INFO  inventory scan complete | folder=cloud/my-files | candidate_files=6
+2026-07-14 05:58:14 JST INFO  snapshot staged | artifact=onedrive-gmv-snapshot.csv | metric=MTR-09 | refresh_through=2026-07-13 23:59 JST
+2026-07-14 05:58:16 JST INFO  workbook verified | artifact=personal-analysis-checklist.xlsx | checks=5 | formula_errors=0
+2026-07-14 05:58:18 JST INFO  notebook replay verified | artifact=personal-gmv-sanity-check.ipynb | deterministic_runs=2 | status=PASS
+2026-07-14 05:58:20 JST INFO  local connector sample archived | artifact=onedrive-connector-sample.pcap | transport=UDP | destination=documentation-only
+2026-07-14 06:00:00 JST INFO  QA complete | gross_jpy=86000000 | refunds_jpy=1800000 | net_jpy=84200000 | plan_jpy=80000000 | status=PASS

@@ -1,0 +1,12 @@
+{
+  "lineage_id": "lin-mtr09-fy26q3",
+  "organization": "Mosaic Retail",
+  "period": "FY26 Q3",
+  "as_of_date": "2026-07-13",
+  "metric": {"id": "MTR-09", "label": "GMV", "reported_value_jpy": 84200000, "display": "GMV ¥84.2M"},
+  "anchor_note": "Mosaic Retail | FY26 Q3 | 2026-07-13 | GMV ¥84.2M | metric MTR-09",
+  "source": {"system": "Synthetic OneDrive", "dataset": "sales-order-lines", "classification": "synthetic"},
+  "transformations": ["deduplicate_order_line", "exclude_test_orders", "convert_to_jpy", "aggregate_daily_gmv"],
+  "target": {"system": "Synthetic Warehouse S2", "dataset": "mart_daily_gmv"},
+  "owner": "Analytics Engineering", "refresh_checkpoint": "2026-07-13T08:30:00+09:00"
+}

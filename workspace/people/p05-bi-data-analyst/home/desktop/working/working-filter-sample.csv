@@ -1,0 +1,6 @@
+order_line_key,order_date,channel,region,category,gross_jpy_m,recognized_refund_jpy_m,mtr09_gmv_jpy_m,refresh_status
+S2-0713-001,2026-07-13,Online,East,Home,4.10,0.10,4.00,validated
+S2-0713-002,2026-07-13,Stores,West,Electronics,3.60,0.10,3.50,validated
+S2-0712-003,2026-07-12,Online,Central,Apparel,3.10,0.00,3.10,validated
+S2-0711-004,2026-07-11,Stores,North,Beauty,2.20,0.10,2.10,validated
+S2-0710-005,2026-07-10,Online,East,Other,1.70,0.00,1.70,validated

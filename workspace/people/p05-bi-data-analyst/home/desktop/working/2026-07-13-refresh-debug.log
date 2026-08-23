@@ -1,0 +1,8 @@
+2026-07-14T05:42:11+09:00 INFO refresh.start dataset=mtr09_gmv scope=synthetic_s2
+2026-07-14T05:42:12+09:00 INFO source.snapshot refresh_through=2026-07-13T23:59:00+09:00 rows=7 grain=daily
+2026-07-14T05:42:13+09:00 INFO metric.definition id=MTR-09 value="completed order-line merchandise value, tax excluded, net of recognized refunds, JPY"
+2026-07-14T05:42:14+09:00 INFO reconcile gross_jpy_m=86.0 recognized_refunds_jpy_m=1.8 net_gmv_jpy_m=84.2 result=pass
+2026-07-14T05:42:15+09:00 INFO channel_check online_jpy_m=46.3 stores_jpy_m=37.9 total_jpy_m=84.2 result=pass
+2026-07-14T05:42:16+09:00 INFO region_check east=26.4 west=22.8 central=18.6 north=16.4 total_jpy_m=84.2 result=pass
+2026-07-14T05:42:17+09:00 WARN pacing_watch date=2026-07-13 actual_jpy_m=13.2 plan_run_rate_jpy_m=11.4 action=review_completion_timing
+2026-07-14T06:00:00+09:00 INFO qa.complete status=PASS formula_errors=0 external_endpoints=0 pii=0

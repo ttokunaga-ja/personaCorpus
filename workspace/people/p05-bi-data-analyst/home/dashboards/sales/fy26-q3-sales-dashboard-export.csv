@@ -1,0 +1,13 @@
+report,organization,period,as_of,metric_id,metric,gmv_jpy,scope
+Sales Dashboard Export,Mosaic Retail,FY26 Q3,2026-07-13,MTR-09,GMV ¥84.2M,84200000,All sales | metric MTR-09
+Sales Dashboard Export,Mosaic Retail,FY26 Q3,2026-07-13,MTR-09,GMV ¥46.3M,46300000,Channel | Online
+Sales Dashboard Export,Mosaic Retail,FY26 Q3,2026-07-13,MTR-09,GMV ¥37.9M,37900000,Channel | Stores
+Sales Dashboard Export,Mosaic Retail,FY26 Q3,2026-07-13,MTR-09,GMV ¥26.4M,26400000,Region | East
+Sales Dashboard Export,Mosaic Retail,FY26 Q3,2026-07-13,MTR-09,GMV ¥22.8M,22800000,Region | West
+Sales Dashboard Export,Mosaic Retail,FY26 Q3,2026-07-13,MTR-09,GMV ¥18.6M,18600000,Region | Central
+Sales Dashboard Export,Mosaic Retail,FY26 Q3,2026-07-13,MTR-09,GMV ¥16.4M,16400000,Region | North
+Sales Dashboard Export,Mosaic Retail,FY26 Q3,2026-07-13,MTR-09,GMV ¥24.8M,24800000,Category | Home
+Sales Dashboard Export,Mosaic Retail,FY26 Q3,2026-07-13,MTR-09,GMV ¥22.1M,22100000,Category | Electronics
+Sales Dashboard Export,Mosaic Retail,FY26 Q3,2026-07-13,MTR-09,GMV ¥19.3M,19300000,Category | Apparel
+Sales Dashboard Export,Mosaic Retail,FY26 Q3,2026-07-13,MTR-09,GMV ¥10.7M,10700000,Category | Beauty
+Sales Dashboard Export,Mosaic Retail,FY26 Q3,2026-07-13,MTR-09,GMV ¥7.3M,7300000,Category | Other

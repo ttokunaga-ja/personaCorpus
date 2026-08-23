@@ -1,0 +1,5 @@
+extract_version,metric_id,region,gmv_jpy,order_count,share_pct,data_classification
+warehouse-v3.2,MTR-09,East,26400000,3951,31.35,synthetic_aggregate_only
+warehouse-v3.2,MTR-09,West,22800000,3412,27.08,synthetic_aggregate_only
+warehouse-v3.2,MTR-09,Central,18600000,2784,22.09,synthetic_aggregate_only
+warehouse-v3.2,MTR-09,North,16400000,2458,19.48,synthetic_aggregate_only

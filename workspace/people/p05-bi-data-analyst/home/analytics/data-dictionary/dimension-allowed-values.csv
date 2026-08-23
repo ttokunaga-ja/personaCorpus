@@ -1,0 +1,6 @@
+dimension,allowed_value,description
+channel,Marketplace,Third-party marketplace purchase
+channel,Direct,First-party web purchase
+region,Kanto,Tokyo-area reporting region
+region,Kansai,Osaka-area reporting region
+fulfillment_status,completed,Eligible for MTR-09

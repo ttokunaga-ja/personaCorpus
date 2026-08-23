@@ -1,0 +1,6 @@
+field_name,business_name,data_type,required,definition
+order_line_id,Order line identifier,text,yes,Unique completed order line
+net_line_value_jpy,Net line value JPY,number,yes,Gross less approved discount and refund
+channel,Purchase channel,text,yes,Commercial acquisition channel
+region,Commercial region,text,yes,Reporting geography
+metric_date,Business date,date,yes,Date used for reporting

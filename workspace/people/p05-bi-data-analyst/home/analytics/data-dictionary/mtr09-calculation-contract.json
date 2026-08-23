@@ -1,0 +1,1 @@
+{"metric_id":"MTR-09","formula":"SUM(net_line_value_jpy) WHERE fulfillment_status='completed'","inputs":["gross_line_value_jpy","approved_discount_jpy","approved_refund_jpy"],"exclusions":["cancelled","test","fraudulent"],"control_total_jpy":84200000}

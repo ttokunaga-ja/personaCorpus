@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<transformationMap metric="MTR-09" organization="Mosaic Retail">
+  <source dataset="sales-order-lines" system="Synthetic OneDrive"/>
+  <step sequence="1" name="deduplicate_order_line" key="order_id,line_id"/>
+  <step sequence="2" name="exclude_test_orders" rule="is_test=false"/>
+  <step sequence="3" name="convert_to_jpy" rule="gross_amount_jpy=unit_price_jpy*quantity"/>
+  <target dataset="mart_daily_gmv" system="Synthetic Warehouse S2"/>
+</transformationMap>

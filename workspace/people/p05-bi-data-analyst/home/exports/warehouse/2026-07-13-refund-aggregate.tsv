@@ -1,0 +1,8 @@
+extract_version	metric_id	calendar_date	refund_gmv_jpy	refunded_orders	refund_rate_pct	data_classification
+warehouse-v3.2	MTR-09	2026-07-07	210000	38	1.91	synthetic_aggregate_only
+warehouse-v3.2	MTR-09	2026-07-08	225000	40	2.01	synthetic_aggregate_only
+warehouse-v3.2	MTR-09	2026-07-09	235000	42	2.04	synthetic_aggregate_only
+warehouse-v3.2	MTR-09	2026-07-10	255000	45	2.11	synthetic_aggregate_only
+warehouse-v3.2	MTR-09	2026-07-11	265000	47	2.14	synthetic_aggregate_only
+warehouse-v3.2	MTR-09	2026-07-12	295000	52	2.27	synthetic_aggregate_only
+warehouse-v3.2	MTR-09	2026-07-13	315000	56	2.39	synthetic_aggregate_only

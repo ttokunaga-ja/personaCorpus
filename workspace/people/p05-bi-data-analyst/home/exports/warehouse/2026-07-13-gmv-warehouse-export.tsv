@@ -1,0 +1,5 @@
+extract_version	metric_id	organization	period	extract_date	measure	amount_jpy	comparison_amount_jpy	summary	data_classification
+warehouse-v3.2	MTR-09	Mosaic Retail	FY26 Q3	2026-07-13	actual_gmv	84200000	80000000	Mosaic Retail | FY26 Q3 | 2026-07-13 | GMV ¥84.2M | metric MTR-09	synthetic_aggregate_only
+warehouse-v3.2	MTR-09	Mosaic Retail	FY26 Q3	2026-07-13	plan_gmv	80000000	78600000	FY26 Q3 plan; prior GMV ¥78.6M	synthetic_aggregate_only
+warehouse-v3.2	MTR-09	Mosaic Retail	FY26 Q3	2026-07-13	gross_gmv	86000000	1800000	gross GMV less refunds reconciles to actual GMV	synthetic_aggregate_only
+warehouse-v3.2	MTR-09	Mosaic Retail	FY26 Q3	2026-07-13	refunds	1800000	84200000	refund deduction from gross GMV	synthetic_aggregate_only

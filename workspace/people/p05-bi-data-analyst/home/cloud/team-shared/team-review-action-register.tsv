@@ -1,0 +1,6 @@
+action_id	review_date_jst	priority	action	owner_role	due_date_jst	status	success_measure	handoff_note
+ACT-01	2026-07-14	High	Confirm refund recognition timing matches MTR-09 definition	BI Quality Analyst	2026-07-14	Open	Gross 86.0M less refunds 1.8M equals net 84.2M	Record reconciliation result in shared review
+ACT-02	2026-07-14	High	Validate online and stores split reconciles to MTR-09 total	Commercial Analytics Lead	2026-07-14	Open	46.3M plus 37.9M equals 84.2M	Escalate unexplained delta over 0 JPY
+ACT-03	2026-07-15	Medium	Document plan variance drivers for weekly review	Finance Business Partner	2026-07-15	Open	Net variance to plan is 4.2M JPY	Use decision-ready driver commentary
+ACT-04	2026-07-20	Medium	Add prior-period comparison narrative	Analytics Manager	2026-07-20	Open	Net variance to prior is 5.6M JPY	State whether movement is channel-led
+ACT-05	2026-07-31	Low	Complete monthly metric governance attestation	Data Governance Steward	2026-07-31	Open	Definition and refresh controls acknowledged	Archive controlled handoff note

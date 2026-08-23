@@ -1,0 +1,10 @@
+{
+  "contract_version": "1.0", "metric_id": "MTR-09", "dataset": "mart_daily_gmv",
+  "checks": [
+    {"name": "freshness", "threshold_minutes": 180, "severity": "error"},
+    {"name": "unique_order_line", "key": ["order_id", "line_id"], "severity": "error"},
+    {"name": "nonnegative_gmv", "field": "gross_amount_jpy", "severity": "error"},
+    {"name": "reconciled_total", "expected_jpy": 84200000, "severity": "warning"}
+  ],
+  "evidence_window": "FY26 Q3", "review_date": "2026-07-13"
+}

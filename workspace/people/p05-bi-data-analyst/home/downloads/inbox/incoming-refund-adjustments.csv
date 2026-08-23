@@ -1,0 +1,6 @@
+adjustment_id,recognized_date,region,channel,refund_reason,recognized_refund_jpy,status,source_system
+MRA-260707-01,2026-07-07,East,Online,Customer return,-250000,Recognized,Mosaic Refund Ledger
+MRA-260709-02,2026-07-09,West,Stores,Price correction,-180000,Recognized,Mosaic Refund Ledger
+MRA-260711-03,2026-07-11,Central,Online,Damaged item,-310000,Recognized,Mosaic Refund Ledger
+MRA-260712-04,2026-07-12,North,Stores,Order cancellation,-240000,Recognized,Mosaic Refund Ledger
+MRA-260713-05,2026-07-13,East,Online,Customer return,-820000,Recognized,Mosaic Refund Ledger

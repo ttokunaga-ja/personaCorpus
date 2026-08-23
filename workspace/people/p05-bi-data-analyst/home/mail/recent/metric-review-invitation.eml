@@ -1,0 +1,25 @@
+From: Metrics Operations <metrics-ops@mosaic-retail.example>
+To: BI Data Analyst <bi-analyst@mosaic-retail.example>
+Cc: Finance Review <finance-review@mosaic-retail.example>
+Date: Tue, 14 Jul 2026 00:18:00 +0900
+Message-ID: <mtr-09-review-invite-20260714@mosaic-retail.example>
+Subject: Invitation: MTR-09 quality review at 06:00 JST
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Hello BI Data Analyst,
+
+Please join the MTR-09 quality review on 2026-07-14 at 06:00 JST.
+
+The completed metric is order-line merchandise value, tax excluded, with
+recognized refunds recorded as net reductions. The current result is JPY
+84.2M, calculated as gross JPY 86.0M less recognized refunds of JPY 1.8M.
+For review context, plan is JPY 80.0M and the prior comparison is JPY 78.6M.
+
+Please verify the metric definition, refund treatment, and the refresh cutoff
+of 2026-07-13 23:59 JST. Add any questions to the MTR-09 review notes before
+the session. This invitation contains no attachments.
+
+Regards,
+Metrics Operations

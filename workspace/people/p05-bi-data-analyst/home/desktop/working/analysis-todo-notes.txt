@@ -1,0 +1,20 @@
+MTR-09 Analyst Working Notes — Synthetic S2
+Refresh: through 2026-07-13 23:59 JST | QA: 2026-07-14 06:00 JST
+
+Definition
+- MTR-09 = completed order-line merchandise value, tax excluded, net of recognized refunds, JPY.
+- Headline: gross 86.0M less recognized refunds 1.8M = GMV 84.2M.
+
+Review queue
+[ ] Confirm 2026-07-12 and 2026-07-13 uplift is completion timing, not an extract lag.
+[ ] Retain gross/refund/net definition in the recurring management annotation.
+[ ] Obtain authoritative channel plan allocation before treating the pro-rata channel proxy as a target.
+[ ] Validate regional prior-period comparability with the reporting owner.
+
+Reference spine
+- Plan 80.0M; prior 78.6M.
+- Channels: Online 46.3M; Stores 37.9M.
+- Regions: East 26.4M; West 22.8M; Central 18.6M; North 16.4M.
+- Categories: Home 24.8M; Electronics 22.1M; Apparel 19.3M; Beauty 10.7M; Other 7.3M.
+
+This file is synthetic S2 and contains no live endpoints, personal data, or credentials.

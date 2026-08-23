@@ -1,0 +1,4 @@
+{"receipt_id":"DLR-260714-001","artifact":"incoming-store-gmv.csv","status":"downloaded","bytes":4362,"source":"warehouse-export@mosaic-retail.example","received_at_jst":"2026-07-14T06:01:12+09:00","classification":"fictional-internal"}
+{"receipt_id":"DLR-260714-002","artifact":"incoming-channel-gmv.tsv","status":"downloaded","bytes":264,"source":"warehouse-export@mosaic-retail.example","received_at_jst":"2026-07-14T06:01:15+09:00","classification":"fictional-internal"}
+{"receipt_id":"DLR-260714-003","artifact":"incoming-refund-adjustments.csv","status":"downloaded","bytes":578,"source":"warehouse-export@mosaic-retail.example","received_at_jst":"2026-07-14T06:01:17+09:00","classification":"fictional-internal"}
+{"receipt_id":"DLR-260714-004","artifact":"incoming-sales-workbook.xlsx","status":"downloaded","bytes":8362,"source":"warehouse-export@mosaic-retail.example","received_at_jst":"2026-07-14T06:01:20+09:00","classification":"fictional-internal"}

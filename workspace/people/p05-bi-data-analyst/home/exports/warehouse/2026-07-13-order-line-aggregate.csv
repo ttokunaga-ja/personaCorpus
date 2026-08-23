@@ -1,0 +1,8 @@
+extract_version,metric_id,grain,calendar_date,gmv_jpy,order_count,average_order_value_jpy,data_classification
+warehouse-v3.2,MTR-09,daily_aggregate,2026-07-07,10800000,1617,6679,synthetic_aggregate_only
+warehouse-v3.2,MTR-09,daily_aggregate,2026-07-08,11200000,1677,6680,synthetic_aggregate_only
+warehouse-v3.2,MTR-09,daily_aggregate,2026-07-09,11500000,1722,6678,synthetic_aggregate_only
+warehouse-v3.2,MTR-09,daily_aggregate,2026-07-10,12100000,1811,6681,synthetic_aggregate_only
+warehouse-v3.2,MTR-09,daily_aggregate,2026-07-11,12400000,1856,6681,synthetic_aggregate_only
+warehouse-v3.2,MTR-09,daily_aggregate,2026-07-12,13000000,1946,6680,synthetic_aggregate_only
+warehouse-v3.2,MTR-09,daily_aggregate,2026-07-13,13200000,1976,6680,synthetic_aggregate_only

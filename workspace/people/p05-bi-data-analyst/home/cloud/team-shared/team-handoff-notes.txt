@@ -1,0 +1,16 @@
+Mosaic Retail Analytics — controlled team handoff
+
+Scope
+MTR-09 is completed order-line merchandise value, tax excluded, net of recognized refunds, in JPY. All content is synthetic (S2); named owners are fictional roles only.
+
+Refresh and QA
+Data refresh covers through 2026-07-13 23:59 JST. QA checkpoint: 2026-07-14 06:00 JST. The shared tracker records the reconciled net value of JPY 84.2M: gross JPY 86.0M minus recognized refunds JPY 1.8M.
+
+Decision context
+Plan is JPY 80.0M and prior comparator is JPY 78.6M. Channel allocation is Online JPY 46.3M and Stores JPY 37.9M; the channels must total MTR-09. Review owners should update the action status after evidence is attached to the controlled review process.
+
+Operating controls
+Use the Calendar tab for cadence, the Action Register for accountable follow-up, and Checks before distributing any refreshed values. Do not substitute live endpoints or real customer, employee, or account data. Any definition, refresh-window, or reconciliation change requires Data Governance Steward review.
+
+Handoff status
+Initial shared package prepared for the 2026-07-14 QA cycle. Formula-driven controls in the workbook should display PASS before distribution.

@@ -1,0 +1,3 @@
+exception_id	owner	status	due_date	note
+EXC-0713-01	Data Operations	Open	2026-07-15	Late arrival validation
+EXC-0713-02	BI Reporting	In review	2026-07-14	Channel mapping check

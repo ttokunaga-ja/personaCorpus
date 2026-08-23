@@ -1,0 +1,6 @@
+filter_name,selected_value,description
+Period,FY26 Q3,Reporting quarter
+As of,2026-07-13,Synthetic data refresh date
+Metric,MTR-09,GMV definition
+Region,All,National sales view
+Channel,All,All commerce channels

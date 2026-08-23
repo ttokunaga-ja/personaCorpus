@@ -1,0 +1,4 @@
+checkpoint_jst	stage	status	owner	notes
+2026-07-13T08:00:00+09:00	OneDrive intake	complete	Data Operations	synthetic extract accepted
+2026-07-13T08:15:00+09:00	Warehouse staging	complete	Analytics Engineering	duplicate control passed
+2026-07-13T08:30:00+09:00	MTR-09 mart	certified	BI Analytics	GMV reconciled to 84200000 JPY
