@@ -1,0 +1,18 @@
+{
+  "schema": "linden-archive-project.source-register.v1",
+  "snapshot_date": "2026-07-13",
+  "synthetic": true,
+  "required_fields": [
+    "source_id",
+    "box",
+    "folio",
+    "source_date",
+    "citation_key"
+  ],
+  "anchor_record": {
+    "source_id": "LA-SRC-B14-F184",
+    "box": "Box 14",
+    "folio": "folio 184",
+    "citation_key": "citation LA-042"
+  }
+}

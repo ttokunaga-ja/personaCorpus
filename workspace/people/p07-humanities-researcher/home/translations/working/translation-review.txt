@@ -1,0 +1,15 @@
+Linden Archive Project — synthetic translation review
+Status: READY FOR PARENT QA
+
+Scope: translations/working
+Source labels: Box 14; folio 184; citation LA-042
+Review date: 2026-07-13
+
+Checks
+[PASS] Source and target paragraphs align one-to-one.
+[PASS] French, German, Japanese, and English passages are fabricated examples.
+[PASS] Uncertainty is marked with square brackets and explicit decision notes.
+[PASS] No authentic source, personal data, credentials, or external contact details are present.
+[PASS] Rich documents rendered for visual review.
+
+Editorial note: terminology is a working aid, not a claim of canonical translation.

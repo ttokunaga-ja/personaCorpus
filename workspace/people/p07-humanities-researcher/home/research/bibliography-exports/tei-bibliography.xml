@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0"><teiHeader><fileDesc><titleStmt><title>Linden Archive Project bibliography</title></titleStmt><publicationStmt><p>Synthetic, 2026-07-13.</p></publicationStmt><sourceDesc><p>Haldenmere Civic Repository (fictional).</p></sourceDesc></fileDesc></teiHeader><text><body><listBibl>
+<bibl xml:id="LA-017"><author>Elinor Vale</author><title xml:lang="en">Lecture notes on municipal reading circles</title><date when="1891-10-04"/><idno type="source">LA-SRC-B06-F112</idno><note>Box 6, folio 112, citation LA-017</note></bibl>
+<bibl xml:id="LA-028"><author>Lucien Moreau</author><title xml:lang="fr">Proof sheet: Le cercle du tilleul</title><date when="1898-06-12"/><idno type="source">LA-SRC-B09-F072</idno><note>Box 9, folio 072, citation LA-028</note></bibl>
+<bibl xml:id="LA-042"><author>Elinor Vale</author><title xml:lang="en">Letter to Lucien Moreau: many tongues</title><date when="1907-03-16"/><idno type="source">LA-SRC-B14-F184</idno><note>Box 14, folio 184, citation LA-042</note></bibl>
+<bibl xml:id="LA-057"><author>Marta Weiss</author><title xml:lang="de">Translation circular: Die Linde im Kreis</title><date when="1910-09-03"/><idno type="source">LA-SRC-B18-F203</idno><note>Box 18, folio 203, citation LA-057</note></bibl>
+<bibl xml:id="LA-063"><author>Aiko Mori</author><title xml:lang="ja">Memorial programme: Bodai ju no wa</title><date when="1912-11-18"/><idno type="source">LA-SRC-B21-F044</idno><note>Box 21, folio 044, citation LA-063</note></bibl>
+</listBibl></body></text></TEI>

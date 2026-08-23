@@ -1,0 +1,56 @@
+{
+  "project": "Linden Archive Project",
+  "snapshot": "2026-07-13",
+  "records": [
+    {
+      "citation_key": "LA-017",
+      "source_id": "LA-SRC-B06-F112",
+      "box": "Box 6",
+      "folio": "folio 112",
+      "date": "1891-10-04",
+      "creator": "Elinor Vale",
+      "title": "Lecture notes on municipal reading circles",
+      "language": "en"
+    },
+    {
+      "citation_key": "LA-028",
+      "source_id": "LA-SRC-B09-F072",
+      "box": "Box 9",
+      "folio": "folio 072",
+      "date": "1898-06-12",
+      "creator": "Lucien Moreau",
+      "title": "Proof sheet: Le cercle du tilleul",
+      "language": "fr"
+    },
+    {
+      "citation_key": "LA-042",
+      "source_id": "LA-SRC-B14-F184",
+      "box": "Box 14",
+      "folio": "folio 184",
+      "date": "1907-03-16",
+      "creator": "Elinor Vale",
+      "title": "Letter to Lucien Moreau: many tongues",
+      "language": "en"
+    },
+    {
+      "citation_key": "LA-057",
+      "source_id": "LA-SRC-B18-F203",
+      "box": "Box 18",
+      "folio": "folio 203",
+      "date": "1910-09-03",
+      "creator": "Marta Weiss",
+      "title": "Translation circular: Die Linde im Kreis",
+      "language": "de"
+    },
+    {
+      "citation_key": "LA-063",
+      "source_id": "LA-SRC-B21-F044",
+      "box": "Box 21",
+      "folio": "folio 044",
+      "date": "1912-11-18",
+      "creator": "Aiko Mori",
+      "title": "Memorial programme: Bodai ju no wa",
+      "language": "ja"
+    }
+  ]
+}

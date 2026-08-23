@@ -1,0 +1,11 @@
+project: Linden Archive Project
+snapshot: 2026-07-13
+repository: Haldenmere Civic Repository
+canonical_keys:
+  LA-017: {box: "Box 6", folio: "folio 112"}
+  LA-028: {box: "Box 9", folio: "folio 072"}
+  LA-042: {box: "Box 14", folio: "folio 184"}
+  LA-057: {box: "Box 18", folio: "folio 203"}
+  LA-063: {box: "Box 21", folio: "folio 044"}
+styles:
+  short: "Linden Archive Project, {box}, {folio}, citation {key}"

@@ -1,0 +1,26 @@
+catalogue:
+  project: Linden Archive Project
+  snapshot_date: '2026-07-13'
+  repository:
+    name: Haldenmere Civic Repository
+    status: fictional synthetic corpus
+  series: Linden Correspondence Series
+  references:
+    - id: LA-SRC-B14-F184
+      box: 14
+      folio: 184
+      citation: citation LA-042
+      date: '1907-03-16'
+      type: synthetic letter edition
+      use: material and translation comparison
+    - id: LA-SRC-B14-F183
+      box: 14
+      folio: 183
+      citation: LA-042-context
+      date: '1907-03-10'
+      type: synthetic enclosure
+      use: sequence comparison
+  controls:
+    uncertain_reading: '[word?]'
+    unreadable_span: '[illegible: n words]'
+    editorial_supply: '[supplied: text]'

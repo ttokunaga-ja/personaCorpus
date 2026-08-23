@@ -1,0 +1,27 @@
+{
+  "project": "Linden Archive Project",
+  "snapshot": "2026-07-13",
+  "source_id": "LA-SRC-B14-F184",
+  "citation": "LA-042",
+  "segments": [
+    {
+      "id": "P01",
+      "folio": "184",
+      "lines": "01-02",
+      "reading": "salutation and linden line"
+    },
+    {
+      "id": "P02",
+      "folio": "184",
+      "lines": "03-06",
+      "reading": "uncertainty and editorial deletion"
+    },
+    {
+      "id": "P03",
+      "folio": "184",
+      "lines": "07-10",
+      "reading": "closing and supplied sign-off"
+    }
+  ],
+  "synthetic": true
+}

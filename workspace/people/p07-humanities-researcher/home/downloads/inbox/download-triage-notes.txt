@@ -1,0 +1,10 @@
+Linden Archive Project - Download Triage Notes
+
+Batch: synthetic transfer set 2026-07-13
+Repository context: Haldenmere Civic Repository; Linden Correspondence Series.
+Primary reference: Box 14, folio 184, citation LA-042.
+Related intake references: Box 09, Box 18, and Box 21.
+
+Triage result: five image-only intake scans were retained as visual evidence.
+Checks completed: file signature, page count, scan-only text extraction, naming alignment, and image distinction.
+This entirely synthetic batch is a training corpus; it contains no real archive record, person, credential, or confidential material.

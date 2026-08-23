@@ -1,0 +1,64 @@
+{
+  "project": "Linden Archive Project",
+  "snapshot": "2026-07-13",
+  "collection": "Haldenmere Civic Repository, Linden Correspondence Series",
+  "focus": {
+    "source_id": "LA-SRC-B14-F184",
+    "box": 14,
+    "folio": 184,
+    "citation": "LA-042",
+    "date": "1907-03-16",
+    "pages": 4,
+    "line_count": 17
+  },
+  "related": [
+    {
+      "source_id": "LA-SRC-B14-F181",
+      "folio": 181,
+      "date": "1907-02-21",
+      "kind": "Vale draft"
+    },
+    {
+      "source_id": "LA-SRC-B14-F183",
+      "folio": 183,
+      "date": "1907-03-10",
+      "kind": "Moreau enclosure"
+    },
+    {
+      "source_id": "LA-SRC-B14-F184",
+      "folio": 184,
+      "date": "1907-03-16",
+      "kind": "Vale letter"
+    },
+    {
+      "source_id": "LA-SRC-B14-F186",
+      "folio": 186,
+      "date": "1907-03-22",
+      "kind": "Weiss note"
+    },
+    {
+      "source_id": "LA-SRC-B14-F188",
+      "folio": 188,
+      "date": "1907-04-02",
+      "kind": "Vale revision"
+    },
+    {
+      "source_id": "LA-SRC-B14-F191",
+      "folio": 191,
+      "date": "1907-04-19",
+      "kind": "Moreau proof"
+    },
+    {
+      "source_id": "LA-SRC-B14-F193",
+      "folio": 193,
+      "date": "1907-05-01",
+      "kind": "Mori gloss"
+    },
+    {
+      "source_id": "LA-SRC-B14-F196",
+      "folio": 196,
+      "date": "1907-05-18",
+      "kind": "Vale response"
+    }
+  ]
+}
