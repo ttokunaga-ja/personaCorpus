@@ -1,0 +1,5 @@
+[14:03 UTC] alert-bot: identity validation p95 is above objective.
+[14:06 UTC] alex/on-call: Synthetic sign-in check confirms queueing; opening SEV-2.
+[14:09 UTC] priya/identity: Cache warmup is refreshing every shard; pausing job.
+[14:18 UTC] alex/on-call: Limiter enabled. Validation queue is draining.
+[14:29 UTC] alex/on-call: Objective restored. Capture fanout guardrail action ID-441.

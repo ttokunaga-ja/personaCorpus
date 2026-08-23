@@ -1,0 +1,6 @@
+2026-07-13T09:13:54.831Z ingress=regional-gateway region=us-central-1 event=backend_health_change backend=checkout-svc17 healthy=false consecutive_failures=3
+2026-07-13T09:14:39.104Z ingress=regional-gateway region=us-central-1 event=route_status route=checkout-v2 response_class=5xx rate_pct=7.6 sample_window=60s
+2026-07-13T09:21:10.593Z ingress=regional-gateway event=weight_update route=checkout-v2 source_region=us-central-1 target_region=us-east-2 target_weight_pct=15 change_id=chg-260713-17
+2026-07-13T09:28:36.225Z ingress=regional-gateway event=weight_update route=checkout-v2 source_region=us-central-1 target_region=us-east-2 target_weight_pct=35 change_id=chg-260713-17
+2026-07-13T09:36:51.118Z ingress=regional-gateway region=us-east-2 event=backend_health_change backend=checkout-svc17 healthy=true p95_ms=278
+2026-07-13T09:47:59.440Z ingress=regional-gateway event=weight_restore route=checkout-v2 source_region=us-central-1 target_region=us-east-2 target_weight_pct=20 change_id=chg-260713-17

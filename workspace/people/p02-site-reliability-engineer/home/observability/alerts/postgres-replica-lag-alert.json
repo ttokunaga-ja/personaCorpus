@@ -1,0 +1,14 @@
+{
+  "apiVersion": "monitoring.northstar.example/v1",
+  "kind": "AlertDefinition",
+  "metadata": { "name": "postgres-replica-replay-lag", "service": "postgres-platform", "environment": "production", "owner": "data-platform" },
+  "spec": {
+    "summary": "A production PostgreSQL replica has exceeded the permitted replay lag.",
+    "query": "max by (cluster, replica) (postgres_replica_replay_lag_seconds{environment=\"production\"})",
+    "condition": { "operator": ">", "threshold": 120, "unit": "seconds", "for": "10m" },
+    "evaluation": { "interval": "1m", "window": "10m", "severity": "warning", "group_by": ["cluster", "replica"] },
+    "labels": { "team": "data-platform", "signal": "replica-lag", "dependency": "postgres" },
+    "annotations": { "runbook": "documents/operations/runbooks/postgres-replica-lag.md", "routing_key": "database-oncall", "escalation_rule": "Escalate immediately if primary commit latency rises with replica lag." },
+    "routing": { "page": "database-oncall", "ticket": "data-reliability", "repeat_after": "4h" }
+  }
+}

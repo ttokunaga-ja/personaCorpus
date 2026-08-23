@@ -1,0 +1,7 @@
+report_date,environment,region,service,window,request_rate_rps,error_rate_percent,p95_latency_ms,capacity_headroom_percent,status
+2026-07-13,Northstar Transit Cloud,us-central,Checkout SVC-17,15m,342,0.08,421,34,watch
+2026-07-13,Northstar Transit Cloud,us-east,Checkout SVC-17,15m,298,0.03,358,48,healthy
+2026-07-13,Northstar Transit Cloud,eu-west,Checkout SVC-17,15m,217,0.05,401,39,healthy
+2026-07-13,Northstar Transit Cloud,ap-southeast,Checkout SVC-17,15m,164,0.11,537,22,watch
+2026-07-13,Northstar Transit Cloud,us-central,Identity Platform,15m,501,0.02,188,44,healthy
+2026-07-13,Northstar Transit Cloud,eu-west,Identity Platform,15m,322,0.01,196,41,healthy

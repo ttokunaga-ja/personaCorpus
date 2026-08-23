@@ -1,0 +1,5 @@
+2026-07-13T09:10:04Z | operator=database-responder | detection | checkout-ledger writer saturation 92%; replica apply lag 74s in atlas-east
+2026-07-13T09:12:49Z | operator=database-responder | decision | promote healthy atlas-east standby after replication position and schema-version checks passed
+2026-07-13T09:16:38Z | operator=database-responder | action | controlled writer switchover initiated; application writes briefly queued by existing client backpressure
+2026-07-13T09:20:55Z | operator=database-responder | result | new writer accepting transactions; writer p95 1.9s -> 184ms; replication lag 74s -> 9s
+2026-07-13T09:45:18Z | operator=database-responder | validation | writer p95 61ms; replica lag 2s; consistency sampler returned 120/120 matching ledger references

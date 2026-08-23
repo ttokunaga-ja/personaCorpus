@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CHG-260713-17 — Checkout SVC-17 mitigation deployment</title>
+  <style>
+    :root { color-scheme: light; --ink: #172033; --muted: #536278; --line: #d8e0ea; --navy: #12345a; --amber: #a45b00; --pale: #f4f8fc; }
+    body { margin: 0; background: #eef3f8; color: var(--ink); font: 16px/1.5 system-ui, sans-serif; }
+    main { max-width: 900px; margin: 32px auto; background: #fff; box-shadow: 0 6px 24px #24344a20; }
+    header { padding: 30px 38px; background: var(--navy); color: #fff; }
+    header p { margin: 6px 0 0; color: #d8e8f8; } h1 { margin: 0; font-size: 27px; }
+    section { padding: 20px 38px; border-top: 1px solid var(--line); } h2 { font-size: 18px; margin: 0 0 10px; }
+    .meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; } .label { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .06em; }
+    .value { font-weight: 650; } .status { color: var(--amber); font-weight: 700; } code { background: var(--pale); padding: 2px 5px; }
+    table { width: 100%; border-collapse: collapse; } th, td { padding: 9px; text-align: left; border-bottom: 1px solid var(--line); } th { color: var(--muted); font-size: 13px; }
+    footer { padding: 18px 38px 30px; color: var(--muted); font-size: 14px; }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>CHG-260713-17 · Checkout SVC-17 mitigation deployment</h1>
+      <p>Northstar Transit Cloud · emergency change record</p>
+    </header>
+    <section class="meta" aria-label="Change metadata">
+      <div><div class="label">Window</div><div class="value">2026-07-13 14:18–14:38 UTC</div></div>
+      <div><div class="label">Incident</div><div class="value">INC-260713</div></div>
+      <div><div class="label">State</div><div class="status">Implemented and monitored</div></div>
+    </section>
+    <section>
+      <h2>Purpose and risk decision</h2>
+      <p>Checkout SVC-17 was consuming its monthly error budget at an accelerated rate after a retry-amplification pattern in the payment adapter. The service had <strong>error budget 2.4%</strong> remaining. This reversible deployment reduces concurrent adapter retries and extends jitter before a request is retried.</p>
+      <p>The change is limited to the production checkout deployment. It does not alter payment data, identity policy, customer records, network routes, or credentials.</p>
+    </section>
+    <section>
+      <h2>Implementation plan</h2>
+      <ol>
+        <li>Confirm current replica health, synthetic checkout probes, and payment-provider status.</li>
+        <li>Apply <code>deploy-20260713.yaml</code> with a rolling update capped at one unavailable replica.</li>
+        <li>Observe request error rate, adapter retry ratio, and p95 latency for fifteen minutes.</li>
+        <li>Record the result in the incident timeline and retain the deployment log.</li>
+      </ol>
+    </section>
+    <section>
+      <h2>Approval and verification</h2>
+      <table>
+        <thead><tr><th>Role</th><th>Decision</th><th>Evidence</th></tr></thead>
+        <tbody>
+          <tr><td>Incident commander</td><td>Approved at 14:16 UTC</td><td>Mitigation is reversible and bounded to Checkout SVC-17.</td></tr>
+          <tr><td>On-call SRE</td><td>Executed at 14:21 UTC</td><td>Rollout completed with all replicas ready.</td></tr>
+          <tr><td>Service owner</td><td>Verified at 14:37 UTC</td><td>Retry ratio returned below the incident threshold; synthetic probes remained green.</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h2>Rollback condition</h2>
+      <p>Rollback immediately if checkout availability falls below 99.5% for five consecutive minutes, or if p95 latency rises by more than 20% from the pre-change baseline. The previous replica-set revision is retained for the drill-tested rollback procedure.</p>
+    </section>
+    <footer>Prepared for the 2026-07-13 operational record. All systems, names, and identifiers in this document are synthetic.</footer>
+  </main>
+</body>
+</html>

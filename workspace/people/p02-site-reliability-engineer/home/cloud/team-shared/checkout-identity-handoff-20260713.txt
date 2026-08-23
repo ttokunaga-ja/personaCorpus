@@ -1,0 +1,48 @@
+Northstar Transit Cloud — Checkout / Identity handoff
+Shift date: 2026-07-13
+Handoff window: 16:40–17:15 UTC
+Incident reference: INC-260713
+Services: Checkout SVC-17 and Identity fallback path
+
+Current state
+Checkout SVC-17 recovered after the payment-queue backlog was drained and
+traffic was returned to the normal regional split. The customer-facing error
+rate has remained below the incident threshold for 42 minutes. The rolling
+error budget is 2.4%; do not treat recovery as permission for a same-day
+feature release.
+
+Identity behavior during the incident
+Identity did not show an authentication failure pattern. It entered the
+documented fallback posture at 15:18 UTC so that token validation capacity
+could remain reserved for checkout retries. The fallback was removed at
+16:12 UTC after queue depth and token-validation latency both stabilized.
+No identity data repair is expected; the next shift should verify the audit
+event count rather than replay requests.
+
+Decision record
+The Incident Commander role closed active mitigation at 16:35 UTC and kept
+the incident in monitoring state until the 18:00 UTC review. The On-call
+SRE role owns the monitoring checklist. The Service Owner role owns the
+release hold. This handoff is the operational source for DEC-EB-20260714-01
+and the follow-up session WS-Q3-20260721.
+
+Open actions
+- ACT-260713-01 — On-call SRE: compare the 17:00 and 18:00 UTC synthetic
+  checkout probes; attach the result to INC-260713 before ending monitoring.
+- ACT-260713-02 — Identity Operations: reconcile fallback audit-event totals
+  for 15:18–16:12 UTC and report only count deltas to the Incident Commander.
+- ACT-260713-03 — Service Owner: keep Checkout SVC-17 deployments paused
+  until the error-budget policy discussion records an explicit exception or
+  release decision.
+- ACT-260713-04 — Reliability Program: bring queue-drain timing and the
+  fallback decision to the Q3 working session.
+
+Next shift watchpoints
+1. Queue depth must remain on the normal declining trend for two additional
+   samples.
+2. Checkout SVC-17 latency must not rise when the retry limiter is restored.
+3. Identity audit delivery must be complete before the incident is resolved.
+
+Prepared by: Outgoing On-call SRE role
+Accepted by: Incoming On-call SRE role
+Status at handoff: monitoring; no customer action requested

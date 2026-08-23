@@ -1,0 +1,4 @@
+2026-07-13T10:08:17Z | operator=incident-commander | validation-plan | require two stable 30-minute windows across availability, latency, queue, and payment adapter metrics
+2026-07-13T10:38:20Z | operator=primary-oncall | window-1 | availability 99.95%; p95 218ms; queue depth 41; adapter error 0.12%
+2026-07-13T11:08:31Z | operator=secondary-oncall | window-2 | availability 99.96%; p95 211ms; queue depth 17; adapter error 0.11%
+2026-07-13T11:15:44Z | operator=incident-commander | decision | resolve INC-260713; retain regional traffic shift and monitoring action until planned review

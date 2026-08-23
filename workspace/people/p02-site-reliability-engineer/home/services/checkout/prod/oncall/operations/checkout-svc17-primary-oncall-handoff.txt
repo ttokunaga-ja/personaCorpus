@@ -1,0 +1,6 @@
+2026-07-13T10:24:00Z | PRIMARY HANDOFF PREPARED | role=primary-oncall | incident=INC-260713
+2026-07-13T10:25:12Z | CURRENT STATE | Checkout SVC-17 serving normally; atlas-east remains at 80% normal allocation and cedar-west at 120% temporary allocation.
+2026-07-13T10:26:31Z | EVIDENCE | database writer p95 58ms from 1.9s peak; queue depth 1,180 from 18,440 peak; error rate 0.04% over last 15m.
+2026-07-13T10:28:07Z | DECISION | retain traffic posture until two 30-minute stable windows complete; no configuration reversal during handoff.
+2026-07-13T10:29:45Z | OPEN WATCH | validate cache hit ratio remains above 88%; see checkout-svc17-cache-recovery.log.
+2026-07-13T10:31:05Z | TRANSFERRED | secondary-oncall accepted monitoring and rollback authority; incident commander role remains accountable for closure notes.

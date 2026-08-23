@@ -1,0 +1,5 @@
+report_date,environment,incident_ref,severity,service,started_at_utc,phase,ack_minutes,mitigation_minutes,customer_impact_percent,status
+2026-07-13,Northstar Transit Cloud,INC-260713,S2,Checkout SVC-17,2026-07-13T08:14:00Z,monitoring,3,41,4.8,stabilizing
+2026-07-13,Northstar Transit Cloud,INC-260711,S3,Identity Platform,2026-07-11T16:32:00Z,resolved,7,58,1.2,closed
+2026-07-13,Northstar Transit Cloud,INC-260707,S2,Telemetry Ingest,2026-07-07T03:51:00Z,resolved,4,73,2.6,closed
+2026-07-13,Northstar Transit Cloud,INC-260701,S3,Payment Router,2026-07-01T11:05:00Z,follow_up,9,92,0.9,action-items-open

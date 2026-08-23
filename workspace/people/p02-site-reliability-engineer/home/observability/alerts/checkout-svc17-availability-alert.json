@@ -1,0 +1,14 @@
+{
+  "apiVersion": "monitoring.northstar.example/v1",
+  "kind": "AlertDefinition",
+  "metadata": { "name": "checkout-svc17-availability", "service": "checkout-svc17", "environment": "production", "owner": "reliability-platform" },
+  "spec": {
+    "summary": "Checkout SVC-17 successful request ratio is below the production availability guardrail.",
+    "query": "sum(rate(http_requests_total{service=\"checkout-svc17\",status=~\"2..|3..\"}[5m])) / sum(rate(http_requests_total{service=\"checkout-svc17\"}[5m]))",
+    "condition": { "operator": "<", "threshold": 0.995, "for": "8m" },
+    "evaluation": { "interval": "1m", "window": "5m", "severity": "critical" },
+    "labels": { "team": "checkout", "signal": "availability", "region_scope": "all-production" },
+    "annotations": { "runbook": "documents/operations/runbooks/checkout-svc17-error-budget-breach.md", "routing_key": "checkout-primary-oncall", "impact_hint": "Validate regional error distribution and payment-provider response codes." },
+    "routing": { "page": "checkout-primary-oncall", "ticket": "incident-command", "repeat_after": "90m" }
+  }
+}

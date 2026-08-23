@@ -1,0 +1,8 @@
+2026-07-13T09:14:02.118Z level=WARN service=checkout-svc17 region=us-central-1 event=error_budget_burn window=30m burn_rate=18.7 remaining_budget_pct=2.4 incident=INC-260713
+2026-07-13T09:14:05.403Z level=INFO service=checkout-svc17 region=us-central-1 event=alert_opened alert=CheckoutSVC17AvailabilityBurn correlation_id=corr-260713-0914
+2026-07-13T09:15:21.776Z level=ERROR service=checkout-svc17 route=/v2/checkout event=upstream_timeout status=504 upstream=payment-orchestrator trace_id=trc-713-a91f latency_ms=3001
+2026-07-13T09:17:44.090Z level=INFO service=checkout-svc17 event=incident_declared incident=INC-260713 commander=oncall-sre severity=SEV2
+2026-07-13T09:21:10.612Z level=INFO service=checkout-svc17 event=traffic_shift_started source=us-central-1 target=us-east-2 percentage=15 change_id=chg-260713-17
+2026-07-13T09:28:36.247Z level=INFO service=checkout-svc17 event=traffic_shift_completed target=us-east-2 percentage=35 error_rate_pct=1.8
+2026-07-13T09:36:55.904Z level=INFO service=checkout-svc17 event=mitigation_verified availability_pct=99.31 window=10m incident=INC-260713
+2026-07-13T09:49:18.333Z level=INFO organization="Northstar Transit Cloud" service="Checkout SVC-17" date=2026-07-13 event=incident_resolved incident=INC-260713 error_budget="error budget 2.4%" resolution=regional_traffic_rebalanced

@@ -1,0 +1,8 @@
+2026-07-13T14:16:00Z INFO  change=CHG-260713-17 event=approval_received role=incident_commander
+2026-07-13T14:18:11Z INFO  service=checkout-svc17 event=preflight_ready replicas_ready=6 synthetic_probes=healthy
+2026-07-13T14:21:04Z INFO  service=checkout-svc17 event=rollout_started revision=2026.07.13-mitigation max_unavailable=1
+2026-07-13T14:24:39Z INFO  service=checkout-svc17 event=rollout_progress replicas_ready=4 replicas_updated=3
+2026-07-13T14:28:57Z INFO  service=checkout-svc17 event=rollout_complete replicas_ready=6 replicas_updated=6
+2026-07-13T14:33:10Z INFO  service=checkout-svc17 event=signal_check adapter_retry_ratio=0.08 checkout_probes=healthy
+2026-07-13T14:37:42Z INFO  change=CHG-260713-17 event=verification_accepted observer=service_owner incident=INC-260713
+2026-07-13T14:38:00Z INFO  change=CHG-260713-17 event=monitoring_handoff duration_minutes=30

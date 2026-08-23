@@ -1,0 +1,11 @@
+Northstar Transit Cloud — synthetic operational image exports
+Exported: 2026-08-22T15:45:32Z
+Intended use: SRE incident review, reliability planning, and dashboard-reference material for the Checkout SVC-17 workload on 2026-07-13.
+
+Contents:
+- checkout-svc17-latency-heatmap.png: latency pattern review.
+- INC-260713-incident-topology.png: incident dependency and propagation review.
+- northstar-error-budget-burn.png: error-budget burn review; synthetic 2.4% remaining indicator.
+- regional-failover-map.png: abstract regional failover routing review.
+
+QA: each PNG was decoded, confirmed as image/png, inspected at original resolution, and checked for clear operational encodings. All systems, metrics, and regions are fictional.

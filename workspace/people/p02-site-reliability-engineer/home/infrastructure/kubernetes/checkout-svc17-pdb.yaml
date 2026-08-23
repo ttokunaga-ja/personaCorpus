@@ -1,0 +1,14 @@
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: checkout-svc17
+  namespace: northstar-production
+  labels:
+    app.kubernetes.io/name: checkout-svc17
+    app.kubernetes.io/part-of: northstar-transit-cloud
+spec:
+  minAvailable: 2
+  unhealthyPodEvictionPolicy: IfHealthyBudget
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: checkout-svc17

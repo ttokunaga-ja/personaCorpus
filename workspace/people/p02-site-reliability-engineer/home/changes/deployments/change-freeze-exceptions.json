@@ -1,0 +1,26 @@
+{
+  "register": "Northstar Transit Cloud synthetic change-control register",
+  "freeze_window": {
+    "starts_at": "2026-07-13T00:00:00Z",
+    "ends_at": "2026-07-16T00:00:00Z",
+    "reason": "quarterly fare-processing readiness review"
+  },
+  "exceptions": [
+    {
+      "change_id": "CHG-260713-17",
+      "service": "Checkout SVC-17",
+      "classification": "incident mitigation",
+      "approved_at": "2026-07-13T14:16:00Z",
+      "approval_role": "incident commander",
+      "constraints": ["rolling update", "one unavailable replica", "fifteen-minute observation"]
+    },
+    {
+      "change_id": "CHG-260715-04",
+      "service": "Identity session validation",
+      "classification": "standard hotfix",
+      "approved_at": "2026-07-15T08:48:00Z",
+      "approval_role": "reliability rotation",
+      "constraints": ["clean session-store pre-flight", "authenticated synthetic probes", "recorded rollback revision"]
+    }
+  ]
+}

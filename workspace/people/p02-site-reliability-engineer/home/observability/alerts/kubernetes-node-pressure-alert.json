@@ -1,0 +1,14 @@
+{
+  "apiVersion": "monitoring.northstar.example/v1",
+  "kind": "AlertDefinition",
+  "metadata": { "name": "kubernetes-node-memory-pressure", "service": "platform-kubernetes", "environment": "production", "owner": "platform" },
+  "spec": {
+    "summary": "A production Kubernetes node reports sustained memory pressure.",
+    "query": "max by (cluster, node) (kube_node_status_condition{condition=\"MemoryPressure\",status=\"true\",environment=\"production\"})",
+    "condition": { "operator": ">=", "threshold": 1, "for": "5m" },
+    "evaluation": { "interval": "1m", "window": "5m", "severity": "warning", "group_by": ["cluster", "node"] },
+    "labels": { "team": "platform", "signal": "node-memory-pressure", "resource": "kubernetes-node" },
+    "annotations": { "runbook": "documents/operations/runbooks/kubernetes-node-pressure.md", "routing_key": "platform-oncall", "safety_note": "Review evictions and allocatable memory before cordoning a node." },
+    "routing": { "page": "platform-oncall", "ticket": "platform-capacity", "repeat_after": "3h" }
+  }
+}

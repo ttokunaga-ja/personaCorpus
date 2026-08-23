@@ -1,0 +1,15 @@
+Rollback drill record: Checkout SVC-17
+Date: 2026-07-10
+Environment: synthetic production-equivalent cluster
+
+Objective
+Validate that the checkout retry-mitigation revision can be restored to its prior healthy deployment revision without interrupting synthetic purchase flows.
+
+Observed sequence
+1. A simulated alert triggered the rollback decision.
+2. The current revision was paused and the recorded healthy revision was selected.
+3. The platform completed the rolling restore with one unavailable replica at most.
+4. Readiness checks and synthetic checkout probes stayed healthy throughout the observation window.
+
+Result
+The drill completed in 11 minutes. The operator could identify the prior revision, restore it, and verify service health using the on-call dashboard. Follow-up: retain the revision identifier in every emergency change record.

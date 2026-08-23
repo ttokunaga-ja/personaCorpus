@@ -1,0 +1,4 @@
+2026-07-13T14:00:00Z INFO intake=batch-p02-secondary-03 organization=Northstar Transit Cloud
+2026-07-13T14:00:01Z INFO scope=downloads/inbox status=received samples=6 format=classic-pcap
+2026-07-13T14:00:02Z INFO addresses=documentation-ranges-only payload=synthetic packet_records=36
+2026-07-13T14:00:03Z INFO review=checksum-record-written status=complete

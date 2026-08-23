@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: checkout-svc17
+  namespace: transit-production
+  labels:
+    app.kubernetes.io/name: checkout-svc17
+    app.kubernetes.io/part-of: northstar-transit-cloud
+    change.northstar.example/id: CHG-260713-17
+spec:
+  replicas: 6
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: checkout-svc17
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: checkout-svc17
+        app.kubernetes.io/part-of: northstar-transit-cloud
+    spec:
+      containers:
+        - name: checkout
+          image: registry.synthetic.northstar/checkout-svc17:2026.07.13-mitigation
+          env:
+            - name: ADAPTER_MAX_RETRIES
+              value: "2"
+            - name: ADAPTER_RETRY_JITTER_MS
+              value: "320"
+          readinessProbe:
+            httpGet:
+              path: /health/ready
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 10

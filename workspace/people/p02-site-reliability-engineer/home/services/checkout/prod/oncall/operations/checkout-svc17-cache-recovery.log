@@ -1,0 +1,5 @@
+2026-07-13T09:28:10Z | operator=cache-responder | observation | checkout pricing cache hit ratio 61%; normal range 89-93%; eviction rate elevated after retry burst
+2026-07-13T09:34:26Z | operator=cache-responder | action | enabled bounded warmup from verified product snapshot; no customer records included in warmup set
+2026-07-13T09:42:41Z | operator=cache-responder | result | hit ratio 61% -> 87%; upstream lookup p95 520ms -> 118ms
+2026-07-13T10:14:05Z | operator=cache-responder | validation | hit ratio 90%; eviction rate within baseline; warmup stopped automatically at configured cap
+2026-07-13T11:02:33Z | operator=secondary-oncall | watch | cache hit ratio 91%; recovery threshold maintained

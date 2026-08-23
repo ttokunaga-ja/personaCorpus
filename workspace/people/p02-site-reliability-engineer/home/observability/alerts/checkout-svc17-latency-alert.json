@@ -1,0 +1,14 @@
+{
+  "apiVersion": "monitoring.northstar.example/v1",
+  "kind": "AlertDefinition",
+  "metadata": { "name": "checkout-svc17-p95-latency", "service": "checkout-svc17", "environment": "production", "owner": "checkout" },
+  "spec": {
+    "summary": "Checkout SVC-17 checkout confirmation latency exceeds the customer-facing objective.",
+    "query": "histogram_quantile(0.95, sum(rate(http_request_duration_seconds_bucket{service=\"checkout-svc17\",route=\"/v1/checkout/confirm\"}[10m])) by (le))",
+    "condition": { "operator": ">", "threshold": 1.2, "unit": "seconds", "for": "10m" },
+    "evaluation": { "interval": "1m", "window": "10m", "severity": "warning" },
+    "labels": { "team": "checkout", "signal": "latency", "slo": "checkout-confirm-p95" },
+    "annotations": { "runbook": "documents/operations/runbooks/checkout-svc17-payment-queue-saturation.md", "routing_key": "checkout-secondary-oncall", "dashboard": "observability/dashboards/checkout-svc17-latency-panels.csv" },
+    "routing": { "page": "checkout-secondary-oncall", "ticket": "checkout-performance", "repeat_after": "4h" }
+  }
+}

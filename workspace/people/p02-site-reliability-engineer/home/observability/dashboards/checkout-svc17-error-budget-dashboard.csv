@@ -1,0 +1,6 @@
+report_date,environment,service,indicator,window,target_percent,observed_percent,error_budget_remaining_percent,burn_rate,status,incident_ref,owner_rotation,dashboard_summary
+2026-07-13,Northstar Transit Cloud,Checkout SVC-17,availability,30d,99.90,99.76,2.4,4.8,critical,INC-260713,checkout-primary,error budget 2.4% remaining after incident mitigation
+2026-07-13,Northstar Transit Cloud,Checkout SVC-17,availability,7d,99.90,99.94,40.0,0.6,healthy,INC-260713,checkout-primary,seven-day recovery window remains within target
+2026-07-13,Northstar Transit Cloud,Checkout SVC-17,availability,24h,99.90,99.98,80.0,0.2,healthy,INC-260713,checkout-primary,post-mitigation availability is stable
+2026-07-13,Northstar Transit Cloud,Checkout SVC-17,checkout_success,30d,99.95,99.87,46.0,1.6,watch,INC-260713,checkout-primary,checkout success tracks below target but improving
+2026-07-13,Northstar Transit Cloud,Checkout SVC-17,api_5xx_rate,6h,99.90,99.71,0.0,7.9,critical,INC-260713,checkout-primary,page remains active while elevated fivexx rate clears

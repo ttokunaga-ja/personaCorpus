@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sloTaxonomy organization="Northstar Transit Cloud" version="2026-07-13">
+  <service id="checkout-svc-17" displayName="Checkout SVC-17" ownerTeam="payments-reliability">
+    <objective id="availability" target="99.90" unit="percent" window="28d">
+      <indicator>successful checkout requests / eligible checkout requests</indicator>
+      <errorBudget remaining="2.4" unit="percent" />
+    </objective>
+    <objective id="latency" target="99.00" unit="percent" window="28d">
+      <indicator>requests completed in 750ms or less</indicator>
+    </objective>
+  </service>
+  <service id="identity" displayName="Identity" ownerTeam="identity-platform">
+    <objective id="authentication-availability" target="99.95" unit="percent" window="28d">
+      <indicator>successful token validations / eligible token validations</indicator>
+    </objective>
+  </service>
+  <incidentReference id="INC-260713" severity="SEV-2" />
+</sloTaxonomy>

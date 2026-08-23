@@ -1,0 +1,6 @@
+2026-07-13T08:58:42Z | operator=primary-oncall | safety-check | confirmed incident change window and rollback record INC-260713
+2026-07-13T09:00:51Z | operator=primary-oncall | command-summary | patched checkout-svc17 retry policy: max-attempts 3 -> 1; scope=production checkout only
+2026-07-13T09:01:14Z | operator=primary-oncall | result | rollout observed 6/6 pods ready; error rate 3.8% -> 2.6% after 5m
+2026-07-13T09:18:20Z | operator=incident-commander | command-summary | set regional routing weight atlas-east=80, cedar-west=20 relative adjustment
+2026-07-13T09:26:08Z | operator=incident-commander | result | routing convergence confirmed by regional request counters; no unsafe retry increase observed
+2026-07-13T10:08:17Z | operator=secondary-oncall | guardrail | change freeze retained; rollback instructions recorded in incident evidence bundle

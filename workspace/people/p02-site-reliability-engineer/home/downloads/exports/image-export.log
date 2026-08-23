@@ -1,0 +1,4 @@
+2026-08-22T15:45:32Z INFO export batch=p02-secondary-04 source=synthetic-image-generation status=complete
+2026-08-22T15:45:32Z INFO assets=4 format=PNG resolution=1672x941 intended_use=SRE-operational-reference
+2026-08-22T15:45:32Z INFO qa=decoded,mime-confirmed,original-resolution-visual-inspection result=pass
+2026-08-22T15:45:32Z INFO content_scope=fictional-systems-only pii=none credentials=none real-network-data=none

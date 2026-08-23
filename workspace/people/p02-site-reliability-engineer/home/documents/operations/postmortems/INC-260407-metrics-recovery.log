@@ -1,0 +1,4 @@
+2026-04-07T18:20:11Z WARN telemetry.freshness_seconds=413
+2026-04-07T18:34:52Z INFO compaction.concurrency old=2 new=6
+2026-04-07T18:57:33Z INFO ingest.backlog state=normal_band
+2026-04-07T19:12:09Z INFO alert.evaluation lag_seconds=8 state=recovered

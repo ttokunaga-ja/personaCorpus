@@ -1,0 +1,20 @@
+organization: Northstar Transit Cloud
+review_date: '2026-07-13'
+incident_reference: INC-260713
+services:
+  - name: Checkout SVC-17
+    availability_target_percent: 99.5
+    observed_error_budget_remaining_percent: 2.4
+    review_focus:
+      - confirm payment queue recovery metrics
+      - compare regional synthetic probes before closing the incident
+    escalation_rule: page primary on-call for sustained availability loss
+  - name: Identity
+    availability_target_percent: 99.9
+    review_focus:
+      - retain fallback authentication validation evidence
+    escalation_rule: engage identity owner when token validation exceeds latency target
+maintenance_principles:
+  - require an approved change record before a production window
+  - define a measurable rollback trigger before execution
+  - preserve incident timelines in the team record

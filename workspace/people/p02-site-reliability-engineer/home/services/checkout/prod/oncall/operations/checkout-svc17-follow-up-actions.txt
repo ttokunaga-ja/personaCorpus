@@ -1,0 +1,4 @@
+2026-07-13T10:31:05Z | ACTION | owner=database-responder role | add writer saturation early-warning threshold | due=2026-07-20 | status=accepted
+2026-07-13T10:31:05Z | ACTION | owner=checkout-service-owner role | review retry policy defaults and document guardrails | due=2026-07-22 | status=accepted
+2026-07-13T10:31:05Z | ACTION | owner=traffic-responder role | evaluate automatic regional shedding policy | due=2026-07-27 | status=planned
+2026-07-13T11:15:44Z | ACTION | owner=incident-commander role | schedule blameless review using INC-260713 evidence | due=2026-07-17 | status=scheduled

@@ -1,0 +1,12 @@
+2026-07-21T13:00:00Z | SESSION OPEN | WS-Q3-20260721 | Northstar Transit Cloud reliability planning
+2026-07-21T13:01:14Z | ATTENDEES | Roles present: Reliability Program, Service Owner, On-call SRE, Identity Operations, Incident Commander.
+2026-07-21T13:03:06Z | REVIEW | Read DEC-EB-20260714-01 and the operational handoff for INC-260713.
+2026-07-21T13:05:29Z | OBSERVATION | Checkout SVC-17 reached an error budget of 2.4% during the 2026-07-13 recovery window.
+2026-07-21T13:08:43Z | DECISION | DEC-Q3-20260721-01: retain the release-hold guardrail until the retry-limiter rollout has a staged verification record.
+2026-07-21T13:10:17Z | DECISION | DEC-Q3-20260721-02: make cross-service handoff review a required weekly rotation activity for the next Q3 cycle.
+2026-07-21T13:12:08Z | ACTION | ACT-Q3-20260721-01 | Owner: Service Owner role | Produce staged retry-limiter rollout criteria, including rollback signals, by 2026-07-28.
+2026-07-21T13:13:41Z | ACTION | ACT-Q3-20260721-02 | Owner: On-call SRE role | Define one synthetic-probe evidence template for handoff use by 2026-07-25.
+2026-07-21T13:15:22Z | ACTION | ACT-Q3-20260721-03 | Owner: Identity Operations role | Add fallback audit-event count review to the shared shift checklist by 2026-07-24.
+2026-07-21T13:17:04Z | ACTION | ACT-Q3-20260721-04 | Owner: Reliability Program role | Measure completion of ACT-ROT-20260717-01 and ACT-ROT-20260717-02 at the next operating review.
+2026-07-21T13:19:46Z | RISK | Capacity assumptions remain acceptable only while queue drain and token validation stay independently observable.
+2026-07-21T13:21:10Z | CLOSE | No new release exception approved. Decisions supersede neither INC-260713 records nor DEC-EB-20260714-01.

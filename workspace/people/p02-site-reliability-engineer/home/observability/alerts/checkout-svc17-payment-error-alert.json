@@ -1,0 +1,14 @@
+{
+  "apiVersion": "monitoring.northstar.example/v1",
+  "kind": "AlertDefinition",
+  "metadata": { "name": "checkout-svc17-payment-provider-errors", "service": "checkout-svc17", "environment": "production", "owner": "payments-platform" },
+  "spec": {
+    "summary": "Payment authorization errors are elevated for Checkout SVC-17.",
+    "query": "sum(rate(payment_authorization_total{service=\"checkout-svc17\",outcome=\"error\"}[5m])) / sum(rate(payment_authorization_total{service=\"checkout-svc17\"}[5m]))",
+    "condition": { "operator": ">", "threshold": 0.03, "for": "7m" },
+    "evaluation": { "interval": "1m", "window": "10m", "severity": "critical" },
+    "labels": { "team": "payments", "signal": "provider-error-rate", "customer_impact": "transaction-failure" },
+    "annotations": { "runbook": "documents/operations/runbooks/checkout-svc17-payment-queue-saturation.md", "routing_key": "payments-oncall", "correlation": "Compare provider response classes without recording payment details." },
+    "routing": { "page": "payments-oncall", "ticket": "incident-command", "repeat_after": "1h" }
+  }
+}

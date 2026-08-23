@@ -1,0 +1,12 @@
+2026-07-14T09:00:00Z | POLICY REVIEW | Northstar Transit Cloud
+2026-07-14T09:00:18Z | INPUT | Reviewed INC-260713 handoff and recovery observations from 2026-07-13.
+2026-07-14T09:01:05Z | CONTEXT | Checkout SVC-17 has a rolling error budget of 2.4% after the queue-saturation incident.
+2026-07-14T09:02:11Z | DECISION | DEC-EB-20260714-01: preserve the scheduled release hold through the next reliability review.
+2026-07-14T09:02:37Z | RATIONALE | The recovery signal is stable, but the budget remaining is too narrow to combine verification with a production change.
+2026-07-14T09:03:22Z | OWNER | Service Owner role will record any later release exception with rollback criteria and monitoring windows.
+2026-07-14T09:04:09Z | OWNER | On-call SRE role will publish the 18:00 UTC probe comparison under ACT-260713-01.
+2026-07-14T09:04:54Z | OWNER | Identity Operations role will complete ACT-260713-02 before the incident resolution recommendation.
+2026-07-14T09:05:33Z | GUARDRAIL | A release exception requires Incident Commander role concurrence and a named verifier; no standing exception is granted here.
+2026-07-14T09:06:16Z | FOLLOW-UP | ACT-EB-20260714-01: Reliability Program role will add budget-consumption thresholds to WS-Q3-20260721.
+2026-07-14T09:07:02Z | FOLLOW-UP | ACT-EB-20260714-02: Service Owner role will propose a retry-limiter rollout sequence for the Q3 session.
+2026-07-14T09:07:40Z | CLOSE | Decision communicated to the Checkout SVC-17 operating group; status remains monitoring, not release-ready.

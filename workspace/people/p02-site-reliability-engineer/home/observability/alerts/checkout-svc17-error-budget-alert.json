@@ -1,0 +1,23 @@
+{
+  "apiVersion": "monitoring.northstar.example/v1",
+  "kind": "AlertDefinition",
+  "metadata": {
+    "name": "checkout-svc17-error-budget-burn",
+    "service": "Checkout SVC-17",
+    "environment": "production",
+    "owner": "reliability-platform"
+  },
+  "spec": {
+    "summary": "Northstar Transit Cloud Checkout SVC-17 is consuming its monthly error budget too quickly.",
+    "query": "sum(rate(http_requests_total{service=\"checkout-svc17\",status=~\"5..\"}[5m])) / sum(rate(http_requests_total{service=\"checkout-svc17\"}[5m]))",
+    "condition": { "operator": ">", "threshold": 0.0075, "for": "15m" },
+    "evaluation": { "interval": "1m", "window": "30m", "severity": "critical" },
+    "labels": { "team": "checkout", "slo": "availability-99.9", "incident_reference": "INC-260713" },
+    "annotations": {
+      "runbook": "documents/operations/runbooks/checkout-svc17-error-budget-breach.md",
+      "routing_key": "checkout-primary-oncall",
+      "context": "2026-07-13 review: remaining error budget 2.4%. Confirm the burn rate before paging."
+    },
+    "routing": { "page": "checkout-primary-oncall", "ticket": "reliability-triage", "repeat_after": "2h" }
+  }
+}

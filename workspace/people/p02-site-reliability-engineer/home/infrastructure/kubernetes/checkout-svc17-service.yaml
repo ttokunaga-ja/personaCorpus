@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: checkout-svc17
+  namespace: northstar-production
+  labels:
+    app.kubernetes.io/name: checkout-svc17
+    app.kubernetes.io/part-of: northstar-transit-cloud
+  annotations:
+    northstar.example/owner: sre-checkout
+spec:
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/name: checkout-svc17
+  ports:
+    - name: http
+      port: 80
+      targetPort: http
+      protocol: TCP
+    - name: metrics
+      port: 9090
+      targetPort: metrics
+      protocol: TCP

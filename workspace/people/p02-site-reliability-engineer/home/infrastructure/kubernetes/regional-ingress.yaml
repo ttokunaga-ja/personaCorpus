@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: regional-checkout
+  namespace: northstar-production
+  labels:
+    app.kubernetes.io/name: regional-gateway
+    app.kubernetes.io/part-of: northstar-transit-cloud
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "30"
+    northstar.example/route-class: regional-public-edge
+spec:
+  ingressClassName: regional-gateway
+  tls:
+    - hosts: [checkout.northstar.example]
+      secretName: regional-edge-tls
+  rules:
+    - host: checkout.northstar.example
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: checkout-svc17
+                port:
+                  name: http

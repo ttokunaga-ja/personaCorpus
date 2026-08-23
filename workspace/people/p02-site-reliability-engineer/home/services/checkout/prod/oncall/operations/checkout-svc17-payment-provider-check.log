@@ -1,0 +1,4 @@
+2026-07-13T09:05:37Z | operator=provider-liaison | check | provider adapter error 0.14%; baseline 0.10%; no provider-wide alert present
+2026-07-13T09:36:29Z | operator=provider-liaison | evidence | adapter success 99.89%; authorization callback latency p95 176ms; evidence=obs/INC-260713/provider-window
+2026-07-13T09:58:12Z | operator=provider-liaison | validation | sampled 200 synthetic authorizations completed without duplicate settlement requests
+2026-07-13T10:47:09Z | operator=secondary-oncall | status | provider decline rate 0.11%, within weekly baseline; external escalation not required

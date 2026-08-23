@@ -1,0 +1,25 @@
+Date: Thu, 1 Oct 2026 15:30:00 +0000
+From: Reliability Program Office <reliability-program@northstar.example>
+To: SRE On-Call <sre-oncall@northstar.example>, Checkout Service Owner <checkout-service-owner@northstar.example>, Identity Operations <identity-operations@northstar.example>
+Cc: Service Delivery Lead <service-delivery@northstar.example>
+Subject: Q3 reliability review: actions from Checkout SVC-17 and Identity
+Message-ID: <q3-reliability-review-20261001@northstar.example>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+The Q3 reliability review is scheduled for 06 Oct, 13:00-14:00 UTC. The agenda
+is the completed operational follow-through from INC-260713, the Checkout
+SVC-17 retry-ceiling change, and the Identity session-cache validation.
+
+Please bring the final incident action status, the 30-day checkout SLO trend,
+and the maintenance result note. The review will compare the July 13 baseline
+with the current paging load and error-budget position; the incident's 2.4%
+remaining budget at resolution is the reference point, not a current target.
+
+The Reliability Program Office will record decisions in the Q3 planning pack.
+Any action that remains open will have a named service role, a measurable
+completion check, and a review date. The meeting is an operations review only;
+it is not an approval for unreviewed production changes.
+
+Reply on this thread if a service artifact needs to be added to the agenda.

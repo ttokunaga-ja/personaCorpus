@@ -1,0 +1,5 @@
+2026-07-13T10:31:05Z | SECONDARY ACCEPTANCE | role=secondary-oncall | incident=INC-260713
+2026-07-13T10:33:16Z | MONITORING PLAN | review availability, writer latency, queue depth, and provider declines every 15 minutes through 12:00Z.
+2026-07-13T10:47:09Z | CHECKPOINT | availability 99.97%; writer p95 55ms; queue depth 860; payment-provider declines 0.11%.
+2026-07-13T11:02:33Z | DECISION | keep temporary traffic allocation; thresholds for escalation: 5xx above 0.5% or queue depth above 4,000 for 10 minutes.
+2026-07-13T11:15:44Z | CLOSURE INPUT | recovery validation complete; see checkout-svc17-recovery-validation.log. Follow-up tracking remains active.

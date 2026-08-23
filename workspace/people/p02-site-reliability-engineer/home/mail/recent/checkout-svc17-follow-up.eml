@@ -1,0 +1,29 @@
+Date: Tue, 14 Jul 2026 09:15:00 +0000
+From: Checkout Service Owner <checkout-service-owner@northstar.example>
+To: SRE On-Call <sre-oncall@northstar.example>, Incident Commander <incident-commander@northstar.example>
+Cc: Release Coordination <release-coordination@northstar.example>
+Subject: Re: INC-260713 follow-up: Checkout SVC-17 retry ceiling change
+Message-ID: <checkout-svc17-follow-up-20260714@northstar.example>
+In-Reply-To: <inc-260713-resolution-20260713@northstar.example>
+References: <inc-260713-opened-20260713@northstar.example> <inc-260713-resolution-20260713@northstar.example>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Following yesterday's INC-260713 recovery, Checkout has reviewed the routing
+telemetry and supports a guarded retry-ceiling update for Checkout SVC-17.
+
+Proposed window: 15 Jul, 10:00-10:30 UTC.
+Scope: apply the previous stable ceiling to the payment-routing client in the
+two active regions, then observe checkout success rate and upstream saturation
+for 20 minutes. The change is limited to configuration; no application build
+is included.
+
+Success criteria are a checkout success rate at or above 99.7%, no sustained
+increase in 502 responses, and no additional draw beyond the current 2.4%
+error budget. If either error signal rises for five consecutive minutes, Release
+Coordination will revert the configuration and notify the incident thread.
+
+Please confirm that the alert mute remains narrow to the routing symptom only.
+The incident record should retain its resolved state unless the rollback is
+needed.

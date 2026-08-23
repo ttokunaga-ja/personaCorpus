@@ -1,0 +1,12 @@
+2026-07-13T08:42:11Z | ALERT | checkout-svc17-availability | Region=atlas-east | 5xx 3.8%; error budget 2.4% remaining | correlation=INC-260713
+2026-07-13T08:44:03Z | PRIMARY_ONCALL | acknowledged | service=Checkout SVC-17 | organization=Northstar Transit Cloud | incident commander role assigned
+2026-07-13T08:47:18Z | TRIAGE | pods=checkout-svc17-api-7c9d8f-{a3m7q,b4n8r,c6k2v} | database checkout-ledger writer latency 1.9s; baseline 42ms
+2026-07-13T08:52:36Z | DECISION | freeze nonessential checkout configuration changes; begin read-only evidence capture | evidence=obs/INC-260713/trace-window-0845
+2026-07-13T09:01:14Z | MITIGATION | reduced retry fanout from 3 to 1 under approved incident guardrail | 5xx 3.8% -> 2.6% | ref=checkout-svc17-mitigation-commands.log
+2026-07-13T09:12:49Z | ESCALATION | database responder engaged after replica apply lag reached 74s | ref=checkout-svc17-database-failover.log
+2026-07-13T09:26:08Z | MITIGATION | traffic shifted 20% from atlas-east to cedar-west | checkout success 94.7% -> 97.9% | ref=checkout-svc17-traffic-shift.log
+2026-07-13T09:39:22Z | RECOVERY | queue drain stabilized deferred payment work at 1,180 messages; peak 18,440 | ref=checkout-svc17-queue-drain.log
+2026-07-13T09:55:40Z | VALIDATION | synthetic checkout probes 30/30 passing in atlas-east and cedar-west | ref=checkout-svc17-synthetic-probe.log
+2026-07-13T10:08:17Z | STATUS | customer impact ended; monitored recovery continues | ref=checkout-svc17-customer-impact.txt
+2026-07-13T10:31:05Z | HANDOFF | primary to secondary on-call completed; follow-up owners recorded | refs=checkout-svc17-primary-oncall-handoff.txt,checkout-svc17-follow-up-actions.txt
+2026-07-13T11:15:44Z | RESOLVED | availability 99.96% over final 30m; p95 211ms; no new elevated payment failures | evidence=checkout-svc17-recovery-validation.log

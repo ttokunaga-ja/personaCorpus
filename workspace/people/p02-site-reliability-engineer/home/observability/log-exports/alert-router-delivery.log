@@ -1,0 +1,6 @@
+2026-07-13T09:14:05.407Z component=alert-router event=received alert=CheckoutSVC17AvailabilityBurn fingerprint=fp-713-5a81 severity=critical
+2026-07-13T09:14:06.018Z component=alert-router event=grouped group_key=checkout-svc17-us-central-1 active_alerts=1
+2026-07-13T09:14:06.529Z component=alert-router event=delivered receiver=oncall-sre route=primary status=accepted notification_id=ntf-713-0091
+2026-07-13T09:17:44.106Z component=alert-router event=annotation_added fingerprint=fp-713-5a81 key=incident value=INC-260713
+2026-07-13T09:36:56.018Z component=alert-router event=received alert=CheckoutSVC17AvailabilityBurn fingerprint=fp-713-5a81 severity=resolved
+2026-07-13T09:36:56.441Z component=alert-router event=delivered receiver=oncall-sre route=primary status=accepted notification_id=ntf-713-0124

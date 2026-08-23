@@ -1,0 +1,6 @@
+2026-07-13T09:13:46Z type=Warning reason=Unhealthy namespace=checkout-prod object=pod/checkout-svc17-6d8f9d7cb9-k4m2q message="Readiness probe returned HTTP 504" count=3
+2026-07-13T09:16:02Z type=Normal reason=ScalingReplicaSet namespace=checkout-prod object=deployment/checkout-svc17 message="Scaled up replica set checkout-svc17-6d8f9d7cb9 to 18" count=1
+2026-07-13T09:21:12Z type=Normal reason=AnnotationChanged namespace=checkout-prod object=service/checkout-svc17 message="Traffic policy updated for regional shift chg-260713-17" count=1
+2026-07-13T09:29:44Z type=Normal reason=SuccessfulRescale namespace=checkout-prod object=horizontalpodautoscaler/checkout-svc17 message="New size: 20; reason: latency target" count=1
+2026-07-13T09:36:48Z type=Normal reason=Ready namespace=checkout-prod object=pod/checkout-svc17-6d8f9d7cb9-r8x6n message="Readiness probe recovered" count=1
+2026-07-13T09:48:20Z type=Normal reason=DeploymentCompleted namespace=checkout-prod object=deployment/checkout-svc17 message="Rollout stable; all replicas available" count=1

@@ -1,0 +1,6 @@
+report_date,environment,service,dependency,window,requests,success_rate_percent,availability_slo_percent,error_count,status,incident_ref
+2026-07-13,Northstar Transit Cloud,Checkout SVC-17,checkout-edge,5m,18420,99.99,99.90,2,healthy,INC-260713
+2026-07-13,Northstar Transit Cloud,Checkout SVC-17,payment-router,1h,205180,99.91,99.95,185,watch,INC-260713
+2026-07-13,Northstar Transit Cloud,Checkout SVC-17,inventory-reservation,1h,196840,99.97,99.90,59,healthy,INC-260713
+2026-07-13,Northstar Transit Cloud,Checkout SVC-17,identity-token,6h,1184040,99.98,99.95,237,healthy,INC-260713
+2026-07-13,Northstar Transit Cloud,Checkout SVC-17,receipt-publisher,24h,4472920,99.88,99.90,5367,breach,INC-260713

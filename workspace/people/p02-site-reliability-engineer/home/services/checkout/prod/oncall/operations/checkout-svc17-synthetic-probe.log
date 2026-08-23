@@ -1,0 +1,5 @@
+2026-07-13T08:50:18Z | operator=primary-oncall | probe | atlas-east checkout journey 6/10 passing; failures at payment confirmation step
+2026-07-13T09:27:53Z | operator=traffic-responder | probe | atlas-east 8/10; cedar-west 10/10; failure signatures align with database timeout window
+2026-07-13T09:55:40Z | operator=primary-oncall | probe | atlas-east 15/15 and cedar-west 15/15 passing; median journey 428ms
+2026-07-13T10:45:02Z | operator=secondary-oncall | probe | atlas-east 15/15 and cedar-west 15/15 passing; median journey 391ms
+2026-07-13T11:15:44Z | operator=secondary-oncall | evidence | final 30/30 passing; results attached to obs/INC-260713/synthetics-final

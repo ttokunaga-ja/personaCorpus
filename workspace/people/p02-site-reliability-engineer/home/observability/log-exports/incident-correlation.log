@@ -1,0 +1,6 @@
+2026-07-13T09:14:05.410Z correlation_id=corr-260713-0914 event=alert_linked source=availability_burn target=checkout-svc17 confidence=0.97
+2026-07-13T09:15:21.781Z correlation_id=corr-260713-0914 event=trace_linked trace_id=trc-713-a91f symptom=payment_upstream_timeout confidence=0.93
+2026-07-13T09:17:44.098Z correlation_id=corr-260713-0914 event=incident_linked incident=INC-260713 severity=SEV2 commander=oncall-sre
+2026-07-13T09:21:10.620Z correlation_id=corr-260713-0914 event=change_linked change_id=chg-260713-17 action=regional_traffic_shift confidence=0.99
+2026-07-13T09:36:55.911Z correlation_id=corr-260713-0914 event=mitigation_linked signal=availability_recovered confidence=0.95
+2026-07-13T09:49:18.340Z correlation_id=corr-260713-0914 event=case_closed disposition=resolved root_signal=payment_orchestrator_timeout

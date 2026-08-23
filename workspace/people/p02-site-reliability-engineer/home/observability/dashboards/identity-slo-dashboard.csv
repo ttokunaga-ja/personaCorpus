@@ -1,0 +1,6 @@
+report_date,environment,service,sli,window,target_percent,observed_percent,error_budget_remaining_percent,burn_rate,status,alert_policy
+2026-07-13,Northstar Transit Cloud,Identity Platform,token_mint_success,30d,99.95,99.97,40.0,0.6,healthy,identity-slo-page
+2026-07-13,Northstar Transit Cloud,Identity Platform,token_mint_success,7d,99.95,99.93,0.0,1.4,breach,identity-slo-page
+2026-07-13,Northstar Transit Cloud,Identity Platform,session_validate,24h,99.90,99.96,60.0,0.4,healthy,identity-slo-ticket
+2026-07-13,Northstar Transit Cloud,Identity Platform,login_callback,6h,99.90,99.89,0.0,1.1,breach,identity-slo-page
+2026-07-13,Northstar Transit Cloud,Identity Platform,jwks_publish,30d,99.99,100.00,100.0,0.0,healthy,identity-slo-ticket

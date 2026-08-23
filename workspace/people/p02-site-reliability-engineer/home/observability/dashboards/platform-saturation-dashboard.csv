@@ -1,0 +1,7 @@
+report_date,environment,component,region,resource,window,utilization_percent,warning_threshold_percent,critical_threshold_percent,status
+2026-07-13,Northstar Transit Cloud,checkout-workers,us-central,cpu,15m,78,75,90,watch
+2026-07-13,Northstar Transit Cloud,checkout-workers,us-central,memory,15m,64,80,92,healthy
+2026-07-13,Northstar Transit Cloud,payment-router,us-central,connection_pool,15m,88,80,94,watch
+2026-07-13,Northstar Transit Cloud,identity-cache,eu-west,memory,15m,91,80,90,critical
+2026-07-13,Northstar Transit Cloud,telemetry-ingest,us-east,disk_queue,15m,52,70,85,healthy
+2026-07-13,Northstar Transit Cloud,checkout-postgres,us-central,io_wait,15m,31,40,60,healthy

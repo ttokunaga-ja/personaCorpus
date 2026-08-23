@@ -1,0 +1,6 @@
+report_date,environment,pipeline,signal_type,window,ingest_rate_per_sec,delivery_success_percent,p95_lag_seconds,retention_days,status
+2026-07-13,Northstar Transit Cloud,edge-telemetry,metrics,15m,14820,99.99,6,30,healthy
+2026-07-13,Northstar Transit Cloud,edge-telemetry,logs,15m,9260,99.94,24,14,watch
+2026-07-13,Northstar Transit Cloud,trace-gateway,traces,15m,4180,99.91,38,7,watch
+2026-07-13,Northstar Transit Cloud,alert-router,alerts,1h,112,100.00,3,90,healthy
+2026-07-13,Northstar Transit Cloud,synthetics-store,results,1h,54,99.83,71,45,breach

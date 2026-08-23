@@ -1,0 +1,4 @@
+2026-07-13T09:12:04Z WARN checkout.error_ratio=0.043 alert=authorization_errors
+2026-07-13T09:18:31Z INFO incident=INC-260713 state=declared severity=SEV-2
+2026-07-13T09:31:22Z INFO change=rollback pool_policy=staged_drain
+2026-07-13T09:50:09Z INFO incident=INC-260713 state=mitigated error_ratio=0.004

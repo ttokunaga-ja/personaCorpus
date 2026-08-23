@@ -1,0 +1,14 @@
+{
+  "apiVersion": "monitoring.northstar.example/v1",
+  "kind": "AlertDefinition",
+  "metadata": { "name": "checkout-svc17-payment-queue-depth", "service": "checkout-svc17", "environment": "production", "owner": "payments-platform" },
+  "spec": {
+    "summary": "Checkout payment work queue has accumulated beyond the recovery target.",
+    "query": "max(payment_queue_messages_ready{service=\"checkout-svc17\",queue=\"payment-authorizations\"})",
+    "condition": { "operator": ">", "threshold": 25000, "unit": "messages", "for": "12m" },
+    "evaluation": { "interval": "1m", "window": "15m", "severity": "warning" },
+    "labels": { "team": "payments", "signal": "queue-depth", "dependency": "message-bus" },
+    "annotations": { "runbook": "documents/operations/runbooks/checkout-svc17-payment-queue-saturation.md", "routing_key": "payments-oncall", "recovery_target": "Drain below 5000 messages before clearing the incident." },
+    "routing": { "page": "payments-oncall", "ticket": "checkout-operations", "repeat_after": "3h" }
+  }
+}

@@ -1,0 +1,5 @@
+2026-07-13T08:42:11Z | IMPACT START | Checkout SVC-17 customers experienced intermittent payment-confirmation failures, concentrated in atlas-east.
+2026-07-13T09:01:14Z | IMPACT UPDATE | Retry fanout reduction lowered failure volume; some checkout attempts continued to require a later retry.
+2026-07-13T09:26:08Z | IMPACT UPDATE | Regional traffic adjustment restored most successful checkout journeys; no individual customer information recorded in this note.
+2026-07-13T10:08:17Z | IMPACT END | Customer-visible error rate returned below 0.1%; incident evidence retained under INC-260713.
+2026-07-13T11:15:44Z | FINAL ASSESSMENT | Impact duration 86 minutes; affected request counts are available only as aggregated metrics in the incident evidence bundle.

@@ -1,0 +1,34 @@
+Date: Mon, 13 Jul 2026 14:38:00 +0000
+From: Incident Commander <incident-commander@northstar.example>
+To: SRE On-Call <sre-oncall@northstar.example>, Checkout Operations <checkout-operations@northstar.example>
+Cc: Service Delivery Lead <service-delivery@northstar.example>
+Subject: [RESOLVED] INC-260713 Checkout SVC-17 elevated checkout failures
+Message-ID: <inc-260713-resolution-20260713@northstar.example>
+In-Reply-To: <inc-260713-opened-20260713@northstar.example>
+References: <inc-260713-opened-20260713@northstar.example>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Incident INC-260713 is resolved as of 14:31 UTC.
+
+Between 13:52 and 14:24 UTC, Checkout SVC-17 returned elevated 502 responses
+when the regional payment-routing pool retried an upstream dependency. The
+service error budget is now 2.4% remaining for the current window. Customer
+orders were not duplicated; unsuccessful checkout attempts can be retried
+normally.
+
+The on-call SRE drained the unhealthy routing targets and restored the prior
+retry ceiling. The error rate has remained below the paging threshold for seven
+minutes, checkout latency is within the operating range, and synthetic purchase
+checks are passing in both active regions.
+
+Next steps:
+- The incident commander will keep the bridge open through the 15:00 UTC check.
+- Checkout Operations will attach the request-trace sample to the incident
+  record before end of shift.
+- The SRE rotation will publish the five-whys and corrective actions by
+  16 Jul, with the change record linked to INC-260713.
+
+Please use the incident record for follow-up rather than starting a new paging
+thread.

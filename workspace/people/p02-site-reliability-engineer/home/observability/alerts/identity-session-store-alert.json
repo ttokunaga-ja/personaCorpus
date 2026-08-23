@@ -1,0 +1,14 @@
+{
+  "apiVersion": "monitoring.northstar.example/v1",
+  "kind": "AlertDefinition",
+  "metadata": { "name": "identity-session-store-availability", "service": "identity", "environment": "production", "owner": "identity" },
+  "spec": {
+    "summary": "Identity session-store command failures indicate a degraded shared session dependency.",
+    "query": "sum(rate(session_store_operations_total{service=\"identity\",outcome=\"error\"}[5m])) / sum(rate(session_store_operations_total{service=\"identity\"}[5m]))",
+    "condition": { "operator": ">", "threshold": 0.02, "for": "5m" },
+    "evaluation": { "interval": "30s", "window": "5m", "severity": "critical" },
+    "labels": { "team": "identity", "signal": "session-store-errors", "dependency": "session-store" },
+    "annotations": { "runbook": "services/identity/prod/oncall/operations/identity-session-store-failover.md", "routing_key": "identity-primary-oncall", "recovery_check": "Confirm replication health before selecting a failover action." },
+    "routing": { "page": "identity-primary-oncall", "ticket": "incident-command", "repeat_after": "1h" }
+  }
+}

@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: northstar-scheduling-guidance
+  namespace: northstar-production
+  labels:
+    app.kubernetes.io/part-of: northstar-transit-cloud
+  annotations:
+    northstar.example/usage: reference-for-production-workload-specs
+data:
+  node-affinity.yaml: |
+    requiredDuringSchedulingIgnoredDuringExecution:
+      nodeSelectorTerms:
+        - matchExpressions:
+            - key: nodepool.northstar.example/workload
+              operator: In
+              values: [regional-services]
+            - key: topology.kubernetes.io/zone
+              operator: Exists
+    preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 50
+        preference:
+          matchExpressions:
+            - key: node.kubernetes.io/instance-type
+              operator: NotIn
+              values: [legacy-small]

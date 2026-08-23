@@ -1,0 +1,5 @@
+severity	customer_impact	response_target	incident_commander	update_cadence	exit_criteria
+SEV-1	widespread checkout or identity unavailability	5m	required	15m	service restored and customer impact stopped
+SEV-2	material degradation affecting a defined journey	15m	required	30m	mitigation verified and error rate stable
+SEV-3	limited degradation with a safe workaround	60m	optional	2h	owner confirms monitoring is healthy
+SEV-4	no current customer impact	1 business day	not required	daily	risk accepted or corrective action scheduled

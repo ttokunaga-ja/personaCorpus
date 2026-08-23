@@ -1,0 +1,5 @@
+2026-07-13T08:42:11Z | SHIFT OPEN | Primary on-call received availability alert for Checkout SVC-17 in atlas-east.
+2026-07-13T09:12:49Z | KEY DECISION | Database responder promoted a validated standby after writer saturation and replica lag breached operational thresholds.
+2026-07-13T09:26:08Z | KEY DECISION | Incident commander shifted 20% ingress to cedar-west while maintaining rollback guardrails.
+2026-07-13T10:31:05Z | HANDOFF | Secondary on-call accepted monitored recovery; outstanding work documented in checkout-svc17-follow-up-actions.txt.
+2026-07-13T11:15:44Z | SHIFT CLOSE | INC-260713 resolved after two stable validation windows; temporary traffic allocation remains under observation.

@@ -1,0 +1,21 @@
+organization: Northstar Transit Cloud
+incident: INC-260713
+date: "2026-07-13"
+service: Checkout SVC-17
+error_budget_note: "error budget 2.4% remaining at review"
+alerts:
+  - name: checkout-latency-warning
+    severity: warning
+    state: firing
+    owner_role: on-call-sre
+    verification: "2026-07-13T18:00:00Z"
+  - name: payment-queue-depth
+    severity: warning
+    state: resolved
+    owner_role: checkout-platform
+    verification: "2026-07-13T16:45:00Z"
+correlation:
+  key: checkout-request-path
+  sources:
+    - alert-snapshot
+    - application-log-export

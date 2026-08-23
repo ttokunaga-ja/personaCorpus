@@ -1,0 +1,5 @@
+2026-07-13T09:14:11.020Z component=log-exporter stream=checkout-svc17-prod partition=17 event=delivery_retry attempt=1 reason=destination_backpressure batch_id=batch-713-1901
+2026-07-13T09:14:16.031Z component=log-exporter stream=checkout-svc17-prod partition=17 event=delivery_retry attempt=2 reason=destination_backpressure batch_id=batch-713-1901
+2026-07-13T09:14:26.044Z component=log-exporter stream=checkout-svc17-prod partition=17 event=delivery_success attempt=3 records=482 batch_id=batch-713-1901 checksum=sha256:6c1349f2
+2026-07-13T09:22:02.158Z component=log-exporter stream=checkout-svc17-prod partition=17 event=checkpoint_committed offset=884920 export_lag_seconds=8
+2026-07-13T09:36:59.742Z component=log-exporter stream=checkout-svc17-prod partition=17 event=health_check state=healthy export_lag_seconds=3

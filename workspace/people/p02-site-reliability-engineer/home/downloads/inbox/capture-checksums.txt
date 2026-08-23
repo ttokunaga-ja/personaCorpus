@@ -1,0 +1,7 @@
+# SHA-256 checksum record for synthetic PCAP intake samples
+c315537700339d9550f83d011ea9757cfcc9cd60064c15f6b6029f296a83d91a  checkout-edge-sample-20260713.pcap
+6ae793f0fabd9c86c4a1d86f943ee033980b8d144ec34159648c3e740b7d9a6b  checkout-db-sample-20260713.pcap
+7d3615e7477e6e6a97e4061602807df42b1bf37f010144447bd44a009e1f75c3  checkout-queue-sample-20260713.pcap
+c3e4696c83ada36db3b805cfefb873b9dba39e0b0624dc7e24fb0687d5130e9d  identity-auth-sample-20260713.pcap
+b6571381434d4e33c22a3071facdaa694989d2ef16de6f37901996e48ea3be4e  regional-ingress-sample-20260713.pcap
+822ab1f695737bbf87cf0da327e66aa95ae85067729cf8a945303a21fb8929a0  observability-export-sample-20260713.pcap

@@ -1,0 +1,5 @@
+{"timestamp":"2026-07-13T09:16:12.487Z","service":"identity","region":"us-central-1","event":"token_validation","outcome":"success","latency_ms":61,"trace_id":"trc-713-a9c3","session_ref":"sess-redacted-301"}
+{"timestamp":"2026-07-13T09:18:11.904Z","service":"identity","region":"us-central-1","event":"checkout_fallback_observed","outcome":"enabled","reason":"checkout_dependency_timeout","latency_ms":14,"trace_id":"trc-713-aa57","session_ref":"sess-redacted-322"}
+{"timestamp":"2026-07-13T09:22:34.551Z","service":"identity","region":"us-east-2","event":"token_validation","outcome":"success","latency_ms":58,"trace_id":"trc-713-ab21","session_ref":"sess-redacted-376"}
+{"timestamp":"2026-07-13T09:31:08.340Z","service":"identity","region":"us-east-2","event":"session_store_read","outcome":"success","latency_ms":19,"trace_id":"trc-713-ac79","session_ref":"sess-redacted-441"}
+{"timestamp":"2026-07-13T09:40:27.815Z","service":"identity","region":"us-central-1","event":"checkout_fallback_observed","outcome":"disabled","reason":"checkout_recovery_verified","latency_ms":12,"trace_id":"trc-713-ae45","session_ref":"sess-redacted-503"}

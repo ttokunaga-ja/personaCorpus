@@ -1,0 +1,14 @@
+{
+  "apiVersion": "monitoring.northstar.example/v1",
+  "kind": "AlertDefinition",
+  "metadata": { "name": "log-export-delivery-gap", "service": "observability-exporter", "environment": "production", "owner": "observability" },
+  "spec": {
+    "summary": "Production log export checkpoints are stale for a monitored source.",
+    "query": "time() - max by (source) (log_export_last_success_unixtime{environment=\"production\"})",
+    "condition": { "operator": ">", "threshold": 900, "unit": "seconds", "for": "10m" },
+    "evaluation": { "interval": "1m", "window": "10m", "severity": "warning", "group_by": ["source"] },
+    "labels": { "team": "observability", "signal": "export-freshness", "data_classification": "operational-metadata" },
+    "annotations": { "runbook": "documents/operations/runbooks/log-export-delivery-gap.md", "routing_key": "observability-oncall", "diagnostic_note": "Inspect exporter retry counts and checkpoint age; do not paste raw event payloads into tickets." },
+    "routing": { "page": "observability-oncall", "ticket": "telemetry-reliability", "repeat_after": "4h" }
+  }
+}

@@ -1,0 +1,10 @@
+Northstar Transit Cloud — Q3 Reliability Planning Decisions
+Planning horizon: 2026 Q3
+
+DECISION  DATE        DECISION                                             REVIEW CONDITION
+DEC-31    2026-07-13  Prioritize checkout guardrails and synthetic probes  Weekly action-log checkpoint
+DEC-32    2026-07-13  Schedule recovery drill before August peak           Drill debrief closes all critical actions
+DEC-33    2026-07-13  Track remaining error budget as a planning guardrail  Monthly reliability review
+
+Context: Checkout SVC-17 follow-up from INC-260713.
+Scenario data only; no production identifiers or customer data are included.

@@ -1,0 +1,7 @@
+report_date,environment,service,panel,route,window,percentile,latency_ms,objective_ms,ratio,status,traffic_class
+2026-07-13,Northstar Transit Cloud,Checkout SVC-17,checkout-api,/v2/checkout,15m,p50,118,180,0.66,healthy,interactive
+2026-07-13,Northstar Transit Cloud,Checkout SVC-17,checkout-api,/v2/checkout,15m,p95,421,500,0.84,watch,interactive
+2026-07-13,Northstar Transit Cloud,Checkout SVC-17,checkout-api,/v2/checkout,15m,p99,862,900,0.96,watch,interactive
+2026-07-13,Northstar Transit Cloud,Checkout SVC-17,payment-authorize,/v2/payment/authorize,1h,p95,646,700,0.92,watch,interactive
+2026-07-13,Northstar Transit Cloud,Checkout SVC-17,payment-authorize,/v2/payment/authorize,6h,p99,1210,1200,1.01,breach,interactive
+2026-07-13,Northstar Transit Cloud,Checkout SVC-17,cart-validate,/v2/cart/validate,1h,p95,204,350,0.58,healthy,interactive

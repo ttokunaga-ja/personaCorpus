@@ -1,0 +1,14 @@
+{
+  "apiVersion": "monitoring.northstar.example/v1",
+  "kind": "AlertDefinition",
+  "metadata": { "name": "identity-token-validation-p99", "service": "identity", "environment": "production", "owner": "identity" },
+  "spec": {
+    "summary": "Identity token validation p99 latency is above the authentication latency objective.",
+    "query": "histogram_quantile(0.99, sum(rate(identity_token_validation_duration_seconds_bucket[5m])) by (le))",
+    "condition": { "operator": ">", "threshold": 0.75, "unit": "seconds", "for": "12m" },
+    "evaluation": { "interval": "1m", "window": "10m", "severity": "warning" },
+    "labels": { "team": "identity", "signal": "token-latency", "dependency": "key-cache" },
+    "annotations": { "runbook": "services/identity/prod/oncall/operations/identity-token-validation-runbook.md", "routing_key": "identity-secondary-oncall", "dashboard": "observability/dashboards/identity-slo-dashboard.csv" },
+    "routing": { "page": "identity-secondary-oncall", "ticket": "identity-performance", "repeat_after": "4h" }
+  }
+}

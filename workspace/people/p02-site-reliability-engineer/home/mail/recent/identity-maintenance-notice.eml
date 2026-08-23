@@ -1,0 +1,28 @@
+Date: Fri, 17 Jul 2026 11:00:00 +0000
+From: Identity Operations <identity-operations@northstar.example>
+To: SRE On-Call <sre-oncall@northstar.example>, Service Delivery Lead <service-delivery@northstar.example>
+Cc: Support Readiness <support-readiness@northstar.example>
+Subject: Planned maintenance: Identity session-cache validation on 20 Jul
+Message-ID: <identity-session-cache-notice-20260717@northstar.example>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Identity Operations will validate the session-cache failover procedure on
+Monday, 20 Jul, from 09:00 to 09:25 UTC. This is a controlled maintenance
+exercise following the cache-recovery action noted during the 2026-07-13
+operations review.
+
+The team will move one cache shard through the documented standby path while
+watching sign-in success, token-refresh latency, and cache eviction rate. The
+exercise does not change account data, customer profiles, or authentication
+policy. Northstar Transit Cloud support staff should expect a brief increase in
+background session refreshes but no planned interactive sign-in interruption.
+
+SRE On-Call will have the rollback procedure and the identity on-call runbook
+open before the window begins. If sign-in success drops below the maintenance
+guardrail for three minutes, Identity Operations will stop the exercise and
+restore the original shard placement.
+
+A concise result note, including observed timings and any follow-up action,
+will be sent to this list by 12:00 UTC on 20 Jul.

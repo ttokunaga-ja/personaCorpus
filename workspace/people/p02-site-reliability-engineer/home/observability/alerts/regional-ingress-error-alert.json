@@ -1,0 +1,14 @@
+{
+  "apiVersion": "monitoring.northstar.example/v1",
+  "kind": "AlertDefinition",
+  "metadata": { "name": "regional-ingress-5xx-rate", "service": "regional-ingress", "environment": "production", "owner": "edge-platform" },
+  "spec": {
+    "summary": "A production ingress region is returning an elevated 5xx response ratio.",
+    "query": "sum by (region) (rate(ingress_requests_total{status=~\"5..\"}[5m])) / sum by (region) (rate(ingress_requests_total[5m]))",
+    "condition": { "operator": ">", "threshold": 0.015, "for": "6m" },
+    "evaluation": { "interval": "1m", "window": "5m", "severity": "critical", "group_by": ["region"] },
+    "labels": { "team": "edge", "signal": "ingress-5xx", "topology": "regional" },
+    "annotations": { "runbook": "documents/operations/runbooks/edge-ingress-5xx-spike.md", "routing_key": "edge-oncall", "mitigation": "Assess regional traffic shifting only after confirming health in the destination region." },
+    "routing": { "page": "edge-oncall", "ticket": "edge-reliability", "repeat_after": "90m" }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "apiVersion": "monitoring.northstar.example/v1",
+  "kind": "AlertDefinition",
+  "metadata": { "name": "identity-authentication-failure-rate", "service": "identity", "environment": "production", "owner": "identity" },
+  "spec": {
+    "summary": "Identity authentication failures exceed the normal production baseline.",
+    "query": "sum(rate(identity_authentication_attempts_total{outcome=\"failure\"}[5m])) / sum(rate(identity_authentication_attempts_total[5m]))",
+    "condition": { "operator": ">", "threshold": 0.08, "for": "10m" },
+    "evaluation": { "interval": "1m", "window": "10m", "severity": "critical" },
+    "labels": { "team": "identity", "signal": "authentication-failures", "service_tier": "shared" },
+    "annotations": { "runbook": "services/identity/prod/oncall/operations/identity-token-validation-runbook.md", "routing_key": "identity-primary-oncall", "diagnostic_note": "Use aggregate outcomes only; do not include account identifiers in the incident channel." },
+    "routing": { "page": "identity-primary-oncall", "ticket": "identity-reliability", "repeat_after": "90m" }
+  }
+}

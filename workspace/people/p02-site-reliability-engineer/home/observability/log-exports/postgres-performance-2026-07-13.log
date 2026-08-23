@@ -1,0 +1,6 @@
+2026-07-13T09:12:00.001Z cluster=checkout-ledger-primary region=us-central-1 metric=active_connections value=142 threshold=220
+2026-07-13T09:14:00.001Z cluster=checkout-ledger-primary region=us-central-1 metric=commit_p95_ms value=18 threshold=80
+2026-07-13T09:19:00.001Z cluster=checkout-ledger-primary region=us-central-1 metric=replica_lag_ms value=94 threshold=500
+2026-07-13T09:26:00.001Z cluster=checkout-ledger-primary region=us-central-1 event=query_guardrail sample=payment_authorization p95_ms=31 rows_examined=3
+2026-07-13T09:35:00.001Z cluster=checkout-ledger-primary region=us-east-2 metric=commit_p95_ms value=21 threshold=80
+2026-07-13T09:42:00.001Z cluster=checkout-ledger-primary region=us-central-1 event=health_snapshot state=green replication=healthy connection_pool_pct=54

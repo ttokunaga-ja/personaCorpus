@@ -1,0 +1,11 @@
+Northstar Transit Cloud — Operations Review Action Log
+Review date: 2026-07-13
+Incident: INC-260713 | Service: Checkout SVC-17
+
+ID      OWNER ROLE             ACTION                                             TARGET       STATUS
+ACT-17  Checkout on-call       Tune dependency timeout guardrail                  2026-07-17   Planned
+ACT-18  Observability lead     Add checkout-path synthetic probe                  2026-07-19   Planned
+ACT-19  Reliability manager    Confirm error-budget review at weekly checkpoint   2026-07-20   Planned
+
+Review note: Quarterly error budget remaining at review time: 2.4%.
+Scenario data only; no production identifiers or customer data are included.

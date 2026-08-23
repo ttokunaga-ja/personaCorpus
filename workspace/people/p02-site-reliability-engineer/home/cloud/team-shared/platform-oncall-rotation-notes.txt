@@ -1,0 +1,39 @@
+Northstar Transit Cloud — Platform on-call rotation notes
+Effective period: 2026-07-20 through 2026-08-16
+Prepared: 2026-07-17
+
+Rotation intent
+This rotation incorporates the operational lessons from INC-260713 without
+assigning incident decisions to individuals. Roles are coverage positions;
+the scheduling roster is maintained elsewhere.
+
+Coverage lanes
+- Primary On-call SRE: first responder for Checkout SVC-17 alerts, triage,
+  and incident-state updates.
+- Secondary On-call SRE: validates mitigation steps and assumes command-log
+  ownership when the primary is coordinating.
+- Identity Operations: owns token-validation and fallback verification during
+  cross-service incidents.
+- Incident Commander: confirms incident posture changes and approves any
+  exception that affects the release hold in DEC-EB-20260714-01.
+
+Rotation changes
+The first weekly overlap will include a 30-minute Checkout/Identity handoff
+review. The Primary On-call SRE must read checkout-identity-handoff-20260713.txt
+before taking the first shift in the period. The Secondary On-call SRE must
+practice the queue-depth and synthetic-probe checks referenced by
+ACT-260713-01.
+
+Action ledger
+- ACT-ROT-20260717-01 — Reliability Program: add the cross-service handoff
+  review to the weekly rotation agenda by 2026-07-20.
+- ACT-ROT-20260717-02 — Identity Operations: confirm fallback audit-event
+  verification is included in the secondary coverage checklist by 2026-07-24.
+- ACT-ROT-20260717-03 — Service Owner: bring the proposed retry-limiter
+  rollout sequence from ACT-EB-20260714-02 to WS-Q3-20260721.
+
+Escalation note
+If the remaining error budget drops below the policy threshold during this
+period, the On-call SRE pauses nonessential rollout work and contacts the
+Incident Commander role. This is a policy safeguard, not an automatic
+declaration of incident severity.

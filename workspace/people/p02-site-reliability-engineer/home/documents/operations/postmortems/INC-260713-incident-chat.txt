@@ -1,0 +1,6 @@
+[09:12 UTC] alert-bot: checkout authorization error ratio 4.3%, threshold 4.0%.
+[09:14 UTC] mira/on-call: Confirming impact with synthetic checkout probes; declaring SEV-2.
+[09:18 UTC] dan/checkout: Pool retirements spiked immediately after traffic rebound.
+[09:25 UTC] mira/on-call: Approving rollback; preserve request identifiers in the incident record only.
+[09:31 UTC] dan/checkout: Rollback complete. Queue depth declining.
+[09:50 UTC] mira/on-call: Two clean windows observed. Mitigation declared; follow-up CAP-174 opened.

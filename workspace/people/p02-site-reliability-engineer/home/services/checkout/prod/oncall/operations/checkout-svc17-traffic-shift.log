@@ -1,0 +1,5 @@
+2026-07-13T09:18:20Z | operator=incident-commander | precheck | cedar-west capacity headroom 43%; synthetic probe baseline 10/10
+2026-07-13T09:26:08Z | operator=incident-commander | action | shifted 20% checkout ingress away from atlas-east to cedar-west
+2026-07-13T09:31:44Z | operator=traffic-responder | result | atlas-east 5xx 2.6% -> 0.31%; cedar-west 5xx held at 0.03%; p95 242ms
+2026-07-13T10:28:07Z | operator=secondary-oncall | decision | retain shift during recovery watch; reverse only after database and cache stability checks
+2026-07-13T11:15:44Z | operator=secondary-oncall | status | temporary allocation remains; capacity margin cedar-west 31%; no further shift authorized

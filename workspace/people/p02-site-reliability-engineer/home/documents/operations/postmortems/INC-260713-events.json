@@ -1,0 +1,28 @@
+{
+  "incident": "INC-260713",
+  "organization": "Northstar Transit Cloud",
+  "service": "Checkout SVC-17",
+  "date": "2026-07-13",
+  "events": [
+    {
+      "time": "09:12:04Z",
+      "type": "alert",
+      "detail": "authorization error ratio crossed threshold"
+    },
+    {
+      "time": "09:18:31Z",
+      "type": "decision",
+      "detail": "SEV-2 declared"
+    },
+    {
+      "time": "09:31:22Z",
+      "type": "mitigation",
+      "detail": "staged-drain rollback complete"
+    },
+    {
+      "time": "09:50:09Z",
+      "type": "resolution",
+      "detail": "two clean observation windows"
+    }
+  ]
+}

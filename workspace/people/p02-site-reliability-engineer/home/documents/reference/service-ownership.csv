@@ -1,0 +1,6 @@
+service,service_id,owner_team,oncall_rotation,escalation_channel,review_cadence
+Checkout SVC-17,checkout-svc-17,payments-reliability,checkout-primary,#ops-checkout,weekly
+Identity,identity,identity-platform,identity-primary,#ops-identity,weekly
+Regional Ingress,regional-ingress,edge-platform,edge-primary,#ops-edge,biweekly
+Observability Pipeline,observability-pipeline,telemetry-systems,telemetry-primary,#ops-telemetry,monthly
+Postgres Fleet,postgres-fleet,data-foundations,database-primary,#ops-database,weekly

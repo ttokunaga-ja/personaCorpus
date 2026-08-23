@@ -1,0 +1,12 @@
+incident: INC-260713
+service: Checkout SVC-17
+organization: Northstar Transit Cloud
+date: 2026-07-13
+impact:
+  degraded_minutes: 38
+  peak_retryable_error_percent: 12.7
+  payment_record_loss: false
+  duplicate_payment_records: false
+recovery:
+  mitigation: restore staged-drain pool policy
+  evidence: two consecutive error-ratio windows below 0.5 percent

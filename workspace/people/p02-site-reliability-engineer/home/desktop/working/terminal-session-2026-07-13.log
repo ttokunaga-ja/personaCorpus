@@ -1,0 +1,8 @@
+2026-07-13T16:42:03Z analyst@northstar-sre:~$ incident show INC-260713 --summary
+INC-260713  Checkout SVC-17 elevated checkout latency  synthetic exercise
+2026-07-13T16:43:11Z analyst@northstar-sre:~$ slo status checkout-svc17 --window 30d
+availability=99.76%  error budget 2.4% remaining  observation-only report
+2026-07-13T16:44:38Z analyst@northstar-sre:~$ alert snapshots --service checkout-svc17
+checkout-latency-warning firing; payment-queue-depth resolved
+2026-07-13T16:46:09Z analyst@northstar-sre:~$ handoff draft --incident INC-260713
+Northstar Transit Cloud: verify queue depth again at 18:00Z; no changes issued.

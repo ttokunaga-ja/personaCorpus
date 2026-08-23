@@ -1,0 +1,12 @@
+Synthetic investigation notes — Northstar Transit Cloud / Checkout SVC-17
+
+2026-07-13 observation sequence for INC-260713
+1. Capture alert state before correlating timestamps.
+2. Compare the 30-day availability window against error budget 2.4%.
+3. Scan exported logs for gaps greater than five minutes.
+4. Prepare a handoff with the next verification time and active alert names.
+
+Examples are local-only command shapes:
+  python3 annotate-incident-timeline.py timeline.jsonl
+  python3 slo-window-calculator.py sli-samples.csv --objective 99.9
+  rustc log-gap-scanner.rs && ./log-gap-scanner checkout.log

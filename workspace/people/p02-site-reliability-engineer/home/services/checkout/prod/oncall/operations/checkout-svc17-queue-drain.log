@@ -1,0 +1,5 @@
+2026-07-13T09:17:02Z | operator=queue-responder | state | deferred-payment queue depth 18,440; oldest message age 11m42s
+2026-07-13T09:22:15Z | operator=queue-responder | decision | raise consumer replicas 6 -> 14 after database writer stabilized; preserve ordered partition handling
+2026-07-13T09:39:22Z | operator=queue-responder | result | queue depth 1,180; oldest message age 49s; no dead-letter growth
+2026-07-13T09:52:09Z | operator=queue-responder | validation | depth 74; consumer success 99.98%; duplicate guard rejected 0 replay attempts
+2026-07-13T10:20:31Z | operator=queue-responder | status | baseline consumer count restored to 6 after 20-minute empty-queue observation
