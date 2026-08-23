@@ -1,0 +1,28 @@
+rule:
+  id: DET-EXPORT-INTEGRITY-021
+  title: "Evidence export integrity alert / 証跡エクスポート完全性アラート"
+  status: active
+  version: "1.0"
+  language: ja-JP
+  purpose: "承認済み証跡エクスポートの件数、分類、または整合性要約が送付記録と一致しない場合を検知する。"
+  scope: "Synthetic evidence export manifest telemetry"
+  data_sources:
+    - source: evidence_export_manifest
+      fields: [export_case, manifest_count, verified_count, classification_state, approval_state, transfer_state]
+  detection:
+    query_language: pseudo-sql
+    condition: >-
+      SELECT export_case FROM evidence_export_manifest
+      WHERE approval_state = 'approved'
+      AND (manifest_count != verified_count OR classification_state != 'validated' OR transfer_state = 'unrecorded')
+    rationale: "A discrepancy can weaken chain-of-custody assurance and must be reconciled."
+  severity: high
+  owner:
+    team: "Security Operations Assurance / セキュリティ運用保証"
+    role: "Evidence Export Reviewer"
+  response:
+    - "Pause the synthetic transfer workflow and retain the manifest."
+    - "Reconcile record counts and classification labels."
+    - "Escalate confirmed integrity gaps to the AC-27 control owner."
+  false_positive_guidance: "A delayed verification job may produce a temporary count mismatch for up to one review window."
+  privacy: "Only aggregate counts and classification labels are processed."

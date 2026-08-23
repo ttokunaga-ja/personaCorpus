@@ -1,0 +1,10 @@
+Evidence transfer note
+======================
+
+Organization: Cobalt Harbor Systems (synthetic training environment)
+Control context: Aegis Control AC-27
+Review date: 2026-07-13
+Evidence set: 184
+Risk reference: RISK-031
+
+The four PCAP files are purpose-built fixtures for defensive evidence-handling validation. They contain only RFC 5737 documentation addresses, locally administered MAC addresses, invented service labels, and audit-oriented messages. They are not captures from a network and contain no credentials, personal data, exploit content, malware, scanning activity, or offensive content.

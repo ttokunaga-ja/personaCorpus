@@ -1,0 +1,46 @@
+Audit Readiness Notes — July Evidence Review
+Recorded: 2026-07-13
+Prepared for: Cobalt Harbor assurance workspace
+Control: Aegis Control AC-27
+Evidence bundle: evidence set 184
+Risk reference: RISK-031
+
+Readiness objective
+Demonstrate that AC-27 evidence can be located, understood, and independently
+reviewed without requiring direct access to an operational environment. This note
+describes a synthetic, defense-oriented audit-preparation exercise.
+
+Current readiness assessment
+The evidence index provides a workable entry point for the July control review.
+The selected sample includes the control objective, review checklist, decision
+record, exception treatment, and retention marker. The principal readiness gap is
+traceability: each checklist conclusion should name the corresponding decision
+reference so a reviewer can follow the chain without interpretation.
+
+Decision and rationale
+Decision: use a metadata-first evidence package for the readiness review.
+Rationale: metadata, approved summaries, and attestations demonstrate governance
+while avoiding unnecessary duplication of sensitive operational material. This
+keeps the package proportionate and preserves the audit trail.
+
+Owner actions
+- Control owner: by 2026-07-17, add a decision-reference field to each reviewed
+  AC-27 sample entry and mark any unavailable artifact as pending.
+- Evidence coordinator: by 2026-07-18, confirm that evidence set 184 has a
+  retention label, creation date, reviewer role, and source-of-record pointer.
+- Audit liaison: by 2026-07-22, conduct a navigation test using only the index
+  and report whether a reviewer can reproduce the selected evidence path.
+- GRC lead: by 2026-07-24, decide whether the RISK-031 monitoring status may be
+  reduced, remains unchanged, or needs a formal remediation plan.
+
+Review prompts
+1. Does the record explain what AC-27 is intended to evidence?
+2. Does every conclusion identify who reviewed it, when, and under which decision?
+3. Are open exceptions distinguished from approved temporary risk acceptance?
+4. Can a reviewer find the relevant record without receiving informal guidance?
+
+Exit condition
+The readiness exercise closes when the navigation test succeeds, missing links
+have owners and dates, and the GRC lead records a disposition for RISK-031. Any
+new material evidence request must be assessed for purpose limitation before it
+is added to the shared workspace.

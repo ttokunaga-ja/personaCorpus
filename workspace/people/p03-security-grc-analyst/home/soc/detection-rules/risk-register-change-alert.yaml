@@ -1,0 +1,28 @@
+rule:
+  id: DET-RISK-CHANGE-012
+  title: "Risk register material change alert / リスク台帳の重要変更アラート"
+  status: active
+  version: "1.0"
+  language: ja-JP
+  purpose: "リスク受容、残余リスク、または所有者の変更が必要なレビュー記録なしに反映された場合を検知する。"
+  scope: "Synthetic risk register change journal"
+  data_sources:
+    - source: risk_register_change_journal
+      fields: [risk_id, field_name, old_value_class, new_value_class, change_ticket, approver_role, event_time]
+  detection:
+    query_language: pseudo-sql
+    condition: >-
+      SELECT risk_id FROM risk_register_change_journal
+      WHERE field_name IN ('residual_risk', 'acceptance_state', 'owner_role')
+      AND (change_ticket IS NULL OR approver_role NOT IN ('risk_committee', 'delegated_control_owner'))
+    rationale: "Material risk decisions require a traceable review authority."
+  severity: medium
+  owner:
+    team: "Enterprise Risk / リスク管理"
+    role: "Risk Register Steward"
+  response:
+    - "Hold the changed record for governance review."
+    - "Request the linked decision record from the assigned owner."
+    - "Document the disposition in the synthetic audit journal."
+  false_positive_guidance: "Bulk metadata normalization is expected when a change ticket and delegated approval are both recorded."
+  privacy: "Evaluate role labels only; exclude names and contact details."

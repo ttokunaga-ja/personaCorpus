@@ -1,0 +1,12 @@
+{
+  "export_type": "vendor_portal_review_events",
+  "vendor_alias": "Harborline Evidence Services (synthetic)",
+  "assessment_period": "2026-Q3",
+  "events": [
+    {"id": "VPR-11", "action": "questionnaire_received", "status": "logged", "reviewer_role": "vendor risk analyst"},
+    {"id": "VPR-12", "action": "control_mapping_checked", "status": "pass", "reviewer_role": "GRC analyst"},
+    {"id": "VPR-13", "action": "retention_clause_reviewed", "status": "follow_up", "reviewer_role": "legal liaison"}
+  ],
+  "finding": {"reference": "VR-2026-19", "priority": "moderate", "recommendation_ja": "契約更新前に保管期間の表現を明確化する。"},
+  "data_boundary": "Synthetic documentation-network records; no production vendor account data."
+}

@@ -1,0 +1,5 @@
+exception_id	related_finding	approved_on	expires_on	business_rationale	compensating_control	owner	state
+EXC-701	RISK-031	2026-07-13	2026-07-27	Temporary evidence export workflow review	Supervisor approval check	GRC Operations	Active
+EXC-702	RISK-032	2026-07-13	2026-08-10	Reconciliation closure remediation	Weekly stewardship review	Records Steward	Active
+EXC-703	RISK-033	2026-07-12	2026-08-09	Attestation field improvement	Manager signoff	Access Governance	Active
+EXC-704	RISK-034	2026-07-11	2026-08-25	Runbook metadata refresh	Monthly operational review	SOC Assurance	Active

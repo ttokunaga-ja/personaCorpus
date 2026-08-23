@@ -1,0 +1,9 @@
+2026-07-13 INFO batch created for synthetic Cobalt Harbor control-evidence review.
+2026-07-13 INFO ten distinct generated scan backgrounds retained in scoped scratch only.
+2026-07-13 INFO crisp overlay verification targets: control title, date, evidence set 184, RISK-031, evidence table, REVIEWED stamp.
+2026-07-13 INFO final PDF checks: one page each, raster image resource present, no selectable-text dependency.
+2026-07-13 INFO visual review basis: original-size source and rendered page inspection; accepted when headings, table entries, and stamp are readable.
+2026-07-13 PASS source QA: 10/10 distinct generated scan-source images inspected at original size.
+2026-07-13 PASS PDF QA: 10/10 rendered PDF pages inspected at original size; no clipping, overlap, or unreadable anchor text.
+2026-07-13 PASS image dominance: each PDF has exactly one page image XObject and no extractable text layer.
+2026-07-13 PASS seed anchors: Cobalt Harbor; Aegis Control AC-27; 2026-07-13; evidence set 184; RISK-031.

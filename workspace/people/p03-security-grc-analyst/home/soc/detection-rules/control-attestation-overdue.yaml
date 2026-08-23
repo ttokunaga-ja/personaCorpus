@@ -1,0 +1,28 @@
+rule:
+  id: DET-ATTEST-OVERDUE-017
+  title: "Control attestation overdue / 統制アテステーション期限超過"
+  status: active
+  version: "1.0"
+  language: ja-JP
+  purpose: "統制所有者の定期アテステーションが期日を過ぎ、代替承認も記録されていない状態を検知する。"
+  scope: "Synthetic control attestation calendar"
+  data_sources:
+    - source: control_attestation_calendar
+      fields: [control_id, owner_role, due_state, attestation_state, delegate_approval, review_cycle]
+  detection:
+    query_language: pseudo-sql
+    condition: >-
+      SELECT control_id FROM control_attestation_calendar
+      WHERE due_state = 'overdue' AND attestation_state != 'submitted'
+      AND delegate_approval IS NULL
+    rationale: "Overdue attestations reduce confidence that a control remains operating as designed."
+  severity: medium
+  owner:
+    team: "Control Assurance / 統制保証"
+    role: "Attestation Program Manager"
+  response:
+    - "Send a role-based reminder through the synthetic workflow."
+    - "Assign a review escalation after the defined grace period."
+    - "Record a documented exception if a compensating review is approved."
+  false_positive_guidance: "An attestation in approved review state may appear overdue until the calendar refresh completes."
+  privacy: "The rule uses owner roles, not personal identifiers."

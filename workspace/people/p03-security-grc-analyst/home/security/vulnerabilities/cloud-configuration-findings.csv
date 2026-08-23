@@ -1,0 +1,6 @@
+finding_id,service_category,configuration_theme,severity,evidence_id,disposition,owner,review_by
+CFG-201,Document repository,Approval record retention,High,EV-184,Open,GRC Operations,2026-07-20
+CFG-202,Identity service,Review report tagging,Medium,EV-188,In progress,Access Governance,2026-07-27
+CFG-203,Logging platform,Source ownership metadata,Low,EV-189,Planned,SOC Assurance,2026-08-03
+CFG-204,Collaboration service,Retention label consistency,Medium,EV-190,Open,Records Steward,2026-07-27
+CFG-205,Vendor portal,Assurance document age,Low,EV-191,Open,Third Party Risk,2026-08-10

@@ -1,0 +1,51 @@
+{
+  "export_metadata": {
+    "export_id": "SIEM-EXP-184-20260713",
+    "classification": "internal-audit-synthetic",
+    "organization": "Cobalt Harbor Systems",
+    "exported_at": "2026-07-13T16:20:00+09:00",
+    "timezone": "Asia/Tokyo",
+    "language_context": "ja-JP / English",
+    "purpose": "Aegis Control AC-27 evidence reconciliation for evidence set 184",
+    "risk_reference": "RISK-031",
+    "source_network": "documentation-network.invalid"
+  },
+  "events": [
+    {
+      "event_id": "EV-184-001",
+      "timestamp": "2026-07-13T09:05:14+09:00",
+      "category": "evidence_access",
+      "action": "read",
+      "actor_role": "GRC analyst",
+      "resource": "AC-27/evidence-set-184/index",
+      "outcome": "allowed",
+      "review_note": "監査用インデックスの参照。Read-only evidence review."
+    },
+    {
+      "event_id": "EV-184-002",
+      "timestamp": "2026-07-13T10:42:31+09:00",
+      "category": "control_attestation",
+      "action": "attestation_recorded",
+      "actor_role": "Control owner",
+      "resource": "Aegis Control AC-27",
+      "outcome": "recorded",
+      "review_note": "証跡の保全期間と reviewer separation を確認。"
+    },
+    {
+      "event_id": "EV-184-003",
+      "timestamp": "2026-07-13T14:18:09+09:00",
+      "category": "risk_correlation",
+      "action": "case_linked",
+      "actor_role": "SOC reviewer",
+      "resource": "RISK-031",
+      "outcome": "needs_follow_up",
+      "review_note": "関連する review window の記録を追加確認する。"
+    }
+  ],
+  "integrity": {
+    "record_count": 3,
+    "retention_class": "GRC-24M",
+    "synthetic_data": true,
+    "review_status": "pending_secondary_review"
+  }
+}

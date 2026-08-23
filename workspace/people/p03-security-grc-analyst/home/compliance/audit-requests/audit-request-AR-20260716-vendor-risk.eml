@@ -1,0 +1,17 @@
+From: audit-coordination@controls.example.invalid
+To: vendor-assurance@cobalt-harbor.example.invalid
+Subject: Audit request AR-20260716 — vendor risk evidence
+Date: Thu, 16 Jul 2026 08:40:00 +0000
+Message-ID: <ar-20260716-vendor-risk@controls.example.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+Hello Vendor Assurance Team,
+
+For audit sampling, provide the latest synthetic vendor-risk review summary.
+Include the inherent-risk band, control assessment result, open actions, and
+next review month. Keep vendor names fictional and omit contracts, contacts,
+credentials, and production environment details.
+
+Regards,
+Audit Coordination

@@ -1,0 +1,6 @@
+closed_id	closed_date	control_area	closure_basis	independent_check	result	record_reference
+RISK-012	2026-06-30	Evidence handling	Approval index updated	Five-item sample	Pass	CL-120
+RISK-016	2026-06-21	Records	Retention labels reconciled	Closure note sample	Pass	CL-121
+RISK-021	2026-06-14	Identity	Attestation field revised	Exception sample	Pass	CL-122
+RISK-025	2026-06-07	Monitoring	Owner registry refreshed	Runbook sample	Pass	CL-123
+RISK-028	2026-05-29	Vendor risk	Mapping source dated	Document sample	Pass	CL-124

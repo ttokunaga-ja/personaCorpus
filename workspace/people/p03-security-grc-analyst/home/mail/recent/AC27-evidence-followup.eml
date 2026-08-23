@@ -1,0 +1,28 @@
+From: Control Evidence Desk <evidence-desk@example.invalid>
+To: Aegis Control Owners <ac27-owners@example.invalid>
+Date: Mon, 13 Jul 2026 14:15:00 +0900
+Subject: AC-27 follow-up — evidence set 184 chain-of-custody check
+Message-ID: <ac27-evidence-followup-20260713@example.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Aegis Control AC-27 統制所有者各位
+
+evidence set 184 の追補確認をお願いします。この通知は Cobalt Harbor の
+監査演習用に作成した完全合成データです。RISK-031 の評価に必要な証跡だけを
+対象にし、個人情報、秘密情報、接続情報は取り扱いません。
+
+確認依頼:
+1. 2026-07-13 の収集記録に、収集者・レビュー者・保管場所の役割が明記されているか。
+2. Aegis Control AC-27 の期待証跡と、提出物のバージョンが対応付けられているか。
+3. 欠落または例外があれば、RISK-031 の残余リスク判断と期限を更新しているか。
+
+完了時は、承認または差戻しの理由を短く記録してください。Evidence should remain
+read-only after review; any correction requires a new version and a linked decision record.
+
+このフォローアップの締切は次の通常営業日の終了時です。支援が必要な場合は、
+統制設計の質問と証跡の種類を添えてレビュー窓口へ連絡してください。
+
+Control Evidence Desk
+Audit-ready, synthetic training correspondence

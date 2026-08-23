@@ -1,0 +1,26 @@
+From: audit-coordination@controls.example.invalid
+To: control-evidence@cobalt-harbor.example.invalid
+Subject: Audit request AR-20260713-AC27 — Aegis Control AC-27 evidence
+Date: Mon, 13 Jul 2026 09:15:00 +0000
+Message-ID: <ar-20260713-ac27@controls.example.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Hello Control Evidence Team,
+
+For the quarterly assurance review, please provide the approved evidence for
+Aegis Control AC-27 covering Cobalt Harbor. The review date is 2026-07-13.
+Please label the submission as evidence set 184 and include the current
+exception disposition for RISK-031.
+
+Requested items:
+1. Access-review approval record and reviewer roster.
+2. Evidence inventory with collection dates and retention classification.
+3. A short statement that the material is synthetic training evidence.
+
+Please reply in this thread with references only; do not attach credentials,
+personal data, production exports, or external links.
+
+Regards,
+Audit Coordination

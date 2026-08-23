@@ -1,0 +1,6 @@
+finding_id,telemetry_domain,coverage_expectation,observed_state,severity,evidence_reference,owner,follow_up
+SIEM-601,Evidence export activity,Approval correlation,Correlation sample lacks reviewer field,High,EV-184,SOC Assurance,Add normalized approval marker
+SIEM-602,Identity attestation,Exception context,Exception rationale field truncated,Medium,EV-186,Access Governance,Improve source context
+SIEM-603,Retention events,Closure evidence,Closure tag inconsistent,Medium,EV-185,Records Steward,Normalize tag
+SIEM-604,Runbook changes,Owner reference,Owner metadata stale,Low,EV-187,SOC Assurance,Refresh owner map
+SIEM-605,Vendor review intake,Source date,Assurance age not emitted,Low,EV-191,Third Party Risk,Add source-date field

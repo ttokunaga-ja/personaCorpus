@@ -1,0 +1,29 @@
+{
+  "catalog_version": "2026.07",
+  "organization": "Cobalt Harbor Systems",
+  "controls": [
+    {
+      "control_id": "AC-27",
+      "control_name": "Evidence Handling",
+      "policy": "aegis-ac27-evidence-handling-policy.pdf",
+      "evidence": "evidence set 184",
+      "risk": "RISK-031",
+      "review_date": "2026-07-13"
+    },
+    {
+      "control_id": "GV-01",
+      "control_name": "Security Governance",
+      "policy": "information-security-governance-policy.pdf"
+    },
+    {
+      "control_id": "VM-02",
+      "control_name": "Vulnerability Management",
+      "policy": "vulnerability-management-policy.pdf"
+    },
+    {
+      "control_id": "VR-03",
+      "control_name": "Vendor Risk",
+      "policy": "vendor-risk-management-policy.pdf"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<archiveRetentionIndex version="1.0" lang="ja-JP,en">
+  <recordClass>Synthetic closed GRC archive / 完全合成の完了GRCアーカイブ</recordClass>
+  <generatedAt>2026-07-13T00:00:00Z</generatedAt>
+  <retentionPolicy id="GRC-RET-07" minimumYears="7">
+    <description>Review before disposition / 処分前にレビュー</description>
+  </retentionPolicy>
+  <record id="RISK-031" type="risk-evidence" status="closed / 完了">
+    <control>Aegis Control AC-27</control>
+    <closureDate>2026-07-13</closureDate>
+    <reviewOwner>Synthetic GRC Review Desk / 合成GRC審査窓口</reviewOwner>
+    <integrityState>hash verified / ハッシュ検証済み</integrityState>
+    <retentionUntil>2033-07-13</retentionUntil>
+  </record>
+  <record id="INC-260528" type="incident-review" status="closed / 完了">
+    <control>Aegis Control AC-27</control>
+    <closureDate>2026-07-13</closureDate>
+    <reviewOwner>Synthetic Security Assurance / 合成セキュリティ保証</reviewOwner>
+    <integrityState>hash verified / ハッシュ検証済み</integrityState>
+    <retentionUntil>2033-07-13</retentionUntil>
+  </record>
+  <evidenceReference set="184">evidence set 184; Cobalt Harbor synthetic case / Cobalt Harbor 合成ケース</evidenceReference>
+</archiveRetentionIndex>

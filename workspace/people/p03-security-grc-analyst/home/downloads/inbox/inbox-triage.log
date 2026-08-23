@@ -1,0 +1,4 @@
+2026-07-13T09:20:00Z INFO triage.case=RISK-031 queue=security-grc
+2026-07-13T09:20:02Z INFO triage.control=Aegis-Control-AC-27 evidence-set=184
+2026-07-13T09:20:04Z INFO triage.result=accepted reason=synthetic-documentation-network-fixtures
+2026-07-13T09:20:06Z INFO triage.next=validate-parser-and-integrity-register

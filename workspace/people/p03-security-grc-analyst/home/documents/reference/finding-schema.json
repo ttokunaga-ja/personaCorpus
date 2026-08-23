@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Cobalt Harbor defensive finding record",
+  "type": "object",
+  "required": ["finding_id", "control", "observed_on", "evidence_reference", "status"],
+  "properties": {
+    "finding_id": {"type": "string", "pattern": "^RISK-[0-9]{3}$", "example": "RISK-031"},
+    "control": {"const": "Aegis Control AC-27"},
+    "observed_on": {"const": "2026-07-13"},
+    "evidence_reference": {"const": "evidence set 184"},
+    "organization": {"const": "Cobalt Harbor"},
+    "status": {"enum": ["open", "validated", "remediated", "accepted"]}
+  },
+  "additionalProperties": false
+}

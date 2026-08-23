@@ -1,0 +1,15 @@
+p03-primary-11 | Image export provenance
+Purpose: synthetic, defensive/audit-only privacy and GRC visual aids for Cobalt Harbor Systems.
+
+Generation mode: built-in ImageGen (six separate calls; no CLI/API fallback).
+Canvas: landscape PNG, 1672 x 941 pixels for every final asset.
+Final assets:
+- RISK-031-privacy-dataflow.png — privacy intake through review and retention trust boundaries.
+- aegis-ac27-evidence-map.png — AC-27 evidence lifecycle from intake to archive.
+- privacy-intake-trust-boundaries.png — vendor privacy intake containment zones.
+- vendor-data-handling-overview.png — vendor evidence review and archive overview.
+- audit-evidence-lifecycle.png — capture, integrity, review, retention and closure lifecycle.
+- risk-treatment-decision-map.png — accountable risk-treatment decision gate map.
+
+Prompt set: infographic-diagram/productivity-visual, restrained enterprise palette, clear landscape hierarchy, fictional ja/en labels, no people, no real systems, no PII, no external logos, no watermark, and no offensive, exploit, scan, or payload content.
+Seed provenance: RISK-031-privacy-dataflow.png was generated with the required visible anchors: Cobalt Harbor; Aegis Control AC-27; 2026-07-13; evidence set 184; RISK-031.

@@ -1,0 +1,17 @@
+From: audit-coordination@controls.example.invalid
+To: incident-assurance@cobalt-harbor.example.invalid
+Subject: Audit request AR-20260720 — incident exercise follow-up
+Date: Mon, 20 Jul 2026 09:35:00 +0000
+Message-ID: <ar-20260720-incident-followup@controls.example.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+Hello Incident Assurance Team,
+
+Please provide the tabletop follow-up record for the defensive exercise.
+Summarize the scenario, decisions, communications test, lessons learned, and
+owner/date for each action. This request is for synthetic training material;
+exclude real incident details, personal information, and operational secrets.
+
+Regards,
+Audit Coordination

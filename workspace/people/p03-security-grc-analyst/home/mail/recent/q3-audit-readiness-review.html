@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Q3 audit readiness review</title>
+  <style>
+    body { margin: 0; background: #101b29; color: #eaf1f7; font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", sans-serif; line-height: 1.65; }
+    main { max-width: 860px; margin: 0 auto; padding: 40px 24px; } article { background: #17283a; border-radius: 12px; padding: 34px; }
+    h1 { margin: 0; color: #8de0d0; } h2 { color: #b8d9ff; margin-top: 30px; } .eyebrow { color: #9ab2c6; text-transform: uppercase; letter-spacing: .08em; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; } .card { background: #20384e; padding: 16px; border-radius: 8px; }
+    .label { color: #9ab2c6; font-size: .85rem; } strong { color: #fff; } ul { padding-left: 20px; } footer { border-top: 1px solid #38516a; margin-top: 28px; padding-top: 16px; color: #b7c8d8; }
+  </style>
+</head>
+<body>
+  <main>
+    <article>
+      <header>
+        <p class="eyebrow">Q3 security governance checkpoint</p>
+        <h1>監査準備状況レビュー</h1>
+        <p>2026-07-13 時点の readiness review。これは防御・監査目的の完全合成ワークペーパーです。</p>
+      </header>
+      <section class="grid" aria-label="review identifiers">
+        <div class="card"><div class="label">Service context</div><strong>Cobalt Harbor</strong></div>
+        <div class="card"><div class="label">Control focus</div><strong>Aegis Control AC-27</strong></div>
+        <div class="card"><div class="label">Evidence package</div><strong>evidence set 184</strong></div>
+        <div class="card"><div class="label">Risk linkage</div><strong>RISK-031</strong></div>
+      </section>
+      <section>
+        <h2>レビュー観点 / Review criteria</h2>
+        <ul>
+          <li>証跡の来歴、保管、再現可能性が統制要件に対応していること。</li>
+          <li>例外処理が所有者、期限、残余リスク判断と結び付いていること。</li>
+          <li>監査人向けの説明が、運用手順と実際の記録の両方で支持されること。</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Exit criteria</h2>
+        <p>Open items must have an accountable owner, a review date, and a documented decision. No credentials, personal data, or production access details belong in this review package.</p>
+      </section>
+      <footer>Security &amp; GRC · internal synthetic record · retain with the audit decision log</footer>
+    </article>
+  </main>
+</body>
+</html>

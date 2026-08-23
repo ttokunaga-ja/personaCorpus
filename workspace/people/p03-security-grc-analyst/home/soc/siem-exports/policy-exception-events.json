@@ -1,0 +1,11 @@
+{
+  "register": "policy exception workflow export",
+  "period": "2026-07",
+  "exceptions": [
+    {"exception_id": "PEX-2607-04", "policy_area": "evidence retention", "status": "approved_with_expiry", "expiry": "2026-08-31", "compensating_control": "weekly review ledger"},
+    {"exception_id": "PEX-2607-05", "policy_area": "review cadence", "status": "closed", "expiry": null, "compensating_control": "not_applicable"},
+    {"exception_id": "PEX-2607-06", "policy_area": "vendor evidence format", "status": "under_review", "expiry": null, "compensating_control": "manual quality gate"}
+  ],
+  "approval_model": "role-based approvals only; all identifiers are synthetic",
+  "last_updated": "2026-07-13T18:00:00+09:00"
+}

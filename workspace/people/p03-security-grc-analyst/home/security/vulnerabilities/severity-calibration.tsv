@@ -1,0 +1,5 @@
+severity	impact_definition	likelihood_definition	response_target	review_authority	example
+High	Material control evidence cannot be demonstrated	Observed in active workflow	14 calendar days	GRC lead	Approval record absent
+Medium	Control evidence is incomplete or inconsistent	Repeatable sample exception	28 calendar days	Control owner	Closure note omitted
+Low	Documentation or ownership is stale	No direct control failure observed	45 calendar days	Process owner	Runbook owner outdated
+Informational	Improvement opportunity	No exception found	Next planned cycle	Analyst	Formatting alignment

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<controlTaxonomy version="2026.07" locale="ja-JP">
+  <program name="Cobalt Harbor assurance" purpose="defensive audit readiness">
+    <control id="AC-27" name="Aegis Control AC-27" ownerRole="Evidence Steward">
+      <objective>証跡の完全性、保管期間、再現可能なレビューを維持する。</objective>
+      <evidence class="review-record" retention="365d">evidence set 184</evidence>
+      <review cadence="quarterly" nextReview="2026-07-13"/>
+    </control>
+    <control id="AC-04" name="Access recertification" ownerRole="Identity Reviewer">
+      <objective>権限承認を定期的に再確認する。</objective>
+      <evidence class="attestation" retention="365d">manager sign-off</evidence>
+    </control>
+  </program>
+</controlTaxonomy>

@@ -1,0 +1,6 @@
+review_id,application_function,control_area,finding_summary,severity,review_status,remediation_owner,evidence_due
+APP-301,Audit evidence intake,Authorization,Second approval marker absent in sampled route,High,Open,GRC Operations,2026-07-20
+APP-302,Attestation workflow,Completeness,Exception rationale field not mandatory,Medium,In progress,Access Governance,2026-07-27
+APP-303,Retention dashboard,Records,Closure note missing from sample,Medium,Open,Records Steward,2026-07-27
+APP-304,Alert triage,Operations,Escalation owner reference stale,Low,Planned,SOC Assurance,2026-08-03
+APP-305,Vendor review,Third party,Mapping evidence needs refresh,Low,Open,Third Party Risk,2026-08-10

@@ -1,0 +1,6 @@
+evidence_id,artifact_type,quality_dimension,observation,rating,required_correction,owner,verified
+EV-184,Approval export,Traceability,Second reviewer marker not captured,High,Attach approval record,GRC Operations,No
+EV-185,Reconciliation log,Completeness,Closure note omitted,Medium,Add closure reference,Records Steward,No
+EV-186,Attestation sample,Context,Exception rationale abbreviated,Medium,Expand rationale,Access Governance,No
+EV-187,Runbook,Freshness,Ownership reference out of date,Low,Update owner,SOC Assurance,No
+EV-191,Vendor mapping,Freshness,Source date exceeds review window,Low,Refresh source,Third Party Risk,No

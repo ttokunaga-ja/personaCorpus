@@ -1,0 +1,30 @@
+rule:
+  id: DET-PRIVACY-GATE-023
+  title: "Privacy review bypass alert / プライバシー審査バイパス"
+  status: active
+  version: "1.0"
+  language: ja-JP
+  purpose: "データ取扱い変更がプライバシー審査の完了記録なしに実装審査またはリリース承認へ進む兆候を検知する。"
+  scope: "Synthetic privacy intake and change-governance events"
+  data_sources:
+    - source: privacy_change_governance
+      fields: [change_case, data_class, privacy_review_state, implementation_gate, release_gate, exception_reference]
+  detection:
+    query_language: pseudo-sql
+    condition: >-
+      SELECT change_case FROM privacy_change_governance
+      WHERE data_class IN ('restricted', 'sensitive_business')
+      AND implementation_gate = 'approved'
+      AND privacy_review_state NOT IN ('approved', 'not_applicable')
+      AND exception_reference IS NULL
+    rationale: "Sensitive-data changes need a recorded privacy determination before implementation approval."
+  severity: high
+  owner:
+    team: "Privacy Assurance / プライバシー保証"
+    role: "Privacy Review Lead"
+  response:
+    - "Place the synthetic change case into review hold."
+    - "Request a privacy determination or approved exception reference."
+    - "Report confirmed bypasses to the governance committee."
+  false_positive_guidance: "A previously approved reusable assessment is valid when its reference is linked to the change case."
+  privacy: "Use data classes and workflow states only; no personal data is queried."

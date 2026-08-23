@@ -1,0 +1,28 @@
+rule:
+  id: DET-INC-EVIDENCE-006
+  title: "Incident evidence gap / インシデント証跡欠落"
+  status: active
+  version: "1.0"
+  language: ja-JP
+  purpose: "インシデント記録が封じ込めまたは復旧へ進行した一方で、必要な証跡分類・保管確認が未完了の状態を検知する。"
+  scope: "Synthetic incident evidence lifecycle records"
+  data_sources:
+    - source: incident_evidence_lifecycle
+      fields: [incident_case, lifecycle_stage, evidence_classification, retention_confirmation, review_state]
+  detection:
+    query_language: pseudo-sql
+    condition: >-
+      SELECT incident_case FROM incident_evidence_lifecycle
+      WHERE lifecycle_stage IN ('contained', 'recovered', 'closed')
+      AND (evidence_classification = 'missing' OR retention_confirmation != 'complete')
+    rationale: "Lifecycle completion requires evidence handling records suitable for later audit."
+  severity: high
+  owner:
+    team: "Incident Governance / インシデントガバナンス"
+    role: "Incident Evidence Custodian"
+  response:
+    - "Create an evidence-gap task and preserve the current case chronology."
+    - "Confirm the classification and retention decision with the case owner."
+    - "Require governance approval before final closure."
+  false_positive_guidance: "Legal-hold simulation records may defer retention confirmation while an approved hold reference exists."
+  privacy: "Case identifiers are synthetic; the rule excludes event subjects and free-form notes."

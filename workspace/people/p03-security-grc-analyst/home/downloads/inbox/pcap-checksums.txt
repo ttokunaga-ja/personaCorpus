@@ -1,0 +1,7 @@
+# SHA-256 integrity register — completely synthetic documentation-network PCAPs
+# Intake date: 2026-07-13; purpose: defensive audit validation only
+
+5b7b4b15b14deeb83885883e744b96735e5cff7fc60097500ff20c86eb6eb14f  siem-ingest-sample-20260713.pcap  packets=3
+33472fe3d8a568f7ef86bccaafcad5a44d5c43dc042a34a50ca259b6ee814ee7  audit-export-sample-20260713.pcap  packets=4
+2c092e832af7099313757aff43e24667115e27b23558aea73b74510acac9ea48  vendor-portal-sample-20260713.pcap  packets=5
+5fe4b059fa287486e8bdc7d9305b9745a55d6a7eccdd69beaa6492649675ee53  identity-review-sample-20260713.pcap  packets=6

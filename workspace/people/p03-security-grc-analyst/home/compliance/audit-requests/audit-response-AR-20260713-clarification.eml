@@ -1,0 +1,17 @@
+From: control-evidence@cobalt-harbor.example.invalid
+To: audit-coordination@controls.example.invalid
+Subject: Re: Audit request AR-20260713-AC27 — clarification
+Date: Mon, 13 Jul 2026 15:05:00 +0000
+Message-ID: <ar-20260713-clarification@cobalt-harbor.example.invalid>
+In-Reply-To: <ar-20260713-ac27@controls.example.invalid>
+References: <ar-20260713-ac27@controls.example.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+Hello Audit Coordination,
+
+Confirmed. We will provide a synthetic evidence index and approval reference
+for the requested control. The response will cite the designated custodian and
+will contain no attachments, credentials, personal data, or live-system links.
+
+Control Evidence Team

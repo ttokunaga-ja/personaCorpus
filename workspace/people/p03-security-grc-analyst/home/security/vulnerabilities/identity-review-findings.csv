@@ -1,0 +1,6 @@
+finding_id,review_population,control_test,exception_type,severity,owner,remediation_due,verification_state
+IDF-501,Privileged approvers,Quarterly attestation,Exception rationale incomplete,Medium,Access Governance,2026-08-09,Pending
+IDF-502,Evidence reviewers,Role mapping,Backup reviewer designation stale,Low,GRC Operations,2026-08-17,Planned
+IDF-503,Service owners,Owner confirmation,One confirmation absent,Medium,SOC Assurance,2026-08-03,Pending
+IDF-504,Records stewards,Access recertification,Sample closure date missing,Low,Records Steward,2026-08-17,Planned
+IDF-505,Vendor coordinators,Access review,Attestation source needs refresh,Low,Third Party Risk,2026-08-24,Pending

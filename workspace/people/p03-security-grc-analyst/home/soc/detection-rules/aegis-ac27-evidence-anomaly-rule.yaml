@@ -1,0 +1,33 @@
+rule:
+  id: DET-AC27-184
+  title: "Aegis Control AC-27 evidence anomaly review / 証跡異常レビュー"
+  status: active
+  version: "1.0"
+  language: ja-JP
+  purpose: "Cobalt Harbor の統制証跡台帳で evidence set 184 の提出経路・完全性・承認順序の不整合を監査用に検知する。"
+  scope: "Synthetic GRC evidence service; documentation-only telemetry"
+  references:
+    control: "Aegis Control AC-27"
+    risk: "RISK-031"
+    review_date: "2026-07-13"
+    evidence_set: "evidence set 184"
+  data_sources:
+    - source: evidence_registry_audit
+      fields: [case_id, evidence_set, actor_role, event_type, integrity_state, approval_state, event_time]
+  detection:
+    query_language: pseudo-sql
+    condition: >-
+      SELECT case_id FROM evidence_registry_audit WHERE evidence_set = '184'
+      GROUP BY case_id HAVING COUNT(DISTINCT integrity_state) > 1
+      OR SUM(CASE WHEN event_type = 'exported' AND approval_state != 'approved' THEN 1 ELSE 0 END) > 0
+    rationale: "Integrity state drift or an export recorded before documented approval requires analyst review."
+  severity: high
+  owner:
+    team: "Security Assurance / セキュリティ保証"
+    role: "GRC Detection Owner"
+  response:
+    - "Create a review case and preserve the synthetic audit trail."
+    - "Validate the approval sequence against the AC-27 evidence register."
+    - "Notify the control owner when the anomaly is confirmed."
+  false_positive_guidance: "Scheduled evidence reclassification may change integrity_state after an approved change record is attached."
+  privacy: "Use role labels and case identifiers only; do not ingest personal data."

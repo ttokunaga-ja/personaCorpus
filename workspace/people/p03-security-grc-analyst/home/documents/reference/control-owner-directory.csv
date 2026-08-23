@@ -1,0 +1,5 @@
+control_id,control_name,owner_role,review_cadence,review_date,evidence_reference
+AC-27,Aegis Control AC-27,Evidence Steward,quarterly,2026-07-13,evidence set 184
+AC-04,Access recertification,Identity Reviewer,quarterly,2026-07-13,manager attestation
+AC-12,Secure configuration baseline,Platform Assurance Lead,monthly,2026-07-13,baseline review
+AC-21,Vendor due diligence,Third-party Risk Analyst,annual,2026-07-13,Cobalt Harbor questionnaire

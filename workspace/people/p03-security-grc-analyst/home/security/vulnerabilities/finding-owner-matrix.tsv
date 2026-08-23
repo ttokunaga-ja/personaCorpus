@@ -1,0 +1,6 @@
+finding_id	primary_owner	control_partner	independent_reviewer	status	cadence
+RISK-031	GRC Operations	Evidence Governance	Internal Assurance	Open	Weekly
+RISK-032	Records Steward	Records Governance	Internal Assurance	In progress	Weekly
+RISK-033	Access Governance	Identity Operations	Internal Assurance	Open	Biweekly
+RISK-034	SOC Assurance	Monitoring Operations	Internal Assurance	Planned	Monthly
+RISK-035	Third Party Risk	Vendor Management	Internal Assurance	Open	Monthly

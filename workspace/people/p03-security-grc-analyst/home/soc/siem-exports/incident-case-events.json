@@ -1,0 +1,14 @@
+{
+  "case_export": {"case_id": "INC-SIM-260713-07", "classification": "simulation", "status": "lessons_recorded"},
+  "timeline": [
+    {"sequence": 1, "time": "2026-07-13T08:40:00+09:00", "event": "training scenario opened", "owner_role": "incident coordinator"},
+    {"sequence": 2, "time": "2026-07-13T09:25:00+09:00", "event": "evidence handling checklist reviewed", "owner_role": "GRC observer"},
+    {"sequence": 3, "time": "2026-07-13T10:15:00+09:00", "event": "after-action note approved", "owner_role": "quality reviewer"}
+  ],
+  "lessons": [
+    "Document ownership at handoff.",
+    "記録の時刻は同じタイムゾーンで統一する。",
+    "Keep simulated training data separated from operational records."
+  ],
+  "safety": "Defensive documentation exercise only; no live systems or operational indicators included."
+}

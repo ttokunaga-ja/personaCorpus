@@ -1,0 +1,24 @@
+{
+  "bundle_id": "CHS-EXPORT-20260713-184",
+  "classification": "internal synthetic audit evidence",
+  "organization": "Cobalt Harbor Systems",
+  "review_context": {
+    "control": "Aegis Control AC-27",
+    "review_date": "2026-07-13",
+    "evidence_set": "evidence set 184",
+    "risk_reference": "RISK-031"
+  },
+  "artifacts": [
+    {
+      "name": "control-owner-summary",
+      "purpose": "minimized reviewer handoff",
+      "redaction_status": "labels normalized; no personal data"
+    },
+    {
+      "name": "integrity-ledger",
+      "purpose": "synthetic checksum review",
+      "redaction_status": "approved for internal training"
+    }
+  ],
+  "retention": "Delete the generated copy after the simulated audit exercise closes."
+}

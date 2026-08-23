@@ -1,0 +1,15 @@
+title: Cobalt Harbor control working map
+review_date: '2026-07-13'
+owner_role: Security and GRC Analyst
+controls:
+  - id: Aegis Control AC-27
+    objective: Evidence integrity and review traceability
+    evidence_set: evidence set 184
+    status: covered
+    verification:
+      - manifest checksum reviewed
+      - reviewer sign-off pending archival
+  - id: RISK-031
+    objective: Track residual risk decision
+    status: monitored
+    next_action: confirm control owner acceptance

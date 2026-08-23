@@ -1,0 +1,17 @@
+From: audit-coordination@controls.example.invalid
+To: privacy-assurance@cobalt-harbor.example.invalid
+Subject: Audit request AR-20260721 — privacy control review
+Date: Tue, 21 Jul 2026 10:25:00 +0000
+Message-ID: <ar-20260721-privacy-control@controls.example.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+Hello Privacy Assurance Team,
+
+Please submit a synthetic privacy-control review showing purpose limitation,
+data minimization, assessment outcome, and accountable review role. Include
+only abstract categories; do not include individual records, direct contacts,
+or links to live systems.
+
+Regards,
+Audit Coordination

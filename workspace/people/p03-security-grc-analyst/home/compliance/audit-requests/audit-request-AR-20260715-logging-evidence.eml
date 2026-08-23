@@ -1,0 +1,17 @@
+From: audit-coordination@controls.example.invalid
+To: observability-assurance@cobalt-harbor.example.invalid
+Subject: Audit request AR-20260715 — logging evidence
+Date: Wed, 15 Jul 2026 11:20:00 +0000
+Message-ID: <ar-20260715-logging-evidence@controls.example.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+Hello Observability Assurance Team,
+
+Please provide the control narrative and a synthetic log-retention attestation
+for the current review window. Show the event categories monitored, retention
+period, integrity check, and escalation owner. Do not include raw production
+events, addresses, tokens, or reachable service locations.
+
+Regards,
+Audit Coordination

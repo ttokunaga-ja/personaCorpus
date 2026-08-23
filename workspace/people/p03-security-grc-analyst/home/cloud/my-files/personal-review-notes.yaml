@@ -1,0 +1,18 @@
+review_context:
+  organization: Cobalt Harbor
+  review_date: "2026-07-13"
+  purpose: "Defensive GRC evidence review / 防御・監査目的の証跡レビュー"
+focus:
+  risk_id: RISK-031
+  control: Aegis Control AC-27
+  evidence_reference: evidence set 184
+decisions:
+  - decision: "Retain a provenance note with each reviewed artifact."
+    decision_ja: "確認済み成果物ごとに来歴メモを保持する。"
+    owner_role: "Control Assurance"
+  - decision: "Escalate only missing attestations, not personal records."
+    decision_ja: "個人記録ではなく不足する証明だけをエスカレーションする。"
+    owner_role: "GRC Analyst"
+constraints:
+  - "Fictional data only / 実在データなし"
+  - "Local review only / 外部接続なし"

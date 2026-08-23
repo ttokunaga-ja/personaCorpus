@@ -1,0 +1,17 @@
+From: audit-coordination@controls.example.invalid
+To: identity-assurance@cobalt-harbor.example.invalid
+Subject: Audit request AR-20260714 — access review sample
+Date: Tue, 14 Jul 2026 10:00:00 +0000
+Message-ID: <ar-20260714-access-review@controls.example.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+Hello Identity Assurance Team,
+
+Please submit a synthetic access-review sample for the July control check.
+Include approval status, reviewer role, sampling method, and any remediation
+reference. Redact names, identifiers, secrets, and production account data.
+
+The response should identify the control objective and the evidence custodian.
+Thank you,
+Audit Coordination

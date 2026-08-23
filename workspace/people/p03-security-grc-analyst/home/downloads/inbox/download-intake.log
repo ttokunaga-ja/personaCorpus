@@ -1,0 +1,6 @@
+2026-07-13T09:14:02Z INFO intake.start source=synthetic-audit-fixture case=RISK-031
+2026-07-13T09:14:04Z INFO intake.received item=siem-ingest-sample-20260713.pcap packets=3 network=documentation-only
+2026-07-13T09:14:06Z INFO intake.received item=audit-export-sample-20260713.pcap packets=4 network=documentation-only
+2026-07-13T09:14:08Z INFO intake.received item=vendor-portal-sample-20260713.pcap packets=5 network=documentation-only
+2026-07-13T09:14:10Z INFO intake.received item=identity-review-sample-20260713.pcap packets=6 network=documentation-only
+2026-07-13T09:14:12Z INFO intake.complete disposition=checksum-register-created evidence_set=184

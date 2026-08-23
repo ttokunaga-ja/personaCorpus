@@ -1,0 +1,8 @@
+Cobalt Harbor Systems - scan batch index
+Batch date: 2026-07-13
+Purpose: synthetic defensive control-evidence training set.
+
+Included scan PDFs: AC-27, AC-04, AC-09, AC-12, AC-16, AC-21, AC-24, AC-31, AC-35, AC-42.
+Each record is a one-page image-dominant PDF made from a distinct generated scan source.
+Anchor reference: Aegis Control AC-27; evidence set 184; RISK-031.
+No live system output, real identities, secrets, or routable addresses are included.

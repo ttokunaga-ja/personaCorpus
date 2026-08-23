@@ -1,0 +1,16 @@
+From: audit-coordination@controls.example.invalid
+To: records-governance@cobalt-harbor.example.invalid
+Subject: Audit request AR-20260717 — retention sample
+Date: Fri, 17 Jul 2026 13:10:00 +0000
+Message-ID: <ar-20260717-retention-sample@controls.example.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+Hello Records Governance Team,
+
+Please provide one synthetic retention-verification sample. State the record
+class, retention schedule, hold check outcome, disposal decision, and evidence
+location reference. Use non-sensitive placeholder identifiers only.
+
+Thank you,
+Audit Coordination

@@ -1,0 +1,12 @@
+{
+  "report": "endpoint compliance evidence summary",
+  "collection_date": "2026-07-13",
+  "fleet_scope": "managed GRC laptops - synthetic subset",
+  "metrics": {"devices_evaluated": 24, "baseline_confirmed": 23, "review_required": 1},
+  "events": [
+    {"event_id": "EPC-01", "control": "screen-lock", "result": "confirmed", "evidence_ref": "EPC-JUL-01"},
+    {"event_id": "EPC-02", "control": "storage-encryption-attestation", "result": "confirmed", "evidence_ref": "EPC-JUL-02"},
+    {"event_id": "EPC-03", "control": "inventory-freshness", "result": "review_required", "evidence_ref": "EPC-JUL-03"}
+  ],
+  "remediation_note_ja": "未確認の1件は次回の資産棚卸しで再照合する。"
+}

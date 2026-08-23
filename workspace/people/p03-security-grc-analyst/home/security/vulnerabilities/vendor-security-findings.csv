@@ -1,0 +1,6 @@
+vendor_alias,assessment_area,finding_id,summary,rating,mitigation,review_owner,next_checkpoint
+Harbor Data Services,Assurance evidence,VEN-401,Control mapping source predates current review,Low,Request refreshed mapping,Third Party Risk,2026-08-10
+Northwind Archive,Retention,VEN-402,Disposal attestation sample incomplete,Medium,Obtain closure record,Records Steward,2026-07-27
+Blue Oak Monitor,Logging,VEN-403,Service owner field requires update,Low,Confirm operational owner,SOC Assurance,2026-08-03
+Silverline Access,Identity,VEN-404,Review cadence statement lacks date,Medium,Obtain dated attestation,Access Governance,2026-07-27
+Pinebridge Review,Governance,VEN-405,Approval evidence sample needs index,Low,Provide sample index,GRC Operations,2026-08-10

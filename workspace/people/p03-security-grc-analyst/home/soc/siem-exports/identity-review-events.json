@@ -1,0 +1,10 @@
+{
+  "review": {"review_id": "IDR-20260713-04", "scope": "privileged-role evidence review", "synthetic": true},
+  "summary": {"reviewed": 12, "confirmed": 11, "exceptions": 1, "status": "closed_with_action"},
+  "events": [
+    {"event_id": "IDR-01", "role": "access reviewer", "action": "review_completed", "result": "confirmed", "comment": "職務分掌の記録を確認。"},
+    {"event_id": "IDR-02", "role": "system custodian", "action": "evidence_attached", "result": "confirmed", "comment": "権限棚卸しの添付を確認。"},
+    {"event_id": "IDR-03", "role": "GRC analyst", "action": "exception_logged", "result": "action_required", "comment": "次回レビュー時に承認日を補足。"}
+  ],
+  "handling": "No personal identifiers; role-based synthetic audit records only."
+}

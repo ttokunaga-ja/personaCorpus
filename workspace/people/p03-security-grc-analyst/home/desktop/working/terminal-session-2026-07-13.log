@@ -1,0 +1,5 @@
+2026-07-13T09:12:04+09:00 INFO  audit-workspace opened synthetic evidence review
+2026-07-13T09:12:12+09:00 INFO  control=Aegis Control AC-27 evidence="evidence set 184"
+2026-07-13T09:13:01+09:00 INFO  manifest checksum reconciliation completed: 12 items
+2026-07-13T09:14:26+09:00 WARN  RISK-031 requires owner acknowledgement before closure
+2026-07-13T09:15:40+09:00 INFO  Cobalt Harbor review note saved for internal audit queue

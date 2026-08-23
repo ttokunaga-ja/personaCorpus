@@ -1,0 +1,42 @@
+{
+  "archive_metadata": {
+    "classification": "synthetic-training-record / 完全合成訓練記録",
+    "archive_status": "closed / 完了",
+    "retention_policy": "GRC-RET-07",
+    "retention_until": "2033-07-13",
+    "review_cadence": "annual / 年次",
+    "last_reviewed": "2026-07-13"
+  },
+  "closed_risks": [
+    {
+      "risk_id": "RISK-031",
+      "title": "Evidence chain completeness / 証跡チェーン完全性",
+      "organization": "Cobalt Harbor",
+      "control": "Aegis Control AC-27",
+      "evidence_set": "evidence set 184",
+      "opened_on": "2026-05-28",
+      "closed_on": "2026-07-13",
+      "closure_decision": "Accepted after hash, custody, and reviewer checks / ハッシュ・保管連鎖・レビュー確認後に完了",
+      "residual_risk": "low / 低",
+      "review_owner": "Synthetic GRC Review Desk / 合成GRC審査窓口",
+      "retention": {
+        "minimum_years": 7,
+        "disposition": "review before destruction / 廃棄前レビュー"
+      }
+    },
+    {
+      "risk_id": "RISK-044",
+      "title": "SIEM evidence availability / SIEM証跡可用性",
+      "control": "Aegis Control AC-27",
+      "linked_incident": "INC-260528",
+      "closed_on": "2026-07-13",
+      "closure_decision": "Replay evidence reconciled; monitoring handoff recorded / 再生証跡を照合し監視引継ぎを記録",
+      "residual_risk": "low / 低",
+      "review_owner": "Synthetic Security Assurance / 合成セキュリティ保証",
+      "retention": {
+        "minimum_years": 7,
+        "disposition": "controlled archive / 統制アーカイブ"
+      }
+    }
+  ]
+}

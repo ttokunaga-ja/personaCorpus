@@ -1,0 +1,6 @@
+Role handoff / 役割引継ぎ
+
+GRC Analyst: maintains the case narrative and evidence index.
+Control Owner: confirms the intended control mapping and corrective action.
+Assurance Reviewer: samples closure evidence independently.
+Records Coordinator: retains the finalized document in the approved library.

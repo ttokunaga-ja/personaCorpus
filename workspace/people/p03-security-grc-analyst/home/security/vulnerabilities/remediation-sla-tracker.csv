@@ -1,0 +1,6 @@
+finding_id,severity,opened_date,sla_days,due_date,remediation_stage,verification_method,owner,traffic_light
+RISK-031,High,2026-07-13,14,2026-07-27,Containment,Sample approval review,GRC Operations,Amber
+RISK-032,Medium,2026-07-13,28,2026-08-10,Design,Label reconciliation,Records Steward,Green
+RISK-033,Medium,2026-07-12,28,2026-08-09,Investigation,Attestation sample,Access Governance,Green
+RISK-034,Low,2026-07-11,45,2026-08-25,Planned,Runbook walkthrough,SOC Assurance,Green
+RISK-035,Low,2026-07-10,45,2026-08-24,Design,Document mapping,Third Party Risk,Green

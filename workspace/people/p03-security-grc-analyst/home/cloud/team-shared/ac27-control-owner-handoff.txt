@@ -1,0 +1,54 @@
+Aegis Control AC-27 — Control Owner Handoff Record
+Date: 2026-07-13
+Service context: Cobalt Harbor assurance workspace
+Evidence reference: evidence set 184
+Related risk: RISK-031
+
+Purpose
+This handoff records the transfer of day-to-day evidence coordination for AC-27,
+the control requiring reviewed access evidence and a retained decision trail. The
+record is prepared for internal assurance only; it contains synthetic examples
+and no production identities or credentials.
+
+Handoff decision
+The outgoing control owner confirmed that the evidence index, reviewer checklist,
+and exception register are current through 2026-07-13. The incoming owner accepts
+operational coordination beginning 2026-07-14, subject to the follow-up items
+below. Governance ownership remains with the GRC lead; this transfer does not
+change policy approval authority.
+
+Decision log
+- Decision: retain evidence set 184 as the reference bundle for the July review.
+  Rationale: it links the access-review sample, reviewer attestation, and closure
+  notes without copying regulated source data into the working folder.
+- Decision: classify RISK-031 as monitored pending validation of the quarterly
+  access-review completion evidence. Rationale: the identified gap is in proof
+  consistency, not a confirmed unauthorized-access event.
+- Decision: use a two-person review before any exception is marked closed.
+  Rationale: this preserves separation between evidence preparation and approval.
+
+Responsibilities
+Outgoing owner: provide a walkthrough of the evidence index and explain the
+retention labels before 2026-07-14 12:00 JST.
+Incoming owner: reconcile the AC-27 checklist against evidence set 184, record
+missing attestations, and request clarification through the approved audit queue.
+GRC lead: review material exceptions and decide whether RISK-031 needs escalation
+to the risk committee.
+Audit liaison: maintain the request log and confirm that shared artifacts retain
+their purpose and review date.
+
+Follow-up schedule
+1. 2026-07-15 — Incoming owner completes a completeness check of the evidence
+   index and annotates any unavailable artifacts with a reason and next review date.
+2. 2026-07-17 — GRC lead reviews open exceptions and assigns a disposition:
+   remediate, accept temporarily, or obtain additional evidence.
+3. 2026-07-22 — Audit liaison performs a readiness spot-check and records whether
+   the package can be reproduced from the index without source-system access.
+
+Acceptance criteria
+The handoff is complete when each owner has acknowledged the responsibilities,
+the follow-up dates have named accountable roles, and the evidence index points
+to reviewed artifacts rather than informal copies. Any change in control design
+must be routed to the policy owner before the evidence set is refreshed.
+
+Prepared for the Cobalt Harbor assurance workspace.

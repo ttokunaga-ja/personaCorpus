@@ -1,0 +1,28 @@
+rule:
+  id: DET-VENDOR-QA-014
+  title: "Vendor questionnaire escalation / ベンダー質問票エスカレーション"
+  status: active
+  version: "1.0"
+  language: ja-JP
+  purpose: "重要な統制回答が未確認、期限超過、または例外審査待ちのまま調達判断へ進む兆候を検知する。"
+  scope: "Synthetic vendor assurance questionnaire tracker"
+  data_sources:
+    - source: vendor_assurance_tracker
+      fields: [vendor_alias, questionnaire_state, critical_control_state, due_state, exception_review, decision_gate]
+  detection:
+    query_language: pseudo-sql
+    condition: >-
+      SELECT vendor_alias FROM vendor_assurance_tracker
+      WHERE decision_gate = 'pending_procurement'
+      AND (critical_control_state IN ('unverified', 'not_provided') OR due_state = 'overdue' OR exception_review = 'required')
+    rationale: "Procurement decisions should not bypass unresolved assurance evidence."
+  severity: medium
+  owner:
+    team: "Third-Party Risk / 第三者リスク"
+    role: "Vendor Assurance Coordinator"
+  response:
+    - "Open an assurance review task with the vendor alias."
+    - "Require a documented risk decision before the decision gate advances."
+    - "Report aging items to the weekly GRC review."
+  false_positive_guidance: "A completed compensating-control review clears the alert when its decision reference is attached."
+  privacy: "Vendor aliases are fictional and no contact data is collected."

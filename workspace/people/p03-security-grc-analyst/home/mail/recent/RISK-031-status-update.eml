@@ -1,0 +1,29 @@
+From: GRC Coordination <grc-coordination@example.invalid>
+To: Security Review Group <security-review@example.invalid>
+Date: Mon, 13 Jul 2026 09:30:00 +0900
+Subject: RISK-031 status update — evidence review decision record
+Message-ID: <risk-031-status-20260713@example.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Security Review Group 各位
+
+RISK-031 の週次ステータスを共有します。Cobalt Harbor の境界サービスに
+関する確認は、Aegis Control AC-27 の証跡収集手順に従って実施しています。
+本メールは監査用の合成訓練記録であり、実在の顧客情報や認証情報は含みません。
+
+2026-07-13 時点で evidence set 184 は、所有者確認、取得時刻、完全性確認、
+レビュー承認の4項目を満たしました。残る作業は、例外の再評価メモをリスク台帳へ
+添付し、次回の変更審査で補完統制の有効性を再確認することです。
+
+決定事項:
+- RISK-031 は「条件付き監視継続」とし、期限までの是正計画を維持します。
+- AC-27 の証跡は改変禁止の保管領域に保存し、閲覧記録を月次で照合します。
+- ベンダー回答の不足項目は、調達担当ではなく統制所有者が追跡します。
+
+次回確認は 2026-07-27 のセキュリティ審査です。差分、判断根拠、承認者を
+チケットに記録してください。Questions should be routed through the approved review queue.
+
+GRC Coordination
+Defensive assurance and audit support

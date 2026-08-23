@@ -1,0 +1,9 @@
+Vendor,Weighted_Score,Decision,Review_Cycle,Control
+Cobalt Harbor Services,0.928,Accept with actions,Q3-2026,Aegis Control AC-27
+HarborLink Assurance,0.916,Accept,Q3-2026,Aegis Control AC-11
+BlueQuay Privacy Office,0.904,Accept,Q3-2026,Aegis Control AC-24
+IronBeacon Cloud Desk,0.892,Accept with actions,Q3-2026,Aegis Control AC-18
+NorthPier Processing,0.880,Accept,Q3-2026,Aegis Control AC-29
+Tideglass Continuity,0.868,Accept,Q3-2026,Aegis Control AC-35
+Seawall Identity,0.856,Accept with actions,Q3-2026,Aegis Control AC-14
+Mariner SOC Review,0.844,Accept,Q3-2026,Aegis Control AC-09

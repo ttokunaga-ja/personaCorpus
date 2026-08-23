@@ -1,0 +1,29 @@
+rule:
+  id: DET-AUDIT-PERM-009
+  title: "Audit library permission drift / 監査ライブラリ権限ドリフト"
+  status: active
+  version: "1.0"
+  language: ja-JP
+  purpose: "監査証跡ライブラリの閲覧・編集権限が承認済みの役割ベース基準から逸脱した状態を検知する。"
+  scope: "Synthetic audit-library access snapshots"
+  data_sources:
+    - source: audit_library_acl_snapshot
+      fields: [library_class, role_label, permission_level, baseline_state, exception_id, snapshot_time]
+  detection:
+    query_language: pseudo-sql
+    condition: >-
+      SELECT library_class, role_label FROM audit_library_acl_snapshot
+      WHERE baseline_state = 'not_matched'
+      AND permission_level IN ('edit', 'manage')
+      AND exception_id IS NULL
+    rationale: "Elevated rights outside an approved exception need prompt control validation."
+  severity: high
+  owner:
+    team: "Information Governance / 情報ガバナンス"
+    role: "Evidence Library Control Owner"
+  response:
+    - "Compare the snapshot with the approved role matrix."
+    - "Restrict the synthetic entitlement in the test record pending review."
+    - "Record the outcome and any authorized exception."
+  false_positive_guidance: "A time-bound migration exception is valid only when exception_id has a current approval record."
+  privacy: "Role labels are pseudonymous; no user identifiers are evaluated."

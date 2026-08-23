@@ -1,0 +1,27 @@
+2026-07-13 13:30 JST | Q3 Control Assurance Decisions | Cobalt Harbor
+2026-07-13 13:33 JST | Scope confirmed: Q3 assurance coverage for Aegis Control AC-27,
+                         focusing on evidence quality and review cadence.
+2026-07-13 13:38 JST | Input reviewed: evidence set 184 and the monitored record
+                         for RISK-031.
+2026-07-13 13:45 JST | Decision QA-26-Q3-01: run a monthly evidence-index health
+                         check through the end of Q3. Owner: evidence coordinator.
+                         First due date: 2026-08-03.
+2026-07-13 13:51 JST | Decision QA-26-Q3-02: require a recorded reviewer role and
+                         decision reference for every sampled AC-27 assertion.
+                         Owner: control owner. Effective: 2026-07-17.
+2026-07-13 13:57 JST | Decision QA-26-Q3-03: preserve RISK-031 as a monitored
+                         assurance item until the July navigation test and Q3
+                         sampling review are both complete. Owner: GRC lead.
+2026-07-13 14:04 JST | Decision QA-26-Q3-04: use an independent audit-liaison
+                         spot-check in September to verify package reproducibility.
+                         Owner: audit liaison. Target date: 2026-09-10.
+2026-07-13 14:11 JST | Risk treatment note: absence of a traceability link is
+                         treated as an evidence-quality exception, not proof of a
+                         control failure. Escalation is required only if the review
+                         identifies missing approval or a repeated overdue action.
+2026-07-13 14:18 JST | Follow-up owner: committee secretariat will publish the Q3
+                         decision register by 2026-07-14 and track due dates weekly.
+2026-07-13 14:24 JST | Follow-up owner: GRC lead will present the August health
+                         check outcome to the committee on 2026-08-12.
+2026-07-13 14:30 JST | Session closed. All decisions are for internal assurance
+                         planning and contain synthetic records only.

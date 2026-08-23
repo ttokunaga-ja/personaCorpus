@@ -1,0 +1,6 @@
+finding_id,domain,summary,severity,age_days,assigned_group,next_review,status
+RISK-031,Governance,Evidence export authorization requires second reviewer,High,0,GRC Operations,2026-07-20,Open
+RISK-032,Records,Retention label reconciliation awaiting sample,Medium,0,Records Steward,2026-07-27,In progress
+RISK-033,Identity,Quarterly privileged attestation sample incomplete,Medium,1,Access Governance,2026-07-27,Open
+RISK-034,Monitoring,Runbook ownership field outdated,Low,2,SOC Assurance,2026-08-03,Planned
+RISK-035,Vendor,Assurance letter mapping needs refresh,Low,3,Third Party Risk,2026-08-10,Open

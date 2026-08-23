@@ -1,0 +1,7 @@
+Decision / 決定: Retain RISK-031 as governance evidence, not a production security event.
+
+Rationale / 根拠: The fictional review queue contained the classification variance; no external disclosure or system change occurred.
+
+Approver roles / 承認ロール: GRC analyst, AC-27 control owner, and assurance reviewer.
+
+Follow-up / 次回確認: Sample the next evidence-classification cycle.

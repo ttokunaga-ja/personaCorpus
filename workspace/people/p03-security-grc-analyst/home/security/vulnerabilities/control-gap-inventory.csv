@@ -1,0 +1,6 @@
+gap_id,control_id,control_name,gap_statement,risk_rating,compensating_measure,evidence_needed,review_cycle
+GAP-101,AC-27,Evidence handling,Second approval not evidenced for one export route,High,Manual supervisor review,Approved export sample,Monthly
+GAP-102,RET-04,Retention labeling,Sample reconciliation lacks closure note,Medium,Weekly stewardship review,Reconciliation log,Monthly
+GAP-103,ID-09,Privileged access review,Population evidence lacks exception rationale,Medium,Manager attestation,Exception register,Quarterly
+GAP-104,MON-12,Monitoring coverage,Owner metadata is not current,Low,Service review meeting,Updated runbook,Quarterly
+GAP-105,TPR-07,Vendor assurance,Control mapping source date is stale,Low,Annual reassessment,Mapping worksheet,Annual

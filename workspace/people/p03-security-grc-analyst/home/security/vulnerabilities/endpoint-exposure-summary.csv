@@ -1,0 +1,6 @@
+endpoint_group,asset_count,coverage_state,patch_posture,exposure_observation,review_date,owner,action
+Managed analyst workstations,42,Monitored,Current,No public service exposure recorded,2026-07-13,Endpoint Assurance,Continue sample review
+Evidence processing workstations,12,Monitored,Current,Privileged workflow requires approval evidence,2026-07-13,GRC Operations,Validate AC-27 sample
+Meeting room devices,8,Partial,Current,Inventory owner pending confirmation,2026-07-12,Workplace IT,Confirm ownership
+Vendor review kiosks,4,Monitored,Current,No direct inbound access permitted,2026-07-11,Third Party Risk,Retain evidence
+Training devices,16,Partial,Current,Telemetry coverage pilot underway,2026-07-10,SOC Assurance,Review pilot outcome

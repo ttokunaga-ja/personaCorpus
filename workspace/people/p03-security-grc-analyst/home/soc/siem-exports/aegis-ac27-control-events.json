@@ -1,0 +1,17 @@
+{
+  "dataset": "aegis-ac27-control-events",
+  "generated_for": "defensive control assurance",
+  "control": {
+    "id": "AC-27",
+    "name": "Evidence handling and reviewer accountability",
+    "owner_role": "GRC Control Owner",
+    "review_cycle": "monthly"
+  },
+  "window": {"start": "2026-07-01", "end": "2026-07-13", "timezone": "Asia/Tokyo"},
+  "events": [
+    {"id": "AC27-701", "time": "2026-07-03T11:00:00+09:00", "type": "retention_check", "status": "pass", "detail_ja": "保管ラベルを確認"},
+    {"id": "AC27-702", "time": "2026-07-08T15:35:00+09:00", "type": "reviewer_assignment", "status": "pass", "detail_ja": "独立レビュー担当を割当"},
+    {"id": "AC27-703", "time": "2026-07-13T13:10:00+09:00", "type": "evidence_link_validation", "status": "pass", "detail_ja": "証跡リンクの整合性を確認"}
+  ],
+  "notes": ["All identities are role labels.", "完全合成データ。運用接続先は含まない。"]
+}

@@ -1,0 +1,17 @@
+From: audit-coordination@controls.example.invalid
+To: risk-governance@cobalt-harbor.example.invalid
+Subject: Audit request AR-20260724 — exception register extract
+Date: Fri, 24 Jul 2026 15:30:00 +0000
+Message-ID: <ar-20260724-exception-register@controls.example.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+Hello Risk Governance Team,
+
+Please provide a synthetic exception-register extract for the weekly review.
+For each record, show control area, rationale, compensating measure, approval
+expiry, and current disposition. Use fictional references and omit people,
+customer data, credentials, and production service details.
+
+Regards,
+Audit Coordination

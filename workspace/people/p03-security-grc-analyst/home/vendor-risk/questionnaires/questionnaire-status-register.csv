@@ -1,0 +1,9 @@
+Vendor,Assessment_Date,Control,Risk_Reference,Evidence_Set,Tier,Decision,Open_Actions
+Cobalt Harbor Services,2026-07-13,Aegis Control AC-27,RISK-031,evidence set 184,Tier 1,Accept with actions,1
+HarborLink Assurance,2026-07-20,Aegis Control AC-11,RISK-044,evidence set 196,Tier 2,Accept,0
+BlueQuay Privacy Office,2026-07-24,Aegis Control AC-24,RISK-052,evidence set 203,Tier 1,Accept,0
+IronBeacon Cloud Desk,2026-07-27,Aegis Control AC-18,RISK-061,evidence set 211,Tier 2,Accept with actions,1
+NorthPier Processing,2026-08-03,Aegis Control AC-29,RISK-067,evidence set 219,Tier 1,Accept,0
+Tideglass Continuity,2026-08-07,Aegis Control AC-35,RISK-073,evidence set 226,Tier 2,Accept,0
+Seawall Identity,2026-08-10,Aegis Control AC-14,RISK-079,evidence set 233,Tier 1,Accept with actions,1
+Mariner SOC Review,2026-08-14,Aegis Control AC-09,RISK-084,evidence set 241,Tier 2,Accept,0

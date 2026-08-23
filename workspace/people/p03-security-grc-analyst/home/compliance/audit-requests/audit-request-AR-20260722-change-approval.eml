@@ -1,0 +1,17 @@
+From: audit-coordination@controls.example.invalid
+To: change-assurance@cobalt-harbor.example.invalid
+Subject: Audit request AR-20260722 — change approval evidence
+Date: Wed, 22 Jul 2026 14:00:00 +0000
+Message-ID: <ar-20260722-change-approval@controls.example.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+Hello Change Assurance Team,
+
+Please supply a synthetic change-approval record for assurance sampling.
+Capture request classification, risk assessment, approver role, test outcome,
+rollback readiness, and post-change validation. Exclude source code, secrets,
+and production infrastructure identifiers.
+
+Thank you,
+Audit Coordination

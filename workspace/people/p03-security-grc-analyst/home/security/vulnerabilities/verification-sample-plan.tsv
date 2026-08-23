@@ -1,0 +1,6 @@
+sample_id	finding_id	population	selection_basis	sample_size	verification_date	verifier	expected_evidence
+SMP-801	RISK-031	Approved evidence exports	Most recent completed workflows	5	2026-07-20	Internal Assurance	Second-reviewer record
+SMP-802	RISK-032	Retention reconciliations	Current month closure items	5	2026-07-27	Internal Assurance	Closure note
+SMP-803	RISK-033	Privileged attestations	Exception-bearing attestations	5	2026-07-27	Internal Assurance	Rationale statement
+SMP-804	RISK-034	Monitoring runbooks	Active escalation runbooks	3	2026-08-03	Internal Assurance	Current owner reference
+SMP-805	RISK-035	Vendor control mappings	Current vendor review set	3	2026-08-10	Internal Assurance	Dated source mapping

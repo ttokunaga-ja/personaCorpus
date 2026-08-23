@@ -1,0 +1,13 @@
+Security/GRC working notes — 2026-07-13
+
+Purpose: prepare a defensible, synthetic review packet for Cobalt Harbor.
+
+- Aegis Control AC-27: link the control claim to evidence set 184 and retain the
+  checksum manifest with the reviewer record.
+- RISK-031: residual-risk wording should distinguish a monitored condition from
+  a confirmed incident. No production system actions are authorized here.
+- Evidence hygiene: use redacted exports only; keep source data outside the
+  review bundle; record assumptions in the final audit narrative.
+
+Next review: confirm the evidence owner, validate retention classification,
+and document the approval decision in the local register.

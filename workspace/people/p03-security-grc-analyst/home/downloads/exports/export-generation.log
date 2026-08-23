@@ -1,0 +1,6 @@
+2026-07-13T09:10:00+09:00 INFO  export-prep: opened synthetic review workspace for Cobalt Harbor Systems
+2026-07-13T09:11:12+09:00 INFO  export-prep: selected Aegis Control AC-27 minimization profile
+2026-07-13T09:12:48+09:00 INFO  export-prep: linked fictional evidence set 184 to RISK-031 review packet
+2026-07-13T09:14:03+09:00 INFO  export-prep: normalized labels; direct identifiers excluded by policy
+2026-07-13T09:15:31+09:00 INFO  export-prep: recorded bilingual handling notes for reviewer handoff
+2026-07-13T09:16:09+09:00 INFO  export-prep: completed simulated package; no external transmission performed

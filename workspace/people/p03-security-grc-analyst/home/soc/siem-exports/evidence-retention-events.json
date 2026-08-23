@@ -1,0 +1,11 @@
+{
+  "retention_job": "RET-AC27-20260713",
+  "purpose": "evidence lifecycle assurance",
+  "schedule": {"policy_class": "GRC-24M", "review_frequency": "quarterly", "timezone": "Asia/Tokyo"},
+  "events": [
+    {"id": "RET-01", "action": "classification_applied", "status": "complete", "object_group": "audit-evidence"},
+    {"id": "RET-02", "action": "hold_check", "status": "complete", "object_group": "review-notes"},
+    {"id": "RET-03", "action": "disposition_preview", "status": "no_items_due", "object_group": "closed-cases"}
+  ],
+  "assurance_note_ja": "削除操作は実行せず、監査用の予定確認だけを記録した。"
+}

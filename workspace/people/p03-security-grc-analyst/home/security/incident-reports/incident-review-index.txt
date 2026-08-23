@@ -1,0 +1,5 @@
+This index groups ten fictional incident-governance reports for Cobalt Harbor Systems.
+
+Coverage: evidence handling, export approvals, vendor review, SIEM assurance, exceptions, library permissions, endpoint receipts, owner handoffs, retention labels, and quarterly summary.
+
+Use: defensive audit training and GRC process review only.
