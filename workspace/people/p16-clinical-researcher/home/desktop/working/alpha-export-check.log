@@ -1,0 +1,7 @@
+2026-09-02T09:42:01+09:00 INFO export-check started scope=StudyAlpha2026 environment=synthetic-vdi
+2026-09-02T09:42:02+09:00 INFO snapshot=2026-09-02 cohort=48 synthetic_records=true
+2026-09-02T09:42:03+09:00 INFO protocol_threshold=2.5mg status=confirmed
+2026-09-02T09:42:04+09:00 INFO endpoint_bundle=aggregate_only status=ready
+2026-09-02T09:42:05+09:00 WARN safety_followups_open=3 classification=synthetic
+2026-09-02T09:42:06+09:00 INFO identifier_scan=clear credential_scan=clear
+2026-09-02T09:42:07+09:00 INFO export-check completed result=PASS training_material_only

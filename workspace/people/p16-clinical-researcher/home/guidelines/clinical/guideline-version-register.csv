@@ -1,0 +1,4 @@
+guideline_id,title,version,snapshot_date,scope,review_state,synthetic_notice
+SC-ALPHA-GOV-26,Alpha Analysis Guideline,1.0,2026-09-02,Study Alpha 2026,approved synthetic reference,"All examples synthetic; 2.5 mg is protocol governance, not medical advice"
+SC-THRESH-26,2.5 mg Threshold Governance Guideline,1.0,2026-09-02,Study Alpha 2026,approved synthetic reference,"All examples synthetic; 2.5 mg is protocol governance, not medical advice"
+SC-DATA-26,Synthetic Data Handling Guideline,1.0,2026-09-02,Study Alpha 2026,approved synthetic reference,"All examples synthetic; 2.5 mg is protocol governance, not medical advice"

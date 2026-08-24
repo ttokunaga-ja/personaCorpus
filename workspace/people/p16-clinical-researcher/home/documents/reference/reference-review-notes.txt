@@ -1,0 +1,7 @@
+2026-09-02 09:15 JST | Reference review started
+Scope: Sakura Clinical Study Alpha 2026 synthetic materials
+Anchor check: cohort=48 aggregate synthetic records
+Anchor check: threshold=2.5 mg retained as reference-only value
+Privacy check: no person-level data, identifiers, credentials, or real facility details
+Document check: abbreviation glossary, data dictionary, VDI guide, and archived scan aligned
+Outcome: internal fictional reference set ready for local review

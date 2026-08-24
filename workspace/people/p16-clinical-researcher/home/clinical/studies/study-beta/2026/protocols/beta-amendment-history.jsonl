@@ -1,0 +1,3 @@
+{"version": "1.2", "date": "2026-03-11", "change": "Clarified synthetic-record reconciliation workflow.", "status": "superseded"}
+{"version": "1.3", "date": "2026-05-20", "change": "Added feasibility endpoint definitions.", "status": "superseded"}
+{"version": "1.4", "date": "2026-08-12", "change": "Retained 2.5 mg as review threshold and clarified non-confirmatory framing.", "status": "current"}

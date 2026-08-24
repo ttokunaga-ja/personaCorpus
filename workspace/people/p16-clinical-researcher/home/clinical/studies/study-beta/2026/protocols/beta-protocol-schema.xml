@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<studyProtocol xmlns="https://synthetic.sakura-clinical.example/protocol" version="1.4">
+  <identity><sponsor>Sakura Clinical</sponsor><study>Study Beta 2026</study><classification>exploratory-feasibility</classification></identity>
+  <cohort total="36"><path name="review-a" count="18"/><path name="review-b" count="18"/></cohort>
+  <reviewThreshold unit="mg">2.5</reviewThreshold>
+  <constraints><syntheticOnly>true</syntheticOnly><confirmatory>false</confirmatory><medicalAdvice>false</medicalAdvice></constraints>
+  <contextAnchor study="Study Alpha" snapshot="2026-09-02" syntheticCohort="48" relationship="separate"/>
+</studyProtocol>

@@ -1,0 +1,49 @@
+case_id,treatment_arm,baseline_score,day_28_score,change_from_baseline,analysis_population
+ALPHA-001,SC-A 2.5 mg,18,13.6,-4.4,Included
+ALPHA-002,SC-A 2.5 mg,19,13.8,-5.2,Included
+ALPHA-003,SC-A 2.5 mg,20,15.6,-4.4,Included
+ALPHA-004,SC-A 2.5 mg,21,15.8,-5.2,Included
+ALPHA-005,SC-A 2.5 mg,22,17.6,-4.4,Included
+ALPHA-006,SC-A 2.5 mg,23,17.8,-5.2,Included
+ALPHA-007,SC-A 2.5 mg,24,19.6,-4.4,Included
+ALPHA-008,SC-A 2.5 mg,18,12.8,-5.2,Included
+ALPHA-009,SC-A 2.5 mg,19,14.6,-4.4,Included
+ALPHA-010,SC-A 2.5 mg,20,14.8,-5.2,Included
+ALPHA-011,SC-A 2.5 mg,21,16.6,-4.4,Included
+ALPHA-012,SC-A 2.5 mg,22,16.8,-5.2,Included
+ALPHA-013,SC-A 2.5 mg,23,18.6,-4.4,Included
+ALPHA-014,SC-A 2.5 mg,24,18.8,-5.2,Included
+ALPHA-015,SC-A 2.5 mg,18,13.6,-4.4,Included
+ALPHA-016,SC-A 2.5 mg,19,13.8,-5.2,Included
+ALPHA-017,SC-A 2.5 mg,20,15.6,-4.4,Included
+ALPHA-018,SC-A 2.5 mg,21,15.8,-5.2,Included
+ALPHA-019,SC-A 2.5 mg,22,17.6,-4.4,Included
+ALPHA-020,SC-A 2.5 mg,23,17.8,-5.2,Included
+ALPHA-021,SC-A 2.5 mg,24,19.6,-4.4,Included
+ALPHA-022,SC-A 2.5 mg,18,12.8,-5.2,Included
+ALPHA-023,SC-A 2.5 mg,19,14.6,-4.4,Included
+ALPHA-024,SC-A 2.5 mg,20,14.8,-5.2,Included
+ALPHA-025,Matched control,18,16.3,-1.7,Included
+ALPHA-026,Matched control,19,16.5,-2.5,Included
+ALPHA-027,Matched control,20,18.3,-1.7,Included
+ALPHA-028,Matched control,21,18.5,-2.5,Included
+ALPHA-029,Matched control,22,20.3,-1.7,Included
+ALPHA-030,Matched control,23,20.5,-2.5,Included
+ALPHA-031,Matched control,24,22.3,-1.7,Included
+ALPHA-032,Matched control,18,15.5,-2.5,Included
+ALPHA-033,Matched control,19,17.3,-1.7,Included
+ALPHA-034,Matched control,20,17.5,-2.5,Included
+ALPHA-035,Matched control,21,19.3,-1.7,Included
+ALPHA-036,Matched control,22,19.5,-2.5,Included
+ALPHA-037,Matched control,23,21.3,-1.7,Included
+ALPHA-038,Matched control,24,21.5,-2.5,Included
+ALPHA-039,Matched control,18,16.3,-1.7,Included
+ALPHA-040,Matched control,19,16.5,-2.5,Included
+ALPHA-041,Matched control,20,18.3,-1.7,Included
+ALPHA-042,Matched control,21,18.5,-2.5,Included
+ALPHA-043,Matched control,22,20.3,-1.7,Included
+ALPHA-044,Matched control,23,20.5,-2.5,Included
+ALPHA-045,Matched control,24,22.3,-1.7,Included
+ALPHA-046,Matched control,18,15.5,-2.5,Included
+ALPHA-047,Matched control,19,17.3,-1.7,Included
+ALPHA-048,Matched control,20,17.5,-2.5,Included

@@ -1,0 +1,8 @@
+2026-09-02T09:02:00Z INFO  packet=SC-ALPHA-2026-SYN-0902-48 event=training_build_started
+2026-09-02T09:02:01Z INFO  source=synthetic_spine cohort=48 groups="24 SC-A 2.5 mg|24 matched control"
+2026-09-02T09:02:02Z INFO  endpoint="Day-28 -4.8 vs -2.1; adjusted -2.7 (95% CI -4.1 to -1.3)"
+2026-09-02T09:02:03Z INFO  safety="7 non-serious synthetic events / 6 synthetic participants / 0 synthetic serious events"
+2026-09-02T09:02:04Z INFO  check=synthetic_labeling result=pass
+2026-09-02T09:02:05Z INFO  check=fictional_recipient result=pass recipient="Aurora Review Office"
+2026-09-02T09:02:06Z INFO  check=signature_material result=pass note="no real signature included"
+2026-09-02T09:02:07Z INFO  packet=SC-ALPHA-2026-SYN-0902-48 event=training_build_complete

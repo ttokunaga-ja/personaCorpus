@@ -1,0 +1,26 @@
+catalog_version: 1
+classification: synthetic_reference
+organization: Sakura Clinical
+study: Study Alpha 2026
+reference_date: 2026-09-02
+anchors:
+  synthetic_cohort: 48
+  reference_threshold_mg: 2.5
+items:
+  - id: alpha-abbrev
+    title: Clinical Abbreviation Reference
+    format: pdf_text
+    purpose: controlled fictional terminology
+  - id: alpha-dictionary
+    title: Synthetic Data Dictionary
+    format: pdf_text
+    purpose: aggregate field reference
+  - id: alpha-vdi
+    title: Windows VDI Research Guide
+    format: pdf_text
+    purpose: local workflow reference
+privacy:
+  real_phi: prohibited
+  real_personal_data: prohibited
+  credentials_or_secrets: prohibited
+notice: This catalog is fictional, synthetic, and not medical advice.

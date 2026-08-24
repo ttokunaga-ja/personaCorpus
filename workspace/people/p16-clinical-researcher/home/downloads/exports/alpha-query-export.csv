@@ -1,0 +1,7 @@
+query_id,synthetic_case_id,domain,query_status,opened_date,resolved_date,resolution_note,snapshot_date
+QRY-A-001,SYN-ALPHA-005,Endpoint,Resolved,2026-08-14,2026-08-15,Synthetic source value verified against transfer batch,2026-09-02
+QRY-A-002,SYN-ALPHA-011,Safety,Resolved,2026-08-16,2026-08-17,Synthetic non-serious event coding confirmed,2026-09-02
+QRY-A-003,SYN-ALPHA-018,Endpoint,Resolved,2026-08-18,2026-08-19,Synthetic visit window note reconciled,2026-09-02
+QRY-A-004,SYN-ALPHA-022,Safety,Resolved,2026-08-20,2026-08-21,Synthetic event onset date normalized,2026-09-02
+QRY-A-005,SYN-ALPHA-031,Safety,Resolved,2026-08-22,2026-08-23,Two synthetic non-serious events linked to one case,2026-09-02
+QRY-A-006,SYN-ALPHA-044,Endpoint,Resolved,2026-08-24,2026-08-25,Synthetic closeout value confirmed,2026-09-02

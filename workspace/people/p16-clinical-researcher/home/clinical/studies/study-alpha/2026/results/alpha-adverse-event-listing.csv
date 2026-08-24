@@ -1,0 +1,8 @@
+ae_id,case_id,treatment_arm,event,serious,outcome
+AE-001,ALPHA-001,SC-A 2.5 mg,Headache,No,Resolved
+AE-002,ALPHA-002,SC-A 2.5 mg,Nausea,No,Resolved
+AE-003,ALPHA-003,SC-A 2.5 mg,Injection-site discomfort,No,Resolved
+AE-004,ALPHA-003,SC-A 2.5 mg,Fatigue,No,Resolved
+AE-005,ALPHA-004,SC-A 2.5 mg,Dizziness,No,Resolved
+AE-006,ALPHA-005,SC-A 2.5 mg,Rash,No,Resolving
+AE-007,ALPHA-006,SC-A 2.5 mg,Diarrhea,No,Resolved

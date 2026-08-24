@@ -1,0 +1,5 @@
+visit,target_day,window_start,window_end,required_review,synthetic_note
+Baseline,0,0,0,Eligibility and baseline,Aggregate-only record
+Day 7,7,5,9,Safety reconciliation,No clinical instructions
+Day 14,14,12,16,Completeness check,Protocol review only
+Day 28,28,25,31,Outcome assessment,Data-lock preparation

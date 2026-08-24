@@ -1,0 +1,4 @@
+endpoint	Intervention_n	Comparator_n	Intervention_mean_change	Comparator_mean_change	Difference	95%_CI	Exploratory_p_value	Interpretation
+Feasibility composite score at Week 8	18	18	7.4	6.8	0.6	-0.8 to 2.0	0.39	Descriptive signal only; non-confirmatory
+Completion through Week 8 (%)	18	18	100.0	100.0	0.0	Not estimated	Not applicable	Operational feasibility observed in synthetic cohort
+Threshold review flag (%)	18	18	0.0	0.0	0.0	Not estimated	Not applicable	2.5 mg review threshold; no synthetic flags

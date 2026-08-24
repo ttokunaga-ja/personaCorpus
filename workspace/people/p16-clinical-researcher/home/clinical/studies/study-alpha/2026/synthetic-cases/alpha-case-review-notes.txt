@@ -1,0 +1,8 @@
+Study Alpha 2026 synthetic review notes
+Snapshot: 2026-09-02
+- Cohort reconciliation: 48 synthetic IDs present.
+- Allocation check: 24 SC-A 2.5 mg; 24 matched control.
+- Outcome summary: -4.8 vs -2.1; adjusted difference -2.7 (95% CI -4.1 to -1.3).
+- Safety: seven non-serious synthetic AEs across six participants; zero SAEs.
+- 2.5 mg is a protocol review threshold, not clinical advice.
+- No real PHI, sites, or care records are present.

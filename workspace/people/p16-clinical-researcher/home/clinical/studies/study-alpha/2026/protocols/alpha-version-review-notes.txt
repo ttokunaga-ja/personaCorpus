@@ -1,0 +1,5 @@
+Review date: 2026-09-02
+Scope: Study Alpha v3.2, wholly synthetic.
+Finding: Cohort and endpoint summaries align with 48-participant snapshot.
+Decision: Approve for synthetic workspace distribution.
+Boundary: 2.5 mg is a protocol review threshold, not clinical advice.

@@ -1,0 +1,6 @@
+2026-09-18 09:10 JST | reviewer A | case set checked: BETA-SYN-001..036
+2026-09-18 09:24 JST | source scans are synthetic and contain no real PHI
+2026-09-18 09:37 JST | protocol review cue: 2.5 mg threshold documented as review-only
+2026-09-18 09:48 JST | allocation check: exploratory cohort 36, balanced 18/18
+2026-09-18 10:02 JST | Alpha reference retained separately: 48 synthetic cases, snapshot 2026-09-02
+2026-09-18 10:12 JST | open item: reconcile placeholder diary marker for BETA-SYN-019

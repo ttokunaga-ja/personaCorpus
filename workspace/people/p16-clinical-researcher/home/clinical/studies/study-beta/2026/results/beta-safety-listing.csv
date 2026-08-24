@@ -1,0 +1,6 @@
+safety_record_id,arm,event_category,severity,serious,relatedness,action_taken,outcome,synthetic_notice
+SAF-B-001,Intervention,Transient discomfort,Mild,No,Possibly related,Observed,Resolved,Fully synthetic - not clinical guidance
+SAF-B-002,Intervention,Headache,Mild,No,Unrelated,Observed,Resolved,Fully synthetic - not clinical guidance
+SAF-B-003,Intervention,Site irritation,Mild,No,Possibly related,Observed,Resolved,Fully synthetic - not clinical guidance
+SAF-B-004,Comparator,Transient discomfort,Mild,No,Unrelated,Observed,Resolved,Fully synthetic - not clinical guidance
+SAF-B-005,Comparator,Headache,Mild,No,Unrelated,Observed,Resolved,Fully synthetic - not clinical guidance

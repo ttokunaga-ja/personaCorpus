@@ -1,0 +1,6 @@
+Sakura Clinical - Study Beta 2026 reviewer log
+
+[2026-08-10] Reviewer A: Confirmed synthetic cohort notation 36 (18/18).
+[2026-08-11] Reviewer B: Keep 2.5 mg language as a review threshold; avoid action-oriented wording.
+[2026-08-12] Reviewer A: Add explicit statement that Study Beta is exploratory feasibility, not confirmatory.
+[2026-08-12] Resolution: Incorporated in protocol v1.4.

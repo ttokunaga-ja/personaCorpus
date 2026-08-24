@@ -1,0 +1,7 @@
+Sakura Clinical - Study Alpha 2026
+RESULTS FREEZE: 2026-09-02
+Synthetic analysis snapshot only.
+Randomized and analysis population: 48 cases (24 SC-A 2.5 mg; 24 Matched control).
+Primary endpoint: Day-28 mean change -4.8 vs -2.1; adjusted difference -2.7 (95% CI -4.1 to -1.3).
+Safety: 7 non-serious adverse events across 6 SC-A 2.5 mg participants; 0 serious adverse events.
+The 2.5 mg value is a protocol review threshold, not medical advice.

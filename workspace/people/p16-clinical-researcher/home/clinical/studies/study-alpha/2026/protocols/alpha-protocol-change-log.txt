@@ -1,0 +1,2 @@
+2026-09-02 | v3.2 | Current snapshot issued | Clarified aggregate Day-28 analysis and 2.5 mg protocol review threshold; not clinical advice.
+2026-08-20 | v3.1 | Safety wording harmonized | Seven non-serious synthetic AEs across six participants; zero SAEs.

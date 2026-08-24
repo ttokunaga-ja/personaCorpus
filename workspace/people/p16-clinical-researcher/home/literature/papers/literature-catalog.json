@@ -1,0 +1,62 @@
+{
+  "schema": "persona-corpus.synthetic-literature-catalog/v1",
+  "persona": "p16-clinical-researcher",
+  "study_anchor": "Sakura Clinical Study Alpha 2026",
+  "as_of_date": "2026-09-02",
+  "cohort_anchor": 48,
+  "protocol_review_threshold_mg": 2.5,
+  "disclaimer": "All records and citations are fictional synthetic training material and are not medical advice.",
+  "records": [
+    {
+      "id": "SYN-ALPHA-A",
+      "title": "Study Alpha fictional parallel evidence packet",
+      "authors": [
+        "J. T.",
+        "M. K."
+      ],
+      "source": "Sakura Clinical Internal Methods Series",
+      "year": 2026,
+      "design": "parallel comparison",
+      "review_role": "contextual evidence",
+      "status": "synthetic"
+    },
+    {
+      "id": "SYN-ALPHA-B",
+      "title": "Study Alpha fictional exposure-threshold note",
+      "authors": [
+        "R. S.",
+        "L. P."
+      ],
+      "source": "Sakura Clinical Internal Methods Series",
+      "year": 2026,
+      "design": "open-label sequence",
+      "review_role": "threshold discussion",
+      "status": "synthetic"
+    },
+    {
+      "id": "SYN-ALPHA-C",
+      "title": "Study Alpha fictional crossover annotation",
+      "authors": [
+        "A. H."
+      ],
+      "source": "Sakura Clinical Internal Methods Series",
+      "year": 2026,
+      "design": "crossover note",
+      "review_role": "sensitivity context",
+      "status": "synthetic"
+    },
+    {
+      "id": "SYN-ALPHA-D",
+      "title": "Study Alpha fictional retrospective limitations memo",
+      "authors": [
+        "D. C.",
+        "Y. W."
+      ],
+      "source": "Sakura Clinical Internal Methods Series",
+      "year": 2026,
+      "design": "retrospective summary",
+      "review_role": "limitations context",
+      "status": "synthetic"
+    }
+  ]
+}

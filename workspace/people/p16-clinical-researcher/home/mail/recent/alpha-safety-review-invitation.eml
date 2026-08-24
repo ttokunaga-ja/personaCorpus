@@ -1,0 +1,65 @@
+From: Synthetic Safety Review <safety-review@sakura-clinical.example>
+To: Alpha Safety Circle <alpha-safety@sakura-clinical.example>
+Cc: Study Operations <study-operations@sakura-clinical.example>
+Subject: Invitation: Study Alpha 2026 aggregate safety review
+Date: Wed, 02 Sep 2026 10:05:00 +0900
+Message-ID: <alpha-safety-review-20260902-100500@sakura-clinical.example>
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="alpha-safety-review-20260902"
+
+--alpha-safety-review-20260902
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+Alpha Safety Circle,
+
+You are invited to the internal aggregate safety review for the Sakura Clinical
+Study Alpha 2026 snapshot dated 02 September 2026.
+
+When: 03 September 2026, 14:00–14:45 JST
+Where: Clinical VDI review room (internal calendar entry)
+Material: frozen synthetic cohort summary (48 records)
+
+Agenda
+1. Confirm that aggregate event coding and seriousness categories reconcile.
+2. Review whether the safety narrative supports interpretation of the parent
+   endpoint at the 2.5 mg threshold.
+3. Record questions or follow-up analyses without altering the frozen snapshot.
+
+This meeting concerns synthetic, aggregate study materials only. It is not a
+clinical care meeting and no individual-level information will be discussed.
+
+Please reply to the group mailbox if the timing prevents attendance.
+
+Synthetic Safety Review
+Sakura Clinical
+
+--alpha-safety-review-20260902
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Invitation: Study Alpha 2026 aggregate safety review</title>
+  <style>
+    body{margin:0;background:#f3f5f9;color:#1d2733;font:16px/1.55 Arial,sans-serif}.card{max-width:720px;margin:30px auto;background:#fff;border:1px solid #d6dce6;border-radius:10px;overflow:hidden}.top{padding:27px 35px;background:#293d6a;color:#fff}.top p{margin:0 0 5px;color:#dce8ff}.top h1{margin:0;font-size:1.55rem}.body{padding:28px 35px}.details{margin:20px 0;border:1px solid #d6dce6;border-radius:7px;overflow:hidden}.details div{display:grid;grid-template-columns:105px 1fr;padding:10px 14px;border-bottom:1px solid #d6dce6}.details div:last-child{border:0}.details strong{color:#526070}.agenda{padding:15px 18px;background:#f2f5fc;border-left:4px solid #476bb1}.agenda ol{margin:8px 0 0;padding-left:22px}.note{margin-top:20px;padding:12px 15px;border:1px solid #c7d8ef;border-radius:7px;background:#f8fbff}footer{padding:16px 35px;background:#f6f7fa;color:#5c6977;font-size:.88rem}@media(max-width:600px){.card{margin:0;border-radius:0}.top,.body,footer{padding-left:20px;padding-right:20px}.details div{grid-template-columns:84px 1fr}}
+  </style>
+</head>
+<body>
+  <article class="card" aria-labelledby="invite-title">
+    <header class="top"><p>Sakura Clinical · Synthetic Safety Review</p><h1 id="invite-title">Invitation: Study Alpha 2026 aggregate safety review</h1></header>
+    <main class="body">
+      <p>Alpha Safety Circle,</p><p>You are invited to the internal aggregate safety review for the Study Alpha 2026 snapshot dated 02 September 2026.</p>
+      <div class="details" aria-label="Meeting details"><div><strong>When</strong><span>03 September 2026, 14:00–14:45 JST</span></div><div><strong>Where</strong><span>Clinical VDI review room (internal calendar entry)</span></div><div><strong>Material</strong><span>Frozen synthetic cohort summary: 48 records</span></div></div>
+      <section class="agenda" aria-labelledby="agenda-title"><strong id="agenda-title">Agenda</strong><ol><li>Confirm aggregate event coding and seriousness categories reconcile.</li><li>Review whether the safety narrative supports interpretation of the parent endpoint at the <strong>2.5 mg</strong> threshold.</li><li>Record questions or follow-up analyses without altering the frozen snapshot.</li></ol></section>
+      <p class="note">This meeting concerns synthetic, aggregate study materials only. It is not a clinical care meeting and no individual-level information will be discussed.</p>
+      <p>Please reply to the group mailbox if the timing prevents attendance.</p>
+    </main>
+    <footer>Internal synthetic workspace · no external meeting link or data attachment is included.</footer>
+  </article>
+</body>
+</html>
+
+--alpha-safety-review-20260902--

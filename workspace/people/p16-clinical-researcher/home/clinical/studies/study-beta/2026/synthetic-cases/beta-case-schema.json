@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "study": "Sakura Clinical Study Beta 2026",
+  "cohort": {
+    "size": 36,
+    "allocation": "18/18",
+    "design": "exploratory, not confirmatory"
+  },
+  "case_id_pattern": "BETA-SYN-(001|002|...|036)",
+  "fields": [
+    "case_id",
+    "stage",
+    "artifact_type",
+    "threshold_review_2_5_mg",
+    "source_status",
+    "reviewer_disposition"
+  ],
+  "privacy": "wholly synthetic; no real PHI",
+  "medical_advice": false,
+  "cross_study_anchor": {
+    "study": "Alpha",
+    "synthetic_cohort": 48,
+    "snapshot": "2026-09-02",
+    "relationship": "distinct; do not pool"
+  }
+}

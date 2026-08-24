@@ -1,0 +1,63 @@
+From: Study Operations <study-operations@sakura-clinical.example>
+To: Alpha Research Team <alpha-research@sakura-clinical.example>
+Cc: Synthetic Safety Review <safety-review@sakura-clinical.example>
+Subject: Study Alpha 2026: synthetic data freeze confirmed for 02 September
+Date: Wed, 02 Sep 2026 09:15:00 +0900
+Message-ID: <alpha-freeze-20260902-091500@sakura-clinical.example>
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="alpha-freeze-20260902"
+
+--alpha-freeze-20260902
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+Study Alpha 2026 team,
+
+The 02 September 2026 synthetic-data snapshot is now frozen for the planned
+internal review. The frozen cohort contains 48 wholly synthetic records.
+
+The review spine remains unchanged:
+* Parent endpoint: evaluate the protocol-defined response summary at the
+  2.5 mg threshold.
+* Safety: reconcile aggregate synthetic adverse-event counts and narrative
+  classifications before interpretation.
+* Scope: this is an internal analytical snapshot, not a clinical decision,
+  participant roster, or regulatory submission.
+
+Please do not replace, append to, or re-label the snapshot while the review is
+in progress. Questions about analysis conventions should be placed in the
+Study Alpha status thread so the review record stays consistent.
+
+Study Operations
+Sakura Clinical (synthetic workspace)
+
+--alpha-freeze-20260902
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Study Alpha 2026 synthetic data freeze</title>
+  <style>
+    body{margin:0;background:#f1f5f7;color:#182632;font:16px/1.55 Arial,sans-serif}.mail{max-width:720px;margin:28px auto;background:#fff;border:1px solid #d4e0e5;border-radius:10px;overflow:hidden}.head{padding:26px 34px;background:#174d5b;color:#fff}.head p{margin:0 0 6px;color:#d8f0ed}.head h1{margin:0;font-size:1.55rem}.content{padding:26px 34px}.meta{padding:13px 15px;background:#eef7f5;border-left:4px solid #2a8474}.meta p{margin:3px 0}.callout{margin:22px 0;padding:15px 18px;border:1px solid #b9d6cf;border-radius:7px;background:#f8fcfb}.callout ul{margin:9px 0 0;padding-left:22px}footer{padding:16px 34px;background:#f6f8fa;color:#566671;font-size:.88rem}@media(max-width:600px){.mail{margin:0;border-radius:0}.head,.content,footer{padding-left:20px;padding-right:20px}}
+  </style>
+</head>
+<body>
+  <article class="mail" aria-labelledby="subject">
+    <header class="head"><p>Sakura Clinical · Study Operations</p><h1 id="subject">Study Alpha 2026: synthetic data freeze confirmed</h1></header>
+    <main class="content">
+      <div class="meta"><p><strong>Snapshot:</strong> 02 September 2026</p><p><strong>Cohort:</strong> 48 wholly synthetic records</p><p><strong>Review status:</strong> frozen for internal review</p></div>
+      <p>Study Alpha 2026 team,</p>
+      <p>The 02 September 2026 synthetic-data snapshot is now frozen for the planned internal review.</p>
+      <section class="callout" aria-label="Review spine"><strong>Review spine</strong><ul><li><strong>Parent endpoint:</strong> evaluate the protocol-defined response summary at the <strong>2.5 mg</strong> threshold.</li><li><strong>Safety:</strong> reconcile aggregate synthetic adverse-event counts and narrative classifications before interpretation.</li><li><strong>Scope:</strong> internal analytical snapshot only; not a clinical decision, participant roster, or regulatory submission.</li></ul></section>
+      <p>Please do not replace, append to, or re-label the snapshot while review is in progress. Put analysis-convention questions in the Study Alpha status thread so the record stays consistent.</p>
+      <p>Study Operations</p>
+    </main>
+    <footer>Wholly synthetic study workspace. No participant or patient information is included.</footer>
+  </article>
+</body>
+</html>
+
+--alpha-freeze-20260902--

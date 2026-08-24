@@ -1,0 +1,8 @@
+case_id,synthetic_participant_id,onset_date,preferred_term,severity,outcome,serious,snapshot_date,data_class
+AE-ALPHA-001,SYN-ALPHA-01,2026-08-04,Headache,Mild,Resolved,No,2026-09-02,synthetic
+AE-ALPHA-002,SYN-ALPHA-02,2026-08-11,Nausea,Mild,Resolved,No,2026-09-02,synthetic
+AE-ALPHA-003,SYN-ALPHA-03,2026-08-15,Injection-site discomfort,Mild,Resolved,No,2026-09-02,synthetic
+AE-ALPHA-004,SYN-ALPHA-03,2026-08-18,Fatigue,Mild,Resolved,No,2026-09-02,synthetic
+AE-ALPHA-005,SYN-ALPHA-04,2026-08-22,Dizziness,Moderate,Resolved,No,2026-09-02,synthetic
+AE-ALPHA-006,SYN-ALPHA-05,2026-08-26,Rash,Mild,Resolving,No,2026-09-02,synthetic
+AE-ALPHA-007,SYN-ALPHA-06,2026-08-30,Diarrhea,Mild,Resolved,No,2026-09-02,synthetic

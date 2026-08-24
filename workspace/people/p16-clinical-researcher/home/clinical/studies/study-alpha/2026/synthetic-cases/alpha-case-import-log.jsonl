@@ -1,0 +1,4 @@
+{"timestamp": "2026-09-02T09:00:00Z", "event": "import_started", "study": "Study Alpha 2026", "synthetic_only": true}
+{"timestamp": "2026-09-02T09:04:00Z", "event": "cohort_loaded", "records": 48}
+{"timestamp": "2026-09-02T09:06:00Z", "event": "safety_reconciled", "non_serious_events": 7, "saes": 0}
+{"timestamp": "2026-09-02T09:08:00Z", "event": "import_complete", "status": "review_ready"}

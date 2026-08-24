@@ -1,0 +1,30 @@
+From: Mara Vale <mara.vale@asterfield.example>
+To: research@study-alpha.sakura-clinical.example
+Subject: Study Alpha 2026: clarification requested for 2.5 mg threshold
+Date: Wed, 02 Sep 2026 09:15:00 +0000
+Message-ID: <alpha-query-20260902@asterfield.example>
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="===============5748743478323638910=="
+
+--===============5748743478323638910==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Synthetic monitoring query for Study Alpha 2026. Please review the 2.5 mg thr=
+eshold in the aggregate cohort 48 workflow. No PHI is included.
+
+--===============5748743478323638910==
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+<html><body style=3D"font-family:Arial,sans-serif"><h2 style=3D"color:#133B5C=
+">Sakura Clinical - Study Alpha 2026</h2><p><strong>Synthetic monitoring quer=
+y</strong></p><p>Please confirm that the <strong>2.5 mg</strong> review thres=
+hold was applied to the aggregate synthetic cohort of <strong>48</strong> for=
+ the 2026-09-02 snapshot.</p><p>This message is fictional training material; =
+it contains no PHI or credentials.</p><p>Regards,<br>Mara Vale<br>Asterfield =
+Monitoring Services (fictional)</p></body></html>
+
+--===============5748743478323638910==--

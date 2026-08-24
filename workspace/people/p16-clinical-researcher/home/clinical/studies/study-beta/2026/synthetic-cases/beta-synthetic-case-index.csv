@@ -1,0 +1,37 @@
+case_id,stage,source_status,threshold_note,privacy,study_note
+BETA-SYN-001,screening,reviewed,2.5 mg protocol review cue,synthetic,exploratory; not confirmatory
+BETA-SYN-002,baseline,reviewed,2.5 mg protocol review cue,synthetic,exploratory; not confirmatory
+BETA-SYN-003,dose card,reviewed,2.5 mg protocol review cue,synthetic,exploratory; not confirmatory
+BETA-SYN-004,diary,reviewed,2.5 mg protocol review cue,synthetic,exploratory; not confirmatory
+BETA-SYN-005,follow-up,reviewed,2.5 mg protocol review cue,synthetic,exploratory; not confirmatory
+BETA-SYN-006,closeout,reviewed,2.5 mg protocol review cue,synthetic,exploratory; not confirmatory
+BETA-SYN-007,screening,reviewed,2.5 mg protocol review cue,synthetic,exploratory; not confirmatory
+BETA-SYN-008,baseline,reviewed,2.5 mg protocol review cue,synthetic,exploratory; not confirmatory
+BETA-SYN-009,dose card,reviewed,2.5 mg protocol review cue,synthetic,exploratory; not confirmatory
+BETA-SYN-010,diary,reviewed,2.5 mg protocol review cue,synthetic,exploratory; not confirmatory
+BETA-SYN-011,follow-up,reviewed,2.5 mg protocol review cue,synthetic,exploratory; not confirmatory
+BETA-SYN-012,closeout,reviewed,2.5 mg protocol review cue,synthetic,exploratory; not confirmatory
+BETA-SYN-013,screening,reviewed,2.5 mg protocol review cue,synthetic,exploratory; not confirmatory
+BETA-SYN-014,baseline,reviewed,2.5 mg protocol review cue,synthetic,exploratory; not confirmatory
+BETA-SYN-015,dose card,reviewed,2.5 mg protocol review cue,synthetic,exploratory; not confirmatory
+BETA-SYN-016,diary,reviewed,2.5 mg protocol review cue,synthetic,exploratory; not confirmatory
+BETA-SYN-017,follow-up,reviewed,2.5 mg protocol review cue,synthetic,exploratory; not confirmatory
+BETA-SYN-018,closeout,reviewed,2.5 mg protocol review cue,synthetic,exploratory; not confirmatory
+BETA-SYN-019,screening,reviewed,2.5 mg protocol review cue,synthetic,exploratory; not confirmatory
+BETA-SYN-020,baseline,reviewed,2.5 mg protocol review cue,synthetic,exploratory; not confirmatory
+BETA-SYN-021,dose card,reviewed,2.5 mg protocol review cue,synthetic,exploratory; not confirmatory
+BETA-SYN-022,diary,reviewed,2.5 mg protocol review cue,synthetic,exploratory; not confirmatory
+BETA-SYN-023,follow-up,reviewed,2.5 mg protocol review cue,synthetic,exploratory; not confirmatory
+BETA-SYN-024,closeout,reviewed,2.5 mg protocol review cue,synthetic,exploratory; not confirmatory
+BETA-SYN-025,screening,reviewed,2.5 mg protocol review cue,synthetic,exploratory; not confirmatory
+BETA-SYN-026,baseline,reviewed,2.5 mg protocol review cue,synthetic,exploratory; not confirmatory
+BETA-SYN-027,dose card,reviewed,2.5 mg protocol review cue,synthetic,exploratory; not confirmatory
+BETA-SYN-028,diary,reviewed,2.5 mg protocol review cue,synthetic,exploratory; not confirmatory
+BETA-SYN-029,follow-up,reviewed,2.5 mg protocol review cue,synthetic,exploratory; not confirmatory
+BETA-SYN-030,closeout,reviewed,2.5 mg protocol review cue,synthetic,exploratory; not confirmatory
+BETA-SYN-031,screening,reviewed,2.5 mg protocol review cue,synthetic,exploratory; not confirmatory
+BETA-SYN-032,baseline,reviewed,2.5 mg protocol review cue,synthetic,exploratory; not confirmatory
+BETA-SYN-033,dose card,reviewed,2.5 mg protocol review cue,synthetic,exploratory; not confirmatory
+BETA-SYN-034,diary,reviewed,2.5 mg protocol review cue,synthetic,exploratory; not confirmatory
+BETA-SYN-035,follow-up,reviewed,2.5 mg protocol review cue,synthetic,exploratory; not confirmatory
+BETA-SYN-036,closeout,reviewed,2.5 mg protocol review cue,synthetic,exploratory; not confirmatory

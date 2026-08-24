@@ -1,0 +1,21 @@
+schema_version: 1
+artifact: study_alpha_synthetic_case
+study: Study Alpha 2026
+snapshot_date: 2026-09-02
+synthetic_only: true
+cohort:
+  total: 48
+  arms:
+    sc_a_2_5_mg: 24
+    matched_control: 24
+outcomes:
+  day_28_mean_change:
+    sc_a_2_5_mg: -4.8
+    matched_control: -2.1
+  adjusted_difference: -2.7
+  confidence_interval_95: [-4.1, -1.3]
+safety:
+  non_serious_ae_events: 7
+  participants_with_ae: 6
+  serious_adverse_events: 0
+notice: 2.5 mg is a protocol review threshold, not clinical advice.

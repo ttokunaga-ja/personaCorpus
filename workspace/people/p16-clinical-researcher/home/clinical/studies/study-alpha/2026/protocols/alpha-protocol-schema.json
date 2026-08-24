@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "organization": "Sakura Clinical",
+  "study": "Study Alpha 2026",
+  "snapshot_date": "2026-09-02",
+  "synthetic": true,
+  "cohort": {
+    "total": 48,
+    "sc_a_2_5mg": 24,
+    "matched_control": 24
+  },
+  "day_28": {
+    "mean_change_sc_a": -4.8,
+    "mean_change_control": -2.1,
+    "adjusted_difference": -2.7,
+    "ci_95": [
+      -4.1,
+      -1.3
+    ]
+  },
+  "safety": {
+    "non_serious_synthetic_aes": 7,
+    "participants_with_aes": 6,
+    "saes": 0
+  },
+  "notice": "2.5 mg is a protocol review threshold, not clinical advice."
+}

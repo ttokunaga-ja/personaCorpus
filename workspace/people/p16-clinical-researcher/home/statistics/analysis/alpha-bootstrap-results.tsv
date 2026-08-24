@@ -1,0 +1,14 @@
+metric	value	unit
+snapshot_date	2026-09-02	
+synthetic_cases	48	cases
+intervention_n	24	cases
+control_n	24	cases
+threshold	2.5	mg
+day28_mean_intervention	-4.8	points
+day28_mean_control	-2.1	points
+adjusted_difference	-2.7	points
+ci95_lower	-4.1	points
+ci95_upper	-1.3	points
+nonserious_ae_events	7	events
+unique_ae_cases	6	cases
+serious_ae_events	0	events
