@@ -2,29 +2,33 @@
 
 Date: 2026-08-24 (Asia/Tokyo)
 
-Source control-plane HEAD: `60f0962f49af607fc5e66d1776025a32d39bce4c`
+Artifact tip before this report/manifest commit:
+`d16de9cbfec6cb2434be1509b9524db3e4f69760`.
 
-## Idle and completion gates
+## Concurrent-production boundary
 
-- `./bin/check-ready` reported `active_leases=0` on two checks separated by at
-  least 30 seconds.
-- The path/size/mtime state digest for `workspace/people` plus `progress`
-  remained `3762fd393548f301a0912fa9c286b44a0aeb113e8fa99bc8d001cc075d84c334`.
-- No relevant final/progress file had changed in the preceding five minutes.
-- p01 Full pilot was reverified with `./bin/full-ledger verify`: 200 immutable
-  M1 files, 12 selected additions, 212 after files, `result: ok`.
-- The p01 baseline and cumulative after manifest SHA-256 values are
-  `6b59e44cd520134928b710303f0ddaa2890f006d58d7c582dc07bc280f429bec`
-  and `4dae33fac0543a2f692d55c5159e70d40f5d2708ae1429936ba16272db44affb`.
-- p08, p09, and p10 each have 200 artifacts and a frozen 200-row M1 ledger;
-  each ledger path set exactly equals its final artifact path set, with no
-  exact SHA-256 duplicate.
+This migration intentionally ran while p02 and p03 Full production remained
+active. Their already tracked M1 baselines (200 artifacts each) remain managed,
+but every untracked p02/p03 Full artifact, checkpoint, manifest, allocation
+record, helper, and prompt was excluded from staging.
+
+The coordinator used `bin/corpus-manifest --tracked-only`. That mode binds the
+canonical persona plan and selected artifacts to stage-0 Git-index bytes,
+rejects index conflicts and worktree/index drift, and ignores unrelated
+untracked production output. Generation and an independent verify both returned
+`result: ok` for the final managed snapshot.
+
+No lease was recovered or released and `workspace/_control/` was not edited.
+Stale Full-allocation leases for other personas were not treated as completed
+production. p15 M1 was included only after its 200-file artifact and ledger
+digest remained identical across two checks 30 seconds apart; p15 Full records
+remain local.
 
 ## Git-managed artifact snapshot
 
 | Persona | Files | Bytes |
 | --- | ---: | ---: |
-| p01 | 212 | 17,465,507 |
+| p01 | 12,000 | 784,708,930 |
 | p02 | 200 | 5,987,337 |
 | p03 | 200 | 20,472,981 |
 | p04 | 200 | 11,929,120 |
@@ -34,66 +38,80 @@ Source control-plane HEAD: `60f0962f49af607fc5e66d1776025a32d39bce4c`
 | p08 | 200 | 52,666,315 |
 | p09 | 200 | 61,354,069 |
 | p10 | 200 | 43,923,771 |
-| **Total** | **2,012** | **433,113,553** |
+| p11 | 200 | 24,863,187 |
+| p12 | 200 | 24,526,384 |
+| p13 | 200 | 66,739,166 |
+| p14 | 200 | 43,921,563 |
+| p15 | 200 | 44,928,380 |
+| p16 | 200 | 51,442,769 |
+| p17 | 200 | 81,214,417 |
+| p18 | 200 | 42,396,104 |
+| p19 | 200 | 72,848,754 |
+| p20 | 200 | 48,920,271 |
+| **Total** | **15,800** | **1,702,157,971** |
 
-The root manifest has 2,013 JSONL lines (one header plus 2,012 artifacts), is
-574,841 bytes, and has SHA-256
-`ba46cacce99a61e2c2cecda22c3895f2813864dea1e65242003b2d18d9da8f32`.
-The largest artifact is 9,138,385 bytes. No final artifact exceeds the
-104,857,600-byte GitHub-compatible guard.
+The root manifest has 15,801 JSONL lines (one header plus 15,800 artifacts),
+SHA-256 `94c0e7da8d7bfbb18288c1bf378c5dd18cfb772148498318483370ffbcf0f115`,
+and a largest managed artifact of 9,138,385 bytes. The largest blob anywhere in
+reachable Git history is 14,540,322 bytes. Both are below the ordinary GitHub
+100 MiB object ceiling.
 
-Portable authority includes `canonical/persona-plan.json` (357,751 bytes,
-SHA-256 `f4e84efd49a98760733d628aaa44342dc7039cc845aced936e8a158eada95236`)
-and `canonical/persona-schedule.json` (14,540,322 bytes, SHA-256
-`77a12bacfecc4750a0175db1d9c10c7709994a1c747289c121bb27087dd4e7a9`).
-Portable progress comprises 19 newly managed persona records plus the existing
-`progress/README.md`, totalling 6,955,528 bytes at migration time. Machine
-absolute prefixes in the human M1 displays were normalized to repository-
-relative paths; frozen filenames, families, counts, and artifact bytes were
-not changed.
+## Accepted additions in this migration
 
-## Safety inspection
+- p01 Full allocation authority, 91 token-free checkpoints, six cumulative
+  acceptance-group manifest pairs, and all 11,788 Full additions. The six
+  artifact waves were committed and pushed separately.
+- p11 through p20 M1 corpora, one persona per commit: 200 physical artifacts,
+  one 200-row machine-readable ledger, and one portable display per persona.
+- A fail-closed Git-index manifest mode and its regression tests, allowing an
+  accepted subset to be committed while another persona remains untracked and
+  active.
 
-- No symlink or nonregular entry exists below any persona home.
-- Maximum observed final-tree directory width is 32 entries and maximum final
-  artifact path depth is 10 components.
-- Gitleaks 8.30.1 scanned the final tree, including nested archives to depth 2,
-  and returned no findings.
-- Every managed path is selected by the documented `.gitignore` allowlist;
-  force-add was not used.
-- `./bin/corpus-manifest verify` regenerated every path, byte count, and digest
-  and returned `result: ok`.
+p01 has 12,000 regular artifacts, no symlink or nonregular entry, a complete
+11,800-row Full assignment ledger, and 91 checkpoints matching all 91 assigned
+batches. Each cumulative manifest before-state is byte-identical to the prior
+after-state, and each wave's manifest additions exactly match its assigned
+batch paths.
 
-This migration does not rerun Kio indexing, history, search, chunking, or
-performance evaluation and makes no claim about them.
+## Safety and validation
 
-## Intentionally local exclusions
+- No selected artifact is a symlink or nonregular entry.
+- No selected blob is 50 MiB or larger; none approaches 100 MiB.
+- Commit-boundary scans found no confirmed private key, access key, credential,
+  release token, or other secret in the selected paths.
+- M1 home path sets for p11 through p20 exactly match their frozen ledgers.
+- `tests/corpus-manifest.sh`, Python compilation, staged diff checks, and
+  `corpus-manifest verify --tracked-only` passed.
+- There are no repository GitHub Actions workflows and no active custom Git
+  hooks, so no remote CI job was expected from these pushes.
 
-- `.runtime/` and its macOS ARM64 pinned executable;
-- `workspace/_control/`, `workspace/persona-workspace-owner.json`, and the
-  redundant workspace plan copy;
-- `scratch/` render, temporary, QA, and local production logs;
-- `canonical/scaffold-result.json` and the machine-specific materialization
-  receipt;
-- redundant `canonical/materialized/` copies; and
-- both 155,409,781-byte canonical render JSON copies, which exceed the ordinary
-  Git blob guard. Git LFS is not installed on this machine.
+Kio indexing, history, search, chunking, and performance evaluation were not
+run and are not claimed by this migration.
 
-These exclusions contain no accepted final artifact. A clone receives the
-accepted corpus and portable verification evidence, but needs an approved
-local runtime/owner/lease bootstrap before it can become a formal production
-controller.
+## Intentionally local or deferred
+
+- all active p02/p03 Full production output and portable progress;
+- Full allocation/start packages not yet safe to publish as READY, including
+  packages affected by stale leases or the pending resume-gate review;
+- `.runtime/`, `workspace/_control/`, workspace owner/scaffold receipts,
+  release and lock state, scratch renders/temp/QA output, and machine-specific
+  absolute-path receipts;
+- canonical render/materialization JSON files above 100 MiB; and
+- exact-ignore root renderer/debug spill files (`-.jpg`, `-.png`, `-.ppm`,
+  `scratch_rows.jsonl`, and `scratch_rows.tmp`).
+
+The pending resume-gate changes are deliberately not part of this migration:
+review found missing enforcement for the 200-file M1 baseline, assignment-ledger
+digest binding, and general dependency acceptance order. The production-state
+dependent `tests/full-ledger.sh` is also not valid against completed p01 Full.
+Those changes require repair and review after active p02/p03 work no longer
+depends on the shared checkout.
 
 ## GitHub operational envelope
 
-GitHub's current [repository limits](https://docs.github.com/en/repositories/creating-and-managing-repositories/repository-limits)
-enforce a 100 MiB single-object ceiling and a 2 GiB push ceiling, and recommend
-at most 10 GiB of compressed `.git` on-disk size, 3,000 entries per directory,
-and depth 50. Its [large-file guidance](https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github)
-recommends keeping a repository ideally below 1 GiB and strongly below 5 GiB.
-There is no simple published hard total-file-count ceiling. Current artifacts
-are within the blob and tree limits; Full growth must remain persona/batch
-committed and measured before each push.
-
-No push is part of this migration. Remote publication remains pending explicit
-user authorization.
+GitHub blocks ordinary Git objects above 100 MiB and pushes above 2 GiB. This
+migration used an initial baseline push followed by small coherent incremental
+pushes. At report time, `.git` contains about 968 MiB of packs plus about 499 MiB
+of loose objects; repository maintenance can compact the loose objects later,
+after production I/O is idle. No force-add, history rewrite, Git LFS migration,
+or push outside `main` was used.
