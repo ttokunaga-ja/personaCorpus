@@ -1,7 +1,11 @@
-# p01 Full master allocation task
+# p01 Full master allocation task (completed archive)
 
-Paste the following into one new Codex Local task. This task freezes allocation
-only; it must not create, alter, or delete a final corpus artifact.
+> The 11,800-row master and content spine are accepted. Do not paste or rerun
+> this allocation prompt. Start or resume physical production with
+> `prompts/p01-full-production.md`.
+
+The archived text below froze allocation only; it must not be reused to create,
+alter, or delete a final corpus artifact.
 
 ```text
 このpersonaCorpus Localタスクで、p01 Full mass productionの前提となる完全master
