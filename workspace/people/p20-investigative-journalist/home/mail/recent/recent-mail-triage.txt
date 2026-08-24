@@ -1,0 +1,20 @@
+2026-08-22 09:10 UTC | editorial-desk-update.eml
+Status: reviewed
+Story: Civic Ledger / Story Alpha 2026
+Record: FOIA batch 17 | verified 2026-08-19
+Reference: Agency Alpha-17 / Project Lantern / CL-A17-2026-04
+Action: retain agency attribution and separate verified record from reporting notes.
+
+2026-08-22 09:14 UTC | source-role-reply
+Status: unresolved
+From: Source Role <source-role-alpha@synthetic.invalid>
+Action: requested quotation is missing from the verified materials; do not infer wording.
+
+2026-08-22 09:18 UTC | records-check
+Status: unresolved
+Action: administrative cover entry and timeline note show a date mismatch; request clarification.
+Assessment: the mismatch is a reporting gap, not evidence of wrongdoing.
+
+2026-08-22 09:22 UTC | editor-response
+Status: queued
+Action: prepare a concise desk response with both gaps and a verification boundary.

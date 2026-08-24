@@ -1,0 +1,4 @@
+2026-08-19 | Fact-check desk | CLM-01 through CLM-04 corroborated
+2026-08-19 | Fact-check desk | CLM-05 metadata mismatch retained as documentation gap; next action: version-history explanation
+2026-08-19 | Fact-check desk | CLM-06 missing third comparison quote retained as documentation gap; next action: locate or record unavailable
+2026-08-22 | Desk record | Civic Ledger Story Alpha 2026 handoff complete

@@ -1,0 +1,34 @@
+{
+  "corpus": "Civic Ledger",
+  "story": "Story Alpha 2026",
+  "story_date": "2026-08-22",
+  "foia_batch": 17,
+  "batch_label": "FOIA batch 17",
+  "request_id": "CL-SA26-FOIA-17",
+  "received_date": "2026-08-14",
+  "verified_date": "2026-08-19",
+  "release_pages": 48,
+  "agency": "Agency Alpha-17 Project Lantern",
+  "agreement": "CL-A17-2026-04",
+  "sensor_kits": 240,
+  "civic_credits": 1248000,
+  "approval_date": "2026-06-03",
+  "items": [
+    "001",
+    "002",
+    "003",
+    "004",
+    "005",
+    "006",
+    "007",
+    "008"
+  ],
+  "review_notes": [
+    "Two verified quotations are present; a third quotation was not located in the released record.",
+    "The 2026-05-28 versus 2026-05-30 metadata mismatch is a documentation gap, not proof of wrongdoing."
+  ],
+  "source_role_ids": [
+    "Source Alpha-01",
+    "Source Alpha-02"
+  ]
+}

@@ -1,0 +1,3 @@
+claim_id,story,record_id,evidence_type,source_role_id,verification_date,status
+CLM-A-01,Story Alpha,CL-A17-2026-04,FOIA batch 17,Source Alpha-01,2026-08-19,verified
+CLM-B-01,Story Beta,CL-B09-2026-11,FOIA batch 17,Source Beta-01,2026-08-19,verified

@@ -1,0 +1,15 @@
+workspace: Civic Ledger
+reporting_date: 2026-08-22
+verified_date: 2026-08-19
+foia_batch: 17
+stories:
+  alpha:
+    reference: CL-A17-2026-04
+    kits: 240
+    fictional_civic_credits: 1248000
+  beta:
+    reference: CL-B09-2026-11
+    units: 96
+    fictional_civic_credits: 684000
+editorial_guardrail: Gaps are not proof of wrongdoing.
+state: desk-review

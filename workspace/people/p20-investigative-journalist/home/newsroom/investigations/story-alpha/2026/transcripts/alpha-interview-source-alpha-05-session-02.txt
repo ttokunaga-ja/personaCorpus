@@ -1,0 +1,20 @@
+Civic Ledger | Story Alpha 2026 | desk date 2026-08-22 | FOIA batch 17 | verified 2026-08-19
+Synthetic training corpus. All speakers, identifiers, organizations, and records in this file are fictional.
+
+TRANSCRIPT: Source Alpha-05, session 02
+Status: synthetic interview transcript; not a real interview or reporting record.
+Reporter: Civic Ledger Desk (synthetic)
+Source: Source Alpha-05 (reserved synthetic identity)
+Recording note: timestamped editorial transcript; wording checked against the designated synthetic source set.
+
+--- BEGIN TRANSCRIPT ---
+[14:55:05] Reporter: What should the final editorial note preserve?
+[14:55:13] Source Alpha-05: It should preserve the distinction between a documented discrepancy and a proved conclusion.
+[14:56:03] Reporter: Which sources were used?
+[14:56:11] Source Alpha-05: Only Source Alpha-01 through Source Alpha-05 were used in this synthetic file.
+[14:57:08] Reporter: What is the status line?
+[14:57:16] Source Alpha-05: Verified against the designated synthetic materials on 2026-08-19, with outstanding documentation gaps noted.
+--- END TRANSCRIPT ---
+
+Verification caveat: This transcript supports only the stated record facts. It does not prove motive, wrongdoing, completeness, or causation.
+Source boundary: Source Alpha-01 through Source Alpha-05 only.

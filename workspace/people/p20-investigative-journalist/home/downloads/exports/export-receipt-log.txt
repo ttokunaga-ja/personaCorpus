@@ -1,0 +1,30 @@
+CIVIC LEDGER EXPORT RECEIPT
+Export set: p20-secondary-04
+Export date: 2026-08-22
+Verification date: 2026-08-19
+
+Included artifact IDs
+- p20-m1-000041 editorial review PDF
+- p20-m1-000042 export manifest XML
+- p20-m1-000044 publication timeline PNG
+- p20-m1-000045 Story Alpha fact-check CSV
+- p20-m1-000046 Story Beta source-status TSV
+
+Story Alpha 2026
+Record: CL-A17-2026-04
+Reported quantity: 240 kits
+Reported value: 1,248,000 fictional Civic Credits
+Role ID: Source Alpha-01
+
+Story Beta 2026
+Record: CL-B09-2026-11
+Reported units: 96
+Reported value: 684,000 fictional Civic Credits
+Role ID: Source Beta-01
+
+Review note
+The remaining gaps concern documentation routing and process chronology only.
+They are unresolved and are not findings of wrongdoing.
+
+No files were copied into this export set. Each artifact is an independent
+synthetic export linked by its stable artifact ID.

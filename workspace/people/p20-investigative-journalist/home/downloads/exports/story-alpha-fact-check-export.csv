@@ -1,0 +1,2 @@
+artifact_id,story,record_id,review_status,requested_quantity,reported_value_civic_credits,source_role_id,source_artifact_ids,documentation_gap,verification_date
+p20-m1-000045,Story Alpha 2026,CL-A17-2026-04,verified,240,1248000,Source Alpha-01,p20-m1-000041;p20-m1-000042;p20-m1-000043;p20-m1-000044,FOIA batch 17 routing index remains unresolved,2026-08-19

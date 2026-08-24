@@ -1,0 +1,20 @@
+Civic Ledger | Story Alpha 2026 | desk date 2026-08-22 | FOIA batch 17 | verified 2026-08-19
+Synthetic training corpus. All speakers, identifiers, organizations, and records in this file are fictional.
+
+TRANSCRIPT: Source Alpha-02, session 01
+Status: synthetic interview transcript; not a real interview or reporting record.
+Reporter: Civic Ledger Desk (synthetic)
+Source: Source Alpha-02 (reserved synthetic identity)
+Recording note: timestamped editorial transcript; wording checked against the designated synthetic source set.
+
+--- BEGIN TRANSCRIPT ---
+[10:22:09] Reporter: Please state the status of this interview.
+[10:22:16] Source Alpha-02: This is a synthetic source interview. My comments are limited to Source Alpha-02 material.
+[10:23:01] Reporter: What value appears in the agreement summary?
+[10:23:10] Source Alpha-02: The summary lists 1,248,000 fictional Civic Credits for Project Lantern.
+[10:24:07] Reporter: What is the metadata issue?
+[10:24:16] Source Alpha-02: One record shows 2026-05-28 and another shows 2026-05-30; that mismatch is a documentation gap, not proof of wrongdoing.
+--- END TRANSCRIPT ---
+
+Verification caveat: This transcript supports only the stated record facts. It does not prove motive, wrongdoing, completeness, or causation.
+Source boundary: Source Alpha-01 through Source Alpha-05 only.

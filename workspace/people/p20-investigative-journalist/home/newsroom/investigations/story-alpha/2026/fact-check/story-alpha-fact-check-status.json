@@ -1,0 +1,93 @@
+{
+  "anchor": "Civic Ledger / Story Alpha 2026 / desk 2026-08-22 / FOIA batch 17",
+  "project": "Agency Alpha-17 Project Lantern | CL-A17-2026-04",
+  "foia_request": "CL-SA26-FOIA-17",
+  "received": "2026-08-14",
+  "synthetic_page_count": 48,
+  "verified": "2026-08-19",
+  "claims": [
+    {
+      "claim_id": "CLM-01",
+      "wording": "Project Lantern covers 240 sensors.",
+      "evidence_ids": [
+        "EV-A17-01 asset schedule",
+        "SRC-A-01 role note"
+      ],
+      "source_role_corroboration": "A schedule total and a Source Alpha role note agree on 240.",
+      "status": "corroborated",
+      "verified": "2026-08-19",
+      "caveat": "The role note is a corroborating account, not a substitute for the schedule.",
+      "next_action": "Compare the final deployment inventory when released."
+    },
+    {
+      "claim_id": "CLM-02",
+      "wording": "The approval record lists 1,248,000 fictional Civic Credits.",
+      "evidence_ids": [
+        "EV-A17-02 approval summary",
+        "SRC-A-02 role note"
+      ],
+      "source_role_corroboration": "The approval summary and a Source Alpha role note state the same amount.",
+      "status": "corroborated",
+      "verified": "2026-08-19",
+      "caveat": "The fictional unit is reported exactly as recorded; no valuation inference is made.",
+      "next_action": "Request the final accounting reconciliation."
+    },
+    {
+      "claim_id": "CLM-03",
+      "wording": "Approval is dated 2026-06-03.",
+      "evidence_ids": [
+        "EV-A17-02 approval summary",
+        "SRC-A-03 role note"
+      ],
+      "source_role_corroboration": "The approval summary date is supported by a Source Alpha role note.",
+      "status": "corroborated",
+      "verified": "2026-08-19",
+      "caveat": "This confirms the recorded approval date, not later implementation activity.",
+      "next_action": "Check the next release for any amended approval."
+    },
+    {
+      "claim_id": "CLM-04",
+      "wording": "FOIA request CL-SA26-FOIA-17 was received 2026-08-14 and contains 48 synthetic pages.",
+      "evidence_ids": [
+        "EV-FOIA-17 intake record",
+        "EV-FOIA-17 page count"
+      ],
+      "source_role_corroboration": "The intake record and page count are mutually consistent.",
+      "status": "corroborated",
+      "verified": "2026-08-19",
+      "caveat": "Receipt and page count describe the supplied synthetic packet only.",
+      "next_action": "Retain the intake record with the packet index."
+    },
+    {
+      "claim_id": "CLM-05",
+      "wording": "The 2026-05-28 versus 2026-05-30 metadata mismatch is a documentation gap.",
+      "evidence_ids": [
+        "EV-A17-03 metadata extract",
+        "SRC-A-04 role note"
+      ],
+      "source_role_corroboration": "The two displayed metadata dates differ; the cause is not established.",
+      "status": "open",
+      "verified": "2026-08-19",
+      "caveat": "The mismatch is not proof of wrongdoing.",
+      "next_action": "Request a version-history explanation and preserve both extracts."
+    },
+    {
+      "claim_id": "CLM-06",
+      "wording": "A third comparison quote is missing from the available record.",
+      "evidence_ids": [
+        "EV-A17-04 comparison worksheet",
+        "SRC-A-05 role note"
+      ],
+      "source_role_corroboration": "The worksheet records two comparison quotes and no third quote.",
+      "status": "open",
+      "verified": "2026-08-19",
+      "caveat": "The missing quote is a documentation gap, not proof of wrongdoing.",
+      "next_action": "Seek the absent comparison record or record its unavailability."
+    }
+  ],
+  "totals": {
+    "corroborated": 4,
+    "open": 2,
+    "all": 6
+  }
+}

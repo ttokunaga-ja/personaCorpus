@@ -1,0 +1,7 @@
+evidence_id	source_role_id	role	use	status
+EV-A17-01 asset schedule	SRC-A-01	Source Alpha role	CLM-01	corroborated
+EV-A17-02 approval summary	SRC-A-02	Source Alpha role	CLM-02	corroborated
+EV-A17-02 approval summary	SRC-A-03	Source Alpha role	CLM-03	corroborated
+EV-FOIA-17 intake record	SRC-A-04	Source Alpha role	CLM-04	corroborated
+EV-A17-03 metadata extract	SRC-A-05	Source Alpha role	CLM-05	open
+EV-A17-04 comparison worksheet	SRC-A-06	Source Alpha role	CLM-06	open

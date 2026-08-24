@@ -1,0 +1,20 @@
+Civic Ledger | Story Alpha 2026 | desk date 2026-08-22 | FOIA batch 17 | verified 2026-08-19
+Synthetic training corpus. All speakers, identifiers, organizations, and records in this file are fictional.
+
+TRANSCRIPT: Source Alpha-02, session 02
+Status: synthetic interview transcript; not a real interview or reporting record.
+Reporter: Civic Ledger Desk (synthetic)
+Source: Source Alpha-02 (reserved synthetic identity)
+Recording note: timestamped editorial transcript; wording checked against the designated synthetic source set.
+
+--- BEGIN TRANSCRIPT ---
+[15:40:04] Reporter: Did you review the approval date?
+[15:40:12] Source Alpha-02: Yes. The agreement summary identifies 2026-06-03 as the approval date.
+[15:41:03] Reporter: Can the two metadata dates be reconciled from this file?
+[15:41:12] Source Alpha-02: Not from this file alone. The source record is incomplete on that point.
+[15:42:06] Reporter: What language should the story use?
+[15:42:14] Source Alpha-02: It should say the dates differ and that the difference does not, by itself, establish wrongdoing.
+--- END TRANSCRIPT ---
+
+Verification caveat: This transcript supports only the stated record facts. It does not prove motive, wrongdoing, completeness, or causation.
+Source boundary: Source Alpha-01 through Source Alpha-05 only.

@@ -1,0 +1,20 @@
+Civic Ledger | Story Alpha 2026 | desk date 2026-08-22 | FOIA batch 17 | verified 2026-08-19
+Synthetic training corpus. All speakers, identifiers, organizations, and records in this file are fictional.
+
+TRANSCRIPT: Source Alpha-01, session 01
+Status: synthetic interview transcript; not a real interview or reporting record.
+Reporter: Civic Ledger Desk (synthetic)
+Source: Source Alpha-01 (reserved synthetic identity)
+Recording note: timestamped editorial transcript; wording checked against the designated synthetic source set.
+
+--- BEGIN TRANSCRIPT ---
+[09:00:11] Reporter: For the record, is this a synthetic interview for the Civic Ledger file?
+[09:00:18] Source Alpha-01: Yes. This is a synthetic interview, and I can describe the document trail but not infer intent.
+[09:01:02] Reporter: What does the record show about Project Lantern?
+[09:01:10] Source Alpha-01: The record lists 240 environmental sensor kits under agreement CL-A17-2026-04, approved 2026-06-03.
+[09:02:04] Reporter: What should readers not conclude from the missing third quote?
+[09:02:12] Source Alpha-01: They should not treat an absent quote as proof of wrongdoing; it is a documentation gap.
+--- END TRANSCRIPT ---
+
+Verification caveat: This transcript supports only the stated record facts. It does not prove motive, wrongdoing, completeness, or causation.
+Source boundary: Source Alpha-01 through Source Alpha-05 only.

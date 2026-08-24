@@ -1,0 +1,21 @@
+story: Story Alpha 2026
+publisher: Civic Ledger
+foia_batch: 17
+verification_cutoff: 2026-08-19
+publication_target: 2026-08-22
+agency: Agency Alpha-17
+project: Project Lantern
+procurement_record: CL-A17-2026-04
+procurement:
+  sensor_kits: 240
+  amount: 1248000 fictional Civic Credits
+  approved: 2026-06-03
+foia_request:
+  id: CL-SA26-FOIA-17
+  received: 2026-08-14
+  pages: 48 synthetic pages
+documentation_gaps:
+  - missing third quote
+  - metadata discrepancy: 2026-05-28 versus 2026-05-30
+conclusion: documentation gaps are not proof of wrongdoing
+source_policy: Source Alpha role IDs only

@@ -1,0 +1,10 @@
+DOWNLOAD INTAKE LOG - SYNTHETIC
+Civic Ledger | Story Alpha 2026 | 2026-08-22 | FOIA batch 17 | verified 2026-08-19
+
+2026-08-14 09:14Z | received | CL-SA26-FOIA-17 | 48 synthetic pages declared
+2026-08-14 09:19Z | cataloged | page 001 scan | Source Alpha-01 reserved synthetic identity
+2026-08-14 09:20Z | cataloged | page 002 scan | Source Alpha-02 reserved synthetic identity
+2026-08-19 15:40Z | verified | preview-to-scan naming reconciliation complete
+2026-08-22 08:30Z | desk note | materials are synthetic; no real source, contact, or record asserted
+
+Scope: local training corpus intake only.

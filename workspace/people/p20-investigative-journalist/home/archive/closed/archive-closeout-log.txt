@@ -1,0 +1,18 @@
+CIVIC LEDGER - ARCHIVE CLOSEOUT LOG
+Story Alpha 2026 | desk date 2026-08-22 | FOIA batch 17 | verified 2026-08-19
+
+Archive reference: CL-SA26-FOIA-17
+FOIA receipt: 2026-08-14
+Source boundary: Source Alpha-01 through Source Alpha-05 only
+Record status: CLOSED - retained as a synthetic editorial archive item
+
+2026-08-19 16:40  Verification pass completed against the designated synthetic record.
+2026-08-20 09:15  Source Alpha-01 role record marked closed; no contact or location data retained here.
+2026-08-20 09:18  Source Alpha-02 role record marked closed; date comparison noted for documentation review.
+2026-08-20 09:21  Source Alpha-03 role record marked closed; FOIA receipt context retained.
+2026-08-20 09:24  Source Alpha-04 role record marked closed; editorial boundary retained.
+2026-08-20 09:27  Source Alpha-05 role record marked closed; verification note retained.
+2026-08-22 11:00  Story Alpha archive label applied; active reporting copy closed.
+
+Documentation note: the missing third quote and the 2026-05-28 / 2026-05-30 date mismatch remain documentation gaps. They do not establish wrongdoing.
+Synthetic corpus notice: this log contains reserved role IDs only; no real people, sources, contact details, or locations are represented.

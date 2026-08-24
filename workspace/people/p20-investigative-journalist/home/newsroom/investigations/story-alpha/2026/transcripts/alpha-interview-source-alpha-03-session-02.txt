@@ -1,0 +1,20 @@
+Civic Ledger | Story Alpha 2026 | desk date 2026-08-22 | FOIA batch 17 | verified 2026-08-19
+Synthetic training corpus. All speakers, identifiers, organizations, and records in this file are fictional.
+
+TRANSCRIPT: Source Alpha-03, session 02
+Status: synthetic interview transcript; not a real interview or reporting record.
+Reporter: Civic Ledger Desk (synthetic)
+Source: Source Alpha-03 (reserved synthetic identity)
+Recording note: timestamped editorial transcript; wording checked against the designated synthetic source set.
+
+--- BEGIN TRANSCRIPT ---
+[13:18:09] Reporter: Is Agency Alpha-17 a real agency?
+[13:18:16] Source Alpha-03: No. Agency Alpha-17 and this discussion are synthetic training materials.
+[13:19:04] Reporter: What did batch 17 provide?
+[13:19:12] Source Alpha-03: The stated FOIA batch provided 48 synthetic pages after receipt on 2026-08-14.
+[13:20:07] Reporter: What caveat belongs with that count?
+[13:20:14] Source Alpha-03: The count describes the supplied set; it does not establish completeness beyond the materials reviewed.
+--- END TRANSCRIPT ---
+
+Verification caveat: This transcript supports only the stated record facts. It does not prove motive, wrongdoing, completeness, or causation.
+Source boundary: Source Alpha-01 through Source Alpha-05 only.

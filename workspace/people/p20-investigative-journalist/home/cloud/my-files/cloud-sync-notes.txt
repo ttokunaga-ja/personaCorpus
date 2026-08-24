@@ -1,0 +1,11 @@
+Civic Ledger - synthetic cloud sync notes
+Review date: 2026-08-22
+Verification date: 2026-08-19
+FOIA reference: batch 17
+
+This folder contains only fictional newsroom working material for Story Alpha and Story Beta 2026. The crosswalk, review copies, and corroboration map use the controlled roles Source Alpha-01 and Source Beta-01 only.
+
+Story Alpha: CL-A17-2026-04; 240 kits; 1,248,000 fictional Civic Credits.
+Story Beta: CL-B09-2026-11; 96 units; 684,000 fictional Civic Credits.
+
+Sync note: the transfer capture is a synthetic protocol sample using documentation-only network ranges. No credentials, real source material, contact information, or location data is included.

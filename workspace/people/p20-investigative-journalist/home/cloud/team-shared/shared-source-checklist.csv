@@ -1,0 +1,3 @@
+story,record_id,document_set,planned_quantity,fictional_civic_credits,review_state,gap_status,verified_date
+Story Alpha,CL-A17-2026-04,FOIA batch 17,240,1248000,verified,quote/date gaps unresolved,2026-08-19
+Story Beta,CL-B09-2026-11,FOIA batch 17,96,684000,verified,quote/date gaps unresolved,2026-08-19

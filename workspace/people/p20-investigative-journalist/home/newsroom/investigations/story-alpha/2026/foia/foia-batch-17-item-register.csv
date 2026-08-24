@@ -1,0 +1,9 @@
+item_id,document_title,story_date,request_id,agreement_id,project,sensor_kits,civic_credits,approval_date,record_note
+001,Receipt log,2026-08-22,CL-SA26-FOIA-17,CL-A17-2026-04,Agency Alpha-17 Project Lantern,240,1248000,2026-06-03,Request CL-SA26-FOIA-17; Received 2026-08-14
+002,Agreement cover,2026-08-22,CL-SA26-FOIA-17,CL-A17-2026-04,Agency Alpha-17 Project Lantern,240,1248000,2026-06-03,Agreement CL-A17-2026-04; Approval 2026-06-03
+003,Procurement worksheet,2026-08-22,CL-SA26-FOIA-17,CL-A17-2026-04,Agency Alpha-17 Project Lantern,240,1248000,2026-06-03,"240 sensor kits; 1,248,000 Civic Credits"
+004,Invoice summary,2026-08-22,CL-SA26-FOIA-17,CL-A17-2026-04,Agency Alpha-17 Project Lantern,240,1248000,2026-06-03,"Agency Alpha-17 Project Lantern; 1,248,000 Civic Credits"
+005,Delivery acceptance,2026-08-22,CL-SA26-FOIA-17,CL-A17-2026-04,Agency Alpha-17 Project Lantern,240,1248000,2026-06-03,240 sensor kits; Agreement CL-A17-2026-04
+006,Approval routing,2026-08-22,CL-SA26-FOIA-17,CL-A17-2026-04,Agency Alpha-17 Project Lantern,240,1248000,2026-06-03,Approval 2026-06-03; Agency Alpha-17 Project Lantern
+007,Correspondence excerpt,2026-08-22,CL-SA26-FOIA-17,CL-A17-2026-04,Agency Alpha-17 Project Lantern,240,1248000,2026-06-03,"Two verified quotations; third not located; Documentation gap, not proof of wrongdoing"
+008,Release transmittal,2026-08-22,CL-SA26-FOIA-17,CL-A17-2026-04,Agency Alpha-17 Project Lantern,240,1248000,2026-06-03,"Metadata dates: 2026-05-28 / 2026-05-30; Documentation gap, not proof of wrongdoing"

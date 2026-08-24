@@ -1,0 +1,20 @@
+Civic Ledger | Story Alpha 2026 | desk date 2026-08-22 | FOIA batch 17 | verified 2026-08-19
+Synthetic training corpus. All speakers, identifiers, organizations, and records in this file are fictional.
+
+TRANSCRIPT: Source Alpha-05, session 01
+Status: synthetic interview transcript; not a real interview or reporting record.
+Reporter: Civic Ledger Desk (synthetic)
+Source: Source Alpha-05 (reserved synthetic identity)
+Recording note: timestamped editorial transcript; wording checked against the designated synthetic source set.
+
+--- BEGIN TRANSCRIPT ---
+[09:45:01] Reporter: What was the review purpose?
+[09:45:10] Source Alpha-05: The purpose was to test whether the Story Alpha wording stays within the supplied synthetic record.
+[09:46:04] Reporter: What wording passed that test?
+[09:46:12] Source Alpha-05: The file can report the listed agreement, 240 kits, 1,248,000 fictional Civic Credits, and the FOIA receipt date.
+[09:47:06] Reporter: What wording failed?
+[09:47:14] Source Alpha-05: Any statement that treats missing documentation as proof of wrongdoing failed the verification standard.
+--- END TRANSCRIPT ---
+
+Verification caveat: This transcript supports only the stated record facts. It does not prove motive, wrongdoing, completeness, or causation.
+Source boundary: Source Alpha-01 through Source Alpha-05 only.

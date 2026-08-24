@@ -1,0 +1,14 @@
+Civic Ledger reference reading notes
+
+Scope: synthetic desk guides for Story Alpha 2026 and Story Beta 2026.
+Desk date: 2026-08-22
+FOIA batch: 17
+Verified: 2026-08-19
+
+Reading sequence
+1. Confirm the guide title and the reporting anchor.
+2. Keep role IDs separate from narrative notes.
+3. Treat the scan as a visual reference only; it has no text layer.
+4. Record open editorial questions without adding personal details.
+
+All referenced material in this folder is authored synthetic desk guidance.

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<exportManifest artifactId="p20-m1-000042" scopeId="p20-secondary-04" exportDate="2026-08-22" verificationDate="2026-08-19">
+  <investigation name="Civic Ledger">
+    <story id="alpha" title="Story Alpha 2026" recordId="CL-A17-2026-04" sourceRoleId="Source Alpha-01" reviewStatus="verified">
+      <reportedQuantity unit="kits">240</reportedQuantity>
+      <reportedValue currency="fictional Civic Credits">1248000</reportedValue>
+      <documentationGap>FOIA batch 17 routing index remains unresolved; this is a documentation and process issue, not wrongdoing.</documentationGap>
+    </story>
+    <story id="beta" title="Story Beta 2026" recordId="CL-B09-2026-11" sourceRoleId="Source Beta-01" reviewStatus="verified">
+      <reportedQuantity unit="units">96</reportedQuantity>
+      <reportedValue currency="fictional Civic Credits">684000</reportedValue>
+      <documentationGap>Batch handoff chronology remains unresolved; this is a documentation and process issue, not wrongdoing.</documentationGap>
+    </story>
+  </investigation>
+  <crossReferences>
+    <artifact id="p20-m1-000041" role="editorial-review-pdf"/>
+    <artifact id="p20-m1-000043" role="export-receipt-log"/>
+    <artifact id="p20-m1-000044" role="publication-timeline-png"/>
+    <artifact id="p20-m1-000045" role="alpha-fact-check-csv"/>
+    <artifact id="p20-m1-000046" role="beta-source-status-tsv"/>
+  </crossReferences>
+</exportManifest>

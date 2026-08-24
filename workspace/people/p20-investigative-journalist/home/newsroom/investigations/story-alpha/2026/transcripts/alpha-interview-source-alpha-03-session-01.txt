@@ -1,0 +1,20 @@
+Civic Ledger | Story Alpha 2026 | desk date 2026-08-22 | FOIA batch 17 | verified 2026-08-19
+Synthetic training corpus. All speakers, identifiers, organizations, and records in this file are fictional.
+
+TRANSCRIPT: Source Alpha-03, session 01
+Status: synthetic interview transcript; not a real interview or reporting record.
+Reporter: Civic Ledger Desk (synthetic)
+Source: Source Alpha-03 (reserved synthetic identity)
+Recording note: timestamped editorial transcript; wording checked against the designated synthetic source set.
+
+--- BEGIN TRANSCRIPT ---
+[08:35:10] Reporter: What was your role in reviewing the file?
+[08:35:18] Source Alpha-03: I reviewed a synthetic chronology of the agreement and the FOIA receipt.
+[08:36:02] Reporter: What is confirmed?
+[08:36:10] Source Alpha-03: The supplied chronology confirms the 240-kit count and the stated approval date, subject to the limited record.
+[08:37:05] Reporter: What remains unconfirmed?
+[08:37:13] Source Alpha-03: The missing third quote and the date mismatch remain documentation gaps; no conclusion about intent is supported.
+--- END TRANSCRIPT ---
+
+Verification caveat: This transcript supports only the stated record facts. It does not prove motive, wrongdoing, completeness, or causation.
+Source boundary: Source Alpha-01 through Source Alpha-05 only.

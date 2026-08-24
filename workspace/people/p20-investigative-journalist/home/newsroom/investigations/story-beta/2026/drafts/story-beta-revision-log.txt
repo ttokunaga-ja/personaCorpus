@@ -1,0 +1,7 @@
+CIVIC LEDGER - STORY BETA REVISION LOG
+Civic Ledger | Story Beta 2026 | FOIA batch 17 | verified 2026-08-19
+
+2026-08-19 | v01 | Framed the Route Prism renewal and bounded the record set.
+2026-08-19 | v02 | Added verified contract terms and a source-discipline section.
+2026-08-19 | v03 | Reordered the narrative around the amendment and approval-log dates.
+2026-08-19 | editorial review | Confirmed the date difference remains an unresolved process gap, not proof of wrongdoing.

@@ -1,0 +1,20 @@
+Civic Ledger | Story Alpha 2026 | desk date 2026-08-22 | FOIA batch 17 | verified 2026-08-19
+Synthetic training corpus. All speakers, identifiers, organizations, and records in this file are fictional.
+
+TRANSCRIPT: Source Alpha-04, session 01
+Status: synthetic interview transcript; not a real interview or reporting record.
+Reporter: Civic Ledger Desk (synthetic)
+Source: Source Alpha-04 (reserved synthetic identity)
+Recording note: timestamped editorial transcript; wording checked against the designated synthetic source set.
+
+--- BEGIN TRANSCRIPT ---
+[11:05:03] Reporter: What is the scope of Source Alpha-04?
+[11:05:12] Source Alpha-04: This synthetic source addresses editing standards for Civic Ledger Story Alpha.
+[11:06:04] Reporter: How should the approval be described?
+[11:06:12] Source Alpha-04: Describe agreement CL-A17-2026-04 as listed approved 2026-06-03, and attribute the fact to the available record.
+[11:07:05] Reporter: What is the caution on causation?
+[11:07:13] Source Alpha-04: Do not connect the missing quote or metadata mismatch to motive without additional verified evidence.
+--- END TRANSCRIPT ---
+
+Verification caveat: This transcript supports only the stated record facts. It does not prove motive, wrongdoing, completeness, or causation.
+Source boundary: Source Alpha-01 through Source Alpha-05 only.

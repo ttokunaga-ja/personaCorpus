@@ -1,0 +1,20 @@
+Civic Ledger | Story Alpha 2026 | desk date 2026-08-22 | FOIA batch 17 | verified 2026-08-19
+Synthetic training corpus. All speakers, identifiers, organizations, and records in this file are fictional.
+
+TRANSCRIPT: Source Alpha-04, session 02
+Status: synthetic interview transcript; not a real interview or reporting record.
+Reporter: Civic Ledger Desk (synthetic)
+Source: Source Alpha-04 (reserved synthetic identity)
+Recording note: timestamped editorial transcript; wording checked against the designated synthetic source set.
+
+--- BEGIN TRANSCRIPT ---
+[16:12:06] Reporter: What does a fair summary include?
+[16:12:14] Source Alpha-04: A fair summary includes the kit count, the listed Civic Credit value, the FOIA date, and the record limits.
+[16:13:05] Reporter: How should the different dates appear?
+[16:13:13] Source Alpha-04: State both 2026-05-28 and 2026-05-30, label the discrepancy unresolved, and avoid an accusation.
+[16:14:02] Reporter: Is this statement verified?
+[16:14:10] Source Alpha-04: It is verified only against the designated synthetic sources as of 2026-08-19.
+--- END TRANSCRIPT ---
+
+Verification caveat: This transcript supports only the stated record facts. It does not prove motive, wrongdoing, completeness, or causation.
+Source boundary: Source Alpha-01 through Source Alpha-05 only.

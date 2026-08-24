@@ -1,0 +1,46 @@
+{
+  "corpus": "Civic Ledger",
+  "stories": ["Story Alpha 2026", "Story Beta 2026"],
+  "record_date": "2026-08-22",
+  "foia_batch": "17",
+  "verified_date": "2026-08-19",
+  "synthetic_notice": "All identities and audio are synthetic.",
+  "cues": [
+    {
+      "file": "alpha-source-alpha-01-excerpt.wav",
+      "source_id": "Source Alpha-01",
+      "agency": "Agency Alpha-17",
+      "project": "Project Lantern",
+      "case_id": "CL-A17-2026-04",
+      "transcript_file": "alpha-excerpt-transcript.txt",
+      "marked_excerpt": "For Civic Ledger, Source Alpha-01 says the Project Lantern timeline changed after the verified August nineteenth review."
+    },
+    {
+      "file": "alpha-source-alpha-02-excerpt.wav",
+      "source_id": "Source Alpha-02",
+      "agency": "Agency Alpha-17",
+      "project": "Project Lantern",
+      "case_id": "CL-A17-2026-04",
+      "transcript_file": "alpha-excerpt-transcript.txt",
+      "marked_excerpt": "For Civic Ledger, Source Alpha-02 says Agency Alpha-17 logged a procedural revision in FOIA batch 17."
+    },
+    {
+      "file": "beta-source-beta-01-excerpt.wav",
+      "source_id": "Source Beta-01",
+      "agency": "Agency Beta-09",
+      "project": "Route Prism",
+      "case_id": "CL-B09-2026-11",
+      "transcript_file": "beta-excerpt-transcript.txt",
+      "marked_excerpt": "For Civic Ledger, Source Beta-01 says Project Route Prism entered the review queue before the verified August nineteenth check."
+    },
+    {
+      "file": "beta-source-beta-02-excerpt.wav",
+      "source_id": "Source Beta-02",
+      "agency": "Agency Beta-09",
+      "project": "Route Prism",
+      "case_id": "CL-B09-2026-11",
+      "transcript_file": "beta-excerpt-transcript.txt",
+      "marked_excerpt": "For Civic Ledger, Source Beta-02 says Agency Beta-09 recorded a batch 17 response note for Route Prism."
+    }
+  ]
+}

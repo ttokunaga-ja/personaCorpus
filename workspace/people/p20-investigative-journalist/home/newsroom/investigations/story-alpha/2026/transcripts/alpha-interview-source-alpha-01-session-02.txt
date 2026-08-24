@@ -1,0 +1,20 @@
+Civic Ledger | Story Alpha 2026 | desk date 2026-08-22 | FOIA batch 17 | verified 2026-08-19
+Synthetic training corpus. All speakers, identifiers, organizations, and records in this file are fictional.
+
+TRANSCRIPT: Source Alpha-01, session 02
+Status: synthetic interview transcript; not a real interview or reporting record.
+Reporter: Civic Ledger Desk (synthetic)
+Source: Source Alpha-01 (reserved synthetic identity)
+Recording note: timestamped editorial transcript; wording checked against the designated synthetic source set.
+
+--- BEGIN TRANSCRIPT ---
+[14:10:03] Reporter: What did the FOIA response contain?
+[14:10:12] Source Alpha-01: Request CL-SA26-FOIA-17, received 2026-08-14, produced 48 synthetic pages.
+[14:11:06] Reporter: Does the record establish why one quote is absent?
+[14:11:14] Source Alpha-01: No. The record does not establish a reason, and I would not describe that absence as evidence of misconduct.
+[14:12:01] Reporter: What is the verification date for this file?
+[14:12:08] Source Alpha-01: The desk verified the available materials on 2026-08-19.
+--- END TRANSCRIPT ---
+
+Verification caveat: This transcript supports only the stated record facts. It does not prove motive, wrongdoing, completeness, or causation.
+Source boundary: Source Alpha-01 through Source Alpha-05 only.

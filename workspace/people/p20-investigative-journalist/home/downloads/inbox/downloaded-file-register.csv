@@ -1,0 +1,6 @@
+item_id,filename,kind,source_role,batch_id,received_date,synthetic_status,reconciliation_note
+DL-17-001,foia-batch-17-incoming-page-001-scan.pdf,raster scan,Source Alpha-01,CL-SA26-FOIA-17,2026-08-14,synthetic,Preview 01 depicts the same synthetic page 001 record.
+DL-17-002,foia-batch-17-incoming-page-002-scan.pdf,raster scan,Source Alpha-02,CL-SA26-FOIA-17,2026-08-14,synthetic,Preview 02 depicts the same synthetic page 002 record.
+DL-17-003,foia-batch-17-acknowledgment.pdf,searchable PDF,Source Alpha-01,CL-SA26-FOIA-17,2026-08-14,synthetic,Acknowledges 48 synthetic pages and the review checkpoint.
+DL-17-004,foia-batch-17-attachment-preview-01.png,preview image,Source Alpha-01,CL-SA26-FOIA-17,2026-08-14,synthetic,Preview corresponds to incoming page 001.
+DL-17-005,foia-batch-17-attachment-preview-02.png,preview image,Source Alpha-02,CL-SA26-FOIA-17,2026-08-14,synthetic,Preview corresponds to incoming page 002.

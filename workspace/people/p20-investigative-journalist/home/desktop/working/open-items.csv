@@ -1,0 +1,5 @@
+item_id,story,reference,review_state,deadline,editorial_note
+OI-17-01,Story Alpha,CL-A17-2026-04,documented,2026-08-23,Reconcile 240 kits against batch routing
+OI-17-02,Story Alpha,CL-A17-2026-04,open,2026-08-24,Context gap requires wording review
+OI-17-03,Story Beta,CL-B09-2026-11,documented,2026-08-23,Reconcile 96 units against desk notes
+OI-17-04,Story Beta,CL-B09-2026-11,open,2026-08-25,Gaps are not proof of wrongdoing

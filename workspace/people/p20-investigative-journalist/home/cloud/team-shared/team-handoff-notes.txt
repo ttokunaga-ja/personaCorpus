@@ -1,0 +1,15 @@
+CIVIC LEDGER - TEAM HANDOFF
+Story Alpha/Beta 2026 | 2026-08-22 | FOIA batch 17 | verified 2026-08-19
+
+Scope
+- Story Alpha record CL-A17-2026-04: 240 kits; 1,248,000 fictional Civic Credits.
+- Story Beta record CL-B09-2026-11: 96 units; 684,000 fictional Civic Credits.
+
+Review status
+- Both records are verified against the shared batch checklist.
+- Missing quote/date gaps remain unresolved. They are documentation gaps, not wrongdoing.
+- No conclusion should be expanded beyond the verified record fields.
+
+Next pass
+- Preserve the record IDs and the 2026-08-19 verification date when reconciling the matrix.
+- Keep the open gaps visible until a future synthetic record resolves them.
