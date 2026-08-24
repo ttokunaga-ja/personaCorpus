@@ -1,0 +1,13 @@
+2026-07-29 08:31:04 JST INFO  inbox  received  msg=co014-request sender=yui.kanda@harborbuild.example.invalid subject="Project Alpha | CO-014 approval request"
+2026-07-29 08:32:17 JST INFO  classify project=Project-Alpha record=change-order ref=CO-014 priority=high
+2026-07-29 08:33:02 JST INFO  extract amount_jpy=18600000 requested_decision_date=2026-07-29
+2026-07-29 08:34:40 JST INFO  route   queue=project-controls owner=ren.ito@harborbuild.example.invalid action="confirm register status"
+2026-07-29 12:18:56 JST INFO  inbox  received  msg=site-photo-0729 sender=site-updates@harborbuild.example.invalid subject="Project Alpha progress photo - slab edge"
+2026-07-29 12:19:23 JST INFO  classify project=Project-Alpha record=site-progress attachment=02-project-alpha-progress-photo-attachment.png
+2026-07-29 12:20:08 JST INFO  inspect attachment=png result=opened note="slab edge, timber forms, parked excavator; no personnel visible"
+2026-07-29 16:01:08 JST INFO  inbox  received  msg=co014-confirmation sender=ren.ito@harborbuild.example.invalid subject="RE: Project Alpha | CO-014 approval confirmation"
+2026-07-29 16:02:11 JST INFO  reconcile ref=CO-014 register_status=approved approved_value_jpy=18600000
+2026-07-29 16:04:35 JST INFO  route   queue=cost-report action="include approved change in August forecast baseline"
+2026-07-29 16:42:18 JST INFO  inbox  received  msg=co014-approval-thread sender=aiko.mori@harborbuild.example.invalid subject="Re: Project Alpha | CO-014 approval record | JPY 18,600,000"
+2026-07-29 16:43:06 JST INFO  archive thread=00-co-014-approval-thread.eml retention=project-alpha-2026
+2026-07-29 16:44:29 JST INFO  complete ref=CO-014 next_action="issue field instruction in 30 July coordination package"

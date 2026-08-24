@@ -1,0 +1,5 @@
+2026-07-29T09:00:00+09:00 INFO issued technical specification set registered
+2026-07-29T09:15:00+09:00 INFO CO-014 control value recorded: JPY 18,600,000
+2026-07-29T09:30:00+09:00 WARN DEV-018 evidence pending before steel coating closeout
+2026-07-29T09:45:00+09:00 INFO coordination issue p17-coord-001 created for sleeve routing
+2026-07-29T10:00:00+09:00 INFO review packet complete; synthetic records only

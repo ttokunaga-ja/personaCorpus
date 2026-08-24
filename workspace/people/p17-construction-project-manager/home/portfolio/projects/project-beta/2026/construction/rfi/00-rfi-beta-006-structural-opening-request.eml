@@ -1,0 +1,19 @@
+From: beta-coordination@harborbuild.example.invalid
+To: structural-review@harborbuild.example.invalid
+Cc: project-controls@harborbuild.example.invalid
+Subject: RFI BETA-006 - Structural opening at Grid B-4
+Date: Wed, 29 Jul 2026 09:10:00 +0900
+Message-ID: <rfi-beta-006-20260729@harborbuild.example.invalid>
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="hb-beta-006"
+
+--hb-beta-006
+Content-Type: text/plain; charset=UTF-8
+
+Please review RFI BETA-006. We request confirmation of the Level 03 shear-wall sleeve opening at Grid B-4 before the 2026-08-03 pour-sequence decision. Proposed coordination shift: 150 mm east; do not field-core.
+
+--hb-beta-006
+Content-Type: text/html; charset=UTF-8
+
+<!doctype html><html><body><p><strong>RFI BETA-006</strong> requests confirmation of the Level 03 shear-wall sleeve opening at Grid B-4.</p><p>Proposed coordination shift: <strong>150 mm east</strong>; maintain 100 mm clearance from boundary reinforcement and do not field-core.</p><p>Response requested by 2026-08-03. This is a synthetic Project Beta record.</p></body></html>
+--hb-beta-006--

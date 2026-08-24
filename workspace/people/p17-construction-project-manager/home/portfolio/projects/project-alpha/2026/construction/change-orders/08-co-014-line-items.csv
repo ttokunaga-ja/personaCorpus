@@ -1,0 +1,8 @@
+change_order,line_no,description,cost_class,amount_jpy,status_date
+CO-014,1,CO-014 Design coordination and revised access sequencing,Labor,2400000,2026-07-29
+CO-014,2,CO-014 Structural steel connection revisions,Material,3650000,2026-07-29
+CO-014,3,CO-014 MEP reroute and equipment supports,Labor,4180000,2026-07-29
+CO-014,4,CO-014 Fire protection coordination changes,Labor,1760000,2026-07-29
+CO-014,5,CO-014 Envelope flashing and waterproofing revisions,Material,2480000,2026-07-29
+CO-014,6,CO-014 Controls commissioning and testing,Labor,1330000,2026-07-29
+CO-014,7,CO-014 General conditions and schedule recovery,General conditions,2800000,2026-07-29

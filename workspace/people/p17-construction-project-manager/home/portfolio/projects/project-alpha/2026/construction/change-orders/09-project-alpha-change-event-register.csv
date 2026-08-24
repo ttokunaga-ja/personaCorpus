@@ -1,0 +1,4 @@
+event_id,date,project,event,impact_jpy,disposition
+CE-014-01,2026-07-11,Project Alpha 2026,Issued-for-construction coordination delta,18600000,CO-014 submitted
+CE-014-02,2026-07-18,Project Alpha 2026,Commercial review completed,18600000,Pending approval
+CE-014-03,2026-07-29,Project Alpha 2026,Control status issued,18600000,Awaiting owner decision

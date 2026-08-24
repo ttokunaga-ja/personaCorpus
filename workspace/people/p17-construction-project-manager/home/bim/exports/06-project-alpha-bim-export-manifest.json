@@ -1,0 +1,32 @@
+{
+  "schema": "harbor-build.bim-export-manifest/v1",
+  "project": {
+    "organization": "Harbor Build",
+    "name": "Project Alpha 2026",
+    "export_date": "2026-07-29",
+    "exported_at": "2026-07-29T17:30:00+09:00",
+    "export_status": "Post-approval coordination export; not a field instruction.",
+    "change_order": {
+      "id": "CO-014",
+      "approved_value": { "currency": "JPY", "amount": 18600000 },
+      "approval_recorded_at": "2026-07-29T16:42:00+09:00",
+      "approval_note": "CO-014 approval was recorded at 16:42 JST; this export is post-approval."
+    }
+  },
+  "coordination_issue": {
+    "archive": "04-project-alpha-coordination-issues.bcfzip",
+    "topic_guid": "f92a4a1e-3c49-4b0b-90c6-297c1f0ac014",
+    "viewpoint_guid": "9cf8a78e-f8fc-4562-98e4-687c07bf4014",
+    "status": "Open",
+    "summary": "Level 02 MEP supply route clearance review against structural beam."
+  },
+  "exports": [
+    { "sequence": 0, "file": "00-project-alpha-coordination-model-2026-07-29.ifc", "kind": "ifc4_federation", "sha256": "6d09c5c8bf69e62c2eb9c9fb09799d04388215a944c8ae6a744624b7dbc618aa", "discipline_sources": ["01-project-alpha-architecture-model.ifc", "02-project-alpha-structure-model.ifc", "03-project-alpha-mep-model.ifc"] },
+    { "sequence": 1, "file": "01-project-alpha-architecture-model.ifc", "kind": "ifc4_architecture", "sha256": "3a8571c36b249e48e655b42407e62e6b8f5868ff65fbb37ac22c2531313a7426" },
+    { "sequence": 2, "file": "02-project-alpha-structure-model.ifc", "kind": "ifc4_structure", "sha256": "8875d95195f1b129186e755dff67f5d02bdb87c32a41659af5a3d9c6960ec94d" },
+    { "sequence": 3, "file": "03-project-alpha-mep-model.ifc", "kind": "ifc4_mep", "sha256": "f8778d849ed04be92c1e124ce77c4104711e6ed48912945c65397526ba5c3523" },
+    { "sequence": 4, "file": "04-project-alpha-coordination-issues.bcfzip", "kind": "bcf_3_0", "sha256": "c22f3401281895def16111b435c867f2cc4505fef2d8e980d05a6be58f3cfbff" },
+    { "sequence": 5, "file": "05-project-beta-concept-model.ifc", "kind": "ifc4_concept", "project": "Project Beta 2026", "alpha_context_only": true, "context_note": "Project Alpha CO-014 and JPY 18,600,000 are Alpha context only and are not attributed to Project Beta.", "sha256": "88e52f37e26d755f8ea7118fb3530b66e070c05a7caccbd113f372f911ac6878" },
+    { "sequence": 7, "file": "07-project-alpha-bim-federation-preview.png", "kind": "federation_preview", "sha256": "05b10871ffc79e578139f20e0b05250dbdf33c8171e6b5121280b931c6a18a28" }
+  ]
+}

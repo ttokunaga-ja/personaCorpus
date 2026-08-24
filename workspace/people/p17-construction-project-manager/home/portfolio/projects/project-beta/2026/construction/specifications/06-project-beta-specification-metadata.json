@@ -1,0 +1,56 @@
+{
+  "schema": "harbor-build.project-beta.specification-metadata/v1",
+  "project": {
+    "name": "Harbor Build Project Beta",
+    "issue_date": "2026-07-29",
+    "issue_id": "PB-26.07.29-C",
+    "classification": "synthetic internal construction planning"
+  },
+  "coordination": {
+    "model_issue": "PB-26.07.29-C",
+    "reference_context": {
+      "project_alpha_change_order": "CO-014",
+      "project_alpha_amount_jpy": 18600000,
+      "restriction": "Context only; not a Project Beta cost, budget, allowance, or authorization."
+    }
+  },
+  "documents": [
+    {
+      "file": "00-project-beta-outline-specifications.pdf",
+      "family": "pdf_text",
+      "topic": "outline specifications"
+    },
+    {
+      "file": "01-project-beta-concrete-specification.pdf",
+      "family": "pdf_text",
+      "topic": "concrete specification"
+    },
+    {
+      "file": "02-project-beta-building-envelope-specification.pdf",
+      "family": "pdf_text",
+      "topic": "building envelope specification"
+    },
+    {
+      "file": "03-project-beta-mep-basis-of-design.pdf",
+      "family": "pdf_text",
+      "topic": "MEP basis of design"
+    },
+    {
+      "file": "04-project-beta-specification-markup-scan.pdf",
+      "family": "pdf_scan",
+      "topic": "image-only markup review"
+    },
+    {
+      "file": "05-project-beta-specification-comments.docx",
+      "family": "docx",
+      "topic": "comment register"
+    }
+  ],
+  "quality_gates": [
+    "submittal completeness",
+    "mockup or adhesion check where indicated",
+    "concealed-work records",
+    "functional test and closeout evidence"
+  ],
+  "safety_note": "No site access instructions, credentials, addresses, or personal data are included."
+}

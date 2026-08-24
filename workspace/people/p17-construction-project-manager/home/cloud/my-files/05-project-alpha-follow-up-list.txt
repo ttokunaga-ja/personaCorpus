@@ -1,0 +1,13 @@
+HARBOR BUILD - PROJECT ALPHA 2026
+FOLLOW-UP LIST | synthetic internal work copy
+Review date: 2026-07-29
+Change order: CO-014
+Working value: JPY 18,600,000
+
+[OPEN] Confirm ceiling-services coordination scope is stated consistently across the review pack.
+[OPEN] Check that duct, conduit, cable-tray, and support zones have a recorded coordination response.
+[OPEN] Request allowance clarification for supports and associated access planning.
+[OPEN] Identify constrained ceiling zones for sequencing discussion.
+[PENDING] Move approved resolution into the controlled project record.
+
+Boundary: This list contains synthetic work-copy reminders only. It does not authorize work, payment, or site access.

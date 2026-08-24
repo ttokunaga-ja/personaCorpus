@@ -1,0 +1,6 @@
+rfi_id,subject,issued,due,status,priority,co_context
+RFI-014,Foundation sleeve coordination,2026-07-20,2026-07-24,Answered,High,"CO-014 | JPY 18,600,000"
+RFI-018,Level 02 embed plate,2026-07-22,2026-07-29,Answered,Medium,"CO-014 | JPY 18,600,000"
+RFI-021,Roof drain offset,2026-07-24,2026-07-31,Open,High,"CO-014 | JPY 18,600,000"
+RFI-023,Stair landing edge angle,2026-07-27,2026-08-03,Open,Medium,"CO-014 | JPY 18,600,000"
+RFI-026,Electrical riser firestop,2026-07-28,2026-08-04,Open,Low,"CO-014 | JPY 18,600,000"

@@ -1,0 +1,5 @@
+rfi_id,subject,discipline,issued_date,requested_by,status,age_days,decision_summary
+BETA-006,Structural opening at Grid B-4,Structural / MEP,2026-07-27,2026-08-03,Open - priority,2,Confirm 150 mm east coordination shift or issue alternate detail
+BETA-009,Facade anchor spacing,Facade / Structural,2026-07-25,2026-08-05,Open,4,Confirm maximum horizontal adjustment and preserve vertical spacing
+BETA-004,Roof drain overflow routing,Plumbing / Architectural,2026-07-17,2026-07-28,Response received - closeout pending,12,Verify updated sketch is linked before closing
+BETA-002,Service corridor ceiling access,Architectural,2026-07-11,2026-07-22,Closed,18,Access panel location incorporated in coordination drawing

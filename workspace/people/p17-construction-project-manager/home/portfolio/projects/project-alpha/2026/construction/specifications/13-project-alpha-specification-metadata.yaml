@@ -1,0 +1,9 @@
+project: Project Alpha 2026
+organization: Harbor Build
+issued_date: 2026-07-29
+change_order:
+  id: CO-014
+  value_jpy: 18600000
+package: technical-specifications
+sections: [033000, 051200, 072100, 092900, 230500, 260500]
+classification: synthetic-controlled-record
