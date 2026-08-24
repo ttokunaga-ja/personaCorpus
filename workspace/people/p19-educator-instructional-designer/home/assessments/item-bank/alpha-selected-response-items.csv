@@ -1,0 +1,7 @@
+item_id,assignment_id,course,prompt_focus,response_type,rubric_max
+ML-ITM-A101-01,A-101,Course Alpha 2026 Term 1,Evidence selection,selected response,20
+ML-ITM-A101-02,A-101,Course Alpha 2026 Term 1,Reasoning check,selected response,20
+ML-ITM-A102-01,A-102,Course Alpha 2026 Term 1,Source comparison,selected response,20
+ML-ITM-A102-02,A-102,Course Alpha 2026 Term 1,Claim support,selected response,20
+ML-ITM-A103-01,A-103,Course Alpha 2026 Term 1,Claim evidence link,selected response,20
+ML-ITM-A103-02,A-103,Course Alpha 2026 Term 1,Reasoning clarity,selected response,20

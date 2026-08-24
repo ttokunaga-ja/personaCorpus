@@ -1,0 +1,10 @@
+Maple Learning mail export index
+Generated for synthetic instructional-design planning on 2026-09-14.
+
+1. alpha-course-announcement.eml
+   MIME email announcement for Course Alpha 2026 Term 1; covers cohort ML26-S001 through ML26-S036, A-101 through A-103, and the E6/R6/O4/F4 20-point rubric.
+2. beta-planning-update.eml
+   MIME email update for Course Beta 2026 Term 2; aligns cohort ML26-S001 through ML26-S036, B-201 through B-203, and the E6/R6/O4/F4 20-point rubric.
+3. mail-attachment-rubric-guide.pdf
+   Searchable planning attachment; lists the 36 synthetic identifiers, six shared assignments, and rubric dimensions E6, R6, O4, F4 totaling 20 points.
+4. mail-export-index.txt\n   This index for the three synthetic course-mail export artifacts in this folder.\n

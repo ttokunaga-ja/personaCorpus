@@ -1,0 +1,10 @@
+schema: maple-learning.lesson-plan.v1
+snapshot_date: 2026-09-14
+course: Course Alpha 2026 Term 1
+learner_cohort: ML26-S001..ML26-S036
+rubric:
+  evidence: 6
+  reasoning: 6
+  organization: 4
+  reflection: 4
+  maximum: 20

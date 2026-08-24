@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapleLearningItemBank snapshotDate="2026-09-14" cohortSize="36">
+  <rubric maximum="20"><component code="E" maximum="6"/><component code="R" maximum="6"/><component code="O" maximum="4"/><component code="F" maximum="4"/></rubric>
+  <assignments>
+    <assignment id="A-101" title="Evidence Map" course="Course Alpha 2026 Term 1"><item id="ML-ITM-A101-01"/><item id="ML-ITM-A101-02"/></assignment>
+    <assignment id="A-102" title="Source Comparison" course="Course Alpha 2026 Term 1"><item id="ML-ITM-A102-01"/><item id="ML-ITM-A102-02"/></assignment>
+    <assignment id="A-103" title="Claim-Evidence-Reasoning Brief" course="Course Alpha 2026 Term 1"><item id="ML-ITM-A103-01"/><item id="ML-ITM-A103-02"/></assignment>
+    <assignment id="B-201" title="Scenario Map" course="Course Beta 2026 Term 2"><item id="ML-ITM-B201-01"/><item id="ML-ITM-B201-02"/></assignment>
+    <assignment id="B-202" title="Model Test" course="Course Beta 2026 Term 2"><item id="ML-ITM-B202-01"/><item id="ML-ITM-B202-02"/></assignment>
+    <assignment id="B-203" title="Design Critique" course="Course Beta 2026 Term 2"><item id="ML-ITM-B203-01"/><item id="ML-ITM-B203-02"/></assignment>
+  </assignments>
+</mapleLearningItemBank>

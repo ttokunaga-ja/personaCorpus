@@ -1,0 +1,9 @@
+Maple Learning synthetic ChromeOS session notes
+Snapshot: 2026-09-14
+
+Purpose: offline rehearsal for Course Alpha 2026 Term 1 and Course Beta 2026 Term 2 navigation.
+Learner roster boundary: ML26-S001 through ML26-S036 only.
+Packet capture purpose: a synthetic DHCP-style LMS sync trace using 10.19.0.0/16 addresses and lms-snapshot.invalid; it demonstrates a local device resolving an offline course snapshot without a real network session.
+
+Assignments: A-101 Evidence Notes in Context; A-102 Concept Map and Rationale; A-103 Revision Reflection; B-201 Inquiry Question Draft; B-202 Source Comparison Brief; B-203 Learning Transfer Plan.
+Rubric: 20 points, E6 R6 O4 F4. Any illustration follows k x (E + R + O + F).

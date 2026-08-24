@@ -1,0 +1,2 @@
+filename,duration_seconds,sample_rate_hz,channels,synthetic_content,tone_sequence
+facilitator-briefing-01.wav,2.0,16000,1,"Synthetic tone briefing for Maple Learning snapshot 2026-09-14; ML26-S001 through ML26-S036; A-101 Evidence Map through B-203 Design Critique; rubric total 20.",440Hz-660Hz-523Hz

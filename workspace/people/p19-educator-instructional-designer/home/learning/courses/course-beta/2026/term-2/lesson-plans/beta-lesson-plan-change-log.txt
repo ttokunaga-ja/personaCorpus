@@ -1,0 +1,6 @@
+Maple Learning Course Beta 2026 Term 2
+Snapshot: 2026-09-14
+Change 01: Sequenced B-201 Scenario Map before B-202 Model Test.
+Change 02: Added B-203 Design Critique revision checkpoint.
+Change 03: Aligned all lessons to E6/R6/O4/F4, total 20.
+Synthetic cohort: ML26-S001 through ML26-S036.
