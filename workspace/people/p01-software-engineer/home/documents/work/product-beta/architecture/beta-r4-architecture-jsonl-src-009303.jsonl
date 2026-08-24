@@ -1,0 +1,2 @@
+{"schema":"aster-loop.beta-r4.evidence/v1","source_id":"p01-src-009303","review_id":"ADR-B4-150","review_date":"2026-08-17","layer":"event relay","subject":"command decision lineage","target_p95_ms":225,"status":"reviewed","synthetic":true}
+{"schema":"aster-loop.beta-r4.evidence/v1","source_id":"p01-src-009303","event":"schema_freeze_follow_up","due":"2026-09-04","label":"beta-r4-b003-009303"}

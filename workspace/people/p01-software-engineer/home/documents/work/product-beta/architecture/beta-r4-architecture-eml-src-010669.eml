@@ -1,0 +1,11 @@
+From: Architecture Evidence <architecture-evidence@aster-loop.invalid>
+To: Platform Engineer <platform-engineer@aster-loop.invalid>
+Subject: [BETA-R4] ADR-B4-123 evidence 010669
+Date: Mon, 17 Aug 2026 16:49:00 +0900
+Message-ID: <beta-r4-b003-010669@aster-loop.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+Aster Loop株式会社 | BETA-R4 | ADR-B4-123 | 2026-08-17 architecture review | 225 ms design p95 budget | p01-src-010669
+
+The review captures projection lag accounting in the command dispatcher. The 225 ms figure is a synthetic design target.

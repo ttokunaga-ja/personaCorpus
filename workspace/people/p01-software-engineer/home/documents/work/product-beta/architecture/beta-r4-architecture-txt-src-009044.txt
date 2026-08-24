@@ -1,0 +1,5 @@
+Aster Loop株式会社 | BETA-R4 | ADR-B4-090 | 2026-08-17 architecture review | 225 ms design p95 budget | p01-src-009044
+Subject: decision journal retention
+Layer: decision journal
+Disposition: reviewed; event-driven boundary retained.
+Local allocation: 128 ms; design target: 225 ms.

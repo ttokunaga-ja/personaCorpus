@@ -1,0 +1,5 @@
+Aster Loop株式会社 | BETA-R4 | ADR-B4-052 | 2026-08-17 architecture review | 225 ms design p95 budget | p01-src-010598
+Subject: retry envelope semantics
+Layer: decision journal
+Disposition: reviewed; event-driven boundary retained.
+Local allocation: 186 ms; design target: 225 ms.

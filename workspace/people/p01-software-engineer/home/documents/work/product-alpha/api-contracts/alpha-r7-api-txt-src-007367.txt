@@ -1,0 +1,3 @@
+2026-07-20T10:47:00+09:00 INFO api-contract id=API-A7-7367 release=ALPHA-R7
+2026-07-20T10:48:00+09:00 INFO review resource=evidence-snapshots operation=reconcile state=reviewed
+2026-07-20T10:49:00+09:00 INFO compatibility policy=additive-before-removal target_p95_ms=200

@@ -1,0 +1,11 @@
+From: api-steward@aster-loop.invalid
+To: release-coordinator@aster-loop.invalid
+Subject: [ALPHA-R7] reviewed API-A7-11073
+Message-ID: <api-a7-11073-11073@aster-loop.invalid>
+Date: Mon, 20 Jul 2026 10:33:00 +0900
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+The synthetic decision-records evaluate contract API-A7-11073 is reviewed.
+It retains Product Alpha R7's 200 ms p95 target and the
+additive-before-removal compatibility policy. ADR-042 remains unchanged.

@@ -1,0 +1,5 @@
+Aster Loop株式会社 | BETA-R4 | ADR-B4-035 | 2026-08-17 architecture review | 225 ms design p95 budget | p01-src-007795
+Subject: release-lane telemetry
+Layer: command dispatcher
+Disposition: reviewed; event-driven boundary retained.
+Local allocation: 171 ms; design target: 225 ms.

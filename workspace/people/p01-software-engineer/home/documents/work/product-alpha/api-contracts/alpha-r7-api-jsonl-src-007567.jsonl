@@ -1,0 +1,3 @@
+{"event":"contract_registered","contract_id":"API-A7-7567","resource":"evidence-snapshots","release":"ALPHA-R7"}
+{"event":"compatibility_reviewed","operation":"reconcile","policy":"additive-before-removal","target_p95_ms":200}
+{"event":"review_closed","reviewed_on":"2026-07-20","state":"reviewed","sequence":7567}
