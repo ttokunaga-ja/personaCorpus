@@ -1,0 +1,27 @@
+policy:
+  product: HelioDesk
+  effective_date: 2026-08-04
+  timezone: Asia/Tokyo
+  first_response_sla_minutes: 240
+  meaningful_first_response:
+    required:
+      - accountable owner
+      - customer-facing acknowledgement
+      - concrete next-update time
+    excludes:
+      - automated receipt
+  status_thresholds:
+    within: more_than_60_minutes_to_deadline
+    at_risk: 60_minutes_or_less_to_deadline_without_meaningful_response
+    breached: deadline_passed_without_meaningful_response
+  escalation_rules:
+    - trigger: P1
+      action: Open incident bridge immediately
+    - trigger: at_risk
+      action: Notify Support Duty Manager and assign responder
+    - trigger: breached
+      action: Send recovery acknowledgement and log corrective action
+  roles:
+    accountable: Support Success Lead
+    queue_owner: Support Duty Manager
+    p1_bridge_owner: Support Incident Lead

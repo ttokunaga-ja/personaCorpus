@@ -1,0 +1,9 @@
+{
+  "snapshot_at": "2026-08-04T09:00:00Z", "system": "HelioDesk", "synthetic_data": true,
+  "sla_target_hours": 4, "unresolved_ticket_count": 17,
+  "priority_counts": {"P1": 1, "P2": 5, "P3": 8, "P4": 3},
+  "sla_state_counts": {"within": 11, "at-risk": 4, "breached": 2},
+  "customer_counts": {"Customer Alpha": 9, "Customer Beta": 5, "other_synthetic_customers": 3},
+  "breach_watch_ticket_ids": ["HD-260804-2718", "HD-260804-1934"],
+  "at_risk_ticket_ids": ["HD-260804-2841", "HD-260804-2861", "HD-260804-2726", "HD-260804-2763"]
+}

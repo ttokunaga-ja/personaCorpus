@@ -1,0 +1,20 @@
+HelioDesk status bridge notes — INC-2026-0804-03
+Date: 2026-08-04 (UTC)
+
+09:20  Support lead opened the coordination bridge after a cluster of unresolved
+       notification-delay reports. Seventeen cases were linked for visibility.
+09:30  Incident commander associated KI-1054, notification delivery lag, as the
+       current known-issue reference. Association is not root-cause confirmation.
+09:40  Acknowledgement due under the four-hour incident SLA.
+10:20  First customer-facing update due; Support owns case-specific replies.
+11:20  Engineering telemetry review checkpoint; report observed scope and any
+       mitigation without claiming that all linked cases share a cause.
+12:20  Support review checkpoint; unlink cases with confirmed independent causes.
+13:20  Four-hour SLA endpoint: publish mitigation, restoration evidence, or an
+       approved next update with owner and time.
+
+Bridge source: https://status.heliodesk.example.invalid/incidents/INC-2026-0804-03
+Known issue: https://status.heliodesk.example.invalid/known-issues/KI-1054
+
+No customer names, account identifiers, message contents, or credentials belong
+in bridge notes. Use the case IDs from the reference map when discussing cases.

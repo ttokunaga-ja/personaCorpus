@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "synthetic": true,
+  "incident": {
+    "id": "INC-2026-0804-03",
+    "date": "2026-08-04",
+    "sla_hours": 4,
+    "status_url": "https://status.heliodesk.example.invalid/incidents/INC-2026-0804-03"
+  },
+  "known_issue": {
+    "id": "KI-1054",
+    "title": "notification delivery lag",
+    "status_url": "https://status.heliodesk.example.invalid/known-issues/KI-1054"
+  },
+  "correlation_notice": "Links are operational context for coordination, not proof that every case shares one root cause.",
+  "case_links": [
+    {"case_id": "CS-2026-0804-001", "incident_id": "INC-2026-0804-03", "known_issue_id": "KI-1054", "state": "unresolved"},
+    {"case_id": "CS-2026-0804-002", "incident_id": "INC-2026-0804-03", "known_issue_id": "KI-1054", "state": "unresolved"},
+    {"case_id": "CS-2026-0804-003", "incident_id": "INC-2026-0804-03", "known_issue_id": "KI-1054", "state": "unresolved"},
+    {"case_id": "CS-2026-0804-004", "incident_id": "INC-2026-0804-03", "known_issue_id": "KI-1054", "state": "unresolved"},
+    {"case_id": "CS-2026-0804-005", "incident_id": "INC-2026-0804-03", "known_issue_id": "KI-1054", "state": "unresolved"},
+    {"case_id": "CS-2026-0804-006", "incident_id": "INC-2026-0804-03", "known_issue_id": "KI-1054", "state": "unresolved"},
+    {"case_id": "CS-2026-0804-007", "incident_id": "INC-2026-0804-03", "known_issue_id": "KI-1054", "state": "unresolved"},
+    {"case_id": "CS-2026-0804-008", "incident_id": "INC-2026-0804-03", "known_issue_id": "KI-1054", "state": "unresolved"},
+    {"case_id": "CS-2026-0804-009", "incident_id": "INC-2026-0804-03", "known_issue_id": "KI-1054", "state": "unresolved"},
+    {"case_id": "CS-2026-0804-010", "incident_id": "INC-2026-0804-03", "known_issue_id": "KI-1054", "state": "unresolved"},
+    {"case_id": "CS-2026-0804-011", "incident_id": "INC-2026-0804-03", "known_issue_id": "KI-1054", "state": "unresolved"},
+    {"case_id": "CS-2026-0804-012", "incident_id": "INC-2026-0804-03", "known_issue_id": "KI-1054", "state": "unresolved"},
+    {"case_id": "CS-2026-0804-013", "incident_id": "INC-2026-0804-03", "known_issue_id": "KI-1054", "state": "unresolved"},
+    {"case_id": "CS-2026-0804-014", "incident_id": "INC-2026-0804-03", "known_issue_id": "KI-1054", "state": "unresolved"},
+    {"case_id": "CS-2026-0804-015", "incident_id": "INC-2026-0804-03", "known_issue_id": "KI-1054", "state": "unresolved"},
+    {"case_id": "CS-2026-0804-016", "incident_id": "INC-2026-0804-03", "known_issue_id": "KI-1054", "state": "unresolved"},
+    {"case_id": "CS-2026-0804-017", "incident_id": "INC-2026-0804-03", "known_issue_id": "KI-1054", "state": "unresolved"}
+  ]
+}

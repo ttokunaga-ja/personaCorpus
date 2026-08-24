@@ -1,0 +1,23 @@
+From: HelioDesk Support <support@heliodesk.invalid>
+To: Customer Beta Operations <operations@customer-beta.invalid>
+Subject: Resolution path — case remains open/breached: HD-260804-1934
+Date: Tue, 04 Aug 2026 17:58:00 +0900
+Message-ID: <HD-260804-1934-resolution-path-20260804@heliodesk.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Hello Customer Beta Operations,
+
+Resolution path — case remains open/breached.
+
+HD-260804-1934 is awaiting the requested fresh CSV export and selected filter
+details. The four-hour SLA due time was 2026-08-04T07:42:00Z; at the frozen
+2026-08-04T09:00:00Z snapshot, the case is pending_customer and breached.
+
+Once the evidence is received, queue-west will compare the export result with
+the requested dashboard view and provide either a verified workaround or the
+next investigation milestone. This message does not mark the case resolved.
+
+Regards,
+HelioDesk Support

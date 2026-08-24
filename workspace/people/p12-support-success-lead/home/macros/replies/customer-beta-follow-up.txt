@@ -1,0 +1,16 @@
+HelioDesk reply macro — Follow-up after support update
+Operational date: 2026-08-04 | Response SLA: 4 hours
+Example account: Customer Beta
+Synthetic example recipient: beta-contact@customer-beta.invalid
+
+Hi {{first_name}},
+
+I’m following up on case {{case_id}} after our update about {{topic_summary}}. Have you been able to try {{recommended_action}}?
+
+If the issue continues, reply with the result and the time it occurred. Please share only the details needed for this case, and do not send passwords, one-time codes, API keys, access tokens, or full payment details.
+
+We will review your reply under our support process and respond by {{next_update_at}}. If the recommendation is not workable for your team, let us know so we can review the next available option.
+
+Best,
+{{agent_name}}
+HelioDesk Support

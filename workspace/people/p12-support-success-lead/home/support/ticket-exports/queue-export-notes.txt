@@ -1,0 +1,9 @@
+Queue export notes — frozen 2026-08-04T09:00:00Z
+
+- HD-260804-2718 (Customer Alpha) is the single P1 and requires on-call ownership.
+- HD-260804-1934 (Customer Beta) is a breached P2 awaiting customer confirmation.
+- The four at-risk records are HD-260804-2841, HD-260804-2861,
+  HD-260804-2726, and HD-260804-2763.
+- Customer and requester values are synthetic. Requester fields intentionally use
+  redacted tokens, and no reply addresses or production contacts are exported.
+- Counts reconcile to the JSON snapshot and the CSV/TSV summaries in this folder.

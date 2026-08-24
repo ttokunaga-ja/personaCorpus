@@ -1,0 +1,24 @@
+2026-08-04T09:35:00Z checker=incident_link_checker.py source=incident-reference-map.json network=false
+PASS incident_id=INC-2026-0804-03
+PASS known_issue_id=KI-1054
+PASS incident_url=https://status.heliodesk.example.invalid/incidents/INC-2026-0804-03
+PASS known_issue_url=https://status.heliodesk.example.invalid/known-issues/KI-1054
+PASS case_id=CS-2026-0804-001 link=INC-2026-0804-03
+PASS case_id=CS-2026-0804-002 link=INC-2026-0804-03
+PASS case_id=CS-2026-0804-003 link=INC-2026-0804-03
+PASS case_id=CS-2026-0804-004 link=INC-2026-0804-03
+PASS case_id=CS-2026-0804-005 link=INC-2026-0804-03
+PASS case_id=CS-2026-0804-006 link=INC-2026-0804-03
+PASS case_id=CS-2026-0804-007 link=INC-2026-0804-03
+PASS case_id=CS-2026-0804-008 link=INC-2026-0804-03
+PASS case_id=CS-2026-0804-009 link=INC-2026-0804-03
+PASS case_id=CS-2026-0804-010 link=INC-2026-0804-03
+PASS case_id=CS-2026-0804-011 link=INC-2026-0804-03
+PASS case_id=CS-2026-0804-012 link=INC-2026-0804-03
+PASS case_id=CS-2026-0804-013 link=INC-2026-0804-03
+PASS case_id=CS-2026-0804-014 link=INC-2026-0804-03
+PASS case_id=CS-2026-0804-015 link=INC-2026-0804-03
+PASS case_id=CS-2026-0804-016 link=INC-2026-0804-03
+PASS case_id=CS-2026-0804-017 link=INC-2026-0804-03
+PASS linked_case_count=17 sla_hours=4 correlation=operational_context_only
+RESULT valid

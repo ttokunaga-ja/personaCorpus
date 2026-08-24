@@ -1,0 +1,45 @@
+HELIODESK SUPPORT — ESCALATION & SEVERITY REFERENCE
+Synthetic internal training reference | Example snapshot: 2026-08-04
+
+ACKNOWLEDGEMENT SLA
+Every new case: acknowledgement due within 4 elapsed hours of reported_at_utc.
+An acknowledgement records ownership, current severity, and next update time.
+
+SEV 1 — CRITICAL SERVICE INTERRUPTION
+Definition: A widespread production outage, confirmed data loss/corruption risk,
+or security-sensitive service failure with no safe workaround for multiple customers
+or a core supported function.
+Action: Page Incident Commander immediately; engage Technical Escalation Lead and
+Security Liaison where relevant. Start customer/internal updates every 30 minutes.
+Owner: Incident Commander after explicit acceptance; original case owner remains
+accountable until acceptance is recorded.
+
+SEV 2 — MAJOR IMPAIRMENT
+Definition: A major supported workflow is unavailable or materially degraded for a
+customer or meaningful cohort; workaround is unavailable, unsafe, or impractical.
+Action: Escalate to Technical Escalation Lead within 30 minutes of classification.
+Provide updates at least every 2 hours until stabilized or reclassified.
+
+SEV 3 — LIMITED IMPACT
+Definition: A non-critical feature failure, intermittent defect, or degraded workflow
+with a reasonable workaround and limited user scope.
+Action: Investigate in normal priority order; route to Product Support Specialist
+when reproduction or product triage is required. Update at the committed next time.
+
+SEV 4 — REQUEST / LOW IMPACT
+Definition: How-to question, documentation gap, cosmetic defect, or low-impact
+request with no material interruption to supported operations.
+Action: Handle in standard queue order; set a clear next action and update time.
+
+CLASSIFICATION GUARDRAILS
+- Severity reflects current observable impact and urgency, not contract tier,
+  requester seniority, case age, or emotional tone.
+- Reclassify when evidence changes; log the reason and notify the requester.
+- A suspected credential, token, session, or personal-data exposure is never copied
+  into the case. Stop forwarding evidence; engage Security Liaison immediately.
+- Do not close an escalated case until the receiving role's outcome and a customer-
+  facing resolution or next action are recorded.
+
+EXAMPLE ONLY
+At 2026-08-04T14:00:00Z, a synthetic training snapshot has 17 unresolved cases:
+1 Sev 1, 4 Sev 2, 8 Sev 3, and 4 Sev 4. This is not a queue report or forecast.

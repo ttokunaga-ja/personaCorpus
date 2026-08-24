@@ -1,0 +1,26 @@
+Date: Tue, 04 Aug 2026 13:18:00 +0900
+From: Support Success Lead <support-success-lead@heliodesk.invalid>
+To: Customer Beta Success Team <beta-success@heliodesk.invalid>
+Cc: QBR Program <qbr-program@heliodesk.invalid>, Queue West <queue-west@heliodesk.invalid>
+Subject: Re: Customer Beta QBR follow-up — support risk and HD-260804-1934
+Message-ID: <20260804.131800.beta-qbr-follow-up@heliodesk.invalid>
+In-Reply-To: <20260804.090500.beta-qbr-actions@heliodesk.invalid>
+References: <20260804.090500.beta-qbr-actions@heliodesk.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+
+Team,
+
+For the QBR follow-up, Customer Beta has five open cases. One is at risk against
+the four-hour SLA: HD-260804-1934, concerning an empty dashboard export.
+
+Please include the following in the QBR action tracker: Queue West owns the
+next diagnostic update, Support Success will confirm the customer-facing next
+step, and the account team will review the status at the next operating
+checkpoint. The risk should be described as actively owned; do not imply that
+the issue is resolved until the export result is verified.
+
+Thank you,
+Support Success Lead
+HelioDesk

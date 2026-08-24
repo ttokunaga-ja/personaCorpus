@@ -1,0 +1,5 @@
+issue_id,title,status,owner_role,affected_scope,customer_impact,workaround_available,validation
+KI-1042,Queue counter delay,monitoring,Support Operations Lead,Queue counts,Planning may use a stale count,Yes,Filtered search aligns within 15 minutes
+KI-1047,CSV import retry,workaround-ready,Data Import Specialist,CSV imports,Import completion may be delayed,Yes,Completion banner and three-record sample
+KI-1051,Session timeout,investigating,Identity Platform Liaison,Inactive browser tabs,User must sign in again,Yes,Saved draft remains after sign-in
+KI-1054,Notification lag,validating,Messaging Reliability Coordinator,Email and in-app notices,Awareness of updates may be delayed,Yes,Activity timestamp matches notice

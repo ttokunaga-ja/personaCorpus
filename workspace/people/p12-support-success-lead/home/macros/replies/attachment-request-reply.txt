@@ -1,0 +1,14 @@
+HelioDesk reply macro — Secure attachment request
+Operational date: 2026-08-04 | Response SLA: 4 hours
+
+Hi {{first_name}},
+
+Thank you for the details on case {{case_id}}. To help us investigate, please upload {{requested_artifact}} using this case-specific link: {{secure_upload_link}}.
+
+Before uploading, remove or mask passwords, one-time codes, API keys, access tokens, and full payment details. Please include only information needed for this case; redact unrelated personal or customer information where possible. Do not send the file to a shared mailbox or publish it in a public link.
+
+Once the attachment is available, we will review it under our support process and send the next update by {{next_update_at}}. If you cannot use the secure link, reply here and we will provide a policy-approved alternative.
+
+Best,
+{{agent_name}}
+HelioDesk Support

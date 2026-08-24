@@ -1,0 +1,5 @@
+channel	unresolved_ticket_count	within_count	at_risk_count	breached_count
+email	6	4	1	1
+web	6	4	1	1
+chat	5	3	2	0
+total	17	11	4	2

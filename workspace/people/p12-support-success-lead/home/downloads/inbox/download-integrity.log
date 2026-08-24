@@ -1,0 +1,25 @@
+HelioDesk synthetic download inbox integrity record
+Recorded: 2026-08-04T18:03:00+09:00
+Algorithm: SHA-256
+Scope: expected inbox payload files; this log is not self-hashed.
+
+f272596bd2400ecb8e772fbd627a668a70c34c9833d2f36e7d740b51b88862f3  attachment-intake-notes.txt
+Expected: readable UTF-8 note aligned to the frozen 2026-08-04T09:00:00Z snapshot; states 17 unresolved (Alpha 9, Beta 5, Other 3) and a 4-hour SLA.
+
+a277c6ffeb1735857b0c1a41fcf1dd6b406b763f9a7a95a963ad65da8af08db5  customer-alpha-export.json
+Expected: valid JSON; synthetic/redacted Customer Alpha P1 case HD-260804-2718, “Provisioning job blocks workspace launch,” open and SLA breached; no credentials or real PII.
+
+7546d7350b55ee4c3659564c609067f7ee6f71ec4a1d9898e982e6e74daa805a  customer-beta-export.xml
+Expected: well-formed XML; synthetic/redacted Customer Beta P2 case HD-260804-1934, “Dashboard export returns an empty CSV,” pending customer and SLA breached; no credentials or real PII.
+
+57c93004b5d891a8288d2e214f0baff8121c8f1cba005f35594783e71ec4619f  queue-snapshot.csv
+Expected: valid rectangular CSV at the frozen snapshot: Alpha=9 (within 5/risk 3/breached 1), Beta=5 (3/1/1), Other=3 (3/0/0), Total=17 (11/4/2), with a 4-hour SLA.
+
+d238da9900bf1b0e5b30ab9cab27e5729dc0256ff91effe3b7bb3f1537b11e8b  vendor-support-note.html
+Expected: parseable HTML; all sample links use the reserved .invalid domain.
+
+24f5e54d373b9d07aaa2d24e4158a4065d0df3b2e8b980ab05e39ac61171b94f  call-quality-sample.wav
+Expected: playable RIFF/WAVE PCM; mono, 16-bit, 16000 Hz, 12 seconds; synthetic calibration tones/noise only.
+
+9ea249769b8da5ce40138613b2492f50808e4ec84aff46c098f774d9891647dc  sanitize_attachment.py
+Expected: Python 3 syntax-valid offline text inspector; safely normalizes filenames and redacts email/token-like patterns.

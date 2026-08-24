@@ -1,0 +1,68 @@
+catalog_version: "2026-08-04.1"
+product: HelioDesk
+operating_date: "2026-08-04"
+response_sla: "4 hours"
+owner_role: support-success-lead
+macros:
+  - id: hd-reply-account-verification
+    file: account-verification-reply.txt
+    status: approved
+    version: 1.0.0
+    owner_role: support-success-lead
+    purpose: Request approved account verification without collecting secrets.
+    required_placeholders:
+      - first_name
+      - case_id
+      - verification_method
+      - verification_deadline
+      - agent_name
+  - id: hd-reply-attachment-request
+    file: attachment-request-reply.txt
+    status: approved
+    version: 1.0.0
+    owner_role: support-success-lead
+    purpose: Request a case-specific secure upload with attachment safety guidance.
+    required_placeholders:
+      - first_name
+      - case_id
+      - requested_artifact
+      - secure_upload_link
+      - next_update_at
+      - agent_name
+  - id: hd-reply-customer-alpha-delay-update
+    file: customer-alpha-delay-update.txt
+    status: approved
+    version: 1.0.0
+    owner_role: support-success-lead
+    purpose: Acknowledge a confirmed delay for the synthetic Customer Alpha example.
+    required_placeholders:
+      - first_name
+      - case_id
+      - current_status
+      - next_update_at
+      - agent_name
+  - id: hd-reply-customer-beta-follow-up
+    file: customer-beta-follow-up.txt
+    status: approved
+    version: 1.0.0
+    owner_role: support-success-lead
+    purpose: Follow up on a prior recommendation for the synthetic Customer Beta example.
+    required_placeholders:
+      - first_name
+      - case_id
+      - topic_summary
+      - recommended_action
+      - next_update_at
+      - agent_name
+  - id: hd-reply-sla-4h-breach-apology
+    file: sla-4h-breach-apology.txt
+    status: approved
+    version: 1.0.0
+    owner_role: support-success-lead
+    purpose: Apologize for a confirmed 4-hour response-SLA breach without promising resolution.
+    required_placeholders:
+      - first_name
+      - case_id
+      - current_status
+      - next_update_at
+      - agent_name

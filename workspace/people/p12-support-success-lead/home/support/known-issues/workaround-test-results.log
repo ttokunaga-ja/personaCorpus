@@ -1,0 +1,5 @@
+2026-08-04T09:10:00Z KI-1042 PASS queue refresh and filtered-search comparison converged in 11 minutes
+2026-08-04T09:24:00Z KI-1047 PASS corrected CSV completed after one retry at 10 minutes
+2026-08-04T09:38:00Z KI-1051 PASS saved draft was available after refresh and sign-in
+2026-08-04T09:51:00Z KI-1054 PASS activity feed showed event before delayed notice; no duplicate action taken
+Summary: 4/4 workaround validations passed. Customer language reviewed for clarity and safety.

@@ -1,0 +1,11 @@
+{
+  "catalogDate": "2026-08-04",
+  "service": "HelioDesk",
+  "supportCommitment": { "responseSla": "4 hours", "unresolvedTicketCount": 17 },
+  "issues": [
+    { "id": "KI-1042", "title": "Queue counter delay", "status": "monitoring", "ownerRole": "Support Operations Lead", "scope": "Queue counts may trail new or reassigned work by up to 12 minutes.", "workaround": "Refresh the queue or use filtered ticket search to confirm the current workload.", "validation": "Compare queue totals with filtered search after a 15-minute observation window." },
+    { "id": "KI-1047", "title": "CSV import retry", "status": "workaround-ready", "ownerRole": "Data Import Specialist", "scope": "Some CSV imports stop after a temporary validation timeout.", "workaround": "Correct quoted-field errors, wait 10 minutes, then retry the same file once.", "validation": "Confirm a completion banner and sample three imported records." },
+    { "id": "KI-1051", "title": "Session timeout", "status": "investigating", "ownerRole": "Identity Platform Liaison", "scope": "Long-running inactive browser tabs can ask users to sign in earlier than expected.", "workaround": "Save draft work, refresh the tab, and sign in again before continuing.", "validation": "Verify the saved draft remains available after re-authentication." },
+    { "id": "KI-1054", "title": "Notification lag", "status": "validating", "ownerRole": "Messaging Reliability Coordinator", "scope": "Email and in-app notifications can arrive later than their related ticket event.", "workaround": "Open the ticket activity feed for the latest state; do not repeat the action solely because a notice is delayed.", "validation": "Match the activity timestamp to the eventually delivered notice." }
+  ]
+}

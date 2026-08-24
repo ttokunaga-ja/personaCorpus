@@ -1,0 +1,19 @@
+HelioDesk incident-link brief — 2026-08-04
+
+Incident: INC-2026-0804-03
+Known issue: KI-1054 — notification delivery lag
+Status reference: https://status.heliodesk.example.invalid/incidents/INC-2026-0804-03
+
+At 09:20 UTC, Support linked 17 unresolved cases reporting delayed or missing
+notifications to the incident for coordination. The incident carries a four-hour
+SLA: acknowledge by 09:40 UTC, give the first customer update by 10:20 UTC, and
+either provide mitigation or an approved next update by 13:20 UTC.
+
+This is operational correlation only. A link helps Support coordinate updates and
+watch for shared symptoms; it is not evidence that every linked case has the same
+root cause. Keep investigating account configuration, recipient filters, and
+client delivery conditions for each case.
+
+The authoritative case-to-incident inventory is incident-reference-map.json.
+Use the bridge notes and coordination guide for staffing, update cadence, and
+closure decisions. All records here are synthetic training data.

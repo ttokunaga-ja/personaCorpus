@@ -1,0 +1,19 @@
+HelioDesk synthetic export validation receipt
+Validated at: 2026-08-04T09:00:00Z (frozen dataset timestamp)
+
+PASS  JSON documents parsed with Python json.tool.
+PASS  JSONL event records parsed line by line with Python json.
+PASS  YAML documents parsed with Ruby Psych.
+PASS  XML documents parsed with Python ElementTree.
+PASS  CSV and TSV records have consistent column counts.
+PASS  Register reconciliation: 17 tickets; P1/P2/P3/P4 = 1/5/8/3;
+      within/at-risk/breached = 11/4/2; Alpha/Beta/other = 9/5/3.
+PASS  Register ticket IDs reconcile to the event stream.
+PASS  normalize_ticket_export.py compiles and validates the primary JSON export.
+PASS  validate_sla_windows.rs compiles with rustc --edition=2021.
+PASS  SQL view definitions parse in SQLite.
+
+Note: Rust executable runtime was not recorded in this receipt because locally
+compiled Rust executables did not return under this host's command runner.
+The source completed an independent rustc compilation check; Python performed
+the complete record-level validation.

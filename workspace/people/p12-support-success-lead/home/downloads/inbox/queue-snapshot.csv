@@ -1,0 +1,5 @@
+snapshot_at,queue,segment,unresolved_cases,within_target_cases,at_risk_cases,breached_cases,sla_target_hours
+2026-08-04T09:00:00Z,Support Success,Alpha,9,5,3,1,4
+2026-08-04T09:00:00Z,Support Success,Beta,5,3,1,1,4
+2026-08-04T09:00:00Z,Support Success,Other,3,3,0,0,4
+2026-08-04T09:00:00Z,Support Success,Total,17,11,4,2,4

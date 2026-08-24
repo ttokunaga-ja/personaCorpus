@@ -1,0 +1,16 @@
+HelioDesk reply macro — 4-hour SLA breach apology
+Operational date: 2026-08-04 | Response SLA: 4 hours
+
+Operational context — do not include in the sent reply: This macro is for a confirmed 4-hour response-SLA breach. On 2026-08-04, 17 unresolved cases require operational prioritization; never identify or discuss other customers' cases in a reply.
+
+Hi {{first_name}},
+
+I’m sorry we did not provide the update on case {{case_id}} within our 4-hour response SLA. You should have received a timely acknowledgement, and we understand the inconvenience this delay caused.
+
+The case is currently {{current_status}}. We will send the next update by {{next_update_at}} while the team continues its review. This message does not guarantee a resolution time or a particular outcome beyond our support policy.
+
+If the issue is now affecting a critical workflow, reply with the impact and any immediate deadline. Please do not include passwords, one-time codes, API keys, access tokens, or full payment details.
+
+Best,
+{{agent_name}}
+HelioDesk Support

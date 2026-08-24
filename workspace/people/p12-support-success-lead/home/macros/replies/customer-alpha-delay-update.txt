@@ -1,0 +1,18 @@
+HelioDesk reply macro — Delay update
+Operational date: 2026-08-04 | Response SLA: 4 hours
+Example account: Customer Alpha
+Synthetic example recipient: alpha-contact@customer-alpha.invalid
+
+Operational context — do not include in the sent reply: On 2026-08-04, the support queue has 17 unresolved cases. Use this macro only when the case owner confirms a delay; do not disclose queue counts or other customers' cases.
+
+Hi {{first_name}},
+
+I’m sorry that case {{case_id}} is taking longer than expected. The current status is {{current_status}}, and I know the delay affects your team’s work.
+
+We are continuing to review the case and will send you our next update by {{next_update_at}}. Our response SLA is 4 hours; this update does not promise a resolution time or outcome beyond the support process.
+
+If the impact has changed since your last message, please reply with the affected workflow and any deadline we should consider. Please do not include passwords, one-time codes, API keys, or full payment details.
+
+Best,
+{{agent_name}}
+HelioDesk Support

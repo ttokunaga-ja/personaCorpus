@@ -1,0 +1,8 @@
+{"timestamp":"2026-08-04T02:14:00Z","case_id":"HD-260804-2718","event":"case_opened","status":"OPEN","actor_role":"redacted requester role","channel":"email"}
+{"timestamp":"2026-08-04T02:20:00Z","case_id":"HD-260804-2718","event":"acknowledged","status":"OPEN","actor_role":"Support Success Lead","channel":"email","sla_due":"2026-08-04T06:14:00Z"}
+{"timestamp":"2026-08-04T05:45:00Z","case_id":"HD-260804-2718","event":"engineering_escalated","status":"ESCALATED","actor_role":"Engineering On-Call","channel":"internal"}
+{"timestamp":"2026-08-04T06:05:00Z","case_id":"HD-260804-2718","event":"sla_risk_notified","status":"ESCALATED","actor_role":"Support Success Lead","channel":"email"}
+{"timestamp":"2026-08-04T06:14:00Z","case_id":"HD-260804-2718","event":"sla_target_missed","status":"OPEN_BREACHED","actor_role":"HelioDesk","channel":"system"}
+{"timestamp":"2026-08-04T06:36:00Z","case_id":"HD-260804-2718","event":"workaround_applied","status":"OPEN_BREACHED","actor_role":"Engineering On-Call","channel":"internal"}
+{"timestamp":"2026-08-04T07:20:00Z","case_id":"HD-260804-2718","event":"rollback_completed","status":"OPEN_BREACHED","actor_role":"Engineering On-Call","channel":"internal"}
+{"timestamp":"2026-08-04T09:00:00Z","case_id":"HD-260804-2718","event":"snapshot_recorded","status":"OPEN_BREACHED","actor_role":"HelioDesk","channel":"system","customer_validation":"pending","permanent_fix_validation":"pending","alpha_unresolved":9,"overall_unresolved":17,"counts_include_case":true}

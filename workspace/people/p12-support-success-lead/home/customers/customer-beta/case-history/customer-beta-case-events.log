@@ -1,0 +1,8 @@
+2026-08-04 12:42:00.000 +09:00 WIN-SUP-12 HelioDesk.CaseCreated case=HD-260804-1934 queue=queue-west status=pending_customer slaDue=2026-08-04T07:42:00Z
+2026-08-04 14:12:00.000 +09:00 WIN-SUP-12 HelioDesk.CaseCreated case=HD-260804-2861 queue=queue-west status=open slaDue=2026-08-04T09:12:00Z
+2026-08-04 15:44:00.000 +09:00 WIN-SUP-12 HelioDesk.CaseCreated case=HD-260804-2740 queue=mobile-pod status=open slaDue=2026-08-04T10:44:00Z
+2026-08-04 16:28:00.000 +09:00 WIN-SUP-12 HelioDesk.CaseCreated case=HD-260804-2774 queue=identity-pod status=pending_customer slaDue=2026-08-04T11:28:00Z
+2026-08-04 16:36:00.000 +09:00 WIN-SUP-12 HelioDesk.MacroApplied case=HD-260804-1934 macro=HD-MAC-EVIDENCE-08 channel=web queue=queue-west
+2026-08-04 16:56:00.000 +09:00 WIN-SUP-12 HelioDesk.CaseCreated case=HD-260804-2803 queue=frontend-pod status=investigating slaDue=2026-08-04T11:56:00Z
+2026-08-04 17:58:00.000 +09:00 WIN-SUP-12 HelioDesk.CaseStatus case=HD-260804-1934 status=pending_customer slaState=breached action=evidence_requested
+2026-08-04 18:00:00.000 +09:00 WIN-SUP-12 HelioDesk.QueueSnapshot customer=CustomerBeta unresolved=5 within=3 atRisk=1 breached=1 overallUnresolved=17 targetHours=4 snapshotUtc=2026-08-04T09:00:00Z

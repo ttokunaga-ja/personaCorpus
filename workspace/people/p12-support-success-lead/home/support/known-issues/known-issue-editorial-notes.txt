@@ -1,0 +1,7 @@
+HelioDesk known-issue editorial notes — 2026-08-04
+
+Audience: customers and frontline support. Use plain, observable language.
+Avoid assigning fault, giving repair estimates, or implying data loss without evidence.
+State the current ticket count (17) and four-hour support response SLA only in the index context.
+Every workaround must say what to check next and must not ask customers to repeat an action that could create duplicates.
+Owners are roles, never named individuals.

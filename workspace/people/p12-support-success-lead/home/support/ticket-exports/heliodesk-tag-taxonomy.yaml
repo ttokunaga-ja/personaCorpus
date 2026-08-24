@@ -1,0 +1,15 @@
+version: 1
+system: HelioDesk
+frozen_at: "2026-08-04T09:00:00Z"
+synthetic_data: true
+tags:
+  - key: access.identity
+    description: Authentication, SAML, SCIM, and role access.
+  - key: workflow.provisioning
+    description: Workspace setup, invitations, and approval flows.
+  - key: reporting.export
+    description: Exports, audit data, and reporting displays.
+  - key: client.mobile
+    description: Mobile application behavior.
+  - key: product.usability
+    description: Navigation, accessibility, and feedback.

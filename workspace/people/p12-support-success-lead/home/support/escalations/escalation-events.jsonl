@@ -1,0 +1,5 @@
+{"timestamp":"2026-08-04T09:00:00Z","case_id":"HD-260804-2718","event":"sla_breached","actor_role":"Queue Analyst","detail":"P1 is open; the four-hour first-response deadline passed at 2026-08-04T06:14:00Z."}
+{"timestamp":"2026-08-04T09:00:00Z","case_id":"HD-260804-2718","event":"bridge_opened","actor_role":"Support Incident Lead","detail":"Breach recovery bridge is active; customer communicator and engineering liaison assigned."}
+{"timestamp":"2026-08-04T09:00:00Z","case_id":"HD-260804-1934","event":"sla_breached","actor_role":"Queue Analyst","detail":"P2 is pending_customer; the four-hour first-response deadline passed at 2026-08-04T07:42:00Z."}
+{"timestamp":"2026-08-04T09:00:00Z","case_id":"HD-260804-2861","event":"deadline_watch","actor_role":"Support Duty Manager","detail":"At-risk first-response deadline is 2026-08-04T09:12:00Z; named responder confirmed."}
+{"timestamp":"2026-08-04T09:00:00Z","case_id":"HD-260804-2841","event":"leadership_checkpoint","actor_role":"Support Success Lead","detail":"At-risk case included in the frozen 09:00 UTC SLA watch."}

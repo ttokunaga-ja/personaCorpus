@@ -1,0 +1,18 @@
+Date: Tue, 04 Aug 2026 15:05:00 +0900
+From: Support Success Lead <support-success-lead@heliodesk.invalid>
+To: Support Duty Manager <duty-manager@heliodesk.invalid>
+Subject: SLA risk: HD-260804-2718 has 9 minutes remaining
+Message-ID: <20260804.150500.hd2718.slarisk@heliodesk.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Synthetic internal notice.
+
+HD-260804-2718 remains escalated and unresolved at 15:05 JST. The case began
+at 11:14 JST, so the four-hour target expires at 15:14 JST. Engineering On-Call
+is preparing a temporary provisioning workaround; no resolution time is
+committed. The frozen 18:00 JST snapshot records Customer Alpha with 9
+unresolved items and HelioDesk overall with 17, including this case.
+
+No personal data, credentials, or real addresses are present in this record.

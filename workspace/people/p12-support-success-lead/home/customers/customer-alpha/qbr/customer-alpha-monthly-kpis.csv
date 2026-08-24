@@ -1,0 +1,5 @@
+month,tickets,escalations,adoption_percent,active_admins,csat_out_of_5,median_first_response_hours,sla_attainment_percent,data_status
+2026-04,42,8,76,42,4.3,2.4,90,synthetic
+2026-05,38,6,78,43,4.4,2.2,92,synthetic
+2026-06,31,4,80,45,4.5,2.0,93,synthetic
+2026-07,27,3,82,46,4.6,1.8,94,synthetic

@@ -1,0 +1,9 @@
+event_at_utc,case_id,macro_id,macro_name,channel,purpose,queue
+2026-08-04T03:48:00Z,HD-260804-1934,HD-MAC-ACK-04,Four-hour acknowledgement,web,Confirm receipt and case ownership,queue-west
+2026-08-04T07:36:00Z,HD-260804-1934,HD-MAC-EVIDENCE-08,CSV evidence request,web,Request a fresh export and selected filter details,queue-west
+2026-08-04T08:58:00Z,HD-260804-1934,HD-MAC-STATUS-12,Investigation status update,web,Confirm case remains open pending customer evidence,queue-west
+2026-08-04T05:20:00Z,HD-260804-2861,HD-MAC-ACK-04,Four-hour acknowledgement,chat,Confirm receipt and case ownership,queue-west
+2026-08-04T08:46:00Z,HD-260804-2861,HD-MAC-STATUS-12,Investigation status update,chat,Set next update before the due time,queue-west
+2026-08-04T06:51:00Z,HD-260804-2740,HD-MAC-ACK-04,Four-hour acknowledgement,chat,Confirm receipt and case ownership,mobile-pod
+2026-08-04T07:35:00Z,HD-260804-2774,HD-MAC-EVIDENCE-08,CSV evidence request,chat,Request the displayed SAML message text,identity-pod
+2026-08-04T08:04:00Z,HD-260804-2803,HD-MAC-STATUS-12,Investigation status update,web,Confirm active investigation and next update,frontend-pod

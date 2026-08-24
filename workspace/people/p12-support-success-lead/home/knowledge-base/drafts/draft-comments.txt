@@ -1,0 +1,10 @@
+HelioDesk KB draft review comments — 2026-08-04
+
+1. KB-ALPHA-REC-01: Verify final approved-admin roster wording; no credentials or personal contact data may appear.
+2. KB-QUEUE-02: Confirm the 60-minute urgent-routing threshold with Support Operations.
+3. KB-SLA-03: Peer reviewer to validate lanes and update cadence against the 4-hour SLA.
+4. KB-TRIAGE-04: Operations reviewer to confirm all 17 unresolved tickets receive a next action.
+5. KB-KI-05: Product reviewer to confirm KI-1042/KI-1047/KI-1051/KI-1054 language remains observable and safe.
+6. KB-HANDOFF-06: Shift lead to validate accepting-owner acknowledgement.
+
+Status source: article-metadata.json; workflow: publishing-workflow.yaml; register: draft-review-register.csv.

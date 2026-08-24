@@ -1,0 +1,11 @@
+HelioDesk escalation standup — frozen snapshot 2026-08-04 09:00 UTC / 18:00 JST
+
+Unresolved: 17 | P1: 1 | P2: 5 | P3: 8 | P4: 3
+SLA: within 11 | at-risk 4 | breached 2
+
+Priority actions
+- Alpha P1 HD-260804-2718: open and breached; bridge active.
+- At-risk: HD-260804-2841, HD-260804-2861, HD-260804-2726, HD-260804-2763.
+- Breached: HD-260804-2718 and pending-customer Beta case HD-260804-1934 require recovery communication.
+
+Owners: Support Incident Lead runs the P1 bridge. Support Duty Manager clears first-response risk. Support Success Lead publishes 18:30 JST leadership update.

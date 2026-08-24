@@ -1,0 +1,9 @@
+2026-08-04T08:41:02Z INFO  triage window opened by support lead
+2026-08-04T08:42:10Z WARN  HD-260804-2718 exceeded initial-response target; recovery owner: support-oncall
+2026-08-04T08:43:18Z WARN  HD-260804-1934 exceeded initial-response target; recovery owner: queue-west
+2026-08-04T08:45:03Z INFO  HD-260804-2718 classified P1: Provisioning job blocks workspace launch
+2026-08-04T08:47:39Z INFO  at-risk coverage confirmed: HD-260804-2841, 2861, 2726, 2763
+2026-08-04T08:50:26Z INFO  queue count reconciled: unresolved=17 priorities={P1:1,P2:5,P3:8,P4:3}
+2026-08-04T08:52:11Z INFO  SLA count reconciled: within=11 at_risk=4 breached=2 target=4h
+2026-08-04T08:55:44Z NOTE  no outbound customer names, phone numbers, or credentials stored in local working set
+2026-08-04T08:58:30Z INFO  handoff notes ready for 09:00 UTC queue review

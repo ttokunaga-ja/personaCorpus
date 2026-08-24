@@ -1,0 +1,29 @@
+HelioDesk Customer Beta QBR checkpoint
+Date: 2026-08-04
+
+Snapshot
+- Overall unresolved: 17
+- Beta unresolved: 5
+- Within SLA: 3
+- At risk: 1
+- Breached: 1
+- SLA target: 4 hours
+- Breach recovery case: HD-260804-1934 (pending_customer; created 03:42Z; due 07:42Z)
+
+Customer health
+- Adoption: 71%
+- Active admins: 28
+- CSAT: 4.2/5
+- Median first response: 2.3 hours
+- SLA attainment: 91%
+
+Support trend (Apr-Jul)
+- Tickets: 26, 29, 24, 21
+- Escalations: 5, 4, 3, 2
+
+Renewal actions
+- Aug 12: breach recovery and close the breached case
+- Aug 25: adoption expansion review
+- Sep 8: renewal readout
+
+All values and the .invalid contact are synthetic. No PII or production data.

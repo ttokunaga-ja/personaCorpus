@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<HelioDeskLogFieldReference version="1.0" synthetic="true" snapshot="2026-08-04">
+  <Purpose>Sanitized support-case exchange fields; do not include secrets or PII.</Purpose>
+  <Field name="case_id" type="string" required="true" format="HD-YYYY-NNNN">Unique synthetic case identifier.</Field>
+  <Field name="reported_at_utc" type="datetime" required="true" format="ISO 8601 UTC">Time the case was first reported.</Field>
+  <Field name="acknowledged_at_utc" type="datetime" required="false" format="ISO 8601 UTC">Time a useful acknowledgement was sent.</Field>
+  <Field name="sla_ack_due_at_utc" type="datetime" required="true" format="reported_at_utc plus 4 elapsed hours">Calculated acknowledgement due time.</Field>
+  <Field name="severity" type="string" required="true" allowed="Sev 1|Sev 2|Sev 3|Sev 4">Current impact-and-urgency classification.</Field>
+  <Field name="status" type="string" required="true" allowed="New|Acknowledged|Investigating|Waiting on Customer|Escalated|Resolved|Closed">Current workflow condition.</Field>
+  <Field name="owner_role" type="string" required="true" allowed="Support Duty Lead|Technical Escalation Lead|Product Support Specialist|Incident Commander|Security Liaison">Functional role accountable for next action.</Field>
+  <Field name="next_update_at_utc" type="datetime" required="true" format="ISO 8601 UTC">Committed next communication time.</Field>
+  <Field name="affected_service" type="string" required="true" format="synthetic service label">Supported service or component affected.</Field>
+  <Field name="impact_summary" type="string" required="true" format="redacted plain text">Concise sanitized impact statement.</Field>
+  <Field name="evidence_redaction_status" type="string" required="true" allowed="Not Required|Redacted|Secure Channel Only">Whether routine evidence is safe to retain in the case.</Field>
+  <Field name="escalation_path" type="string" required="false" format="role path separated by &gt;">Roles engaged in order without personal identifiers.</Field>
+</HelioDeskLogFieldReference>

@@ -1,0 +1,6 @@
+DOCX render review — 2026-08-04
+
+Scope: six HelioDesk knowledge-base drafts for Customer Alpha.
+Required anchors checked: 4-hour SLA; 17 unresolved; KI-1042, KI-1047, KI-1051, KI-1054.
+Renderer outputs are retained only in scratch/p12/p12-primary-04/rendered-v5/. Review status: visual QA passed; six DOCX rendered and inspected page by page.
+Cross-reference status: article-metadata.json, publishing-workflow.yaml, draft-review-register.csv, and draft-comments.txt list each article as draft/pending peer review.

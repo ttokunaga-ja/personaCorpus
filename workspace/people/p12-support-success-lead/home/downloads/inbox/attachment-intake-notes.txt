@@ -1,0 +1,25 @@
+HelioDesk Support Success - attachment intake notes
+Date: 2026-08-04 (synthetic training workspace)
+
+Canonical queue snapshot: 2026-08-04T09:00:00Z (frozen unresolved-ticket export)
+Attachment preparation time: after the snapshot; no live queue review was performed.
+Queue position at snapshot: 17 unresolved cases
+  Alpha segment: 9
+  Beta segment: 5
+  Other segments: 3
+SLA target: first meaningful response within 4 hours of intake.
+
+Attached exports are redacted, offline-safe examples prepared for queue triage
+training. Do not upload them to vendor portals or merge them into production CRM.
+
+Expected attachments:
+- customer-alpha-export.json: redacted Customer Alpha P1 case HD-260804-2718,
+  “Provisioning job blocks workspace launch” (open, SLA breached).
+- customer-beta-export.xml: redacted Customer Beta P2 case HD-260804-1934,
+  “Dashboard export returns an empty CSV” (pending customer, SLA breached).
+- queue-snapshot.csv: aggregate queue counts and SLA buckets.
+- vendor-support-note.html: safe mock vendor handoff note; links use .invalid.
+- call-quality-sample.wav: synthetic tones/noise only, for attachment playback check.
+
+Intake outcome: all expected files should be readable locally; exports contain no
+credentials, customer names, telephone numbers, or unredacted email addresses.

@@ -1,0 +1,76 @@
+{
+  "catalog": "HelioDesk Knowledge Base",
+  "releaseDate": "2026-08-04",
+  "articles": [
+    {
+      "filename": "heliodesk-queue-routing-guide.pdf",
+      "title": "HelioDesk Queue Routing Guide",
+      "status": "Published",
+      "lastReviewed": "2026-08-04",
+      "audience": "Support specialists and queue managers"
+    },
+    {
+      "filename": "customer-alpha-admin-recovery.pdf",
+      "title": "Customer Alpha Admin Recovery",
+      "status": "Published",
+      "lastReviewed": "2026-08-04",
+      "audience": "Customer Alpha support owners and identity administrators"
+    },
+    {
+      "filename": "sla-4h-escalation-playbook.pdf",
+      "title": "4-Hour SLA Escalation Playbook",
+      "status": "Published",
+      "lastReviewed": "2026-08-04",
+      "audience": "Support leads and incident coordinators"
+    },
+    {
+      "filename": "known-issue-troubleshooting.pdf",
+      "title": "Known-Issue Troubleshooting",
+      "status": "Published",
+      "lastReviewed": "2026-08-04",
+      "audience": "Frontline support specialists"
+    },
+    {
+      "filename": "export-ticket-history-guide.pdf",
+      "title": "Export Ticket History Guide",
+      "status": "Published",
+      "lastReviewed": "2026-08-04",
+      "audience": "Support specialists assisting administrators"
+    },
+    {
+      "filename": "macro-personalization-guide.pdf",
+      "title": "Macro Personalization Guide",
+      "status": "Published",
+      "lastReviewed": "2026-08-04",
+      "audience": "Support specialists and quality reviewers"
+    },
+    {
+      "filename": "customer-success-health-check.pdf",
+      "title": "Customer Success Health Check",
+      "status": "Published",
+      "lastReviewed": "2026-08-04",
+      "audience": "Customer success leads and support partners"
+    },
+    {
+      "filename": "attachment-log-collection-guide.pdf",
+      "title": "Attachment and Log Collection Guide",
+      "status": "Published",
+      "lastReviewed": "2026-08-04",
+      "audience": "Support specialists and technical account contacts"
+    },
+    {
+      "filename": "escalation-handoff-standard.pdf",
+      "title": "Escalation Handoff Standard",
+      "status": "Published",
+      "lastReviewed": "2026-08-04",
+      "audience": "Support leads, engineering liaisons, and incident coordinators"
+    },
+    {
+      "filename": "unresolved-ticket-triage.pdf",
+      "title": "Unresolved Ticket Triage",
+      "status": "Published",
+      "lastReviewed": "2026-08-04",
+      "audience": "Support leads and queue managers"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+SUPPORT + SUCCESS SYNC — 2026-08-04
+
+Objective
+Keep the 17 unresolved items visible, protect the 4-hour SLA acknowledgement
+window, and separate internal hypotheses from customer-ready updates.
+
+Agenda
+1. Queue owner check: Customer Alpha (9) / Customer Beta (5) / other managed customers (3).
+2. Identify items that need an escalation coordinator before the next handoff.
+3. Confirm the one external update: acknowledgement is coordinated through the
+   standard 4-hour SLA process; next update follows the agreed channel.
+4. Review QBR draft: metrics are synthetic planning inputs until account-team
+   approval is recorded.
+
+Working cues — internal only
+- Alpha: verify the administrator-access trail before connecting repeat contacts.
+- Beta: check whether follow-up ownership is explicit on all seven open items.
+- Do not translate queue counts, suspected causes, or internal due times into a
+  customer commitment.
+
+Follow-up
+Support Operations owns the SLA-risk sweep. Success lead owns the approved
+summary check. Any promised resolution date needs an assigned delivery owner.
+
+Synthetic training note; no customer communications, customer data, or real
+contacts are represented here.

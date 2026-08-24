@@ -1,0 +1,8 @@
+2026-08-04T02:14:00Z case=HD-260804-2718 action=opened actor=redacted_requester_01 status=OPEN channel=email detail="provisioning job blocks workspace launch"
+2026-08-04T02:20:00Z case=HD-260804-2718 action=acknowledged actor=Support_Success_Lead status=OPEN channel=email detail="four-hour SLA due 2026-08-04T06:14:00Z"
+2026-08-04T05:45:00Z case=HD-260804-2718 action=escalated actor=Engineering_On_Call status=ESCALATED channel=internal detail="provisioning job configuration investigation started"
+2026-08-04T06:05:00Z case=HD-260804-2718 action=sla_risk_notified actor=Support_Success_Lead status=ESCALATED channel=email detail="9 minutes remaining"
+2026-08-04T06:14:00Z case=HD-260804-2718 action=sla_target_missed actor=HelioDesk status=OPEN_BREACHED channel=system detail="four-hour target expired"
+2026-08-04T06:36:00Z case=HD-260804-2718 action=workaround_applied actor=Engineering_On_Call status=OPEN_BREACHED channel=internal detail="temporary provisioning path enabled"
+2026-08-04T07:20:00Z case=HD-260804-2718 action=rollback_completed actor=Engineering_On_Call status=OPEN_BREACHED channel=internal detail="affected job configuration rolled back"
+2026-08-04T09:00:00Z case=HD-260804-2718 action=snapshot_recorded actor=HelioDesk status=OPEN_BREACHED channel=system detail="customer validation and permanent-fix checks pending; counts include case"

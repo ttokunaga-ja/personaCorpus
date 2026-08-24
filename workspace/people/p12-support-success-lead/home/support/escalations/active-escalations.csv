@@ -1,0 +1,18 @@
+case_id,customer,priority,status,created_at_utc,sla_due_at_utc,sla_status,owner_role,next_update_utc
+HD-260804-2718,Customer Alpha,P1,open,2026-08-04T02:14:00Z,2026-08-04T06:14:00Z,breached,Support Incident Lead,2026-08-04T09:30:00Z
+HD-260804-1934,Customer Beta,P2,pending_customer,2026-08-04T03:42:00Z,2026-08-04T07:42:00Z,breached,Support Duty Manager,2026-08-04T09:30:00Z
+HD-260804-2841,Customer Alpha,P2,open,2026-08-04T05:55:00Z,2026-08-04T09:55:00Z,at-risk,Support Duty Manager,2026-08-04T09:30:00Z
+HD-260804-2849,Northstar Labs,P2,open,2026-08-04T05:36:00Z,2026-08-04T09:36:00Z,within,Queue Analyst,2026-08-04T09:30:00Z
+HD-260804-2857,Customer Alpha,P2,investigating,2026-08-04T06:08:00Z,2026-08-04T10:08:00Z,within,Support Duty Manager,2026-08-04T09:45:00Z
+HD-260804-2861,Customer Beta,P2,open,2026-08-04T05:12:00Z,2026-08-04T09:12:00Z,at-risk,Support Duty Manager,2026-08-04T09:05:00Z
+HD-260804-2726,Customer Alpha,P3,open,2026-08-04T05:05:00Z,2026-08-04T09:05:00Z,at-risk,Support Duty Manager,2026-08-04T09:00:00Z
+HD-260804-2732,Customer Alpha,P3,pending_customer,2026-08-04T06:26:00Z,2026-08-04T10:26:00Z,within,Queue Analyst,2026-08-04T09:45:00Z
+HD-260804-2740,Customer Beta,P3,open,2026-08-04T06:44:00Z,2026-08-04T10:44:00Z,within,Engineering Liaison,2026-08-04T10:00:00Z
+HD-260804-2751,Northstar Labs,P3,investigating,2026-08-04T07:03:00Z,2026-08-04T11:03:00Z,within,Queue Analyst,2026-08-04T10:15:00Z
+HD-260804-2763,Customer Alpha,P3,open,2026-08-04T05:19:00Z,2026-08-04T09:19:00Z,at-risk,Support Duty Manager,2026-08-04T09:10:00Z
+HD-260804-2774,Customer Beta,P3,pending_customer,2026-08-04T07:28:00Z,2026-08-04T11:28:00Z,within,Queue Analyst,2026-08-04T10:30:00Z
+HD-260804-2789,Customer Alpha,P3,open,2026-08-04T07:41:00Z,2026-08-04T11:41:00Z,within,Queue Analyst,2026-08-04T10:45:00Z
+HD-260804-2803,Customer Beta,P3,investigating,2026-08-04T07:56:00Z,2026-08-04T11:56:00Z,within,Engineering Liaison,2026-08-04T11:00:00Z
+HD-260804-2811,Customer Alpha,P4,open,2026-08-04T08:10:00Z,2026-08-04T12:10:00Z,within,Queue Analyst,2026-08-04T11:15:00Z
+HD-260804-2824,Customer Alpha,P4,pending_customer,2026-08-04T08:23:00Z,2026-08-04T12:23:00Z,within,Queue Analyst,2026-08-04T11:30:00Z
+HD-260804-2836,Cedar Works,P4,open,2026-08-04T08:37:00Z,2026-08-04T12:37:00Z,within,Queue Analyst,2026-08-04T11:45:00Z

@@ -1,0 +1,37 @@
+HELIODESK SUPPORT — SAFE REDACTION REFERENCE
+Synthetic internal training reference
+
+BEFORE SHARING ANY EVIDENCE
+1. Keep only the minimum lines, fields, or screenshot area needed to diagnose.
+2. Replace sensitive values with typed placeholders, for example [REDACTED_EMAIL],
+   [REDACTED_IP], [REDACTED_TOKEN], or [REDACTED_SESSION].
+3. Preserve timestamps, event names, error codes, software versions, and a short
+   description of what was removed when they are useful for diagnosis.
+4. Re-read the output for values embedded in URLs, headers, file paths, stack traces,
+   environment variables, command history, screenshots, and copied clipboard text.
+
+ALWAYS REMOVE OR DO NOT COLLECT
+- Passwords, passphrases, API keys, access tokens, refresh tokens, OAuth codes,
+  cookies, session identifiers, private keys, certificate files, and authorization
+  headers. A hash is not safe to share if it enables replay or identity linkage.
+- Personal names paired with contact details, email addresses, phone numbers, full
+  street addresses, government identifiers, dates of birth, payment information,
+  health information, or unique device identifiers when not essential.
+- Full IP addresses, exact geolocation, raw user-agent strings, and internal host
+  names unless the approved secure escalation channel explicitly requires them.
+
+SAFE DIAGNOSTIC FORM
+Bad:  A real authorization header or user email is copied into a case.
+Good: Authorization: Bearer [REDACTED_TOKEN]; user=[REDACTED_EMAIL]
+Good: HTTP 401 at 2026-08-04T13:42:16Z; endpoint=/v1/session/[REDACTED_ID]
+
+WINDOWS-SPECIFIC NOTES
+Do not attach exported Credential Manager data, browser profiles, registry hives,
+Wi-Fi profiles, cloud-sync folders, complete event-log archives, or %USERPROFILE%
+trees. Follow windows-log-collection.txt and collect a short filtered excerpt only.
+
+IF A SECRET OR PII IS EXPOSED
+Stop distribution. Do not paste it into chat, tickets, email, or a shared drive.
+Use the approved security process to revoke/rotate the secret where applicable and
+notify the Security Liaison. Record only the fact of exposure and the remediation
+status in the case; never record the secret itself.

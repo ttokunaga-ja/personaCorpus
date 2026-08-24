@@ -1,0 +1,6 @@
+case_id,reopen_count,reopen_reason_code,reopen_reason,last_reopened_at_utc,current_status,current_sla_state
+HD-260804-1934,0,RR-NONE,No reopen recorded for the current unresolved case,,pending_customer,breached
+HD-260804-2861,0,RR-NONE,No reopen recorded for the current unresolved case,,open,at-risk
+HD-260804-2740,0,RR-NONE,No reopen recorded for the current unresolved case,,open,within
+HD-260804-2774,0,RR-NONE,No reopen recorded for the current unresolved case,,pending_customer,within
+HD-260804-2803,0,RR-NONE,No reopen recorded for the current unresolved case,,investigating,within

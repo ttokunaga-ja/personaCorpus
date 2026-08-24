@@ -1,0 +1,6 @@
+case_id,customer_name,subject,priority,channel,status,created_at_utc,sla_due_at_utc,sla_state,assignee,reopen_count,latest_macro_id
+HD-260804-1934,Customer Beta,Dashboard export returns an empty CSV,P2,web,pending_customer,2026-08-04T03:42:00Z,2026-08-04T07:42:00Z,breached,queue-west,0,HD-MAC-EVIDENCE-08
+HD-260804-2861,Customer Beta,Role change not visible in mobile client,P2,chat,open,2026-08-04T05:12:00Z,2026-08-04T09:12:00Z,at-risk,queue-west,0,HD-MAC-STATUS-12
+HD-260804-2740,Customer Beta,Notification badge remains after read,P3,chat,open,2026-08-04T06:44:00Z,2026-08-04T10:44:00Z,within,mobile-pod,0,HD-MAC-ACK-04
+HD-260804-2774,Customer Beta,SAML login message lacks next step,P3,chat,pending_customer,2026-08-04T07:28:00Z,2026-08-04T11:28:00Z,within,identity-pod,0,HD-MAC-EVIDENCE-08
+HD-260804-2803,Customer Beta,Locale selector resets after refresh,P3,web,investigating,2026-08-04T07:56:00Z,2026-08-04T11:56:00Z,within,frontend-pod,0,HD-MAC-STATUS-12

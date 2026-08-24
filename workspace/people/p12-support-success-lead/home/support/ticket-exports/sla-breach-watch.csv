@@ -1,0 +1,7 @@
+ticket_id,customer,priority,sla_state,sla_due_at,minutes_from_snapshot,escalation_owner
+HD-260804-2718,Customer Alpha,P1,breached,2026-08-04T06:14:00Z,-166,support-oncall
+HD-260804-1934,Customer Beta,P2,breached,2026-08-04T07:42:00Z,-78,queue-west
+HD-260804-2841,Customer Alpha,P2,at-risk,2026-08-04T09:55:00Z,55,identity-pod
+HD-260804-2726,Customer Alpha,P3,at-risk,2026-08-04T09:05:00Z,5,reporting-pod
+HD-260804-2861,Customer Beta,P2,at-risk,2026-08-04T09:12:00Z,12,queue-west
+HD-260804-2763,Customer Alpha,P3,at-risk,2026-08-04T09:19:00Z,19,workflow-pod

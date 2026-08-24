@@ -1,0 +1,21 @@
+version: 1
+system: HelioDesk
+frozen_at: "2026-08-04T09:00:00Z"
+sla_target_hours: 4
+rules:
+  - priority: P1
+    route_to: support-oncall
+    response_window_minutes: 30
+    escalation: immediate
+  - priority: P2
+    route_to: queue-west
+    response_window_minutes: 60
+    escalation: when_sla_at_risk
+  - priority: P3
+    route_to: queue-east
+    response_window_minutes: 120
+    escalation: when_sla_at_risk
+  - priority: P4
+    route_to: product-feedback
+    response_window_minutes: 180
+    escalation: none

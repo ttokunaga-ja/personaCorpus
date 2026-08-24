@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<knownIssueFeed service="HelioDesk" published="2026-08-04" responseSla="4 hours" unresolvedTickets="17">
+  <issue id="KI-1042" status="monitoring"><title>Queue counter delay</title><summary>Queue totals can refresh later than ticket activity.</summary></issue>
+  <issue id="KI-1047" status="workaround-ready"><title>CSV import retry</title><summary>Some imports need one delayed retry after correction.</summary></issue>
+  <issue id="KI-1051" status="investigating"><title>Session timeout</title><summary>Inactive tabs can request sign-in earlier than expected.</summary></issue>
+  <issue id="KI-1054" status="validating"><title>Notification lag</title><summary>Notices can follow the ticket event.</summary></issue>
+</knownIssueFeed>

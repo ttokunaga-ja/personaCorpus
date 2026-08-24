@@ -1,0 +1,18 @@
+Date: Tue, 04 Aug 2026 17:30:00 +0900
+From: Support Success Lead <support-success-lead@heliodesk.invalid>
+To: Customer Alpha Requester Role <customer-alpha-requester@customer-alpha.invalid>
+Subject: Validation requested: HD-260804-2718 workspace launch
+Message-ID: <20260804.173000.hd2718.followup@heliodesk.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Hello Customer Alpha Requester Role,
+
+The temporary provisioning workaround was applied at 15:36 JST and the
+affected job configuration was rolled back at 16:20 JST. Please confirm that
+the usual workspace launch completes. HD-260804-2718 remains open while we
+await your validation and complete permanent-fix checks.
+
+This message is a synthetic training artifact. Role labels and .invalid
+addresses are intentional redactions.

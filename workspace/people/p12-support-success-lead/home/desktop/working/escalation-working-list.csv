@@ -1,0 +1,7 @@
+ticket_id,priority,customer,status,sla_state,subject,owner,next_update_utc,action
+HD-260804-2718,P1,Customer Alpha,open,breached,Provisioning job blocks workspace launch,support-oncall,2026-08-04T09:20:00Z,Recover provisioning and send customer update
+HD-260804-1934,P2,Customer Beta,pending_customer,breached,Dashboard export returns an empty CSV,queue-west,2026-08-04T09:20:00Z,Confirm recovery and update customer
+HD-260804-2841,P2,Customer Alpha,open,at-risk,SCIM group sync delayed,identity-pod,2026-08-04T09:30:00Z,Acknowledge and validate sync
+HD-260804-2861,P2,Customer Beta,open,at-risk,Role change not visible in mobile client,queue-west,2026-08-04T09:10:00Z,Acknowledge and set workaround checkpoint
+HD-260804-2726,P3,Customer Alpha,open,at-risk,Weekly digest uses prior timezone,reporting-pod,2026-08-04T09:05:00Z,Confirm timezone correction
+HD-260804-2763,P3,Customer Alpha,open,at-risk,Template approval remains queued,workflow-pod,2026-08-04T09:19:00Z,Confirm queue status and ETA

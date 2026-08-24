@@ -1,0 +1,7 @@
+Customer Beta watch notes — frozen snapshot 2026-08-04 09:00 UTC / 18:00 JST
+
+Unresolved: 5. HD-260804-1934 is pending_customer and breached. Support Duty Manager owns the recovery response.
+At risk: HD-260804-2861.
+Within SLA: HD-260804-2740, HD-260804-2774, HD-260804-2803.
+
+Next action: preserve one customer-facing narrative, document the next update time, and escalate missed checkpoints to the Support Success Lead.

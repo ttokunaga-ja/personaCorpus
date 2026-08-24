@@ -1,0 +1,28 @@
+data_status: synthetic
+account: Customer Alpha
+product: HelioDesk
+checkpoint_date: 2026-08-04
+service_level:
+  first_response_target_hours: 4
+queue:
+  overall_unresolved: 17
+  alpha_unresolved: 9
+  alpha_within_sla: 5
+  alpha_at_risk: 3
+  alpha_breached: 1
+quarter_metrics:
+  adoption_percent: 82
+  active_admins: 46
+  csat_out_of_5: 4.6
+  median_first_response_hours: 1.8
+  sla_attainment_percent: 94
+monthly_trend:
+  - { month: 2026-04, tickets: 42, escalations: 8 }
+  - { month: 2026-05, tickets: 38, escalations: 6 }
+  - { month: 2026-06, tickets: 31, escalations: 4 }
+  - { month: 2026-07, tickets: 27, escalations: 3 }
+case: HD-260804-2718
+actions:
+  - { due: 2026-08-11, action: Resolve breached case and confirm outcome }
+  - { due: 2026-08-18, action: Review administrator workflows for at-risk cases }
+  - { due: 2026-09-01, action: Publish adoption reinforcement plan }

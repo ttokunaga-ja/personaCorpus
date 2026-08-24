@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ticketExportSchema schemaVersion="1.0" system="HelioDesk" frozenAt="2026-08-04T09:00:00Z">
+  <record name="ticket">
+    <field name="ticket_id" type="string" pattern="HD-260804-[0-9]{4}" required="true"/>
+    <field name="customer" type="string" required="true"/>
+    <field name="priority" type="enum" values="P1,P2,P3,P4" required="true"/>
+    <field name="channel" type="enum" values="email,web,chat" required="true"/>
+    <field name="status" type="enum" values="open,pending_customer,investigating" required="true"/>
+    <field name="sla_state" type="enum" values="within,at-risk,breached" required="true"/>
+    <field name="created_at" type="rfc3339" required="true"/>
+    <field name="sla_due_at" type="rfc3339" required="true"/>
+    <field name="unresolved_age_minutes" type="integer" minimum="0" required="true"/>
+    <field name="requester" type="string" pattern="redacted:requester-[0-9]{2}" required="true"/>
+  </record>
+</ticketExportSchema>

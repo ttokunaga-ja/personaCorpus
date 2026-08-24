@@ -1,0 +1,10 @@
+HelioDesk × Customer Alpha Q3 checkpoint — 2026-08-04
+
+Open by positioning the account as healthy, with focused queue hygiene needed. State the four-hour first-response target and the current 1.8-hour median.
+
+The queue is 17 unresolved total, including 9 for Customer Alpha: 5 within SLA, 3 at risk, and 1 breached. Call out HD-260804-2718 as the sole breached case without adding personal details.
+
+Connect the declining support trend—42/38/31/27 tickets and 8/6/4/3 escalations from April through July—to the adoption discussion. Confirm the Q3 action sequence: Aug 11 case resolution, Aug 18 workflow review, Sep 1 adoption plan.
+
+[Sources]
+Synthetic internal inputs prepared for this QBR; no external sources, customer records, or personal data used.

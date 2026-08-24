@@ -1,0 +1,138 @@
+{
+  "schema": "heliodesk.kb-draft-metadata/v1",
+  "as_of": "2026-08-04",
+  "articles": [
+    {
+      "article_id": "Draft KB-ALPHA-REC-01",
+      "file": "customer-alpha-admin-recovery-draft.docx",
+      "title": "Customer Alpha Admin Recovery",
+      "status": "draft",
+      "review_status": "pending peer review",
+      "customer_scope": "Customer Alpha",
+      "as_of": "2026-08-04",
+      "sla": "4 hours",
+      "unresolved_ticket_context": 17,
+      "known_issue_references": [
+        "KI-1042",
+        "KI-1047",
+        "KI-1051",
+        "KI-1054"
+      ],
+      "related_notes": [
+        "alpha-recovery-article-review.md",
+        "triage-playbook-review.md",
+        "draft-comments.txt"
+      ]
+    },
+    {
+      "article_id": "Draft KB-QUEUE-02",
+      "file": "heliodesk-queue-routing-guide-draft.docx",
+      "title": "HelioDesk Queue Routing Guide",
+      "status": "draft",
+      "review_status": "pending peer review",
+      "customer_scope": "Customer Alpha",
+      "as_of": "2026-08-04",
+      "sla": "4 hours",
+      "unresolved_ticket_context": 17,
+      "known_issue_references": [
+        "KI-1042",
+        "KI-1047",
+        "KI-1051",
+        "KI-1054"
+      ],
+      "related_notes": [
+        "alpha-recovery-article-review.md",
+        "triage-playbook-review.md",
+        "draft-comments.txt"
+      ]
+    },
+    {
+      "article_id": "Draft KB-SLA-03",
+      "file": "sla-4h-escalation-playbook-draft.docx",
+      "title": "4-Hour SLA Escalation Playbook",
+      "status": "draft",
+      "review_status": "pending peer review",
+      "customer_scope": "Customer Alpha",
+      "as_of": "2026-08-04",
+      "sla": "4 hours",
+      "unresolved_ticket_context": 17,
+      "known_issue_references": [
+        "KI-1042",
+        "KI-1047",
+        "KI-1051",
+        "KI-1054"
+      ],
+      "related_notes": [
+        "alpha-recovery-article-review.md",
+        "triage-playbook-review.md",
+        "draft-comments.txt"
+      ]
+    },
+    {
+      "article_id": "Draft KB-TRIAGE-04",
+      "file": "unresolved-ticket-triage-draft.docx",
+      "title": "Unresolved Ticket Triage",
+      "status": "draft",
+      "review_status": "pending peer review",
+      "customer_scope": "Customer Alpha",
+      "as_of": "2026-08-04",
+      "sla": "4 hours",
+      "unresolved_ticket_context": 17,
+      "known_issue_references": [
+        "KI-1042",
+        "KI-1047",
+        "KI-1051",
+        "KI-1054"
+      ],
+      "related_notes": [
+        "alpha-recovery-article-review.md",
+        "triage-playbook-review.md",
+        "draft-comments.txt"
+      ]
+    },
+    {
+      "article_id": "Draft KB-KI-05",
+      "file": "known-issue-authoring-guide-draft.docx",
+      "title": "Known Issue Authoring Guide",
+      "status": "draft",
+      "review_status": "pending peer review",
+      "customer_scope": "Customer Alpha",
+      "as_of": "2026-08-04",
+      "sla": "4 hours",
+      "unresolved_ticket_context": 17,
+      "known_issue_references": [
+        "KI-1042",
+        "KI-1047",
+        "KI-1051",
+        "KI-1054"
+      ],
+      "related_notes": [
+        "alpha-recovery-article-review.md",
+        "triage-playbook-review.md",
+        "draft-comments.txt"
+      ]
+    },
+    {
+      "article_id": "Draft KB-HANDOFF-06",
+      "file": "support-handoff-standard-draft.docx",
+      "title": "Support Handoff Standard",
+      "status": "draft",
+      "review_status": "pending peer review",
+      "customer_scope": "Customer Alpha",
+      "as_of": "2026-08-04",
+      "sla": "4 hours",
+      "unresolved_ticket_context": 17,
+      "known_issue_references": [
+        "KI-1042",
+        "KI-1047",
+        "KI-1051",
+        "KI-1054"
+      ],
+      "related_notes": [
+        "alpha-recovery-article-review.md",
+        "triage-playbook-review.md",
+        "draft-comments.txt"
+      ]
+    }
+  ]
+}

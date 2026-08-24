@@ -1,0 +1,17 @@
+catalog_date: 2026-08-04
+service: HelioDesk
+response_sla: 4 hours
+unresolved_tickets: 17
+checks:
+  - issue: KI-1042
+    expected: Queue and filtered-search counts converge within 15 minutes.
+    result: pass
+  - issue: KI-1047
+    expected: Corrected CSV completes after one delayed retry.
+    result: pass
+  - issue: KI-1051
+    expected: Saved draft remains after sign-in.
+    result: pass
+  - issue: KI-1054
+    expected: Activity event precedes delayed notification without duplicated action.
+    result: pass

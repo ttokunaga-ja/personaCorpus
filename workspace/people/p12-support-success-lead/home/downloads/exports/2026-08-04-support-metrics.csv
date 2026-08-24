@@ -1,0 +1,18 @@
+snapshot_date,queue_scope,case_id,customer_segment,priority,sla_target_hours,sla_state,age_hours,owner_team,summary
+2026-08-04,unresolved,HD-260804-2718,Customer Alpha,P1,4,breached,6.8,support-oncall,Provisioning job blocks workspace launch
+2026-08-04,unresolved,HD-260804-1934,Customer Beta,P2,4,breached,5.3,queue-west,Dashboard export returns an empty CSV
+2026-08-04,unresolved,HD-260804-2841,Customer Alpha,P2,4,at-risk,3.1,identity-pod,SCIM group sync delayed
+2026-08-04,unresolved,HD-260804-2849,Other,P2,4,within,3.4,queue-east,Audit trail filter omits actor
+2026-08-04,unresolved,HD-260804-2857,Customer Alpha,P2,4,within,2.9,onboarding-pod,Bulk invite confirmation is delayed
+2026-08-04,unresolved,HD-260804-2861,Customer Beta,P2,4,at-risk,3.8,queue-west,Role change not visible in mobile client
+2026-08-04,unresolved,HD-260804-2726,Customer Alpha,P3,4,at-risk,3.9,reporting-pod,Weekly digest uses prior timezone
+2026-08-04,unresolved,HD-260804-2732,Customer Alpha,P3,4,within,2.6,queue-east,Saved view sharing permission unclear
+2026-08-04,unresolved,HD-260804-2740,Customer Beta,P3,4,within,2.3,mobile-pod,Notification badge remains after read
+2026-08-04,unresolved,HD-260804-2751,Other,P3,4,within,2.0,analytics-pod,API usage graph lags one interval
+2026-08-04,unresolved,HD-260804-2763,Customer Alpha,P3,4,at-risk,3.7,workflow-pod,Template approval remains queued
+2026-08-04,unresolved,HD-260804-2774,Customer Beta,P3,4,within,1.5,identity-pod,SAML login message lacks next step
+2026-08-04,unresolved,HD-260804-2789,Customer Alpha,P3,4,within,1.3,queue-east,Attachment preview renders slowly
+2026-08-04,unresolved,HD-260804-2803,Customer Beta,P3,4,within,1.1,frontend-pod,Locale selector resets after refresh
+2026-08-04,unresolved,HD-260804-2811,Customer Alpha,P4,4,within,0.8,knowledge-pod,Help link points to legacy article
+2026-08-04,unresolved,HD-260804-2824,Customer Alpha,P4,4,within,0.6,queue-east,Dark-mode contrast question
+2026-08-04,unresolved,HD-260804-2836,Other,P4,4,within,0.4,product-feedback,Keyboard shortcut request

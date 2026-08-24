@@ -1,0 +1,13 @@
+field_name,data_type,required,allowed_or_format,definition,example
+case_id,string,yes,HD-YYYY-NNNN,Unique synthetic case identifier,HD-2026-0042
+reported_at_utc,datetime,yes,ISO 8601 UTC,Time the case was first reported,2026-08-04T10:15:00Z
+acknowledged_at_utc,datetime,no,ISO 8601 UTC,Time a useful acknowledgement was sent,2026-08-04T11:02:00Z
+sla_ack_due_at_utc,datetime,yes,reported_at_utc plus 4 elapsed hours,Calculated acknowledgement due time,2026-08-04T14:15:00Z
+severity,string,yes,Sev 1|Sev 2|Sev 3|Sev 4,Current impact-and-urgency classification,Sev 2
+status,string,yes,New|Acknowledged|Investigating|Waiting on Customer|Escalated|Resolved|Closed,Current workflow condition,Investigating
+owner_role,string,yes,Support Duty Lead|Technical Escalation Lead|Product Support Specialist|Incident Commander|Security Liaison,Functional role accountable for next action,Support Duty Lead
+next_update_at_utc,datetime,yes,ISO 8601 UTC,Committed next communication time,2026-08-04T13:00:00Z
+affected_service,string,yes,synthetic service label,Supported service or component affected,HelioDesk Desktop Sync
+impact_summary,string,yes,redacted plain text,Concise sanitized impact statement,Desktop sync delayed for one synthetic tenant
+evidence_redaction_status,string,yes,Not Required|Redacted|Secure Channel Only,Whether routine evidence is safe to retain in the case,Redacted
+escalation_path,string,no,role path separated by >,Roles engaged in order without personal identifiers,Support Duty Lead > Technical Escalation Lead

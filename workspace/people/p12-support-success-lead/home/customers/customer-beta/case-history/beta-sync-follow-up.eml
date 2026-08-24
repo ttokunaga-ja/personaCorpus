@@ -1,0 +1,30 @@
+From: HelioDesk Support <support@heliodesk.invalid>
+To: Customer Beta Operations <operations@customer-beta.invalid>
+Subject: Follow-up required: HD-260804-1934 remains pending customer evidence
+Date: Tue, 04 Aug 2026 17:58:00 +0900
+Message-ID: <HD-260804-1934-follow-up-20260804@heliodesk.invalid>
+In-Reply-To: <HD-260804-1934-resolution-path-20260804@heliodesk.invalid>
+References: <HD-260804-1934-resolution-path-20260804@heliodesk.invalid>
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="HD-BETA-1934-20260804"
+
+--HD-BETA-1934-20260804
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Hello Customer Beta Operations,
+
+For HD-260804-1934, please send a fresh CSV export and the selected dashboard
+filter details. The case remains open and breached at the frozen 09:00 UTC
+snapshot. Macro HD-MAC-EVIDENCE-08 recorded this evidence request.
+
+Regards,
+HelioDesk Support
+
+--HD-BETA-1934-20260804
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<html><body><p>Hello Customer Beta Operations,</p><p>For <strong>HD-260804-1934</strong>, please send a fresh CSV export and the selected dashboard filter details. The case remains open and breached at the frozen 09:00 UTC snapshot. Macro <code>HD-MAC-EVIDENCE-08</code> recorded this evidence request.</p><p>Regards,<br>HelioDesk Support</p></body></html>
+
+--HD-BETA-1934-20260804--

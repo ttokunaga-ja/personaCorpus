@@ -1,0 +1,7 @@
+Customer Alpha watch notes — frozen snapshot 2026-08-04 09:00 UTC / 18:00 JST
+
+Unresolved: 9. P1 HD-260804-2718 is open and breached. Bridge is active.
+At risk: HD-260804-2841, HD-260804-2726, HD-260804-2763.
+Within SLA: HD-260804-2857, HD-260804-2732, HD-260804-2789, HD-260804-2811, HD-260804-2824.
+
+Next action: Customer Communicator confirms an owner and next checkpoint on each at-risk or breached case; no cross-customer information in updates.

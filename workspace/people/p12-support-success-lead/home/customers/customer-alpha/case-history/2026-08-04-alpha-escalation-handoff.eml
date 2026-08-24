@@ -1,0 +1,21 @@
+Date: Tue, 04 Aug 2026 18:00:00 +0900
+From: Support Success Lead <support-success-lead@heliodesk.invalid>
+To: On-Call Support Queue <on-call@heliodesk.invalid>
+Subject: Handoff: HD-260804-2718 remains open; validation pending
+Message-ID: <20260804.180000.hd2718.handoff@heliodesk.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Synthetic training record. No customer or staff names are retained.
+
+HelioDesk frozen snapshot: 2026-08-04T09:00:00Z (18:00 JST)
+HD-260804-2718 is OPEN and BREACHED. It was created at 02:14Z; its four-hour
+target expired at 06:14Z. A temporary provisioning workaround was applied at
+06:36Z and the affected job configuration was rolled back at 07:20Z. Customer
+confirmation and permanent-fix validation remain pending.
+
+Customer Alpha has 9 unresolved items and HelioDesk has 17 unresolved items.
+Both frozen-snapshot counts include HD-260804-2718.
+
+Redaction note: addresses use .invalid and role labels replace people.

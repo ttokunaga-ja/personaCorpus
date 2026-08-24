@@ -1,0 +1,7 @@
+role	owner_alias	email	coverage	responsibility
+Support Success Lead	Morgan Lee	support-success-lead@heliodesk.invalid	09:00-18:00 JST	SLA decisions and executive updates
+Support Duty Manager	Avery Chen	support-duty@heliodesk.invalid	08:00-17:00 JST	Queue triage and first responses
+Support Incident Lead	Riley Patel	incident-lead@heliodesk.invalid	On-call	P1 bridge coordination
+Engineering Liaison	Jordan Kim	engineering-liaison@heliodesk.invalid	09:00-18:00 JST	Technical action coordination
+Customer Communicator	Casey Rowan	customer-updates@heliodesk.invalid	09:00-18:00 JST	Customer acknowledgements and updates
+Queue Analyst	Taylor Nguyen	queue-analytics@heliodesk.invalid	09:00-18:00 JST	Deadline watch and breach review

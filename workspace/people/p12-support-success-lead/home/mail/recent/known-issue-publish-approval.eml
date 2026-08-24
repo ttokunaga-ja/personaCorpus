@@ -1,0 +1,28 @@
+Date: Tue, 04 Aug 2026 14:02:00 +0900
+From: Support Success Lead <support-success-lead@heliodesk.invalid>
+To: Knowledge Base Publishing <kb-publishing@heliodesk.invalid>
+Cc: Messaging Reliability <messaging-reliability@heliodesk.invalid>, Support Operations <support-operations@heliodesk.invalid>
+Subject: Re: Approval to publish KI-1054 — notification lag
+Message-ID: <20260804.140200.ki-1054-approval@heliodesk.invalid>
+In-Reply-To: <20260804.134000.ki-1054-review@heliodesk.invalid>
+References: <20260804.134000.ki-1054-review@heliodesk.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+
+Publishing team,
+
+Approved to publish KI-1054, Notification lag, with the reviewed wording.
+
+Please retain the scope: email and in-app notices can arrive after the ticket
+event, while the activity feed remains the latest visible state. The published
+workaround should direct readers to check the activity feed before repeating an
+action solely because a notice is delayed. Do not present the validation work as
+a general service-resolution statement.
+
+After publication, send the standard internal notice and link the article from
+the known-issues index.
+
+Regards,
+Support Success Lead
+HelioDesk

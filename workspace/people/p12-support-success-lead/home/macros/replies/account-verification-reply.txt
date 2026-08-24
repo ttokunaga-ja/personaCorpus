@@ -1,0 +1,14 @@
+HelioDesk reply macro — Account verification
+Operational date: 2026-08-04 | Response SLA: 4 hours
+
+Hi {{first_name}},
+
+Thanks for contacting HelioDesk about case {{case_id}}. I understand that getting access restored or an account question resolved can hold up your work.
+
+To protect the account, please confirm {{verification_method}} through the reply channel for this case by {{verification_deadline}}. We can continue once the required verification is complete.
+
+For your security, please do not send a password, one-time code, recovery code, full payment details, or API key. We will not ask for them in a reply. If the requested verification is not available to you, tell us and we will offer the next support-policy-approved option.
+
+Best,
+{{agent_name}}
+HelioDesk Support

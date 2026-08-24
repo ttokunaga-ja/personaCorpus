@@ -1,0 +1,5 @@
+escalation_level,trigger,primary_role,backup_role,contact_route,acknowledgement_target,decision_authority
+L1,"New report or routine status question",Support Duty Manager,Support Queue Coordinator,support-duty@helio.example.invalid,30 minutes,"Confirm intake, severity, and customer update owner"
+L2,"Known issue affects a production workflow or two or more accounts",Engineering Incident Lead,Platform On-Call Engineer,eng-incident@helio.example.invalid,60 minutes,"Set technical owner and investigation cadence"
+L3,"Customer milestone, adoption, or renewal risk",Customer Success Lead,Success Coverage Manager,success-lead@helio.example.invalid,60 minutes,"Coordinate customer-safe plan and executive visibility"
+L4,"P1 impact, data-integrity concern, or missed 4-hour update",Operations Escalation Director,Service Reliability Duty Officer,ops-escalation@helio.example.invalid,15 minutes,"Declare incident posture and allocate cross-team resources"

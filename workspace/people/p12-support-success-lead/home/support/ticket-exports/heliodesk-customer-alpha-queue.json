@@ -1,0 +1,1 @@
+{"customer":"Customer Alpha","exported_at":"2026-08-04T09:00:00Z","unresolved_count":9,"ticket_ids":["HD-260804-2718","HD-260804-2841","HD-260804-2857","HD-260804-2726","HD-260804-2732","HD-260804-2763","HD-260804-2789","HD-260804-2811","HD-260804-2824"],"priority_counts":{"P1":1,"P2":2,"P3":4,"P4":2},"sla_state_counts":{"within":5,"at-risk":3,"breached":1}}

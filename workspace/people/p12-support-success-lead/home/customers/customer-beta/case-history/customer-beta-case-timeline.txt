@@ -1,0 +1,15 @@
+CUSTOMER BETA UNRESOLVED CASE TIMELINE
+Frozen snapshot: 2026-08-04T09:00:00Z | SLA target: 4 hours | 5 unresolved (within 3 / at-risk 1 / breached 1)
+
+HD-260804-1934 — Dashboard export returns an empty CSV
+2026-08-04T03:42:00Z  Created via web; P2; queue-west; SLA due 2026-08-04T07:42:00Z.
+2026-08-04T07:36:00Z  Evidence request sent using HD-MAC-EVIDENCE-08.
+2026-08-04T08:58:00Z  Status update: pending_customer; resolution path remains open/breached.
+2026-08-04T09:00:00Z  Frozen snapshot: breached, 78 minutes past due.
+
+HD-260804-2861 — Role change not visible in mobile client
+2026-08-04T05:12:00Z  Created via chat; P2; queue-west; SLA due 2026-08-04T09:12:00Z.
+2026-08-04T09:00:00Z  Frozen snapshot: open and at-risk, 12 minutes to due time.
+
+HD-260804-2740 / HD-260804-2774 / HD-260804-2803
+2026-08-04T09:00:00Z  Frozen snapshot: unresolved and within SLA; due at 10:44Z, 11:28Z, and 11:56Z respectively.

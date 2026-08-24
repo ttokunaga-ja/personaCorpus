@@ -1,0 +1,43 @@
+HELIODESK SUPPORT — WINDOWS LOG COLLECTION (NO SECRETS)
+Synthetic internal training reference
+
+PURPOSE
+Collect the smallest reproducible Windows event evidence needed for a support case.
+Do not collect credentials, browser data, registry exports, Wi-Fi profiles, full user
+profiles, or complete event logs.
+
+SAFE COLLECTION STEPS
+1. Confirm the case ID and obtain the affected time window in UTC. Use a narrow
+   window (normally 15 minutes before to 15 minutes after the reported event).
+2. In Event Viewer, select only the relevant channel (for example Application or a
+   product-specific operational channel). Filter by time and known event source/ID.
+3. Copy only the selected event's General text after applying the redaction reference.
+   Keep timestamp, source, event ID, level, and sanitized error text.
+4. Save the excerpt as plain text, not a whole .evtx archive. Label it with the case
+   ID, UTC time window, channel, and redaction confirmation.
+5. Review again for usernames, email addresses, full paths, hostnames, IP addresses,
+   URLs with query values, account IDs, authorization headers, tokens, and secrets.
+
+OPTIONAL POWERSHELL EXAMPLE
+Run only after setting a narrow time range and source. Replace example values; do not
+paste output until it is redacted.
+
+$start = [datetime]'2026-08-04T13:30:00Z'
+$end = [datetime]'2026-08-04T14:00:00Z'
+Get-WinEvent -FilterHashtable @{LogName='Application'; StartTime=$start; EndTime=$end}
+  | Where-Object { $_.ProviderName -eq 'HelioDesk.Client' }
+  | Select-Object TimeCreated, Id, LevelDisplayName, ProviderName, Message
+
+DO NOT RUN OR ATTACH
+- wevtutil epl for an entire channel; full .evtx exports may contain unrelated PII.
+- Get-ChildItem over user profiles, browser directories, cloud-sync folders, or
+  Credential Manager locations.
+- reg export of HKCU, SAM, SECURITY, or any broad registry subtree.
+- netsh wlan show profiles / key=clear, saved-password tools, or browser-cookie tools.
+
+CASE NOTE TEMPLATE
+case_id: [case identifier]
+window_utc: [start] to [end]
+channel/source/event_id: [sanitized values]
+redaction_confirmed: yes
+summary: [sanitized symptom and next action]

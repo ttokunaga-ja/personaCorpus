@@ -1,0 +1,16 @@
+Customer Alpha case summary - synthetic training record
+Frozen snapshot: 2026-08-04T09:00:00Z (18:00 JST)
+
+Primary case: HD-260804-2718
+Issue: Provisioning job blocks workspace launch.
+Created: 2026-08-04T02:14:00Z (11:14 JST)
+SLA target: 4 hours; due 2026-08-04T06:14:00Z (15:14 JST)
+Workaround: temporary provisioning path applied 2026-08-04T06:36:00Z
+Rollback: affected job configuration rolled back 2026-08-04T07:20:00Z
+SLA result: breached at the snapshot
+Current disposition: open; customer validation and permanent-fix checks pending.
+
+Snapshot counts include this open case: Customer Alpha has 9 unresolved items
+and HelioDesk overall has 17 unresolved items.
+
+Redaction: all identities are role labels; all addresses use .invalid.

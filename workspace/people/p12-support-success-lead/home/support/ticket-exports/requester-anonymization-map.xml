@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<requesterAnonymizationMap system="HelioDesk" frozenAt="2026-08-04T09:00:00Z" syntheticData="true">
+  <policy>All requester values are irreversible synthetic redaction tokens; no source contact data is retained.</policy>
+  <mapping token="redacted:requester-01" sourceDomain="alpha.invalid"/>
+  <mapping token="redacted:requester-02" sourceDomain="beta.invalid"/>
+  <mapping token="redacted:requester-03" sourceDomain="alpha.invalid"/>
+  <mapping token="redacted:requester-04" sourceDomain="northstar.invalid"/>
+  <mapping token="redacted:requester-05" sourceDomain="alpha.invalid"/>
+  <mapping token="redacted:requester-06" sourceDomain="beta.invalid"/>
+  <mapping token="redacted:requester-07" sourceDomain="alpha.invalid"/>
+  <mapping token="redacted:requester-08" sourceDomain="alpha.invalid"/>
+  <mapping token="redacted:requester-09" sourceDomain="beta.invalid"/>
+  <mapping token="redacted:requester-10" sourceDomain="northstar.invalid"/>
+  <mapping token="redacted:requester-11" sourceDomain="alpha.invalid"/>
+  <mapping token="redacted:requester-12" sourceDomain="beta.invalid"/>
+  <mapping token="redacted:requester-13" sourceDomain="alpha.invalid"/>
+  <mapping token="redacted:requester-14" sourceDomain="beta.invalid"/>
+  <mapping token="redacted:requester-15" sourceDomain="alpha.invalid"/>
+  <mapping token="redacted:requester-16" sourceDomain="alpha.invalid"/>
+  <mapping token="redacted:requester-17" sourceDomain="cedar.invalid"/>
+</requesterAnonymizationMap>

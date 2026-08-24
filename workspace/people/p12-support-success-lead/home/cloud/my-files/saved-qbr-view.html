@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HelioDesk — Saved QBR View</title>
+  <style>
+    :root { --ink:#102a43; --muted:#627d98; --line:#d9e2ec; --blue:#147d92; --navy:#243b53; --pale:#f0f7f8; --amber:#f4b942; }
+    * { box-sizing:border-box; } body { margin:0; background:#f7fafc; color:var(--ink); font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    main { max-width:1040px; margin:42px auto; padding:0 24px; } .top { display:flex; justify-content:space-between; gap:18px; align-items:flex-start; }
+    h1 { margin:0; font-size:29px; letter-spacing:-.5px; } h2 { font-size:16px; margin:0 0 12px; } .eyebrow,.label { color:var(--muted); font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
+    .stamp { border:1px solid var(--line); border-radius:9px; padding:8px 12px; background:white; color:var(--muted); font-size:13px; white-space:nowrap; }
+    .notice { margin:24px 0; border-left:4px solid var(--amber); padding:11px 14px; background:#fff9e8; border-radius:3px; color:#5f4a16; }
+    .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; } .card,.panel { background:white; border:1px solid var(--line); border-radius:12px; padding:20px; box-shadow:0 2px 7px rgba(16,42,67,.035); }
+    .number { display:block; margin-top:4px; font-size:34px; font-weight:750; color:var(--navy); } .sub { color:var(--muted); font-size:13px; }
+    .panel { margin-top:18px; } table { width:100%; border-collapse:collapse; } th { color:var(--muted); font-size:11px; letter-spacing:.06em; text-align:left; text-transform:uppercase; } th,td { padding:12px 8px; border-bottom:1px solid #edf2f7; } tbody tr:last-child td { border-bottom:0; }
+    .pill { display:inline-block; padding:3px 8px; border-radius:999px; font-size:12px; font-weight:650; background:var(--pale); color:#106173; } .focus { color:var(--muted); max-width:330px; }
+    .next { display:grid; grid-template-columns:1fr 1fr; gap:18px; } ul { margin:0; padding-left:19px; } footer { margin:22px 0 8px; color:var(--muted); font-size:12px; }
+    @media (max-width:680px) { main { margin:24px auto; } .top,.next { display:block; } .stamp { margin-top:12px; } .grid { grid-template-columns:1fr; } .next > section + section { margin-top:18px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="top">
+      <div><div class="eyebrow">HelioDesk · saved view</div><h1>Support &amp; success QBR pulse</h1></div>
+      <div class="stamp">Snapshot · 2026-08-04</div>
+    </div>
+    <div class="notice"><strong>Internal planning view.</strong> All customer labels, counts, metrics, and status cues are synthetic. They are not approved customer facts or external commitments.</div>
+    <section class="grid" aria-label="Portfolio summary">
+      <article class="card"><span class="label">Unresolved portfolio</span><span class="number">17</span><span class="sub">Customer Alpha 9 · Customer Beta 5 · Other managed customers 3</span></article>
+      <article class="card"><span class="label">Acknowledgement SLA</span><span class="number">4h</span><span class="sub">Target for acknowledgement and escalation coordination</span></article>
+      <article class="card"><span class="label">Review posture</span><span class="number">Now</span><span class="sub">Validate owner, next update, and approved wording</span></article>
+    </section>
+    <section class="panel">
+      <h2>Customer summary</h2>
+      <table>
+        <thead><tr><th>Customer</th><th>Open items</th><th>At-risk review</th><th>Adoption index</th><th>QBR focus</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Customer Alpha</strong></td><td>9</td><td><span class="pill">3 items</span></td><td>86</td><td class="focus">Administrator access and repeat clarification</td></tr>
+          <tr><td><strong>Customer Beta</strong></td><td>5</td><td><span class="pill">2 items</span></td><td>91</td><td class="focus">Follow-up ownership review</td></tr>
+          <tr><td><strong>Other managed customers</strong></td><td>3</td><td><span class="pill">1 item</span></td><td>88</td><td class="focus">Confirm owners and next-update coverage</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="panel next">
+      <section><h2>Next internal checks</h2><ul><li>Confirm an owner and next update for all 17 items.</li><li>Flag acknowledgements nearing the 4-hour boundary.</li><li>Reconcile the QBR narrative with the account-team record.</li></ul></section>
+      <section><h2>Customer-safe baseline</h2><p>HelioDesk is coordinating open support items through its standard acknowledgement and escalation process. Share only an account-team-approved update through the agreed channel.</p></section>
+    </section>
+    <footer>Saved view provenance: synthetic HelioDesk Support &amp; Success training dataset · generated for persona-corpus use · no live customer system, account, or contact data.</footer>
+  </main>
+</body>
+</html>

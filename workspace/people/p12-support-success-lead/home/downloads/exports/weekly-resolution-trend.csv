@@ -1,0 +1,8 @@
+week_start,metric_basis,new_cases,resolved_cases,reopened_cases,median_first_response_minutes,median_resolution_hours,definition_note
+2026-06-22,weekly_flow,42,39,3,28,5.6,Flow metrics for cases opened or resolved during this week; not a point-in-time queue count.
+2026-06-29,weekly_flow,45,43,2,26,5.1,Flow metrics for cases opened or resolved during this week; not a point-in-time queue count.
+2026-07-06,weekly_flow,48,46,4,25,4.8,Flow metrics for cases opened or resolved during this week; not a point-in-time queue count.
+2026-07-13,weekly_flow,44,47,3,23,4.5,Flow metrics for cases opened or resolved during this week; not a point-in-time queue count.
+2026-07-20,weekly_flow,51,49,5,24,4.7,Flow metrics for cases opened or resolved during this week; not a point-in-time queue count.
+2026-07-27,weekly_flow,47,50,3,22,4.2,Flow metrics for cases opened or resolved during this week; not a point-in-time queue count.
+2026-08-03,weekly_flow,46,44,4,21,4.4,Flow metrics for cases opened or resolved during this week; not a point-in-time queue count.

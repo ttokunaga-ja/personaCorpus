@@ -1,0 +1,9 @@
+timestamp	case_id	actor_role	channel	outcome	status
+2026-08-04T02:14:00Z	HD-260804-2718	redacted requester role	email	issue reported: provisioning job blocks workspace launch	OPEN
+2026-08-04T02:20:00Z	HD-260804-2718	Support Success Lead	email	acknowledgement sent; SLA due 2026-08-04T06:14:00Z	OPEN
+2026-08-04T04:32:00Z	HD-260804-2718	Support Success Lead	phone	voicemail left for requester role	ESCALATED
+2026-08-04T05:45:00Z	HD-260804-2718	Engineering On-Call	bridge	engineering escalation opened	ESCALATED
+2026-08-04T06:05:00Z	HD-260804-2718	Support Success Lead	email	SLA risk notice sent internally	ESCALATED
+2026-08-04T06:36:00Z	HD-260804-2718	Engineering On-Call	internal	temporary provisioning workaround applied	OPEN_BREACHED
+2026-08-04T07:20:00Z	HD-260804-2718	Engineering On-Call	internal	affected job configuration rolled back	OPEN_BREACHED
+2026-08-04T08:30:00Z	HD-260804-2718	Support Success Lead	email	customer validation requested; case remains open	OPEN_BREACHED

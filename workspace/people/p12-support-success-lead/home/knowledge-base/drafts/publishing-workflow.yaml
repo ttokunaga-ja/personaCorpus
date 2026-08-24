@@ -1,0 +1,43 @@
+workflow: heliodesk-kb-draft-publishing/v1
+as_of: 2026-08-04
+customer_context: Customer Alpha
+sla_context: 4 hours
+unresolved_ticket_context: 17
+known_issues: [KI-1042, KI-1047, KI-1051, KI-1054]
+review_register: draft-review-register.csv
+notes: [alpha-recovery-article-review.md, triage-playbook-review.md, draft-comments.txt]
+stages:
+  - name: peer_review
+    required: true
+    exit: accuracy and privacy notes resolved
+  - name: operations_review
+    required: true
+    exit: 4-hour SLA language and handoff ownership verified
+  - name: publish_ready
+    required: true
+    exit: article metadata and review register agree
+articles:
+  - id: Draft KB-ALPHA-REC-01
+    file: customer-alpha-admin-recovery-draft.docx
+    status: draft
+    next_stage: peer_review
+  - id: Draft KB-QUEUE-02
+    file: heliodesk-queue-routing-guide-draft.docx
+    status: draft
+    next_stage: peer_review
+  - id: Draft KB-SLA-03
+    file: sla-4h-escalation-playbook-draft.docx
+    status: draft
+    next_stage: peer_review
+  - id: Draft KB-TRIAGE-04
+    file: unresolved-ticket-triage-draft.docx
+    status: draft
+    next_stage: peer_review
+  - id: Draft KB-KI-05
+    file: known-issue-authoring-guide-draft.docx
+    status: draft
+    next_stage: peer_review
+  - id: Draft KB-HANDOFF-06
+    file: support-handoff-standard-draft.docx
+    status: draft
+    next_stage: peer_review

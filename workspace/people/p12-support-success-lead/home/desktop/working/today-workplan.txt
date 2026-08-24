@@ -1,0 +1,21 @@
+HELIO DESK | SUPPORT LEAD WORKPLAN
+Snapshot: 2026-08-04 09:00 UTC
+
+Queue baseline: 17 unresolved | P1 1 | P2 5 | P3 8 | P4 3
+SLA baseline: 11 within target | 4 at risk | 2 breached | standard response target: 4h
+
+09:00-09:20  Confirm ownership on HD-260804-2718 (P1) and both breached requests.
+09:20-10:00  Work Customer Alpha nine-ticket cluster; pin service-impacting items.
+10:00-10:30  Lead queue review with queue-west and identity-pod; rebalance P2 coverage.
+10:30-11:15  Customer update sweep for HD-260804-2841, 2861, 2726, and 2763.
+13:00-14:00  Escalation review: connector replay, SSO provisioning, usage export.
+15:30-16:00  Close-the-loop review: no at-risk ticket without owner, next action, or ETA.
+
+Decision rules
+- P1: lead owns comms and engineering bridge; update every 30 minutes.
+- At risk: customer receives an acknowledgement before the four-hour response target.
+- Breached: document recovery owner and next update time before moving to another task.
+- Do not reprioritize a ticket without recording the customer impact and assignee.
+
+Watchlist: HD-260804-2718, HD-260804-1934, HD-260804-2841,
+HD-260804-2861, HD-260804-2726, HD-260804-2763

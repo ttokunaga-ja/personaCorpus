@@ -1,0 +1,7 @@
+article_id,file,status,review_status,as_of,customer_scope,sla,unresolved_context,known_issues,review_note
+Draft KB-ALPHA-REC-01,customer-alpha-admin-recovery-draft.docx,draft,pending peer review,2026-08-04,Customer Alpha,4 hours,17,KI-1042;KI-1047;KI-1051;KI-1054,"Cross-reference metadata, workflow, and draft notes before publishing."
+Draft KB-QUEUE-02,heliodesk-queue-routing-guide-draft.docx,draft,pending peer review,2026-08-04,Customer Alpha,4 hours,17,KI-1042;KI-1047;KI-1051;KI-1054,"Cross-reference metadata, workflow, and draft notes before publishing."
+Draft KB-SLA-03,sla-4h-escalation-playbook-draft.docx,draft,pending peer review,2026-08-04,Customer Alpha,4 hours,17,KI-1042;KI-1047;KI-1051;KI-1054,"Cross-reference metadata, workflow, and draft notes before publishing."
+Draft KB-TRIAGE-04,unresolved-ticket-triage-draft.docx,draft,pending peer review,2026-08-04,Customer Alpha,4 hours,17,KI-1042;KI-1047;KI-1051;KI-1054,"Cross-reference metadata, workflow, and draft notes before publishing."
+Draft KB-KI-05,known-issue-authoring-guide-draft.docx,draft,pending peer review,2026-08-04,Customer Alpha,4 hours,17,KI-1042;KI-1047;KI-1051;KI-1054,"Cross-reference metadata, workflow, and draft notes before publishing."
+Draft KB-HANDOFF-06,support-handoff-standard-draft.docx,draft,pending peer review,2026-08-04,Customer Alpha,4 hours,17,KI-1042;KI-1047;KI-1051;KI-1054,"Cross-reference metadata, workflow, and draft notes before publishing."

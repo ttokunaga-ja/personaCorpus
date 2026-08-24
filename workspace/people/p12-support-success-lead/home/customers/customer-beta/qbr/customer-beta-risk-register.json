@@ -1,0 +1,12 @@
+{
+  "scenario": "synthetic",
+  "checkpoint_date": "2026-08-04",
+  "customer": "HelioDesk Customer Beta",
+  "support": {"overall_unresolved":17,"beta_unresolved":5,"within_sla":3,"at_risk":1,"breached":1,"sla_hours":4},
+  "risks": [
+    {"id":"RISK-01","title":"Breached support case","case_id":"HD-260804-1934","severity":"high","status":"pending_customer","created_at":"2026-08-04T03:42:00Z","sla_due_at":"2026-08-04T07:42:00Z","mitigation_due":"2026-08-12"},
+    {"id":"RISK-02","title":"Adoption evidence for renewal","severity":"low","status":"monitoring","mitigation_due":"2026-08-25"}
+  ],
+  "renewal_readout_date": "2026-09-08",
+  "contact": "beta-ops@heliodesk.invalid"
+}
