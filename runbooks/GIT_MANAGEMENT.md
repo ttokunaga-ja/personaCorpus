@@ -20,6 +20,23 @@ binary/text heuristics. A clone verifies the accepted final tree with:
 ./bin/corpus-manifest verify --manifest manifests/corpus-sha256.jsonl
 ```
 
+When another persona is still producing untracked files in the same checkout,
+the coordinator must bind manifest generation and verification to the Git
+index instead of the live tree:
+
+```bash
+./bin/corpus-manifest generate --tracked-only --replace \
+  --manifest manifests/corpus-sha256.jsonl
+git add manifests/corpus-sha256.jsonl
+./bin/corpus-manifest verify --tracked-only \
+  --manifest manifests/corpus-sha256.jsonl
+```
+
+`--tracked-only` rejects index conflicts, unsafe entries, and any unstaged
+drift in a selected artifact or the canonical persona plan. It therefore
+describes exactly the artifact snapshot that the next commit will contain;
+untracked output from an active, excluded persona is not silently accepted.
+
 ## Intentionally local state
 
 Never force-add `.runtime/`, `workspace/_control/`, the workspace owner record,
@@ -43,7 +60,8 @@ a parallel wave is active. After the wave stops, the coordinator:
 2. validates each persona against its frozen ledger and previous manifest;
 3. rejects symlinks, nonregular entries, secrets, unexpected paths, and any
    artifact larger than 100 MiB;
-4. regenerates and verifies the corpus manifest;
+4. stages only the accepted persona artifacts, then regenerates and verifies
+   the corpus manifest with `--tracked-only` when other production is active;
 5. stages only the accepted personas and portable evidence;
 6. commits one persona per reviewable artifact commit, then commits the updated
    root manifest/report; and

@@ -12,6 +12,7 @@ from pathlib import Path
 from pathlib import PurePosixPath
 import re
 import stat
+import subprocess
 import sys
 import tempfile
 
@@ -57,11 +58,31 @@ def sha256_file(path: Path) -> tuple[int, str]:
     return before.st_size, digest.hexdigest()
 
 
-def load_plan(repo_root: Path) -> tuple[str, dict[str, tuple[str, tuple[str, ...]]]]:
+def load_plan(
+    repo_root: Path, tracked_only: bool = False
+) -> tuple[str, dict[str, tuple[str, tuple[str, ...]]]]:
     plan = repo_root / "canonical" / "persona-plan.json"
-    if not plan.is_file() or plan.is_symlink():
-        raise ManifestError(f"portable canonical plan is missing or unsafe: {plan}")
-    raw_plan = plan.read_bytes()
+    if tracked_only:
+        mode, object_id = git_index_entry(repo_root, "canonical/persona-plan.json")
+        if mode not in ("100644", "100755"):
+            raise ManifestError(f"unsafe indexed canonical plan mode {mode}: {plan}")
+        raw_plan = git_output(repo_root, "cat-file", "blob", object_id)
+        try:
+            live_plan = plan.lstat()
+        except FileNotFoundError as error:
+            raise ManifestError(f"portable canonical plan is missing: {plan}") from error
+        if not stat.S_ISREG(live_plan.st_mode) or live_plan.st_nlink != 1:
+            raise ManifestError(f"portable canonical plan is unsafe: {plan}")
+        worktree_size, worktree_sha256 = sha256_file(plan)
+        if (worktree_size, worktree_sha256) != (
+            len(raw_plan),
+            hashlib.sha256(raw_plan).hexdigest(),
+        ):
+            raise ManifestError("unstaged canonical plan content drift from Git index")
+    else:
+        if not plan.is_file() or plan.is_symlink():
+            raise ManifestError(f"portable canonical plan is missing or unsafe: {plan}")
+        raw_plan = plan.read_bytes()
     try:
         value = json.loads(raw_plan)
     except json.JSONDecodeError as error:
@@ -127,28 +148,155 @@ def collect_paths(
         for name in file_names:
             candidate = base / name
             relative = candidate.relative_to(repo_root).as_posix()
-            if any(character in relative for character in ("\n", "\r", "\0")):
-                raise ManifestError(f"control character in artifact path: {relative!r}")
-            mode = candidate.lstat().st_mode
-            if not stat.S_ISREG(mode) or candidate.lstat().st_nlink != 1:
-                raise ManifestError(f"non-regular artifact: {candidate}")
-            parts = Path(relative).parts
-            if len(parts) < 5 or parts[:2] != ("workspace", "people") or parts[3] != "home":
-                raise ManifestError(f"artifact outside a persona home: {relative}")
-            match = PERSONA_DIRECTORY.fullmatch(parts[2])
-            if match is None or parts[2] not in authority:
-                raise ManifestError(f"invalid persona directory: {parts[2]}")
-            persona_id, scope_paths = authority[parts[2]]
-            home_relative = PurePosixPath(*parts[4:]).as_posix()
-            if not any(home_relative.startswith(f"{scope_path}/") for scope_path in scope_paths):
-                raise ManifestError(f"artifact outside a canonical leaf scope: {relative}")
-            size = candidate.stat().st_size
-            if size > max_blob_bytes:
-                raise ManifestError(
-                    f"artifact exceeds GitHub-compatible blob limit "
-                    f"({size} > {max_blob_bytes}): {relative}"
-                )
-            rows.append((relative, persona_id, candidate))
+            rows.append(artifact_row(repo_root, relative, max_blob_bytes, authority))
+    rows.sort(key=lambda row: row[0].encode("utf-8"))
+    return rows
+
+
+def artifact_row(
+    repo_root: Path,
+    relative: str,
+    max_blob_bytes: int,
+    authority: dict[str, tuple[str, tuple[str, ...]]],
+) -> tuple[str, str, Path]:
+    """Validate one artifact path and return its manifest identity.
+
+    This is deliberately shared by live-tree and Git-index selection so that
+    tracked-only mode cannot relax the canonical home/scope boundary.
+    """
+    if any(character in relative for character in ("\n", "\r", "\0")):
+        raise ManifestError(f"control character in artifact path: {relative!r}")
+    pure = PurePosixPath(relative)
+    if pure.is_absolute() or any(part in ("", ".", "..") for part in pure.parts):
+        raise ManifestError(f"unsafe artifact path: {relative!r}")
+    parts = pure.parts
+    if len(parts) < 5 or parts[:2] != ("workspace", "people") or parts[3] != "home":
+        raise ManifestError(f"artifact outside a persona home: {relative}")
+    match = PERSONA_DIRECTORY.fullmatch(parts[2])
+    if match is None or parts[2] not in authority:
+        raise ManifestError(f"invalid persona directory: {parts[2]}")
+    persona_id, scope_paths = authority[parts[2]]
+    home_relative = PurePosixPath(*parts[4:]).as_posix()
+    if not any(home_relative.startswith(f"{scope_path}/") for scope_path in scope_paths):
+        raise ManifestError(f"artifact outside a canonical leaf scope: {relative}")
+    candidate = repo_root.joinpath(*parts)
+    try:
+        mode = candidate.lstat().st_mode
+    except FileNotFoundError as error:
+        raise ManifestError(f"tracked artifact is missing from worktree: {relative}") from error
+    if not stat.S_ISREG(mode) or candidate.lstat().st_nlink != 1:
+        raise ManifestError(f"non-regular artifact: {candidate}")
+    size = candidate.stat().st_size
+    if size > max_blob_bytes:
+        raise ManifestError(
+            f"artifact exceeds GitHub-compatible blob limit "
+            f"({size} > {max_blob_bytes}): {relative}"
+        )
+    return relative, persona_id, candidate
+
+
+def git_output(repo_root: Path, *arguments: str) -> bytes:
+    try:
+        return subprocess.check_output(
+            ("git", "-C", os.fspath(repo_root), *arguments), stderr=subprocess.PIPE
+        )
+    except subprocess.CalledProcessError as error:
+        detail = error.stderr.decode("utf-8", "replace").strip()
+        raise ManifestError(f"cannot read Git index: {detail or error}") from error
+
+
+def git_index_entry(repo_root: Path, relative: str) -> tuple[str, str]:
+    """Return one safe stage-0 index entry for an exact repository-relative path."""
+    raw_entries = git_output(repo_root, "ls-files", "--stage", "-z", "--", relative)
+    records = [record for record in raw_entries.split(b"\0") if record]
+    if len(records) != 1:
+        raise ManifestError(f"canonical plan is not uniquely tracked in Git index: {relative}")
+    try:
+        metadata, raw_path = records[0].split(b"\t", 1)
+        mode, object_id, stage = metadata.split()
+        indexed_path = os.fsdecode(raw_path)
+    except ValueError as error:
+        raise ManifestError(f"malformed Git index entry: {relative}") from error
+    if indexed_path != relative or stage != b"0":
+        raise ManifestError(f"unsafe or unmerged Git index entry: {relative}")
+    if not re.fullmatch(rb"[0-9a-f]{40,64}", object_id):
+        raise ManifestError(f"invalid indexed object id: {relative}")
+    return mode.decode("ascii"), object_id.decode("ascii")
+
+
+def git_index_signature(repo_root: Path) -> tuple[int, int, int, int]:
+    index_path = Path(os.fsdecode(git_output(repo_root, "rev-parse", "--git-path", "index")).strip())
+    if not index_path.is_absolute():
+        index_path = repo_root / index_path
+    try:
+        state = index_path.stat()
+    except OSError as error:
+        raise ManifestError(f"cannot stat Git index: {index_path}: {error}") from error
+    if not stat.S_ISREG(state.st_mode) or state.st_nlink != 1:
+        raise ManifestError(f"unsafe Git index topology: {index_path}")
+    return state.st_dev, state.st_ino, state.st_size, state.st_mtime_ns
+
+
+def hash_git_blob(repo_root: Path, object_id: str) -> tuple[int, str]:
+    process = subprocess.Popen(
+        ("git", "-C", os.fspath(repo_root), "cat-file", "blob", object_id),
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    assert process.stdout is not None
+    digest = hashlib.sha256()
+    size = 0
+    while chunk := process.stdout.read(1024 * 1024):
+        digest.update(chunk)
+        size += len(chunk)
+    stderr = process.stderr.read() if process.stderr is not None else b""
+    if process.wait() != 0:
+        detail = stderr.decode("utf-8", "replace").strip()
+        raise ManifestError(f"cannot read indexed blob {object_id}: {detail}")
+    return size, digest.hexdigest()
+
+
+def collect_tracked_paths(
+    repo_root: Path,
+    max_blob_bytes: int,
+    authority: dict[str, tuple[str, tuple[str, ...]]],
+) -> list[tuple[str, str, Path, int, str]]:
+    """Select only stage-0 Git-index artifacts, rejecting live/index drift."""
+    before_index = git_index_signature(repo_root)
+    raw_rows = git_output(repo_root, "ls-files", "--stage", "-z", "--", "workspace/people")
+    rows: list[tuple[str, str, Path, int, str]] = []
+    seen: set[str] = set()
+    for record in raw_rows.split(b"\0"):
+        if not record:
+            continue
+        try:
+            metadata, raw_path = record.split(b"\t", 1)
+            mode, object_id, stage = metadata.split()
+            relative = os.fsdecode(raw_path)
+        except ValueError as error:
+            raise ManifestError("malformed Git index artifact entry") from error
+        if stage != b"0":
+            raise ManifestError(f"unmerged Git index artifact: {relative}")
+        if mode not in (b"100644", b"100755"):
+            raise ManifestError(f"unsafe indexed artifact mode {mode.decode()}: {relative}")
+        if not re.fullmatch(rb"[0-9a-f]{40,64}", object_id):
+            raise ManifestError(f"invalid indexed artifact object id: {relative}")
+        if relative in seen:
+            raise ManifestError(f"duplicate Git index artifact path: {relative}")
+        seen.add(relative)
+        path_row = artifact_row(repo_root, relative, max_blob_bytes, authority)
+        worktree_size, worktree_sha256 = sha256_file(path_row[2])
+        index_size, index_sha256 = hash_git_blob(repo_root, object_id.decode("ascii"))
+        if index_size > max_blob_bytes:
+            raise ManifestError(
+                f"indexed artifact exceeds GitHub-compatible blob limit "
+                f"({index_size} > {max_blob_bytes}): {relative}"
+            )
+        if (worktree_size, worktree_sha256) != (index_size, index_sha256):
+            raise ManifestError(f"unstaged artifact content drift from Git index: {relative}")
+        rows.append((*path_row, index_size, index_sha256))
+    if git_index_signature(repo_root) != before_index:
+        raise ManifestError("Git index changed while building tracked-only manifest")
     rows.sort(key=lambda row: row[0].encode("utf-8"))
     return rows
 
@@ -160,30 +308,39 @@ def json_line(value: dict[str, object]) -> bytes:
     ).encode("utf-8")
 
 
-def build_manifest(repo_root: Path, max_blob_bytes: int, jobs: int) -> bytes:
-    plan_sha256, authority = load_plan(repo_root)
-    paths = collect_paths(repo_root, max_blob_bytes, authority)
-
-    with concurrent.futures.ThreadPoolExecutor(max_workers=jobs) as executor:
-        hashes = list(executor.map(lambda row: sha256_file(row[2]), paths))
+def build_manifest(
+    repo_root: Path, max_blob_bytes: int, jobs: int, tracked_only: bool = False
+) -> bytes:
+    if tracked_only:
+        before_index = git_index_signature(repo_root)
+        plan_sha256, authority = load_plan(repo_root, tracked_only=True)
+        tracked_paths = collect_tracked_paths(repo_root, max_blob_bytes, authority)
+        if git_index_signature(repo_root) != before_index:
+            raise ManifestError("Git index changed while building tracked-only manifest")
+        paths = [(relative, persona, path) for relative, persona, path, _, _ in tracked_paths]
+        # Hashes are computed from immutable indexed blobs after proving that the
+        # corresponding worktree files are safe and byte-identical to the index.
+        hashes = [(size, sha256) for _, _, _, size, sha256 in tracked_paths]
+    else:
+        plan_sha256, authority = load_plan(repo_root)
+        paths = collect_paths(repo_root, max_blob_bytes, authority)
+        with concurrent.futures.ThreadPoolExecutor(max_workers=jobs) as executor:
+            hashes = list(executor.map(lambda row: sha256_file(row[2]), paths))
 
     total_bytes = sum(size for size, _ in hashes)
     largest_blob_bytes = max((size for size, _ in hashes), default=0)
     content = bytearray()
-    content.extend(
-        json_line(
-            {
-                "algorithm": "sha256",
-                "artifact_count": len(paths),
-                "kind": "header",
-                "largest_blob_bytes": largest_blob_bytes,
-                "max_blob_bytes": max_blob_bytes,
-                "plan_sha256": f"sha256:{plan_sha256}",
-                "schema": SCHEMA,
-                "total_bytes": total_bytes,
-            }
-        )
-    )
+    header: dict[str, object] = {
+        "algorithm": "sha256",
+        "artifact_count": len(paths),
+        "kind": "header",
+        "largest_blob_bytes": largest_blob_bytes,
+        "max_blob_bytes": max_blob_bytes,
+        "plan_sha256": f"sha256:{plan_sha256}",
+        "schema": SCHEMA,
+        "total_bytes": total_bytes,
+    }
+    content.extend(json_line(header))
     for (relative, persona, _), (size, sha256) in zip(paths, hashes, strict=True):
         content.extend(
             json_line(
@@ -228,6 +385,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--max-blob-bytes", type=int, default=DEFAULT_MAX_BLOB_BYTES)
     parser.add_argument("--jobs", type=int, default=min(8, os.cpu_count() or 1))
     parser.add_argument("--replace", action="store_true")
+    parser.add_argument(
+        "--tracked-only",
+        action="store_true",
+        help="select only stage-0 Git-index artifacts and reject live/index drift",
+    )
     return parser.parse_args()
 
 
@@ -250,7 +412,7 @@ def main() -> int:
         raise ManifestError("--manifest must be a direct .jsonl child of <repo-root>/manifests")
     if manifest_root.exists() and manifest_root.is_symlink():
         raise ManifestError(f"manifest directory is a symlink: {manifest_root}")
-    content = build_manifest(repo_root, args.max_blob_bytes, args.jobs)
+    content = build_manifest(repo_root, args.max_blob_bytes, args.jobs, args.tracked_only)
     if args.command == "generate":
         write_manifest(manifest, content, args.replace)
         result = "written"
