@@ -1,0 +1,24 @@
+{
+  "schema": "persona-corpus.full-batch-checkpoint/v1",
+  "kind": "checkpoint",
+  "persona": "p01",
+  "scope_id": "p01-secondary-07",
+  "batch_id": "p01-secondary-07-full-b004",
+  "assignment_count": 2,
+  "accepted_additions": 2,
+  "m1_file_count": 200,
+  "m1_sha256_unchanged": true,
+  "acceptance_group": "p01-full-wave-004",
+  "before_manifest": "progress/p01/full/manifests/p01-full-wave-004.before.jsonl",
+  "after_manifest": "progress/p01/full/manifests/p01-full-wave-004.after.jsonl",
+  "family_counts": {
+    "pdf_scan": 2
+  },
+  "qa": {
+    "structure": true,
+    "pdf_scan": true,
+    "skill_required": true
+  },
+  "accepted_at": "2026-08-24T01:51:45Z",
+  "notes": "token-free; physical-artifact evidence only; required artifact skills and parent structural/visual QA passed"
+}
