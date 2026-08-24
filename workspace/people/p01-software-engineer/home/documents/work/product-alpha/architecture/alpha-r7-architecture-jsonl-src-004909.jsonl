@@ -1,0 +1,1 @@
+{"record_id": "ARCH-A7-004909", "source_id": "p01-src-004909", "product": "Product Alpha R7", "service": "svc-release-coordinator", "decision": "ADR-134", "observed_p95_ms": 192}

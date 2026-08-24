@@ -1,0 +1,11 @@
+From: observability-lead@aster-loop.invalid
+To: platform-engineer@aster-loop.invalid
+Subject: [working draft] ALW-11573
+Date: 2026-07-16T10:20:00+09:00
+Message-ID: <p01-src-009573@aster-loop.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+This is a synthetic ephemeral desktop working copy for svc-event-bus.
+State: working; observed working latency: 193 ms; Alpha R7 reference: 184 ms.
+It does not approve, release, or replace a reviewed record.

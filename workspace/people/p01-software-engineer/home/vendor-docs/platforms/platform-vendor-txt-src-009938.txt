@@ -1,0 +1,7 @@
+VND-26Q3-099 — Platform Meridian
+
+VND-26Q3-099 documents a synthetic event replay evaluation of Platform Meridian for Aster Loop Product Engineering. The 2026-09-15 review measured a 158 ms trial p95, 98% evidence coverage, and a 24-day comparison retention window. Disposition: schedule protocol walkthrough.
+
+Review domain: event replay
+Owner role: Platform Engineer
+Next action: schedule protocol walkthrough

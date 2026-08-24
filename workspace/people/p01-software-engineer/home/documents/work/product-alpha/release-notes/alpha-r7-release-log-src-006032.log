@@ -1,0 +1,2 @@
+2026-07-13T09:32:00+09:00 INFO release_note artifact=p01-full-006032 record=REL-A7-20260713-19 component="Decision Store" status=released synthetic=true
+2026-07-20T10:39:00+09:00 INFO post_release_review record=REL-A7-20260713-19 adr=ADR-042 disposition=keep observed_p95_ms=184

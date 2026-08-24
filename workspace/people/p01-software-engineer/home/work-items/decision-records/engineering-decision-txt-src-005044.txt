@@ -1,0 +1,8 @@
+Decision lifecycle memorandum
+Record: p01-src-005044
+ADR: ADR-B4-070
+Product: Product Beta R4
+State: closed
+Service: svc-observability
+
+Aster Loop株式会社 records rollback rehearsal trigger for role-based review. The asynchronous release gate remains governed by ADR-042, with 184 ms p95 evidence beneath the 200 ms ceiling.

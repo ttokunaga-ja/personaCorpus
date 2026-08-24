@@ -1,0 +1,12 @@
+Code review export
+review_id=CR-B4-005007
+project=Product Beta R4
+reviewed_at=2026-08-26T14:00:00+09:00
+service=svc-decision-store
+focus=contract version visibility
+disposition=approved with note
+review_elapsed_minutes=400
+checks_executed=33
+checks_passed=31
+change_reference=synthetic-00138f
+comment=role-owned follow-up retained

@@ -1,0 +1,8 @@
+Decision lifecycle memorandum
+Record: p01-src-007170
+ADR: ADR-B4-007
+Product: Product Beta R4
+State: proposed
+Service: svc-edge-api
+
+Aster Loop株式会社 records event envelope version boundary for role-based review. The asynchronous release gate remains governed by ADR-042, with 184 ms p95 evidence beneath the 200 ms ceiling.

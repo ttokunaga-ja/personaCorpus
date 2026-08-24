@@ -1,0 +1,7 @@
+VND-26Q3-033 — Platform Helix
+
+VND-26Q3-033 documents a synthetic event replay evaluation of Platform Helix for Aster Loop Product Engineering. The 2026-09-14 review measured a 140 ms trial p95, 72% evidence coverage, and a 21-day comparison retention window. Disposition: advance evidence review.
+
+Review domain: event replay
+Owner role: Platform Engineer
+Next action: advance evidence review

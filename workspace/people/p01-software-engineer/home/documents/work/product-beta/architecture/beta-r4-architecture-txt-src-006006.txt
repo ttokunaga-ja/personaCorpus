@@ -1,0 +1,5 @@
+Aster Loop株式会社 / BETA-R4 / ADR-B4-037 / 2026-08-17 architecture review / 225 ms design p95 budget
+Subject: consumer compatibility
+Component: ingress adapter
+Disposition: reviewed; boundary retained for synthetic staging validation.
+Allocated segment: 186 ms; end-to-end design target: 225 ms.

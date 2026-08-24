@@ -1,0 +1,1 @@
+2026-09-04T10:05:00+09:00 INFO contract=API-B4-11405 phase=freeze domain=compatibility-rule service=svc-observability state=reviewed tests_total=1240 tests_pass=1231 tests_fail=9

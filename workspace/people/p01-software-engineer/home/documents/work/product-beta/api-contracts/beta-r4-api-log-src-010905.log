@@ -1,0 +1,1 @@
+2026-09-04T10:45:00+09:00 INFO contract=API-B4-10905 phase=freeze domain=evidence-snapshot service=svc-decision-store state=reviewed tests_total=1240 tests_pass=1231 tests_fail=9

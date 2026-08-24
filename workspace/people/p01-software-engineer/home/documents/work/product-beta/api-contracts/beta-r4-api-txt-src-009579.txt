@@ -1,0 +1,5 @@
+API-B4-9579 | BETA-R4 | schema freeze 2026-09-04
+Domain: evidence-snapshot
+Service: svc-decision-store
+Status: released
+Contract tests: 1240 total; 1231 pass; 9 fail; 99.27%.

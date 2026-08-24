@@ -1,0 +1,7 @@
+VND-26Q3-034 — Platform Juniper
+
+VND-26Q3-034 documents a synthetic schema evolution evaluation of Platform Juniper for Aster Loop Product Engineering. The 2026-07-15 review measured a 173 ms trial p95, 93% evidence coverage, and a 23-day comparison retention window. Disposition: compare implementation notes.
+
+Review domain: schema evolution
+Owner role: Platform Engineer
+Next action: compare implementation notes

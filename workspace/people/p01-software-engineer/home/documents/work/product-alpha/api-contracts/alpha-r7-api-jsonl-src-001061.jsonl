@@ -1,0 +1,3 @@
+{"event":"contract_registered","contract_id":"API-A7-1061","resource":"decision-records","release":"ALPHA-R7"}
+{"event":"compatibility_reviewed","operation":"evaluate","policy":"additive-before-removal","target_p95_ms":200}
+{"event":"review_closed","reviewed_on":"2026-07-20","state":"reviewed","sequence":1061}

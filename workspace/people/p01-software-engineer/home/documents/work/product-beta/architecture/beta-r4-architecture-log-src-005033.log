@@ -1,0 +1,3 @@
+2026-08-17T14:53:00+09:00 INFO beta_r4 review=ADR-B4-059 component=review_evidence_sink
+2026-08-17T14:53:03+09:00 INFO subject="review gate sequencing" budget_ms=225 disposition=reviewed
+2026-08-17T14:53:07+09:00 INFO evidence=beta-r4-review-005033 status=recorded

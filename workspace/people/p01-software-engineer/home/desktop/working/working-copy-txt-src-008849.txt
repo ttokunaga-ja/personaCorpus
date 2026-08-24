@@ -1,0 +1,4 @@
+2026-07-21T10:09:00+09:00 WORKING-COPY source=p01-src-008849
+state=working issue=ALW-10849 service=svc-contract-registry
+Product Alpha R7; ADR reference=ADR-094; working_latency_ms=182; alpha_reference_p95_ms=184
+This ephemeral desktop draft has no approval or release effect.

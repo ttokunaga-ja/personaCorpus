@@ -1,0 +1,2 @@
+{"timestamp": "2026-07-01T10:00:00+09:00", "source_id": "p01-src-009909", "event": "working_draft_opened", "state": "working"}
+{"timestamp": "2026-07-01T10:03:00+09:00", "issue_id": "ALW-11909", "event": "reference_compared", "working_latency_ms": 188, "reference_p95_ms": 184}

@@ -1,0 +1,7 @@
+VND-26Q3-079 — Platform Meridian
+
+VND-26Q3-079 documents a synthetic connector reliability evaluation of Platform Meridian for Aster Loop Product Engineering. The 2026-07-15 review measured a 180 ms trial p95, 74% evidence coverage, and a 17-day comparison retention window. Disposition: schedule protocol walkthrough.
+
+Review domain: connector reliability
+Owner role: Platform Engineer
+Next action: schedule protocol walkthrough

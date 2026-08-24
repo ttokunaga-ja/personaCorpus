@@ -1,0 +1,11 @@
+From: Review Coordinator <review-coordinator@aster-loop.invalid>
+To: Platform Engineer <platform-engineer@aster-loop.invalid>
+Subject: [BETA-R4] ADR-B4-196 architecture note 004573
+Date: Mon, 17 Aug 2026 14:13:00 +0900
+Message-ID: <beta-r4-b002-004573@aster-loop.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+Aster Loop株式会社 / BETA-R4 / ADR-B4-196 / 2026-08-17 architecture review / 225 ms design p95 budget
+
+The review records projection checkpointing in the command coordinator. The 225 ms value is a design target, not an observed production value.

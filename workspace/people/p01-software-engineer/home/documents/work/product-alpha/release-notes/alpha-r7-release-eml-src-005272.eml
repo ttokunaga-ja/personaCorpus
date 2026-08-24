@@ -1,0 +1,9 @@
+From: Release Coordinator <release-coordinator@aster-loop.invalid>
+To: Observability Lead <observability-lead@aster-loop.invalid>
+Subject: [REL-A7-20260713-35] Product Alpha R7 released follow-up
+Date: Mon, 13 Jul 2026 09:00:00 +0900
+Message-ID: <p01-src-005272@aster-loop.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+Synthetic release engineering message for Decision Store. Product Alpha R7 released on 2026-07-13. ADR-042 keeps the asynchronous release gate. The measured p95 is 184 ms, below the 200 ms SLO ceiling.

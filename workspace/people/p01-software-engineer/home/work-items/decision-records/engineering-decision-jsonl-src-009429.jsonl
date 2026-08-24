@@ -1,0 +1,2 @@
+{"timestamp":"2026-07-20T12:09:00+09:00","record_id":"p01-src-009429","adr_id":"ADR-077","event":"lifecycle_reviewed","state":"closed","service":"svc-event-bus"}
+{"timestamp":"2026-07-20T12:10:00+09:00","record_id":"p01-src-009429","metric":"alpha_observed_p95_ms","value":184,"ceiling_ms":200,"result":"within_ceiling"}

@@ -1,0 +1,8 @@
+Decision lifecycle memorandum
+Record: p01-src-006506
+ADR: ADR-B4-139
+Product: Product Beta R4
+State: reviewed
+Service: svc-decision-store
+
+Aster Loop株式会社 records idempotency replay threshold for role-based review. The asynchronous release gate remains governed by ADR-042, with 184 ms p95 evidence beneath the 200 ms ceiling.

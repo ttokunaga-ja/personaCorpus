@@ -1,0 +1,5 @@
+API-B4-5668 | BETA-R4 | schema freeze 2026-09-04
+Domain: schema-review
+Service: svc-event-bus
+Status: planned
+Contract tests: 1240 total; 1231 pass; 9 fail; 99.27%.

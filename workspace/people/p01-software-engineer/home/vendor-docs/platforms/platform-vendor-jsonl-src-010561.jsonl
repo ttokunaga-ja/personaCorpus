@@ -1,0 +1,3 @@
+{"evaluation_id":"VND-26Q3-002","source_id":"p01-src-010561","vendor":"Platform Juniper","review_date":"2026-08-13","domain":"policy traceability","trial_p95_ms":143,"evidence_coverage_pct":77,"retention_days":18,"disposition":"compare implementation notes","synthetic":true}
+{"record_type":"criterion","evaluation_id":"VND-26Q3-002","name":"interface evidence","score":86}
+{"record_type":"criterion","evaluation_id":"VND-26Q3-002","name":"operational trace","score":93}

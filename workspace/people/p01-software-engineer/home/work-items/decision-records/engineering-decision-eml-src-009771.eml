@@ -1,0 +1,15 @@
+From: Observability Lead <decision-owner@aster-loop.invalid>
+To: Engineering Review <engineering-review@aster-loop.invalid>
+Subject: ADR-021 review state for p01-src-009771
+Date: Mon, 20 Jul 2026 11:51:00 +0900
+Message-ID: <p01-src-009771.b002@aster-loop.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+The Product Alpha R7 decision record is reviewed.
+
+Decision: compatibility review cadence
+Service: svc-event-bus
+Review date: 2026-07-20
+
+The synthetic release-gate path preserves the approval boundary between Release Coordinator and Decision Store. Evidence references 184 ms p95 against the 200 ms ceiling.

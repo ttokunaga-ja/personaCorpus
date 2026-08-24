@@ -1,0 +1,9 @@
+PRODUCT ALPHA R7 RELEASE ENGINEERING NOTE
+artifact: p01-full-011867
+source: p01-src-011867
+record: REL-A7-20260716-34
+organization: Aster Loop株式会社 (synthetic)
+release_date: 2026-07-13
+owner_role: Decision Store
+status: closed
+summary: ADR-042 retains the asynchronous release gate. Observed p95 is 184 ms against a 200 ms SLO ceiling.

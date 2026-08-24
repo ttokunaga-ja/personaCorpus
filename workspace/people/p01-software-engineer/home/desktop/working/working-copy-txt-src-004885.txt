@@ -1,0 +1,4 @@
+2026-07-26T10:05:00+09:00 WORKING-COPY source=p01-src-004885
+state=working issue=ALW-6885 service=svc-release-coordinator
+Product Alpha R7; ADR reference=ADR-110; working_latency_ms=186; alpha_reference_p95_ms=184
+This ephemeral desktop draft has no approval or release effect.

@@ -1,0 +1,12 @@
+INFO review-event
+review_id=CR-B4-011592
+project=Product Beta R4
+reviewed_at=2026-08-03T14:00:00+09:00
+service=svc-decision-store
+focus=contract version visibility
+disposition=approved with note
+review_elapsed_minutes=400
+checks_executed=35
+checks_passed=33
+change_reference=synthetic-002d48
+comment=role-owned follow-up retained

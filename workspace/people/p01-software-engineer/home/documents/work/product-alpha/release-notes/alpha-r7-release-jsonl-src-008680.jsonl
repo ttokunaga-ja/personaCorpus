@@ -1,0 +1,2 @@
+{"schema":"aster-loop.release-note-event/v1","artifact_id":"p01-full-008680","source_id":"p01-src-008680","record_id":"REL-A7-20260713-48","event":"release-note-published","release_date":"2026-07-13","synthetic":true}
+{"record_id":"REL-A7-20260713-48","event":"post-release-review","review_date":"2026-07-20","decision":"keep ADR-042","observed_p95_ms":184}

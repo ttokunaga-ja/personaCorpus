@@ -1,0 +1,11 @@
+From: api-steward@aster-loop.invalid
+To: release-coordinator@aster-loop.invalid
+Subject: [ALPHA-R7] reviewed API-A7-3271
+Message-ID: <api-a7-3271-3271@aster-loop.invalid>
+Date: Mon, 20 Jul 2026 10:31:00 +0900
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+The synthetic evidence-snapshots reconcile contract API-A7-3271 is reviewed.
+It retains Product Alpha R7's 200 ms p95 target and the
+additive-before-removal compatibility policy. ADR-042 remains unchanged.

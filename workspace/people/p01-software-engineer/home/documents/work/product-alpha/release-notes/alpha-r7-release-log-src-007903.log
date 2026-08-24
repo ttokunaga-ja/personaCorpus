@@ -1,0 +1,2 @@
+2026-07-13T09:43:00+09:00 INFO release_note artifact=p01-full-007903 record=REL-A7-20260720-47 component="Event Bus" status=closed synthetic=true
+2026-07-20T10:50:00+09:00 INFO post_release_review record=REL-A7-20260720-47 adr=ADR-042 disposition=keep observed_p95_ms=184

@@ -1,0 +1,4 @@
+2026-07-01T10:09:00+09:00 WORKING-COPY source=p01-src-007209
+state=working issue=ALW-9209 service=svc-event-bus
+Product Alpha R7; ADR reference=ADR-046; working_latency_ms=185; alpha_reference_p95_ms=184
+This ephemeral desktop draft has no approval or release effect.

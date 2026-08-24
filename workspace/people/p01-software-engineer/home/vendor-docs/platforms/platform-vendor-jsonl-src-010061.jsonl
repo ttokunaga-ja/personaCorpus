@@ -1,0 +1,3 @@
+{"evaluation_id":"VND-26Q3-222","source_id":"p01-src-010061","vendor":"Platform Juniper","review_date":"2026-09-13","domain":"operational handoff","trial_p95_ms":165,"evidence_coverage_pct":81,"retention_days":28,"disposition":"compare implementation notes","synthetic":true}
+{"record_type":"criterion","evaluation_id":"VND-26Q3-222","name":"interface evidence","score":76}
+{"record_type":"criterion","evaluation_id":"VND-26Q3-222","name":"operational trace","score":87}

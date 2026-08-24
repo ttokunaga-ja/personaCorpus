@@ -1,0 +1,15 @@
+From: Observability Lead <observability-lead@aster-loop.invalid>
+To: API Steward <api-steward@aster-loop.invalid>
+Subject: [CR-A7-005527] approved with note
+Date: 2026-09-11T14:00:00+09:00
+Message-ID: <cr-a7-005527-b002@aster-loop.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+Synthetic review CR-A7-005527 evaluated contract version visibility for svc-decision-store.
+
+Disposition: approved with note
+Portfolio review measure: 400 minutes.
+Check evidence: 29 of 31 passed for synthetic-001597.
+
+Please keep the role-owned observation with the review record.

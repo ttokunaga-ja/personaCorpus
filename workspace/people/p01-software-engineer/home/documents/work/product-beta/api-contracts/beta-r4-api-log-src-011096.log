@@ -1,0 +1,1 @@
+2026-09-04T10:56:00+09:00 INFO contract=API-B4-11096 phase=freeze domain=deployment-intent service=svc-release-coordinator state=planned tests_total=1240 tests_pass=1231 tests_fail=9

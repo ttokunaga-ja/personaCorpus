@@ -1,0 +1,2 @@
+2026-07-20T10:38:00+09:00 INFO artifact=p01-full-009458 source=p01-src-009458 service=svc-decision-store
+2026-07-20T10:39:00+09:00 INFO release=ALPHA-R7 decision=ADR-042 observed_p95_ms=184 slo_ceiling_ms=200

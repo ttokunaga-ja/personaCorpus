@@ -1,0 +1,8 @@
+Decision lifecycle memorandum
+Record: p01-src-007189
+ADR: ADR-026
+Product: Product Alpha R7
+State: closed
+Service: svc-release-coordinator
+
+Aster Loop株式会社 records release evidence retention window for role-based review. The asynchronous release gate remains governed by ADR-042, with 184 ms p95 evidence beneath the 200 ms ceiling.

@@ -1,0 +1,9 @@
+Product Beta R4 repository reference
+record=BETA-REPO-010278
+service=svc-edge-api
+topic=operator guide
+architecture_review=2026-08-17
+schema_freeze=2026-09-04
+target_release=2026-09-28
+design_p95_budget_ms=225
+contract_tests=1240 passed=1231 failed=9

@@ -1,0 +1,12 @@
+Code review export
+review_id=CR-A7-008507
+project=Product Alpha R7
+reviewed_at=2026-09-23T14:00:00+09:00
+service=svc-decision-store
+focus=contract version visibility
+disposition=approved with note
+review_elapsed_minutes=400
+checks_executed=24
+checks_passed=22
+change_reference=synthetic-00213b
+comment=role-owned follow-up retained

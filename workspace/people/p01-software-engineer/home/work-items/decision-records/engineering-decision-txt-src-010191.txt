@@ -1,0 +1,8 @@
+Decision lifecycle memorandum
+Record: p01-src-010191
+ADR: ADR-043
+Product: Product Alpha R7
+State: reviewed
+Service: svc-event-bus
+
+Aster Loop株式会社 records compatibility review cadence for role-based review. The asynchronous release gate remains governed by ADR-042, with 184 ms p95 evidence beneath the 200 ms ceiling.

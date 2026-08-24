@@ -1,0 +1,5 @@
+API-B4-5279 | BETA-R4 | schema freeze 2026-09-04
+Domain: compatibility-rule
+Service: svc-observability
+Status: released
+Contract tests: 1240 total; 1231 pass; 9 fail; 99.27%.

@@ -1,0 +1,7 @@
+From: release-coordinator@aster-loop.invalid
+To: platform-engineer@aster-loop.invalid
+Subject: ALPHA-R7 evidence p01-full-009727
+Message-ID: <p01-full-009727@aster-loop.invalid>
+Content-Type: text/plain; charset=UTF-8
+
+Synthetic svc-release-coordinator evidence: ADR-042 remains active; observed p95 is 184 ms.

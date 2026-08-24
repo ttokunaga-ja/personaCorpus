@@ -1,0 +1,2 @@
+{"kind": "review-opened", "review_id": "CR-B4-011931", "project": "Product Beta R4", "reviewed_at": "2026-08-06T14:00:00+09:00", "service": "svc-release-coordinator", "review_focus": "bounded retry semantics", "disposition": "changes requested", "review_elapsed_minutes": 400, "checks": {"executed": 26, "passed": 24}}
+{"kind": "review-closed", "review_id": "CR-B4-011931", "elapsed_minutes": 400, "disposition": "changes requested"}

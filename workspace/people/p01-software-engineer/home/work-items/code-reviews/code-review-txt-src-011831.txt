@@ -1,0 +1,12 @@
+Code review export
+review_id=CR-A7-011831
+project=Product Alpha R7
+reviewed_at=2026-08-18T14:00:00+09:00
+service=svc-release-coordinator
+focus=bounded retry semantics
+disposition=changes requested
+review_elapsed_minutes=400
+checks_executed=42
+checks_passed=40
+change_reference=synthetic-002e37
+comment=role-owned follow-up retained

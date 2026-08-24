@@ -1,0 +1,11 @@
+From: api-steward@aster-loop.invalid
+To: release-coordinator@aster-loop.invalid
+Subject: [ALPHA-R7] reviewed API-A7-0670
+Message-ID: <api-a7-0670-670@aster-loop.invalid>
+Date: Mon, 20 Jul 2026 10:10:00 +0900
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+The synthetic event-deliveries publish contract API-A7-0670 is reviewed.
+It retains Product Alpha R7's 200 ms p95 target and the
+additive-before-removal compatibility policy. ADR-042 remains unchanged.

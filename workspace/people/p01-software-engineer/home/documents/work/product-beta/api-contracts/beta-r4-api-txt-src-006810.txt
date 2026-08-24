@@ -1,0 +1,5 @@
+API-B4-6810 | BETA-R4 | schema freeze 2026-09-04
+Domain: release-window
+Service: svc-edge-api
+Status: approved
+Contract tests: 1240 total; 1231 pass; 9 fail; 99.27%.

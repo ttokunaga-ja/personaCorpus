@@ -1,0 +1,4 @@
+2026-06-06T10:02:00+09:00 WORKING-COPY source=p01-src-010832
+state=draft issue=ALW-12832 service=svc-decision-store
+Product Alpha R7; ADR reference=ADR-087; working_latency_ms=181; alpha_reference_p95_ms=184
+This ephemeral desktop draft has no approval or release effect.

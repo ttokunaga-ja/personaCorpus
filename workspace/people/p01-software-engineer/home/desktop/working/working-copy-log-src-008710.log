@@ -1,0 +1,4 @@
+2026-08-17T10:00:00+09:00 WORKING-COPY source=p01-src-008710
+state=review-pending issue=ALW-10710 service=svc-observability
+Product Alpha R7; ADR reference=ADR-154; working_latency_ms=198; alpha_reference_p95_ms=184
+This ephemeral desktop draft has no approval or release effect.

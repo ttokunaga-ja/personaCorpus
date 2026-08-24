@@ -1,0 +1,4 @@
+2026-06-08T10:02:00+09:00 WORKING-COPY source=p01-src-010132
+state=draft issue=ALW-12132 service=svc-observability
+Product Alpha R7; ADR reference=ADR-183; working_latency_ms=194; alpha_reference_p95_ms=184
+This ephemeral desktop draft has no approval or release effect.

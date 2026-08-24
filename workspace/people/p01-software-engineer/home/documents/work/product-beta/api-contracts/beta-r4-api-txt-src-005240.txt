@@ -1,0 +1,5 @@
+API-B4-5240 | BETA-R4 | schema freeze 2026-09-04
+Domain: deployment-intent
+Service: svc-release-coordinator
+Status: planned
+Contract tests: 1240 total; 1231 pass; 9 fail; 99.27%.

@@ -1,0 +1,9 @@
+From: Platform Engineer <platform-engineer@aster-loop.invalid>
+To: Release Coordinator <release-coordinator@aster-loop.invalid>
+Subject: [BETA-REPO-011328] Product Beta R4 operator guide
+Date: Tue, 18 Aug 2026 10:15:00 +0900
+Message-ID: <beta-repo-011328@aster-loop.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+svc-edge-api documentation records the 225 ms design budget and reconciled contract evidence: 1,231 passing plus 9 failing equals 1,240 tests. Please carry this into the 2026-09-04 schema freeze review.

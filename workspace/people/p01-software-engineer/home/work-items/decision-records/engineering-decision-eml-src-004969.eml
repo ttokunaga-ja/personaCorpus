@@ -1,0 +1,15 @@
+From: Platform Engineer <decision-owner@aster-loop.invalid>
+To: Engineering Review <engineering-review@aster-loop.invalid>
+Subject: ADR-194 review state for p01-src-004969
+Date: Mon, 20 Jul 2026 11:49:00 +0900
+Message-ID: <p01-src-004969.b002@aster-loop.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+The Product Alpha R7 decision record is closed.
+
+Decision: release evidence retention window
+Service: svc-release-coordinator
+Review date: 2026-07-20
+
+The synthetic release-gate path preserves the approval boundary between Release Coordinator and Decision Store. Evidence references 184 ms p95 against the 200 ms ceiling.

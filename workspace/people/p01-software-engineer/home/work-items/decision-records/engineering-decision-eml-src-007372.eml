@@ -1,0 +1,15 @@
+From: Release Coordinator <decision-owner@aster-loop.invalid>
+To: Engineering Review <engineering-review@aster-loop.invalid>
+Subject: ADR-B4-010 review state for p01-src-007372
+Date: Mon, 20 Jul 2026 11:52:00 +0900
+Message-ID: <p01-src-007372.b002@aster-loop.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+The Product Beta R4 decision record is approved.
+
+Decision: rollback rehearsal trigger
+Service: svc-observability
+Review date: 2026-08-17
+
+The synthetic release-gate path preserves the approval boundary between Release Coordinator and Decision Store. Evidence references 184 ms p95 against the 200 ms ceiling.

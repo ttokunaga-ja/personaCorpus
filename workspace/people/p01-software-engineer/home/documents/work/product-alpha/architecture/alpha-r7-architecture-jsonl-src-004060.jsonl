@@ -1,0 +1,1 @@
+{"record_id": "ARCH-A7-004060", "source_id": "p01-src-004060", "product": "Product Alpha R7", "service": "svc-observability", "decision": "ADR-081", "observed_p95_ms": 180}

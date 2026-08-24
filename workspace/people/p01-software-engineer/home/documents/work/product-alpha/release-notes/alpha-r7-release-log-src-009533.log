@@ -1,0 +1,2 @@
+2026-07-13T09:53:00+09:00 INFO release_note artifact=p01-full-009533 record=REL-A7-20260718-28 component="Event Bus" status=reviewed synthetic=true
+2026-07-20T10:00:00+09:00 INFO post_release_review record=REL-A7-20260718-28 adr=ADR-042 disposition=keep observed_p95_ms=184

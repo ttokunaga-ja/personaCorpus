@@ -1,0 +1,12 @@
+Code review export
+review_id=CR-A7-008473
+project=Product Alpha R7
+reviewed_at=2026-08-20T14:00:00+09:00
+service=svc-event-bus
+focus=decision audit retention
+disposition=commented
+review_elapsed_minutes=400
+checks_executed=19
+checks_passed=17
+change_reference=synthetic-002119
+comment=role-owned follow-up retained

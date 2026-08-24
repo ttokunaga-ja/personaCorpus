@@ -1,0 +1,15 @@
+From: Observability Lead <observability-lead@aster-loop.invalid>
+To: API Steward <api-steward@aster-loop.invalid>
+Subject: [CR-A7-006073] commented
+Date: 2026-08-28T14:00:00+09:00
+Message-ID: <cr-a7-006073-b002@aster-loop.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+Synthetic review CR-A7-006073 evaluated decision audit retention for svc-event-bus.
+
+Disposition: commented
+Portfolio review measure: 400 minutes.
+Check evidence: 24 of 26 passed for synthetic-0017b9.
+
+Please keep the role-owned observation with the review record.

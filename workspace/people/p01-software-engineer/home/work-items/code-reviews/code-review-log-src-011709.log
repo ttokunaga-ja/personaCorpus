@@ -1,0 +1,12 @@
+INFO review-event
+review_id=CR-B4-011709
+project=Product Beta R4
+reviewed_at=2026-08-08T14:00:00+09:00
+service=svc-observability
+focus=latency evidence labeling
+disposition=approved after evidence check
+review_elapsed_minutes=400
+checks_executed=36
+checks_passed=34
+change_reference=synthetic-002dbd
+comment=role-owned follow-up retained

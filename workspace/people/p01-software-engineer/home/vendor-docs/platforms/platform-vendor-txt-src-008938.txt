@@ -1,0 +1,7 @@
+VND-26Q3-059 — Platform Meridian
+
+VND-26Q3-059 documents a synthetic cost observability evaluation of Platform Meridian for Aster Loop Product Engineering. The 2026-08-15 review measured a 144 ms trial p95, 78% evidence coverage, and a 27-day comparison retention window. Disposition: schedule protocol walkthrough.
+
+Review domain: cost observability
+Owner role: Platform Engineer
+Next action: schedule protocol walkthrough

@@ -1,0 +1,4 @@
+2026-08-24T10:00:00+09:00 WORKING-COPY source=p01-src-010850
+state=review-pending issue=ALW-12850 service=svc-decision-store
+Product Alpha R7; ADR reference=ADR-105; working_latency_ms=168; alpha_reference_p95_ms=184
+This ephemeral desktop draft has no approval or release effect.

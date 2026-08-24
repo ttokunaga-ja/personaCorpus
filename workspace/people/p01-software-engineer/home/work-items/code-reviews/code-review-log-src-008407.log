@@ -1,0 +1,12 @@
+INFO review-event
+review_id=CR-A7-008407
+project=Product Alpha R7
+reviewed_at=2026-08-10T14:00:00+09:00
+service=svc-decision-store
+focus=contract version visibility
+disposition=approved with note
+review_elapsed_minutes=400
+checks_executed=40
+checks_passed=38
+change_reference=synthetic-0020d7
+comment=role-owned follow-up retained

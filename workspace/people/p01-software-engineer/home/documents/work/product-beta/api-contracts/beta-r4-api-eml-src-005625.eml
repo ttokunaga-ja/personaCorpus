@@ -1,0 +1,11 @@
+From: api-steward@aster-loop.invalid
+To: platform-engineer@aster-loop.invalid
+Subject: API-B4-5625 Product Beta R4 freeze record
+Date: Fri, 04 Sep 2026 10:45:00 +0900
+Message-ID: <p01-full-005625@aster-loop.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+The evidence-snapshot contract API-B4-5625 is reviewed.
+Schema freeze is 2026-09-04 for svc-decision-store.
+Reconciliation: 1,240 total tests, 1,231 pass, 9 fail (99.27%).

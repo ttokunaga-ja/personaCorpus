@@ -1,0 +1,3 @@
+2026-09-14T08:02:00+09:00 INFO vendor-evidence id=VND-26Q3-123 vendor="Platform Meridian" domain="event replay"
+2026-09-14T08:05:00+09:00 INFO metrics p95_ms=138 coverage_pct=82 retention_days=25
+2026-09-14T08:08:00+09:00 INFO disposition="schedule protocol walkthrough" role="Platform Engineer"

@@ -1,0 +1,3 @@
+2026-07-27T10:00:00+09:00 INFO aster-loop product=Product-Alpha-R7 record=ARCH-A7-005189 service=svc-contract-registry decision=ADR-016
+2026-07-27T10:01:00+09:00 INFO release-gate mode=asynchronous approval_boundary=release-coordinator_to_decision-store
+2026-07-27T10:02:00+09:00 INFO observed_p95_ms=175 slo_ceiling_ms=200 state=closed

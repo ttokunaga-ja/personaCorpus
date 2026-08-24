@@ -1,0 +1,2 @@
+{"schema":"aster-loop.beta-r4.architecture-event/v1","source_id":"p01-src-005681","review_id":"ADR-B4-110","at":"2026-08-17T14:00:00+09:00","component":"review evidence sink","subject":"review gate sequencing","target_p95_ms":225,"status":"reviewed","synthetic":true}
+{"schema":"aster-loop.beta-r4.architecture-event/v1","source_id":"p01-src-005681","event":"follow_up_registered","due":"2026-09-04","evidence":"beta-r4-review-005681"}

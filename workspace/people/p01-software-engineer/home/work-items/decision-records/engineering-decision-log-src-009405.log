@@ -1,0 +1,2 @@
+2026-07-20T12:45:00+09:00 INFO lifecycle record=p01-src-009405 adr=ADR-053 state=proposed service=svc-event-bus event=reviewed
+2026-07-20T12:46:00+09:00 INFO evidence alpha_p95_ms=184 ceiling_ms=200 result=within_ceiling

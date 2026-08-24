@@ -1,0 +1,2 @@
+{"event":"schema_freeze","contract_id":"API-B4-7909","occurred_at":"2026-09-04T10:49:00+09:00","service":"svc-contract-registry","artifact_id":"p01-full-007909"}
+{"event":"test_reconciliation","contract_id":"API-B4-7909","total":1240,"passed":1231,"failed":9,"pass_rate_percent":99.27}

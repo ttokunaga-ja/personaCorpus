@@ -1,0 +1,2 @@
+{"record_id":"BETA-REPO-005431","product":"Product Beta R4","service":"svc-release-coordinator","event":"repository_documentation_review","state":"reviewed","at":"2026-08-18T10:15:00+09:00"}
+{"record_id":"BETA-REPO-005431","metric":"contract_tests","total":1240,"passed":1231,"failed":9,"pass_rate_percent":99.27}

@@ -1,0 +1,1 @@
+{"record_id": "ARCH-A7-005058", "source_id": "p01-src-005058", "product": "Product Alpha R7", "service": "svc-edge-api", "decision": "ADR-084", "observed_p95_ms": 179}

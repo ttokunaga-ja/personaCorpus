@@ -1,0 +1,9 @@
+From: Architecture Review <architecture-review@aster-loop.invalid>
+To: Release Coordinator <release-coordinator@aster-loop.invalid>
+Subject: [ARCH-A7-001073] Product Alpha R7 review
+Date: 2026-08-20T10:15:00+09:00
+Message-ID: <p01-src-001073@aster-loop.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+Aster Loop reviewed svc-contract-registry under ADR-079. Product Alpha R7 observed p95 is 190 ms against the 200 ms ceiling.
