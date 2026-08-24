@@ -1,0 +1,33 @@
+From: Aster Legal Operations <legalops@aster-legal.example.invalid>
+To: Privacy Counsel <privacy.counsel@northstar.example.invalid>
+Date: Sun, 12 Jul 2026 14:20:00 +0000
+Subject: Matter Alpha | custodian acknowledgement status
+Message-ID: <alpha-custodian-confirmation@synthetic.invalid>
+X-Synthetic-Training-Record: true
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="===============2903427700131328809=="
+
+--===============2903427700131328809==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Synthetic training correspondence.
+
+The Matter Alpha acknowledgement sweep is complete for the 42 designated cust=
+odians. The exception tracker remains open through 2026-07-12 for documented =
+access constraints only. Please retain this status note with the preservation=
+ record.
+
+Aster Legal Operations
+
+--===============2903427700131328809==
+Content-Type: text/plain
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="alpha-custodian-status.txt"
+MIME-Version: 1.0
+
+TWF0dGVyIEFscGhhCkRlc2lnbmF0ZWQgY3VzdG9kaWFuczogNDIKRXhjZXB0aW9uIGRlYWRsaW5l
+OiAyMDI2LTA3LTEyClN0YXR1czogYWNrbm93bGVkZ2VtZW50IHN3ZWVwIGNvbXBsZXRlCkFsbCBu
+YW1lcyBhbmQgZmFjdHMgYXJlIHN5bnRoZXRpYy4=
+
+--===============2903427700131328809==--

@@ -1,0 +1,42 @@
+From: Mina Sato <mina.sato@asterlegal.example>
+To: Privacy Review <privacy@cinderbay.example>
+Cc: Vendor Governance <vendor-governance@asterlegal.example>
+Date: Thu, 18 Jun 2026 09:15:00 +0000
+Subject: AL-PB-2604 | Matter Beta intake and review boundary
+Message-ID: <2026-06-18-beta-intake@asterlegal.example>
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="===============4112710100969118474=="
+
+--===============4112710100969118474==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hello Cinder Bay team,
+
+Aster Legal is opening a synthetic vendor processor privacy review for AL-PB-=
+2604. Please provide control narratives and synthetic evidence descriptions o=
+nly; do not send live personal data, credentials, or production exports.
+
+The review currently records 12 findings: 3 high, 6 medium, 3 low. The high i=
+tems (purpose limitation, access control review, deletion workflow) require p=
+lans and evidence by 15 Aug 2026.
+
+Regards,
+Mina
+Corporate Privacy Legal
+
+--===============4112710100969118474==
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+<html><body><p>Hello Cinder Bay team,</p><p>Aster Legal is opening a <b>synth=
+etic vendor processor privacy review</b> for <b>AL-PB-2604</b>.</p><p>Please =
+provide control narratives and synthetic evidence descriptions only; do not s=
+end live personal data, credentials, or production exports.</p><p>The review =
+records <b>12 findings</b>: 3 high, 6 medium, and 3 low. High items are due <=
+b>15 Aug 2026</b>.</p><p>Regards,<br>Mina<br>Corporate Privacy Legal</p></bod=
+y></html>
+
+--===============4112710100969118474==--

@@ -1,0 +1,64 @@
+{
+  "schema": "aster-legal.preservation-audit/v1",
+  "audit_id": "AL-PA-2606",
+  "organization": "Aster Legal",
+  "matter": "Matter Alpha",
+  "generated_at": "2026-07-12T17:05:00Z",
+  "hold_activation_date": "2026-06-30",
+  "exception_deadline": "2026-07-12",
+  "custodian_total": 42,
+  "acknowledged_total": 42,
+  "exception_total": 5,
+  "exception_closed_total": 5,
+  "events": [
+    {
+      "event_id": "DLP-AL-00071",
+      "occurred_at": "2026-06-24T09:14:00Z",
+      "event_type": "Preservation export staged",
+      "severity": "Low",
+      "outcome": "PRESERVE"
+    },
+    {
+      "event_id": "DLP-AL-00072",
+      "occurred_at": "2026-06-27T16:42:00Z",
+      "event_type": "Custodian confirmation recorded",
+      "severity": "Low",
+      "outcome": "PRESERVE"
+    },
+    {
+      "event_id": "DLP-AL-00073",
+      "occurred_at": "2026-06-30T11:03:00Z",
+      "event_type": "Matter Alpha hold activated",
+      "severity": "Medium",
+      "outcome": "PRESERVE"
+    },
+    {
+      "event_id": "DLP-AL-00074",
+      "occurred_at": "2026-07-03T08:31:00Z",
+      "event_type": "Exception review requested",
+      "severity": "Medium",
+      "outcome": "REVIEW"
+    },
+    {
+      "event_id": "DLP-AL-00075",
+      "occurred_at": "2026-07-08T14:55:00Z",
+      "event_type": "Exception deadline reminder",
+      "severity": "Medium",
+      "outcome": "REVIEW"
+    },
+    {
+      "event_id": "DLP-AL-00076",
+      "occurred_at": "2026-07-12T17:00:00Z",
+      "event_type": "Exception window closed",
+      "severity": "Low",
+      "outcome": "CLOSED"
+    }
+  ],
+  "reconciliation": {
+    "custodian_csv_rows": 42,
+    "exception_csv_rows": 5,
+    "hold_status_workbook_total": 42,
+    "all_totals_reconciled": true
+  },
+  "synthetic_notice": "Synthetic legal-operations training export. No personal data, customer data, credentials, or privileged communications."
+}

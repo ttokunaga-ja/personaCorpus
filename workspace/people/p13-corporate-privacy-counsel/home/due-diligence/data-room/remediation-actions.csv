@@ -1,0 +1,5 @@
+Action ID,Finding ID,Action,Owner,Priority,Due Date,Status,Evidence Reference
+RA-001,CB-01,"Document deletion verification cadence","Cinder Bay Privacy Office",High,2026-08-15,Open,AL-PA-2606-003
+RA-002,CB-02,"Record subprocessor approval rationale","Cinder Bay Privacy Office",High,2026-08-15,Open,AL-PA-2606-003
+RA-003,CB-03,"Complete access review exception log","Cinder Bay Privacy Office",High,2026-08-15,Open,AL-PA-2606-005
+RA-004,CB-04,"Refresh retention owner attestations","Aster Legal",Medium,2026-09-15,In remediation,AL-PA-2606-002

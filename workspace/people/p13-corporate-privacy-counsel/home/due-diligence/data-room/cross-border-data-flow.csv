@@ -1,0 +1,4 @@
+Flow ID,Origin Region,Destination Region,Transfer Mechanism,Data Category,Vendor,Review Status,Next Review
+CBF-001,"EU/EEA",United States,"Standard Contractual Clauses","Pseudonymous product events","Cinder Bay Processing Ltd.","Approved with conditions",2026-07-12
+CBF-002,United Kingdom,United States,"International Data Transfer Addendum","Account identifiers","Cinder Bay Processing Ltd.",Approved,2026-08-15
+CBF-003,Canada,"EU/EEA","Vendor processing terms","Support content","Northwind Data Services",In review,2026-07-30

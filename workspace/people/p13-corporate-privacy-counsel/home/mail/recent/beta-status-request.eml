@@ -1,0 +1,36 @@
+From: Mina Sato <mina.sato@asterlegal.example>
+To: Priya Nolen <priya.nolen@cinderbay.example>
+Cc: Vendor Governance <vendor-governance@asterlegal.example>
+Date: Fri, 07 Aug 2026 13:20:00 +0000
+Subject: Cinder Bay Processing Ltd. | Matter Beta status request for 12 findings
+Message-ID: <20260807.beta-status-request@asterlegal.example>
+In-Reply-To: <20260724.beta-remediation-plan@cinderbay.example>
+References: <20260717.beta-assessment-summary@asterlegal.example> <20260724.beta-remediation-plan@cinderbay.example>
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="p13-beta-status-20260807"
+
+--p13-beta-status-20260807
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+
+Hello Priya,
+
+Please provide the Matter Beta status summary for Cinder Bay Processing Ltd.
+The current
+register has 12 findings: 3 high, 6 medium, and 3 low. For the three high
+findings, include the accountable role, current milestone, and evidence
+description; final evidence is due 2026-08-15 (15 August 2026).
+
+This request concerns Matter Beta only. Please do not combine it with Matter
+Alpha preservation or exception tracking.
+
+Regards,
+Mina
+
+--p13-beta-status-20260807
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+
+<html><body><p>Hello Priya,</p><p>Please provide the Matter Beta status summary for Cinder Bay Processing Ltd. The current register has <strong>12 findings</strong>: 3 high, 6 medium, and 3 low. For the three high findings, include the accountable role, current milestone, and evidence description; final evidence is due <strong>2026-08-15 (15 August 2026)</strong>.</p><p>This request concerns Matter Beta only. Please do not combine it with Matter Alpha preservation or exception tracking.</p><p>Regards,<br>Mina</p></body></html>
+
+--p13-beta-status-20260807--

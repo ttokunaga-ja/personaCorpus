@@ -1,0 +1,24 @@
+From: Aster Legal Matter Alpha <records.lead@sable-rowe.example>
+To: privacy.counsel@aster-legal.example
+Subject: Escalation: missing source detail for exception review
+Date: Thu, 02 Jul 2026 11:08:00 -0400
+Message-ID: <al-pa-2606-15@aster-legal.example>
+In-Reply-To: <al-pa-2606-14@aster-legal.example>
+References: <al-pa-2606-12@aster-legal.example>
+ <al-pa-2606-13@aster-legal.example> <al-pa-2606-14@aster-legal.example>
+X-Synthetic-Corpus: personaCorpus; Matter Alpha; synthetic
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Hello team,
+
+One exception owner needs a system-level retention confirmation before remedi=
+ation can close. This is an administrative metadata gap, not an indication th=
+at live data is missing. Please retain the escalation in the exception regist=
+er.
+
+No customer, employee, or production data included.
+
+Regards,
+Aster Legal Matter Alpha Team

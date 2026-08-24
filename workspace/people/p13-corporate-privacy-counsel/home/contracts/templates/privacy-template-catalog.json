@@ -1,0 +1,18 @@
+{
+  "schema": "aster-legal.privacy-template-catalog/v1",
+  "catalog_name": "Aster Legal privacy templates",
+  "synthetic_anchor": {"matter": "Matter Alpha", "preservation_population": 42, "exception_review_date": "2026-07-12"},
+  "items": [
+    {"path":"controller-processor-checklist-template.docx","family":"docx","purpose":"Controller–processor role and control checklist"},
+    {"path":"data-breach-notice-template.docx","family":"docx","purpose":"Breach notice decision and draft worksheet"},
+    {"path":"data-processing-addendum-template.docx","family":"docx","purpose":"Modular data processing addendum"},
+    {"path":"data-return-certificate-template.docx","family":"docx","purpose":"Data return certification"},
+    {"path":"deletion-certificate-template.docx","family":"docx","purpose":"Deletion certification"},
+    {"path":"international-transfer-assessment-template.docx","family":"docx","purpose":"International transfer assessment"},
+    {"path":"records-processing-schedule-template.docx","family":"docx","purpose":"Records of processing schedule"},
+    {"path":"subprocessor-notice-template.docx","family":"docx","purpose":"Subprocessor notice and objection workflow"},
+    {"path":"vendor-privacy-questionnaire-template.docx","family":"docx","purpose":"Vendor privacy due-diligence questionnaire"},
+    {"path":"vendor-remediation-plan-template.docx","family":"docx","purpose":"Vendor corrective-action plan"},
+    {"path":"privacy-clause-playbook.md","family":"md","purpose":"Privacy clause drafting and negotiation guide"}
+  ]
+}

@@ -1,0 +1,30 @@
+Aster Legal Privacy Review Notes
+Reference: PRN-ALPHA-042 | synthetic internal working notes
+Anchor: Matter Alpha / 42 preservation targets / exception review 2026-07-12
+
+Purpose
+This note records a reusable review sequence for fictional privacy matters. It is a training reference, not legal advice or a record of a real matter.
+
+1. Define the question
+- State the decision being supported and the minimum information needed.
+- Identify the accountable business owner and the privacy reviewer.
+- Separate preservation scope from ordinary retention analysis.
+
+2. Bound the material
+- Start with the smallest time range and source set that answers the question.
+- Confirm whether the requested fields include direct identifiers, sensitive categories, or derived attributes.
+- Use a Restricted Review label for a limited packet; record recipients and expiry.
+
+3. Check controls
+- Verify access is role-based and a transfer gate exists for any inter-region route.
+- Confirm vendor assurance is current for the specific service and data class.
+- Do not treat a DLP label as approval to disclose.
+
+4. Matter Alpha reminder
+- The preservation register lists 42 targets.
+- Routine deletion stays paused only for records inside the documented hold scope.
+- Each open exception needs an owner, rationale, safeguard, and decision date.
+- Revalidate or close exceptions by 2026-07-12; escalate any unresolved item.
+
+5. Closeout record
+Capture the source index, decision, handling label, recipients, follow-up date, and any residual question. Avoid copying the full underlying data into the review note.
