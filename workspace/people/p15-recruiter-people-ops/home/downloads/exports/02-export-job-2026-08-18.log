@@ -1,0 +1,7 @@
+2026-08-18T16:29:55+09:00 INFO export_job=ATS-REQ-SYN-20260818-1630 organization="Orchid People" action=start
+2026-08-18T16:30:00+09:00 INFO source=requisition_openings schema=orchid_people.ats_requisition_opening.v1 output=00-ats-requisition-export.csv data_rows=5 requisitions=2
+2026-08-18T16:30:01+09:00 INFO requisition_id=REQ-SYN-ALPHA-20260818 title="People Analytics Partner" openings=3 band=JPY_7200000_8400000
+2026-08-18T16:30:01+09:00 INFO requisition_id=REQ-SYN-BETA-20260818 title="Talent Operations Specialist" openings=2 band=JPY_5800000_6800000
+2026-08-18T16:30:02+09:00 INFO output=01-offer-audit-export.html audit_rows=5 offer_documents=0 individual_salary_fields=0
+2026-08-18T16:30:03+09:00 INFO redaction_policy=synthetic_reference_only excluded="names,contact_details,resumes,individual_salaries,employee_ids,secrets"
+2026-08-18T16:30:04+09:00 INFO action=complete status=success artifacts="00-ats-requisition-export.csv,01-offer-audit-export.html" row_count=5

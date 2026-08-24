@@ -1,0 +1,6 @@
+candidate_id,requisition,role,location_model,stage,evidence_score,next_action,synthetic_record
+B01,Requisition Beta,Talent Operations Specialist,Tokyo hybrid,Panel recommended,88,Panel conversation; confirm hybrid collaboration preference.,true
+B02,Requisition Beta,Talent Operations Specialist,Tokyo hybrid,Screen recommended,82,Structured screen; probe data quality examples.,true
+B03,Requisition Beta,Talent Operations Specialist,Tokyo hybrid,Screen recommended,79,Structured screen; test prioritization across openings.,true
+B04,Requisition Beta,Talent Operations Specialist,Tokyo hybrid,Hold - evidence gap,66,Request a synthetic work sample before advancing.,true
+B05,Requisition Beta,Talent Operations Specialist,Tokyo hybrid,Hold - calibration,70,Review sourcing exercise; calibrate role fit.,true

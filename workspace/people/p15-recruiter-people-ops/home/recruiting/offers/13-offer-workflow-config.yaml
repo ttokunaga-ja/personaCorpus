@@ -1,0 +1,26 @@
+# SYNTHETIC CONFIGURATION - Orchid People
+workflow: offer_release_v1
+requisition:
+  code: requisition-alpha
+  role: People Analytics Partner
+  opened: 2026-08-18
+  location: Tokyo hybrid
+  openings: 3
+  annual_base_band_jpy: {min: 7200000, max: 8400000}
+candidates:
+  A01: {annual_base_jpy: 7800000, acceptance_window_days: 5}
+  A02: {annual_base_jpy: 8100000, acceptance_window_days: 5}
+  A03: {annual_base_jpy: 7500000, acceptance_window_days: 5}
+release_gate:
+  required_approvals: [people_ops, finance, hiring_manager]
+  contingencies: [applicable_pre_employment_checks, employment_eligibility_confirmation]
+  block_on: [base_outside_band, unapproved_cash_component, equity_or_equity_linked_benefit, missing_approval]
+benefits:
+  model: equity_neutral_standard_benefits
+  statement: eligibility subject to plan terms
+preboarding:
+  start_when: accepted_offer_and_contingencies_cleared
+  tasks: [confirm_start_date, arrange_least_privilege_access, share_30_day_plan, benefits_orientation]
+privacy:
+  candidate_identifiers_only: true
+  prohibited: [names, contact_data, salary_history, government_ids, signatures]

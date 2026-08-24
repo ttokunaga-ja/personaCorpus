@@ -1,0 +1,7 @@
+From: recruiting-ops@orchidpeople.example
+To: panel@orchidpeople.example
+Subject: Scorecard reminder - Requisition Alpha
+MIME-Version: 1.0
+Content-Type: text/html; charset=UTF-8
+
+<html><body><p>Please submit each scorecard before the debrief.</p><ul><li>Use candidate IDs only.</li><li>Score the four published competencies from 1 to 5.</li><li>Record concrete evidence, not inferred fit.</li><li>Flag variance greater than one point for calibration.</li></ul><p>Contact recruiting-ops@orchidpeople.example for process support.</p></body></html>

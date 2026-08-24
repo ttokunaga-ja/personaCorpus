@@ -1,0 +1,11 @@
+Interview room notes - ORCHID PEOPLE / REQUISITION ALPHA
+2026-08-18 | Tokyo hybrid
+Approved role range: JPY 7.2-8.4M (not a candidate salary-history input)
+
+09:00 Structured screen: use common opening and same core questions.
+11:00 Work sample: record method, trade-offs, and responsible data choices.
+14:00 Panel: score four competencies independently before discussion.
+16:00 Debrief: compare evidence first; calibrate variance over one point.
+
+Privacy note: candidate IDs A01-A05 only. No names, contact details, resumes, salary history, or real identifiers.
+Decision anchor: three openings; advance A01, A02, A03 after controls complete.

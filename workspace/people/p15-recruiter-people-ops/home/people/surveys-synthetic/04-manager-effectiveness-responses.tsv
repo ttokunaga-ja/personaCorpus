@@ -1,0 +1,119 @@
+response_id	reporting_group	manager_effectiveness	growth_clarity	wellbeing_support	enps_class
+SUR-001	Engineering	77	77	77	Promoter
+SUR-002	Engineering	78	77	77	Promoter
+SUR-003	Engineering	76	77	77	Promoter
+SUR-004	Engineering	77	75	77	Promoter
+SUR-005	Engineering	78	77	78	Promoter
+SUR-006	Engineering	76	77	77	Promoter
+SUR-007	Engineering	77	77	77	Promoter
+SUR-008	Engineering	78	75	77	Promoter
+SUR-009	Engineering	76	77	77	Promoter
+SUR-010	Engineering	77	77	78	Promoter
+SUR-011	Engineering	78	77	77	Promoter
+SUR-012	Engineering	76	75	77	Promoter
+SUR-013	Engineering	77	77	77	Promoter
+SUR-014	Engineering	78	77	77	Promoter
+SUR-015	Engineering	76	77	78	Promoter
+SUR-016	Engineering	77	75	77	Promoter
+SUR-017	Engineering	78	77	77	Promoter
+SUR-018	Engineering	76	77	77	Promoter
+SUR-019	Engineering	77	77	77	Promoter
+SUR-020	Engineering	78	75	78	Promoter
+SUR-021	Engineering	76	77	77	Promoter
+SUR-022	Engineering	77	77	77	Promoter
+SUR-023	Engineering	78	77	77	Promoter
+SUR-024	Engineering	76	75	77	Promoter
+SUR-025	Engineering	77	77	78	Promoter
+SUR-026	Engineering	78	77	77	Promoter
+SUR-027	Engineering	76	77	77	Promoter
+SUR-028	Engineering	77	75	77	Promoter
+SUR-029	Engineering	78	77	77	Promoter
+SUR-030	Engineering	76	77	78	Promoter
+SUR-031	Engineering	77	77	77	Promoter
+SUR-032	Engineering	78	75	77	Promoter
+SUR-033	Engineering	76	77	77	Promoter
+SUR-034	Engineering	77	77	77	Promoter
+SUR-035	Engineering	78	77	78	Promoter
+SUR-036	Engineering	76	75	77	Promoter
+SUR-037	Engineering	77	77	77	Promoter
+SUR-038	Engineering	78	77	77	Promoter
+SUR-039	Engineering	76	77	77	Promoter
+SUR-040	Engineering	77	75	78	Promoter
+SUR-041	Engineering	78	77	77	Promoter
+SUR-042	Engineering	76	77	77	Promoter
+SUR-043	Product	77	77	77	Promoter
+SUR-044	Product	78	75	77	Promoter
+SUR-045	Product	76	77	78	Promoter
+SUR-046	Product	77	77	77	Promoter
+SUR-047	Product	78	77	77	Promoter
+SUR-048	Product	76	75	77	Promoter
+SUR-049	Product	77	77	77	Promoter
+SUR-050	Product	78	77	78	Promoter
+SUR-051	Product	76	77	77	Promoter
+SUR-052	Product	77	75	77	Promoter
+SUR-053	Product	78	77	77	Promoter
+SUR-054	Product	76	77	77	Promoter
+SUR-055	Product	77	77	78	Passive
+SUR-056	Product	78	75	77	Passive
+SUR-057	Product	76	77	77	Passive
+SUR-058	Product	77	77	77	Passive
+SUR-059	Product	78	77	77	Passive
+SUR-060	Product	76	75	78	Passive
+SUR-061	Product	77	77	77	Passive
+SUR-062	Product	78	77	77	Passive
+SUR-063	Product	76	77	77	Passive
+SUR-064	Product	77	75	77	Passive
+SUR-065	Customer Operations	78	77	78	Passive
+SUR-066	Customer Operations	76	77	77	Passive
+SUR-067	Customer Operations	77	77	77	Passive
+SUR-068	Customer Operations	78	75	77	Passive
+SUR-069	Customer Operations	76	77	77	Passive
+SUR-070	Customer Operations	77	77	78	Passive
+SUR-071	Customer Operations	77	76	76	Passive
+SUR-072	Customer Operations	75	74	76	Passive
+SUR-073	Customer Operations	76	76	76	Passive
+SUR-074	Customer Operations	77	76	76	Passive
+SUR-075	Customer Operations	75	76	77	Passive
+SUR-076	Customer Operations	76	74	76	Passive
+SUR-077	Customer Operations	77	76	76	Passive
+SUR-078	Customer Operations	75	76	76	Passive
+SUR-079	Customer Operations	76	76	76	Passive
+SUR-080	Customer Operations	77	74	77	Passive
+SUR-081	Customer Operations	75	76	76	Passive
+SUR-082	Customer Operations	76	76	76	Passive
+SUR-083	Customer Operations	77	76	76	Passive
+SUR-084	Customer Operations	75	74	76	Passive
+SUR-085	Customer Operations	76	76	77	Passive
+SUR-086	Customer Operations	77	76	76	Passive
+SUR-087	Customer Operations	75	76	76	Passive
+SUR-088	Customer Operations	76	74	76	Passive
+SUR-089	Customer Operations	77	76	76	Passive
+SUR-090	Customer Operations	75	76	77	Passive
+SUR-091	Customer Operations	76	76	76	Passive
+SUR-092	Customer Operations	77	74	76	Passive
+SUR-093	Customer Operations	75	76	76	Detractor
+SUR-094	General & Administration	76	76	76	Detractor
+SUR-095	General & Administration	77	76	77	Detractor
+SUR-096	General & Administration	75	74	76	Detractor
+SUR-097	General & Administration	76	76	76	Detractor
+SUR-098	General & Administration	77	76	76	Detractor
+SUR-099	General & Administration	75	76	76	Detractor
+SUR-100	General & Administration	76	74	77	Detractor
+SUR-101	General & Administration	76	75	75	Detractor
+SUR-102	General & Administration	74	75	75	Detractor
+SUR-103	General & Administration	75	75	75	Detractor
+SUR-104	General & Administration	76	73	75	Detractor
+SUR-105	General & Administration	74	75	76	Detractor
+SUR-106	General & Administration	75	75	75	Detractor
+SUR-107	General & Administration	76	75	75	Detractor
+SUR-108	General & Administration	74	73	75	Detractor
+SUR-109	General & Administration	75	75	75	Detractor
+SUR-110	General & Administration	76	75	76	Detractor
+SUR-111	General & Administration	74	75	75	Detractor
+SUR-112	General & Administration	75	73	75	Detractor
+SUR-113	General & Administration	76	75	75	Detractor
+SUR-114	General & Administration	74	75	75	Detractor
+SUR-115	General & Administration	75	75	76	Detractor
+SUR-116	General & Administration	76	73	75	Detractor
+SUR-117	General & Administration	74	75	75	Detractor
+SUR-118	General & Administration	75	75	75	Detractor

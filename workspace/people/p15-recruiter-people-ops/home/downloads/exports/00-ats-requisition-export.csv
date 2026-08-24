@@ -1,0 +1,6 @@
+export_schema_version,exported_at_jst,organization,requisition_id,requisition_title,opening_ordinal,opening_count,workflow_state,candidate_reference_id,candidate_stage,compensation_currency,compensation_band_min_jpy,compensation_band_max_jpy,pii_redaction_status
+orchid_people.ats_requisition_opening.v1,2026-08-18T16:30:00+09:00,Orchid People,REQ-SYN-ALPHA-20260818,People Analytics Partner,1,3,Open,CAND-SYN-ALPHA-01,Shortlisted,JPY,7200000,8400000,synthetic_reference_only
+orchid_people.ats_requisition_opening.v1,2026-08-18T16:30:00+09:00,Orchid People,REQ-SYN-ALPHA-20260818,People Analytics Partner,2,3,Open,CAND-SYN-ALPHA-02,Interview scheduled,JPY,7200000,8400000,synthetic_reference_only
+orchid_people.ats_requisition_opening.v1,2026-08-18T16:30:00+09:00,Orchid People,REQ-SYN-ALPHA-20260818,People Analytics Partner,3,3,Open,CAND-SYN-ALPHA-03,Review queued,JPY,7200000,8400000,synthetic_reference_only
+orchid_people.ats_requisition_opening.v1,2026-08-18T16:30:00+09:00,Orchid People,REQ-SYN-BETA-20260818,Talent Operations Specialist,1,2,Open,CAND-SYN-BETA-01,Screening complete,JPY,5800000,6800000,synthetic_reference_only
+orchid_people.ats_requisition_opening.v1,2026-08-18T16:30:00+09:00,Orchid People,REQ-SYN-BETA-20260818,Talent Operations Specialist,2,2,Open,CAND-SYN-BETA-02,Interview scheduled,JPY,5800000,6800000,synthetic_reference_only

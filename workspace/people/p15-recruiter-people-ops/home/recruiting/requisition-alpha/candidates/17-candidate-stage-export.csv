@@ -1,0 +1,6 @@
+candidate_id,requisition,role,opened_date,work_model,openings,compensation_band_jpy,stage,next_action,synthetic
+A01,Alpha,People Analytics Partner,2026-08-18,Tokyo hybrid,3,7200000-8400000,Screen,Structured screen,true
+A02,Alpha,People Analytics Partner,2026-08-18,Tokyo hybrid,3,7200000-8400000,Review,Schedule screen,true
+A03,Alpha,People Analytics Partner,2026-08-18,Tokyo hybrid,3,7200000-8400000,Screen,Complete screen,true
+A04,Alpha,People Analytics Partner,2026-08-18,Tokyo hybrid,3,7200000-8400000,Applied,Intake review,true
+A05,Alpha,People Analytics Partner,2026-08-18,Tokyo hybrid,3,7200000-8400000,Applied,Intake review,true

@@ -1,0 +1,3 @@
+reference_set,effective_date,role_family,band,min_jpy,midpoint_jpy,max_jpy,reference_basis,coverage_note,governance_caveat
+Orchid People synthetic aggregate,2026-08-18,People Analytics Partner,J,7200000,7800000,8400000,Synthetic aggregated role-level benchmark,Planning reference only,Refresh approved inputs before operational use
+Orchid People synthetic aggregate,2026-08-18,Talent Operations Specialist,P,5800000,6300000,6800000,Synthetic aggregated role-level benchmark,Planning reference only,Does not determine individual pay or legal compliance

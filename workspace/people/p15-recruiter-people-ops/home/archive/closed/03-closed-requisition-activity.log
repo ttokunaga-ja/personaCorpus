@@ -1,0 +1,6 @@
+2026-08-18T08:42:11+09:00 INFO archive-close begin requisition=REQ-ALPHA-20260818 candidates=3 record=CAND-TEST-0818-017
+2026-08-18T08:42:15+09:00 INFO ats-export sealed evidence=00-archived-ats-integration-capture.pcap flow=192.0.2.15:49500->198.51.100.42:443
+2026-08-18T08:42:19+09:00 INFO interview-trace sealed evidence=01-closed-video-interview-trace.pcap flow=203.0.113.31:52000->192.0.2.88:8443
+2026-08-18T08:42:25+09:00 INFO disposal-control completed certificate=02-archived-candidate-disposal-certificate-scan.pdf candidate=CAND-TEST-0818-017
+2026-08-18T08:42:30+09:00 INFO lifecycle-status CLOSED requisition=REQ-ALPHA-20260818 archive=archive/closed
+2026-08-18T08:42:34+09:00 INFO privacy-check passed synthetic-only=true retained-identifiers=candidate-reference-only

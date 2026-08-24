@@ -1,0 +1,51 @@
+From: Policy Owner <policy-owner@orchidpeople.example>
+To: People Operations <people-ops@orchidpeople.example>
+Cc: Recruiting Operations <recruiting-ops@orchidpeople.example>
+Subject: Re: Requisition Alpha follow-up - interview record controls
+Date: Tue, 18 Aug 2026 15:05:00 +0900
+Message-ID: <p15-policy-follow-up-20260818-1505@orchidpeople.example>
+In-Reply-To: <p15-ralpha-availability-20260818-1120@orchidpeople.example>
+References: <p15-ralpha-intake-20260818-0915@orchidpeople.example> <p15-ralpha-manager-reply-20260818-1014@orchidpeople.example> <p15-ralpha-availability-20260818-1120@orchidpeople.example>
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="p15-policy-followup-20260818"
+
+--p15-policy-followup-20260818
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+People Operations,
+
+For the Requisition Alpha interview cycle, apply the interview conflict and
+candidate-data handling controls before the 16:30 JST calibration checkpoint.
+The role is People Analytics Partner with three planned openings; the stated
+JPY 7.2-8.4M range is role-level planning context only and must not be used in
+individual discussion or records.
+
+Required control check
+1. Confirm each panel alias used the common prompt set, timebox, and rubric.
+2. Confirm scorecards contain candidate IDs A01-A05 and job-related evidence
+   only; remove personal or unnecessary detail before retention.
+3. Record any declared conflict or process exception through the approved
+   People Operations route before calibration; do not resolve it in the thread.
+4. Hold candidate-status communications until the completeness check closes.
+
+Owner and next step: People Operations records the control outcome; Recruiting
+Operations may issue neutral updates only after that outcome is complete. Log
+the outcome against this message ID in 03-mailbox-action-log.log.
+
+Policy Owner
+Orchid People
+Internal operating guidance; not legal advice.
+
+--p15-policy-followup-20260818
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Requisition Alpha interview record controls</title>
+<style>body{font-family:Arial,sans-serif;color:#203040;margin:0;line-height:1.5}.mail{max-width:720px;margin:24px auto;border:1px solid #d7ddea;padding:28px}.tag{font-size:12px;color:#69508a;font-weight:bold}.notice{background:#fff6df;border-left:4px solid #b36b00;padding:12px;margin:16px 0}h1{font-size:23px}li{margin:7px 0}</style></head>
+<body><main class="mail"><div class="tag">ORCHID PEOPLE | POLICY FOLLOW-UP</div><h1>Requisition Alpha interview record controls</h1><p>Before the 16:30 JST calibration checkpoint, apply the interview conflict and candidate-data handling controls. Requisition Alpha is <strong>People Analytics Partner</strong> with <strong>3 planned openings</strong>. The JPY 7.2-8.4M range is role-level planning context only.</p>
+<div class="notice"><strong>Hold candidate-status communications</strong> until People Operations completes the scorecard-completeness gate.</div><ol><li>Confirm every panel alias used the common prompt set, timebox, and rubric.</li><li>Confirm scorecards contain candidate IDs A01-A05 and job-related evidence only.</li><li>Route a declared conflict or process exception through the approved People Operations route before calibration.</li><li>Record the control outcome against <code>&lt;p15-policy-follow-up-20260818-1505@orchidpeople.example&gt;</code> in <code>03-mailbox-action-log.log</code>.</li></ol>
+<p><strong>Owner:</strong> People Operations. <strong>Next:</strong> Recruiting Operations may issue neutral updates only after the control outcome is complete.</p><p>Policy Owner<br>Orchid People</p><p><small>Internal operating guidance; not legal advice.</small></p></main></body></html>
+
+--p15-policy-followup-20260818--

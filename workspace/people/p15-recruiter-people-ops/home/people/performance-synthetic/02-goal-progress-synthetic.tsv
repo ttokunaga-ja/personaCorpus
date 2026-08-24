@@ -1,0 +1,37 @@
+record_id	team_label	goal_area	goal_progress_pct	status	review_date
+SYN-E001	Product	Delivery reliability	100	On track	2026-08-18
+SYN-E002	Engineering	Process improvement	100	On track	2026-08-18
+SYN-E003	Customer Success	Customer response quality	100	On track	2026-08-18
+SYN-E004	Operations	Capability building	100	On track	2026-08-18
+SYN-E005	People	Cross-team partnership	100	On track	2026-08-18
+SYN-E006	Finance	Operational readiness	84	Progressing	2026-08-18
+SYN-E007	Product	Delivery reliability	92	On track	2026-08-18
+SYN-E008	Engineering	Process improvement	88	On track	2026-08-18
+SYN-E009	Customer Success	Customer response quality	84	Progressing	2026-08-18
+SYN-E010	Operations	Capability building	92	On track	2026-08-18
+SYN-E011	People	Cross-team partnership	88	On track	2026-08-18
+SYN-E012	Finance	Operational readiness	84	Progressing	2026-08-18
+SYN-E013	Product	Delivery reliability	92	On track	2026-08-18
+SYN-E014	Engineering	Process improvement	88	On track	2026-08-18
+SYN-E015	Customer Success	Customer response quality	84	Progressing	2026-08-18
+SYN-E016	Operations	Capability building	92	On track	2026-08-18
+SYN-E017	People	Cross-team partnership	88	On track	2026-08-18
+SYN-E018	Finance	Operational readiness	84	Progressing	2026-08-18
+SYN-E019	Product	Delivery reliability	92	On track	2026-08-18
+SYN-E020	Engineering	Process improvement	88	On track	2026-08-18
+SYN-E021	Customer Success	Customer response quality	84	Progressing	2026-08-18
+SYN-E022	Operations	Capability building	92	On track	2026-08-18
+SYN-E023	People	Cross-team partnership	71	Progressing	2026-08-18
+SYN-E024	Finance	Operational readiness	66	Progressing	2026-08-18
+SYN-E025	Product	Delivery reliability	76	Progressing	2026-08-18
+SYN-E026	Engineering	Process improvement	71	Progressing	2026-08-18
+SYN-E027	Customer Success	Customer response quality	66	Progressing	2026-08-18
+SYN-E028	Operations	Capability building	76	Progressing	2026-08-18
+SYN-E029	People	Cross-team partnership	71	Progressing	2026-08-18
+SYN-E030	Finance	Operational readiness	66	Progressing	2026-08-18
+SYN-E031	Product	Delivery reliability	76	Progressing	2026-08-18
+SYN-E032	Engineering	Process improvement	71	Progressing	2026-08-18
+SYN-E033	Customer Success	Customer response quality	66	Progressing	2026-08-18
+SYN-E034	Operations	Capability building	55	Support needed	2026-08-18
+SYN-E035	People	Cross-team partnership	60	Support needed	2026-08-18
+SYN-E036	Finance	Operational readiness	58	Support needed	2026-08-18

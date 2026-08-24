@@ -1,0 +1,41 @@
+{
+  "synthetic": true,
+  "company": "Orchid People",
+  "requisition": {
+    "id": "Alpha",
+    "role": "People Analytics Partner",
+    "opened_date": "2026-08-18",
+    "work_model": "Tokyo hybrid",
+    "openings": 3,
+    "compensation_band_jpy": {
+      "min": 7200000,
+      "max": 8400000
+    }
+  },
+  "candidate_ids": [
+    "A01",
+    "A02",
+    "A03",
+    "A04",
+    "A05"
+  ],
+  "data_policy": {
+    "identifiers": "candidate IDs only",
+    "personal_data_present": false,
+    "permitted_use": "synthetic recruiting workflow training",
+    "retention": "training corpus only"
+  },
+  "artifacts": {
+    "scorecards": [
+      "A01",
+      "A02",
+      "A03"
+    ],
+    "scan_sources": [
+      "A04",
+      "A05",
+      "A02",
+      "A03"
+    ]
+  }
+}

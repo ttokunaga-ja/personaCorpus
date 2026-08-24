@@ -1,0 +1,54 @@
+From: Hiring Manager <hiring-manager@orchidpeople.example>
+To: Recruiting Operations <recruiting-ops@orchidpeople.example>
+Cc: People Operations <people-ops@orchidpeople.example>
+Subject: Re: Requisition Alpha approval and interview controls
+Date: Tue, 18 Aug 2026 10:14:00 +0900
+Message-ID: <p15-ralpha-manager-reply-20260818-1014@orchidpeople.example>
+In-Reply-To: <p15-ralpha-intake-20260818-0915@orchidpeople.example>
+References: <p15-ralpha-intake-20260818-0915@orchidpeople.example>
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="p15-alpha-manager-20260818"
+
+--p15-alpha-manager-20260818
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Recruiting Operations,
+
+Confirmed for Requisition Alpha: People Analytics Partner, three planned
+openings, with a role-level planning range of JPY 7.2-8.4M. Please proceed
+with the published structured-interview plan for candidate IDs A01-A05.
+
+Panel aliases and evidence areas
+- Panel-Insights: analytical framing and measurement choices
+- Panel-Partners: stakeholder alignment and operating judgment
+- Panel-Systems: workflow design and data stewardship
+
+Use the same prompts, timeboxes, and scorecard rubric for each candidate.
+Record job-related evidence only; do not add personal background, compensation
+history, or comparative commentary. Any score variance greater than one point
+should be flagged for calibration before the debrief.
+
+Next steps: Recruiting Operations sends the availability grid; People
+Operations confirms the scorecard completeness check. See the follow-up in
+<p15-ralpha-availability-20260818-1120@orchidpeople.example>.
+
+Hiring Manager
+Orchid People
+
+--p15-alpha-manager-20260818
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Requisition Alpha manager reply</title>
+<style>body{font-family:Arial,sans-serif;line-height:1.5;color:#203040;margin:0}.mail{max-width:720px;margin:24px auto;border:1px solid #d7ddea;padding:28px}.tag{font-size:12px;color:#69508a;font-weight:bold}.callout{background:#f3eff8;border-left:4px solid #69508a;padding:12px;margin:18px 0}h1{font-size:23px;margin:8px 0}h2{font-size:17px}</style></head>
+<body><main class="mail"><div class="tag">ORCHID PEOPLE | INTERNAL RECRUITING WORKFLOW</div><h1>Requisition Alpha approval and interview controls</h1>
+<p>Confirmed: <strong>People Analytics Partner</strong>, <strong>3 planned openings</strong>, and a role-level planning range of <strong>JPY 7.2-8.4M</strong>.</p>
+<div class="callout">Proceed with the published structured-interview plan for candidate IDs A01-A05. Use the same prompts, timeboxes, and scorecard rubric for every candidate.</div>
+<h2>Panel aliases and evidence areas</h2><ul><li><strong>Panel-Insights</strong> — analytical framing and measurement choices</li><li><strong>Panel-Partners</strong> — stakeholder alignment and operating judgment</li><li><strong>Panel-Systems</strong> — workflow design and data stewardship</li></ul>
+<p>Record job-related evidence only. Flag any score variance greater than one point for calibration before the debrief.</p>
+<p><strong>Next:</strong> Recruiting Operations sends the availability grid; People Operations confirms scorecard completeness. Follow-up message: <code>&lt;p15-ralpha-availability-20260818-1120@orchidpeople.example&gt;</code>.</p>
+<p>Hiring Manager<br>Orchid People</p></main></body></html>
+
+--p15-alpha-manager-20260818--

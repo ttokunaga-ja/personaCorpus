@@ -1,0 +1,5 @@
+2026-08-18T09:00:00+09:00 INFO requisition=beta action=panel_brief status=complete
+2026-08-18T16:00:00+09:00 INFO requisition=beta action=independent_scoring status=complete
+2026-08-18T16:20:00+09:00 INFO requisition=beta action=debrief status=complete outcome=B01,B02_recommended
+2026-08-18T16:30:00+09:00 INFO requisition=beta action=fairness_review status=pending owner=people_ops
+2026-08-19T09:00:00+09:00 INFO requisition=beta action=candidate_communication status=blocked_by_fairness_review

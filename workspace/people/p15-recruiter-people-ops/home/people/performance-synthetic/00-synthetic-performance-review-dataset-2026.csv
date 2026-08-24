@@ -1,0 +1,37 @@
+record_id,team_label,rating,primary_goal,goal_progress_pct,calibration_outcome,evidence_summary
+SYN-E001,Product,5,Delivery reliability,100,Ready,Outcomes met; evidence reviewed
+SYN-E002,Engineering,5,Process improvement,100,Ready,Outcomes met; evidence reviewed
+SYN-E003,Customer Success,5,Customer response quality,100,Ready,Outcomes met; evidence reviewed
+SYN-E004,Operations,5,Capability building,100,Ready,Outcomes met; evidence reviewed
+SYN-E005,People,5,Cross-team partnership,100,Ready,Outcomes met; evidence reviewed
+SYN-E006,Finance,4,Operational readiness,84,Confirm,Outcomes met; evidence reviewed
+SYN-E007,Product,4,Delivery reliability,92,Confirm,Outcomes met; evidence reviewed
+SYN-E008,Engineering,4,Process improvement,88,Confirm,Outcomes met; evidence reviewed
+SYN-E009,Customer Success,4,Customer response quality,84,Confirm,Outcomes met; evidence reviewed
+SYN-E010,Operations,4,Capability building,92,Confirm,Outcomes met; evidence reviewed
+SYN-E011,People,4,Cross-team partnership,88,Confirm,Outcomes met; evidence reviewed
+SYN-E012,Finance,4,Operational readiness,84,Confirm,Outcomes met; evidence reviewed
+SYN-E013,Product,4,Delivery reliability,92,Confirm,Outcomes met; evidence reviewed
+SYN-E014,Engineering,4,Process improvement,88,Confirm,Outcomes met; evidence reviewed
+SYN-E015,Customer Success,4,Customer response quality,84,Confirm,Outcomes met; evidence reviewed
+SYN-E016,Operations,4,Capability building,92,Confirm,Outcomes met; evidence reviewed
+SYN-E017,People,4,Cross-team partnership,88,Confirm,Outcomes met; evidence reviewed
+SYN-E018,Finance,4,Operational readiness,84,Confirm,Outcomes met; evidence reviewed
+SYN-E019,Product,4,Delivery reliability,92,Confirm,Outcomes met; evidence reviewed
+SYN-E020,Engineering,4,Process improvement,88,Confirm,Outcomes met; evidence reviewed
+SYN-E021,Customer Success,4,Customer response quality,84,Confirm,Outcomes met; evidence reviewed
+SYN-E022,Operations,4,Capability building,92,Confirm,Outcomes met; evidence reviewed
+SYN-E023,People,3,Cross-team partnership,71,Develop,Progress and support plan reviewed
+SYN-E024,Finance,3,Operational readiness,66,Develop,Progress and support plan reviewed
+SYN-E025,Product,3,Delivery reliability,76,Develop,Progress and support plan reviewed
+SYN-E026,Engineering,3,Process improvement,71,Develop,Progress and support plan reviewed
+SYN-E027,Customer Success,3,Customer response quality,66,Develop,Progress and support plan reviewed
+SYN-E028,Operations,3,Capability building,76,Develop,Progress and support plan reviewed
+SYN-E029,People,3,Cross-team partnership,71,Develop,Progress and support plan reviewed
+SYN-E030,Finance,3,Operational readiness,66,Develop,Progress and support plan reviewed
+SYN-E031,Product,3,Delivery reliability,76,Develop,Progress and support plan reviewed
+SYN-E032,Engineering,3,Process improvement,71,Develop,Progress and support plan reviewed
+SYN-E033,Customer Success,3,Customer response quality,66,Develop,Progress and support plan reviewed
+SYN-E034,Operations,2,Capability building,55,Support,Progress and support plan reviewed
+SYN-E035,People,2,Cross-team partnership,60,Support,Progress and support plan reviewed
+SYN-E036,Finance,2,Operational readiness,58,Support,Progress and support plan reviewed

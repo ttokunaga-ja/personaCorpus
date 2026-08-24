@@ -1,0 +1,8 @@
+2026-08-18 09:05 | Requisition Alpha working set opened | Orchid People
+2026-08-18 09:18 | Confirmed planning anchors: 3 openings; JPY 7.2-8.4M
+2026-08-18 10:00 | Drafted candidate-ID-only intake notes | CAND-ALPHA-017 / 024 / 031
+2026-08-18 11:20 | Requested aggregate interviewer capacity input | People Analytics Partner
+2026-08-18 13:30 | Panel calibration checkpoint added | working status
+2026-08-18 15:00 | Drafted interviewer reminder and manager prep notes | no send action taken
+2026-08-18 16:30 | Prepared offer review one-pager | pending calibrated evidence
+2026-08-18 16:45 | Privacy check complete | no names, contact details, resumes, salary history, signatures, or secrets

@@ -1,0 +1,35 @@
+{
+  "workspace": "Orchid People - Requisition Alpha",
+  "date": "2026-08-18",
+  "desktop_context": "Windows HR working set",
+  "requisition": {
+    "openings": 3,
+    "compensation_band_jpy_millions": {
+      "min": 7.2,
+      "max": 8.4
+    },
+    "people_analytics_partner": "review pending",
+    "candidate_ids": [
+      "CAND-ALPHA-017",
+      "CAND-ALPHA-024",
+      "CAND-ALPHA-031"
+    ]
+  },
+  "items": [
+    {"file": "00-today-people-ops-priorities.md", "state": "working"},
+    {"file": "03-draft-interviewer-reminder.eml", "state": "draft-not-sent"},
+    {"file": "04-offer-review-one-pager.pdf", "state": "pending-review"},
+    {"file": "06-hiring-manager-prep-notes.docx", "state": "working"},
+    {"file": "07-policy-edit-working-copy.docx", "state": "working"},
+    {"file": "08-workforce-planning-whiteboard.png", "state": "reference"}
+  ],
+  "privacy_constraints": [
+    "candidate IDs only",
+    "no real PII",
+    "no contact details",
+    "no resumes",
+    "no salary history",
+    "no signatures",
+    "no secrets"
+  ]
+}

@@ -1,0 +1,3 @@
+{"timestamp":"2026-08-18T10:06:00+09:00","event":"download_received","artifact":"requisition-alpha-package","source":"downloads.inbox","classification":"synthetic-training"}
+{"timestamp":"2026-08-18T10:06:02+09:00","event":"integrity_check","result":"passed","method":"sha256-manifest-reference","contains_personal_data":false}
+{"timestamp":"2026-08-18T10:06:04+09:00","event":"retention_label_applied","label":"people-ops-synthetic","status":"complete"}
