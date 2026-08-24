@@ -1,0 +1,15 @@
+FORGELINE | PRODUCT ALPHA | FMEA ACTION PRIORITY BOARD
+Review date: 2026-08-11
+
+Priority 1 - NCR-026 datum control
+  Risk: datum position may exceed +/-0.18 mm.
+  Action: replace locator; confirm setup with first-piece probe.
+  Residual RPN: 48. Status: verified.
+
+Priority 2 - Tool deflection
+  Action: apply tool-life trigger and in-process probe check.
+  Residual RPN: 56. Status: monitoring.
+
+Priority 3 - Gauge drift
+  Action: lock calibration date review before release.
+  Residual RPN: 27. Status: verified.

@@ -1,0 +1,3 @@
+lot_id	product	sample_size	inspection_focus	acceptance_rule	status
+ALPHA-260811-A	Product Alpha	5	Datum A dimensional verification	Within +/- 0.18 mm	Accept
+ALPHA-260811-B	Product Alpha	4	Surface condition review	No visible defect	Accept

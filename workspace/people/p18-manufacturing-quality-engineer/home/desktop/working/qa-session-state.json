@@ -1,0 +1,12 @@
+{
+  "session_id": "forge-line-qa-working-2026-08-11",
+  "organization": "ForgeLine",
+  "date": "2026-08-11",
+  "primary_product": "Product Alpha",
+  "related_product": "Product Beta",
+  "reference_ncr": "NCR-026",
+  "tolerance_mm": 0.18,
+  "tolerance_expression": "±0.18 mm",
+  "state": "working_review",
+  "synthetic_record": true
+}

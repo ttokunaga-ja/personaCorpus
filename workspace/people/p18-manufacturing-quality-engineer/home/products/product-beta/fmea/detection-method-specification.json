@@ -1,0 +1,15 @@
+{
+  "document": "ForgeLine Product Beta detection method specification",
+  "review_date": "2026-08-11",
+  "reference": "NCR-026",
+  "critical_feature": {
+    "name": "interface fit",
+    "tolerance_mm": 0.18,
+    "tolerance_expression": "±0.18 mm"
+  },
+  "methods": [
+    {"id": "DM-01", "name": "calibrated dimensional check", "stage": "first article", "acceptance": "within specified tolerance"},
+    {"id": "DM-02", "name": "control-plan record review", "stage": "release gate", "acceptance": "all linked actions closed"}
+  ],
+  "synthetic_record": true
+}

@@ -1,0 +1,5 @@
+action_id,ncr,product,issue,containment,corrective_action,verification,status
+CA-026-01,NCR-026,Product Alpha,Locator variation exceeded control band,Hold affected lots,Replace worn locator sleeves,Gauge study complete,Closed
+CA-026-02,NCR-026,Product Alpha,Locator variation exceeded control band,Add first-piece review,Set locator acceptance at +/-0.18 mm,Three lots conforming,Closed
+CA-026-03,NCR-026,Product Alpha,Inspection interpretation inconsistent,Issue visual work aid,Train all inspection-cell operators,Training sign-off complete,Closed
+CA-026-04,NCR-026,Product Alpha,Recurrence exposure after release,Daily quality review,Monitor three released lots,Monitoring active,Open

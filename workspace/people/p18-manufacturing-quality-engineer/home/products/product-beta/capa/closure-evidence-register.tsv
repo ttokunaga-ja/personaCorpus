@@ -1,0 +1,5 @@
+evidence_id	capa_id	owner_role	due_date	status	record_description
+EV-026-01	NCR-026	Quality Engineer	2026-08-14	Accepted	Dual-verification work instruction approved
+EV-026-02	NCR-026	Manufacturing Lead	2026-08-18	Accepted	Setup offset checklist completed
+EV-026-03	NCR-026	Metrology Reviewer	2026-08-21	Accepted	Three-lot dimensional review within ±0.18 mm
+EV-026-04	NCR-026	CAPA Owner	2026-08-25	Planned	Effectiveness review package

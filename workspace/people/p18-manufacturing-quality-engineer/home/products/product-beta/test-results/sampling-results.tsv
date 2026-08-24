@@ -1,0 +1,4 @@
+lot	sample_size	accepted	rejected	decision
+PB-260811-A	32	32	0	accept
+PB-260811-B	32	31	1	accept with NCR-026 containment
+PB-260811-C	32	32	0	accept

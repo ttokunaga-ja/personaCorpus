@@ -1,0 +1,6 @@
+record_id,organization,inspection_date,product,quality_event,characteristic,nominal_mm,actual_mm,deviation_mm,canonical_tolerance,disposition
+PA-260811-001,ForgeLine,2026-08-11,Product Alpha,NCR-026,Datum A width,10.00,10.02,0.02,±0.18 mm,Accept
+PA-260811-002,ForgeLine,2026-08-11,Product Alpha,NCR-026,Datum A width,10.00,9.96,-0.04,±0.18 mm,Accept
+PA-260811-003,ForgeLine,2026-08-11,Product Alpha,NCR-026,Datum A width,10.00,10.08,0.08,±0.18 mm,Accept
+PA-260811-004,ForgeLine,2026-08-11,Product Alpha,NCR-026,Datum A width,10.00,10.11,0.11,±0.18 mm,Accept
+PA-260811-005,ForgeLine,2026-08-11,Product Alpha,NCR-026,Datum A width,10.00,9.93,-0.07,±0.18 mm,Accept

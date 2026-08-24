@@ -1,0 +1,4 @@
+repeat,fixture,peak_load_n,offset_mm,outcome
+1,FL-B-07,206.4,0.08,pass
+2,FL-B-07,207.1,0.1,pass
+3,FL-B-07,205.9,0.09,pass

@@ -1,0 +1,6 @@
+sample_id	feature	measured_mm	nominal_mm	limit_plus_minus_mm	result
+PA-01	Datum A width	10.02	10.00	0.18	Accept
+PA-02	Datum A width	9.96	10.00	0.18	Accept
+PA-03	Datum A width	10.08	10.00	0.18	Accept
+PA-04	Datum A width	10.11	10.00	0.18	Accept
+PA-05	Datum A width	9.93	10.00	0.18	Accept

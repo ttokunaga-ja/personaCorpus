@@ -1,0 +1,15 @@
+{
+  "record_type": "synthetic_supplier_certificate_metadata",
+  "organization": "ForgeLine",
+  "product": "Product Alpha",
+  "review_date": "2026-08-11",
+  "nonconformance_reference": "NCR-026",
+  "tolerance_mm": 0.18,
+  "certificate_set": [
+    {"kind": "material", "status": "verified", "lot": "ALP-0811-26"},
+    {"kind": "calibration", "status": "verified", "equipment_id": "CAL-ALPHA-18"},
+    {"kind": "conformance", "status": "verified"},
+    {"kind": "traceability", "status": "verified", "internal_id": "FL-TRACE-026"}
+  ],
+  "synthetic_notice": "All organizations, identifiers, and records in this file are fictional."
+}

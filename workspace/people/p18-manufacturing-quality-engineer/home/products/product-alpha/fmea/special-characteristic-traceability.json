@@ -1,0 +1,12 @@
+{
+  "record_type": "special_characteristic_traceability",
+  "organization": "ForgeLine",
+  "product": "Product Alpha",
+  "review_date": "2026-08-11",
+  "related_ncr": "NCR-026",
+  "characteristics": [
+    {"id": "SC-AL-01", "name": "Datum position", "tolerance": "+/-0.18 mm", "fmea_action": "A-026-01", "control": "first-piece probe"},
+    {"id": "SC-AL-02", "name": "Wall thickness", "tolerance": "2.50 +/-0.18 mm", "fmea_action": "A-026-02", "control": "in-process probe"},
+    {"id": "SC-AL-03", "name": "Surface profile", "tolerance": "0.30 mm max", "fmea_action": "A-026-03", "control": "calibration verification"}
+  ]
+}

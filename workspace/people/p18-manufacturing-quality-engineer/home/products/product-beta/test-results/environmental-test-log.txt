@@ -1,0 +1,7 @@
+ForgeLine Product Beta environmental test log
+Date: 2026-08-11
+Chamber: synthetic CLM-02
+Run 01: -10 C, 45 min, PASS
+Run 02: 55 C, 45 min, PASS
+Review: NCR-026 containment verified; no safety exception.
+Tolerance reference: ±0.18 mm.

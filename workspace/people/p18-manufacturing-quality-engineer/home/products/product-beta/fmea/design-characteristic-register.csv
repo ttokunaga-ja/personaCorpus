@@ -1,0 +1,5 @@
+characteristic_id,characteristic,requirement,method,linked_risk,owner
+CB-01,Interface span,Nominal with ±0.18 mm tolerance,Calibrated gauge,FM-B-01,Design quality
+CB-02,Datum relationship,Aligned to reference plane,Fixture check,FM-B-02,Manufacturing quality
+CB-03,Verification record,Linked to NCR-026 where applicable,Record review,FM-B-03,Quality systems
+CB-04,Revision status,Approved before release,Change review,FM-B-04,Configuration control

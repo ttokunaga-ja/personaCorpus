@@ -1,0 +1,6 @@
+document_id	document_title	revision_action	owner_function	relation_to_eco	status
+IP-ALPHA-07	Product Alpha inspection plan	Revise checkpoint	Quality Engineering	Add NCR-026 containment verification	In review
+WI-ALPHA-21	Product Alpha locator setup instruction	Revise work step	Manufacturing	Confirm ±0.18 mm control	Open
+TR-ALPHA-026	Product Alpha three-lot verification record	Create test record	Test Engineering	Provide release evidence for ECO-026	Planned
+FMEA-ALPHA-04	Product Alpha process FMEA	Update control assessment	Quality Engineering	Reflect locator variation control	In review
+ECO-026	Product Alpha controlled change order	Release approved revision	Engineering	Master change authorization	Conditional approval

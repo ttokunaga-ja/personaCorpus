@@ -1,0 +1,4 @@
+organization	product	test_date	ncr	tolerance_mm	result_id	feature	nominal_mm	measured_mm	disposition
+ForgeLine	Product Beta	2026-08-11	NCR-026	±0.18 mm	PB-0811-01	Datum A	24.00	24.06	accept
+ForgeLine	Product Beta	2026-08-11	NCR-026	±0.18 mm	PB-0811-02	Seal land	12.50	12.37	accept
+ForgeLine	Product Beta	2026-08-11	NCR-026	±0.18 mm	PB-0811-03	Locator pitch	38.00	38.14	accept

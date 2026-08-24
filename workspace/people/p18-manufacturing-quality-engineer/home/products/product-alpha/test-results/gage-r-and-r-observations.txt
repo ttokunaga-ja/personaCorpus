@@ -1,0 +1,7 @@
+ForgeLine Product Alpha Gage R&R observations
+Date: 2026-08-11
+Quality event: NCR-026
+
+Operator simulation A and B repeated the datum A width reading using the verified digital caliper.
+Observed measurement spread was 0.06 mm, which is below the permitted +/- 0.18 mm tolerance.
+Conclusion: the synthetic measurement method is suitable for the controlled retest record.

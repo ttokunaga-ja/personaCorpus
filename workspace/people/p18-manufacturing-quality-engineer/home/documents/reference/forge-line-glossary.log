@@ -1,0 +1,5 @@
+2026-08-11T08:15:00Z INFO glossary_version=1.0 context=ForgeLine
+2026-08-11T08:15:03Z INFO term=FMEA definition=Structured review of potential failure modes and controls.
+2026-08-11T08:15:06Z INFO term=NCR-026 definition=Synthetic nonconformance reference used for containment and effectiveness examples.
+2026-08-11T08:15:09Z INFO term=acceptance_band definition=Dimensional result within +/- 0.18 mm of the stated nominal.
+2026-08-11T08:15:12Z INFO term=Product_Alpha definition=Synthetic ForgeLine product used in this reference set.

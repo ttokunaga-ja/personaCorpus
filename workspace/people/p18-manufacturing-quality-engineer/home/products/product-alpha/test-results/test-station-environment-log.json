@@ -1,0 +1,13 @@
+{
+  "record_type": "synthetic_test_station_environment_log",
+  "organization": "ForgeLine",
+  "product": "Product Alpha",
+  "inspection_date": "2026-08-11",
+  "quality_event": "NCR-026",
+  "tolerance_mm": 0.18,
+  "station": "Test Station 2",
+  "ambient_temperature_c": 22.1,
+  "relative_humidity_percent": 44,
+  "fixture_status": "verified",
+  "disposition": "acceptable"
+}

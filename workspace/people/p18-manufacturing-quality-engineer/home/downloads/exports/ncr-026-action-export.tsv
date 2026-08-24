@@ -1,0 +1,5 @@
+action_id	product	owner_role	due_date	status	evidence
+NCR-026-A1	Product Alpha	Quality lead	2026-08-11	Complete	containment hold log
+NCR-026-A2	Product Beta	Manufacturing technician	2026-08-12	Complete	fixture zero check
+NCR-026-A3	Product Alpha	Quality engineer	2026-08-14	In review	tolerance trend review
+NCR-026-A4	Product Beta	Quality manager	2026-08-18	Planned	corrective action approval

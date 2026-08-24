@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ForgeLine Product Beta NCR-026 Effectiveness Check",
+  "type": "object",
+  "required": ["capa_id", "review_date", "sample_lots", "tolerance_mm", "result"],
+  "properties": {
+    "capa_id": {"const": "NCR-026"},
+    "review_date": {"const": "2026-08-11"},
+    "sample_lots": {"type": "integer", "minimum": 3},
+    "tolerance_mm": {"type": "number", "const": 0.18},
+    "result": {"enum": ["effective", "not_effective"]},
+    "reviewer_role": {"type": "string", "enum": ["Quality Engineer", "Metrology Reviewer"]}
+  },
+  "additionalProperties": false
+}

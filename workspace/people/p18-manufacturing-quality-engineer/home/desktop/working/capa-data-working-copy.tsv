@@ -1,0 +1,4 @@
+record_id	product	opened_date	issue	owner	status	containment_due
+CAPA-ALPHA-026	Product Alpha	2026-08-11	NCR-026 dimensional variation; tolerance ±0.18 mm	Quality Engineering	In progress	2026-08-13
+CAPA-BETA-014	Product Beta	2026-08-11	Fixture alignment review; tolerance ±0.18 mm	Quality Engineering	Planned	2026-08-15
+CAPA-ALPHA-031	Product Alpha	2026-08-12	Measurement method confirmation	Manufacturing Quality	Open	2026-08-16

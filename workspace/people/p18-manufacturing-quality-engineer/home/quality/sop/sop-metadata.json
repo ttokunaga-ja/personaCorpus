@@ -1,0 +1,8 @@
+{
+  "system": "ForgeLine Quality System",
+  "effective_date": "2026-08-11",
+  "reference": "NCR-026",
+  "products": ["Product Alpha", "Product Beta"],
+  "dimensional_acceptance_mm": {"plus_minus": 0.18},
+  "record_status": "synthetic-controlled"
+}

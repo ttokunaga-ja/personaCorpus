@@ -1,0 +1,4 @@
+inspection_id,date,product,check_item,observation,disposition
+VI-026-01,2026-08-11,Product Alpha,Surface finish,Clean machined surface; no visible burrs,Accept
+VI-026-02,2026-08-11,Product Alpha,Edge condition,No visible damage at datum reference,Accept
+VI-026-03,2026-08-11,Product Alpha,Identification label,Synthetic ForgeLine label legible,Accept

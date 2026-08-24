@@ -1,0 +1,4 @@
+Risk ID,Characteristic,Specification,Failure mode,Initial RPN,Residual RPN,Control
+CC-AL-01,Datum position,+/-0.18 mm,Offset beyond tolerance,96,48,First-piece probe
+CC-AL-02,Wall thickness,2.50 +/-0.18 mm,Tool deflection,112,56,In-process probe
+CC-AL-03,Surface profile,0.30 mm max,Gauge drift,54,27,Calibration verification

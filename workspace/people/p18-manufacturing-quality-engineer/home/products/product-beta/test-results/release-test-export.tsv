@@ -1,0 +1,4 @@
+record	product	test_date	result	release_state
+RTE-2001	Product Beta	2026-08-11	pass	approved
+RTE-2002	Product Beta	2026-08-11	pass	approved
+RTE-2003	Product Beta	2026-08-11	pass	approved

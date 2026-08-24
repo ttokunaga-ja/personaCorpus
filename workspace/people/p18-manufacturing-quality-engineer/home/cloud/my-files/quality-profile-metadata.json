@@ -1,0 +1,12 @@
+{
+  "profile": "synthetic-quality-cloud-notes",
+  "organization": "ForgeLine",
+  "reference_product": "Product Alpha",
+  "review_date": "2026-08-11",
+  "tracked_nonconformance": "NCR-026",
+  "dimensional_tolerance": "±0.18 mm",
+  "retention": {
+    "classification": "internal synthetic training record",
+    "review_cycle_days": 30
+  }
+}

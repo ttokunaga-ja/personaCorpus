@@ -1,0 +1,4 @@
+Review date	NCR	Containment action	Verification sample	Effectiveness	Decision
+2026-08-11	NCR-026	Replace datum locator	12 Product Alpha parts	12 within +/-0.18 mm	Effective
+2026-08-11	NCR-026	Add setup probe confirmation	3 setup events	3 confirmations recorded	Effective
+2026-08-11	NCR-026	Verify gauge status	All linked gages	No overdue status	Effective

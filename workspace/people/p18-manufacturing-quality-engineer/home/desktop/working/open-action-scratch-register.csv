@@ -1,0 +1,4 @@
+action_id,product,opened_date,topic,priority,owner,status,target_date
+ACT-026-01,Product Alpha,2026-08-11,Verify containment labels for NCR-026,High,Quality Engineering,In progress,2026-08-12
+ACT-026-02,Product Alpha,2026-08-11,Confirm measurement repeatability at ±0.18 mm,High,Manufacturing Quality,Open,2026-08-13
+ACT-B-014,Product Beta,2026-08-11,Review fixture alignment against shared criterion,Medium,Quality Engineering,Planned,2026-08-15

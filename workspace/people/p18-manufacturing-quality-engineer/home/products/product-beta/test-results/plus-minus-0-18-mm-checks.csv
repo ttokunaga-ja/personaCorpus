@@ -1,0 +1,4 @@
+inspection_id,feature,target_mm,reading_mm,limit,result
+NCR-026-01,Edge offset,8.2,8.08,±0.18 mm,pass
+NCR-026-02,Bore center,16.0,16.16,±0.18 mm,pass
+NCR-026-03,Flange width,31.5,31.33,±0.18 mm,pass

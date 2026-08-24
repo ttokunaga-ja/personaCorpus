@@ -1,0 +1,4 @@
+sample_id,product,station,inspection_date,observed_value_mm,limit_mm,decision
+PA-01,Product Alpha,ForgeLine Test Station 2,2026-08-11,10.02,0.18,Accept
+PA-02,Product Alpha,ForgeLine Test Station 2,2026-08-11,9.96,0.18,Accept
+PA-03,Product Alpha,ForgeLine Test Station 2,2026-08-11,10.08,0.18,Accept

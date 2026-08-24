@@ -1,0 +1,5 @@
+ForgeLine Product Alpha shift comparison log — 2026-08-11
+Morning reference mean: 10.01 mm
+Afternoon reference mean: 10.03 mm
+Difference: +0.02 mm
+Assessment: within +/- 0.18 mm tolerance; NCR-026 retest evidence remains acceptable.

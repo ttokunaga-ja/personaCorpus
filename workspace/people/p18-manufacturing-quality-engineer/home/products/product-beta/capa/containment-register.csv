@@ -1,0 +1,5 @@
+record_id,capa_id,action,owner_role,started_on,acceptance_criterion,status
+CT-026-01,NCR-026,Hold affected Product Beta units,Quality Engineer,2026-08-11,Segregated before release,Complete
+CT-026-02,NCR-026,Measure locating feature,Metrology Reviewer,2026-08-11,Within ±0.18 mm,Complete
+CT-026-03,NCR-026,Review setup offset,Manufacturing Lead,2026-08-11,Second-person verification recorded,Complete
+CT-026-04,NCR-026,Release conforming units,CAPA Owner,2026-08-12,All evidence accepted,Complete

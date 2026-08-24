@@ -1,0 +1,5 @@
+sample_id,product,inspection_date,feature,nominal_mm,measured_mm,tolerance_mm,result,ncr_reference
+PA-101,Product Alpha,2026-08-11,Datum A offset,12.00,12.07,+/-0.18,PASS,NCR-026
+PA-102,Product Alpha,2026-08-11,Datum A offset,12.00,11.91,+/-0.18,PASS,NCR-026
+PB-204,Product Beta,2026-08-11,Latch width,8.50,8.63,+/-0.18,PASS,NCR-026
+PB-205,Product Beta,2026-08-11,Latch width,8.50,8.34,+/-0.18,PASS,NCR-026

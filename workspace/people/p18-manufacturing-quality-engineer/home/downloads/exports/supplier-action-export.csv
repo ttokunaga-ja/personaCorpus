@@ -1,0 +1,4 @@
+supplier_reference,action_id,product,requirement,status,review_date
+Synthetic Supplier Group A,NCR-026-S1,Product Alpha,Confirm material certificate linkage,Complete,2026-08-11
+Synthetic Supplier Group B,NCR-026-S2,Product Beta,Confirm fixture calibration evidence,In review,2026-08-11
+Synthetic Supplier Group C,NCR-026-S3,Product Alpha,Align dimensional response to +/-0.18 mm,Planned,2026-08-11

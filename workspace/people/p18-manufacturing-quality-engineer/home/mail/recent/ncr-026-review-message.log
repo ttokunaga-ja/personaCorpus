@@ -1,0 +1,10 @@
+2026-08-11T08:20:14+09:00 INFO  ForgeLine Quality Review Queue opened for Product Alpha.
+2026-08-11T08:21:03+09:00 INFO  Case NCR-026 linked to dimensional verification: tolerance ±0.18 mm.
+2026-08-11T08:23:41+09:00 INFO  Review set includes synthetic incoming test data and controlled evidence references.
+2026-08-11T08:27:56+09:00 WARN  Measurement spread at station M-04 requires containment review before disposition.
+2026-08-11T08:31:08+09:00 INFO  Product Alpha lot simulation FL-PA-0811-C retained for traceability exercise.
+2026-08-11T08:34:19+09:00 INFO  Supplier follow-up drafted for a synthetic source; no external contact was used.
+2026-08-11T08:39:44+09:00 INFO  Attachment precheck completed: file type, size, and SHA-256 recorded locally.
+2026-08-11T08:44:26+09:00 INFO  Disposition remains pending cross-functional review; no release decision recorded.
+2026-08-11T08:48:12+09:00 INFO  CAPA linkage prepared for Product Alpha corrective-action planning.
+2026-08-11T08:52:33+09:00 INFO  Review handoff complete; records remain within the ForgeLine synthetic training corpus.

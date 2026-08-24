@@ -1,0 +1,5 @@
+2026-08-11 08:30 JST | ForgeLine | NCR-026 opened after Product Beta locating feature measured +0.24 mm.
+2026-08-11 09:10 JST | Containment placed on affected units; release stopped pending dimensional review.
+2026-08-12 14:20 JST | Dual-verification checklist issued; acceptance limit confirmed as ±0.18 mm.
+2026-08-14 11:00 JST | Operators trained on separated setup, measurement, and release steps.
+2026-08-21 16:40 JST | Three monitored lots reviewed; all measured values within acceptance limit.

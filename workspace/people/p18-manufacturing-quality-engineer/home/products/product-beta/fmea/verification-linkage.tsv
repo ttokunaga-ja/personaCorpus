@@ -1,0 +1,5 @@
+risk_id	control_id	verification_activity	evidence_record	state
+FM-B-01	CP-B-01	Dimensional capability review	VR-B-101	Planned
+FM-B-02	CP-B-02	Datum fixture confirmation	VR-B-102	Planned
+FM-B-03	CP-B-03	NCR-026 traceability audit	VR-B-103	Open
+FM-B-04	CP-B-04	Release checklist review	VR-B-104	Closed

@@ -1,0 +1,5 @@
+change_id,change_description,affected_feature,baseline_rpn,post_action_rpn,verification,status
+ECO-B-041,Locator profile refinement,Interface fit ±0.18 mm,168,84,Dimensional capability review,Open
+ECO-B-042,Inspection sequence update,Critical datum alignment,144,72,First article checklist,In review
+ECO-B-043,Fixture datum note,Assembly orientation,126,63,Fixture confirmation,Planned
+ECO-B-044,Traceability field addition,NCR-026 linkage,96,48,Record audit,Closed

@@ -1,0 +1,6 @@
+ForgeLine CAPA implementation log | NCR-026 | Product Alpha
+2026-08-11 08:20 - Affected locator sleeves placed on hold; containment initiated.
+2026-08-11 10:05 - Replacement sleeves fitted and setup verification completed.
+2026-08-12 09:30 - Revised first-piece check released with +/-0.18 mm acceptance limit.
+2026-08-14 14:10 - Manufacturing and quality review confirmed corrective actions CA-026-01 through CA-026-03.
+2026-08-15 16:00 - Inspection-cell training evidence accepted; monitoring action remains open.

@@ -1,0 +1,5 @@
+ncr_id,opened_date,product,age_days,status,disposition,tolerance_mm,review_owner
+NCR-026,2026-08-11,Product Alpha,0,closed,rework,0.18,Quality Review Cell
+NCR-021,2026-08-07,Product Alpha,4,closed,use_as_is,0.18,Quality Review Cell
+NCR-024,2026-08-09,Product Beta,2,closed,rework,0.18,Quality Review Cell
+NCR-025,2026-08-10,Product Beta,1,contained,hold,0.18,Quality Review Cell
