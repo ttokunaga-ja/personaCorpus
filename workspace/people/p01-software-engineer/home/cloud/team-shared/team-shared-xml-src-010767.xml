@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<teamSharedRecord id="p01-full-010767" source="p01-src-010767" status="reviewed"><subject>rollback drill follow-up</subject><ownership><owner>Decision Owner</owner><reviewer>Migration Lead</reviewer></ownership><context product="Product Alpha R7" decision="ADR-042" releaseDate="2026-07-13"/><reviewedAt>2026-08-15T10:15:00+09:00</reviewedAt><outcome>accepted collaboration copy</outcome></teamSharedRecord>

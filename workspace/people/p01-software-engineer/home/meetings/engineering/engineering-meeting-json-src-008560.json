@@ -1,0 +1,14 @@
+{
+  "meeting_id": "MTG-ENG-20260817-17",
+  "title": "platform capacity review",
+  "organization": "Aster Loop株式会社",
+  "product": "Platform portfolio",
+  "date": "2026-08-17",
+  "reference": "VND-26Q3-14",
+  "measure": "438 s",
+  "action": {
+    "id": "ACT-ENG-008560",
+    "owner_role": "Release Coordinator",
+    "status": "reviewed"
+  }
+}

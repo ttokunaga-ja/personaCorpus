@@ -1,0 +1,2 @@
+2026-09-18T09:19:00+09:00 INFO reference.snapshot id=REF-26Q3-008839 source=p01-src-008839 subject="Product Alpha R7" status=reviewed
+2026-09-18T09:20:10+09:00 INFO reference.provenance authority="Aster Loop synthetic Product Engineering" anchor="ADR-042 asynchronous release gate"

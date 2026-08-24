@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alphaDocumentation artifactId="p01-full-006397" sourceId="p01-src-006397"><release id="ALPHA-R7" date="2026-07-13"/><service id="svc-release-coordinator" topic="evidence capture"/><decision id="ADR-042" disposition="keep"/><latency observedP95Ms="184" sloCeilingMs="200"/></alphaDocumentation>

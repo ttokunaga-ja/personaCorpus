@@ -1,0 +1,2 @@
+source_id,artifact_id,state,issue_id,service,review_date,working_latency_ms,alpha_reference_p95_ms
+p01-src-006791,p01-full-006791,revised,ALW-7791,svc-contract-registry,2026-09-15,184,184

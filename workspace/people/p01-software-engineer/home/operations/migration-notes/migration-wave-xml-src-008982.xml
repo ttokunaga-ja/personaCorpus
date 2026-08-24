@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<migrationRecord id="p01-src-008982" program="Aster Loop"><wave id="MIG-26Q3-W01" ordinal="1"><service>edge-api</service><serviceSet>edge-api,release-coordinator,decision-store</serviceSet></wave><schedule cutover="2026-09-14" closeout="2026-09-18"/><objectives rpo="5m" rto="45m"/><evidence digestHint="717a9f1bfddb"/></migrationRecord>

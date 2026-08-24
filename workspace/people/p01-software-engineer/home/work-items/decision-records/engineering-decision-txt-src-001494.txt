@@ -1,0 +1,8 @@
+Engineering decision lifecycle note
+Record: p01-src-001494
+ADR: ADR-B4-102
+Product: Product Beta R4
+Status: closed
+Service: svc-edge-api
+
+Aster Loop株式会社 records bounded retry budget. The release gate remains asynchronous and retains the ADR-042 approval boundary. Synthetic Alpha evidence is 184 ms p95 against the 200 ms ceiling.

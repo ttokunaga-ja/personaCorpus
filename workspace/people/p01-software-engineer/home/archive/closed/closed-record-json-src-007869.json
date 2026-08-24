@@ -1,0 +1,10 @@
+{
+  "record_id": "ARC-26Q3-007869",
+  "source_id": "p01-src-007869",
+  "project": "MIG-26Q3-W03",
+  "state": "closed",
+  "closed_on": "2026-09-16",
+  "owner_role": "Observability Lead",
+  "service": "svc-event-bus",
+  "immutable": true
+}

@@ -1,0 +1,2 @@
+artifact_id,source_id,record_id,release_date,component,status,observed_p95_ms,requests,successful,unsuccessful
+p01-full-007071,p01-src-007071,REL-A7-20260720-88,2026-07-13,edge-API,closed,184,84200,84149,51

@@ -1,0 +1,2 @@
+artifact_id,source_id,service,topic,release,decision,observed_p95_ms,slo_ceiling_ms
+p01-full-006977,p01-src-006977,svc-contract-registry,request tracing,ALPHA-R7,ADR-042,184,200

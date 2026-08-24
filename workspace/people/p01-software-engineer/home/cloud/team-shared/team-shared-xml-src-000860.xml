@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<teamSharedRecord id="p01-full-000860" source="p01-src-000860" status="reviewed"><subject>observability evidence packet</subject><ownership><owner>API Steward</owner><reviewer>Release Coordinator</reviewer></ownership><context product="Product Alpha R7" decision="ADR-042" releaseDate="2026-07-13"/><reviewedAt>2026-08-08T13:15:00+09:00</reviewedAt><outcome>accepted collaboration copy</outcome></teamSharedRecord>

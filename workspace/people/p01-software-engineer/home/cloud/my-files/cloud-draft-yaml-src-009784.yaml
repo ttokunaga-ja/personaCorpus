@@ -1,0 +1,12 @@
+record_type: cloud_working_copy
+state: draft
+source_id: p01-src-009784
+cloud_record_id: BETA-R4-CLOUD-009784
+organization: "Aster Loop株式会社"
+product: Product Beta R4
+schema_freeze: "2026-09-04"
+contract_checks:
+  total: 1240
+  passed: 1231
+  failed: 9
+review_note: "individual working copy; not accepted"

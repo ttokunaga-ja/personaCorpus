@@ -1,0 +1,13 @@
+inbox_event: INBOX-010614
+status: unreviewed-inbox
+source_id: p01-src-010614
+artifact_id: p01-full-010614
+release: BETA-R4
+received_at: '2026-07-03T11:15:00+09:00'
+accepted: false
+services:
+  - svc-release-coordinator
+  - svc-observability
+metric:
+  p95_ms: 188
+  slo_ceiling_ms: 200

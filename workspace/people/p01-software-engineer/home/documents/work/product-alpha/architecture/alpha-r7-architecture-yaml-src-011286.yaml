@@ -1,0 +1,14 @@
+record_id: ARCH-A7-011286
+source_id: p01-src-011286
+product: Product Alpha R7
+organization: Aster Loop
+observed_on: 2026-08-21
+service: svc-edge-api
+decision: ADR-143
+release_gate:
+  mode: asynchronous
+  approval_boundary: release-coordinator_to_decision-store
+latency:
+  observed_p95_ms: 176
+  slo_ceiling_ms: 200
+state: reviewed

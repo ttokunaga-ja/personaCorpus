@@ -1,0 +1,18 @@
+review_id: CR-B4-006547
+project: Product Beta R4
+reviewed_at: 2026-09-06T10:00:00+09:00
+service: svc-decision-store
+focus: schema compatibility
+disposition: approved
+review_elapsed_minutes: 400
+change_summary:
+  files_changed: 14
+  synthetic_commit: synthetic-001993
+checks:
+  executed: 18
+  passed: 17
+comments:
+  - category: maintainability
+    resolution: tracked in review
+  - category: observability
+    resolution: accepted note

@@ -1,0 +1,10 @@
+From: Migration Lead <migration-lead@aster-loop.invalid>
+To: Release Coordinator <release-coordinator@aster-loop.invalid>
+Subject: [MIG-26Q3-W05] readiness note for observability
+Date: 2026-09-13T15:00:00+09:00
+Message-ID: <p01-src-007222@aster-loop.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+Synthetic migration status for observability. Scheduled cutover: 2026-09-14; closeout: 2026-09-18.
+Replay age is at or below 5m and restore rehearsal is within 45m. Evidence: 631d14b31d7b.

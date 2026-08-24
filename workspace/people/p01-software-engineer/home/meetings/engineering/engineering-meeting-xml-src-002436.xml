@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<engineeringMeeting id="MTG-ENG-20260720-34" date="2026-07-20"><title>release gate review</title><product>Product Alpha R7</product><reference>ADR-042</reference><measure>184 ms</measure><action id="ACT-ENG-002436" ownerRole="Observability Lead" status="planned"/></engineeringMeeting>

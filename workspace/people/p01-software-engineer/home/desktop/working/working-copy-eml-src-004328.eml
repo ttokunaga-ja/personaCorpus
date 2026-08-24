@@ -1,0 +1,11 @@
+From: platform-engineer@aster-loop.invalid
+To: release-coordinator@aster-loop.invalid
+Subject: [working copy] ALW-5328 / p01-src-004328
+Date: 2026-06-09T09:20:00+09:00
+Message-ID: <p01-src-004328@aster-loop.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+This is an ephemeral desktop draft for svc-decision-store.
+Working observation: 200 ms; Product Alpha R7 reference p95 remains 184 ms.
+State: draft. This message does not approve or release a change.

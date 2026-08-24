@@ -1,0 +1,3 @@
+record_id	adr_id	product	status	owner_role	service	decision_date	metric_ms
+p01-src-008047	ADR-088	Product Alpha R7	approved	Platform Engineer	svc-release-coordinator	2026-07-20	184
+p01-src-008047-review	ADR-088	Product Alpha R7	reviewed	Platform Engineer	svc-release-coordinator	2026-07-20	200

@@ -1,0 +1,7 @@
+VND-26Q3-224 / Platform Quartz
+
+VND-26Q3-224 evaluates Platform Quartz for schema governance in the Aster Loop Product Engineering portfolio. The synthetic review on 2026-08-10 recorded a 187 ms p95 trial response, 99.93% observed availability, and 91% evidence coverage. The review disposition is “hold pending interface validation”; this is comparative planning evidence, not a production service commitment.
+
+Review owner: Platform Engineer
+Evidence classification: synthetic comparative record
+Follow-up: interface walkthrough and release-gate fit review

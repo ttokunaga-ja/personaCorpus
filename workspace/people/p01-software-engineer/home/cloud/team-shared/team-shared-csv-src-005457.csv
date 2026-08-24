@@ -1,0 +1,2 @@
+artifact_id,source_id,subject,owner,reviewer,status,reviewed_at,reference
+p01-full-005457,p01-src-005457,"migration wave readiness",Migration Lead,Platform Engineer,reviewed,2026-08-21T10:15:00+09:00,TS-1017

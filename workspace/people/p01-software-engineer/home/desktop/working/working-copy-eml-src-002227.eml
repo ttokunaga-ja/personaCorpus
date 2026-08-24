@@ -1,0 +1,11 @@
+From: platform-engineer@aster-loop.invalid
+To: release-coordinator@aster-loop.invalid
+Subject: [working copy] ALW-3227 / p01-src-002227
+Date: 2026-09-14T09:20:00+09:00
+Message-ID: <p01-src-002227@aster-loop.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+This is an ephemeral desktop draft for svc-release-coordinator.
+Working observation: 171 ms; Product Alpha R7 reference p95 remains 184 ms.
+State: revised. This message does not approve or release a change.

@@ -1,0 +1,12 @@
+{
+  "schema": "aster-loop.beta-r4.architecture-review/v1",
+  "source_id": "p01-src-007681",
+  "review_id": "ADR-B4-120",
+  "release": "BETA-R4",
+  "review_date": "2026-08-17",
+  "subject": "command routing boundary",
+  "component": "command router",
+  "design_p95_budget_ms": 225,
+  "status": "reviewed",
+  "synthetic": true
+}

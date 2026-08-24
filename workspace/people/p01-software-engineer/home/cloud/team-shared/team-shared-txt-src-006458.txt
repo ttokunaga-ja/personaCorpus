@@ -1,0 +1,10 @@
+Aster Loop株式会社 / Product Engineering
+Team-shared accepted collaboration copy
+Artifact: p01-full-006458 (p01-src-006458)
+Subject: release-gate evidence alignment
+Owner: Release Coordinator
+Reviewed by: Observability Lead
+Status: reviewed and accepted
+Review timestamp: 2026-08-20T15:15:00+09:00
+Reference: TS-1126; Product Alpha R7; ADR-042; release 2026-07-13
+Decision: retain the asynchronous release gate and record follow-up evidence in the shared packet.

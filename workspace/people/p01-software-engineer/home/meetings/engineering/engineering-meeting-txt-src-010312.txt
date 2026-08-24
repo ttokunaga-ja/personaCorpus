@@ -1,0 +1,6 @@
+MTG-ENG-20260817-78 | platform capacity review
+Date: 2026-08-17 Asia/Tokyo
+Owner: Platform Engineer
+Decision: VND-26Q3-14 remains the meeting reference.
+Action: ACT-ENG-010312 assigned to Release Coordinator; status=reviewed.
+Measure: 438 s.

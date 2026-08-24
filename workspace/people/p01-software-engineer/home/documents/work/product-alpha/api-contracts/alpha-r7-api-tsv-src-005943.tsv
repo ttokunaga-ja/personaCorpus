@@ -1,0 +1,2 @@
+contract_id	release	resource	operation	status	p95_ms	slo_ms	reviewed_on
+API-A7-5943	ALPHA-R7	evidence-snapshots	reconcile	reviewed	179	200	2026-07-20

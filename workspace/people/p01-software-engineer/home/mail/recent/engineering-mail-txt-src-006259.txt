@@ -1,0 +1,9 @@
+MSG-2026Q3-006259 | recent engineering mail supporting note
+From: Platform Engineer <platform-engineer@aster-loop.invalid>
+To: API Steward <api-steward@aster-loop.invalid>
+Subject: Beta R4 schema freeze note
+Date: 2026-09-16T11:19:00+09:00
+
+The review keeps Product Alpha R7 observed p95 at 184 ms and labels Product
+Beta R4 225 ms as a design budget. This is synthetic, role-owned evidence.
+Action: API Steward will acknowledge the scoped record before the next handoff.

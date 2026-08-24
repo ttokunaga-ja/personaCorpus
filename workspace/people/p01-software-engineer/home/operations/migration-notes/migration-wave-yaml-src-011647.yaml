@@ -1,0 +1,8 @@
+migration_record: p01-src-011647
+program: Aster Loop
+wave: {id: MIG-26Q3-W02, ordinal: 2, services: [event-bus, observability, contract-registry]}
+service: release-coordinator
+schedule: {review_window: "2026-09-10T16:00:00+09:00", cutover: "2026-09-14", closeout: "2026-09-18"}
+objectives: {rpo: 5m, rto: 45m}
+evidence: {snapshot_digest_hint: "633aa869d260", acceptance: replay_cursor_within_rpo_and_restore_within_rto}
+state: planned

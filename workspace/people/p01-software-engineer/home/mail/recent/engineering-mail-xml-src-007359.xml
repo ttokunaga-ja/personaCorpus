@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<engineeringMail id="MSG-2026Q3-007359" artifact="p01-full-007359" synthetic="true">
+  <from role="API Steward" address="api-steward@aster-loop.invalid"/>
+  <to role="Decision Owner" address="decision-owner@aster-loop.invalid"/>
+  <sentAt>2026-09-24T10:39:00+09:00</sentAt>
+  <subject>migration wave handoff</subject>
+  <project>BETA-R4</project>
+  <facts betaDesignP95Ms="225" contractTestsTotal="1240"/>
+  <status>reviewed</status>
+</engineeringMail>

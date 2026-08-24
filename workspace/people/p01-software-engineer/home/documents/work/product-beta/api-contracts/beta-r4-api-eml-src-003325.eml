@@ -1,0 +1,11 @@
+From: api-steward@aster-loop.invalid
+To: release-coordinator@aster-loop.invalid
+Subject: API-B4-3325 schema freeze evidence
+Date: Fri, 04 Sep 2026 09:25:00 +0900
+Message-ID: <p01-full-003325@aster-loop.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+Product Beta R4 contract API-B4-3325 is reviewed.
+The 2026-09-04 schema freeze covers contract-registry on svc-contract-registry.
+Test reconciliation: 1,240 total, 1,231 pass, 9 fail (99.27%).

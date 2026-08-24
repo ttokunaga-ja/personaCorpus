@@ -1,0 +1,18 @@
+record_id: p01-src-009547
+adr_id: ADR-195
+title: "versioned event envelope"
+organization: "Aster Loop株式会社"
+product: "Product Alpha R7"
+decision_date: "2026-07-20"
+status: approved
+owner_role: "Platform Engineer"
+service: svc-release-coordinator
+context:
+  release_gate: "asynchronous"
+  approval_boundary: "Release Coordinator to Decision Store"
+  alpha_observed_p95_ms: 184
+  beta_design_budget_ms: 225
+decision:
+  action: "adopt"
+  subject: "versioned event envelope"
+  review_window: "2026-06-01 through 2026-09-30"

@@ -1,0 +1,2 @@
+2026-08-24T09:17:00+09:00 INFO meeting_id=MTG-ENG-20260824-14 event=agenda_opened role=Decision Owner
+2026-08-24T10:17:00+09:00 INFO meeting_id=MTG-ENG-20260824-14 event=decision_recorded reference=ADR-B4-031 action_id=ACT-ENG-010337

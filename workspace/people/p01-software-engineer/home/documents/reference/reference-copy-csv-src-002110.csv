@@ -1,0 +1,3 @@
+reference_id,source_id,subject,review_date,status,metric,unit,value
+REF-26Q3-002110,p01-src-002110,Product Beta R4,2026-08-17,reviewed,alpha_p95,ms,184
+REF-26Q3-002110,p01-src-002110,Product Beta R4,2026-08-17,reviewed,beta_design_budget,ms,225

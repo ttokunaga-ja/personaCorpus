@@ -1,0 +1,10 @@
+From: Migration Lead <migration-lead@aster-loop.invalid>
+To: Release Coordinator <release-coordinator@aster-loop.invalid>
+Subject: [MIG-26Q3-W05] readiness note for policy-cache
+Date: 2026-09-13T13:00:00+09:00
+Message-ID: <p01-src-000124@aster-loop.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+Synthetic migration status for policy-cache. Scheduled cutover: 2026-09-14; closeout: 2026-09-18.
+Replay age is at or below 5m and restore rehearsal is within 45m. Evidence: a5f66f18a3af.

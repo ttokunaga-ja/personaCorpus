@@ -1,0 +1,10 @@
+{
+  "record_id": "ARC-26Q3-008918",
+  "source_id": "p01-src-008918",
+  "project": "MIG-26Q3-W01",
+  "state": "closed",
+  "closed_on": "2026-09-10",
+  "owner_role": "Decision Owner",
+  "service": "svc-decision-store",
+  "immutable": true
+}

@@ -1,0 +1,2 @@
+{"event":"reference_snapshot","reference_id":"REF-26Q3-000303","source_id":"p01-src-000303","subject":"Product Alpha R7","date":"2026-09-04","status":"reviewed"}
+{"event":"provenance_confirmed","authority":"Aster Loop synthetic Product Engineering","anchor":"ADR-042 asynchronous release gate"}

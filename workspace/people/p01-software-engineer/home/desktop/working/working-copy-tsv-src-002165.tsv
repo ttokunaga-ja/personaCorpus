@@ -1,0 +1,2 @@
+source_id	artifact_id	state	issue_id	service	review_date	working_latency_ms	alpha_reference_p95_ms
+p01-src-002165	p01-full-002165	working	ALW-3165	svc-contract-registry	2026-07-06	183	184

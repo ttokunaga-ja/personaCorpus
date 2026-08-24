@@ -1,0 +1,30 @@
+{
+  "review_id": "CR-A7-011870",
+  "project": "Product Alpha R7",
+  "reviewed_at": "2026-07-31T10:00:00+09:00",
+  "service": "svc-edge-api",
+  "focus": "error boundary propagation",
+  "disposition": "approved with notes",
+  "review_elapsed_minutes": 400,
+  "change_summary": {
+    "files_changed": 17,
+    "synthetic_commit": "synthetic-002e5e"
+  },
+  "checks": {
+    "executed": 40,
+    "passed": 39,
+    "review_gate": "evidence recorded"
+  },
+  "comments": [
+    {
+      "thread": 1,
+      "category": "maintainability",
+      "resolution": "tracked in review"
+    },
+    {
+      "thread": 2,
+      "category": "observability",
+      "resolution": "accepted note"
+    }
+  ]
+}

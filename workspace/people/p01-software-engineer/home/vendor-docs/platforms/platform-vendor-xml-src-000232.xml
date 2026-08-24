@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vendorEvaluation id="VND-26Q3-233" source="p01-src-000232" synthetic="true">
+  <vendor>Platform Helix</vendor>
+  <reviewDate>2026-08-19</reviewDate>
+  <track>operational telemetry</track>
+  <metrics p95Ms="182" availabilityPct="99.96" evidenceCoveragePct="79"/>
+  <recommendation>advance to controlled trial</recommendation>
+</vendorEvaluation>

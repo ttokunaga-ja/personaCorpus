@@ -1,0 +1,9 @@
+MSG-2026Q3-005402 | recent engineering mail supporting note
+From: Observability Lead <observability-lead@aster-loop.invalid>
+To: Migration Lead <migration-lead@aster-loop.invalid>
+Subject: decision record follow-up
+Date: 2026-09-27T11:02:00+09:00
+
+The review keeps Product Alpha R7 observed p95 at 184 ms and labels Product
+Beta R4 225 ms as a design budget. This is synthetic, role-owned evidence.
+Action: Migration Lead will acknowledge the scoped record before the next handoff.

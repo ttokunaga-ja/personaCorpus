@@ -1,0 +1,2 @@
+evaluation_id,vendor,review_date,track,trial_p95_ms,availability_pct,evidence_coverage_pct,recommendation
+VND-26Q3-039,Meridian,2026-09-17,audit export,180,99.88,98,request evidence clarification

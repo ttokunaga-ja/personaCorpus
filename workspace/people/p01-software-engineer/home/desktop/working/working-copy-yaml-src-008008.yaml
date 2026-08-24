@@ -1,0 +1,15 @@
+record_type: desktop_working_copy
+state: draft
+source_id: p01-src-008008
+artifact_id: p01-full-008008
+organization: Aster Loop株式会社
+project: Product Alpha R7
+issue_id: ALW-9008
+review_date: 2026-06-17
+service: svc-observability
+decision_reference: ADR-049
+observations:
+  working_latency_ms: 180
+  alpha_reference_p95_ms: 184
+  review_elapsed_minutes: 359
+location_semantics: ephemeral desktop draft, not an accepted source of truth

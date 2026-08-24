@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<codeReview id="CR-B4-010807" project="Product Beta R4">
+  <reviewedAt>2026-08-09T10:00:00+09:00</reviewedAt>
+  <service>svc-decision-store</service>
+  <focus>schema compatibility</focus>
+  <disposition>approved</disposition>
+  <elapsedMinutes>400</elapsedMinutes>
+  <checks executed="31" passed="30"/>
+  <comment category="maintainability">Review evidence retained for follow-up.</comment>
+</codeReview>

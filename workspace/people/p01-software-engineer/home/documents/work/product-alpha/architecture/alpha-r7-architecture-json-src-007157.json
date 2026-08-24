@@ -1,0 +1,21 @@
+{
+  "record_id": "ARCH-A7-007157",
+  "source_id": "p01-src-007157",
+  "artifact_id": "p01-full-007157",
+  "organization": "Aster Loop",
+  "product": "Product Alpha R7",
+  "observed_on": "2026-09-01",
+  "service": "svc-contract-registry",
+  "decision": "ADR-193",
+  "release_gate": {
+    "mode": "asynchronous",
+    "approval_boundary": "release-coordinator_to_decision-store"
+  },
+  "latency": {
+    "p95_ms": 189,
+    "slo_ceiling_ms": 200
+  },
+  "state": "approved",
+  "canonical_family": "structured_text",
+  "notes": "synthetic architecture evidence"
+}

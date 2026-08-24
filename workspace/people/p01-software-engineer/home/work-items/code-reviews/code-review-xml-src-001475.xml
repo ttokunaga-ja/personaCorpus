@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<codeReview id="CR-B4-001475" project="Product Beta R4">
+  <reviewedAt>2026-07-21T10:00:00+09:00</reviewedAt>
+  <service>svc-edge-api</service>
+  <focus>error boundary propagation</focus>
+  <disposition>approved with notes</disposition>
+  <elapsedMinutes>400</elapsedMinutes>
+  <checks executed="30" passed="29"/>
+  <comment category="maintainability">Review evidence retained for follow-up.</comment>
+</codeReview>

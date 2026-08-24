@@ -1,0 +1,2 @@
+evaluation_id,vendor,review_date,track,trial_p95_ms,availability_pct,evidence_coverage_pct,recommendation
+VND-26Q3-157,Helix,2026-07-15,event routing,191,99.74,81,advance to controlled trial

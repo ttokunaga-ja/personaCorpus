@@ -1,0 +1,2 @@
+artifact_id,source_id,subject,owner,reviewer,status,reviewed_at,reference
+p01-full-006501,p01-src-006501,"contract compatibility handoff",Observability Lead,API Steward,reviewed,2026-08-24T13:15:00+09:00,TS-1020

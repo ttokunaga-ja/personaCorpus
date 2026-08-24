@@ -1,0 +1,15 @@
+From: Decision Owner <decision-owner@aster-loop.invalid>
+To: Platform Engineer <platform-engineer@aster-loop.invalid>
+Subject: ADR-B4-047 lifecycle review for p01-src-004026
+Date: Mon, 20 Jul 2026 10:06:00 +0900
+Message-ID: <p01-src-004026@aster-loop.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+The review records bounded retry budget for Product Beta R4.
+
+Status: reviewed
+Service: svc-edge-api
+Decision date: 2026-08-17
+
+The asynchronous release gate keeps its approval boundary between Release Coordinator and Decision Store. Evidence remains within the synthetic engineering horizon.

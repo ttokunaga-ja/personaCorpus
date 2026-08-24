@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<architectureReview schema="aster-loop.beta-r4.architecture-review/v1" sourceId="p01-src-009934">
+  <release>BETA-R4</release>
+  <review id="ADR-B4-184" date="2026-08-17" status="reviewed">
+    <subject>policy evaluation ordering</subject>
+    <component>projection worker</component>
+    <designP95Budget unit="ms">225</designP95Budget>
+  </review>
+</architectureReview>

@@ -1,0 +1,13 @@
+{
+  "schema": "aster-loop.synthetic-tool-export/v1",
+  "export_id": "EXP-26Q3-000392",
+  "generated_at": "2026-08-01T13:44:00+09:00",
+  "organization": "Aster Loop株式会社",
+  "source_id": "p01-src-000392",
+  "scope": "downloads/exports",
+  "project": "Product Alpha R7",
+  "service": "svc-decision-store",
+  "lifecycle_state": "reviewed",
+  "latency_ms": 184,
+  "synthetic": true
+}

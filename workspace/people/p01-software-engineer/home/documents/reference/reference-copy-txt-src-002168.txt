@@ -1,0 +1,8 @@
+Reference Standard P01-SRC-002168
+REF-26Q3-002168
+Provenance: Aster Loop synthetic engineering reference
+Subject: Product Beta R4
+Anchor: Beta R4 contract review
+Review date: 2026-07-20
+Status: reviewed reference snapshot
+Canonical source reference: p01-src-002168

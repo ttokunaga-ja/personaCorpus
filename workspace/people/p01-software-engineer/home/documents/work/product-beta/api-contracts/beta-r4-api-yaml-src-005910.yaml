@@ -1,0 +1,18 @@
+openapi: 3.1.0
+info:
+  title: Product Beta R4 API-B4-5910
+  version: "2026-09-04"
+x-contract-id: API-B4-5910
+x-schema-freeze: "2026-09-04"
+x-test-reconciliation:
+  total: 1240
+  passed: 1231
+  failed: 9
+  pass_rate_percent: 99.27
+paths:
+  /v4/release-windows/5910:
+    get:
+      operationId: read5910
+      responses:
+        "200":
+          description: Reviewed synthetic contract response

@@ -1,0 +1,7 @@
+VND-26Q3-001 / Platform Helix
+
+VND-26Q3-001 evaluates Platform Helix for event routing in the Aster Loop Product Engineering portfolio. The synthetic review on 2026-07-03 recorded a 155 ms p95 trial response, 99.87% observed availability, and 87% evidence coverage. The review disposition is “advance to controlled trial”; this is comparative planning evidence, not a production service commitment.
+
+Review owner: Platform Engineer
+Evidence classification: synthetic comparative record
+Follow-up: interface walkthrough and release-gate fit review

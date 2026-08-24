@@ -1,0 +1,3 @@
+2026-09-11T09:00:00+09:00 INFO migration.record=p01-src-010616 wave=MIG-26Q3-W03 service=partner-bridge event=snapshot_verified evidence=6151a1a23d8f
+2026-09-11T09:00:00+09:00 INFO migration.record=p01-src-010616 wave=MIG-26Q3-W03 service=partner-bridge event=replay_checked cursor_age_seconds=178 objective_seconds=300
+2026-09-11T09:00:00+09:00 INFO migration.record=p01-src-010616 wave=MIG-26Q3-W03 service=partner-bridge event=restore_rehearsal budget_seconds=2700

@@ -1,0 +1,18 @@
+{
+  "record_type": "desktop_working_copy",
+  "state": "review-pending",
+  "source_id": "p01-src-008274",
+  "artifact_id": "p01-full-008274",
+  "organization": "Aster Loop株式会社",
+  "project": "Product Alpha R7",
+  "issue_id": "ALW-9274",
+  "review_date": "2026-08-13",
+  "service": "svc-edge-api",
+  "decision_reference": "ADR-116",
+  "observations": {
+    "working_latency_ms": 187,
+    "alpha_reference_p95_ms": 184,
+    "review_elapsed_minutes": 303
+  },
+  "location_semantics": "ephemeral draft; not an accepted source of truth"
+}

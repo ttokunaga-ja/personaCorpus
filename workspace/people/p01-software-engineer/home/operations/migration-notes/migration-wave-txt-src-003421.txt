@@ -1,0 +1,3 @@
+2026-09-10T14:00:00+09:00 INFO migration.record=p01-src-003421 wave=MIG-26Q3-W02 service=release-coordinator event=snapshot_verified evidence=0d6875bdf00e
+2026-09-10T14:00:00+09:00 INFO migration.record=p01-src-003421 wave=MIG-26Q3-W02 service=release-coordinator event=replay_checked cursor_age_seconds=223 objective_seconds=300
+2026-09-10T14:00:00+09:00 INFO migration.record=p01-src-003421 wave=MIG-26Q3-W02 service=release-coordinator event=restore_rehearsal budget_seconds=2700

@@ -1,0 +1,3 @@
+record_id	adr_id	product	status	owner_role	service	decision_date	metric_ms
+p01-src-007046	ADR-082	Product Alpha R7	reviewed	API Steward	svc-decision-store	2026-07-20	184
+p01-src-007046-review	ADR-082	Product Alpha R7	reviewed	API Steward	svc-decision-store	2026-07-20	200

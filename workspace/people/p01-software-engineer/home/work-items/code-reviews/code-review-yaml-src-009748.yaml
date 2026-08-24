@@ -1,0 +1,18 @@
+review_id: CR-A7-009748
+project: Product Alpha R7
+reviewed_at: 2026-08-22T10:00:00+09:00
+service: svc-event-bus
+focus: latency budget accounting
+disposition: commented
+review_elapsed_minutes: 400
+change_summary:
+  files_changed: 4
+  synthetic_commit: synthetic-002614
+checks:
+  executed: 26
+  passed: 25
+comments:
+  - category: maintainability
+    resolution: tracked in review
+  - category: observability
+    resolution: accepted note

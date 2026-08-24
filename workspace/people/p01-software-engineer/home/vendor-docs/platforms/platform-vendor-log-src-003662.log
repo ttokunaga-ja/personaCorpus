@@ -1,0 +1,3 @@
+2026-09-17T09:02:00+09:00 INFO platform-evaluation id=VND-26Q3-063 vendor="Platform Meridian" track="audit export"
+2026-09-17T09:04:00+09:00 INFO evidence-reviewed p95_ms=182 availability_pct=99.81 coverage_pct=86
+2026-09-17T09:07:00+09:00 INFO disposition="request evidence clarification" owner_role="Platform Engineer"

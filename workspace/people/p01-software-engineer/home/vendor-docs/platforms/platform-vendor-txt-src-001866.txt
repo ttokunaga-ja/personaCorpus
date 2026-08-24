@@ -1,0 +1,7 @@
+VND-26Q3-187 / Platform Meridian
+
+VND-26Q3-187 evaluates Platform Meridian for event routing in the Aster Loop Product Engineering portfolio. The synthetic review on 2026-07-21 recorded a 150 ms p95 trial response, 99.84% observed availability, and 96% evidence coverage. The review disposition is “request evidence clarification”; this is comparative planning evidence, not a production service commitment.
+
+Review owner: Platform Engineer
+Evidence classification: synthetic comparative record
+Follow-up: interface walkthrough and release-gate fit review

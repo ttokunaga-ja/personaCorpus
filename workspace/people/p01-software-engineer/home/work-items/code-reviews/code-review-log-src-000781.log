@@ -1,0 +1,10 @@
+INFO: CR-B4-000781
+Timestamp: 2026-09-02T10:00:00+09:00
+Project: Product Beta R4
+Service: svc-release-coordinator
+Focus: idempotent event handling
+Disposition: changes requested
+Review elapsed measure: 400 minutes
+Checks: 18 executed, 17 passed
+Evidence: synthetic commit synthetic-00030d changed 5 files
+Outcome: review evidence retained; no customer data included.

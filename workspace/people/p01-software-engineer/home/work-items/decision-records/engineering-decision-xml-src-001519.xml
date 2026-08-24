@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decisionRecord id="p01-src-001519">
+  <adr>ADR-127</adr>
+  <organization>Aster Loop株式会社</organization>
+  <product>Product Alpha R7</product>
+  <date>2026-07-20</date>
+  <status>closed</status>
+  <owner role="Platform Engineer"/>
+  <service>svc-release-coordinator</service>
+  <decision action="adopt">versioned event envelope</decision>
+  <measure name="alpha_observed_p95_ms" value="184"/>
+</decisionRecord>

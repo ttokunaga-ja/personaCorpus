@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<engineeringMail id="MSG-2026Q3-000064" artifact="p01-full-000064" synthetic="true">
+  <from role="Migration Lead" address="migration-lead@aster-loop.invalid"/>
+  <to role="Release Coordinator" address="release-coordinator@aster-loop.invalid"/>
+  <sentAt>2026-09-09T10:04:00+09:00</sentAt>
+  <subject>Beta R4 schema freeze note</subject>
+  <project>BETA-R4</project>
+  <facts betaDesignP95Ms="225" contractTestsTotal="1240"/>
+  <status>reviewed</status>
+</engineeringMail>

@@ -1,0 +1,2 @@
+review_id	reviewed_at	service	focus	disposition	review_elapsed_minutes	checks_executed	checks_passed
+CR-B4-000943	2026-07-25T10:00:00+09:00	svc-event-bus	latency budget accounting	commented	400	25	24

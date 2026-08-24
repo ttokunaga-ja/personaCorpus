@@ -1,0 +1,2 @@
+artifact_id,source_id,record_id,release_date,component,status,observed_p95_ms,requests,successful,unsuccessful
+p01-full-006305,p01-src-006305,REL-A7-20260714-01,2026-07-13,release-coordinator,reviewed,184,84200,84149,51

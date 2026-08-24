@@ -1,0 +1,5 @@
+/// Reviewed Aster Loop team-shared helper for p01-full-008566.
+#[derive(Debug, Clone, PartialEq, Eq)]
+struct CollaborationRecord { artifact_id: &'static str, source_id: &'static str, owner: &'static str, reviewer: &'static str, status: &'static str }
+fn record() -> CollaborationRecord { CollaborationRecord { artifact_id: "p01-full-008566", source_id: "p01-src-008566", owner: "Platform Engineer", reviewer: "Decision Owner", status: "reviewed" } }
+fn main() { let item = record(); println!("{} {}: ADR-042 retained", item.artifact_id, item.status); }

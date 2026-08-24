@@ -1,0 +1,2 @@
+review_id,reviewed_at,service,focus,disposition,review_elapsed_minutes,checks_executed,checks_passed
+CR-B4-011209,2026-08-09T10:00:00+09:00,svc-observability,rollback observability,approved with follow-up,400,30,29

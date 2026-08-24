@@ -1,0 +1,2 @@
+evaluation_id,vendor,review_date,track,trial_p95_ms,availability_pct,evidence_coverage_pct,recommendation
+VND-26Q3-142,Juniper,2026-07-24,release coordination,146,99.74,78,retain for comparative review

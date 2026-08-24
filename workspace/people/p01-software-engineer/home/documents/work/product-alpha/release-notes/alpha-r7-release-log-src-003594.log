@@ -1,0 +1,2 @@
+2026-07-13T09:54:00+09:00 INFO release-note artifact=p01-full-003594 record=REL-A7-20260715-06 component="observability confirmation" status=approved
+2026-07-20T10:05:00+09:00 INFO review decision=keep-ADR-042 observed_p95_ms=184 synthetic=true

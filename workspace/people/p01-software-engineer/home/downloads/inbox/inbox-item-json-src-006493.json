@@ -1,0 +1,18 @@
+{
+  "artifact_id": "p01-full-006493",
+  "source_id": "p01-src-006493",
+  "inbox_event": "INBOX-006493",
+  "status": "unreviewed-inbox",
+  "received_at": "2026-07-26T12:15:00+09:00",
+  "subject": "ALPHA-R7 incoming engineering material 006493",
+  "release": "ALPHA-R7",
+  "services": [
+    "svc-release-coordinator",
+    "svc-decision-store"
+  ],
+  "metrics": {
+    "p95_ms": 187,
+    "slo_ceiling_ms": 200
+  },
+  "accepted": false
+}

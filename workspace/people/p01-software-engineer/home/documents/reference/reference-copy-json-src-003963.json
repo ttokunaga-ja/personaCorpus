@@ -1,0 +1,9 @@
+{
+  "reference_id": "REF-26Q3-003963",
+  "source_id": "p01-src-003963",
+  "provenance": "Aster Loop synthetic Product Engineering",
+  "subject": "Product Alpha R7",
+  "anchor": "ADR-042 asynchronous release gate",
+  "reviewed_at": "2026-09-04",
+  "status": "reviewed"
+}

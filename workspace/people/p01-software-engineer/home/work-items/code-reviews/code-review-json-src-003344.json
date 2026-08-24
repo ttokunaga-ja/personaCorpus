@@ -1,0 +1,30 @@
+{
+  "review_id": "CR-A7-003344",
+  "project": "Product Alpha R7",
+  "reviewed_at": "2026-09-19T10:00:00+09:00",
+  "service": "svc-observability",
+  "focus": "rollback observability",
+  "disposition": "approved with follow-up",
+  "review_elapsed_minutes": 400,
+  "change_summary": {
+    "files_changed": 3,
+    "synthetic_commit": "synthetic-000d10"
+  },
+  "checks": {
+    "executed": 39,
+    "passed": 38,
+    "review_gate": "evidence recorded"
+  },
+  "comments": [
+    {
+      "thread": 1,
+      "category": "maintainability",
+      "resolution": "tracked in review"
+    },
+    {
+      "thread": 2,
+      "category": "observability",
+      "resolution": "accepted note"
+    }
+  ]
+}

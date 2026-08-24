@@ -1,0 +1,12 @@
+record_id: BETA-DOC-000381
+product: Product Beta R4
+service: svc-event-bus
+status: draft
+review_date: 2026-08-17
+schema_freeze: 2026-09-04
+latency_budget_ms: 225
+contract_tests:
+  total: 1240
+  passed: 1231
+  failed: 9
+endpoint: /v4/beta/7/records

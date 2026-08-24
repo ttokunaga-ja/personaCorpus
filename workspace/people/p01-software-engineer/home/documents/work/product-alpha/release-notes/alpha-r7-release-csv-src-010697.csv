@@ -1,0 +1,2 @@
+artifact_id,source_id,record_id,release_date,component,status,observed_p95_ms,requests,successful,unsuccessful
+p01-full-010697,p01-src-010697,REL-A7-20260714-28,2026-07-13,decision-store,reviewed,184,84200,84149,51

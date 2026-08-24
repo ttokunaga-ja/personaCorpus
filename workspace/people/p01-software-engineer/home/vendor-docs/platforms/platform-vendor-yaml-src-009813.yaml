@@ -1,0 +1,12 @@
+evaluation_id: VND-26Q3-214
+source_id: p01-src-009813
+vendor: Platform Juniper
+organization: Aster Loop株式会社
+review_date: 2026-07-24
+track: release coordination
+metrics:
+  trial_p95_ms: 159
+  observed_availability_pct: 99.88
+  evidence_coverage_pct: 84
+recommendation: retain for comparative review
+synthetic: true

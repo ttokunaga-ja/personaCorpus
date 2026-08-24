@@ -1,0 +1,15 @@
+record_type: desktop_working_copy
+state: review-pending
+source_id: p01-src-011910
+artifact_id: p01-full-011910
+organization: Aster Loop株式会社
+project: Product Alpha R7
+issue_id: ALW-12910
+review_date: 2026-08-04
+service: svc-edge-api
+decision_reference: ADR-170
+observations:
+  working_latency_ms: 197
+  alpha_reference_p95_ms: 184
+  review_elapsed_minutes: 397
+location_semantics: ephemeral desktop draft, not an accepted source of truth

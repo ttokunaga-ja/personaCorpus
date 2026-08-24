@@ -1,0 +1,2 @@
+source_id	artifact_id	state	issue_id	service	review_date	working_latency_ms	alpha_reference_p95_ms
+p01-src-011832	p01-full-011832	draft	ALW-12832	svc-edge-api	2026-06-07	193	184

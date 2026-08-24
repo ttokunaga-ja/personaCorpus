@@ -1,0 +1,2 @@
+artifact_id	source_id	service	topic	release	decision	observed_p95_ms	slo_ceiling_ms
+p01-full-003047	p01-src-003047	svc-contract-registry	rollback drill	ALPHA-R7	ADR-042	184	200

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<apiContract id="API-A7-7732" release="ALPHA-R7" reviewedOn="2026-07-20">
+  <resource>release-gates</resource>
+  <operation>register</operation>
+  <latency targetP95Ms="200" observedReferenceP95Ms="184"/>
+  <compatibility policy="additive-before-removal"/>
+</apiContract>

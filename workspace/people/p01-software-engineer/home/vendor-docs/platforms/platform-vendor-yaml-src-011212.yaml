@@ -1,0 +1,12 @@
+evaluation_id: VND-26Q3-173
+source_id: p01-src-011212
+vendor: Platform Helix
+organization: Aster Loop株式会社
+review_date: 2026-08-07
+track: operational telemetry
+metrics:
+  trial_p95_ms: 186
+  observed_availability_pct: 99.81
+  evidence_coverage_pct: 97
+recommendation: advance to controlled trial
+synthetic: true

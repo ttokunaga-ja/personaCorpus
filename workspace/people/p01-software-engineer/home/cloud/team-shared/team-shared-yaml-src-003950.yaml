@@ -1,0 +1,10 @@
+schema: aster-loop.team-shared/v1
+artifact_id: p01-full-003950
+source_id: p01-src-003950
+subject: contract compatibility handoff
+owner: Observability Lead
+reviewer: API Steward
+status: reviewed
+accepted: true
+reviewed_at: 2026-08-18T15:15:00+09:00
+context: Product Alpha R7 / ADR-042 / 2026-07-13

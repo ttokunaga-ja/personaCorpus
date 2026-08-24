@@ -1,0 +1,3 @@
+record_id,adr_id,product,status,owner_role,service,decision_date,metric_ms
+p01-src-008072,ADR-113,Product Alpha R7,approved,API Steward,svc-decision-store,2026-07-20,184
+p01-src-008072-review,ADR-113,Product Alpha R7,reviewed,API Steward,svc-decision-store,2026-07-20,200

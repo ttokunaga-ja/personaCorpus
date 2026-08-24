@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vendorEvaluation id="VND-26Q3-144" source="p01-src-001103" synthetic="true">
+  <vendor>Platform Quartz</vendor>
+  <reviewDate>2026-09-26</reviewDate>
+  <track>migration compatibility</track>
+  <metrics p95Ms="171" availabilityPct="99.93" evidenceCoveragePct="89"/>
+  <recommendation>hold pending interface validation</recommendation>
+</vendorEvaluation>

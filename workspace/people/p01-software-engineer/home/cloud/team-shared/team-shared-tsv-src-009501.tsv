@@ -1,0 +1,2 @@
+artifact_id	source_id	subject	owner	reviewer	status	reviewed_at	reference
+p01-full-009501	p01-src-009501	release-gate evidence alignment	Release Coordinator	Observability Lead	reviewed	2026-08-12T15:15:00+09:00	TS-1030

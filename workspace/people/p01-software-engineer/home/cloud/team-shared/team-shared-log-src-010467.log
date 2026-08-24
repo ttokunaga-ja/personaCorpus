@@ -1,0 +1,2 @@
+2026-08-19T10:15:00+09:00 INFO collaboration artifact=p01-full-010467 source=p01-src-010467 owner="Migration Lead" reviewer="Platform Engineer" status=reviewed reference=TS-1191
+2026-08-19T10:16:00+09:00 INFO decision="ADR-042 retained" product="Product Alpha R7" release_date=2026-07-13

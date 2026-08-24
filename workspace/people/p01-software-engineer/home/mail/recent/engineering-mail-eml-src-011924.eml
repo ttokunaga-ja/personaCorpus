@@ -1,0 +1,13 @@
+From: Observability Lead <observability-lead@aster-loop.invalid>
+To: Migration Lead <migration-lead@aster-loop.invalid>
+Subject: latency budget reconciliation
+Date: Mon, 25 Sep 2026 10:44:00 +0900
+Message-ID: <msg-2026q3-011924@aster-loop.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+MSG-2026Q3-011924
+
+This synthetic recent engineering message keeps the Beta R4 225 ms figure as a
+design budget and records the 1,240-test reconciliation for scoped review.
+Please reply with role ownership and the evidence window.

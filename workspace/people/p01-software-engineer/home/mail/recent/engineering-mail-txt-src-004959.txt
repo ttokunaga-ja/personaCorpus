@@ -1,0 +1,9 @@
+MSG-2026Q3-004959 | recent engineering mail supporting note
+From: API Steward <api-steward@aster-loop.invalid>
+To: Decision Owner <decision-owner@aster-loop.invalid>
+Subject: latency budget reconciliation
+Date: 2026-09-04T11:39:00+09:00
+
+The review keeps Product Alpha R7 observed p95 at 184 ms and labels Product
+Beta R4 225 ms as a design budget. This is synthetic, role-owned evidence.
+Action: Decision Owner will acknowledge the scoped record before the next handoff.

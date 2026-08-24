@@ -1,0 +1,3 @@
+record_id	adr_id	product	status	owner_role	service	decision_date	metric_ms
+p01-src-002943	ADR-B4-158	Product Beta R4	released	Observability Lead	svc-event-bus	2026-08-17	184
+p01-src-002943-review	ADR-B4-158	Product Beta R4	reviewed	Observability Lead	svc-event-bus	2026-07-20	200

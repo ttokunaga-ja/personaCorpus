@@ -1,0 +1,1 @@
+2026-09-04T09:50:00+09:00 INFO contract=API-B4-3710 event=schema_freeze state=approved service=svc-release-coordinator tests_total=1240 tests_pass=1231 tests_fail=9

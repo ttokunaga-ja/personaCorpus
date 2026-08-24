@@ -1,0 +1,23 @@
+{
+  "schema": "aster-loop.team-shared/v1",
+  "artifact_id": "p01-full-004201",
+  "source_id": "p01-src-004201",
+  "subject": "rollback drill follow-up",
+  "ownership": {
+    "owner": "Decision Owner",
+    "reviewer": "Migration Lead"
+  },
+  "status": "reviewed",
+  "accepted": true,
+  "reviewed_at": "2026-08-19T16:15:00+09:00",
+  "context": {
+    "organization": "Aster Loop株式会社",
+    "product": "Product Alpha R7",
+    "decision": "ADR-042",
+    "release_date": "2026-07-13"
+  },
+  "follow_up": {
+    "ticket": "TS-1015",
+    "action": "publish reconciled evidence"
+  }
+}

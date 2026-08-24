@@ -1,0 +1,18 @@
+{
+  "record_type": "cloud_working_copy",
+  "state": "draft",
+  "source_id": "p01-src-008324",
+  "cloud_record_id": "BETA-R4-CLOUD-008324",
+  "organization": "Aster Loop株式会社",
+  "product": "Product Beta R4",
+  "schema_freeze": "2026-09-04",
+  "contract_tests": {
+    "total": 1240,
+    "passed": 1231,
+    "failed": 9,
+    "pass_rate_percent": 99.27
+  },
+  "design_target_p95_ms": 225,
+  "updated_at": "2026-08-09T13:15:00+09:00",
+  "review_note": "Individual working copy; not a team-shared accepted record."
+}

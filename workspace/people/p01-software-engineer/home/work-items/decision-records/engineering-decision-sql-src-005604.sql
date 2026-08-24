@@ -1,0 +1,3 @@
+-- Synthetic engineering decision lifecycle record p01-src-005604
+CREATE TABLE IF NOT EXISTS decision_lifecycle (record_id TEXT PRIMARY KEY, adr_id TEXT NOT NULL, product TEXT NOT NULL, status TEXT NOT NULL, owner_role TEXT NOT NULL, service TEXT NOT NULL, decision_date TEXT NOT NULL, rationale TEXT NOT NULL);
+INSERT INTO decision_lifecycle (record_id, adr_id, product, status, owner_role, service, decision_date, rationale) VALUES ('p01-src-005604', 'ADR-B4-033', 'Product Beta R4', 'closed', 'Decision Owner', 'svc-edge-api', '2026-08-17', 'Adopt bounded retry budget with the ADR-042 approval boundary.');

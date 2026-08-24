@@ -1,0 +1,2 @@
+export_id	source_id	generated_at	project	service	status	latency_ms
+EXP-26Q3-004392	p01-src-004392	2026-08-25T08:24:00+09:00	Product Alpha R7	svc-decision-store	reviewed	184

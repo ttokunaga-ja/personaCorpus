@@ -1,0 +1,18 @@
+{
+  "artifact_id": "p01-full-005392",
+  "source_id": "p01-src-005392",
+  "inbox_event": "INBOX-005392",
+  "status": "unreviewed-inbox",
+  "received_at": "2026-07-17T09:15:00+09:00",
+  "subject": "BETA-R4 incoming engineering material 005392",
+  "release": "BETA-R4",
+  "services": [
+    "svc-release-coordinator",
+    "svc-decision-store"
+  ],
+  "metrics": {
+    "p95_ms": 186,
+    "slo_ceiling_ms": 200
+  },
+  "accepted": false
+}

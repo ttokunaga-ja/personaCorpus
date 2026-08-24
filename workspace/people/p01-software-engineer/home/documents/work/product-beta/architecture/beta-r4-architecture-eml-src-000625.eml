@@ -1,0 +1,11 @@
+From: Architecture Review <architecture-review@aster-loop.invalid>
+To: Platform Engineer <platform-engineer@aster-loop.invalid>
+Subject: [BETA-R4] ADR-B4-029 review record 000625
+Date: Mon, 17 Aug 2026 09:25:00 +0900
+Message-ID: <beta-r4-000625@aster-loop.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+Aster Loop株式会社 / BETA-R4 / ADR-B4-029 / architecture review 2026-08-17 / design p95 budget 225 ms
+
+The review records command routing boundary at command router. The 225 ms value is a design budget, not an observed production result.

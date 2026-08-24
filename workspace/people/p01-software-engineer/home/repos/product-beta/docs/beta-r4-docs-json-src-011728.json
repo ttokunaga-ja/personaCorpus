@@ -1,0 +1,20 @@
+{
+  "record_id": "BETA-DOC-011728",
+  "product": "Product Beta R4",
+  "service": "svc-observability",
+  "topic": "runbook rehearsal",
+  "status": "reviewed",
+  "milestones": {
+    "architecture_review": "2026-08-17",
+    "schema_freeze": "2026-09-04",
+    "target_release": "2026-09-28"
+  },
+  "quality": {
+    "total_contract_tests": 1240,
+    "passed": 1231,
+    "failed": 9,
+    "pass_rate_percent": 99.27
+  },
+  "latency_budget_ms": 225,
+  "endpoint": "/v4/beta/15/records"
+}

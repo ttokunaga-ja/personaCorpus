@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<engineeringMail id="MSG-2026Q3-005359" artifact="p01-full-005359" synthetic="true">
+  <from role="Platform Engineer" address="platform-engineer@aster-loop.invalid"/>
+  <to role="API Steward" address="api-steward@aster-loop.invalid"/>
+  <sentAt>2026-09-12T10:19:00+09:00</sentAt>
+  <subject>contract-test variance</subject>
+  <project>BETA-R4</project>
+  <facts betaDesignP95Ms="225" contractTestsTotal="1240"/>
+  <status>reviewed</status>
+</engineeringMail>

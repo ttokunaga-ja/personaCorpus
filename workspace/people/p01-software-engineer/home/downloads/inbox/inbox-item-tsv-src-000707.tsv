@@ -1,0 +1,2 @@
+inbox_event	source_id	release	status	observed_p95_ms	accepted
+INBOX-000707	p01-src-000707	ALPHA-R7	unreviewed-inbox	186	false

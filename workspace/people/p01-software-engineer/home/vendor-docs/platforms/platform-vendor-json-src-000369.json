@@ -1,0 +1,25 @@
+{
+  "evaluation_id": "VND-26Q3-130",
+  "source_id": "p01-src-000369",
+  "vendor": "Platform Juniper",
+  "review_date": "2026-07-12",
+  "track": "release coordination",
+  "trial_p95_ms": 172,
+  "observed_availability_pct": 99.8,
+  "evidence_coverage_pct": 90,
+  "recommendation": "retain for comparative review",
+  "organization": "Aster Loop株式会社",
+  "synthetic": true,
+  "evidence": [
+    {
+      "category": "interface",
+      "status": "reviewed",
+      "note": "scenario-12"
+    },
+    {
+      "category": "operations",
+      "status": "reviewed",
+      "note": "window-0"
+    }
+  ]
+}

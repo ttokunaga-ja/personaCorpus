@@ -1,0 +1,18 @@
+{
+  "contract_id": "API-B4-7325",
+  "release": "BETA-R4",
+  "schema_freeze": "2026-09-04",
+  "service": "svc-observability",
+  "route": "compatibility-rules",
+  "state": "reviewed",
+  "test_reconciliation": {
+    "total": 1240,
+    "passed": 1231,
+    "failed": 9,
+    "pass_rate_percent": 99.27
+  },
+  "provenance": {
+    "artifact_id": "p01-full-007325",
+    "source_id": "p01-src-007325"
+  }
+}

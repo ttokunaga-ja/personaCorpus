@@ -1,0 +1,2 @@
+contract_id	release	resource	operation	status	p95_ms	slo_ms	reviewed_on
+API-A7-0262	ALPHA-R7	event-deliveries	publish	reviewed	177	200	2026-07-20

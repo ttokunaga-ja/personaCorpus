@@ -1,0 +1,2 @@
+artifact_id,source_id,service,topic,release,decision,observed_p95_ms,slo_ceiling_ms
+p01-full-005697,p01-src-005697,svc-event-bus,request tracing,ALPHA-R7,ADR-042,184,200

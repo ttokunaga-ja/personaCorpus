@@ -1,0 +1,6 @@
+API-B4-1063 Product Beta R4 API contract note
+Freeze date: 2026-09-04
+Service: svc-contract-registry
+Route: contract-registry
+State: released
+Tests: 1240 total; 1231 pass; 9 fail; rate 99.27%.

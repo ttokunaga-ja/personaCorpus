@@ -1,0 +1,2 @@
+review_id	reviewed_at	service	focus	disposition	review_elapsed_minutes	checks_executed	checks_passed
+CR-B4-005045	2026-08-09T10:00:00+09:00	svc-edge-api	error boundary propagation	approved with notes	400	35	34

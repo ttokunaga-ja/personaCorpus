@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<engineeringMail id="MSG-2026Q3-004102" artifact="p01-full-004102" synthetic="true">
+  <from role="Migration Lead" address="migration-lead@aster-loop.invalid"/>
+  <to role="Release Coordinator" address="release-coordinator@aster-loop.invalid"/>
+  <sentAt>2026-09-15T10:22:00+09:00</sentAt>
+  <subject>release-gate evidence review</subject>
+  <project>BETA-R4</project>
+  <facts betaDesignP95Ms="225" contractTestsTotal="1240"/>
+  <status>reviewed</status>
+</engineeringMail>

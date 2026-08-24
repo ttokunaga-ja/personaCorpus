@@ -1,0 +1,2 @@
+2026-07-20T09:44:00+09:00 INFO decision_lifecycle record=p01-src-004904 adr=ADR-129 status=closed service=svc-decision-store event=reviewed
+2026-07-20T09:45:00+09:00 INFO evidence_window alpha_p95_ms=184 ceiling_ms=200 approval_boundary=release-coordinator_to_decision-store

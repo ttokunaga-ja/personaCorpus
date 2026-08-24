@@ -1,0 +1,21 @@
+{
+  "message_id": "MSG-2026Q3-006559",
+  "artifact_id": "p01-full-006559",
+  "from": {
+    "role": "Platform Engineer",
+    "address": "platform-engineer@aster-loop.invalid"
+  },
+  "to": {
+    "role": "API Steward",
+    "address": "api-steward@aster-loop.invalid"
+  },
+  "sent_at": "2026-09-08T09:19:00+09:00",
+  "subject": "release-gate evidence review",
+  "project": "BETA-R4",
+  "status": "reviewed",
+  "facts": {
+    "beta_design_p95_ms": 225,
+    "contract_tests_total": 1240
+  },
+  "synthetic": true
+}

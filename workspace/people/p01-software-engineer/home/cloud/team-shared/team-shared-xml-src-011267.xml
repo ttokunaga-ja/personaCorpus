@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<teamSharedRecord id="p01-full-011267" source="p01-src-011267" status="reviewed"><subject>migration wave readiness</subject><ownership><owner>Migration Lead</owner><reviewer>Platform Engineer</reviewer></ownership><context product="Product Alpha R7" decision="ADR-042" releaseDate="2026-07-13"/><reviewedAt>2026-08-17T12:15:00+09:00</reviewedAt><outcome>accepted collaboration copy</outcome></teamSharedRecord>

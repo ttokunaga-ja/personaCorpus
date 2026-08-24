@@ -1,0 +1,19 @@
+# ADR-049: idempotency key format
+
+- Record: p01-src-004426
+- Product: Product Alpha R7
+- Status: reviewed
+- Decision date: 2026-07-20
+- Owner role: Release Coordinator
+
+## Context
+
+Aster Loop株式会社 maintains an asynchronous release gate. This decision records how svc-observability will apply a idempotency key format while preserving the ADR-042 approval boundary. The Alpha evidence window measured p95 184 ms against a 200 ms target; Beta uses a 225 ms design budget.
+
+## Decision
+
+Adopt the idempotency key format for svc-observability. The implementation emits a decision record with the stable identifier ADR-049, a lifecycle status of reviewed, and an auditable rationale. No individual mailbox, credential, or customer identifier is stored in this record.
+
+## Consequences
+
+Reviewers compare release-gate evidence, compatibility results, and rollback-drill observations before changing the lifecycle state. The choice keeps Product Alpha R7 and Product Beta R4 terminology aligned across engineering records.

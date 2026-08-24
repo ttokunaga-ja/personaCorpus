@@ -1,0 +1,3 @@
+2026-08-17T09:00:00+09:00 INFO record=BETA-DOC-001438 service=svc-observability event=documentation_review status=reviewed
+2026-08-17T09:00:02+09:00 INFO record=BETA-DOC-001438 metric=contract_tests total=1240 passed=1231 failed=9
+2026-08-17T09:00:03+09:00 INFO record=BETA-DOC-001438 metric=design_p95_budget value=225 unit=ms

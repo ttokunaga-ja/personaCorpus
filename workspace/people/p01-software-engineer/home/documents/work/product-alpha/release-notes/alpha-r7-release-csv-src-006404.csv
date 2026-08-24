@@ -1,0 +1,2 @@
+artifact_id,source_id,record_id,release_date,component,status,observed_p95_ms,requests,successful,unsuccessful
+p01-full-006404,p01-src-006404,REL-A7-20260717-03,2026-07-13,observability-confirmation,released,184,84200,84149,51

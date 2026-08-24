@@ -1,0 +1,12 @@
+evaluation_id: VND-26Q3-194
+source_id: p01-src-003313
+vendor: Platform Juniper
+organization: Aster Loop株式会社
+review_date: 2026-08-04
+track: schema governance
+metrics:
+  trial_p95_ms: 176
+  observed_availability_pct: 99.88
+  evidence_coverage_pct: 94
+recommendation: retain for comparative review
+synthetic: true

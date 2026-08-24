@@ -1,0 +1,2 @@
+{"record":"team_shared_review","artifact_id":"p01-full-008801","source_id":"p01-src-008801","owner":"Decision Owner","status":"reviewed","reviewed_at":"2026-08-15T14:15:00+09:00"}
+{"record":"acceptance","reviewer":"Migration Lead","subject":"rollback drill follow-up","reference":"TS-1165","decision":"ADR-042 retained"}

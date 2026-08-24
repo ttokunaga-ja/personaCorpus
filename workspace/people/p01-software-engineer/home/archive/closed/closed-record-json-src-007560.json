@@ -1,0 +1,10 @@
+{
+  "record_id": "ARC-26Q3-007560",
+  "source_id": "p01-src-007560",
+  "project": "ALPHA-R7",
+  "state": "closed",
+  "closed_on": "2026-07-18",
+  "owner_role": "Release Coordinator",
+  "service": "svc-edge-api",
+  "immutable": true
+}

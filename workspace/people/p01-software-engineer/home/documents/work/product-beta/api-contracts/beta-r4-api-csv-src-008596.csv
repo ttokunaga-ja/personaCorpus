@@ -1,0 +1,2 @@
+contract_id,release,schema_freeze,service,route,state,tests_total,tests_pass,tests_fail
+API-B4-8596,BETA-R4,2026-09-04,svc-event-bus,schema-reviews,planned,1240,1231,9

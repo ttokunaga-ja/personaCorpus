@@ -1,0 +1,15 @@
+From: Platform Engineer <platform-engineer@aster-loop.invalid>
+To: Release Coordinator <release-coordinator@aster-loop.invalid>
+Subject: [CR-B4-003927] review disposition: approved
+Date: 2026-08-30T10:00:00+09:00
+Message-ID: <cr-b4-003927@aster-loop.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+Review CR-B4-003927 covers svc-decision-store and schema compatibility.
+
+Disposition: approved
+Review elapsed measure: 400 minutes.
+Evidence: 33 checks recorded for synthetic commit synthetic-000f57; 32 passed.
+
+Please retain this as a role-to-role synthetic review record.

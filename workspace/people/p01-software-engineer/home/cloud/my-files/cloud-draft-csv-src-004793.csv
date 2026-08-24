@@ -1,0 +1,2 @@
+state,cloud_record_id,source_id,product,schema_freeze,total_checks,passed_checks,failed_checks,target_p95_ms,updated_at
+draft,BETA-R4-CLOUD-004793,p01-src-004793,Product Beta R4,2026-09-04,1240,1231,9,225,2026-08-06T10:15:00+09:00

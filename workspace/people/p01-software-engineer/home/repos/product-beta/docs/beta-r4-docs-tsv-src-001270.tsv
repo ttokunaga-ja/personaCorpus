@@ -1,0 +1,5 @@
+record_id	service	metric	value	unit
+BETA-DOC-001270	svc-observability	contract_tests_total	1240	count
+BETA-DOC-001270	svc-observability	contract_tests_passed	1231	count
+BETA-DOC-001270	svc-observability	contract_tests_failed	9	count
+BETA-DOC-001270	svc-observability	design_p95_budget	225	ms

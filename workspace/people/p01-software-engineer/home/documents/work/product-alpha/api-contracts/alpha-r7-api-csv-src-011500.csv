@@ -1,0 +1,2 @@
+contract_id,release,resource,operation,status,p95_ms,slo_ms,reviewed_on
+API-A7-11500,ALPHA-R7,release-gates,register,reviewed,183,200,2026-07-20

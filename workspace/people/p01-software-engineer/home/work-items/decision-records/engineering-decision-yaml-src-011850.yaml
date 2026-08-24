@@ -1,0 +1,18 @@
+record_id: p01-src-011850
+adr_id: ADR-B4-110
+title: "bounded retry budget"
+organization: "Aster Loop株式会社"
+product: "Product Beta R4"
+decision_date: "2026-08-17"
+status: proposed
+owner_role: "Decision Owner"
+service: svc-edge-api
+context:
+  release_gate: "asynchronous"
+  approval_boundary: "Release Coordinator to Decision Store"
+  alpha_observed_p95_ms: 184
+  beta_design_budget_ms: 225
+decision:
+  action: "adopt"
+  subject: "bounded retry budget"
+  review_window: "2026-06-01 through 2026-09-30"

@@ -1,0 +1,2 @@
+{"artifact_id":"p01-full-002558","event":"documentation_checked","service":"svc-decision-store","timestamp":"2026-07-20T09:38:00+09:00"}
+{"decision":"ADR-042","event":"release_gate_reference","p95_ms":184,"timestamp":"2026-07-20T09:39:00+09:00","topic":"schema review"}

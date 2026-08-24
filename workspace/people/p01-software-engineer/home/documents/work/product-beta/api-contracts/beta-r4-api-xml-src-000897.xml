@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<apiContract id="API-B4-0897" release="BETA-R4" schemaFreeze="2026-09-04"><service>svc-decision-store</service><route>evidence-snapshots</route><state>reviewed</state><tests total="1240" passed="1231" failed="9" passRatePercent="99.27"/></apiContract>

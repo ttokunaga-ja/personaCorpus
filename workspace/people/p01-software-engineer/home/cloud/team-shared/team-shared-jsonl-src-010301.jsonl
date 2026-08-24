@@ -1,0 +1,2 @@
+{"record":"team_shared_review","artifact_id":"p01-full-010301","source_id":"p01-src-010301","owner":"Observability Lead","status":"reviewed","reviewed_at":"2026-08-16T13:15:00+09:00"}
+{"record":"acceptance","reviewer":"API Steward","subject":"contract compatibility handoff","reference":"TS-1188","decision":"ADR-042 retained"}

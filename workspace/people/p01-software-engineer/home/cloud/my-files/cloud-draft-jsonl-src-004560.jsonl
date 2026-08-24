@@ -1,0 +1,2 @@
+{"timestamp":"2026-08-25T09:15:00+09:00","state":"draft","event":"cloud_working_copy_saved","source_id":"p01-src-004560","record_id":"BETA-R4-CLOUD-004560","product":"Product Beta R4"}
+{"timestamp":"2026-08-25T09:15:00+09:00","state":"draft","event":"check_counts_reconciled","total":1240,"passed":1231,"failed":9}

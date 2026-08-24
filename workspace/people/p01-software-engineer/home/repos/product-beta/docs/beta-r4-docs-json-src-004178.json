@@ -1,0 +1,20 @@
+{
+  "record_id": "BETA-DOC-004178",
+  "product": "Product Beta R4",
+  "service": "svc-decision-store",
+  "topic": "event replay",
+  "status": "approved",
+  "milestones": {
+    "architecture_review": "2026-08-17",
+    "schema_freeze": "2026-09-04",
+    "target_release": "2026-09-28"
+  },
+  "quality": {
+    "total_contract_tests": 1240,
+    "passed": 1231,
+    "failed": 9,
+    "pass_rate_percent": 99.27
+  },
+  "latency_budget_ms": 225,
+  "endpoint": "/v4/beta/13/records"
+}

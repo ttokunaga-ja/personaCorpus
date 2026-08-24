@@ -1,0 +1,23 @@
+{
+  "schema": "aster-loop.team-shared/v1",
+  "artifact_id": "p01-full-009467",
+  "source_id": "p01-src-009467",
+  "subject": "migration wave readiness",
+  "ownership": {
+    "owner": "Migration Lead",
+    "reviewer": "Platform Engineer"
+  },
+  "status": "reviewed",
+  "accepted": true,
+  "reviewed_at": "2026-08-11T14:15:00+09:00",
+  "context": {
+    "organization": "Aster Loop株式会社",
+    "product": "Product Alpha R7",
+    "decision": "ADR-042",
+    "release_date": "2026-07-13"
+  },
+  "follow_up": {
+    "ticket": "TS-1029",
+    "action": "publish reconciled evidence"
+  }
+}

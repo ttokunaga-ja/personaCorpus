@@ -1,0 +1,9 @@
+From: release-coordinator@aster-loop.invalid
+To: platform-engineer@aster-loop.invalid
+Subject: [ALPHA-R7] release gate behavior reference p01-full-002026
+Date: Mon, 20 Jul 2026 09:46:00 +0900
+Message-ID: <p01-full-002026@aster-loop.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+The svc-observability documentation reference confirms ADR-042 remains in effect. Product Alpha R7 released on 2026-07-13. The evidence path measured 184 ms p95 against the 200 ms ceiling, and the 2026-07-20 review disposition is keep.

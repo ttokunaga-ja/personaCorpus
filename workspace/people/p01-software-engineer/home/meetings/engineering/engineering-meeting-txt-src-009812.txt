@@ -1,0 +1,6 @@
+MTG-ENG-20260803-23 | observability calibration
+Date: 2026-08-03 Asia/Tokyo
+Owner: Observability Lead
+Decision: ADR-057 remains the meeting reference.
+Action: ACT-ENG-009812 assigned to API Steward; status=approved.
+Measure: 200 ms.

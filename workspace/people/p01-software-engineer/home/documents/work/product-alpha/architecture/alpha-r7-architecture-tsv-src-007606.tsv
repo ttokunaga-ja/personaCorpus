@@ -1,0 +1,3 @@
+record_id	observed_on	service	decision	p95_ms	slo_ceiling_ms	state
+ARCH-A7-007606	2026-07-29	svc-observability	ADR-045	182	200	reviewed
+ARCH-A7-007606-gate	2026-07-29	svc-release-coordinator	ADR-042	184	200	released

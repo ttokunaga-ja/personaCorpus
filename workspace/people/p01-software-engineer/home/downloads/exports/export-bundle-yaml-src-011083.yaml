@@ -1,0 +1,11 @@
+schema: aster-loop.synthetic-tool-export/v1
+export_id: EXP-26Q3-011083
+generated_at: "2026-08-24T12:01:00+09:00"
+organization: "Aster Loop株式会社"
+source_id: p01-src-011083
+scope: downloads/exports
+project: "Product Beta R4"
+service: svc-event-bus
+lifecycle_state: closed
+latency_ms: 225
+synthetic: true

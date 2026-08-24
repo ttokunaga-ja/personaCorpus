@@ -1,0 +1,13 @@
+inbox_event: INBOX-010115
+status: unreviewed-inbox
+source_id: p01-src-010115
+artifact_id: p01-full-010115
+release: ALPHA-R7
+received_at: '2026-07-08T16:15:00+09:00'
+accepted: false
+services:
+  - svc-release-coordinator
+  - svc-observability
+metric:
+  p95_ms: 184
+  slo_ceiling_ms: 200

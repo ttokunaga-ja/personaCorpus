@@ -1,0 +1,2 @@
+source_id,review_id,release,review_date,component,allocated_ms,design_budget_ms
+p01-src-006072,ADR-B4-103,BETA-R4,2026-08-17,"edge intake",162,225

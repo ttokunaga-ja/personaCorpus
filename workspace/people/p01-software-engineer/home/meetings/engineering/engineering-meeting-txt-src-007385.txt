@@ -1,0 +1,6 @@
+MTG-ENG-20260824-88 | decision follow-up
+Date: 2026-08-24 Asia/Tokyo
+Owner: Decision Owner
+Decision: ADR-B4-031 remains the meeting reference.
+Action: ACT-ENG-007385 assigned to Platform Engineer; status=approved.
+Measure: 225 ms.

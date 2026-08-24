@@ -1,0 +1,11 @@
+meeting_id: MTG-ENG-20260914-37
+title: migration rehearsal
+organization: Aster Loop株式会社
+product: Migration program
+date: 2026-09-14
+reference: MIG-26Q3-W04
+measure: 45m
+action:
+  id: ACT-ENG-008313
+  owner_role: Migration Lead
+  status: planned

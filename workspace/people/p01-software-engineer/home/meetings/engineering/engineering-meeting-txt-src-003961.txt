@@ -1,0 +1,6 @@
+MTG-ENG-20260904-46 | contract readiness
+Date: 2026-09-04 Asia/Tokyo
+Owner: API Steward
+Decision: API-B4-120 remains the meeting reference.
+Action: ACT-ENG-003961 assigned to Decision Owner; status=reviewed.
+Measure: 225 ms.

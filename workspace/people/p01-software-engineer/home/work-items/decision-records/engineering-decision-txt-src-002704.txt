@@ -1,0 +1,8 @@
+Engineering decision lifecycle note
+Record: p01-src-002704
+ADR: ADR-118
+Product: Product Alpha R7
+Status: closed
+Service: svc-observability
+
+Aster Loop株式会社 records idempotency key format. The release gate remains asynchronous and retains the ADR-042 approval boundary. Synthetic Alpha evidence is 184 ms p95 against the 200 ms ceiling.

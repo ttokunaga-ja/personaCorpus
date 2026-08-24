@@ -1,0 +1,18 @@
+review_id: CR-B4-003083
+project: Product Beta R4
+reviewed_at: 2026-07-21T10:00:00+09:00
+service: svc-event-bus
+focus: latency budget accounting
+disposition: commented
+review_elapsed_minutes: 400
+change_summary:
+  files_changed: 8
+  synthetic_commit: synthetic-000c0b
+checks:
+  executed: 26
+  passed: 25
+comments:
+  - category: maintainability
+    resolution: tracked in review
+  - category: observability
+    resolution: accepted note

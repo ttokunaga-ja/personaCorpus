@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<betaDocumentation recordId="BETA-DOC-003733" status="reviewed">
+  <product>Product Beta R4</product>
+  <service>svc-release-coordinator</service>
+  <topic>schema compatibility</topic>
+  <milestones architectureReview="2026-08-17" schemaFreeze="2026-09-04" targetRelease="2026-09-28"/>
+  <quality totalTests="1240" passed="1231" failed="9" passRatePercent="99.27"/>
+  <latency budgetMs="225"/>
+</betaDocumentation>

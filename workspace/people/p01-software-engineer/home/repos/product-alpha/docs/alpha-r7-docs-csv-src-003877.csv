@@ -1,0 +1,2 @@
+artifact_id,source_id,service,topic,release,decision,observed_p95_ms,slo_ceiling_ms
+p01-full-003877,p01-src-003877,svc-release-coordinator,evidence capture,ALPHA-R7,ADR-042,184,200

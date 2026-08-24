@@ -1,0 +1,3 @@
+2026-09-12T09:00:00+09:00 INFO architecture-review record=ARCH-A7-000337 service=svc-release-coordinator decision=ADR-139
+2026-09-12T09:01:00+09:00 INFO release-gate mode=asynchronous approval_boundary=release-coordinator_to_decision-store
+2026-09-12T09:02:00+09:00 INFO latency observed_p95_ms=190 slo_ceiling_ms=200 state=approved

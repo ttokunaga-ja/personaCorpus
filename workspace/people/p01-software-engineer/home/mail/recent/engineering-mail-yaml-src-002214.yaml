@@ -1,0 +1,13 @@
+message_id: MSG-2026Q3-002214
+artifact_id: p01-full-002214
+synthetic: true
+from:
+  role: Release Coordinator
+  address: release-coordinator@aster-loop.invalid
+to:
+  role: Observability Lead
+  address: observability-lead@aster-loop.invalid
+sent_at: "2026-09-03T09:54:00+09:00"
+subject: "migration wave handoff"
+project: BETA-R4
+status: reviewed

@@ -1,0 +1,12 @@
+evaluation_id: VND-26Q3-112
+source_id: p01-src-002511
+vendor: Platform Quartz
+organization: Aster Loop株式会社
+review_date: 2026-07-18
+track: release coordination
+metrics:
+  trial_p95_ms: 158
+  observed_availability_pct: 99.74
+  evidence_coverage_pct: 90
+recommendation: hold pending interface validation
+synthetic: true

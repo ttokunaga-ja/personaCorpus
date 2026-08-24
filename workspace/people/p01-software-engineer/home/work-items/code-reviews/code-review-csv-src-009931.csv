@@ -1,0 +1,2 @@
+review_id,reviewed_at,service,focus,disposition,review_elapsed_minutes,checks_executed,checks_passed
+CR-B4-009931,2026-08-04T10:00:00+09:00,svc-release-coordinator,idempotent event handling,changes requested,400,23,22

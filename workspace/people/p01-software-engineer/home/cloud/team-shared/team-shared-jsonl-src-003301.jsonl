@@ -1,0 +1,2 @@
+{"record":"team_shared_review","artifact_id":"p01-full-003301","source_id":"p01-src-003301","owner":"Platform Engineer","status":"reviewed","reviewed_at":"2026-08-17T16:15:00+09:00"}
+{"record":"acceptance","reviewer":"Decision Owner","subject":"service catalog review","reference":"TS-1079","decision":"ADR-042 retained"}

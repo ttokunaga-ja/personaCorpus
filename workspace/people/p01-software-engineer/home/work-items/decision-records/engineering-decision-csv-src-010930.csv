@@ -1,0 +1,3 @@
+record_id,adr_id,product,status,owner_role,service,decision_date,metric_ms
+p01-src-010930,ADR-185,Product Alpha R7,proposed,Release Coordinator,svc-observability,2026-07-20,184
+p01-src-010930-review,ADR-185,Product Alpha R7,reviewed,Release Coordinator,svc-observability,2026-07-20,200

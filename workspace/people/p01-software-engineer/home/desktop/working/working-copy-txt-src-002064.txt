@@ -1,0 +1,2 @@
+2026-06-13T09:10:00+09:00 INFO source=p01-src-002064 state=draft event=working_copy_opened
+2026-06-13T09:14:00+09:00 INFO issue=ALW-3064 service=svc-edge-api working_latency_ms=193 alpha_reference_p95_ms=184

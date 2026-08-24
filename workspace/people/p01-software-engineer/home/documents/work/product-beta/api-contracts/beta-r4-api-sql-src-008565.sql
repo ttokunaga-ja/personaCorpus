@@ -1,0 +1,2 @@
+CREATE TABLE beta_r4_contract_8565 (contract_id TEXT PRIMARY KEY, schema_freeze DATE NOT NULL, service_name TEXT NOT NULL, route_name TEXT NOT NULL, test_total INTEGER NOT NULL CHECK (test_total = 1240), test_pass INTEGER NOT NULL CHECK (test_pass = 1231), test_fail INTEGER NOT NULL CHECK (test_fail = 9));
+INSERT INTO beta_r4_contract_8565 (contract_id, schema_freeze, service_name, route_name, test_total, test_pass, test_fail) VALUES ('API-B4-8565', '2026-09-04', 'svc-decision-store', 'evidence-snapshots', 1240, 1231, 9);

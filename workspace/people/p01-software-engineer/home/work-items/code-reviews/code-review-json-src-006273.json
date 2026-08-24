@@ -1,0 +1,30 @@
+{
+  "review_id": "CR-B4-006273",
+  "project": "Product Beta R4",
+  "reviewed_at": "2026-08-31T10:00:00+09:00",
+  "service": "svc-event-bus",
+  "focus": "latency budget accounting",
+  "disposition": "commented",
+  "review_elapsed_minutes": 400,
+  "change_summary": {
+    "files_changed": 6,
+    "synthetic_commit": "synthetic-001881"
+  },
+  "checks": {
+    "executed": 23,
+    "passed": 22,
+    "review_gate": "evidence recorded"
+  },
+  "comments": [
+    {
+      "thread": 1,
+      "category": "maintainability",
+      "resolution": "tracked in review"
+    },
+    {
+      "thread": 2,
+      "category": "observability",
+      "resolution": "accepted note"
+    }
+  ]
+}

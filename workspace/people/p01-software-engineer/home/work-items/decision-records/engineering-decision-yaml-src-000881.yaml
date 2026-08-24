@@ -1,0 +1,18 @@
+record_id: p01-src-000881
+adr_id: ADR-086
+title: "rollback rehearsal cadence"
+organization: "Aster Loop株式会社"
+product: "Product Alpha R7"
+decision_date: "2026-07-20"
+status: reviewed
+owner_role: "Migration Lead"
+service: svc-contract-registry
+context:
+  release_gate: "asynchronous"
+  approval_boundary: "Release Coordinator to Decision Store"
+  alpha_observed_p95_ms: 184
+  beta_design_budget_ms: 225
+decision:
+  action: "adopt"
+  subject: "rollback rehearsal cadence"
+  review_window: "2026-06-01 through 2026-09-30"

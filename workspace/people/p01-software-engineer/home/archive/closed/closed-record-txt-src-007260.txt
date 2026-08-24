@@ -1,0 +1,11 @@
+Closed archive record ARC-26Q3-007260
+source_id=p01-src-007260
+project=ALPHA-R7
+state=closed
+closed_on=2026-07-18
+owner_role=Release Coordinator
+service=svc-edge-api
+decision=archived immutable snapshot
+evidence=synthetic reconciliation complete
+alpha_reference=ADR-042 retains asynchronous release gate when applicable
+retention=do not modify; create a linked successor record for changes

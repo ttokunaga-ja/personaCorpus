@@ -1,0 +1,25 @@
+{
+  "evaluation_id": "VND-26Q3-169",
+  "source_id": "p01-src-001368",
+  "vendor": "Platform Helix",
+  "review_date": "2026-07-03",
+  "track": "event routing",
+  "trial_p95_ms": 191,
+  "observed_availability_pct": 99.73,
+  "evidence_coverage_pct": 81,
+  "recommendation": "advance to controlled trial",
+  "organization": "Aster Loop株式会社",
+  "synthetic": true,
+  "evidence": [
+    {
+      "category": "interface",
+      "status": "reviewed",
+      "note": "scenario-8"
+    },
+    {
+      "category": "operations",
+      "status": "reviewed",
+      "note": "window-0"
+    }
+  ]
+}

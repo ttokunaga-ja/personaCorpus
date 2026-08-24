@@ -1,0 +1,2 @@
+evaluation_id,vendor,review_date,track,trial_p95_ms,availability_pct,evidence_coverage_pct,recommendation
+VND-26Q3-023,Meridian,2026-08-25,operational telemetry,185,99.81,82,request evidence clarification

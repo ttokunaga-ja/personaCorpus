@@ -1,0 +1,6 @@
+MTG-ENG-20260914-21 | migration rehearsal
+Date: 2026-09-14 Asia/Tokyo
+Owner: Migration Lead
+Decision: MIG-26Q3-W04 remains the meeting reference.
+Action: ACT-ENG-003135 assigned to Migration Lead; status=planned.
+Measure: 45m.

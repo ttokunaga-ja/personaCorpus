@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<teamSharedRecord id="p01-full-000190" source="p01-src-000190" status="reviewed"><subject>service catalog review</subject><ownership><owner>Platform Engineer</owner><reviewer>Decision Owner</reviewer></ownership><context product="Product Alpha R7" decision="ADR-042" releaseDate="2026-07-13"/><reviewedAt>2026-08-05T10:15:00+09:00</reviewedAt><outcome>accepted collaboration copy</outcome></teamSharedRecord>

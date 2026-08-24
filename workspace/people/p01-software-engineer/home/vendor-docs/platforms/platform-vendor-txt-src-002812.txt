@@ -1,0 +1,7 @@
+VND-26Q3-173 / Platform Helix
+
+VND-26Q3-173 evaluates Platform Helix for operational telemetry in the Aster Loop Product Engineering portfolio. The synthetic review on 2026-08-07 recorded a 165 ms p95 trial response, 99.81% observed availability, and 97% evidence coverage. The review disposition is “advance to controlled trial”; this is comparative planning evidence, not a production service commitment.
+
+Review owner: Platform Engineer
+Evidence classification: synthetic comparative record
+Follow-up: interface walkthrough and release-gate fit review

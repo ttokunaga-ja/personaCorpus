@@ -1,0 +1,2 @@
+{"timestamp": "2026-09-02T09:10:00+09:00", "level": "info", "source_id": "p01-src-002431", "event": "working_copy_opened", "state": "revised"}
+{"timestamp": "2026-09-02T09:14:00+09:00", "level": "info", "issue_id": "ALW-3431", "event": "latency_compared", "working_ms": 190, "reference_ms": 184}

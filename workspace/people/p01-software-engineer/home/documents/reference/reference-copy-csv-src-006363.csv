@@ -1,0 +1,3 @@
+reference_id,source_id,subject,review_date,status,metric,unit,value
+REF-26Q3-006363,p01-src-006363,Product Alpha R7,2026-09-04,reviewed,alpha_p95,ms,184
+REF-26Q3-006363,p01-src-006363,Product Alpha R7,2026-09-04,reviewed,beta_design_budget,ms,225

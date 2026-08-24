@@ -1,0 +1,2 @@
+source_id,artifact_id,state,issue_id,service,review_date,working_latency_ms,alpha_reference_p95_ms
+p01-src-011072,p01-full-011072,draft,ALW-12072,svc-decision-store,2026-06-03,173,184

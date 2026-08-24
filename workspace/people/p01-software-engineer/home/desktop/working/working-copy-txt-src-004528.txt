@@ -1,0 +1,2 @@
+2026-06-20T09:10:00+09:00 INFO source=p01-src-004528 state=draft event=working_copy_opened
+2026-06-20T09:14:00+09:00 INFO issue=ALW-5528 service=svc-observability working_latency_ms=178 alpha_reference_p95_ms=184

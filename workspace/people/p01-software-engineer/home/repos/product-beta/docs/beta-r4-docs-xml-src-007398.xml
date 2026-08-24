@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<betaDocumentation recordId="BETA-DOC-007398" status="draft">
+  <product>Product Beta R4</product>
+  <service>svc-edge-api</service>
+  <topic>deployment handoff</topic>
+  <milestones architectureReview="2026-08-17" schemaFreeze="2026-09-04" targetRelease="2026-09-28"/>
+  <quality totalTests="1240" passed="1231" failed="9" passRatePercent="99.27"/>
+  <latency budgetMs="225"/>
+</betaDocumentation>

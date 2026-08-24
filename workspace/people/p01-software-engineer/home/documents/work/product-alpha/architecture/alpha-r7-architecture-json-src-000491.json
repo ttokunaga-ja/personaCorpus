@@ -1,0 +1,21 @@
+{
+  "record_id": "ARCH-A7-000491",
+  "source_id": "p01-src-000491",
+  "artifact_id": "p01-full-000491",
+  "organization": "Aster Loop",
+  "product": "Product Alpha R7",
+  "observed_on": "2026-07-21",
+  "service": "svc-contract-registry",
+  "decision": "ADR-094",
+  "release_gate": {
+    "mode": "asynchronous",
+    "approval_boundary": "release-coordinator_to_decision-store"
+  },
+  "latency": {
+    "p95_ms": 192,
+    "slo_ceiling_ms": 200
+  },
+  "state": "reviewed",
+  "canonical_family": "structured_text",
+  "notes": "synthetic architecture evidence"
+}

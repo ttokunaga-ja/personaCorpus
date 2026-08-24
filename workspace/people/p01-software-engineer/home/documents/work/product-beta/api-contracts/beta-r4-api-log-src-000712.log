@@ -1,0 +1,1 @@
+2026-09-04T09:52:00+09:00 INFO contract=API-B4-0712 event=schema_freeze state=planned service=svc-event-bus tests_total=1240 tests_pass=1231 tests_fail=9

@@ -1,0 +1,18 @@
+{
+  "contract_id": "API-B4-10896",
+  "release": "BETA-R4",
+  "schema_freeze": "2026-09-04",
+  "service": "svc-edge-api",
+  "route": "release-windows",
+  "state": "planned",
+  "test_reconciliation": {
+    "total": 1240,
+    "passed": 1231,
+    "failed": 9,
+    "pass_rate_percent": 99.27
+  },
+  "provenance": {
+    "artifact_id": "p01-full-010896",
+    "source_id": "p01-src-010896"
+  }
+}

@@ -1,0 +1,3 @@
+record_id,observed_on,service,decision,p95_ms,slo_ceiling_ms,state
+ARCH-A7-002500,2026-07-29,svc-observability,ADR-113,187,200,planned
+ARCH-A7-002500-gate,2026-07-29,svc-release-coordinator,ADR-042,184,200,released

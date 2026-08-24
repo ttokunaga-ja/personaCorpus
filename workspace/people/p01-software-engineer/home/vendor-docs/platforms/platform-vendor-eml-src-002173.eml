@@ -1,0 +1,11 @@
+From: Platform Engineer <platform-engineer@aster-loop.invalid>
+To: Release Coordinator <release-coordinator@aster-loop.invalid>
+Subject: VND-26Q3-014 Platform Juniper evaluation update
+Date: 2026-08-16T10:13:00+09:00
+Message-ID: <vnd-26q3-014-2173@aster-loop.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+VND-26Q3-014 evaluates Platform Juniper for schema governance in the Aster Loop Product Engineering portfolio. The synthetic review on 2026-08-16 recorded a 163 ms p95 trial response, 99.83% observed availability, and 88% evidence coverage. The review disposition is “retain for comparative review”; this is comparative planning evidence, not a production service commitment.
+
+Next review: compare interface evidence with the synthetic release-gate criteria.

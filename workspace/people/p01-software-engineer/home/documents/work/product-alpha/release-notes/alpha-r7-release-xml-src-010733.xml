@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<releaseNote schema="aster-loop.release-note/v1" artifactId="p01-full-010733" sourceId="p01-src-010733"><recordId>REL-A7-20260718-64</recordId><organization>Aster Loop株式会社</organization><product>Product Alpha R7</product><releaseDate>2026-07-13</releaseDate><status>reviewed</status><component>event bus</component><metrics p95Ms="184" sloCeilingMs="200" requests="84200" successful="84149" unsuccessful="51"/><decision>ADR-042 keeps the asynchronous release gate</decision><synthetic>true</synthetic></releaseNote>

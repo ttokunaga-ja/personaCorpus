@@ -1,0 +1,2 @@
+source_id,artifact_id,state,issue_id,service,review_date,working_latency_ms,alpha_reference_p95_ms
+p01-src-004546,p01-full-004546,review-pending,ALW-5546,svc-observability,2026-08-11,196,184

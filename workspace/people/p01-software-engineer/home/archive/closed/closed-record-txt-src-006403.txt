@@ -1,0 +1,11 @@
+Closed archive record ARC-26Q3-006403
+source_id=p01-src-006403
+project=BETA-R4
+state=closed
+closed_on=2026-09-24
+owner_role=Platform Engineer
+service=svc-release-coordinator
+decision=archived immutable snapshot
+evidence=synthetic reconciliation complete
+alpha_reference=ADR-042 retains asynchronous release gate when applicable
+retention=do not modify; create a linked successor record for changes

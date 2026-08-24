@@ -1,0 +1,9 @@
+Aster Loop株式会社 / Product Engineering
+State: draft working copy
+Cloud record: BETA-R4-CLOUD-011885
+Source: p01-src-011885
+Updated: 2026-08-14T14:15:00+09:00
+Product Beta R4 schema-freeze reference: 2026-09-04
+
+Working note
+This is an individual cloud work-in-progress for Product Beta R4. Its review context is the 2026-09-04 schema freeze. The synthetic checks reconcile: 1,231 passed + 9 failed = 1,240. This copy has not been accepted into team-shared records.

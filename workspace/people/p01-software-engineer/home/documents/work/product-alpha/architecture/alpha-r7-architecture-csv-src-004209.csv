@@ -1,0 +1,3 @@
+record_id,observed_on,service,decision,p95_ms,slo_ceiling_ms,state
+ARCH-A7-004209,2026-07-13,svc-event-bus,ADR-031,186,200,closed
+ARCH-A7-004209-gate,2026-07-13,svc-release-coordinator,ADR-042,184,200,released

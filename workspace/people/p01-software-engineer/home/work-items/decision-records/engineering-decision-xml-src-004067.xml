@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decisionRecord id="p01-src-004067">
+  <adr>ADR-088</adr>
+  <organization>Aster Loop株式会社</organization>
+  <product>Product Alpha R7</product>
+  <date>2026-07-20</date>
+  <status>approved</status>
+  <owner role="Migration Lead"/>
+  <service>svc-contract-registry</service>
+  <decision action="adopt">rollback rehearsal cadence</decision>
+  <measure name="alpha_observed_p95_ms" value="184"/>
+</decisionRecord>

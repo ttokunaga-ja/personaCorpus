@@ -1,0 +1,8 @@
+Engineering decision lifecycle note
+Record: p01-src-001473
+ADR: ADR-B4-081
+Product: Product Beta R4
+Status: released
+Service: svc-event-bus
+
+Aster Loop株式会社 records schema compatibility gate. The release gate remains asynchronous and retains the ADR-042 approval boundary. Synthetic Alpha evidence is 184 ms p95 against the 200 ms ceiling.

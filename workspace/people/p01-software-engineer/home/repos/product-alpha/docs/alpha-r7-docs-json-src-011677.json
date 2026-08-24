@@ -1,0 +1,12 @@
+{
+  "artifact_id": "p01-full-011677",
+  "source_id": "p01-src-011677",
+  "release": "ALPHA-R7",
+  "service": "svc-release-coordinator",
+  "topic": "evidence capture",
+  "decision": "ADR-042",
+  "release_date": "2026-07-13",
+  "observed_p95_ms": 184,
+  "slo_ceiling_ms": 200,
+  "review_disposition": "keep"
+}

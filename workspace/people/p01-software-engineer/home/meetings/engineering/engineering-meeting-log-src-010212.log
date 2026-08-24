@@ -1,0 +1,2 @@
+2026-07-20T09:12:00+09:00 INFO meeting_id=MTG-ENG-20260720-67 event=agenda_opened role=Release Coordinator
+2026-07-20T10:12:00+09:00 INFO meeting_id=MTG-ENG-20260720-67 event=decision_recorded reference=ADR-042 action_id=ACT-ENG-010212

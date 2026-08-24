@@ -1,0 +1,2 @@
+artifact_id,source_id,record_id,release_date,component,status,observed_p95_ms,requests,successful,unsuccessful
+p01-full-003930,p01-src-003930,REL-A7-20260715-51,2026-07-13,release-coordinator,approved,184,84200,84149,51

@@ -1,0 +1,2 @@
+2026-07-13T09:47:00+09:00 INFO release-note artifact=p01-full-003407 record=REL-A7-20260720-13 component="decision store" status=closed
+2026-07-20T10:58:00+09:00 INFO review decision=keep-ADR-042 observed_p95_ms=184 synthetic=true

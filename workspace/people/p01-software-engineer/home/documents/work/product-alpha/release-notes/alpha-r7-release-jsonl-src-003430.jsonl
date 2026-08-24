@@ -1,0 +1,2 @@
+{"timestamp":"2026-07-13T09:00:00+09:00","artifact_id":"p01-full-003430","source_id":"p01-src-003430","record_id":"REL-A7-20260719-36","event":"release-note-published","release":"ALPHA-R7","synthetic":true}
+{"timestamp":"2026-07-20T10:00:00+09:00","record_id":"REL-A7-20260719-36","event":"post-release-review","decision":"keep ADR-042","p95_ms":184}

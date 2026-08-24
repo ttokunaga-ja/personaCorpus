@@ -1,0 +1,10 @@
+schema: aster-loop.beta-r4.architecture-review/v1
+source_id: p01-src-005381
+review_id: ADR-B4-009
+release: BETA-R4
+review_date: 2026-08-17
+subject: "schema evolution review"
+component: "evidence sink"
+design_p95_budget_ms: 225
+status: reviewed
+synthetic: true

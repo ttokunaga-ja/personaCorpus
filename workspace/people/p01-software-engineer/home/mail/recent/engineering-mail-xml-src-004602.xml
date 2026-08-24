@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<engineeringMail id="MSG-2026Q3-004602" artifact="p01-full-004602" synthetic="true">
+  <from role="Release Coordinator" address="release-coordinator@aster-loop.invalid"/>
+  <to role="Observability Lead" address="observability-lead@aster-loop.invalid"/>
+  <sentAt>2026-09-11T10:42:00+09:00</sentAt>
+  <subject>latency budget reconciliation</subject>
+  <project>BETA-R4</project>
+  <facts betaDesignP95Ms="225" contractTestsTotal="1240"/>
+  <status>reviewed</status>
+</engineeringMail>

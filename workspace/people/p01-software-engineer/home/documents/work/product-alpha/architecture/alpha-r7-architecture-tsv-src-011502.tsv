@@ -1,0 +1,3 @@
+record_id	observed_on	service	decision	p95_ms	slo_ceiling_ms	state
+ARCH-A7-011502	2026-08-30	svc-edge-api	ADR-160	183	200	approved
+ARCH-A7-011502-gate	2026-08-30	svc-release-coordinator	ADR-042	184	200	released

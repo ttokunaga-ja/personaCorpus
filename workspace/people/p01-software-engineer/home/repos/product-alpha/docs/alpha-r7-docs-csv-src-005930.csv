@@ -1,0 +1,2 @@
+artifact_id,source_id,service,topic,release,decision,observed_p95_ms,slo_ceiling_ms
+p01-full-005930,p01-src-005930,svc-decision-store,release gate behavior,ALPHA-R7,ADR-042,184,200

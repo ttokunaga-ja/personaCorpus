@@ -1,0 +1,9 @@
+From: Release Coordinator <release-coordinator@aster-loop.invalid>
+To: Platform Engineer <platform-engineer@aster-loop.invalid>
+Subject: [REL-A7-20260718-76] Product Alpha R7 reviewed note
+Date: Mon, 13 Jul 2026 09:00:00 +0900
+Message-ID: <p01-src-003373@aster-loop.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+Synthetic release-note follow-up for event bus. Product Alpha R7 released on 2026-07-13. ADR-042 keeps the asynchronous release gate. Observed p95: 184 ms, within the 200 ms ceiling.

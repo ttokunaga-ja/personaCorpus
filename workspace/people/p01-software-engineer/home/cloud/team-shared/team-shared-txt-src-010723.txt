@@ -1,0 +1,10 @@
+Aster Loop株式会社 / Product Engineering
+Team-shared accepted collaboration copy
+Artifact: p01-full-010723 (p01-src-010723)
+Subject: observability evidence packet
+Owner: API Steward
+Reviewed by: Release Coordinator
+Status: reviewed and accepted
+Review timestamp: 2026-08-24T13:15:00+09:00
+Reference: TS-1196; Product Alpha R7; ADR-042; release 2026-07-13
+Decision: retain the asynchronous release gate and record follow-up evidence in the shared packet.

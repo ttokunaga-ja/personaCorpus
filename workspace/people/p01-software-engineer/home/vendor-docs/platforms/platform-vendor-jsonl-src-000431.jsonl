@@ -1,0 +1,3 @@
+{"record_type":"evaluation","evaluation_id":"VND-26Q3-192","source_id":"p01-src-000431","vendor":"Platform Quartz","review_date":"2026-09-26","track":"migration compatibility","trial_p95_ms":185,"observed_availability_pct":99.89,"evidence_coverage_pct":89,"recommendation":"hold pending interface validation","organization":"Aster Loop株式会社","synthetic":true}
+{"record_type":"criterion","evaluation_id":"VND-26Q3-192","criterion":"interface stability","score":88}
+{"record_type":"criterion","evaluation_id":"VND-26Q3-192","criterion":"operational evidence","score":69}

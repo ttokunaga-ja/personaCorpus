@@ -1,0 +1,2 @@
+artifact_id,source_id,service,topic,release,decision,observed_p95_ms,slo_ceiling_ms
+p01-full-010877,p01-src-010877,svc-contract-registry,evidence capture,ALPHA-R7,ADR-042,184,200

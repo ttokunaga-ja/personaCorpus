@@ -1,0 +1,18 @@
+{
+  "contract_id": "API-B4-9607",
+  "release": "BETA-R4",
+  "schema_freeze": "2026-09-04",
+  "service": "svc-contract-registry",
+  "route": "contract-registry",
+  "state": "released",
+  "test_reconciliation": {
+    "total": 1240,
+    "passed": 1231,
+    "failed": 9,
+    "pass_rate_percent": 99.27
+  },
+  "provenance": {
+    "artifact_id": "p01-full-009607",
+    "source_id": "p01-src-009607"
+  }
+}

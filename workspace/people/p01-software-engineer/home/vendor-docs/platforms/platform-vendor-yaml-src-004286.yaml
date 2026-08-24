@@ -1,0 +1,12 @@
+evaluation_id: VND-26Q3-207
+source_id: p01-src-004286
+vendor: Platform Meridian
+organization: Aster Loop株式会社
+review_date: 2026-09-17
+track: audit export
+metrics:
+  trial_p95_ms: 169
+  observed_availability_pct: 99.74
+  evidence_coverage_pct: 80
+recommendation: request evidence clarification
+synthetic: true

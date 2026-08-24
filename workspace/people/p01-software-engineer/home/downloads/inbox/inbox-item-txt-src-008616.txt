@@ -1,0 +1,4 @@
+2026-07-21T09:15:00+09:00 level=INFO event=inbox.received id=INBOX-008616 source=p01-src-008616
+2026-07-21T09:15:02+09:00 level=INFO status=unreviewed-inbox release=BETA-R4 artifact=p01-full-008616
+2026-07-21T09:15:05+09:00 level=INFO subject="synthetic engineering attachment" service=svc-observability
+2026-07-21T09:15:08+09:00 level=INFO action=retain_in_inbox review_required=true p95_ms=185

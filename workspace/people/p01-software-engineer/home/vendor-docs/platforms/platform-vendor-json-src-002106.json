@@ -1,0 +1,25 @@
+{
+  "evaluation_id": "VND-26Q3-187",
+  "source_id": "p01-src-002106",
+  "vendor": "Platform Meridian",
+  "review_date": "2026-07-21",
+  "track": "event routing",
+  "trial_p95_ms": 194,
+  "observed_availability_pct": 99.89,
+  "evidence_coverage_pct": 84,
+  "recommendation": "request evidence clarification",
+  "organization": "Aster Loop株式会社",
+  "synthetic": true,
+  "evidence": [
+    {
+      "category": "interface",
+      "status": "reviewed",
+      "note": "scenario-15"
+    },
+    {
+      "category": "operations",
+      "status": "reviewed",
+      "note": "window-0"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<toolExport schema="aster-loop.synthetic-tool-export/v1" generatedAt="2026-08-19T14:18:00+09:00">
+  <exportId>EXP-26Q3-001194</exportId>
+  <organization>Aster Loop株式会社</organization>
+  <sourceId>p01-src-001194</sourceId>
+  <scope>downloads/exports</scope>
+  <project>Product Alpha R7</project>
+  <service>svc-observability</service>
+  <lifecycleState>released</lifecycleState>
+  <latencyMs>184</latencyMs>
+  <synthetic>true</synthetic>
+</toolExport>

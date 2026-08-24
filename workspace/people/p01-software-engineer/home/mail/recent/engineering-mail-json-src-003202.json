@@ -1,0 +1,21 @@
+{
+  "message_id": "MSG-2026Q3-003202",
+  "artifact_id": "p01-full-003202",
+  "from": {
+    "role": "Migration Lead",
+    "address": "migration-lead@aster-loop.invalid"
+  },
+  "to": {
+    "role": "Release Coordinator",
+    "address": "release-coordinator@aster-loop.invalid"
+  },
+  "sent_at": "2026-09-11T09:22:00+09:00",
+  "subject": "latency budget reconciliation",
+  "project": "BETA-R4",
+  "status": "reviewed",
+  "facts": {
+    "beta_design_p95_ms": 225,
+    "contract_tests_total": 1240
+  },
+  "synthetic": true
+}

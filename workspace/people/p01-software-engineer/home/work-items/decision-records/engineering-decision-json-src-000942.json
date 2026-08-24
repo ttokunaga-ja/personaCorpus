@@ -1,0 +1,20 @@
+{
+  "record_id": "p01-src-000942",
+  "adr_id": "ADR-B4-147",
+  "organization": "Aster Loop株式会社",
+  "product": "Product Beta R4",
+  "decision_date": "2026-08-17",
+  "status": "approved",
+  "owner_role": "Decision Owner",
+  "service": "svc-edge-api",
+  "decision": {
+    "action": "adopt",
+    "subject": "bounded retry budget",
+    "approval_boundary": "Release Coordinator to Decision Store"
+  },
+  "measures": {
+    "alpha_observed_p95_ms": 184,
+    "alpha_slo_ceiling_ms": 200,
+    "beta_design_budget_ms": 225
+  }
+}

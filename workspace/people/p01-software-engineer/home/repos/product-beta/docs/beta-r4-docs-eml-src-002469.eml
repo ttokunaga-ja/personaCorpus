@@ -1,0 +1,9 @@
+From: Release Coordinator <release-coordinator@aster-loop.invalid>
+To: API Steward <api-steward@aster-loop.invalid>
+Subject: [BETA-DOC-002469] Beta R4 latency budget
+Date: Mon, 17 Aug 2026 09:00:00 +0900
+Message-ID: <beta-doc-002469@aster-loop.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+The svc-event-bus documentation records the 225 ms design budget and the 1,240-test contract baseline (1,231 passing, 9 failing). Please retain this evidence for the 2026-09-04 schema freeze.

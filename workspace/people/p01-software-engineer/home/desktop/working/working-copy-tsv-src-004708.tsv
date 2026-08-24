@@ -1,0 +1,2 @@
+source_id	artifact_id	state	issue_id	service	review_date	working_latency_ms	alpha_reference_p95_ms
+p01-src-004708	p01-full-004708	draft	ALW-5708	svc-observability	2026-06-11	173	184

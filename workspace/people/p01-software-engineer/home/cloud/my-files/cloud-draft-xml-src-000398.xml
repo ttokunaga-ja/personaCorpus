@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cloudWorkingCopy state="draft" sourceId="p01-src-000398" recordId="BETA-R4-CLOUD-000398">
+  <organization>Aster Loop株式会社</organization><product>Product Beta R4</product>
+  <schemaFreeze>2026-09-04</schemaFreeze><checks total="1240" passed="1231" failed="9"/>
+  <note>Individual work-in-progress; not team-shared acceptance.</note>
+</cloudWorkingCopy>

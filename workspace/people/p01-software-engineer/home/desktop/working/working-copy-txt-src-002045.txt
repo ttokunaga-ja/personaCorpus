@@ -1,0 +1,2 @@
+2026-07-21T09:10:00+09:00 INFO source=p01-src-002045 state=working event=working_copy_opened
+2026-07-21T09:14:00+09:00 INFO issue=ALW-3045 service=svc-contract-registry working_latency_ms=174 alpha_reference_p95_ms=184

@@ -1,0 +1,21 @@
+{
+  "message_id": "MSG-2026Q3-007059",
+  "artifact_id": "p01-full-007059",
+  "from": {
+    "role": "API Steward",
+    "address": "api-steward@aster-loop.invalid"
+  },
+  "to": {
+    "role": "Decision Owner",
+    "address": "decision-owner@aster-loop.invalid"
+  },
+  "sent_at": "2026-09-04T09:39:00+09:00",
+  "subject": "latency budget reconciliation",
+  "project": "BETA-R4",
+  "status": "reviewed",
+  "facts": {
+    "beta_design_p95_ms": 225,
+    "contract_tests_total": 1240
+  },
+  "synthetic": true
+}

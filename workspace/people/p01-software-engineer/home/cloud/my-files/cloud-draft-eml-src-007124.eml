@@ -1,0 +1,11 @@
+From: API Steward <api-steward@aster-loop.invalid>
+To: Release Coordinator <release-coordinator@aster-loop.invalid>
+Subject: [DRAFT] BETA-R4-CLOUD-007124 contract observation
+Date: 2026-08-13T13:15:00+09:00
+Message-ID: <beta-r4-cloud-007124@aster-loop.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+State: draft working copy
+
+The Product Beta R4 cloud note for p01-src-007124 keeps the 2026-09-04 schema freeze visible. The synthetic check set reconciles: 1,231 passed plus 9 failed equals 1,240. Please treat this as individual work-in-progress, not an approved record.

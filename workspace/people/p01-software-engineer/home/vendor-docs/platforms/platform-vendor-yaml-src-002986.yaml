@@ -1,0 +1,12 @@
+evaluation_id: VND-26Q3-107
+source_id: p01-src-002986
+vendor: Platform Meridian
+organization: Aster Loop株式会社
+review_date: 2026-08-13
+track: operational telemetry
+metrics:
+  trial_p95_ms: 192
+  observed_availability_pct: 99.74
+  evidence_coverage_pct: 82
+recommendation: request evidence clarification
+synthetic: true

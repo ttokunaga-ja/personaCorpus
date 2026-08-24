@@ -1,0 +1,18 @@
+review_id: CR-A7-000410
+project: Product Alpha R7
+reviewed_at: 2026-07-28T10:00:00+09:00
+service: svc-edge-api
+focus: error boundary propagation
+disposition: approved with notes
+review_elapsed_minutes: 400
+change_summary:
+  files_changed: 14
+  synthetic_commit: synthetic-00019a
+checks:
+  executed: 19
+  passed: 18
+comments:
+  - category: maintainability
+    resolution: tracked in review
+  - category: observability
+    resolution: accepted note

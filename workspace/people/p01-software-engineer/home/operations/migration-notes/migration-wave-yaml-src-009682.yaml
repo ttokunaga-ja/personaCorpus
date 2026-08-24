@@ -1,0 +1,8 @@
+migration_record: p01-src-009682
+program: Aster Loop
+wave: {id: MIG-26Q3-W05, ordinal: 5, services: [media-worker, reporting-api, partner-bridge]}
+service: policy-cache
+schedule: {review_window: "2026-09-13T11:00:00+09:00", cutover: "2026-09-14", closeout: "2026-09-18"}
+objectives: {rpo: 5m, rto: 45m}
+evidence: {snapshot_digest_hint: "77c91fef04ab", acceptance: replay_cursor_within_rpo_and_restore_within_rto}
+state: planned

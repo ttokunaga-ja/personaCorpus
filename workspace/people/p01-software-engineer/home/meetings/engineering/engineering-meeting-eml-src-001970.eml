@@ -1,0 +1,9 @@
+From: observability-lead@aster-loop.invalid
+To: api-steward@aster-loop.invalid
+Subject: [MTG-ENG-20260803-13] observability calibration follow-up
+Date: 2026-08-03T10:00:00+09:00
+Message-ID: <msg-1970@aster-loop.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+The meeting record references ADR-057. Please complete ACT-ENG-001970 with status approved; the operating measure is 200 ms.

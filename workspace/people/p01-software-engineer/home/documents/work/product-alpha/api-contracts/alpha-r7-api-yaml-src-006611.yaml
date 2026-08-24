@@ -1,0 +1,24 @@
+openapi: 3.0.3
+info:
+  title: Product Alpha R7 evidence-snapshots API
+  version: 7.1.0
+  description: Synthetic Aster Loop contract API-A7-6611; reviewed on 2026-07-20.
+paths:
+  /v7/evidence-snapshots/{recordId}:
+    get:
+      operationId: reconcile6611
+      responses:
+        '200':
+          description: Reviewed synthetic contract response
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [contract_id, status]
+                properties:
+                  contract_id:
+                    type: string
+                    example: API-A7-6611
+                  status:
+                    type: string
+                    example: reviewed

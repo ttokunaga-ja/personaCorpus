@@ -1,0 +1,14 @@
+{
+  "meeting_id": "MTG-ENG-20260720-59",
+  "title": "release gate review",
+  "organization": "Aster Loop株式会社",
+  "product": "Product Alpha R7",
+  "date": "2026-07-20",
+  "reference": "ADR-042",
+  "measure": "184 ms",
+  "action": {
+    "id": "ACT-ENG-010560",
+    "owner_role": "Observability Lead",
+    "status": "planned"
+  }
+}

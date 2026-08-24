@@ -1,0 +1,13 @@
+From: Release Coordinator <release-coordinator@aster-loop.invalid>
+To: Observability Lead <observability-lead@aster-loop.invalid>
+Subject: contract-test variance
+Date: Mon, 19 Sep 2026 10:54:00 +0900
+Message-ID: <msg-2026q3-011274@aster-loop.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+MSG-2026Q3-011274
+
+This synthetic recent engineering message keeps the Beta R4 225 ms figure as a
+design budget and records the 1,240-test reconciliation for scoped review.
+Please reply with role ownership and the evidence window.

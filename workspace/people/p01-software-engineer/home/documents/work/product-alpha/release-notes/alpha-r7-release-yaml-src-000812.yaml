@@ -1,0 +1,17 @@
+schema: aster-loop.release-note/v1
+artifact_id: p01-full-000812
+source_id: p01-src-000812
+record_id: REL-A7-20260717-37
+organization: "Aster Loop株式会社"
+product: "Product Alpha R7"
+release_date: "2026-07-13"
+status: released
+component: "decision store"
+metrics:
+  observed_p95_ms: 184
+  slo_ceiling_ms: 200
+  requests: 84200
+  successful: 84149
+  unsuccessful: 51
+decision: "ADR-042 keeps the asynchronous release gate"
+synthetic: true

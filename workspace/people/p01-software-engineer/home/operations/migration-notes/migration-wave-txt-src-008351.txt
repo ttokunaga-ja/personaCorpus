@@ -1,0 +1,3 @@
+2026-09-14T16:00:00+09:00 INFO migration.record=p01-src-008351 wave=MIG-26Q3-W06 service=archive-writer event=snapshot_verified evidence=51fcb2dd0ba7
+2026-09-14T16:00:00+09:00 INFO migration.record=p01-src-008351 wave=MIG-26Q3-W06 service=archive-writer event=replay_checked cursor_age_seconds=85 objective_seconds=300
+2026-09-14T16:00:00+09:00 INFO migration.record=p01-src-008351 wave=MIG-26Q3-W06 service=archive-writer event=restore_rehearsal budget_seconds=2700

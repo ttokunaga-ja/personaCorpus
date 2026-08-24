@@ -1,0 +1,7 @@
+VND-26Q3-206 / Platform Juniper
+
+VND-26Q3-206 evaluates Platform Juniper for schema governance in the Aster Loop Product Engineering portfolio. The synthetic review on 2026-08-16 recorded a 169 ms p95 trial response, 99.92% observed availability, and 94% evidence coverage. The review disposition is “retain for comparative review”; this is comparative planning evidence, not a production service commitment.
+
+Review owner: Platform Engineer
+Evidence classification: synthetic comparative record
+Follow-up: interface walkthrough and release-gate fit review

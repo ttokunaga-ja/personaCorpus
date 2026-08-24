@@ -1,0 +1,11 @@
+From: Architecture Review <architecture-review@aster-loop.invalid>
+To: Release Coordinator <release-coordinator@aster-loop.invalid>
+Subject: [ARCH-A7-000469] Product Alpha R7 architecture observation
+Date: 2026-09-06T09:30:00+09:00
+Message-ID: <p01-src-000469@aster-loop.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+The svc-release-coordinator review remains closed under ADR-042.
+Observed p95 was 184 ms against the 200 ms Product Alpha R7 ceiling.
+The asynchronous release gate keeps its approval boundary before Decision Store.

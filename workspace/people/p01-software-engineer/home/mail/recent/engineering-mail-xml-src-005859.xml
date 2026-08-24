@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<engineeringMail id="MSG-2026Q3-005859" artifact="p01-full-005859" synthetic="true">
+  <from role="API Steward" address="api-steward@aster-loop.invalid"/>
+  <to role="Decision Owner" address="decision-owner@aster-loop.invalid"/>
+  <sentAt>2026-09-08T10:39:00+09:00</sentAt>
+  <subject>release-gate evidence review</subject>
+  <project>BETA-R4</project>
+  <facts betaDesignP95Ms="225" contractTestsTotal="1240"/>
+  <status>reviewed</status>
+</engineeringMail>

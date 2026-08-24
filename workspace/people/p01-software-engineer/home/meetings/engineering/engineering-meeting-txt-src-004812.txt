@@ -1,0 +1,6 @@
+MTG-ENG-20260720-07 | release gate review
+Date: 2026-07-20 Asia/Tokyo
+Owner: Release Coordinator
+Decision: ADR-042 remains the meeting reference.
+Action: ACT-ENG-004812 assigned to Observability Lead; status=planned.
+Measure: 184 ms.

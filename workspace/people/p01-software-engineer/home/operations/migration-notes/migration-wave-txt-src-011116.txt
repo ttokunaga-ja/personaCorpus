@@ -1,0 +1,3 @@
+2026-09-13T13:00:00+09:00 INFO migration.record=p01-src-011116 wave=MIG-26Q3-W05 service=audit-journal event=snapshot_verified evidence=f8aefededdba
+2026-09-13T13:00:00+09:00 INFO migration.record=p01-src-011116 wave=MIG-26Q3-W05 service=audit-journal event=replay_checked cursor_age_seconds=135 objective_seconds=300
+2026-09-13T13:00:00+09:00 INFO migration.record=p01-src-011116 wave=MIG-26Q3-W05 service=audit-journal event=restore_rehearsal budget_seconds=2700

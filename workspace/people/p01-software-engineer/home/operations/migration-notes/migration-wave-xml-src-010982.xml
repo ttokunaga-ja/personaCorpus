@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<migrationRecord id="p01-src-010982" program="Aster Loop"><wave id="MIG-26Q3-W03" ordinal="3"><service>decision-store</service><serviceSet>identity-sync,catalog-index,billing-ledger</serviceSet></wave><schedule cutover="2026-09-14" closeout="2026-09-18"/><objectives rpo="5m" rto="45m"/><evidence digestHint="330d16a12a20"/></migrationRecord>

@@ -1,0 +1,3 @@
+2026-09-09T15:00:00+09:00 INFO migration.record=p01-src-007422 wave=MIG-26Q3-W01 service=identity-sync event=snapshot_verified evidence=cf3f0a34e074
+2026-09-09T15:00:00+09:00 INFO migration.record=p01-src-007422 wave=MIG-26Q3-W01 service=identity-sync event=replay_checked cursor_age_seconds=61 objective_seconds=300
+2026-09-09T15:00:00+09:00 INFO migration.record=p01-src-007422 wave=MIG-26Q3-W01 service=identity-sync event=restore_rehearsal budget_seconds=2700

@@ -1,0 +1,9 @@
+MSG-2026Q3-005902 | recent engineering mail supporting note
+From: Migration Lead <migration-lead@aster-loop.invalid>
+To: Release Coordinator <release-coordinator@aster-loop.invalid>
+Subject: Beta R4 schema freeze note
+Date: 2026-09-23T11:22:00+09:00
+
+The review keeps Product Alpha R7 observed p95 at 184 ms and labels Product
+Beta R4 225 ms as a design budget. This is synthetic, role-owned evidence.
+Action: Release Coordinator will acknowledge the scoped record before the next handoff.

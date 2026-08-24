@@ -1,0 +1,11 @@
+2026-09-18T09:14:00+09:00 ARC-26Q3-002903
+source_id=p01-src-002903
+project=VND-26Q3
+state=closed
+closed_on=2026-09-10
+owner_role=Migration Lead
+service=svc-contract-registry
+decision=archived immutable snapshot
+evidence=synthetic reconciliation complete
+alpha_reference=ADR-042 retains asynchronous release gate when applicable
+retention=do not modify; create a linked successor record for changes

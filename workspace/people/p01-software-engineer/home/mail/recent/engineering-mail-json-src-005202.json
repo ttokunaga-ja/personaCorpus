@@ -1,0 +1,21 @@
+{
+  "message_id": "MSG-2026Q3-005202",
+  "artifact_id": "p01-full-005202",
+  "from": {
+    "role": "Release Coordinator",
+    "address": "release-coordinator@aster-loop.invalid"
+  },
+  "to": {
+    "role": "Observability Lead",
+    "address": "observability-lead@aster-loop.invalid"
+  },
+  "sent_at": "2026-09-23T09:42:00+09:00",
+  "subject": "Beta R4 schema freeze note",
+  "project": "BETA-R4",
+  "status": "reviewed",
+  "facts": {
+    "beta_design_p95_ms": 225,
+    "contract_tests_total": 1240
+  },
+  "synthetic": true
+}

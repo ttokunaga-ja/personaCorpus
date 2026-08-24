@@ -1,0 +1,28 @@
+{
+  "migration_record": "p01-src-004491",
+  "program": "Aster Loop",
+  "wave": {
+    "id": "MIG-26Q3-W04",
+    "ordinal": 4,
+    "services": [
+      "notification-hub",
+      "audit-journal",
+      "search-gateway"
+    ]
+  },
+  "service": "notification-hub",
+  "schedule": {
+    "review_window": "2026-09-12T12:00:00+09:00",
+    "cutover": "2026-09-14",
+    "closeout": "2026-09-18"
+  },
+  "objectives": {
+    "rpo": "5m",
+    "rto": "45m"
+  },
+  "evidence": {
+    "snapshot_digest_hint": "460e7f9cd0ac",
+    "acceptance": "replay_cursor_within_rpo_and_restore_within_rto"
+  },
+  "state": "planned"
+}

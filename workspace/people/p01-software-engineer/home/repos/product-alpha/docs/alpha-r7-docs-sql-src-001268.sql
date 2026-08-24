@@ -1,0 +1,2 @@
+CREATE TABLE IF NOT EXISTS alpha_doc_1268 (artifact_id TEXT PRIMARY KEY, source_id TEXT NOT NULL, release TEXT NOT NULL, service TEXT NOT NULL, observed_p95_ms INTEGER NOT NULL CHECK (observed_p95_ms <= 200), decision TEXT NOT NULL);
+INSERT INTO alpha_doc_1268 (artifact_id, source_id, release, service, observed_p95_ms, decision) VALUES ('p01-full-001268', 'p01-src-001268', 'ALPHA-R7', 'svc-decision-store', 184, 'ADR-042');

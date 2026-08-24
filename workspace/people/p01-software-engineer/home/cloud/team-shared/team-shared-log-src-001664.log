@@ -1,0 +1,2 @@
+2026-08-21T10:15:00+09:00 INFO collaboration artifact=p01-full-001664 source=p01-src-001664 owner="Decision Owner" reviewer="Migration Lead" status=reviewed reference=TS-1039
+2026-08-21T10:16:00+09:00 INFO decision="ADR-042 retained" product="Product Alpha R7" release_date=2026-07-13

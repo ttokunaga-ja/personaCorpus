@@ -1,0 +1,3 @@
+2026-09-20T09:05:00+09:00 INFO platform-evaluation id=VND-26Q3-186 vendor="Platform Juniper" track="migration compatibility"
+2026-09-20T09:07:00+09:00 INFO evidence-reviewed p95_ms=169 availability_pct=99.82 coverage_pct=80
+2026-09-20T09:10:00+09:00 INFO disposition="retain for comparative review" owner_role="Platform Engineer"

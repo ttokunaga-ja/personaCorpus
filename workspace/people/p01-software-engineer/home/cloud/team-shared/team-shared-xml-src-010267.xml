@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<teamSharedRecord id="p01-full-010267" source="p01-src-010267" status="reviewed"><subject>contract compatibility handoff</subject><ownership><owner>Observability Lead</owner><reviewer>API Steward</reviewer></ownership><context product="Product Alpha R7" decision="ADR-042" releaseDate="2026-07-13"/><reviewedAt>2026-08-14T09:15:00+09:00</reviewedAt><outcome>accepted collaboration copy</outcome></teamSharedRecord>

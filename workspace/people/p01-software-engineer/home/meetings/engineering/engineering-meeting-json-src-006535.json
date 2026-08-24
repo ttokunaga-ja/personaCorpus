@@ -1,0 +1,14 @@
+{
+  "meeting_id": "MTG-ENG-20260904-39",
+  "title": "contract readiness",
+  "organization": "Aster Loop株式会社",
+  "product": "Product Beta R4",
+  "date": "2026-09-04",
+  "reference": "API-B4-120",
+  "measure": "225 ms",
+  "action": {
+    "id": "ACT-ENG-006535",
+    "owner_role": "Decision Owner",
+    "status": "reviewed"
+  }
+}

@@ -1,0 +1,2 @@
+2026-06-27T09:10:00+09:00 INFO source=p01-src-004508 state=draft event=working_copy_opened
+2026-06-27T09:14:00+09:00 INFO issue=ALW-5508 service=svc-decision-store working_latency_ms=195 alpha_reference_p95_ms=184

@@ -1,0 +1,8 @@
+record_id: ARC-26Q3-001681
+source_id: p01-src-001681
+project: BETA-R4
+state: closed
+closed_on: 2026-09-21
+owner_role: Platform Engineer
+service: svc-release-coordinator
+immutable: true

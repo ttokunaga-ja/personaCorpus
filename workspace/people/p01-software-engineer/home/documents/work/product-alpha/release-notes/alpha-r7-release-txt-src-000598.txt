@@ -1,0 +1,7 @@
+Product Alpha R7 release record REL-A7-20260719-17
+artifact=p01-full-000598
+source=p01-src-000598
+release_date=2026-07-13
+status=approved
+component=event bus
+summary=ADR-042 retains the asynchronous release gate; 184 ms p95 remains within the 200 ms ceiling.

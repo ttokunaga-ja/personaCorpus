@@ -1,0 +1,13 @@
+From: Decision Owner <decision-owner@aster-loop.invalid>
+To: Platform Engineer <platform-engineer@aster-loop.invalid>
+Subject: staging rollout observation
+Date: Mon, 14 Sep 2026 10:53:00 +0900
+Message-ID: <msg-2026q3-010373@aster-loop.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+MSG-2026Q3-010373
+
+This synthetic recent engineering message keeps the Beta R4 225 ms figure as a
+design budget and records the 1,240-test reconciliation for scoped review.
+Please reply with role ownership and the evidence window.

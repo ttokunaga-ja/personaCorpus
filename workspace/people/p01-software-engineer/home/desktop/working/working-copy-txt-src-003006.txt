@@ -1,0 +1,2 @@
+2026-08-10T09:10:00+09:00 INFO source=p01-src-003006 state=review-pending event=working_copy_opened
+2026-08-10T09:14:00+09:00 INFO issue=ALW-4006 service=svc-edge-api working_latency_ms=173 alpha_reference_p95_ms=184

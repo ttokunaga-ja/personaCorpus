@@ -1,0 +1,2 @@
+contract_id,release,schema_freeze,service,route,state,tests_total,tests_pass,tests_fail
+API-B4-7638,BETA-R4,2026-09-04,svc-edge-api,release-windows,approved,1240,1231,9

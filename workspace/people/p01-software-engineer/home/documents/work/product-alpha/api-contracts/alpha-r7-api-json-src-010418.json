@@ -1,0 +1,22 @@
+{
+  "contract_id": "API-A7-10418",
+  "title": "Product Alpha R7 event-deliveries contract",
+  "version": "7.8.0",
+  "release": "ALPHA-R7",
+  "release_date": "2026-07-13",
+  "status": "reviewed",
+  "operation": "publish",
+  "resource": "event-deliveries",
+  "latency_budget": {
+    "target_p95_ms": 200,
+    "observed_reference_p95_ms": 184
+  },
+  "services": [
+    "svc-edge-api",
+    "svc-contract-registry"
+  ],
+  "compatibility": {
+    "policy": "additive-before-removal",
+    "reviewed_on": "2026-07-20"
+  }
+}

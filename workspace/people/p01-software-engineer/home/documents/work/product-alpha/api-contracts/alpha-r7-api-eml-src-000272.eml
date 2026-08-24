@@ -1,0 +1,11 @@
+From: api-steward@aster-loop.invalid
+To: release-coordinator@aster-loop.invalid
+Subject: [ALPHA-R7] API-A7-0272 reviewed
+Message-ID: <api-a7-0272@aster-loop.invalid>
+Date: Mon, 20 Jul 2026 09:32:00 +0900
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+The synthetic release-gates register contract API-A7-0272 is reviewed.
+It preserves the Product Alpha R7 target p95 of 200 ms and the
+additive-before-removal compatibility policy. ADR-042 remains unchanged.

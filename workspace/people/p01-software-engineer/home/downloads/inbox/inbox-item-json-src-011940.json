@@ -1,0 +1,18 @@
+{
+  "artifact_id": "p01-full-011940",
+  "source_id": "p01-src-011940",
+  "inbox_event": "INBOX-011940",
+  "status": "unreviewed-inbox",
+  "received_at": "2026-07-13T14:15:00+09:00",
+  "subject": "BETA-R4 incoming engineering material 011940",
+  "release": "BETA-R4",
+  "services": [
+    "svc-release-coordinator",
+    "svc-decision-store"
+  ],
+  "metrics": {
+    "p95_ms": 184,
+    "slo_ceiling_ms": 200
+  },
+  "accepted": false
+}

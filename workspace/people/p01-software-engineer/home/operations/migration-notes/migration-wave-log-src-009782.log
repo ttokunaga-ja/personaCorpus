@@ -1,0 +1,3 @@
+2026-09-11T15:00:00+09:00 INFO migration.record=p01-src-009782 wave=MIG-26Q3-W03 service=billing-ledger event=snapshot_verified evidence=90157a1c95b7
+2026-09-11T15:00:00+09:00 INFO migration.record=p01-src-009782 wave=MIG-26Q3-W03 service=billing-ledger event=replay_checked cursor_age_seconds=68 objective_seconds=300
+2026-09-11T15:00:00+09:00 INFO migration.record=p01-src-009782 wave=MIG-26Q3-W03 service=billing-ledger event=restore_rehearsal budget_seconds=2700

@@ -1,0 +1,8 @@
+Reference Standard P01-SRC-002223
+REF-26Q3-002223
+Provenance: Aster Loop synthetic engineering reference
+Subject: Product Alpha R7
+Anchor: ADR-042 asynchronous release gate
+Review date: 2026-09-04
+Status: reviewed reference snapshot
+Canonical source reference: p01-src-002223

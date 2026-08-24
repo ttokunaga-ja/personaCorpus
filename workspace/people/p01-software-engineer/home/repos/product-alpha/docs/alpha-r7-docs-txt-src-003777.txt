@@ -1,0 +1,3 @@
+2026-07-20T09:57:00+09:00 INFO artifact=p01-full-003777 source=p01-src-003777 service=svc-event-bus topic="request tracing"
+2026-07-20T09:58:00+09:00 INFO release=ALPHA-R7 decision=ADR-042 disposition=keep p95_ms=184 slo_ceiling_ms=200
+2026-07-20T09:59:00+09:00 INFO requests=84200 successful=84149 unsuccessful=51 gates=9000 approved=8883 non_approved=117

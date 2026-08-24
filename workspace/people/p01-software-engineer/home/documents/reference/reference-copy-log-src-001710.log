@@ -1,0 +1,2 @@
+2026-09-18T09:30:00+09:00 INFO reference.snapshot id=REF-26Q3-001710 source=p01-src-001710 subject="Product Beta R4" status=reviewed
+2026-09-18T09:31:10+09:00 INFO reference.provenance authority="Aster Loop synthetic Product Engineering" anchor="Beta R4 contract review"

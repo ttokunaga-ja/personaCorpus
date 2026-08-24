@@ -1,0 +1,18 @@
+review_id: CR-B4-004245
+project: Product Beta R4
+reviewed_at: 2026-08-13T10:00:00+09:00
+service: svc-edge-api
+focus: error boundary propagation
+disposition: approved with notes
+review_elapsed_minutes: 400
+change_summary:
+  files_changed: 11
+  synthetic_commit: synthetic-001095
+checks:
+  executed: 41
+  passed: 40
+comments:
+  - category: maintainability
+    resolution: tracked in review
+  - category: observability
+    resolution: accepted note

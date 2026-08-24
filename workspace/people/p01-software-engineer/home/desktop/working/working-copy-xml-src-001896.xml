@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workingCopy sourceId="p01-src-001896" artifactId="p01-full-001896" state="draft">
+  <organization>Aster Loop株式会社</organization><project>Product Alpha R7</project>
+  <issue id="ALW-2896" reviewDate="2026-06-07" />
+  <service>svc-edge-api</service><decision>ADR-106</decision>
+  <observation latencyMs="173" alphaReferenceP95Ms="184" reviewMinutes="365" />
+  <locationSemantics>ephemeral desktop draft; not accepted</locationSemantics>
+</workingCopy>

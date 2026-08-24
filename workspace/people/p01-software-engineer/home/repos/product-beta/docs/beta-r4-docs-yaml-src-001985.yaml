@@ -1,0 +1,12 @@
+record_id: BETA-DOC-001985
+product: Product Beta R4
+service: svc-contract-registry
+status: approved
+review_date: 2026-08-17
+schema_freeze: 2026-09-04
+latency_budget_ms: 225
+contract_tests:
+  total: 1240
+  passed: 1231
+  failed: 9
+endpoint: /v4/beta/13/records

@@ -1,0 +1,10 @@
+{
+  "record_id": "ARC-26Q3-009418",
+  "source_id": "p01-src-009418",
+  "project": "MIG-26Q3-W05",
+  "state": "closed",
+  "closed_on": "2026-09-14",
+  "owner_role": "API Steward",
+  "service": "svc-observability",
+  "immutable": true
+}

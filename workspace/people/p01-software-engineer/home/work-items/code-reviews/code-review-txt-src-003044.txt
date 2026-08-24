@@ -1,0 +1,10 @@
+Review record: CR-A7-003044
+Timestamp: 2026-08-18T10:00:00+09:00
+Project: Product Alpha R7
+Service: svc-observability
+Focus: rollback observability
+Disposition: approved with follow-up
+Review elapsed measure: 400 minutes
+Checks: 18 executed, 17 passed
+Evidence: synthetic commit synthetic-000be4 changed 7 files
+Outcome: review evidence retained; no customer data included.

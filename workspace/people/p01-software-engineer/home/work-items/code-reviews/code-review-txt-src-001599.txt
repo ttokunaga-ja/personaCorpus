@@ -1,0 +1,10 @@
+Review record: CR-B4-001599
+Timestamp: 2026-09-16T10:00:00+09:00
+Project: Product Beta R4
+Service: svc-observability
+Focus: rollback observability
+Disposition: approved with follow-up
+Review elapsed measure: 400 minutes
+Checks: 30 executed, 29 passed
+Evidence: synthetic commit synthetic-00063f changed 6 files
+Outcome: review evidence retained; no customer data included.

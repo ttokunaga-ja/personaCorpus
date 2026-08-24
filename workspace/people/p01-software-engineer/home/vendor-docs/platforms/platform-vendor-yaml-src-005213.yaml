@@ -1,0 +1,12 @@
+evaluation_id: VND-26Q3-174
+source_id: p01-src-005213
+vendor: Platform Juniper
+organization: Aster Loop株式会社
+review_date: 2026-09-08
+track: migration compatibility
+metrics:
+  trial_p95_ms: 165
+  observed_availability_pct: 99.88
+  evidence_coverage_pct: 83
+recommendation: retain for comparative review
+synthetic: true

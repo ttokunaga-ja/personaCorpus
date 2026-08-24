@@ -1,0 +1,20 @@
+{
+  "record_id": "p01-src-008606",
+  "adr_id": "ADR-050",
+  "organization": "Aster Loop株式会社",
+  "product": "Product Alpha R7",
+  "decision_date": "2026-07-20",
+  "status": "reviewed",
+  "owner_role": "API Steward",
+  "service": "svc-decision-store",
+  "decision": {
+    "action": "adopt",
+    "subject": "evidence retention window",
+    "approval_boundary": "Release Coordinator to Decision Store"
+  },
+  "measures": {
+    "alpha_observed_p95_ms": 184,
+    "alpha_slo_ceiling_ms": 200,
+    "beta_design_budget_ms": 225
+  }
+}

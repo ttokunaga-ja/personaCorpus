@@ -1,0 +1,1 @@
+2026-09-04T09:48:00+09:00 INFO contract=API-B4-1968 event=schema_freeze state=planned service=svc-edge-api tests_total=1240 tests_pass=1231 tests_fail=9

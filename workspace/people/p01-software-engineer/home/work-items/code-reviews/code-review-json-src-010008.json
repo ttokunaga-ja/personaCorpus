@@ -1,0 +1,30 @@
+{
+  "review_id": "CR-A7-010008",
+  "project": "Product Alpha R7",
+  "reviewed_at": "2026-08-14T10:00:00+09:00",
+  "service": "svc-event-bus",
+  "focus": "latency budget accounting",
+  "disposition": "commented",
+  "review_elapsed_minutes": 400,
+  "change_summary": {
+    "files_changed": 17,
+    "synthetic_commit": "synthetic-002718"
+  },
+  "checks": {
+    "executed": 38,
+    "passed": 37,
+    "review_gate": "evidence recorded"
+  },
+  "comments": [
+    {
+      "thread": 1,
+      "category": "maintainability",
+      "resolution": "tracked in review"
+    },
+    {
+      "thread": 2,
+      "category": "observability",
+      "resolution": "accepted note"
+    }
+  ]
+}

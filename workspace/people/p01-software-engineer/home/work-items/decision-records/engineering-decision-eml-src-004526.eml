@@ -1,0 +1,15 @@
+From: Decision Owner <decision-owner@aster-loop.invalid>
+To: Platform Engineer <platform-engineer@aster-loop.invalid>
+Subject: ADR-149 lifecycle review for p01-src-004526
+Date: Mon, 20 Jul 2026 10:26:00 +0900
+Message-ID: <p01-src-004526@aster-loop.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+The review records evidence retention window for Product Alpha R7.
+
+Status: reviewed
+Service: svc-decision-store
+Decision date: 2026-07-20
+
+The asynchronous release gate keeps its approval boundary between Release Coordinator and Decision Store. Evidence remains within the synthetic engineering horizon.

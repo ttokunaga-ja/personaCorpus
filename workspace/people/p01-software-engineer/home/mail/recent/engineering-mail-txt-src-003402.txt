@@ -1,0 +1,9 @@
+MSG-2026Q3-003402 | recent engineering mail supporting note
+From: Release Coordinator <release-coordinator@aster-loop.invalid>
+To: Observability Lead <observability-lead@aster-loop.invalid>
+Subject: release-gate evidence review
+Date: 2026-09-15T11:42:00+09:00
+
+The review keeps Product Alpha R7 observed p95 at 184 ms and labels Product
+Beta R4 225 ms as a design budget. This is synthetic, role-owned evidence.
+Action: Observability Lead will acknowledge the scoped record before the next handoff.

@@ -1,0 +1,10 @@
+Export bundle record EXP-26Q3-002367
+Generated: 2026-08-16T08:09:00+09:00
+Organization: Aster Loop株式会社 (synthetic)
+Scope: downloads/exports
+Source: p01-src-002367
+Project: Product Beta R4
+Service: svc-decision-store
+Status: closed
+Measurement: design or observed p95 225 ms
+Note: timestamped synthetic tool export; values reconcile to the p01 engineering content spine.

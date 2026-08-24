@@ -1,0 +1,11 @@
+meeting_id: MTG-ENG-20260824-26
+title: decision follow-up
+organization: Aster Loop株式会社
+product: Product Beta R4
+date: 2026-08-24
+reference: ADR-B4-031
+measure: 225 ms
+action:
+  id: ACT-ENG-008213
+  owner_role: Platform Engineer
+  status: approved

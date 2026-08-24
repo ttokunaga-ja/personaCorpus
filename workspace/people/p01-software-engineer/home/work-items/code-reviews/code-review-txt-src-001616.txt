@@ -1,0 +1,10 @@
+Review record: CR-A7-001616
+Timestamp: 2026-07-28T10:00:00+09:00
+Project: Product Alpha R7
+Service: svc-release-coordinator
+Focus: idempotent event handling
+Disposition: changes requested
+Review elapsed measure: 400 minutes
+Checks: 16 executed, 15 passed
+Evidence: synthetic commit synthetic-000650 changed 4 files
+Outcome: review evidence retained; no customer data included.

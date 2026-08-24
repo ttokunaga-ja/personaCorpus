@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vendorEvaluation id="VND-26Q3-086" source="p01-src-000565" synthetic="true">
+  <vendor>Platform Juniper</vendor>
+  <reviewDate>2026-08-16</reviewDate>
+  <track>schema governance</track>
+  <metrics p95Ms="172" availabilityPct="99.77" evidenceCoveragePct="97"/>
+  <recommendation>retain for comparative review</recommendation>
+</vendorEvaluation>

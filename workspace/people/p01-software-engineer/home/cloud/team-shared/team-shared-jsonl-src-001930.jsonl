@@ -1,0 +1,2 @@
+{"record":"team_shared_review","artifact_id":"p01-full-001930","source_id":"p01-src-001930","owner":"API Steward","status":"reviewed","reviewed_at":"2026-08-22T09:15:00+09:00"}
+{"record":"acceptance","reviewer":"Release Coordinator","subject":"observability evidence packet","reference":"TS-1040","decision":"ADR-042 retained"}

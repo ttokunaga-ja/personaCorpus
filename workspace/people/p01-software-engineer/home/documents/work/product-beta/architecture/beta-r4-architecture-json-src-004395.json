@@ -1,0 +1,12 @@
+{
+  "schema": "aster-loop.beta-r4.architecture-review/v1",
+  "source_id": "p01-src-004395",
+  "review_id": "ADR-B4-018",
+  "release": "BETA-R4",
+  "review_date": "2026-08-17",
+  "subject": "failure classification",
+  "component": "event ledger",
+  "design_p95_budget_ms": 225,
+  "status": "reviewed",
+  "synthetic": true
+}

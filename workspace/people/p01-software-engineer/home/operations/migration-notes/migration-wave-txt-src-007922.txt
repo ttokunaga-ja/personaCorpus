@@ -1,0 +1,3 @@
+2026-09-11T11:00:00+09:00 INFO migration.record=p01-src-007922 wave=MIG-26Q3-W03 service=decision-store event=snapshot_verified evidence=280f7afa05ec
+2026-09-11T11:00:00+09:00 INFO migration.record=p01-src-007922 wave=MIG-26Q3-W03 service=decision-store event=replay_checked cursor_age_seconds=199 objective_seconds=300
+2026-09-11T11:00:00+09:00 INFO migration.record=p01-src-007922 wave=MIG-26Q3-W03 service=decision-store event=restore_rehearsal budget_seconds=2700

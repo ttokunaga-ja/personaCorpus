@@ -1,0 +1,10 @@
+Review record: CR-A7-003668
+Timestamp: 2026-09-08T10:00:00+09:00
+Project: Product Alpha R7
+Service: svc-event-bus
+Focus: latency budget accounting
+Disposition: commented
+Review elapsed measure: 400 minutes
+Checks: 22 executed, 21 passed
+Evidence: synthetic commit synthetic-000e54 changed 4 files
+Outcome: review evidence retained; no customer data included.

@@ -1,0 +1,3 @@
+2026-09-09T11:00:00+09:00 INFO migration.record=p01-src-001938 wave=MIG-26Q3-W01 service=media-worker event=snapshot_verified evidence=3bdf74bf140c
+2026-09-09T11:00:00+09:00 INFO migration.record=p01-src-001938 wave=MIG-26Q3-W01 service=media-worker event=replay_checked cursor_age_seconds=188 objective_seconds=300
+2026-09-09T11:00:00+09:00 INFO migration.record=p01-src-001938 wave=MIG-26Q3-W01 service=media-worker event=restore_rehearsal budget_seconds=2700

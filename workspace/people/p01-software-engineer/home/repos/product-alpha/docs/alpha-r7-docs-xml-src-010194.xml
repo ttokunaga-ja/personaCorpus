@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alphaDocumentation artifactId="p01-full-010194" sourceId="p01-src-010194"><release id="ALPHA-R7" date="2026-07-13"/><service id="svc-edge-api" topic="release gate behavior"/><decision id="ADR-042" disposition="keep"/><latency observedP95Ms="184" sloCeilingMs="200"/></alphaDocumentation>

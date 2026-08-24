@@ -1,0 +1,10 @@
+Aster Loop株式会社 / Product Engineering
+Team-shared accepted collaboration copy
+Artifact: p01-full-007958 (p01-src-007958)
+Subject: contract compatibility handoff
+Owner: Observability Lead
+Reviewed by: API Steward
+Status: reviewed and accepted
+Review timestamp: 2026-08-24T09:15:00+09:00
+Reference: TS-1152; Product Alpha R7; ADR-042; release 2026-07-13
+Decision: retain the asynchronous release gate and record follow-up evidence in the shared packet.

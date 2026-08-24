@@ -1,0 +1,14 @@
+record_id: ARCH-A7-003909
+source_id: p01-src-003909
+product: Product Alpha R7
+organization: Aster Loop
+observed_on: 2026-08-27
+service: svc-event-bus
+decision: ADR-129
+release_gate:
+  mode: asynchronous
+  approval_boundary: release-coordinator_to_decision-store
+latency:
+  observed_p95_ms: 190
+  slo_ceiling_ms: 200
+state: closed

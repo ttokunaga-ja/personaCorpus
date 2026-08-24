@@ -1,0 +1,8 @@
+migration_record: p01-src-007682
+program: Aster Loop
+wave: {id: MIG-26Q3-W03, ordinal: 3, services: [identity-sync, catalog-index, billing-ledger]}
+service: partner-bridge
+schedule: {review_window: "2026-09-11T11:00:00+09:00", cutover: "2026-09-14", closeout: "2026-09-18"}
+objectives: {rpo: 5m, rto: 45m}
+evidence: {snapshot_digest_hint: "0fa3c92a16e4", acceptance: replay_cursor_within_rpo_and_restore_within_rto}
+state: planned

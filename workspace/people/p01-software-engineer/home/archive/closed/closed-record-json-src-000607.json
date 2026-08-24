@@ -1,0 +1,10 @@
+{
+  "record_id": "ARC-26Q3-000607",
+  "source_id": "p01-src-000607",
+  "project": "BETA-R4",
+  "state": "closed",
+  "closed_on": "2026-09-28",
+  "owner_role": "Platform Engineer",
+  "service": "svc-release-coordinator",
+  "immutable": true
+}

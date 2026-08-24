@@ -1,0 +1,2 @@
+2026-06-19T09:10:00+09:00 INFO source=p01-src-003528 state=draft event=working_copy_opened
+2026-06-19T09:14:00+09:00 INFO issue=ALW-4528 service=svc-edge-api working_latency_ms=177 alpha_reference_p95_ms=184

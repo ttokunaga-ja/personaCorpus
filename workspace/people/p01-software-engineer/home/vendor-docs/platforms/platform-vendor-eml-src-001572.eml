@@ -1,0 +1,11 @@
+From: Platform Engineer <platform-engineer@aster-loop.invalid>
+To: Release Coordinator <release-coordinator@aster-loop.invalid>
+Subject: VND-26Q3-133 Platform Helix evaluation update
+Date: 2026-07-15T10:12:00+09:00
+Message-ID: <vnd-26q3-133-1572@aster-loop.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+VND-26Q3-133 evaluates Platform Helix for event routing in the Aster Loop Product Engineering portfolio. The synthetic review on 2026-07-15 recorded a 150 ms p95 trial response, 99.76% observed availability, and 96% evidence coverage. The review disposition is “advance to controlled trial”; this is comparative planning evidence, not a production service commitment.
+
+Next review: compare interface evidence with the synthetic release-gate criteria.

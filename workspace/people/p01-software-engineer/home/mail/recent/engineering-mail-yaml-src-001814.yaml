@@ -1,0 +1,13 @@
+message_id: MSG-2026Q3-001814
+artifact_id: p01-full-001814
+synthetic: true
+from:
+  role: Observability Lead
+  address: observability-lead@aster-loop.invalid
+to:
+  role: Migration Lead
+  address: migration-lead@aster-loop.invalid
+sent_at: "2026-09-23T09:14:00+09:00"
+subject: "Beta R4 schema freeze note"
+project: BETA-R4
+status: reviewed

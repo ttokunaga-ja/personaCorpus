@@ -1,0 +1,1 @@
+2026-09-04T09:59:00+09:00 INFO contract=API-B4-3839 event=schema_freeze state=released service=svc-observability tests_total=1240 tests_pass=1231 tests_fail=9

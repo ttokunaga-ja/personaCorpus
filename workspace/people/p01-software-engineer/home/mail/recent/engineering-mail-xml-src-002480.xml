@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<engineeringMail id="MSG-2026Q3-002480" artifact="p01-full-002480" synthetic="true">
+  <from role="Observability Lead" address="observability-lead@aster-loop.invalid"/>
+  <to role="Migration Lead" address="migration-lead@aster-loop.invalid"/>
+  <sentAt>2026-09-17T10:20:00+09:00</sentAt>
+  <subject>migration wave handoff</subject>
+  <project>BETA-R4</project>
+  <facts betaDesignP95Ms="225" contractTestsTotal="1240"/>
+  <status>reviewed</status>
+</engineeringMail>

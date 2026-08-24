@@ -1,0 +1,12 @@
+{
+  "schema": "aster-loop.beta-r4.architecture-review/v1",
+  "source_id": "p01-src-005273",
+  "review_id": "ADR-B4-100",
+  "release": "BETA-R4",
+  "review_date": "2026-08-17",
+  "subject": "service ownership",
+  "component": "evidence sink",
+  "design_p95_budget_ms": 225,
+  "status": "reviewed",
+  "synthetic": true
+}

@@ -1,0 +1,7 @@
+Product Alpha R7 release record REL-A7-20260714-71
+artifact=p01-full-004241
+source=p01-src-004241
+release_date=2026-07-13
+status=reviewed
+component=edge API
+summary=ADR-042 retains the asynchronous release gate; 184 ms p95 remains within the 200 ms ceiling.

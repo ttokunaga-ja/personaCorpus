@@ -1,0 +1,11 @@
+Closed archive record ARC-26Q3-009974
+source_id=p01-src-009974
+project=MIG-26Q3-W01
+state=closed
+closed_on=2026-09-16
+owner_role=Decision Owner
+service=svc-decision-store
+decision=archived immutable snapshot
+evidence=synthetic reconciliation complete
+alpha_reference=ADR-042 retains asynchronous release gate when applicable
+retention=do not modify; create a linked successor record for changes

@@ -1,0 +1,2 @@
+inbox_event,source_id,release,status,observed_p95_ms,accepted
+INBOX-004638,p01-src-004638,BETA-R4,unreviewed-inbox,187,false

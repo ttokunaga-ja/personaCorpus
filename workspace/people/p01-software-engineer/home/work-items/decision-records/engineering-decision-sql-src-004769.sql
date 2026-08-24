@@ -1,0 +1,3 @@
+-- Synthetic engineering decision lifecycle record p01-src-004769
+CREATE TABLE IF NOT EXISTS decision_lifecycle (record_id TEXT PRIMARY KEY, adr_id TEXT NOT NULL, product TEXT NOT NULL, status TEXT NOT NULL, owner_role TEXT NOT NULL, service TEXT NOT NULL, decision_date TEXT NOT NULL, rationale TEXT NOT NULL);
+INSERT INTO decision_lifecycle (record_id, adr_id, product, status, owner_role, service, decision_date, rationale) VALUES ('p01-src-004769', 'ADR-193', 'Product Alpha R7', 'closed', 'Migration Lead', 'svc-contract-registry', '2026-07-20', 'Adopt rollback rehearsal cadence with the ADR-042 approval boundary.');

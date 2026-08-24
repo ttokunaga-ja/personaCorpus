@@ -1,0 +1,2 @@
+2026-08-02T09:10:00+09:00 INFO source=p01-src-002134 state=review-pending event=working_copy_opened
+2026-08-02T09:14:00+09:00 INFO issue=ALW-3134 service=svc-observability working_latency_ms=189 alpha_reference_p95_ms=184

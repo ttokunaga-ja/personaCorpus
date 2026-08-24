@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decisionRecord id="p01-src-003267">
+  <adr>ADR-B4-084</adr>
+  <organization>Aster Loop株式会社</organization>
+  <product>Product Beta R4</product>
+  <date>2026-08-17</date>
+  <status>approved</status>
+  <owner role="Observability Lead"/>
+  <service>svc-event-bus</service>
+  <decision action="adopt">schema compatibility gate</decision>
+  <measure name="alpha_observed_p95_ms" value="184"/>
+</decisionRecord>

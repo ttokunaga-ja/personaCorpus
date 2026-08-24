@@ -1,0 +1,24 @@
+openapi: 3.0.3
+info:
+  title: Product Alpha R7 decisions API
+  version: 7.5.0
+  description: Synthetic Aster Loop contract API-A7-8985; reviewed on 2026-07-20.
+paths:
+  /v7/decisions/{recordId}:
+    get:
+      operationId: evaluate8985
+      responses:
+        '200':
+          description: Reviewed synthetic contract response
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [contract_id, status]
+                properties:
+                  contract_id:
+                    type: string
+                    example: API-A7-8985
+                  status:
+                    type: string
+                    example: reviewed

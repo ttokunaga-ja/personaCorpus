@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<architectureRecord id="ARCH-A7-008936" sourceId="p01-src-008936"><organization>Aster Loop</organization><product release="ALPHA-R7">Product Alpha R7</product><observation date="2026-08-17" state="reviewed"><service>svc-decision-store</service><decision>ADR-181</decision><releaseGate mode="asynchronous" approvalBoundary="release-coordinator_to_decision-store"/><latency p95Ms="182" sloCeilingMs="200"/></observation></architectureRecord>

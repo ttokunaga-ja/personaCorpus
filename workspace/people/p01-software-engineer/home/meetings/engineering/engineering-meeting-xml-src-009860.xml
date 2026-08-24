@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<engineeringMeeting id="MTG-ENG-20260803-71" date="2026-08-03"><title>observability calibration</title><product>Product Alpha R7</product><reference>ADR-057</reference><measure>200 ms</measure><action id="ACT-ENG-009860" ownerRole="API Steward" status="approved"/></engineeringMeeting>
