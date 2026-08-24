@@ -1,0 +1,6 @@
+Scenario,Revenue_JPY_m,EBITDA_JPY_m,Ending_Cash_JPY_m,Revenue_vs_Budget_pct,EBITDA_Margin_pct,Minimum_Liquidity_JPY_m,FX_Impact_JPY_m,Working_Capital_Impact_JPY_m,Status
+Budget,7400,860,500,0.0%,11.6%,250,0,0,PASS
+Downside,7050,720,310,-4.7%,10.2%,250,-18,-42,PASS
+Base,7560,900,540,2.2%,11.9%,250,-6,-18,PASS
+Upside,7920,1020,610,7.0%,12.9%,250,8,12,PASS
+Q1 Actual,1842,222,,,-,250,-0.8,-12.4,Reconciled

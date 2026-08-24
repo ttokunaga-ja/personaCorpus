@@ -1,0 +1,7 @@
+posting_date,journal_id,account_code,account_name,department,currency,debit_jpy,credit_jpy,net_jpy,memo,source_system,export_as_of
+2026-03-31,JE-260331-001,1200,Trade receivables,Commercial,JPY,1842000000,0,1842000000,March invoicing close,Cedar ERP,2026-03-31
+2026-03-31,JE-260331-001,4000,Product revenue,Commercial,JPY,0,1842000000,-1842000000,March revenue recognition,Cedar ERP,2026-03-31
+2026-03-31,JE-260331-002,5000,Cost of goods sold,Operations,JPY,1131000000,0,1131000000,March production costs,Cedar ERP,2026-03-31
+2026-03-31,JE-260331-002,1300,Inventory,Operations,JPY,0,1131000000,-1131000000,March inventory relief,Cedar ERP,2026-03-31
+2026-03-31,JE-260331-003,1100,Cash ledger closing balance,Treasury,JPY,498600000,0,498600000,March cash ledger close,Cedar ERP,2026-03-31
+2026-03-31,JE-260331-003,3000,Equity clearing,Treasury,JPY,0,498600000,-498600000,Synthetic opening balance offset,Cedar ERP,2026-03-31

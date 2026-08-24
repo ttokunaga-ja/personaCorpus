@@ -1,0 +1,10 @@
+Driver,Value,Unit,Owner_Role,Basis
+FY2026 budget revenue,7400,JPY m,FP&A Lead,Approved budget
+FY2026 budget EBITDA,860,JPY m,FP&A Lead,Approved budget
+FY2026 base forecast revenue,7560,JPY m,Finance Controller,Bottom-up monthly driver plan
+FY2026 base forecast EBITDA,900,JPY m,Finance Controller,Revenue less COGS and opex
+Revenue growth vs budget,2.2%,%,Commercial Finance,Forecast / budget - 1
+EBITDA growth vs budget,4.7%,%,Finance Controller,Forecast / budget - 1
+Working capital opening AR,312,JPY m,Treasury Analyst,March close
+Working capital opening AP,226,JPY m,Procurement Finance,March close
+Working capital opening inventory,418,JPY m,Supply Chain Finance,March close

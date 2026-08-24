@@ -1,0 +1,32 @@
+{
+  "report_name": "FY2026 Q1 March Close Cash Variance Review",
+  "organization": "Cedar Works",
+  "status_as_of": "2026-04-06",
+  "period": {
+    "fiscal_year": 2026,
+    "quarter": "Q1",
+    "close_month": "2026-03"
+  },
+  "currency": "JPY",
+  "display_unit": "millions",
+  "scope": "controller_close_snapshot",
+  "filters": {
+    "entities": ["Cedar Works Consolidated"],
+    "cash_view": "bank_to_ledger_reconciliation",
+    "include_timing_items": true,
+    "include_permanent_corrections": true
+  },
+  "sort": [
+    { "field": "owner", "direction": "ascending" },
+    { "field": "amount_jpy_m", "direction": "descending" }
+  ],
+  "expected_anchors": {
+    "q1_revenue_jpy_m": 1842.0,
+    "q1_ebitda_jpy_m": 222.0,
+    "bank_cash_jpy_m": 486.2,
+    "ledger_cash_jpy_m": 498.6,
+    "unfavorable_variance_jpy_m": 12.4
+  },
+  "refresh_mode": "offline_snapshot",
+  "notes": "Synthetic controller working parameters; no external connection configuration is stored."
+}

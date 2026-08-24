@@ -1,0 +1,13 @@
+Expense Date,Cost Center,Expense ID,Vendor,Category,Amount JPY,Budget JPY,Approval Status
+2026-01-09,SALES-410,SAL-2601-001,Summit Events,Customer event,220000,200000,Approved
+2026-01-16,SALES-410,SAL-2601-002,Brightline Media,Demand generation,185000,180000,Approved
+2026-01-27,SALES-410,SAL-2601-003,Metro Rail,Business travel,68000,60000,Approved
+2026-02-02,SALES-410,SAL-2602-004,Harbor Hotel,Business travel,92000,85000,Approved
+2026-02-09,SALES-410,SAL-2602-005,Brightline Media,Demand generation,230000,210000,Approved
+2026-02-20,SALES-410,SAL-2602-006,Client Table,Meals and entertainment,58000,50000,Approved
+2026-03-05,SALES-410,SAL-2603-007,Summit Events,Customer event,260000,220000,Approved
+2026-03-11,SALES-410,SAL-2603-008,Metro Rail,Business travel,76000,65000,Approved
+2026-03-16,SALES-410,SAL-2603-009,Harbor Hotel,Business travel,105000,90000,Approved
+2026-03-21,SALES-410,SAL-2603-010,Client Table,Meals and entertainment,72000,60000,Approved
+2026-03-26,SALES-410,SAL-2603-011,Brightline Media,Demand generation,245000,220000,Approved
+2026-03-31,SALES-410,SAL-2603-012,Summit Events,Customer event,280000,240000,Pending

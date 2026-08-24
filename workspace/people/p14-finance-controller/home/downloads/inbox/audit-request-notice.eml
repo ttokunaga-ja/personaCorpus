@@ -1,0 +1,21 @@
+From: audit-requests@audit.example
+To: finance-control@cedarworks.example
+Subject: Synthetic audit request: March close variance support
+Date: Mon, 06 Apr 2026 09:15:00 +0900
+Message-ID: <audit-request-notice.eml@cedarworks.example>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Cedar Works Finance Control,
+
+This synthetic audit request asks for the March 2026 close support packet. Pl=
+ease retain the redacted cash statement, the vendor intake batch, and the ERP=
+ validation screenshot. The reconciliation difference is JPY 12,400,000 unfav=
+orable: cash is JPY 486,200,000 versus ledger JPY 498,600,000.
+
+No payment action is requested. This message is synthetic training correspond=
+ence.
+
+Audit Requests
+audit-requests@audit.example

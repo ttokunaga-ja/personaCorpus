@@ -1,0 +1,10 @@
+Cedar Works — controller personal files
+Status: 2026-04-06
+
+This folder contains offline working materials for the FY2026 Q1 / March close.
+
+Key reconciliation: bank cash of JPY 486.2m versus ledger cash of JPY 498.6m creates a JPY 12.4m unfavorable variance. The variance is fully bridged by payment timing (JPY 7.2m), inbound settlement timing (JPY 3.1m), posting cut-off (JPY 1.3m), and classification adjustment (JPY 0.8m).
+
+Operating reminder: timing items should clear through the next normal cycle. Posting cut-off and classification items need documented corrective support. Ownership is Treasury / AR lead for clearing, Accounting for cut-off, FP&A for classification, and Controller for final close sign-off.
+
+All contents are synthetic Cedar Works working materials. No live system connection is implied.

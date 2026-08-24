@@ -1,0 +1,4 @@
+posting_date,account_id,cost_center,description,debit_jpy,credit_jpy
+2026-02-28,410100,CC-OPS-01,Materials expense,32000000,0
+2026-02-28,510200,CC-SLS-02,Revenue recognition,0,1842000000
+2026-02-28,110100,CC-FIN-01,Accounts receivable,312000000,0

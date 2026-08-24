@@ -1,0 +1,26 @@
+From: Finance Controller <finance-controller@cedarworks.example>
+To: Close Coordination <close-coordination@cedarworks.example>
+Cc: Treasury Operations <treasury-operations@cedarworks.example>
+Subject: 31 March close status and 6 April target
+Date: Tue, 31 Mar 2026 16:15:00 +0900
+Message-ID: <20260331.close-status@cedarworks.example>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Synthetic-Artifact: true
+
+Cedar Works close team,
+
+The 31 March close remains on target for completion by 2026-04-06. The Q1
+management view currently shows revenue of JPY 1.842b and EBITDA of JPY 222m.
+
+Open work is limited to the bank-cash variance bridge, final operating-expense
+review, and the controller sign-off. Close Coordination owns the consolidated
+status check; Treasury Operations owns the evidence supporting the cash bridge.
+Please flag a change to the 6 April target as soon as it is known.
+
+This is a fictional Cedar Works corpus message. No attachments, account
+identifiers, credentials, or sensitive records are included.
+
+Finance Controller
+Cedar Works

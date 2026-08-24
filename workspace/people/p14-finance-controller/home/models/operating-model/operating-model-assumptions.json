@@ -1,0 +1,68 @@
+{
+  "model": "Cedar Works FY2026 Operating Model",
+  "version": "1.0",
+  "as_of": "2026-04-06",
+  "currency": "JPY",
+  "units": "millions",
+  "architecture": [
+    "Cover Summary",
+    "Assumptions",
+    "Drivers",
+    "Monthly Model",
+    "Scenarios",
+    "Checks",
+    "Sources Audit"
+  ],
+  "ownership": {
+    "Finance Controller": "versioning, scenario governance, checks",
+    "FP&A": "budget and driver assumptions",
+    "Close Lead": "Q1 actuals",
+    "Treasury": "bank balance"
+  },
+  "scenarios": {
+    "budget": {
+      "revenue": 7400,
+      "ebitda": 860
+    },
+    "base": {
+      "revenue": 7560,
+      "ebitda": 900
+    },
+    "downside": {
+      "revenue": 7050,
+      "ebitda": 720
+    },
+    "upside": {
+      "revenue": 7920,
+      "ebitda": 1020
+    }
+  },
+  "q1_actuals": {
+    "revenue": 1842,
+    "cogs": 1131,
+    "gross_profit": 711,
+    "opex": 489,
+    "ebitda": 222,
+    "ar": 312,
+    "ap": 226,
+    "inventory": 418
+  },
+  "march_cash_variance": {
+    "bank": 486.2,
+    "ledger": 498.6,
+    "unfavorable": 12.4,
+    "bridge": [
+      7.2,
+      3.1,
+      1.3,
+      0.8
+    ]
+  },
+  "controls": [
+    "monthly revenue and EBITDA roll-ups",
+    "driver weights equal 100%",
+    "actual anchor checks",
+    "cash variance bridge"
+  ],
+  "status": "PASS"
+}

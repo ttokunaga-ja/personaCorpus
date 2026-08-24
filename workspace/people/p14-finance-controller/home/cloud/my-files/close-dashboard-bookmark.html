@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cedar Works — Close dashboard snapshot</title>
+  <style>
+    :root { --navy:#17365d; --ink:#17212b; --muted:#5b6573; --line:#d9e2f3; --blue:#eaf3fa; --green:#e2f0d9; --amber:#fff2cc; }
+    * { box-sizing:border-box; } body { margin:0; background:#f5f7fa; color:var(--ink); font:15px/1.45 Arial, sans-serif; }
+    main { max-width:940px; margin:32px auto; padding:0 24px 32px; } header { border-left:6px solid var(--navy); padding:4px 0 4px 16px; }
+    h1 { margin:0; color:var(--navy); font-size:27px; } h2 { margin:0 0 10px; font-size:16px; color:var(--navy); } .meta { margin:4px 0 0; color:var(--muted); }
+    .grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin:22px 0; } .card { background:#fff; border:1px solid var(--line); border-radius:8px; padding:14px; }
+    .label { color:var(--muted); font-size:12px; text-transform:uppercase; letter-spacing:.04em; } .value { color:var(--navy); font-size:24px; font-weight:700; margin-top:4px; }
+    section { background:#fff; border:1px solid var(--line); border-radius:8px; margin-top:16px; padding:18px; } .callout { background:var(--amber); border-left:4px solid #c9a227; padding:12px 14px; }
+    table { width:100%; border-collapse:collapse; } th { text-align:left; background:var(--navy); color:#fff; font-size:12px; padding:9px; } td { padding:9px; border-bottom:1px solid var(--line); } td.amount { text-align:right; font-variant-numeric:tabular-nums; } .ok { background:var(--green); color:#375623; font-weight:700; text-align:center; border-radius:4px; padding:3px 6px; } footer { color:var(--muted); font-size:12px; margin-top:18px; }
+    @media (max-width:700px) { .grid { grid-template-columns:repeat(2,1fr); } }
+  </style>
+</head>
+<body>
+  <main>
+    <header><h1>Close dashboard snapshot</h1><p class="meta">Cedar Works · FY2026 Q1 / March close · status as of 2026-04-06 · JPY millions</p></header>
+    <div class="grid" aria-label="Close KPIs">
+      <div class="card"><div class="label">Q1 revenue</div><div class="value">1,842.0</div></div>
+      <div class="card"><div class="label">Q1 EBITDA</div><div class="value">222.0</div></div>
+      <div class="card"><div class="label">Bank cash</div><div class="value">486.2</div></div>
+      <div class="card"><div class="label">Ledger cash</div><div class="value">498.6</div></div>
+    </div>
+    <section><h2>Cash variance</h2><div class="callout"><strong>JPY 12.4m unfavorable.</strong> Bank cash is lower than ledger cash; the variance is fully bridged and separated into timing versus permanent correction items.</div></section>
+    <section><h2>Bridge detail</h2><table><thead><tr><th>Driver</th><th>Nature</th><th>Owner</th><th>Amount</th></tr></thead><tbody>
+      <tr><td>Payment timing</td><td>Timing</td><td>Treasury</td><td class="amount">7.2</td></tr>
+      <tr><td>Inbound settlement timing</td><td>Timing</td><td>AR lead</td><td class="amount">3.1</td></tr>
+      <tr><td>Posting cut-off</td><td>Permanent correction</td><td>Accounting</td><td class="amount">1.3</td></tr>
+      <tr><td>Classification adjustment</td><td>Permanent correction</td><td>FP&amp;A</td><td class="amount">0.8</td></tr>
+      <tr><td><strong>Total bridge</strong></td><td></td><td><span class="ok">Reconciled</span></td><td class="amount"><strong>12.4</strong></td></tr>
+    </tbody></table></section>
+    <section><h2>Close actions</h2><p>Next clearing cycle follow-up: Treasury and AR lead. Correcting entry support: Accounting. Classification support: FP&amp;A. Final close sign-off: Controller.</p></section>
+    <footer>Offline snapshot only. No external links, scripts, credentials, or live data connections.</footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,20 @@
+Cedar Works mail triage notes
+Review window: 2026-03-31 to 2026-04-06
+
+1. 31 March close status and 6 April target
+   Status: Open through controller sign-off.
+   Owner roles: Close Coordination for the consolidated status check;
+   Treasury Operations for cash-bridge support; Finance Controller for sign-off.
+   Anchor: close target 2026-04-06; Q1 revenue JPY 1.842b; EBITDA JPY 222m.
+
+2. Evidence request: 31 March cash variance bridge
+   Status: Awaiting role-level evidence by 2026-04-03.
+   Owner roles: Treasury Operations provides the bridge; Close Coordination
+   incorporates it; Finance Controller reviews the explanation.
+   Anchor: bank cash JPY 486.2m versus ledger cash JPY 498.6m, unfavorable
+   JPY 12.4m. Provisional bridge: receipt JPY 7.2m, vendor JPY 3.1m,
+   fees JPY 1.3m, FX JPY 0.8m.
+
+Handling: No sensitive attachments are present or requested. Keep follow-up
+evidence in the approved internal location; do not include account identifiers,
+transaction images, or credentials in mail.

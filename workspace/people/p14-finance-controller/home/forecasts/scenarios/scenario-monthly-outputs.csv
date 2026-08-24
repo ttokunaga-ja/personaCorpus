@@ -1,0 +1,13 @@
+Scenario,Period,Revenue_JPY_m,EBITDA_JPY_m,Ending_Cash_JPY_m,Minimum_Liquidity_JPY_m,Liquidity_Status
+Downside,Q1 Actual,1842,222,486.2,250,PASS
+Downside,Q2 Forecast,1680,165,402,250,PASS
+Downside,Q3 Forecast,1740,170,344,250,PASS
+Downside,Q4 Forecast,1788,163,310,250,PASS
+Base,Q1 Actual,1842,222,486.2,250,PASS
+Base,Q2 Forecast,1840,220,510,250,PASS
+Base,Q3 Forecast,1900,230,528,250,PASS
+Base,Q4 Forecast,1978,228,540,250,PASS
+Upside,Q1 Actual,1842,222,486.2,250,PASS
+Upside,Q2 Forecast,1940,250,545,250,PASS
+Upside,Q3 Forecast,2020,270,582,250,PASS
+Upside,Q4 Forecast,2118,278,610,250,PASS

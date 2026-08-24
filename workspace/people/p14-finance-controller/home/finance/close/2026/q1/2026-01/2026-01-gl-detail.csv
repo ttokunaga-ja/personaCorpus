@@ -1,0 +1,5 @@
+posting_date,account_id,cost_center,description,debit_jpy,credit_jpy
+2026-01-31,1010,CC-100,Cash clearing,498600000,0
+2026-01-31,1120,CC-210,Trade receivables,312000000,0
+2026-01-31,2110,CC-310,Trade payables,0,226000000
+2026-01-31,4000,CC-400,January revenue,0,614000000

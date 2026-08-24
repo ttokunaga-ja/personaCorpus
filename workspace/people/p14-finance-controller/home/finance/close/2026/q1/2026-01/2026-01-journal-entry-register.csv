@@ -1,0 +1,4 @@
+je_id,posting_date,source,description,debit_jpy,credit_jpy,approval_role
+JE-2601-001,2026-01-31,ACCRUAL,Cloud operations accrual,6200000,6200000,Finance Controller
+JE-2601-002,2026-01-31,DEPR,Monthly depreciation,5400000,5400000,Finance Controller
+JE-2601-003,2026-01-31,CUTOFF,Revenue cutoff adjustment,7200000,7200000,Revenue Accounting

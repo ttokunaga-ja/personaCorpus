@@ -1,0 +1,5 @@
+item_id,item_type,amount_jpy,age_days,status,owner_role
+OI-AR-021,AR timing,7200000,4,Open,Collections Lead
+OI-AP-014,Vendor timing,3100000,3,Open,AP Lead
+OI-BK-003,Bank fee,1300000,2,Open,Treasury Analyst
+OI-FX-002,FX revaluation,800000,2,Open,Controller

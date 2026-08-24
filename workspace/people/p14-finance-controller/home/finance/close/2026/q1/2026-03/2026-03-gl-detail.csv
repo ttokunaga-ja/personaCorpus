@@ -1,0 +1,4 @@
+posting_date,account_id,cost_center_id,description,debit_jpy,credit_jpy
+2026-03-31,ACCT-1100,CC-100,Cash ledger closing balance,498600000,0
+2026-03-31,ACCT-4000,CC-200,March revenue close,0,1842000000
+2026-03-31,ACCT-5000,CC-200,March cost of sales,1131000000,0

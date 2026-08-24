@@ -1,0 +1,55 @@
+{
+  "model": "Cedar Works FY2026 base-case FP&A forecast",
+  "version": "v1.0",
+  "scenario": "Base Case",
+  "currency": "JPY",
+  "units": "JPY millions except percentages and FTE",
+  "as_of": "2026-03-31",
+  "owner_role": "Finance Controller",
+  "budget": {
+    "revenue": 7400000000,
+    "ebitda": 860000000
+  },
+  "forecast": {
+    "revenue": 7560000000,
+    "ebitda": 900000000
+  },
+  "q1_actual": {
+    "revenue": 1842000000,
+    "cogs": 1131000000,
+    "gross_profit": 711000000,
+    "opex": 489000000,
+    "ebitda": 222000000
+  },
+  "march_working_capital": {
+    "ar": 312000000,
+    "ap": 226000000,
+    "inventory": 418000000
+  },
+  "cash_variance": {
+    "bank_cash": 486200000,
+    "ledger_cash": 498600000,
+    "unfavorable": 12400000,
+    "bridge": {
+      "receipt_timing": 7200000,
+      "vendor_timing": 3100000,
+      "bank_fees": 1300000,
+      "fx": 800000
+    }
+  },
+  "forecast_months": [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec"
+  ],
+  "method": "Q1 actuals fixed; April-December driver plan; working capital and cash roll forward monthly."
+}

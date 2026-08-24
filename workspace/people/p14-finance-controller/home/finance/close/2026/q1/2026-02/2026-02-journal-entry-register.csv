@@ -1,0 +1,3 @@
+je_id,posting_date,source,status,debit_jpy,credit_jpy,approval_role
+JE-26-02-001,2026-02-28,ACCRUALS,Posted,40500000,40500000,Finance Controller
+JE-26-02-002,2026-02-28,REV-CUTOFF,Posted,1842000000,1842000000,Revenue Accounting Lead

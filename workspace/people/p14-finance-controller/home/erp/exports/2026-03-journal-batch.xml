@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<journalBatch company="Cedar Works" period="2026-03" batchId="CW-2026-03-CLOSE-01" currency="JPY">
+  <approval role="Finance Controller" status="approved" approvedOn="2026-03-31"/>
+  <entries>
+    <entry line="1" accountCode="4000" accountName="Revenue" costCenter="SALES-410" debitJpy="680000000" creditJpy="0" memo="Close revenue to retained earnings"/>
+    <entry line="2" accountCode="5000" accountName="COGS" costCenter="OPS-210" debitJpy="0" creditJpy="272000000" memo="Close cost of goods sold"/>
+    <entry line="3" accountCode="6100" accountName="Operating Expense" costCenter="ENG-310" debitJpy="0" creditJpy="118000000" memo="Close operating expense"/>
+    <entry line="4" accountCode="3000" accountName="Retained Earnings" costCenter="FIN-100" debitJpy="0" creditJpy="290000000" memo="Post March net result"/>
+  </entries>
+  <control totalDebitJpy="680000000" totalCreditJpy="680000000" balanceStatus="balanced"/>
+</journalBatch>

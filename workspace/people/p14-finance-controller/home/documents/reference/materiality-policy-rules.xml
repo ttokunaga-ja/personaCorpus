@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cedarWorksMaterialityPolicy policyId="CW-FIN-MAT-2026Q1" period="FY2026-Q1" synthetic="true">
+  <purpose>Internal routing rules for review and documentation. This is a synthetic Cedar Works policy, not external accounting or legal authority.</purpose>
+  <currency>JPY</currency>
+  <thresholds>
+    <tier id="routine" lowerInclusive="0" upperExclusive="500000">
+      <requirement>Prepare support and include in normal monthly reconciliation.</requirement>
+      <approval>Close Analyst prepares; Finance Manager reviews as part of the account review.</approval>
+    </tier>
+    <tier id="review" lowerInclusive="500000" upperExclusive="5000000">
+      <requirement>Document cause, account, cost center, and period impact before posting.</requirement>
+      <approval>Finance Manager approval is required before posting.</approval>
+    </tier>
+    <tier id="controller" lowerInclusive="5000000" upperExclusive="10000000">
+      <requirement>Attach a reconciliation bridge and reversal plan when the item is an estimate.</requirement>
+      <approval>Controller approval is required before posting or reporting as open.</approval>
+    </tier>
+    <tier id="escalated" lowerInclusive="10000000">
+      <requirement>Prepare an issue summary with root cause, owner, remediation date, and reporting impact.</requirement>
+      <approval>Controller and CFO-role review are required before close sign-off.</approval>
+    </tier>
+  </thresholds>
+  <rules>
+    <rule id="MAT-01">Aggregate related items by account, cost center, root cause, and close period before applying a threshold.</rule>
+    <rule id="MAT-02">Any cash-reconciliation difference at or above JPY 5000000 requires a documented bridge, even when timing-related.</rule>
+    <rule id="MAT-03">Revenue cutoff adjustments require evidence of the internal revenue trigger and independent review regardless of amount.</rule>
+    <rule id="MAT-04">Unresolved items remain on the close-control register until an owner and target resolution date are recorded.</rule>
+  </rules>
+  <anchorCase bankCashJPY="486200000" ledgerCashJPY="498600000" differenceJPY="12400000" direction="unfavorable">
+    <bridge component="outstanding-payments" amountJPY="7200000" />
+    <bridge component="deposits-in-transit" amountJPY="3100000" />
+    <bridge component="bank-fees-not-yet-posted" amountJPY="1300000" />
+    <bridge component="timing-differences" amountJPY="800000" />
+  </anchorCase>
+</cedarWorksMaterialityPolicy>

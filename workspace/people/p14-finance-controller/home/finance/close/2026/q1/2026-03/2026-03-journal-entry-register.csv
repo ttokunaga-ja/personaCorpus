@@ -1,0 +1,4 @@
+entry_id,posting_date,description,debit_jpy,credit_jpy,approver_role
+JE-2603-001,2026-03-31,Bank fee accrual,1300000,1300000,Finance Director
+JE-2603-002,2026-03-31,FX remeasurement,800000,800000,Controller
+JE-2603-003,2026-03-31,Close allocation,3100000,3100000,Controller

@@ -1,0 +1,24 @@
+scenario_set: Cedar Works FY2026
+currency: JPY
+units: millions
+as_of: 2026-03-31
+control_owner: Finance Controller
+q1_actual:
+  revenue: 1842
+  ebitda: 222
+  ending_cash_bank: 486.2
+  ending_cash_ledger: 498.6
+  unfavorable_cash_variance: 12.4
+  variance_drivers:
+    receipt_timing: 7.2
+    vendor_payment_timing: 3.1
+    bank_fees: 1.3
+    fx: 0.8
+scenarios:
+  budget: {revenue: 7400, ebitda: 860, ending_cash: 500, minimum_liquidity: 250}
+  downside: {revenue: 7050, ebitda: 720, ending_cash: 310, minimum_liquidity: 250, fx_impact: -18, working_capital_impact: -42}
+  base: {revenue: 7560, ebitda: 900, ending_cash: 540, minimum_liquidity: 250, fx_impact: -6, working_capital_impact: -18}
+  upside: {revenue: 7920, ebitda: 1020, ending_cash: 610, minimum_liquidity: 250, fx_impact: 8, working_capital_impact: 12}
+controls:
+  liquidity_test: ending_cash >= minimum_liquidity
+  reconciliation_test: bank_cash + unfavorable_cash_variance == ledger_cash

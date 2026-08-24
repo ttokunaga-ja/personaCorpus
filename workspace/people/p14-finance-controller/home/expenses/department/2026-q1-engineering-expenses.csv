@@ -1,0 +1,13 @@
+Expense Date,Cost Center,Expense ID,Vendor,Category,Amount JPY,Budget JPY,Approval Status
+2026-01-08,ENG-310,ENG-2601-001,Nimbus Dev Tools,Software subscriptions,185000,170000,Approved
+2026-01-14,ENG-310,ENG-2601-002,Cedar Cloud Lab,Cloud compute,420000,400000,Approved
+2026-01-22,ENG-310,ENG-2601-003,Prototype Parts Co.,Lab supplies,98000,110000,Approved
+2026-02-03,ENG-310,ENG-2602-004,Atlas Training,Technical training,156000,150000,Approved
+2026-02-11,ENG-310,ENG-2602-005,Nimbus Dev Tools,Software subscriptions,188000,170000,Approved
+2026-02-26,ENG-310,ENG-2602-006,Cedar Cloud Lab,Cloud compute,465000,430000,Approved
+2026-03-04,ENG-310,ENG-2603-007,Prototype Parts Co.,Lab supplies,125000,120000,Approved
+2026-03-10,ENG-310,ENG-2603-008,Metro Rail,Business travel,74000,60000,Approved
+2026-03-15,ENG-310,ENG-2603-009,Harbor Hotel,Business travel,96000,90000,Approved
+2026-03-20,ENG-310,ENG-2603-010,Atlas Training,Technical training,210000,180000,Approved
+2026-03-24,ENG-310,ENG-2603-011,Nimbus Dev Tools,Software subscriptions,190000,170000,Approved
+2026-03-28,ENG-310,ENG-2603-012,Cedar Cloud Lab,Cloud compute,510000,460000,Pending

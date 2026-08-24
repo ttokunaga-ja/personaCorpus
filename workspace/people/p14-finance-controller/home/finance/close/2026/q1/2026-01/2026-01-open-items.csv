@@ -1,0 +1,5 @@
+item_id,category,amount_jpy,owner_role,target_date,status
+OI-2601-01,Cash receipt timing,7200000,Treasury Analyst,2026-04-03,Open
+OI-2601-02,Vendor timing,3100000,AP Manager,2026-04-03,Open
+OI-2601-03,Bank fees,1300000,Treasury Analyst,2026-04-01,Open
+OI-2601-04,FX remeasurement,800000,Finance Controller,2026-04-05,Open

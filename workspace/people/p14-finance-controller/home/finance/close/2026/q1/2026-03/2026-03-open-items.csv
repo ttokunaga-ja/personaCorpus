@@ -1,0 +1,4 @@
+item_id,category,amount_jpy,status,owner_role,due_date
+OI-2603-001,Receipt timing,7200000,Cleared after bank statement,Treasury Lead,2026-04-07
+OI-2603-002,Vendor timing,3100000,Cleared after AP cutoff,AP Manager,2026-04-08
+OI-2603-003,FX,800000,Reviewed,Controller,2026-04-06

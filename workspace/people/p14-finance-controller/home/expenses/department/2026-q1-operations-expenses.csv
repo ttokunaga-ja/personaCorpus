@@ -1,0 +1,13 @@
+Expense Date,Cost Center,Expense ID,Vendor,Category,Amount JPY,Budget JPY,Approval Status
+2026-01-07,OPS-210,OPS-2601-001,RouteWorks Logistics,Freight,260000,250000,Approved
+2026-01-15,OPS-210,OPS-2601-002,Cedar Packaging,Packaging,175000,170000,Approved
+2026-01-25,OPS-210,OPS-2601-003,ShiftSafe Apparel,Safety supplies,82000,90000,Approved
+2026-02-04,OPS-210,OPS-2602-004,RouteWorks Logistics,Freight,285000,260000,Approved
+2026-02-10,OPS-210,OPS-2602-005,Cedar Packaging,Packaging,190000,180000,Approved
+2026-02-22,OPS-210,OPS-2602-006,FleetCare,Vehicle service,112000,100000,Approved
+2026-03-02,OPS-210,OPS-2603-007,RouteWorks Logistics,Freight,310000,280000,Approved
+2026-03-08,OPS-210,OPS-2603-008,Cedar Packaging,Packaging,205000,190000,Approved
+2026-03-13,OPS-210,OPS-2603-009,FleetCare,Vehicle service,140000,120000,Approved
+2026-03-19,OPS-210,OPS-2603-010,ShiftSafe Apparel,Safety supplies,90000,90000,Approved
+2026-03-25,OPS-210,OPS-2603-011,RouteWorks Logistics,Freight,330000,300000,Approved
+2026-03-30,OPS-210,OPS-2603-012,Cedar Packaging,Packaging,215000,190000,Pending

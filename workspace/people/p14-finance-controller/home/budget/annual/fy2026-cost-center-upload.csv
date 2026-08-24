@@ -1,0 +1,6 @@
+cost_center,department,annual_budget_jpy_m,approval_status,version
+FIN-100,Finance,280,Pending,1.0
+OPS-210,Operations,1320,Pending,1.0
+ENG-310,Engineering,960,Pending,1.0
+SALES-410,Sales,620,Pending,1.0
+FAC-510,Facilities,240,Pending,1.0

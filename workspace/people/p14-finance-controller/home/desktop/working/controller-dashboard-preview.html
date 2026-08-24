@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cedar Works — March Close Dashboard</title>
+  <style>
+    :root { --navy:#17365d; --ink:#203040; --paper:#f5f8fb; --risk:#b42318; --amber:#9a6700; --ok:#067647; }
+    * { box-sizing:border-box; } body { margin:0; background:var(--paper); color:var(--ink); font:15px/1.45 Arial,sans-serif; }
+    main { max-width:1120px; margin:28px auto; padding:0 22px; } header { background:var(--navy); color:#fff; padding:24px 28px; border-radius:10px; }
+    h1 { margin:0; font-size:26px; } header p { margin:6px 0 0; opacity:.88; } .grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin:18px 0; }
+    .card,section { background:#fff; border:1px solid #d8e1eb; border-radius:8px; padding:16px; } .label { color:#5b6b7a; font-size:12px; text-transform:uppercase; letter-spacing:.04em; }
+    .metric { margin-top:5px; font-size:25px; font-weight:700; } .risk { color:var(--risk); } table { width:100%; border-collapse:collapse; margin-top:8px; }
+    th { background:#eaf1f8; text-align:left; font-size:12px; text-transform:uppercase; } th,td { padding:10px; border-bottom:1px solid #e4eaf0; } .status { font-weight:700; } .open { color:var(--risk); } .monitor { color:var(--amber); }
+    .note { margin-top:16px; border-left:4px solid #d6a700; background:#fff7dd; padding:12px 14px; } @media(max-width:760px){.grid{grid-template-columns:repeat(2,1fr)}}
+  </style>
+</head>
+<body><main>
+  <header><h1>Cedar Works | March 2026 Close</h1><p>Controller working dashboard · As of 2026-04-06 · JPY millions · Synthetic internal snapshot</p></header>
+  <div class="grid">
+    <div class="card"><div class="label">Bank cash</div><div class="metric">¥486.2m</div></div>
+    <div class="card"><div class="label">Ledger cash</div><div class="metric">¥498.6m</div></div>
+    <div class="card"><div class="label">Unfavorable variance</div><div class="metric risk">¥12.4m</div></div>
+    <div class="card"><div class="label">Close status</div><div class="metric risk">At risk</div></div>
+  </div>
+  <section><h2>Open cash-bridge items</h2><table><thead><tr><th>Workstream</th><th>JPY m</th><th>Threshold</th><th>Status</th><th>Next step</th></tr></thead><tbody>
+    <tr><td>Receipt timing</td><td>7.2</td><td>5.0 escalation</td><td class="status open">Open</td><td>Confirm bank posting by 10:00</td></tr>
+    <tr><td>Vendor timing</td><td>3.1</td><td>2.5 review</td><td class="status open">Open</td><td>Obtain AP cutoff support by 11:30</td></tr>
+    <tr><td>Fees</td><td>1.3</td><td>1.0 review</td><td class="status open">Open</td><td>Post or substantiate accrual by 13:00</td></tr>
+    <tr><td>FX</td><td>0.8</td><td>1.0 review</td><td class="status monitor">Monitor</td><td>Revalue only if evidence changes</td></tr>
+  </tbody></table></section>
+  <p class="note"><strong>Close gate:</strong> components reconcile to ¥12.4m. Do not conclude the cash close until the first three items are resolved or supported. Unfavorable variance = ledger cash less bank cash.</p>
+</main></body></html>

@@ -1,0 +1,14 @@
+account_code	account_name	cost_center	debit_jpy	credit_jpy
+1000	Cash	FIN-100	498600000	0
+1100	Accounts Receivable	SALES-410	312000000	0
+1200	Prepaid Expenses	FIN-100	40000000	0
+1300	Inventory	OPS-210	418000000	0
+1500	Fixed Assets	FAC-510	190000000	0
+2000	Accounts Payable	OPS-210	0	226000000
+2100	Accrued Payroll	ENG-310	0	58000000
+2200	Deferred Revenue	SALES-410	0	77000000
+3000	Retained Earnings	FIN-100	0	807600000
+4000	Revenue	SALES-410	0	680000000
+5000	COGS	OPS-210	272000000	0
+6100	Operating Expense	ENG-310	118000000	0
+TOTAL	Trial Balance Total		1848600000	1848600000

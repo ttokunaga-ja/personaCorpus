@@ -1,0 +1,5 @@
+item_id,workstream,description,amount_jpy_m,materiality_jpy_m,status,due_at,owner_role,next_step
+CW-001,Receipt timing,Unmatched receipt pending bank posting,7.2,5.0,Open,2026-04-06T10:00:00+09:00,Treasury analyst,Confirm bank posting and clear bridge item
+CW-002,Vendor timing,Payment cutoff support pending,3.1,2.5,Open,2026-04-06T11:30:00+09:00,AP lead,Obtain cutoff support and payment queue status
+CW-003,Fees,Bank fee accrual support pending,1.3,1.0,Open,2026-04-06T13:00:00+09:00,GL accountant,Post or substantiate fee accrual
+CW-004,FX,Remeasurement evidence review,0.8,1.0,Monitor,2026-04-06T15:00:00+09:00,Controller,Revalue only if evidence changes

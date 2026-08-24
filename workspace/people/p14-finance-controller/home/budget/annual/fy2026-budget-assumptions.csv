@@ -1,0 +1,8 @@
+assumption_id,driver,base_case,unit,owner,review_note
+A-001,Revenue baseline,7400,JPY m,Finance Controller,FY2026 approved baseline
+A-002,EBITDA baseline,860,JPY m,Finance Controller,FY2026 approved baseline
+A-003,Base forecast revenue,7560,JPY m,Finance Controller,Q1 actual uplift reflected
+A-004,Base forecast EBITDA,900,JPY m,Finance Controller,Q1 actual uplift reflected
+A-005,Q1 actual revenue,1842,JPY m,Finance Controller,vs budget 1800
+A-006,Q1 actual EBITDA,222,JPY m,Finance Controller,vs budget 210
+A-007,March cash variance,-12.4,JPY m,Treasury,unfavorable bank vs ledger

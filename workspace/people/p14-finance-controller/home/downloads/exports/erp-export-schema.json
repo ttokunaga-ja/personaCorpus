@@ -1,0 +1,144 @@
+{
+  "schema_version": "cedar-erp-export/v1",
+  "organization": "Cedar Works",
+  "synthetic_data": true,
+  "exports": {
+    "2026-03-gl-detail-export.csv": {
+      "delimiter": ",",
+      "encoding": "UTF-8",
+      "fields": [
+        {
+          "name": "posting_date",
+          "type": "date",
+          "format": "YYYY-MM-DD",
+          "required": true
+        },
+        {
+          "name": "journal_id",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "account_code",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "account_name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "department",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "currency",
+          "type": "string",
+          "enum": [
+            "JPY"
+          ],
+          "required": true
+        },
+        {
+          "name": "debit_jpy",
+          "type": "integer",
+          "minimum": 0,
+          "required": true
+        },
+        {
+          "name": "credit_jpy",
+          "type": "integer",
+          "minimum": 0,
+          "required": true
+        },
+        {
+          "name": "net_jpy",
+          "type": "integer",
+          "description": "debit_jpy minus credit_jpy",
+          "required": true
+        },
+        {
+          "name": "memo",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "source_system",
+          "type": "string",
+          "enum": [
+            "Cedar ERP"
+          ],
+          "required": true
+        },
+        {
+          "name": "export_as_of",
+          "type": "date",
+          "format": "YYYY-MM-DD",
+          "required": true
+        }
+      ]
+    },
+    "2026-q1-budget-actual-export.tsv": {
+      "delimiter": "\\t",
+      "encoding": "UTF-8",
+      "fields": [
+        {
+          "name": "line_item",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "budget_jpy",
+          "type": "integer",
+          "required": true
+        },
+        {
+          "name": "actual_jpy",
+          "type": "integer",
+          "required": true
+        },
+        {
+          "name": "variance_jpy",
+          "type": "integer",
+          "description": "actual_jpy minus budget_jpy",
+          "required": true
+        },
+        {
+          "name": "variance_pct",
+          "type": "number|null",
+          "description": "variance_jpy divided by budget_jpy when budget is nonzero",
+          "required": false
+        },
+        {
+          "name": "period",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "currency",
+          "type": "string",
+          "enum": [
+            "JPY"
+          ],
+          "required": true
+        },
+        {
+          "name": "close_note",
+          "type": "string",
+          "required": true
+        }
+      ]
+    }
+  },
+  "transport_capture": {
+    "file": "erp-export-session.pcap",
+    "link_type": "Ethernet",
+    "endpoints": [
+      "192.0.2.10",
+      "198.51.100.20"
+    ],
+    "purpose": "Sanitized synthetic ERP export handshake; no credentials or production traffic."
+  }
+}

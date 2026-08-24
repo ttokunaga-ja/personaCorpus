@@ -1,0 +1,4 @@
+invoice_reference,vendor_label,invoice_date,currency,amount_jpy,cost_center,intake_status,note
+CW-APR-1042,Northstar Office Supply - Synthetic,2026-03-29,JPY,4800000,UNMAPPED,pending_validation,Synthetic intake only; not approved for payment
+CW-APR-1077,Harbor Facilities Service - Synthetic,2026-03-30,JPY,3600000,UNMAPPED,pending_validation,Synthetic intake only; not approved for payment
+CW-APR-1091,Juniper Data Operations - Synthetic,2026-03-31,JPY,4000000,UNMAPPED,pending_validation,Synthetic intake only; not approved for payment

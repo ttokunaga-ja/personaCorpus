@@ -1,0 +1,31 @@
+From: Finance Controller <finance-controller@cedarworks.example>
+To: Treasury Operations <treasury-operations@cedarworks.example>
+Cc: Close Coordination <close-coordination@cedarworks.example>
+Subject: Evidence request: 31 March cash variance bridge
+Date: Thu, 02 Apr 2026 09:10:00 +0900
+Message-ID: <20260402.cash-variance-request@cedarworks.example>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Synthetic-Artifact: true
+
+Treasury Operations,
+
+Please provide role-level supporting evidence for the 31 March bank-cash
+reconciliation. Bank cash is JPY 486.2m versus ledger cash of JPY 498.6m,
+an unfavorable JPY 12.4m variance.
+
+The provisional bridge is:
+- receipt timing: JPY 7.2m;
+- vendor settlement timing: JPY 3.1m;
+- bank fees: JPY 1.3m; and
+- FX movement: JPY 0.8m.
+
+Confirm the basis, cut-off date, and accountable owner role for each item by
+2026-04-03 so Close Coordination can include the bridge in the 2026-04-06
+close package. Do not send account numbers, transaction images, credentials,
+or other sensitive attachments in reply; use the approved internal evidence
+location instead.
+
+Finance Controller
+Cedar Works

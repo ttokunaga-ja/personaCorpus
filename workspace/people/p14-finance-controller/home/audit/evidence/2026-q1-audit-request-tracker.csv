@@ -1,0 +1,11 @@
+evidence_id,filename,request_id,control_id,owner_role,evidence_date,status,reviewer_outcome,description
+CW-EV-2603-01,2026-q1-audit-request-tracker.csv,RFI-2603-01,CTRL-CASH-01,Treasury Operations,2026-03-31,Closed,Accepted,Audit request register
+CW-EV-2603-02,2026-q1-control-testing-memo.docx,MEM-2603-02,CTRL-CASH-01,Financial Control,2026-04-03,Closed,Accepted,Control testing conclusion
+CW-EV-2603-03,ap-cutoff-testing-report.pdf,APC-2603-03,CTRL-AP-04,Accounts Payable Operations,2026-04-02,Closed,Accepted,25-item cut-off sample
+CW-EV-2603-04,bank-confirmation-redacted-scan.pdf,BC-2603-04,CTRL-CASH-01,Treasury Operations,2026-03-31,Closed,Accepted,Synthetic redacted confirmation
+CW-EV-2603-05,cash-variance-bridge-evidence.pdf,CVB-2603-05,CTRL-CASH-01,Financial Control,2026-04-03,Closed,Accepted,"JPY 12,400,000 bridge"
+CW-EV-2603-06,evidence-chain-of-custody-map.png,COC-2603-06,CTRL-GOV-02,Audit Coordination,2026-04-03,Closed,Accepted,Evidence custody map
+CW-EV-2603-07,inventory-observation-signoff-scan.pdf,INV-2603-07,CTRL-INV-03,Inventory Control,2026-03-29,Closed,Accepted,Synthetic redacted observation
+CW-EV-2603-08,journal-entry-sampling-report.pdf,JES-2603-08,CTRL-JE-05,General Ledger Control,2026-04-02,Closed,Accepted,40-entry sampling report
+CW-EV-2603-09,reconciliation-control-narrative.pdf,RCN-2603-09,CTRL-CASH-01,Financial Control,2026-04-03,Closed,Accepted,Reconciliation narrative
+CW-EV-2603-10,control-evidence-index.xlsx,IDX-2603-10,CTRL-GOV-02,Audit Coordination,2026-04-03,Closed,Accepted,Master evidence index

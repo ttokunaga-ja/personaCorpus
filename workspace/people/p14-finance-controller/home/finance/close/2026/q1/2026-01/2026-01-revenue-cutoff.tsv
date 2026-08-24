@@ -1,0 +1,4 @@
+contract_id	service_month	amount_jpy	cutoff_status	approver_role
+CTR-2601-101	2026-01	214000000	Recognized	Revenue Accounting
+CTR-2601-102	2026-01	198000000	Recognized	Revenue Accounting
+CTR-2601-103	2026-02	7200000	Deferred	Revenue Accounting

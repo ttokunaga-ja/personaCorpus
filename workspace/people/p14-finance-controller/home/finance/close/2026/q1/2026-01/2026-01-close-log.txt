@@ -1,0 +1,5 @@
+2026-02-05 08:30 JST | January close opened | Owner: Finance Controller
+2026-02-05 10:15 JST | Revenue cutoff reviewed | Status: complete
+2026-02-05 13:20 JST | AP accruals posted | Status: complete
+2026-02-05 16:45 JST | Controller certification completed | Status: certified
+2026-03-31 17:00 JST | March cash bridge logged: JPY 12,400,000 unfavorable | Status: follow-up

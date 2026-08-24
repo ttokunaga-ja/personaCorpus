@@ -1,0 +1,7 @@
+line_item	budget_jpy	actual_jpy	variance_jpy	variance_pct	period	currency	close_note
+Revenue	1800000000	1842000000	42000000	0.023333333333333334	FY2026 Q1	JPY	Actual ties to March GL export.
+COGS	1110000000	1131000000	21000000	0.01891891891891892	FY2026 Q1	JPY	Actual ties to March GL export.
+Gross profit	690000000	711000000	21000000	0.030434782608695653	FY2026 Q1	JPY	Derived from revenue less COGS.
+Operating expenses	480000000	489000000	9000000	0.01875	FY2026 Q1	JPY	Synthetic close allocation.
+EBITDA	210000000	222000000	12000000	0.05714285714285714	FY2026 Q1	JPY	Gross profit less operating expenses.
+Cash timing variance	0	12400000	12400000		2026-03 close	JPY	JPY 12,400,000 cash variance context: posting-timing review pending.

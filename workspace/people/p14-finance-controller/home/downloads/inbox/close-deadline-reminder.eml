@@ -1,0 +1,18 @@
+From: close-operations@cedarworks.example
+To: finance-control@cedarworks.example
+Subject: Reminder: March close intake review due 06 Apr 2026
+Date: Mon, 06 Apr 2026 09:15:00 +0900
+Message-ID: <close-deadline-reminder.eml@cedarworks.example>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Cedar Works Finance Control,
+
+Reminder: complete intake matching and document the JPY 12,400,000 unfavorabl=
+e March close variance by 16:00 JST on 06 Apr 2026. The vendor statement batc=
+h is synthetic and not payable. Correct the three cost center mappings before=
+ retrying the ERP upload.
+
+Close Operations
+close-operations@cedarworks.example
