@@ -1,0 +1,11 @@
+account_id	account_name	contact_id	contact_name	contact_email	contact_role	role_status	last_verified_at
+ACCT-NS-001	Account Alpha	CONT-NS-001	Avery Quinn	avery.quinn@alpha.example.test	Economic Buyer	Active	2026-07-16T15:30:00Z
+ACCT-NS-001	Account Alpha	CONT-NS-002	Morgan Vale	morgan.vale@alpha.example.test	Technical Champion	Active	2026-07-16T15:30:00Z
+ACCT-NS-002	Account Beta	CONT-NS-003	Jordan Lee	jordan.lee@beta.example.test	Economic Buyer	Active	2026-08-18T10:15:00Z
+ACCT-NS-002	Account Beta	CONT-NS-004	Taylor Reed	taylor.reed@beta.example.test	Technical Evaluator	Active	2026-08-18T10:15:00Z
+ACCT-NS-003	Account Gamma	CONT-NS-005	Casey Park	casey.park@gamma.example.test	Champion	Active	2026-08-17T13:00:00Z
+ACCT-NS-004	Account Delta	CONT-NS-006	Riley Chen	riley.chen@delta.example.test	Economic Buyer	Active	2026-08-20T09:45:00Z
+ACCT-NS-005	Account Epsilon	CONT-NS-007	Jamie Soto	jamie.soto@epsilon.example.test	Technical Evaluator	Active	2026-08-15T11:20:00Z
+ACCT-NS-006	Account Zeta	CONT-NS-008	Drew Kim	drew.kim@zeta.example.test	Legal Contact	Active	2026-08-21T16:10:00Z
+ACCT-NS-007	Account Eta	CONT-NS-009	Parker Shaw	parker.shaw@eta.example.test	Champion	Active	2026-08-14T08:40:00Z
+ACCT-NS-008	Account Theta	CONT-NS-010	Skyler Brooks	skyler.brooks@theta.example.test	Economic Buyer	Active	2026-08-20T14:25:00Z

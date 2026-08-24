@@ -1,0 +1,28 @@
+Date: Mon, 24 Aug 2026 09:05:00 +0000
+From: Rowan Mercer <rowan.mercer@northstar.example.test>
+To: Revenue Operations <revenue-ops@northstar.example.test>
+Subject: Synthetic CRM export summary - 2026-08-24
+Message-ID: <crm-export-20260824-090500@northstar.example.test>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+This report summarizes a fully synthetic Northstar Cloud CRM export for AE Rowan Mercer.
+
+As-of context: 2026-08-24T09:00:00Z
+Filter: opportunities owned by Rowan Mercer; associated synthetic accounts and contacts.
+
+Export row counts:
+- 00-crm-opportunity-export.csv: 8 opportunity rows
+- 01-account-contact-role-export.tsv: 10 account-contact-role rows
+- 02-forecast-category-export.csv: 8 forecast rows
+- 03-activity-history-export.tsv: 10 activity rows
+
+Key records:
+- Account Alpha / OPP-NS-1001: approved 2026-07-17, USD 248000 total
+  (USD 210000 platform renewal + USD 24000 analytics expansion + USD 14000 support package).
+- Account Beta / OPP-NS-1002: planning, USD 186000, target close 2026-09-30.
+
+All names, accounts, contacts, domains, IDs, and amounts in this message and its
+associated export files are fictional test data. No customer or production CRM data
+is represented.

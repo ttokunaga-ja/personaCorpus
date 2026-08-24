@@ -1,0 +1,5 @@
+opportunity_id,account_name,stage,stage_entered_on,stage_exited_on,amount_usd,probability,owner,event_note
+OPP-ALPHA-RNW,Account Alpha,Discovery,2026-04-06,2026-04-24,248000,0.2,Rowan Mercer,Renewal scope confirmed
+OPP-ALPHA-RNW,Account Alpha,Proposal,2026-04-24,2026-05-22,248000,0.6,Rowan Mercer,Commercial proposal delivered
+OPP-ALPHA-RNW,Account Alpha,Negotiation,2026-05-22,2026-07-17,248000,0.85,Rowan Mercer,Approval package reviewed
+OPP-ALPHA-RNW,Account Alpha,Closed Won,2026-07-17,,248000,1,Rowan Mercer,"Approved USD 210,000 + 24,000 + 14,000"

@@ -1,0 +1,7 @@
+ACCOUNT ALPHA CUSTOMER QUESTION LOG
+
+2026-05-06 | Avery Sloan | How will Operations measure a smoother handoff? | Answered: define quarterly success review measures in Success Plus cadence.
+2026-06-03 | Morgan Hale | What is required before PO routing? | Answered: annual order form, component schedule, and completed security response.
+2026-06-12 | Avery Sloan | Does Data Connect need a new inbound path? | Answered: no new path in the documented approved integration pattern; deployment checklist will specify steps.
+2026-06-24 | Morgan Hale | Can the final order form state each price component? | Answered: yes; 210,000 + 24,000 + 14,000 = USD 248,000.
+2026-07-02 | Morgan Hale | Can the order form reference the deployment checklist? | Answered: yes; clarification accepted without commercial change.

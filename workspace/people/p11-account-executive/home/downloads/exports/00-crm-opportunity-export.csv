@@ -1,0 +1,9 @@
+opportunity_id,account_id,opportunity_name,owner_name,stage,forecast_category,close_date,amount_usd,probability_pct,decision_status,created_at,updated_at
+OPP-NS-1001,ACCT-NS-001,Northstar Cloud - Account Alpha 2026 Renewal,Rowan Mercer,Closed Won,Closed,2026-07-17,248000,100,Approved,2026-02-03T09:15:00Z,2026-07-17T16:42:00Z
+OPP-NS-1002,ACCT-NS-002,Northstar Cloud - Account Beta Expansion,Rowan Mercer,Discovery,Pipeline,2026-09-30,186000,35,Planning,2026-05-12T13:20:00Z,2026-08-20T08:10:00Z
+OPP-NS-1003,ACCT-NS-003,Northstar Cloud - Account Gamma Platform,Rowan Mercer,Qualification,Pipeline,2026-10-15,92000,25,Evaluation,2026-06-01T10:00:00Z,2026-08-18T14:35:00Z
+OPP-NS-1004,ACCT-NS-004,Northstar Cloud - Account Delta Analytics,Rowan Mercer,Proposal,Best Case,2026-08-28,134000,70,Proposal Submitted,2026-04-22T11:45:00Z,2026-08-21T09:05:00Z
+OPP-NS-1005,ACCT-NS-005,Northstar Cloud - Account Epsilon Migration,Rowan Mercer,Needs Analysis,Pipeline,2026-11-20,76000,40,Scoping,2026-06-29T15:10:00Z,2026-08-19T12:30:00Z
+OPP-NS-1006,ACCT-NS-006,Northstar Cloud - Account Zeta Security Add-on,Rowan Mercer,Negotiation,Commit,2026-08-31,158000,85,Legal Review,2026-03-17T08:50:00Z,2026-08-22T07:55:00Z
+OPP-NS-1007,ACCT-NS-007,Northstar Cloud - Account Eta Data Hub,Rowan Mercer,Prospecting,Pipeline,2026-12-18,54000,15,Identified,2026-07-08T16:25:00Z,2026-08-16T10:20:00Z
+OPP-NS-1008,ACCT-NS-008,Northstar Cloud - Account Theta Services,Rowan Mercer,Proposal,Best Case,2026-09-18,118000,65,Commercial Review,2026-05-05T09:40:00Z,2026-08-20T17:05:00Z

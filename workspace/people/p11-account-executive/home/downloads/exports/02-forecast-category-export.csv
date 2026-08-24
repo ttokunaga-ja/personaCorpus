@@ -1,0 +1,9 @@
+as_of_at,opportunity_id,account_id,owner_name,stage,forecast_category,close_date,amount_usd,probability_pct,decision_status
+2026-08-24T09:00:00Z,OPP-NS-1001,ACCT-NS-001,Rowan Mercer,Closed Won,Closed,2026-07-17,248000,100,Approved
+2026-08-24T09:00:00Z,OPP-NS-1002,ACCT-NS-002,Rowan Mercer,Discovery,Pipeline,2026-09-30,186000,35,Planning
+2026-08-24T09:00:00Z,OPP-NS-1003,ACCT-NS-003,Rowan Mercer,Qualification,Pipeline,2026-10-15,92000,25,Evaluation
+2026-08-24T09:00:00Z,OPP-NS-1004,ACCT-NS-004,Rowan Mercer,Proposal,Best Case,2026-08-28,134000,70,Proposal Submitted
+2026-08-24T09:00:00Z,OPP-NS-1005,ACCT-NS-005,Rowan Mercer,Needs Analysis,Pipeline,2026-11-20,76000,40,Scoping
+2026-08-24T09:00:00Z,OPP-NS-1006,ACCT-NS-006,Rowan Mercer,Negotiation,Commit,2026-08-31,158000,85,Legal Review
+2026-08-24T09:00:00Z,OPP-NS-1007,ACCT-NS-007,Rowan Mercer,Prospecting,Pipeline,2026-12-18,54000,15,Identified
+2026-08-24T09:00:00Z,OPP-NS-1008,ACCT-NS-008,Rowan Mercer,Proposal,Best Case,2026-09-18,118000,65,Commercial Review

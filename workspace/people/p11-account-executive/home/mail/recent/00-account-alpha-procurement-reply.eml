@@ -1,0 +1,36 @@
+Date: Fri, 17 Jul 2026 14:18:00 -0700
+From: Rowan Mercer <rowan.mercer@northstar.example.test>
+To: Morgan Hale <morgan.hale@account-alpha.example.test>
+Cc: Priya Noland <priya.noland@northstar.example.test>
+Subject: Re: Account Alpha | approved 2026 services order
+Message-ID: <20260717.141800.rowan.alpha.procurement@northstar.example.test>
+In-Reply-To: <20260717.133200.morgan.alpha.procurement@account-alpha.example.test>
+References: <20260716.091500.rowan.alpha.proposal@northstar.example.test> <20260717.133200.morgan.alpha.procurement@account-alpha.example.test>
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="alpha-reply-20260717"
+
+--alpha-reply-20260717
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Hi Morgan,
+
+Thank you for confirming approval of the 2026 services order. I have recorded the approved total as USD 248,000: USD 210,000 for the platform subscription, USD 24,000 for implementation services, and USD 14,000 for the premium support add-on.
+
+Procurement actions:
+1. Please send the purchase order and billing contact to orders@northstar.example.test.
+2. We will return the order form with the approved line-item summary and start-date confirmation.
+3. Once the PO is matched, our implementation coordinator will propose the kickoff window.
+
+Priya is copied for executive visibility. If your team needs a vendor-form response, send it to me and I will route it the same business day.
+
+Best,
+Rowan
+Account Executive | Northstar Cloud
+
+--alpha-reply-20260717
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+<!doctype html><html lang="en"><body><p>Hi Morgan,</p><p>Thank you for confirming approval of the 2026 services order. I have recorded the approved total as <strong>USD 248,000</strong>:</p><ul><li>USD 210,000 for the platform subscription</li><li>USD 24,000 for implementation services</li><li>USD 14,000 for the premium support add-on</li></ul><p><strong>Procurement actions</strong></p><ol><li>Please send the purchase order and billing contact to <a href="mailto:orders@northstar.example.test">orders@northstar.example.test</a>.</li><li>We will return the order form with the approved line-item summary and start-date confirmation.</li><li>Once the PO is matched, our implementation coordinator will propose the kickoff window.</li></ol><p>Priya is copied for executive visibility. If your team needs a vendor-form response, send it to me and I will route it the same business day.</p><p>Best,<br>Rowan<br><span>Account Executive | Northstar Cloud</span></p></body></html>
+--alpha-reply-20260717--

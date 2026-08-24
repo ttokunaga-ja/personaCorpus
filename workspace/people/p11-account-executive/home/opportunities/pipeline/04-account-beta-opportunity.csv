@@ -1,0 +1,12 @@
+field,value
+account_name,Account Beta
+opportunity_id,OPP-BETA-PLN
+owner,Rowan Mercer
+close_date,2026-09-30
+stage,Discovery
+forecast_category,Pipeline
+probability,0.4
+target_amount_usd,186000
+next_step,Planning workshop
+next_step_date,2026-08-04
+contact_email,elliot.park@northstar.example.test

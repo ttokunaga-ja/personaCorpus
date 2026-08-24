@@ -1,0 +1,6 @@
+opportunity_id	account_name	owner	next_step	due_date	stage	forecast_category	amount_usd	completion_status
+OPP-ALPHA-RNW	Account Alpha	Rowan Mercer	Approved: USD 210,000 platform + 24,000 analytics + 14,000 support	2026-07-15	Closed Won	Commit	248000	Complete
+OPP-BETA-PLN	Account Beta	Rowan Mercer	Planning target; discovery workshop scheduled	2026-08-04	Discovery	Pipeline	186000	Open
+OPP-GAMMA-ANL	Account Gamma	Priya Noland	Proposal review with fictional sponsor	2026-08-07	Proposal	Best Case	120000	Open
+OPP-DELTA-SEC	Account Delta	Elliot Park	Qualification criteria documented	2026-08-14	Qualification	Pipeline	95000	Open
+OPP-EPSILON-OPS	Account Epsilon	Rowan Mercer	Commercial terms under review	2026-08-05	Negotiation	Commit	65000	Open

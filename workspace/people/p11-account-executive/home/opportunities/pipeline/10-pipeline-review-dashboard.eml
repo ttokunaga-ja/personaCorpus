@@ -1,0 +1,10 @@
+From: Rowan Mercer <rowan.mercer@northstar.example.test>
+To: Priya Noland <priya.noland@northstar.example.test>, Elliot Park <elliot.park@northstar.example.test>
+Subject: Pipeline review dashboard — week ending 2026-07-17
+Date: Fri, 17 Jul 2026 16:00:00 +0000
+Message-ID: <pipeline-review-20260717@northstar.example.test>
+MIME-Version: 1.0
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Northstar Cloud Pipeline Review Dashboard</title><style>body{font-family:Arial,sans-serif;color:#0B1F3A;margin:32px}table{border-collapse:collapse;width:100%;margin:16px 0}th{background:#0B1F3A;color:#fff;text-align:left}td,th{padding:9px;border-bottom:1px solid #d8dee6}.kpi{background:#F4F6F8;padding:14px;border-left:5px solid #18A999}</style></head><body><header><h1>Northstar Cloud — Pipeline Review Dashboard</h1><p>Prepared by Rowan Mercer · Week ending 2026-07-17 · Fictional planning data</p></header><section class="kpi"><strong>Commit: USD 313,000</strong> · Best Case: USD 120,000 · Pipeline: USD 281,000 · Weighted: USD 470,150</section><table><thead><tr><th>Account</th><th>Stage</th><th>Category</th><th>Close date</th><th>Amount (USD)</th><th>Probability</th></tr></thead><tbody><tr><td>Account Alpha</td><td>Closed Won</td><td>Commit</td><td>2026-07-17</td><td>248,000</td><td>100%</td></tr><tr><td>Account Beta</td><td>Discovery</td><td>Pipeline</td><td>2026-09-30</td><td>186,000</td><td>40%</td></tr><tr><td>Account Gamma</td><td>Proposal</td><td>Best Case</td><td>2026-08-28</td><td>120,000</td><td>60%</td></tr><tr><td>Account Delta</td><td>Qualification</td><td>Pipeline</td><td>2026-10-16</td><td>95,000</td><td>25%</td></tr><tr><td>Account Epsilon</td><td>Negotiation</td><td>Commit</td><td>2026-08-14</td><td>65,000</td><td>80%</td></tr></tbody></table><footer><p>All accounts, people, emails, and opportunity details are fictional.</p></footer></body></html>

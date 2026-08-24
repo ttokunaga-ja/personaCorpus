@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rfpExport schemaVersion="1.0" xmlns="https://northstar-cloud.example.test/schemas/rfp-export">
+  <recordId>account-alpha-rfp-2026-07-17</recordId>
+  <exportedAt>2026-07-17T14:00:00Z</exportedAt>
+  <account>Account Alpha</account>
+  <participants><participant role="procurement">Rowan Mercer</participant><participant role="customer">Avery Sloan</participant><participant role="legal-operations">Morgan Hale</participant></participants>
+  <commercial currency="USD" approvedTotal="248000"><subscription>210000</subscription><implementationSupport>24000</implementationSupport><enablement>14000</enablement></commercial>
+  <classification>fictional-training-artifact</classification>
+</rfpExport>

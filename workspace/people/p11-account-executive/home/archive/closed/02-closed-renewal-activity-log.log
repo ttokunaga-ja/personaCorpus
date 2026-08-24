@@ -1,0 +1,5 @@
+2026-07-17T09:00:12Z INFO archive.open account=Account Alpha organization=Northstar Cloud record=renewal-review synthetic=true
+2026-07-17T09:04:31Z INFO renewal.reviewed amount_usd=248000 term=annual status=closed-won
+2026-07-17T09:08:45Z INFO followup.completed channel=archived-demo outcome=confirmation-recorded
+2026-07-17T09:11:03Z INFO troubleshooting.reference capture=archived-troubleshooting-capture result=benign-synthetic
+2026-07-17T09:14:26Z INFO archive.closed retention=internal-training-safe outcome=renewal-activity-complete

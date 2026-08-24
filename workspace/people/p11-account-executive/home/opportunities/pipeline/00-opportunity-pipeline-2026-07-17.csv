@@ -1,0 +1,6 @@
+opportunity_id,account_name,opportunity_name,motion,stage,forecast_category,probability,close_date,amount_usd,owner,partner,next_step,next_step_date
+OPP-ALPHA-RNW,Account Alpha,Northstar Cloud Renewal,Renewal,Closed Won,Commit,1,2026-07-17,248000,Rowan Mercer,Priya Noland,"Approved: USD 210,000 platform + 24,000 analytics + 14,000 support",2026-07-15
+OPP-BETA-PLN,Account Beta,Planning Workspace,New Business,Discovery,Pipeline,0.4,2026-09-30,186000,Rowan Mercer,Elliot Park,Planning target; discovery workshop scheduled,2026-08-04
+OPP-GAMMA-ANL,Account Gamma,Analytics Expansion,Expansion,Proposal,Best Case,0.6,2026-08-28,120000,Priya Noland,Rowan Mercer,Proposal review with fictional sponsor,2026-08-07
+OPP-DELTA-SEC,Account Delta,Security Controls,New Business,Qualification,Pipeline,0.25,2026-10-16,95000,Elliot Park,Rowan Mercer,Qualification criteria documented,2026-08-14
+OPP-EPSILON-OPS,Account Epsilon,Operations Automation,Expansion,Negotiation,Commit,0.8,2026-08-14,65000,Rowan Mercer,Priya Noland,Commercial terms under review,2026-08-05

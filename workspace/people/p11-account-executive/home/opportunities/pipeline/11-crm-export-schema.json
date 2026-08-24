@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Northstar Cloud Fictional Opportunity Export",
+  "type": "object",
+  "required": [
+    "export_date",
+    "opportunities"
+  ],
+  "properties": {
+    "export_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "opportunities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "opportunity_id",
+          "account_name",
+          "opportunity_name",
+          "motion",
+          "stage",
+          "forecast_category",
+          "probability",
+          "close_date",
+          "amount_usd",
+          "owner",
+          "partner",
+          "next_step",
+          "next_step_date"
+        ],
+        "properties": {
+          "opportunity_id": {
+            "type": "string",
+            "pattern": "^OPP-"
+          },
+          "account_name": {
+            "type": "string"
+          },
+          "opportunity_name": {
+            "type": "string"
+          },
+          "motion": {
+            "type": "string",
+            "enum": [
+              "Renewal",
+              "New Business",
+              "Expansion"
+            ]
+          },
+          "stage": {
+            "type": "string",
+            "enum": [
+              "Qualification",
+              "Discovery",
+              "Proposal",
+              "Negotiation",
+              "Closed Won",
+              "Closed Lost"
+            ]
+          },
+          "forecast_category": {
+            "type": "string",
+            "enum": [
+              "Commit",
+              "Best Case",
+              "Pipeline",
+              "Omitted"
+            ]
+          },
+          "probability": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "close_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "amount_usd": {
+            "type": "number",
+            "minimum": 0
+          },
+          "owner": {
+            "type": "string"
+          },
+          "partner": {
+            "type": "string"
+          },
+          "next_step": {
+            "type": "string"
+          },
+          "next_step_date": {
+            "type": "string",
+            "format": "date"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

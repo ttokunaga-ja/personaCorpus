@@ -1,0 +1,23 @@
+workspace:
+  profile: "Northstar Cloud AE — Rowan Mercer"
+  status: "working_draft"
+  theme:
+    accent: "#2F6BFF"
+    secondary_accent: "#18A999"
+    navigation: "#0B1F3A"
+  desktop:
+    show_file_extensions: true
+    sort: "modified_descending"
+    pin_recent_working_files: true
+  focus:
+    account: "Account Alpha"
+    renewal_term_start: 2026-07-18
+    renewal_term_end: 2027-07-17
+    approval_decision_date: 2026-07-17
+  reminders:
+    - "Check consolidated legal path"
+    - "Confirm services handoff"
+    - "Hold provisioning readiness"
+  privacy:
+    use_fictional_demo_contacts: true
+    external_sync: false

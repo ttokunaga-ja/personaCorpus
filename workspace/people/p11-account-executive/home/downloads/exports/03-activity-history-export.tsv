@@ -1,0 +1,11 @@
+activity_id	activity_at	activity_type	account_id	opportunity_id	owner_name	subject	outcome
+ACT-NS-2001	2026-07-01T14:00:00Z	Discovery Call	ACCT-NS-001	OPP-NS-1001	Rowan Mercer	Alpha renewal scope review	Confirmed USD 210000 platform renewal baseline
+ACT-NS-2002	2026-07-08T10:30:00Z	Proposal Review	ACCT-NS-001	OPP-NS-1001	Rowan Mercer	Alpha commercial review	Validated USD 24000 analytics expansion and USD 14000 support package
+ACT-NS-2003	2026-07-17T16:42:00Z	Approval	ACCT-NS-001	OPP-NS-1001	Rowan Mercer	Alpha approval recorded	Approved total USD 248000
+ACT-NS-2004	2026-08-05T09:00:00Z	Planning Workshop	ACCT-NS-002	OPP-NS-1002	Rowan Mercer	Beta expansion planning	Planning estimate remains USD 186000 for 2026-09-30
+ACT-NS-2005	2026-08-18T14:35:00Z	Qualification Call	ACCT-NS-003	OPP-NS-1003	Rowan Mercer	Gamma platform qualification	Evaluation criteria captured
+ACT-NS-2006	2026-08-20T09:05:00Z	Proposal Sent	ACCT-NS-004	OPP-NS-1004	Rowan Mercer	Delta analytics proposal	Proposal submitted at USD 134000
+ACT-NS-2007	2026-08-19T12:30:00Z	Scoping Session	ACCT-NS-005	OPP-NS-1005	Rowan Mercer	Epsilon migration scope	Scoping estimate USD 76000
+ACT-NS-2008	2026-08-21T16:10:00Z	Legal Review	ACCT-NS-006	OPP-NS-1006	Rowan Mercer	Zeta security add-on legal review	Legal review in progress for USD 158000
+ACT-NS-2009	2026-08-14T08:40:00Z	Prospecting Email	ACCT-NS-007	OPP-NS-1007	Rowan Mercer	Eta data hub introduction	Initial interest confirmed
+ACT-NS-2010	2026-08-20T14:25:00Z	Commercial Review	ACCT-NS-008	OPP-NS-1008	Rowan Mercer	Theta services commercial review	Best case value USD 118000
