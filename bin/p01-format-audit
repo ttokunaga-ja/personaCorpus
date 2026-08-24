@@ -1,0 +1,593 @@
+#!/usr/bin/env python3
+"""Fail-closed physical-format audit for the p01 Full corpus.
+
+The allocation ledgers are the source of truth for paths and declared
+families.  ``--path-revision`` accepts only the token-free
+``persona-corpus.p01-full-path-revision/v1`` overlay emitted by
+``p01-structure-v2``: a ``move`` row names an existing Full artifact and its
+``old_path``/``new_path``.  It never changes either ledger or an M1 artifact.
+"""
+
+from __future__ import annotations
+
+import argparse
+from collections import Counter
+import hashlib
+import json
+import os
+from pathlib import Path, PurePosixPath
+import stat
+import subprocess
+import sys
+import unicodedata
+import xml.etree.ElementTree as ElementTree
+import zipfile
+
+
+EXPECTED_FAMILIES = {
+    "code": 3360,
+    "csv_tsv": 360,
+    "docx": 360,
+    "domain_binary": 360,
+    "html_eml": 600,
+    "image": 360,
+    "ipynb": 120,
+    "md": 2640,
+    "pdf_scan": 120,
+    "pdf_text": 840,
+    "pptx": 240,
+    "structured_text": 1440,
+    "txt_log": 960,
+    "xlsx": 240,
+}
+EXPECTED_TOTAL = 12000
+PNG_MAGIC = b"\x89PNG\r\n\x1a\n"
+SQLITE_MAGIC = b"SQLite format 3\x00"
+PCAP_MAGICS = {
+    b"\xd4\xc3\xb2\xa1", b"\xa1\xb2\xc3\xd4", b"\x4d\x3c\xb2\xa1", b"\xa1\xb2\x3c\x4d",
+}
+PCAPNG_MAGIC = b"\x0a\x0d\x0d\x0a"
+FAMILY_EXTENSIONS = {
+    "docx": "docx", "xlsx": "xlsx", "pptx": "pptx", "pdf_text": "pdf",
+    "pdf_scan": "pdf", "image": "png",
+}
+CANONICAL_EXTENSION_FAMILIES = {
+    "pdf": {"pdf_text", "pdf_scan"}, "docx": {"docx"}, "xlsx": {"xlsx"},
+    "pptx": {"pptx"}, "png": {"image"},
+}
+REQUIRED_EXTENSION_COUNTS = {"pdf": 960, "docx": 360, "xlsx": 240, "pptx": 240, "png": 360}
+CONTENT_TYPES_NS = "http://schemas.openxmlformats.org/package/2006/content-types"
+RELATIONSHIPS_NS = "http://schemas.openxmlformats.org/package/2006/relationships"
+OFFICE_DOCUMENT_REL = "http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument"
+OOXML_SPECS = {
+    "docx": {
+        "main": "word/document.xml", "main_tag": "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}document",
+        "content_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml",
+        "main_rels": "word/_rels/document.xml.rels", "target_prefix": "styles.xml",
+    },
+    "xlsx": {
+        "main": "xl/workbook.xml", "main_tag": "{http://schemas.openxmlformats.org/spreadsheetml/2006/main}workbook",
+        "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml",
+        "main_rels": "xl/_rels/workbook.xml.rels", "target_prefix": "worksheets/", "child_prefix": "xl/worksheets/",
+        "child_relation_type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet",
+        "child_tag": "{http://schemas.openxmlformats.org/spreadsheetml/2006/main}worksheet",
+        "child_reference_tag": "{http://schemas.openxmlformats.org/spreadsheetml/2006/main}sheet",
+    },
+    "pptx": {
+        "main": "ppt/presentation.xml", "main_tag": "{http://schemas.openxmlformats.org/presentationml/2006/main}presentation",
+        "content_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation.main+xml",
+        "main_rels": "ppt/_rels/presentation.xml.rels", "target_prefix": "slides/", "child_prefix": "ppt/slides/",
+        "child_relation_type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/slide",
+        "child_tag": "{http://schemas.openxmlformats.org/presentationml/2006/main}sld",
+        "child_reference_tag": "{http://schemas.openxmlformats.org/presentationml/2006/main}sldId",
+    },
+}
+WINDOWS_RESERVED = {
+    "con", "prn", "aux", "nul", *(f"com{number}" for number in range(1, 10)),
+    *(f"lpt{number}" for number in range(1, 10)),
+}
+
+
+class AuditError(RuntimeError):
+    pass
+
+
+def regular_file(path: Path, label: str) -> None:
+    try:
+        info = path.lstat()
+    except FileNotFoundError as error:
+        raise AuditError(f"missing {label}: {path}") from error
+    if not stat.S_ISREG(info.st_mode) or info.st_nlink != 1:
+        raise AuditError(f"unsafe {label}: {path}")
+
+
+def sha256_path(path: Path, label: str) -> str:
+    regular_file(path, label)
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for block in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(block)
+    return "sha256:" + digest.hexdigest()
+
+
+def load_jsonl(path: Path, label: str) -> list[dict]:
+    regular_file(path, label)
+    rows: list[dict] = []
+    try:
+        with path.open("r", encoding="utf-8") as handle:
+            for line_number, line in enumerate(handle, 1):
+                if not line.strip():
+                    raise AuditError(f"blank JSONL line in {label}: {line_number}")
+                value = json.loads(line)
+                if not isinstance(value, dict):
+                    raise AuditError(f"non-object JSONL row in {label}: {line_number}")
+                rows.append(value)
+    except (OSError, json.JSONDecodeError) as error:
+        raise AuditError(f"cannot read {label}: {error}") from error
+    return rows
+
+
+def safe_relative(value: object, label: str) -> str:
+    if not isinstance(value, str) or not value:
+        raise AuditError(f"invalid {label}")
+    if "\\" in value or any(character in '<>:"|?*' or ord(character) < 32 for character in value):
+        raise AuditError(f"unsafe {label}: {value!r}")
+    if unicodedata.normalize("NFC", value) != value:
+        raise AuditError(f"non-NFC {label}: {value!r}")
+    pure = PurePosixPath(value)
+    if pure.is_absolute() or not pure.parts or pure.as_posix() != value or any(part in ("", ".", "..") for part in pure.parts):
+        raise AuditError(f"unsafe {label}: {value!r}")
+    for part in pure.parts:
+        if part.rstrip(". ") != part or part.split(".", 1)[0].casefold() in WINDOWS_RESERVED:
+            raise AuditError(f"Windows-unsafe {label}: {value!r}")
+    return pure.as_posix()
+
+
+def load_ledger(path: Path, schema: str, expected_count: int, label: str) -> list[dict]:
+    rows = load_jsonl(path, label)
+    headers = [row for row in rows if row.get("kind") == "header"]
+    artifacts = [row for row in rows if row.get("kind") == "artifact"]
+    if len(headers) != 1 or len(rows) != len(headers) + len(artifacts):
+        raise AuditError(f"invalid header/row structure in {label}")
+    header = headers[0]
+    if header.get("schema") != schema or header.get("persona") != "p01":
+        raise AuditError(f"invalid header identity in {label}")
+    if header.get("artifact_count") != expected_count or len(artifacts) != expected_count:
+        raise AuditError(f"unexpected artifact count in {label}: {len(artifacts)}")
+    for row in artifacts:
+        if row.get("schema") != schema or row.get("persona") != "p01":
+            raise AuditError(f"invalid artifact identity in {label}")
+        for key in ("artifact_id", "scope_id", "scope_path", "family", "physical_extension", "path"):
+            if not isinstance(row.get(key), str) or not row[key]:
+                raise AuditError(f"missing {key} in {label}")
+        row["scope_path"] = safe_relative(row["scope_path"], f"{label} scope path")
+        row["path"] = safe_relative(row["path"], f"{label} artifact path")
+        extension = row["physical_extension"].lower()
+        if extension != row["physical_extension"] or not extension.isalnum():
+            raise AuditError(f"invalid physical extension in {label}: {row['physical_extension']!r}")
+        canonical = FAMILY_EXTENSIONS.get(row["family"])
+        if canonical is not None and extension != canonical:
+            raise AuditError(f"canonical family/extension mismatch in {label}: {row['family']} != {extension}")
+        if schema == "persona-corpus.full-addition-assignment/v1":
+            if not isinstance(row.get("canonical_extension"), str) or row["canonical_extension"] != extension:
+                raise AuditError(f"Full canonical_extension mismatch in {label}: {row['artifact_id']}")
+        if not row["path"].startswith(f"{row['scope_path']}/"):
+            raise AuditError(f"artifact path outside its scope in {label}: {row['path']}")
+        if "." not in PurePosixPath(row["path"]).name:
+            raise AuditError(f"artifact has no extension in {label}: {row['path']}")
+    return artifacts
+
+
+def revision_digest(rows: list[dict]) -> str:
+    payload = "".join(
+        json.dumps(row, sort_keys=True, separators=(",", ":")) + "\n" for row in rows
+    ).encode("utf-8")
+    return "sha256:" + hashlib.sha256(payload).hexdigest()
+
+
+def apply_path_revision(
+    m1_rows: list[dict], full_rows: list[dict], revision_path: Path | None,
+    full_ledger_path: Path, predecessor_manifest: Path, production: bool,
+) -> None:
+    if revision_path is None:
+        return
+    revision_rows = load_jsonl(revision_path, "path-revision overlay")
+    if not revision_rows or revision_rows[0].get("kind") != "header":
+        raise AuditError("path-revision overlay must begin with exactly one header")
+    headers = [row for row in revision_rows if row.get("kind") == "header"]
+    moves = revision_rows[1:]
+    if len(headers) != 1 or len(revision_rows) != len(moves) + 1:
+        raise AuditError("invalid path-revision overlay row structure")
+    header = headers[0]
+    if (
+        header.get("schema") != "persona-corpus.p01-full-path-revision/v1"
+        or header.get("persona") != "p01"
+        or header.get("revision") != "p01-full-structure-v2"
+    ):
+        raise AuditError("invalid path-revision overlay identity")
+    if not isinstance(header.get("preserved_pilot_count"), int) or header["preserved_pilot_count"] < 0:
+        raise AuditError("invalid path-revision preserved_pilot_count")
+    if header.get("assignment_sha256") != sha256_path(full_ledger_path, "Full ledger"):
+        raise AuditError("path-revision assignment digest mismatch")
+    if header.get("predecessor_manifest_sha256") != sha256_path(predecessor_manifest, "path-revision predecessor manifest"):
+        raise AuditError("path-revision predecessor manifest digest mismatch")
+    if production and (header.get("selected_count") != 11788 or header.get("preserved_pilot_count") != 12):
+        raise AuditError("production path-revision selection/pilot count mismatch")
+    if header.get("selected_count") != len(moves):
+        raise AuditError("path-revision selected_count mismatch")
+    if header.get("mapping_rows_sha256") != revision_digest(moves):
+        raise AuditError("path-revision mapping digest mismatch")
+    full_by_id = {row["artifact_id"]: row for row in full_rows}
+    m1_ids = {row["artifact_id"] for row in m1_rows}
+    seen: set[str] = set()
+    for mapping in moves:
+        if mapping.get("schema") != "persona-corpus.p01-full-path-revision/v1" or mapping.get("kind") != "move":
+            raise AuditError("unknown path-revision overlay row")
+        artifact_id = mapping.get("artifact_id")
+        if artifact_id in m1_ids:
+            raise AuditError("path-revision overlay must never move an M1 artifact")
+        if not isinstance(artifact_id, str) or artifact_id not in full_by_id or artifact_id in seen:
+            raise AuditError("invalid or duplicate path-revision artifact_id")
+        old_path = mapping.get("old_path")
+        new_path = mapping.get("new_path")
+        row = full_by_id[artifact_id]
+        if old_path != row["path"]:
+            raise AuditError(f"path-revision predecessor mismatch for {artifact_id}")
+        new_path = safe_relative(new_path, "path-revision path")
+        if not new_path.startswith(f"{row['scope_path']}/"):
+            raise AuditError(f"path-revision path outside scope for {artifact_id}")
+        row["path"] = new_path
+        seen.add(artifact_id)
+
+
+def inspect_tree(home: Path) -> dict[str, Path]:
+    if home.is_symlink() or not home.is_dir():
+        raise AuditError(f"p01 home is missing or unsafe: {home}")
+    observed: dict[str, Path] = {}
+    for root, directories, files in os.walk(home, topdown=True, followlinks=False):
+        parent = Path(root)
+        for directory in directories:
+            candidate = parent / directory
+            safe_relative(candidate.relative_to(home).as_posix(), "physical directory path")
+            if candidate.is_symlink():
+                raise AuditError(f"symlink directory: {candidate}")
+            if not candidate.is_dir():
+                raise AuditError(f"non-directory tree entry: {candidate}")
+        if not directories and not files:
+            raise AuditError(f"empty directory: {parent.relative_to(home).as_posix()}")
+        for name in files:
+            candidate = parent / name
+            info = candidate.lstat()
+            relative = candidate.relative_to(home).as_posix()
+            safe_relative(relative, "physical artifact path")
+            if not stat.S_ISREG(info.st_mode) or info.st_nlink != 1:
+                raise AuditError(f"non-regular file: {relative}")
+            if info.st_size == 0:
+                raise AuditError(f"empty file: {relative}")
+            observed[relative] = candidate
+    return observed
+
+
+def parse_xml(path: Path, name: str) -> ElementTree.Element:
+    try:
+        return ElementTree.fromstring(archive_bytes(path, name))
+    except ElementTree.ParseError as error:
+        raise AuditError(f"invalid OOXML XML in {path}: {name}: {error}") from error
+
+
+def require_zip(path: Path, required_parts: tuple[str, ...]) -> set[str]:
+    try:
+        with zipfile.ZipFile(path) as archive:
+            if archive.testzip() is not None:
+                raise AuditError(f"ZIP CRC failure: {path}")
+            names = set(archive.namelist())
+    except (OSError, zipfile.BadZipFile, zipfile.LargeZipFile) as error:
+        raise AuditError(f"invalid ZIP container: {path}: {error}") from error
+    missing = set(required_parts) - names
+    if missing:
+        raise AuditError(f"missing required ZIP parts in {path}: {sorted(missing)}")
+    return names
+
+
+def archive_bytes(path: Path, name: str) -> bytes:
+    try:
+        with zipfile.ZipFile(path) as archive:
+            return archive.read(name)
+    except (OSError, zipfile.BadZipFile, KeyError) as error:
+        raise AuditError(f"cannot read ZIP member in {path}: {name}: {error}") from error
+
+
+def resolve_relationship_target(owner_part: str, target: object) -> str:
+    """Resolve an OOXML package relationship without allowing package escape."""
+    if not isinstance(target, str) or not target or "\\" in target or any(ord(char) < 32 for char in target):
+        raise AuditError("invalid OOXML relationship target")
+    parts: list[str] = [] if target.startswith("/") else owner_part.rsplit("/", 1)[0].split("/") if "/" in owner_part else []
+    for component in target.lstrip("/").split("/"):
+        if component in ("", "."):
+            continue
+        if component == "..":
+            if not parts:
+                raise AuditError("OOXML relationship target escapes package")
+            parts.pop()
+        else:
+            parts.append(component)
+    if not parts:
+        raise AuditError("invalid empty OOXML relationship target")
+    return "/".join(parts)
+
+
+def require_ooxml(path: Path, family: str) -> None:
+    spec = OOXML_SPECS[family]
+    required = ("[Content_Types].xml", "_rels/.rels", spec["main"], spec["main_rels"])
+    names = require_zip(path, required)
+    content_types = parse_xml(path, "[Content_Types].xml")
+    if content_types.tag != f"{{{CONTENT_TYPES_NS}}}Types":
+        raise AuditError(f"invalid OOXML content-types root: {path}")
+    overrides = content_types.findall(f"{{{CONTENT_TYPES_NS}}}Override")
+    defaults = content_types.findall(f"{{{CONTENT_TYPES_NS}}}Default")
+    has_main_content_type = any(
+        item.get("PartName") == f"/{spec['main']}" and item.get("ContentType") == spec["content_type"]
+        for item in overrides
+    ) or any(
+        item.get("Extension") == spec["main"].rsplit(".", 1)[-1] and item.get("ContentType") == spec["content_type"]
+        for item in defaults
+    )
+    if not has_main_content_type:
+        raise AuditError(f"missing OOXML main-part content type: {path}")
+    root_relationships = parse_xml(path, "_rels/.rels")
+    main_relationships = parse_xml(path, spec["main_rels"])
+    if root_relationships.tag != f"{{{RELATIONSHIPS_NS}}}Relationships" or main_relationships.tag != f"{{{RELATIONSHIPS_NS}}}Relationships":
+        raise AuditError(f"invalid OOXML relationships root: {path}")
+    root_entries = root_relationships.findall(f"{{{RELATIONSHIPS_NS}}}Relationship")
+    if not any(
+        item.get("Type") == OFFICE_DOCUMENT_REL
+        and item.get("TargetMode") != "External"
+        and resolve_relationship_target("", item.get("Target")) == spec["main"]
+        for item in root_entries
+    ):
+        raise AuditError(f"root relationship does not target OOXML main part: {path}")
+    main_part = parse_xml(path, spec["main"])
+    if main_part.tag != spec["main_tag"]:
+        raise AuditError(f"invalid OOXML main-part QName: {path}")
+    main_entries = main_relationships.findall(f"{{{RELATIONSHIPS_NS}}}Relationship")
+    target_prefix = f"{spec['main'].rsplit('/', 1)[0]}/{spec['target_prefix']}"
+    matching_targets = [
+        resolve_relationship_target(spec["main"], item.get("Target"))
+        for item in main_entries
+        if item.get("TargetMode") != "External"
+        and resolve_relationship_target(spec["main"], item.get("Target")).startswith(target_prefix)
+    ]
+    if not matching_targets or not any(target in names for target in matching_targets):
+        raise AuditError(f"main relationship does not target required OOXML content: {path}")
+    if "child_relation_type" in spec:
+        child_targets: list[tuple[str, str]] = []
+        for item in main_entries:
+            if item.get("Type") != spec["child_relation_type"]:
+                continue
+            if item.get("TargetMode") == "External":
+                raise AuditError(f"external OOXML child relationship: {path}")
+            target = resolve_relationship_target(spec["main"], item.get("Target"))
+            if not target.startswith(spec["child_prefix"]) or target not in names:
+                raise AuditError(f"invalid OOXML child relationship target: {path}")
+            relationship_id = item.get("Id")
+            if not isinstance(relationship_id, str) or not relationship_id:
+                raise AuditError(f"OOXML child relationship has no Id: {path}")
+            child_targets.append((relationship_id, target))
+        if not child_targets:
+            raise AuditError(f"missing required OOXML child relationship: {path}")
+        relationship_attr = "{http://schemas.openxmlformats.org/officeDocument/2006/relationships}id"
+        referenced_ids = {
+            element.get(relationship_attr)
+            for element in main_part.iter(spec["child_reference_tag"])
+            if element.get(relationship_attr)
+        }
+        if any(relationship_id not in referenced_ids for relationship_id, _ in child_targets):
+            raise AuditError(f"unreferenced OOXML child relationship: {path}")
+        for _, target in child_targets:
+            if parse_xml(path, target).tag != spec["child_tag"]:
+                raise AuditError(f"invalid OOXML child QName: {path}: {target}")
+
+
+def check_pdf(path: Path, family: str, pdftotext: str) -> str:
+    if path.read_bytes()[:5] != b"%PDF-":
+        raise AuditError(f"invalid PDF header: {path}")
+    try:
+        result = subprocess.run(
+            (pdftotext, os.fspath(path), "-"), stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+            check=False, timeout=30,
+        )
+    except (OSError, subprocess.TimeoutExpired) as error:
+        raise AuditError(f"pdftotext failed to run for {path}: {error}") from error
+    if result.returncode != 0:
+        raise AuditError(f"pdftotext failed for {path}: {result.stderr.decode('utf-8', 'replace').strip()}")
+    has_text = bool(result.stdout.strip())
+    if family == "pdf_text" and not has_text:
+        raise AuditError(f"searchable PDF has no extracted text: {path}")
+    if family == "pdf_scan" and has_text:
+        raise AuditError(f"scan PDF has an unexpected text layer: {path}")
+    return "text" if has_text else "scan"
+
+
+def check_artifact(path: Path, row: dict, pdftotext: str) -> str | None:
+    extension = path.suffix[1:].lower()
+    if extension != row["physical_extension"].lower():
+        raise AuditError(f"extension mismatch for {row['artifact_id']}: {extension!r} != {row['physical_extension']!r}")
+    family = row["family"]
+    if family in ("pdf_text", "pdf_scan"):
+        return check_pdf(path, family, pdftotext)
+    if family == "docx":
+        require_ooxml(path, "docx")
+    elif family == "xlsx":
+        require_ooxml(path, "xlsx")
+    elif family == "pptx":
+        require_ooxml(path, "pptx")
+    elif family == "image":
+        if path.read_bytes()[:8] != PNG_MAGIC:
+            raise AuditError(f"invalid PNG signature: {path}")
+    elif family == "ipynb":
+        try:
+            notebook = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, UnicodeDecodeError, json.JSONDecodeError) as error:
+            raise AuditError(f"invalid notebook JSON: {path}: {error}") from error
+        if not isinstance(notebook, dict) or not isinstance(notebook.get("cells"), list):
+            raise AuditError(f"invalid notebook structure: {path}")
+    elif extension in ("pcap", "pcapng"):
+        magic = path.read_bytes()[:4]
+        if magic not in PCAP_MAGICS and magic != PCAPNG_MAGIC:
+            raise AuditError(f"invalid PCAP/PCAPNG magic: {path}")
+    elif extension in ("sqlite", "sqlite3", "db"):
+        if path.read_bytes()[:16] != SQLITE_MAGIC:
+            raise AuditError(f"invalid SQLite header: {path}")
+    elif extension == "zip":
+        require_zip(path, ())
+    return None
+
+
+def parse_counts(value: str | None) -> dict[str, int]:
+    if value is None:
+        return EXPECTED_FAMILIES
+    try:
+        decoded = json.loads(value)
+    except json.JSONDecodeError as error:
+        raise AuditError(f"invalid --expected-family-counts JSON: {error}") from error
+    if not isinstance(decoded, dict) or not decoded:
+        raise AuditError("--expected-family-counts must be a non-empty JSON object")
+    counts: dict[str, int] = {}
+    for family, count in decoded.items():
+        if not isinstance(family, str) or not isinstance(count, int) or count < 0:
+            raise AuditError("invalid --expected-family-counts member")
+        counts[family] = count
+    return counts
+
+
+def main() -> int:
+    root_default = Path(__file__).resolve().parents[1]
+    parser = argparse.ArgumentParser(description="Read-only p01 physical format audit")
+    parser.add_argument("--repo-root", type=Path, default=root_default)
+    parser.add_argument("--m1-ledger", type=Path)
+    parser.add_argument("--full-ledger", type=Path)
+    parser.add_argument("--home", type=Path)
+    parser.add_argument("--path-revision", type=Path)
+    parser.add_argument("--predecessor-manifest", type=Path,
+                        help="authenticated manifest immediately preceding a path revision")
+    parser.add_argument("--pdftotext", default="pdftotext")
+    parser.add_argument("--expected-count", type=int, default=EXPECTED_TOTAL,
+                        help="test-only override; production default is 12000")
+    parser.add_argument("--expected-family-counts", help="test-only JSON object override")
+    parser.add_argument("--out", type=Path)
+    parser.add_argument("--replace", action="store_true")
+    arguments = parser.parse_args()
+    try:
+        if arguments.expected_count <= 0:
+            raise AuditError("--expected-count must be positive")
+        expected_families = parse_counts(arguments.expected_family_counts)
+        if sum(expected_families.values()) != arguments.expected_count:
+            raise AuditError("expected family counts do not sum to --expected-count")
+        root = arguments.repo_root.resolve(strict=True)
+        m1 = arguments.m1_ledger or root / "progress/p01/m1-assignment-ledger-v2.jsonl"
+        full = arguments.full_ledger or root / "progress/p01/full/full-assignment-ledger.jsonl"
+        home = arguments.home or root / "workspace/people/p01-software-engineer/home"
+        predecessor_manifest = arguments.predecessor_manifest or root / "progress/p01/full/manifests/p01-full-wave-006.after.jsonl"
+        # Tiny isolated fixtures override the combined total, while production
+        # continues to require the frozen 200 + 11,800 allocation facts.
+        m1_count = 200 if arguments.expected_count == EXPECTED_TOTAL else None
+        full_count = 11800 if arguments.expected_count == EXPECTED_TOTAL else None
+        if m1_count is None:
+            m1_rows = load_jsonl(m1, "M1 ledger")
+            full_rows = load_jsonl(full, "Full ledger")
+            # Fixture mode still requires valid p01 schemas and one header.
+            m1_count = next((r.get("artifact_count") for r in m1_rows if r.get("kind") == "header"), -1)
+            full_count = next((r.get("artifact_count") for r in full_rows if r.get("kind") == "header"), -1)
+        m1_artifacts = load_ledger(m1, "persona-corpus.m1-assignment/v1", m1_count, "M1 ledger")
+        full_artifacts = load_ledger(full, "persona-corpus.full-addition-assignment/v1", full_count, "Full ledger")
+        rows = m1_artifacts + full_artifacts
+        if len(rows) != arguments.expected_count:
+            raise AuditError(f"combined ledger count is {len(rows)}, expected {arguments.expected_count}")
+        if len({row["artifact_id"] for row in rows}) != len(rows):
+            raise AuditError("duplicate artifact_id across ledgers")
+        apply_path_revision(
+            m1_artifacts, full_artifacts, arguments.path_revision, full,
+            predecessor_manifest, arguments.expected_count == EXPECTED_TOTAL,
+        )
+        expected_paths = {row["path"]: row for row in rows}
+        if len(expected_paths) != len(rows):
+            raise AuditError("duplicate effective path across ledgers")
+        folded_paths = [unicodedata.normalize("NFC", path).casefold() for path in expected_paths]
+        if len(folded_paths) != len(set(folded_paths)):
+            raise AuditError("casefold/Unicode collision across effective ledger paths")
+        family_counts: dict[str, int] = {}
+        for row in rows:
+            family_counts[row["family"]] = family_counts.get(row["family"], 0) + 1
+        if family_counts != expected_families:
+            raise AuditError(f"ledger family counts differ from expected: {family_counts}")
+        effective_extensions = Counter(PurePosixPath(row["path"]).suffix[1:].lower() for row in rows)
+        for row in rows:
+            extension = PurePosixPath(row["path"]).suffix[1:].lower()
+            if extension != row["physical_extension"]:
+                raise AuditError(f"ledger path/physical extension mismatch: {row['artifact_id']}")
+            allowed_families = CANONICAL_EXTENSION_FAMILIES.get(extension)
+            if allowed_families is not None and row["family"] not in allowed_families:
+                raise AuditError(f"canonical extension/family mismatch: {row['artifact_id']}")
+        if arguments.expected_count == EXPECTED_TOTAL and any(effective_extensions.get(extension, 0) != count for extension, count in REQUIRED_EXTENSION_COUNTS.items()):
+            raise AuditError(f"required extension histogram mismatch: {dict(effective_extensions)}")
+        observed = inspect_tree(home)
+        if len(observed) != arguments.expected_count:
+            raise AuditError(f"physical file count is {len(observed)}, expected {arguments.expected_count}")
+        missing = sorted(set(expected_paths) - set(observed))
+        extra = sorted(set(observed) - set(expected_paths))
+        if missing or extra:
+            raise AuditError(f"ledger/tree path mismatch: missing={len(missing)} extra={len(extra)}")
+        actual_extensions = Counter(PurePosixPath(path).suffix[1:].lower() for path in observed)
+        if actual_extensions != effective_extensions:
+            raise AuditError("effective ledger/tree extension histogram mismatch")
+        detected_pdf = {"text": 0, "scan": 0}
+        for relative in sorted(expected_paths):
+            classification = check_artifact(observed[relative], expected_paths[relative], arguments.pdftotext)
+            if classification is not None:
+                detected_pdf[classification] += 1
+        if detected_pdf != {"text": expected_families.get("pdf_text", 0), "scan": expected_families.get("pdf_scan", 0)}:
+            raise AuditError(f"PDF classification mismatch: {detected_pdf}")
+        report = {
+            "result": "ok",
+            "persona": "p01",
+            "artifact_count": arguments.expected_count,
+            "pdf": {"searchable": detected_pdf["text"], "scan": detected_pdf["scan"], "total": sum(detected_pdf.values())},
+            "families": {
+                family: {"expected": expected_families[family], "actual": family_counts[family],
+                         "expected_percent": round(expected_families[family] * 100 / arguments.expected_count, 4),
+                         "actual_percent": round(family_counts[family] * 100 / arguments.expected_count, 4)}
+                for family in sorted(expected_families)
+            },
+            "extensions": {
+                extension: {"expected": effective_extensions[extension], "actual": actual_extensions[extension]}
+                for extension in sorted(effective_extensions)
+            },
+            "format_checks": {"docx": expected_families.get("docx", 0), "xlsx": expected_families.get("xlsx", 0),
+                              "pptx": expected_families.get("pptx", 0), "png": expected_families.get("image", 0),
+                              "ipynb": expected_families.get("ipynb", 0)},
+            "path_revision": os.fspath(arguments.path_revision) if arguments.path_revision else None,
+        }
+        encoded = json.dumps(report, ensure_ascii=False, sort_keys=True, separators=(",", ":")) + "\n"
+        if arguments.out is None:
+            sys.stdout.write(encoded)
+        else:
+            if arguments.out.exists() or arguments.out.is_symlink():
+                output_info = arguments.out.lstat()
+                if not stat.S_ISREG(output_info.st_mode) or output_info.st_nlink != 1:
+                    raise AuditError(f"unsafe existing output: {arguments.out}")
+                if not arguments.replace:
+                    raise AuditError(f"refusing to overwrite output without --replace: {arguments.out}")
+            parent = arguments.out.parent
+            if not parent.is_dir() or parent.is_symlink():
+                raise AuditError(f"unsafe output parent: {parent}")
+            mode = "w" if arguments.replace else "x"
+            with arguments.out.open(mode, encoding="utf-8", newline="\n") as handle:
+                handle.write(encoded)
+        return 0
+    except (AuditError, OSError) as error:
+        print(f"p01-format-audit: {error}", file=sys.stderr)
+        return 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

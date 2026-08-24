@@ -1,0 +1,366 @@
+#!/usr/bin/env python3
+"""Fail-closed p01 Full path revision; it moves directory entries, never bytes."""
+from __future__ import annotations
+import argparse, hashlib, json, os, re, sys, unicodedata, zipfile, subprocess
+from collections import Counter
+from pathlib import Path, PurePosixPath
+
+SCHEMA="persona-corpus.p01-full-path-revision/v1"; REVISION="p01-full-structure-v2"; SRC=re.compile(r"-src-[0-9]{6}$"); SAFE=re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]*$")
+REF_NAME=re.compile(rb"(?<![A-Za-z0-9._-])([a-z0-9][a-z0-9._-]*-src-[0-9]{6}\.[a-z0-9]{1,10})(?![A-Za-z0-9._-])")
+ANY_NAME=re.compile(rb"(?<![A-Za-z0-9._-])([A-Za-z0-9][A-Za-z0-9._-]*\.[A-Za-z0-9]{1,10})(?![A-Za-z0-9._-])")
+RESERVED={"con","prn","aux","nul",*(f"com{i}" for i in range(1,10)),*(f"lpt{i}" for i in range(1,10))}
+ROOT=Path(__file__).resolve().parent.parent
+DEFAULT_ASSIGNMENT=ROOT/"progress/p01/full/full-assignment-ledger.jsonl"; DEFAULT_HOME=ROOT/"workspace/people/p01-software-engineer/home"; DEFAULT_M1=ROOT/"progress/p01/full/manifests/m1-baseline.jsonl"
+DEFAULT_PREDECESSOR=ROOT/"progress/p01/full/manifests/p01-full-wave-006.after.jsonl"
+DOMAINS={"documents/work/product-alpha/architecture":"arch-a7","documents/work/product-alpha/api-contracts":"api-a7","documents/work/product-alpha/release-notes":"rel-a7","documents/work/product-beta/architecture":"arch-b4","documents/work/product-beta/api-contracts":"api-b4","repos/product-alpha/docs":"doc-a7","repos/product-beta/docs":"doc-b4","work-items/decision-records":"adr","work-items/code-reviews":"cr","meetings/engineering":"mtg-eng","vendor-docs/platforms":"vendor","operations/migration-notes":"mig","desktop/working":"working","documents/reference":"reference","downloads/inbox":"inbox","downloads/exports":"export","cloud/my-files":"cloud-draft","cloud/team-shared":"team-share","mail/recent":"msg-2026q3","archive/closed":"archive"}
+def die(x): raise SystemExit("p01-structure-v2: "+x)
+def sha(p):
+ h=hashlib.sha256()
+ with p.open("rb") as f:
+  for b in iter(lambda:f.read(1048576),b""): h.update(b)
+ return "sha256:"+h.hexdigest()
+def load(p):
+ p=Path(p)
+ if p.is_symlink() or not p.is_file(): die("input is not a regular file: "+str(p))
+ try: a=[json.loads(x) for x in p.read_text().splitlines() if x]
+ except Exception as e: die("invalid JSONL: "+str(e))
+ if not a: die("empty JSONL")
+ return a
+def safe(rel):
+ p=PurePosixPath(rel)
+ if not rel or "\\" in rel or any(ord(c)<32 or ord(c)==127 for c in rel) or rel!=p.as_posix() or p.is_absolute() or any(x in {"",".",".."} for x in p.parts) or unicodedata.normalize("NFC",rel)!=rel:return False
+ for x in p.parts:
+  if not SAFE.fullmatch(x) or x.rstrip(". ")!=x or x.split(".",1)[0].casefold() in RESERVED:return False
+ return True
+def lang(ext):
+ return {"py":"python","rs":"rust","js":"javascript","ts":"typescript","go":"go","java":"java","rb":"ruby","sh":"shell","sql":"sql","tf":"terraform"}.get(ext,"text")
+def group(scope,fam,ext):
+ binary=fam in {"domain_binary","pdf_scan"}; visual=fam in {"image","pptx"}
+ data=fam in {"csv_tsv","xlsx","structured_text"}; document=fam in {"md","docx","pdf_text","html_eml"}
+ if scope.endswith("architecture"): return (("prototypes/"+lang(ext),"prototype") if fam=="code" else (("models/data","model") if data else (("diagrams","diagram") if visual else (("evidence","evidence") if binary or fam=="txt_log" else ("decisions","adr") if fam=="md" else ("reviews","review")))))
+ if scope.endswith("api-contracts"): return (("clients/"+lang(ext),"client") if fam=="code" else (("tests","test") if fam in {"csv_tsv","xlsx","ipynb"} else ("specs","spec")))
+ if scope.endswith("release-notes"): return (("automation/"+lang(ext),"automation") if fam=="code" else (("evidence","evidence") if binary or data or fam=="txt_log" else ("plans","release")))
+ if scope.startswith("repos/"): return (("examples/"+lang(ext),"example") if fam=="code" else (("examples/test-data","test-data") if fam in {"csv_tsv","ipynb","xlsx"} else (("examples/fixtures","fixture") if binary else ("docs","guide"))))
+ if scope=="work-items/decision-records": return (("evidence/tools/"+lang(ext),"tool") if fam=="code" else (("evidence/captures","capture") if ext=="pcap" else (("diagrams","diagram") if visual else ("adr","adr"))))
+ if scope=="work-items/code-reviews": return (("patches/"+lang(ext),"patch") if fam=="code" else (("exports","export") if data else (("attachments","attachment") if fam in {"html_eml","image","pdf_text","pdf_scan"} else ("reviews","review"))))
+ if scope=="meetings/engineering": return (("attachments/code/"+lang(ext),"attachment") if fam=="code" else (("action-registers","action") if data else (("briefings","briefing") if fam in {"pptx","pdf_text"} else (("attachments","attachment") if fam in {"html_eml","image","pdf_scan","xlsx"} else ("minutes","meeting")))))
+ if scope=="mail/recent": return (("attachments/code/"+lang(ext),"attachment") if fam=="code" else (("messages","message") if fam in {"html_eml","txt_log"} else (("attachments/data","attachment") if data else (("attachments/documents","attachment") if document else ("attachments/media","attachment")))))
+ if scope.startswith("vendor-docs/"): return (("examples/"+lang(ext),"example") if fam=="code" else (("evidence","evidence") if binary else ("assessments","assessment")))
+ if scope.startswith("operations/"): return (("automation/"+lang(ext),"automation") if fam=="code" else (("evidence","evidence") if binary or data or fam=="txt_log" else ("plans","migration")))
+ return {"desktop/working":("drafts","draft"),"documents/reference":("catalog","reference"),"downloads/inbox":("received","received"),"downloads/exports":("reports","export"),"cloud/my-files":("drafts","draft"),"cloud/team-shared":("shared","shared"),"archive/closed":("records","record")}.get(scope) or (_ for _ in ()).throw(ValueError("unknown scope "+scope))
+def bucket(directory,family,ext,number):
+ """Keep every natural leaf manageable while retaining type/date meaning.
+
+ The two half-corpus series deliberately avoid one directory per tiny source
+ prefix.  p01's largest scope/family allocation is below 600, so each series
+ remains below the 300-file operational browsing target.
+ """
+ kind={"code":"source","md":"notes","structured_text":"models","txt_log":"logs","csv_tsv":"data","html_eml":"messages","pdf_text":"documents","pdf_scan":"evidence","docx":"documents","xlsx":"data","pptx":"visuals","image":"visuals","domain_binary":"evidence","ipynb":"notebooks"}.get(family,"files")
+ return f"{directory}/2026-q3/{kind}/series-{int(number)//6000:02d}"
+def assignment(p):
+ rows=load(p); h=[x for x in rows if x.get("kind")=="header"]; a=[x for x in rows if x.get("kind")=="artifact"]
+ if len(h)!=1 or h[0].get("persona")!="p01" or h[0].get("artifact_count")!=len(a): die("invalid p01 assignment header")
+ selected=[]; preserve=[]
+ for x in a:
+  req=("artifact_id","source_id","scope_id","scope_path","family","physical_extension","path")
+  if any(not isinstance(x.get(k),str) or not x[k] for k in req):die("invalid assignment artifact")
+  if not x["path"].startswith(x["scope_path"]+"/") or not safe(x["path"]):die("unsafe assignment path: "+x["path"])
+  (selected if SRC.search(PurePosixPath(x["path"]).stem) else preserve).append(x)
+ if len({x["path"] for x in a})!=len(a):die("duplicate assignment path")
+ return h[0],selected,preserve
+def expected(ap):
+ h,sel,preserve=assignment(ap); out=[]
+ for x in sorted(sel,key=lambda z:z["source_id"]):
+  s=x["scope_path"]; n=x["source_id"].rsplit("-",1)[-1]; ext=x["physical_extension"].lower()
+  if s not in DOMAINS or not re.fullmatch("[0-9]{6}",n) or not re.fullmatch("[a-z0-9]{1,10}",ext):die("unmappable assignment row: "+x["path"])
+  d,p=group(s,x["family"],ext); d=bucket(d,x["family"],ext,n)
+  if DOMAINS[s]==p or p in {"adr","draft","reference","export"}:p={"adr":"record","draft":"file","reference":"item","export":"report"}.get(p,"file")
+  new=f"{s}/{d}/{DOMAINS[s]}-{p}-{n}.{ext}"
+  if not safe(new) or new!=new.lower() or "-src-" in PurePosixPath(new).name:die("unsafe generated path")
+  out.append({"schema":SCHEMA,"kind":"move","old_path":x["path"],"new_path":new,"family":x["family"],"extension":ext,"bytes":None,"sha256":None,"artifact_id":x["artifact_id"],"source_id":x["source_id"],"scope":x["scope_id"],"compatibility_name_preserved":False})
+ if len({x["new_path"] for x in out})!=len(out):die("generated collision")
+ return h,out,preserve
+def ref_bytes(path):
+ """Return searchable source bytes, including OOXML XML, without modifying it."""
+ ext=path.suffix.lower()
+ plain={".md",".markdown",".txt",".log",".json",".jsonl",".yaml",".yml",".xml",".csv",".tsv",".html",".htm",".eml",".py",".rs",".js",".ts",".sh",".sql",".toml",".ini",".cfg",".ipynb"}
+ if ext in plain:
+  return path.read_bytes()
+ if ext in {".docx",".xlsx",".pptx"}:
+  try:
+   with zipfile.ZipFile(path) as z:
+    return b"\n".join(z.read(n) for n in z.namelist() if n.endswith(".xml") or n.endswith(".rels"))
+  except (OSError,zipfile.BadZipFile,KeyError) as e: die("cannot inspect OOXML referrer: "+str(path)+": "+str(e))
+ if ext==".pdf":
+  try:return subprocess.run(["pdftotext",str(path),"-"],check=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE).stdout
+  except FileNotFoundError:die("pdftotext is required to inspect PDF basename references")
+  except subprocess.CalledProcessError as e:die("pdftotext failed for "+str(path)+": "+e.stderr.decode(errors="replace"))
+ return b""
+def apply_reference_compatibility(home,moves,locations=None):
+ """Keep basename-only references valid without editing any file content."""
+ by_old={x["old_path"]:x for x in moves}; base={PurePosixPath(x["old_path"]).name:x for x in moves}
+ edges=[]
+ for old,row in by_old.items():
+  p=(home/(locations or {}).get(old,old))
+  if p.is_symlink() or not p.is_file():die("reference scan missing regular file: "+old)
+  data=ref_bytes(p)
+  if not data:continue
+  for found in set(m.group(1).decode("ascii") for m in REF_NAME.finditer(data)):
+   target=base.get(found)
+   if target is not None and target is not row:edges.append((row,target))
+ for source,target in edges:
+  source_scope=source["old_path"].rsplit("/",1)[0]
+  target_scope=target["old_path"].rsplit("/",1)[0]
+  # Same canonical scope is mandatory: moving cross-scope would violate the
+  # ownership boundary, while retaining the reference would be unsafe.
+  source_root=next(k for k in DOMAINS if source["old_path"].startswith(k+"/"))
+  target_root=next(k for k in DOMAINS if target["old_path"].startswith(k+"/"))
+  if source_root!=target_root:die("cross-scope basename reference: "+source["old_path"]+" -> "+target["old_path"])
+ # Connected components ensure every basename-only referrer and target shares
+ # exactly one directory, even when a file participates in several links.
+ links={x["old_path"]:set() for x in moves}; targets=set(); outgoing={x["old_path"]:set() for x in moves}
+ for s,t in edges:links[s["old_path"]].add(t["old_path"]);links[t["old_path"]].add(s["old_path"]);targets.add(t["old_path"])
+ for s,t in edges:outgoing[s["old_path"]].add(PurePosixPath(t["old_path"]).name)
+ seen=set()
+ component=0
+ for start in sorted(links):
+  if start in seen or not links[start]:continue
+  todo=[start]; comp=[];seen.add(start)
+  while todo:
+   cur=todo.pop();comp.append(cur)
+   for nxt in links[cur]:
+    if nxt not in seen:seen.add(nxt);todo.append(nxt)
+  component+=1; root=next(k for k in DOMAINS if start.startswith(k+"/")); component_id=f"c{component:03d}"
+  used=set()
+  for old in comp:
+   row=by_old[old]; oldbase=PurePosixPath(old).name
+   row["reference_targets"]=sorted(outgoing[old]);row["reference_component"]=component_id
+   if old in targets:
+    leaf=oldbase;row["compatibility_name_preserved"]=True
+   else:
+    n=row["source_id"].rsplit("-",1)[-1];leaf=f"{DOMAINS[root]}-linked-{n}.{row['extension']}"
+   if leaf in used:die("linked-evidence filename collision: "+leaf)
+   used.add(leaf);row["new_path"]=f"{root}/evidence/linked/{component_id}/{leaf}"
+ if len({x["new_path"] for x in moves})!=len(moves):die("reference compatibility generated collision")
+ return moves,len(edges)
+def retained_reference_guard(home,moves,retained):
+ names={PurePosixPath(x["old_path"]).name for x in moves}
+ for rel in retained:
+  p=home/rel
+  if p.is_symlink() or not p.is_file():die("retained reference scan missing file: "+rel)
+  found={m.group(1).decode("ascii") for m in REF_NAME.finditer(ref_bytes(p))}
+  hit=names & found
+  if hit:die("retained M1/pilot basename reference blocks path revision: "+rel+" -> "+sorted(hit)[0])
+def moved_to_retained(home,moves,retained,locations=None):
+ """Retained M1/pilot targets cannot move; only preserve local basename links."""
+ byname={}
+ for x in retained:
+  name=PurePosixPath(x["path"]).name
+  byname.setdefault(name,[]).append(x)
+ for row in moves:
+  p=home/(locations or {}).get(row["old_path"],row["old_path"]); data=ref_bytes(p)
+  names=sorted({m.group(1).decode("ascii") for m in ANY_NAME.finditer(data)} & set(byname))
+  if not names: continue
+  if row.get("reference_component"):die("mixed moved/retained basename reference component is unsupported: "+row["old_path"])
+  old_parent=PurePosixPath(row["old_path"]).parent
+  hits=[]
+  for name in names:
+   local=[x for x in byname[name] if PurePosixPath(x["path"]).parent==old_parent]
+   if len(local)!=1:
+    die("retained basename reference has no unique same-parent target: "+row["old_path"]+" -> "+name)
+   hits.append((name,local[0]))
+  # Keep the referrer beside frozen target; only its own filename changes.
+  row["new_path"]=str(old_parent/ PurePosixPath(row["new_path"]).name)
+  row["retained_references"]=[{"target_path":target["path"],"type":"basename-local"} for _,target in hits]
+ return moves
+def predecessor(path,home):
+ rows=load(path); headers=[x for x in rows if x.get("kind")=="header"];files=[x for x in rows if x.get("kind")=="file"]
+ if len(headers)!=1 or headers[0].get("file_count")!=12000 or len(files)!=12000:die("predecessor manifest must have one header and 12,000 files")
+ if len({x.get("path") for x in files})!=12000:die("predecessor has duplicate paths")
+ for x in files:
+  if not isinstance(x.get("path"),str) or not isinstance(x.get("bytes"),int) or not isinstance(x.get("sha256"),str):die("invalid predecessor row")
+  p=home/x["path"]
+  if p.is_symlink() or not p.is_file() or p.stat().st_size!=x["bytes"] or sha(p)!=x["sha256"]:die("predecessor/live bytes differ: "+x["path"])
+ return sha(Path(path))
+def predecessor_rows(path):
+ rows=load(path); h=[x for x in rows if x.get("kind")=="header"]; f={x.get("path"):x for x in rows if x.get("kind")=="file"}
+ if len(h)!=1 or h[0].get("file_count")!=12000 or len(f)!=12000:die("invalid predecessor manifest")
+ return f
+def mapping_predecessor_guard(moves,path):
+ prior=predecessor_rows(path)
+ for x in moves:
+  old=prior.get(x["old_path"])
+  if old is None or x.get("bytes")!=old.get("bytes") or x.get("sha256")!=old.get("sha256"):die("mapping integrity is not bound to predecessor: "+x["old_path"])
+def rdigest(rows):return "sha256:"+hashlib.sha256("".join(json.dumps(x,sort_keys=True,separators=(",",":"))+"\n" for x in rows).encode()).hexdigest()
+def integrity(home,row,state):
+ p=home/(row["old_path"] if state=="before" else row["new_path"])
+ if p.is_symlink() or not p.is_file():die("missing regular file: "+str(p))
+ if state=="before": row=dict(row);row["bytes"]=p.stat().st_size;row["sha256"]=sha(p)
+ elif p.stat().st_size!=row["bytes"] or sha(p)!=row["sha256"]:die("bytes or SHA mismatch: "+str(p))
+ return row
+def output(path,text):
+ p=Path(path)
+ if p.exists() or p.is_symlink():die("refusing overwrite: "+str(p))
+ if not p.parent.is_dir():die("output parent absent")
+ try:
+  with p.open("x") as f:f.write(text);f.flush();os.fsync(f.fileno())
+ except FileExistsError:die("refusing overwrite: "+str(p))
+def plan(a):
+ home=Path(a.home).resolve(); ap=Path(a.assignment).resolve()
+ if not home.is_dir():die("home absent")
+ pred=predecessor(a.predecessor_manifest,home)
+ h,moves,preserve=expected(ap); retained=[*m1(a.m1_baseline).values(),*preserve]; retained_reference_guard(home,moves,[x["path"] for x in retained]); moves,edge_count=apply_reference_compatibility(home,moves); moves=moved_to_retained(home,moves,retained); moves=[integrity(home,x,"before") for x in moves]
+ if len(preserve)!=12:die(f"expected exactly 12 natural pilot rows, found {len(preserve)}")
+ header={"schema":SCHEMA,"kind":"header","persona":"p01","revision":REVISION,"assignment_sha256":sha(ap),"predecessor_manifest_sha256":pred,"source_assignment_id":h.get("assignment_id"),"selected_count":len(moves),"preserved_pilot_count":len(preserve),"compatibility_name_preserved_count":sum(x["compatibility_name_preserved"] for x in moves),"reference_edge_count":edge_count,"mapping_rows_sha256":rdigest(moves)}
+ output(a.out,"\n".join(json.dumps(x,sort_keys=True,separators=(",",":")) for x in [header,*moves])+"\n")
+def mapfile(mp,ap,home,retained=()):
+ rows=load(mp);h=[x for x in rows if x.get("kind")=="header"];moves=[x for x in rows if x.get("kind")=="move"]
+ if not rows or rows[0].get("kind")!="header" or len(rows)!=len(moves)+1 or any(x.get("kind") not in {"header","move"} for x in rows) or len(h)!=1 or h[0].get("schema")!=SCHEMA or h[0].get("revision")!=REVISION or h[0].get("assignment_sha256")!=sha(Path(ap)):die("mapping header digest mismatch")
+ _,want,preserve=expected(Path(ap));by={x.get("old_path"):x for x in moves}
+ ah,rawsel,rawpilot=assignment(ap); scope_by_old={x["path"]:x["scope_path"] for x in rawsel}
+ if ah.get("schema")!="persona-corpus.full-addition-assignment/v1" or ah.get("artifact_count")!=11800 or len(rawsel)!=11788 or len(rawpilot)!=12:die("unexpected p01 Full assignment shape")
+ if len({x.get("source_id") for x in rawsel})!=11788 or len({x.get("artifact_id") for x in rawsel})!=11788 or len(moves)!=len(want) or set(by)!={x["old_path"] for x in want}:die("mapping selection mismatch")
+ for x in want:
+  y=by[x["old_path"]]
+  if any(y.get(k)!=x.get(k) for k in ("schema","kind","old_path","family","extension","artifact_id","source_id","scope")):die("mapping differs from deterministic plan")
+  scope=scope_by_old[x["old_path"]]
+  if not isinstance(y.get("new_path"),str) or not y["new_path"].startswith(scope+"/") or not safe(y["new_path"]):die("mapping crosses scope or has unsafe path")
+  preserved=bool(y.get("compatibility_name_preserved"))
+  if preserved:
+   if not re.match(re.escape(scope)+r"/evidence/linked/c[0-9]{3}/",y["new_path"]) or PurePosixPath(y["new_path"]).name!=PurePosixPath(y["old_path"]).name:die("invalid compatibility basename preservation")
+  elif y["new_path"]!=x["new_path"]:
+   if not re.match(re.escape(scope)+r"/evidence/linked/c[0-9]{3}/",y["new_path"]) or not isinstance(y.get("reference_component"),str):die("mapping differs from deterministic plan")
+  if not isinstance(y.get("bytes"),int) or not isinstance(y.get("sha256"),str):die("bad mapping integrity")
+ # Re-derive all reference routing from current bytes.  For a partially or
+ # fully applied map, read each row from its existing old/new location.
+ locations={x["old_path"]:(x["new_path"] if (home/x["new_path"]).is_file() and not (home/x["old_path"]).exists() else x["old_path"]) for x in moves}
+ _,derived,_=expected(Path(ap)); derived,edges=apply_reference_compatibility(home,derived,locations); derived=moved_to_retained(home,derived,retained,locations)
+ if any(by[x["old_path"]].get(k)!=x.get(k) for x in derived for k in ("new_path","compatibility_name_preserved","reference_component","reference_targets","retained_references")):
+  die("mapping reference routing differs from live bytes")
+ if h[0].get("selected_count")!=len(moves) or h[0].get("compatibility_name_preserved_count")!=sum(bool(x.get("compatibility_name_preserved")) for x in moves) or h[0].get("reference_edge_count")!=edges or h[0].get("mapping_rows_sha256")!=rdigest(moves):die("mapping rows digest mismatch")
+ return moves,preserve
+def apply(a):
+ home=Path(a.home).resolve(); retained=[*m1(a.m1_baseline).values(),*assignment(a.assignment)[2]];moves,_=mapfile(a.mapping,a.assignment,home,retained)
+ if not home.is_dir():die("home absent")
+ pred_sha=sha(Path(a.predecessor_manifest)); header=load(a.mapping)[0]
+ if header.get("predecessor_manifest_sha256")!=pred_sha:die("predecessor manifest binding mismatch")
+ mapping_predecessor_guard(moves,a.predecessor_manifest)
+ # Before the first move, prove the accepted predecessor still exactly matches.
+ if all((home/x["old_path"]).is_file() and not (home/x["new_path"]).exists() for x in moves):predecessor(a.predecessor_manifest,home)
+ nofollow=getattr(os,"O_NOFOLLOW",0); directory=getattr(os,"O_DIRECTORY",0)
+ try: homefd=os.open(home,os.O_RDONLY|directory|nofollow)
+ except OSError as e:die("cannot safely open home directory: "+str(e))
+ def parentfd(rel,create=False):
+  fd=os.dup(homefd)
+  try:
+   for part in PurePosixPath(rel).parent.parts:
+    if create:
+     try:
+      os.mkdir(part,0o755,dir_fd=fd)
+      os.fsync(fd)
+     except FileExistsError:pass
+    child=os.open(part,os.O_RDONLY|directory|nofollow,dir_fd=fd)
+    os.close(fd);fd=child
+   return fd
+  except Exception:
+   os.close(fd);raise
+ for x in moves:
+  old,new=home/x["old_path"],home/x["new_path"]; oe=old.exists() and not old.is_symlink();ne=new.exists() and not new.is_symlink()
+  if oe and ne:
+   if os.stat(old).st_ino!=os.stat(new).st_ino or os.stat(old).st_dev!=os.stat(new).st_dev:die("both source/destination differ: "+x["old_path"])
+  elif not oe and not ne:die("neither source/destination exists: "+x["old_path"])
+  integrity(home,x,"before" if oe else "after")
+ try:
+  for x in moves:
+   oldrel,newrel=x["old_path"],x["new_path"]; old,new=home/oldrel,home/newrel
+   sfd=parentfd(oldrel); dfd=parentfd(newrel,create=True)
+   try:
+    oldname,newname=PurePosixPath(oldrel).name,PurePosixPath(newrel).name
+    try: oldst=os.stat(oldname,dir_fd=sfd,follow_symlinks=False)
+    except FileNotFoundError: oldst=None
+    try: newst=os.stat(newname,dir_fd=dfd,follow_symlinks=False)
+    except FileNotFoundError: newst=None
+    if oldst is not None and newst is None:
+     try:os.link(oldname,newname,src_dir_fd=sfd,dst_dir_fd=dfd,follow_symlinks=False)
+     except FileExistsError:die("destination appeared during apply: "+newrel)
+     os.fsync(dfd)
+     newst=os.stat(newname,dir_fd=dfd,follow_symlinks=False)
+    if oldst is not None and newst is not None:
+     if (oldst.st_dev,oldst.st_ino)!=(newst.st_dev,newst.st_ino):die("destination clobber race: "+newrel)
+     # The destination name may come from an interrupted prior invocation.
+     # Make it durable before removing the only other reachable name.
+     os.fsync(dfd)
+     os.unlink(oldname,dir_fd=sfd)
+     if os.stat(newname,dir_fd=dfd,follow_symlinks=False).st_nlink!=1:die("destination link count is not one: "+newrel)
+     os.fsync(sfd)
+    elif oldst is None and newst is None:die("source vanished during apply: "+oldrel)
+   finally:os.close(sfd);os.close(dfd)
+ finally:os.close(homefd)
+ # Prune only truly empty directories and never cross a canonical scope root.
+ scope_by_old={x["path"]:x["scope_path"] for x in assignment(a.assignment)[1]}
+ for x in moves:
+  p=(home/x["old_path"]).parent
+  boundary=home/scope_by_old[x["old_path"]]
+  while p!=boundary:
+   try:p.rmdir()
+   except OSError:break
+   p=p.parent
+def m1(p):
+ rows=load(p);r={x["path"]:x for x in rows if x.get("kind") in {"file","artifact"} and isinstance(x.get("path"),str)}
+ if len(r)!=200 or any(not isinstance(x.get("bytes"),int) or not isinstance(x.get("sha256"),str) for x in r.values()):die("M1 baseline must have exactly 200 digest-bound files")
+ return r
+def verify(a):
+ home=Path(a.home).resolve(); pred=predecessor(a.predecessor_manifest,home) if a.state=="before" else sha(Path(a.predecessor_manifest));base=m1(a.m1_baseline);moves,preserve=mapfile(a.mapping,a.assignment,home,[*base.values(),*assignment(a.assignment)[2]]);mapping_predecessor_guard(moves,a.predecessor_manifest)
+ if load(a.mapping)[0].get("predecessor_manifest_sha256")!=pred:die("predecessor manifest binding mismatch")
+ if not home.is_dir():die("home absent")
+ chosen={x["new_path"] if a.state=="after" else x["old_path"]:x for x in moves}
+ for x in chosen.values():integrity(home,x,a.state)
+ by_base={PurePosixPath(x["old_path"]).name:x for x in moves if x.get("compatibility_name_preserved")}
+ edge_count=0
+ for x in moves:
+  refs=x.get("reference_targets",[])
+  if not isinstance(refs,list) or any(not isinstance(n,str) for n in refs):die("invalid reference target list")
+  if refs:
+   here=home/(x["new_path"] if a.state=="after" else x["old_path"]);data=ref_bytes(here)
+   for name in refs:
+    target=by_base.get(name)
+    if target is None or name.encode() not in data:die("recorded basename reference missing: "+name)
+    there=home/(target["new_path"] if a.state=="after" else target["old_path"])
+    if a.state=="after" and here.parent!=there.parent:die("basename reference no longer resolves locally: "+name)
+    edge_count+=1
+  for ref in x.get("retained_references",[]):
+   target=base.get(ref.get("target_path")) or next((p for p in preserve if p["path"]==ref.get("target_path")),None)
+   here=home/(x["new_path"] if a.state=="after" else x["old_path"])
+   if not isinstance(ref,dict) or ref.get("type")!="basename-local" or target is None or PurePosixPath(target["path"]).parent.as_posix()!=here.relative_to(home).parent.as_posix() or PurePosixPath(target["path"]).name.encode() not in ref_bytes(here):die("retained basename reference does not resolve locally")
+ if edge_count!=load(a.mapping)[0].get("reference_edge_count"):die("reference edge count mismatch")
+ pred_rows=predecessor_rows(a.predecessor_manifest)
+ for x in preserve:
+  p=home/x["path"]; prior=pred_rows.get(x["path"])
+  if prior is None or p.is_symlink() or not p.is_file() or p.stat().st_size!=prior.get("bytes") or sha(p)!=prior.get("sha256"):die("pilot changed/missing")
+ for rel,x in base.items():
+  p=home/rel
+  if p.is_symlink() or not p.is_file() or p.stat().st_size!=x["bytes"] or sha(p)!=x["sha256"]:die("M1 changed/missing: "+rel)
+ actual=[]
+ for p in home.rglob("*"):
+  rel=p.relative_to(home).as_posix()
+  if p.is_symlink() or (not p.is_dir() and not p.is_file()):die("symlink/nonregular: "+rel)
+  if p.is_file():
+   if not p.stat().st_size or not safe(rel) or len(rel)>240 or any(len(x)>100 or x.startswith(".") or x in {"__pycache__","tmp","temp"} for x in PurePosixPath(rel).parts):die("empty/unsafe final path: "+rel)
+   actual.append(rel)
+ fold=[unicodedata.normalize("NFC",x).casefold() for x in actual]
+ if len(fold)!=len(set(fold)):die("case/unicode collision")
+ allowed=set(chosen)|set(base)|{x["path"] for x in preserve}
+ if set(actual)!=allowed:die(f"unexpected/missing paths: actual {len(actual)} expected {len(allowed)}")
+ if Counter(x["family"] for x in moves)!=Counter(x["family"] for x in expected(a.assignment)[1]):die("family count differs from assignment")
+ if Counter(x["extension"] for x in moves)!=Counter(x["physical_extension"].lower() for x in assignment(a.assignment)[1]):die("extension count differs from assignment")
+ print(json.dumps({"result":"ok","state":a.state,"selected":len(moves),"m1":200,"pilot":len(preserve),"extensions":dict(sorted(Counter(PurePosixPath(x).suffix[1:] for x in chosen).items())),"families":dict(sorted(Counter(x["family"] for x in moves).items()))},sort_keys=True))
+def main():
+ p=argparse.ArgumentParser();s=p.add_subparsers(dest="cmd",required=True)
+ def common(q):q.add_argument("--assignment",default=str(DEFAULT_ASSIGNMENT));q.add_argument("--home",default=str(DEFAULT_HOME))
+ q=s.add_parser("plan");common(q);q.add_argument("--out",required=True);q.add_argument("--predecessor-manifest",default=str(DEFAULT_PREDECESSOR));q.add_argument("--m1-baseline",default=str(DEFAULT_M1));q.set_defaults(fn=plan)
+ q=s.add_parser("apply");common(q);q.add_argument("--mapping",required=True);q.add_argument("--m1-baseline",default=str(DEFAULT_M1));q.add_argument("--predecessor-manifest",default=str(DEFAULT_PREDECESSOR));q.set_defaults(fn=apply)
+ q=s.add_parser("verify");common(q);q.add_argument("--mapping",required=True);q.add_argument("--m1-baseline",default=str(DEFAULT_M1));q.add_argument("--predecessor-manifest",default=str(DEFAULT_PREDECESSOR));q.add_argument("--state",required=True,choices=("before","after"));q.set_defaults(fn=verify)
+ a=p.parse_args()
+ try:a.fn(a)
+ except ValueError as e:die(str(e))
+if __name__=="__main__":main()

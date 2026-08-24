@@ -14,6 +14,28 @@ macOS 開発ラップトップ（ja-JP、ja/en）。架空組織 **Aster Loop �
 
 secondary は accepted Rust plan の共通 secondary paths だけを参照し、ここで別の正式パスを創設しない。
 
+## Full 現行パス（structure v2）
+
+Full 完了後の現行パスは
+`progress/p01/full/revisions/v2/path-revision.jsonl` の append-only overlay を
+authority とする。凍結済み Full assignment ledger と batch checkpoint は、
+初期の割当・受入を示す historical authority として保持し、現行の物理パスを
+再定義しない。M1 の200件と受入済み Full pilot の12件は既存パス・bytes を
+固定し、残る11,788件だけを同一 canonical scope 内で byte-preserving に移す。
+
+各 scope 内では、意味別の業務領域、形式／技術別の下位領域、必要に応じて
+`2026-q3/<kind>/series-00` または `series-01` で整理する。Full-to-Full 参照の
+対象だけは basename 互換性を保つため307件を例外とし、対応する参照群を
+`evidence/linked/cNNN` に共置する。v2 後は12,000 regular files、756 leaf
+parents、任意一ディレクトリ直下の最大131 filesであり、symlink・nonregular・
+empty artifact は0である。
+
+この再編は形式配分を変えない。PDF は960件（text layerあり840、scan120）、
+DOCX 360、XLSX 240、PPTX 240、PNG 360を含み、上記の全 family 比率を維持する。
+詳細な移行根拠と形式検査は
+`progress/p01/full/revisions/v2/structure-policy.md`、
+`migration-report.md`、`format-audit.json` を参照する。
+
 ## 初回制作バッチ（比率達成そのものではない）
 
 次の各 primary path に高忠実度の1件を置く：architecture=ADR Markdown、api-contracts=OpenAPI YAML、release-notes=release Markdown、beta architecture=Rust設計コード、beta api-contracts=TypeScript契約、alpha docs=README、beta docs=migration guide、decision-records=意思決定 DOCX、code-reviews=JSONL review export、meetings=設計会議 PPTX、platforms=テキスト層 PDF、migration-notes=移行図 PNG。これは全配分を満たすと主張せず、上記比率へ継続制作する種である。
