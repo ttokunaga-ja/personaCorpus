@@ -1,0 +1,5 @@
+record_id,scope_id,spine_ids,service,incident,timestamp_utc,metric,value,unit,operational_note
+p02-full-013129-01,p02-primary-02,"org.ntc, inc.inc-260628, rel.recurrence.2026-q2, date.2026-07-13, term.no-kio-claim",Identity SVC-23,INC-260713,2026-07-13T10:21:00Z,identity_availability_slo,99.99,percent,availability objective
+p02-full-013129-02,p02-primary-02,"org.ntc, inc.inc-260628, rel.recurrence.2026-q2, date.2026-07-13, term.no-kio-claim",Identity SVC-23,INC-260713,2026-07-13T10:22:00Z,identity_p95,286,milliseconds,below 350 ms page threshold
+p02-full-013129-03,p02-primary-02,"org.ntc, inc.inc-260628, rel.recurrence.2026-q2, date.2026-07-13, term.no-kio-claim",Identity SVC-23,INC-260713,2026-07-13T10:23:00Z,identity_cause,load_degraded_only,classification,never initiating cause
+p02-src-013129,p02-primary-02,"org.ntc, inc.inc-260628, rel.recurrence.2026-q2, date.2026-07-13, term.no-kio-claim",Platform Reliability,INC-260713,2026-07-13T10:42:00Z,context_anchor,error budget 2.4%,text,Northstar Transit Cloud; Checkout SVC-17 context; identity; 2c64624b9e14ca76

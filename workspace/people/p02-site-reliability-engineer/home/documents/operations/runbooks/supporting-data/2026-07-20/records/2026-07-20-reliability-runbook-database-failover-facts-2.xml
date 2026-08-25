@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reliability-record><identity><artifact-id>p02-full-009337</artifact-id><source-id>p02-src-009337</source-id><scope-id>p02-primary-01</scope-id></identity><context><organization>Northstar Transit Cloud</organization><service>Checkout SVC-17</service><incident>INC-260713</incident><date>2026-07-13</date><anchor>error budget 2.4%</anchor><topic>database_failover</topic><content-spine><id>org.ntc</id><id>svc.identity.svc23</id><id>rel.inc260713.timeline</id><id>date.2026-07-20</id><id>term.no-kio-claim</id></content-spine></context><measurements>
+    <measurement><metric>pg04_failover_review</metric><service>Checkout SVC-17</service><value>reviewed</value><unit>classification</unit><note>PG-04 failover review; no customer data</note></measurement>
+    <measurement><metric>pg04_role_transition</metric><service>Checkout SVC-17</service><value>recorded</value><unit>classification</unit><note>primary transition evidence</note></measurement>
+    <measurement><metric>checkout_availability_slo</metric><service>Checkout SVC-17</service><value>99.95</value><unit>percent</unit><note>30-day objective</note></measurement>
+</measurements><fingerprint>52a8760f0de56363</fingerprint></reliability-record>

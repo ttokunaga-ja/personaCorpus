@@ -1,0 +1,47 @@
+{
+  "anchor_summary": "error budget 2.4%",
+  "checkout_context": "Checkout SVC-17 incident context",
+  "content_spine_ids": [
+    "org.ntc",
+    "change.chg-260713-042",
+    "rel.change.260713",
+    "date.2026-07-15",
+    "term.no-kio-claim"
+  ],
+  "date": "2026-07-13",
+  "fingerprint": "2f6e8409de17c5f2",
+  "incident": "INC-260713",
+  "measurements": [
+    {
+      "metric": "headroom",
+      "note": "available capacity",
+      "service": "Checkout SVC-17",
+      "topic": "capacity",
+      "unit": "percent",
+      "value": "31"
+    },
+    {
+      "metric": "queue_drain",
+      "note": "drain rate",
+      "service": "Checkout SVC-17",
+      "topic": "capacity",
+      "unit": "jobs_per_minute",
+      "value": "1460"
+    },
+    {
+      "metric": "error_budget_remaining",
+      "note": "request-error allowance",
+      "service": "Checkout SVC-17",
+      "topic": "capacity",
+      "unit": "percent",
+      "value": "2.4"
+    }
+  ],
+  "organization": "Northstar Transit Cloud",
+  "record_id": "p02-full-013734",
+  "scope_id": "p02-primary-04",
+  "scope_path": "infrastructure/terraform",
+  "service": "Checkout SVC-17",
+  "source_id": "p02-src-013734",
+  "topic": "capacity"
+}

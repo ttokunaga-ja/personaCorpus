@@ -1,0 +1,27 @@
+2026 07 14 Reliability Runbook Log Gap Event Log Log
+====================================================
+
+Northstar Transit Cloud | Checkout SVC-17 | incident INC-260713 | 2026-07-13
+Checkout availability SLO: 99.95% over 30d; latency SLO: 99.0% below 400 ms. Remaining request-error allowance: error budget 2.4%.
+Timeline: deployment 09:18 UTC; Q-07 warning 12,000 at 09:42; S2 09:47; rate limit 09:54; rollback approval 10:02; concurrency 10:11; Q-07 below 8,000/recovery 10:24; impact end 10:31; resolution 10:42 UTC; capacity headroom 31%.
+Artifact p02-full-010966 / source p02-src-010966 / scope p02-primary-01. Synthetic training record; no customer data, credentials, secrets, or Kio claims.
+
+## Purpose
+This 2026 07 14 reliability runbook log gap event log log reference applies to documents/operations/runbooks and binds to content spine IDs: org.ntc, svc.identity.svc23, rel.inc260713.timeline, date.2026-07-14, term.no-kio-claim.
+
+## Escalation criteria
+Page at Q-07 critical 24,000 jobs or one-hour burn 14.6x. Preserve the 99.95% availability and 99.0% below-400-ms latency objectives.
+
+## Decision notes
+Treat removed queue-pressure guardrail as the initiating change. Identity p95 was 286 ms, below its 350 ms page threshold, and was load-degraded only.
+
+Record fingerprint: dc2482021b8e7c65
+2026-07-13T09:18:00Z INFO incident=p02-full-010966 event=deployment_started service=Checkout_SVC-17
+2026-07-13T09:42:00Z INFO incident=p02-full-010966 event=queue_warning service=Checkout_SVC-17
+2026-07-13T09:47:00Z INFO incident=p02-full-010966 event=severity_declared service=Checkout_SVC-17
+2026-07-13T09:54:00Z INFO incident=p02-full-010966 event=rate_limit_enabled service=Checkout_SVC-17
+2026-07-13T10:02:00Z INFO incident=p02-full-010966 event=rollback_approved service=Checkout_SVC-17
+2026-07-13T10:11:00Z INFO incident=p02-full-010966 event=concurrency_increased service=Checkout_SVC-17
+2026-07-13T10:24:00Z INFO incident=p02-full-010966 event=recovery_observed service=Checkout_SVC-17
+2026-07-13T10:31:00Z INFO incident=p02-full-010966 event=impact_closed service=Checkout_SVC-17
+2026-07-13T10:42:00Z INFO incident=p02-full-010966 event=resolved service=Checkout_SVC-17

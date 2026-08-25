@@ -1,0 +1,5 @@
+record_id	scope_id	spine_ids	service	incident	timestamp_utc	metric	value	unit	operational_note
+p02-full-007369-01	p02-primary-01	org.ntc, svc.identity.svc23, rel.inc260713.timeline, date.2026-07-15, term.no-kio-claim	Checkout SVC-17	INC-260713	2026-07-13T10:21:00Z	pg04_failover_review	reviewed	classification	PG-04 failover review; no customer data
+p02-full-007369-02	p02-primary-01	org.ntc, svc.identity.svc23, rel.inc260713.timeline, date.2026-07-15, term.no-kio-claim	Checkout SVC-17	INC-260713	2026-07-13T10:22:00Z	pg04_role_transition	recorded	classification	primary transition evidence
+p02-full-007369-03	p02-primary-01	org.ntc, svc.identity.svc23, rel.inc260713.timeline, date.2026-07-15, term.no-kio-claim	Checkout SVC-17	INC-260713	2026-07-13T10:23:00Z	checkout_availability_slo	99.95	percent	30-day objective
+p02-src-007369	p02-primary-01	org.ntc, svc.identity.svc23, rel.inc260713.timeline, date.2026-07-15, term.no-kio-claim	Platform Reliability	INC-260713	2026-07-13T10:42:00Z	context_anchor	error budget 2.4%	text	Northstar Transit Cloud; Checkout SVC-17 context; database_failover; 13401a0b670d7717

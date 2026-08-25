@@ -1,0 +1,14 @@
+record_id: "p02-full-007869"
+source_id: "p02-src-007869"
+scope_id: "p02-primary-01"
+scope_path: "documents/operations/runbooks"
+content_spine_ids: ["org.ntc", "svc.checkout.svc17", "rel.inc260713.timeline", "period.2026-q3", "term.no-kio-claim"]
+topic: "alert_triage"
+organization: "Northstar Transit Cloud"
+service: "Checkout SVC-17"
+checkout_context: "Checkout SVC-17 incident context"
+incident: "INC-260713"
+date: "2026-07-13"
+anchor_summary: "error budget 2.4%"
+measurements: [{"metric": "q07_warning", "value": "12000", "unit": "jobs", "note": "warning threshold at 09:42", "topic": "alert_triage", "service": "Checkout SVC-17"}, {"metric": "q07_critical", "value": "24000", "unit": "jobs", "note": "critical threshold", "topic": "alert_triage", "service": "Checkout SVC-17"}, {"metric": "burn_one_hour", "value": "14.6", "unit": "multiplier", "note": "short-window burn", "topic": "alert_triage", "service": "Checkout SVC-17"}]
+fingerprint: "a606dd070e016674"

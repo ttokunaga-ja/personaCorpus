@@ -1,0 +1,5 @@
+record_id,scope_id,spine_ids,service,incident,timestamp_utc,metric,value,unit,operational_note
+p02-full-014901-01,p02-primary-01,"org.ntc, svc.checkout.svc17, rel.inc260713.timeline, date.2026-07-20, term.no-kio-claim",Checkout SVC-17,INC-260713,2026-07-13T10:21:00Z,q07_warning,12000,jobs,warning threshold at 09:42
+p02-full-014901-02,p02-primary-01,"org.ntc, svc.checkout.svc17, rel.inc260713.timeline, date.2026-07-20, term.no-kio-claim",Checkout SVC-17,INC-260713,2026-07-13T10:22:00Z,q07_critical,24000,jobs,critical threshold
+p02-full-014901-03,p02-primary-01,"org.ntc, svc.checkout.svc17, rel.inc260713.timeline, date.2026-07-20, term.no-kio-claim",Checkout SVC-17,INC-260713,2026-07-13T10:23:00Z,burn_one_hour,14.6,multiplier,short-window burn
+p02-src-014901,p02-primary-01,"org.ntc, svc.checkout.svc17, rel.inc260713.timeline, date.2026-07-20, term.no-kio-claim",Platform Reliability,INC-260713,2026-07-13T10:42:00Z,context_anchor,error budget 2.4%,text,Northstar Transit Cloud; Checkout SVC-17 context; alert_triage; 38b162355a1c3984

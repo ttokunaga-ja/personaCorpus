@@ -1,0 +1,47 @@
+{
+  "anchor_summary": "error budget 2.4%",
+  "checkout_context": "Checkout SVC-17 incident context",
+  "content_spine_ids": [
+    "org.ntc",
+    "svc.checkout.svc17",
+    "rel.inc260713.timeline",
+    "date.2026-07-13",
+    "term.no-kio-claim"
+  ],
+  "date": "2026-07-13",
+  "fingerprint": "b8c62c48cbb0c121",
+  "incident": "INC-260713",
+  "measurements": [
+    {
+      "metric": "q07_maximum",
+      "note": "observed maximum",
+      "service": "Checkout SVC-17",
+      "topic": "queue_saturation",
+      "unit": "jobs",
+      "value": "38420"
+    },
+    {
+      "metric": "queue_drain",
+      "note": "drain rate",
+      "service": "Checkout SVC-17",
+      "topic": "queue_saturation",
+      "unit": "jobs_per_minute",
+      "value": "1460"
+    },
+    {
+      "metric": "recovery_threshold",
+      "note": "recovery at 10:24",
+      "service": "Checkout SVC-17",
+      "topic": "queue_saturation",
+      "unit": "jobs",
+      "value": "below 8000"
+    }
+  ],
+  "organization": "Northstar Transit Cloud",
+  "record_id": "p02-full-011136",
+  "scope_id": "p02-primary-01",
+  "scope_path": "documents/operations/runbooks",
+  "service": "Checkout SVC-17",
+  "source_id": "p02-src-011136",
+  "topic": "queue_saturation"
+}

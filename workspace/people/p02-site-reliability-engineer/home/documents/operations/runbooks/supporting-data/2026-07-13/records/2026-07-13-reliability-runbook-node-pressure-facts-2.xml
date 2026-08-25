@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reliability-record><identity><artifact-id>p02-full-007388</artifact-id><source-id>p02-src-007388</source-id><scope-id>p02-primary-01</scope-id></identity><context><organization>Northstar Transit Cloud</organization><service>Checkout SVC-17</service><incident>INC-260713</incident><date>2026-07-13</date><anchor>error budget 2.4%</anchor><topic>node_pressure</topic><content-spine><id>org.ntc</id><id>term.mitigation</id><id>rel.inc260713.timeline</id><id>date.2026-07-13</id><id>term.no-kio-claim</id></content-spine></context><measurements>
+    <measurement><metric>consumer_headroom</metric><service>Checkout SVC-17</service><value>31</value><unit>percent</unit><note>capacity headroom after mitigation</note></measurement>
+    <measurement><metric>checkout_baseline</metric><service>Checkout SVC-17</service><value>1850</value><unit>requests_per_second</unit><note>baseline demand</note></measurement>
+    <measurement><metric>checkout_peak</metric><service>Checkout SVC-17</service><value>2420</value><unit>requests_per_second</unit><note>incident peak</note></measurement>
+</measurements><fingerprint>db595a3d4fb76a88</fingerprint></reliability-record>

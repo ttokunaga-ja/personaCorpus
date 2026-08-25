@@ -1,0 +1,5 @@
+record_id,scope_id,spine_ids,service,incident,timestamp_utc,metric,value,unit,operational_note
+p02-full-012156-01,p02-primary-01,"org.ntc, svc.checkout.svc17, rel.inc260713.timeline, date.2026-07-14, term.no-kio-claim",Checkout SVC-17,INC-260713,2026-07-13T10:21:00Z,consumer_headroom,31,percent,capacity headroom after mitigation
+p02-full-012156-02,p02-primary-01,"org.ntc, svc.checkout.svc17, rel.inc260713.timeline, date.2026-07-14, term.no-kio-claim",Checkout SVC-17,INC-260713,2026-07-13T10:22:00Z,checkout_baseline,1850,requests_per_second,baseline demand
+p02-full-012156-03,p02-primary-01,"org.ntc, svc.checkout.svc17, rel.inc260713.timeline, date.2026-07-14, term.no-kio-claim",Checkout SVC-17,INC-260713,2026-07-13T10:23:00Z,checkout_peak,2420,requests_per_second,incident peak
+p02-src-012156,p02-primary-01,"org.ntc, svc.checkout.svc17, rel.inc260713.timeline, date.2026-07-14, term.no-kio-claim",Platform Reliability,INC-260713,2026-07-13T10:42:00Z,context_anchor,error budget 2.4%,text,Northstar Transit Cloud; Checkout SVC-17 context; node_pressure; b2819a31723f13c7

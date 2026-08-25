@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reliability-record><identity><artifact-id>p02-full-010336</artifact-id><source-id>p02-src-010336</source-id><scope-id>p02-primary-01</scope-id></identity><context><organization>Northstar Transit Cloud</organization><service>Checkout SVC-17</service><incident>INC-260713</incident><date>2026-07-13</date><anchor>error budget 2.4%</anchor><topic>queue_saturation</topic><content-spine><id>org.ntc</id><id>svc.identity.svc23</id><id>rel.inc260713.timeline</id><id>date.2026-07-14</id><id>term.no-kio-claim</id></content-spine></context><measurements>
+    <measurement><metric>q07_maximum</metric><service>Checkout SVC-17</service><value>38420</value><unit>jobs</unit><note>observed maximum</note></measurement>
+    <measurement><metric>queue_drain</metric><service>Checkout SVC-17</service><value>1460</value><unit>jobs_per_minute</unit><note>drain rate</note></measurement>
+    <measurement><metric>recovery_threshold</metric><service>Checkout SVC-17</service><value>below 8000</value><unit>jobs</unit><note>recovery at 10:24</note></measurement>
+</measurements><fingerprint>b55b5691c9eb67e9</fingerprint></reliability-record>

@@ -1,0 +1,14 @@
+record_id: "p02-full-010508"
+source_id: "p02-src-010508"
+scope_id: "p02-secondary-01"
+scope_path: "desktop/working"
+content_spine_ids: ["org.ntc", "team.platform-sre", "rel.oncall.2026-07-13", "date.2026-07-14", "term.no-kio-claim"]
+topic: "log_gap"
+organization: "Northstar Transit Cloud"
+service: "Checkout SVC-17"
+checkout_context: "Checkout SVC-17 incident context"
+incident: "INC-260713"
+date: "2026-07-13"
+anchor_summary: "error budget 2.4%"
+measurements: [{"metric": "telemetry_export_gap", "value": "7", "unit": "minutes", "note": "reconciled by 11:06 UTC", "topic": "log_gap", "service": "Telemetry SVC-31"}, {"metric": "telemetry_delivery_slo", "value": "99.9", "unit": "percent_within_10_minutes", "note": "delivery objective", "topic": "log_gap", "service": "Telemetry SVC-31"}, {"metric": "evidence_chain", "value": "1", "unit": "complete", "note": "scope-local evidence retained", "topic": "log_gap", "service": "Checkout SVC-17"}]
+fingerprint: "962aa756a62677fa"

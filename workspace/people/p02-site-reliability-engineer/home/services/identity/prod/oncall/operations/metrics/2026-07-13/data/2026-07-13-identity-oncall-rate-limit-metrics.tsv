@@ -1,0 +1,5 @@
+record_id	scope_id	spine_ids	service	incident	timestamp_utc	metric	value	unit	operational_note
+p02-full-013827-01	p02-primary-06	org.ntc, svc.identity.svc23, rel.oncall.2026-07-13, date.2026-07-13, term.no-kio-claim	Identity SVC-23	INC-260713	2026-07-13T10:21:00Z	identity_availability_slo	99.99	percent	availability objective
+p02-full-013827-02	p02-primary-06	org.ntc, svc.identity.svc23, rel.oncall.2026-07-13, date.2026-07-13, term.no-kio-claim	Identity SVC-23	INC-260713	2026-07-13T10:22:00Z	identity_p95	286	milliseconds	below 350 ms page threshold
+p02-full-013827-03	p02-primary-06	org.ntc, svc.identity.svc23, rel.oncall.2026-07-13, date.2026-07-13, term.no-kio-claim	Identity SVC-23	INC-260713	2026-07-13T10:23:00Z	identity_cause	load_degraded_only	classification	never initiating cause
+p02-src-013827	p02-primary-06	org.ntc, svc.identity.svc23, rel.oncall.2026-07-13, date.2026-07-13, term.no-kio-claim	Platform Reliability	INC-260713	2026-07-13T10:42:00Z	context_anchor	error budget 2.4%	text	Northstar Transit Cloud; Checkout SVC-17 context; identity; c571e2c612717a4c

@@ -1,0 +1,47 @@
+{
+  "anchor_summary": "error budget 2.4%",
+  "checkout_context": "Checkout SVC-17 incident context",
+  "content_spine_ids": [
+    "org.ntc",
+    "term.mitigation",
+    "rel.inc260713.timeline",
+    "date.2026-07-14",
+    "term.no-kio-claim"
+  ],
+  "date": "2026-07-13",
+  "fingerprint": "5c1c5030a63f78b7",
+  "incident": "INC-260713",
+  "measurements": [
+    {
+      "metric": "pg04_failover_review",
+      "note": "PG-04 failover review; no customer data",
+      "service": "Checkout SVC-17",
+      "topic": "database_failover",
+      "unit": "classification",
+      "value": "reviewed"
+    },
+    {
+      "metric": "pg04_role_transition",
+      "note": "primary transition evidence",
+      "service": "Checkout SVC-17",
+      "topic": "database_failover",
+      "unit": "classification",
+      "value": "recorded"
+    },
+    {
+      "metric": "checkout_availability_slo",
+      "note": "30-day objective",
+      "service": "Checkout SVC-17",
+      "topic": "database_failover",
+      "unit": "percent",
+      "value": "99.95"
+    }
+  ],
+  "organization": "Northstar Transit Cloud",
+  "record_id": "p02-full-011105",
+  "scope_id": "p02-primary-01",
+  "scope_path": "documents/operations/runbooks",
+  "service": "Checkout SVC-17",
+  "source_id": "p02-src-011105",
+  "topic": "database_failover"
+}

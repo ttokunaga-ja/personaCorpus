@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reliability-record><identity><artifact-id>p02-full-009837</artifact-id><source-id>p02-src-009837</source-id><scope-id>p02-primary-01</scope-id></identity><context><organization>Northstar Transit Cloud</organization><service>Checkout SVC-17</service><incident>INC-260713</incident><date>2026-07-13</date><anchor>error budget 2.4%</anchor><topic>alert_triage</topic><content-spine><id>org.ntc</id><id>svc.checkout.svc17</id><id>rel.inc260713.timeline</id><id>date.2026-07-13</id><id>term.no-kio-claim</id></content-spine></context><measurements>
+    <measurement><metric>q07_warning</metric><service>Checkout SVC-17</service><value>12000</value><unit>jobs</unit><note>warning threshold at 09:42</note></measurement>
+    <measurement><metric>q07_critical</metric><service>Checkout SVC-17</service><value>24000</value><unit>jobs</unit><note>critical threshold</note></measurement>
+    <measurement><metric>burn_one_hour</metric><service>Checkout SVC-17</service><value>14.6</value><unit>multiplier</unit><note>short-window burn</note></measurement>
+</measurements><fingerprint>2e4283da0ac7b6ee</fingerprint></reliability-record>
