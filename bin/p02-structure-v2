@@ -1,0 +1,607 @@
+#!/usr/bin/env python3
+"""Fail-closed, byte-preserving path revision for the completed p02 Full corpus.
+
+The tool intentionally has no production side effects until ``apply`` is called
+with a mapping emitted by ``plan``.  It moves only the 14,800 paths explicitly
+named by the frozen Full allocation; the frozen M1 baseline is never inferred
+from an extension or filename.
+"""
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import os
+import re
+import stat
+import subprocess
+import sys
+import unicodedata
+import zipfile
+from collections import Counter, defaultdict
+from pathlib import Path, PurePosixPath
+
+ROOT = Path(__file__).resolve().parent.parent
+SCHEMA = "persona-corpus.p02-full-path-revision/v1"
+REVISION = "p02-full-structure-v2"
+FULL_COUNT = 14800
+TOTAL_COUNT = 15000
+DEFAULT_ASSIGNMENT = ROOT / "progress/p02/full/full-assignment-ledger.jsonl"
+DEFAULT_HOME = ROOT / "workspace/people/p02-site-reliability-engineer/home"
+DEFAULT_M1 = ROOT / "progress/p02/full/manifests/m1-baseline.jsonl"
+DEFAULT_PREDECESSOR = ROOT / "progress/p02/full/manifests/p02-full-wave-006.after.jsonl"
+SAFE_PART = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]*$")
+DATE = re.compile(r"(?:^|-)(2026-07-(?:13|14|15|20)|2026-q3)(?:-|$)")
+TRACKING = re.compile(r"-s[0-9]{6}$")
+REFERENCE_TOKEN = re.compile(rb"(?<![A-Za-z0-9._/-])((?:[A-Za-z0-9._-]+/)*[A-Za-z0-9][A-Za-z0-9._-]*-s[0-9]{6}\.[A-Za-z0-9]{1,10})(?![A-Za-z0-9._-])")
+RESERVED = {"con", "prn", "aux", "nul", *(f"com{i}" for i in range(1, 10)), *(f"lpt{i}" for i in range(1, 10))}
+KIND = {
+    "code": "source", "md": "notes", "structured_text": "records",
+    "txt_log": "logs", "csv_tsv": "data", "html_eml": "messages",
+    "pdf_text": "documents", "pdf_scan": "scans", "docx": "documents",
+    "xlsx": "workbooks", "pptx": "presentations", "image": "images",
+    "domain_binary": "captures", "ipynb": "notebooks", "media": "media",
+}
+PLAIN_EXTENSIONS = {".md", ".markdown", ".txt", ".log", ".json", ".jsonl", ".yaml", ".yml", ".xml", ".csv", ".tsv", ".html", ".htm", ".eml", ".py", ".rs", ".js", ".ts", ".sh", ".sql", ".tf", ".ipynb", ".toml", ".ini", ".cfg"}
+
+
+def die(message: str) -> None:
+    raise SystemExit(f"p02-structure-v2: {message}")
+
+
+def sha(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for block in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(block)
+    return "sha256:" + digest.hexdigest()
+
+
+def read_jsonl(path: Path) -> list[dict]:
+    if path.is_symlink() or not path.is_file():
+        die(f"input is not a regular file: {path}")
+    try:
+        rows = [json.loads(line) for line in path.read_text().splitlines() if line]
+    except (OSError, json.JSONDecodeError) as error:
+        die(f"invalid JSONL {path}: {error}")
+    if not rows:
+        die(f"empty JSONL: {path}")
+    return rows
+
+
+def safe_path(rel: str) -> bool:
+    path = PurePosixPath(rel)
+    if (not rel or "\\" in rel or rel != path.as_posix() or path.is_absolute() or
+            unicodedata.normalize("NFC", rel) != rel or
+            any(part in {"", ".", ".."} for part in path.parts)):
+        return False
+    for part in path.parts:
+        if (not SAFE_PART.fullmatch(part) or part.rstrip(". ") != part or
+                part.split(".", 1)[0].casefold() in RESERVED):
+            return False
+    return True
+
+
+def artifact_rows(assignment: Path) -> tuple[dict, list[dict]]:
+    rows = read_jsonl(assignment)
+    headers = [row for row in rows if row.get("kind") == "header"]
+    artifacts = [row for row in rows if row.get("kind") == "artifact"]
+    if (len(headers) != 1 or headers[0].get("schema") != "persona-corpus.full-addition-assignment/v1" or
+            headers[0].get("persona") != "p02" or headers[0].get("artifact_count") != FULL_COUNT or
+            len(artifacts) != FULL_COUNT or len(rows) != FULL_COUNT + 1):
+        die("Full assignment must be exactly the frozen p02 14,800-row ledger")
+    required = ("artifact_id", "source_id", "scope_id", "scope_path", "family", "physical_extension", "path")
+    paths: set[str] = set()
+    ids: set[str] = set()
+    for row in artifacts:
+        if any(not isinstance(row.get(key), str) or not row[key] for key in required):
+            die("assignment has an incomplete artifact row")
+        if not safe_path(row["path"]) or not row["path"].startswith(row["scope_path"] + "/"):
+            die("unsafe/cross-scope assignment path: " + row["path"])
+        if row["path"] in paths or row["artifact_id"] in ids:
+            die("duplicate Full assignment path or artifact_id")
+        paths.add(row["path"]); ids.add(row["artifact_id"])
+    return headers[0], artifacts
+
+
+def m1_rows(baseline: Path) -> dict[str, dict]:
+    rows = read_jsonl(baseline)
+    header = [row for row in rows if row.get("kind") == "header"]
+    file_rows = [row for row in rows if row.get("kind") == "file"]
+    files = {row.get("path"): row for row in file_rows if isinstance(row.get("path"), str)}
+    if (len(rows) != 201 or len(header) != 1 or header[0].get("schema") != "persona-corpus.full-manifest/v1" or
+            header[0].get("persona") != "p02" or header[0].get("file_count") != 200 or
+            len(file_rows) != 200 or len(files) != 200):
+        die("M1 baseline must contain exactly 200 files")
+    for rel, row in files.items():
+        if not safe_path(rel) or not isinstance(row.get("bytes"), int) or not isinstance(row.get("sha256"), str):
+            die("invalid M1 baseline row")
+    return files
+
+
+def baseline_matches_predecessor(m1: dict[str, dict], predecessor: dict[str, dict]) -> None:
+    for rel, row in m1.items():
+        prior = predecessor.get(rel)
+        if prior is None or row["bytes"] != prior.get("bytes") or row["sha256"] != prior.get("sha256"):
+            die("M1 baseline differs from immutable predecessor: " + rel)
+
+
+def validate_live_m1(home: Path, m1: dict[str, dict]) -> None:
+    for rel, row in m1.items():
+        path = home / rel
+        if path.is_symlink() or not path.is_file() or path.stat().st_size != row["bytes"] or sha(path) != row["sha256"]:
+            die("M1 changed/missing: " + rel)
+
+
+def manifest_rows(manifest: Path, count: int) -> dict[str, dict]:
+    rows = read_jsonl(manifest)
+    header = [row for row in rows if row.get("kind") == "header"]
+    files = {row.get("path"): row for row in rows if row.get("kind") == "file" and isinstance(row.get("path"), str)}
+    if len(header) != 1 or header[0].get("persona") != "p02" or header[0].get("file_count") != count or len(files) != count:
+        die(f"predecessor must have exactly {count} p02 files")
+    for rel, row in files.items():
+        if not safe_path(rel) or not isinstance(row.get("bytes"), int) or not isinstance(row.get("sha256"), str):
+            die("invalid predecessor row")
+    return files
+
+
+def validate_live_manifest(home: Path, manifest: dict[str, dict]) -> None:
+    for rel, row in manifest.items():
+        path = home / rel
+        if path.is_symlink() or not path.is_file() or path.stat().st_size != row["bytes"] or sha(path) != row["sha256"]:
+            die("predecessor/live bytes differ: " + rel)
+
+
+def tree_guard(home: Path, allowed: set[str], exact: bool = False) -> set[str]:
+    """Reject unsafe entries before planning or changing a directory entry."""
+    actual: set[str] = set()
+    for path in home.rglob("*"):
+        rel = path.relative_to(home).as_posix()
+        if path.is_symlink() or (not path.is_dir() and not path.is_file()):
+            die("symlink/nonregular: " + rel)
+        if path.is_file():
+            if not path.stat().st_size or not safe_path(rel):
+                die("empty/unsafe final path: " + rel)
+            actual.add(rel)
+    if not actual <= allowed or (exact and actual != allowed):
+        die(f"unexpected/missing live paths: actual {len(actual)} allowed {len(allowed)}")
+    return actual
+
+
+def home_inode_guard(home: Path, transient_pairs: set[frozenset[str]] | None = None) -> None:
+    """An artifact may have a staging hardlink, never another name in home.
+
+    During a resumed link-then-unlink operation, exactly the old/new pair from
+    a signed mapping may coexist briefly.  No other in-home inode sharing is
+    accepted.
+    """
+    seen: dict[tuple[int, int], str] = {}
+    for path in home.rglob("*"):
+        if not path.is_file() or path.is_symlink():
+            continue
+        identity = (path.stat().st_dev, path.stat().st_ino)
+        rel = path.relative_to(home).as_posix()
+        if identity in seen:
+            if transient_pairs and frozenset((seen[identity], rel)) in transient_pairs:
+                continue
+            die("duplicate inode inside home: " + seen[identity] + " / " + rel)
+        seen[identity] = rel
+
+
+def file_bytes(path: Path) -> bytes:
+    """Read reference-bearing content without changing the artifact."""
+    if path.suffix.lower() in PLAIN_EXTENSIONS:
+        return path.read_bytes()
+    if path.suffix.lower() in {".docx", ".xlsx", ".pptx"}:
+        try:
+            with zipfile.ZipFile(path) as archive:
+                return b"\n".join(archive.read(name) for name in archive.namelist()
+                                  if name.endswith(".xml") or name.endswith(".rels"))
+        except (OSError, zipfile.BadZipFile, KeyError) as error:
+            die(f"cannot inspect OOXML reference source {path}: {error}")
+    if path.suffix.lower() == ".pdf":
+        try:
+            return subprocess.run(["pdftotext", str(path), "-"], check=True, stdout=subprocess.PIPE,
+                                  stderr=subprocess.PIPE).stdout
+        except FileNotFoundError:
+            die("pdftotext is required to inspect PDF references")
+        except subprocess.CalledProcessError as error:
+            die(f"pdftotext failed for {path}: {error.stderr.decode(errors='replace')}")
+    return b""
+
+
+def natural_leaf(row: dict) -> tuple[str, str]:
+    old = PurePosixPath(row["path"])
+    extension = row["physical_extension"].lower()
+    if old.suffix.lower() != "." + extension:
+        die("extension does not match assignment path: " + row["path"])
+    stem = old.stem
+    if not TRACKING.search(stem):
+        die("missing terminal tracking suffix: " + row["path"])
+    stem = TRACKING.sub("", stem)
+    redundant = "-" + extension
+    if stem.endswith(redundant):
+        stem = stem[:-len(redundant)]
+    if not stem or not DATE.search(stem):
+        die("no approved p02 date bucket in " + row["path"])
+    date = DATE.search(stem).group(1)
+    if not SAFE_PART.fullmatch(stem) or not stem.isascii():
+        die("unsafe generated basename: " + row["path"])
+    return date, f"{stem}.{extension}"
+
+
+def candidate_paths(artifacts: list[dict]) -> list[dict]:
+    rows: list[dict] = []
+    for row in artifacts:
+        date, leaf = natural_leaf(row)
+        scope = PurePosixPath(row["scope_path"])
+        old = PurePosixPath(row["path"])
+        parent = old.parent.relative_to(scope).as_posix()
+        kind = KIND.get(row["family"])
+        if kind is None:
+            die("unknown Full family: " + row["family"])
+        new = (scope / parent / date / kind / leaf).as_posix()
+        if not new.startswith(row["scope_path"] + "/") or not safe_path(new):
+            die("unsafe generated path: " + new)
+        rows.append({"schema": SCHEMA, "kind": "move", "old_path": row["path"], "new_path": new,
+                     "artifact_id": row["artifact_id"], "source_id": row["source_id"], "scope": row["scope_id"],
+                     "scope_path": row["scope_path"], "family": row["family"], "extension": row["physical_extension"].lower(),
+                     "bytes": None, "sha256": None, "compatibility_path_preserved": False,
+                     "reference_reason": None})
+    # Resolve only generated collisions, deterministically by immutable artifact ID.
+    buckets: dict[str, list[dict]] = defaultdict(list)
+    for row in rows:
+        buckets[unicodedata.normalize("NFC", row["new_path"]).casefold()].append(row)
+    for peers in buckets.values():
+        for ordinal, row in enumerate(sorted(peers, key=lambda value: value["artifact_id"]), 1):
+            if ordinal == 1:
+                continue
+            path = PurePosixPath(row["new_path"])
+            row["new_path"] = (path.parent / f"{path.stem}-{ordinal}{path.suffix}").as_posix()
+    if len({unicodedata.normalize("NFC", row["new_path"]).casefold() for row in rows}) != len(rows):
+        die("unresolved generated casefold collision")
+    return rows
+
+
+def preserve_reference_targets(home: Path, moves: list[dict], m1: dict[str, dict], locations: dict[str, str] | None = None) -> None:
+    """Keep a referenced target and any Full referrer at their old paths.
+
+    This is deliberately conservative: a byte-preserving revision cannot rewrite
+    embedded references.  Preserving both sides of a Full-to-Full reference
+    keeps path and basename references from plain text, OOXML, and PDFs valid.
+    M1 referrers are immutable, so their referenced Full targets stay at the
+    predecessor path.  Every exception is recorded in the immutable mapping.
+    """
+    by_old = {row["old_path"]: row for row in moves}
+    by_name: dict[str, list[dict]] = defaultdict(list)
+    for row in moves:
+        by_name[PurePosixPath(row["old_path"]).name].append(row)
+    targets: dict[str, str] = {}
+    scan_paths = [*by_old, *m1]
+    for rel in scan_paths:
+        path = home / (locations or {}).get(rel, rel)
+        if path.is_symlink() or not path.is_file():
+            die("reference scan missing regular file: " + rel)
+        data = file_bytes(path)
+        if not data:
+            continue
+        # Parse only p02's tracked filename token rather than comparing every
+        # file against all 14,800 assignment paths.  A token is then resolved
+        # exactly against the frozen path/name indexes.
+        for match in REFERENCE_TOKEN.finditer(data):
+            token = match.group(1).decode("ascii")
+            if token in by_old:
+                targets[token] = "path-reference"
+                # A home-relative path remains valid when the referrer moves;
+                # only its target must keep the predecessor path.
+                continue
+            candidates = by_name.get(token)
+            if candidates:
+                if len(candidates) != 1:
+                    die("ambiguous basename reference: " + token)
+                targets[candidates[0]["old_path"]] = "basename-reference"
+                # A basename-only referrer must remain co-located with its
+                # target.  Preserve it too; rewriting its bytes is forbidden.
+                if rel in by_old:
+                    targets[rel] = "reference-referrer"
+    for old, reason in targets.items():
+        row = by_old[old]
+        row["new_path"] = old
+        row["compatibility_path_preserved"] = True
+        row["reference_reason"] = reason
+
+
+def rows_digest(rows: list[dict]) -> str:
+    payload = "".join(json.dumps(row, sort_keys=True, separators=(",", ":")) + "\n" for row in rows)
+    return "sha256:" + hashlib.sha256(payload.encode()).hexdigest()
+
+
+def write_create_only(path: Path, content: str) -> None:
+    if path.exists() or path.is_symlink() or not path.parent.is_dir():
+        die("refusing output overwrite/unsafe parent: " + str(path))
+    try:
+        with path.open("x") as handle:
+            handle.write(content)
+            handle.flush()
+            os.fsync(handle.fileno())
+    except FileExistsError:
+        die("refusing output overwrite: " + str(path))
+
+
+def plan(args: argparse.Namespace) -> None:
+    home = Path(args.home).resolve()
+    if not home.is_dir():
+        die("home absent")
+    assignment_path = Path(args.assignment).resolve()
+    predecessor_path = Path(args.predecessor_manifest).resolve()
+    m1_path = Path(args.m1_baseline).resolve()
+    header, artifacts = artifact_rows(assignment_path)
+    predecessor = manifest_rows(predecessor_path, TOTAL_COUNT)
+    m1 = m1_rows(m1_path)
+    baseline_matches_predecessor(m1, predecessor)
+    validate_live_manifest(home, predecessor)
+    if set(predecessor) != {row["path"] for row in artifacts} | set(m1):
+        die("predecessor is not exactly Full assignment plus frozen M1")
+    tree_guard(home, set(predecessor), exact=True)
+    moves = candidate_paths(artifacts)
+    preserve_reference_targets(home, moves, m1)
+    folded = [unicodedata.normalize("NFC", row["new_path"]).casefold() for row in moves]
+    if len(folded) != len(set(folded)):
+        die("reference routing created a casefold collision")
+    for row in moves:
+        source = home / row["old_path"]
+        row["bytes"] = source.stat().st_size
+        row["sha256"] = sha(source)
+        prior = predecessor.get(row["old_path"])
+        if prior is None or row["bytes"] != prior["bytes"] or row["sha256"] != prior["sha256"]:
+            die("mapping not bound to predecessor: " + row["old_path"])
+    collisions = {row["new_path"] for row in moves} & set(m1)
+    if collisions:
+        die("generated path collides with frozen M1: " + sorted(collisions)[0])
+    map_header = {"schema": SCHEMA, "kind": "header", "persona": "p02", "revision": REVISION,
+                  "assignment_sha256": sha(assignment_path), "predecessor_manifest_sha256": sha(predecessor_path),
+                  "m1_baseline_sha256": sha(m1_path),
+                  "source_assignment_id": header.get("assignment_id"), "selected_count": FULL_COUNT,
+                  "preserved_m1_count": 200,
+                  "compatibility_path_preserved_count": sum(row["compatibility_path_preserved"] for row in moves),
+                  "mapping_rows_sha256": rows_digest(moves)}
+    write_create_only(Path(args.out), "\n".join(json.dumps(row, sort_keys=True, separators=(",", ":"))
+                                                for row in [map_header, *moves]) + "\n")
+
+
+def mapping(args: argparse.Namespace) -> tuple[dict, list[dict], dict[str, dict], list[dict]]:
+    assignment_path = Path(args.assignment).resolve()
+    map_rows = read_jsonl(Path(args.mapping))
+    headers = [row for row in map_rows if row.get("kind") == "header"]
+    moves = [row for row in map_rows if row.get("kind") == "move"]
+    assignment_header, artifacts = artifact_rows(assignment_path)
+    m1 = m1_rows(Path(args.m1_baseline).resolve())
+    predecessor_path = Path(args.predecessor_manifest).resolve()
+    predecessor = manifest_rows(predecessor_path, TOTAL_COUNT)
+    baseline_path = Path(args.m1_baseline).resolve()
+    baseline_matches_predecessor(m1, predecessor)
+    if (len(headers) != 1 or len(map_rows) != FULL_COUNT + 1 or len(moves) != FULL_COUNT or
+            map_rows[0].get("kind") != "header" or any(row.get("kind") not in {"header", "move"} for row in map_rows) or
+            headers[0].get("schema") != SCHEMA or headers[0].get("revision") != REVISION or
+            headers[0].get("assignment_sha256") != sha(assignment_path) or headers[0].get("selected_count") != FULL_COUNT or
+            headers[0].get("preserved_m1_count") != 200 or
+            headers[0].get("predecessor_manifest_sha256") != sha(predecessor_path) or
+            headers[0].get("m1_baseline_sha256") != sha(baseline_path) or
+            headers[0].get("mapping_rows_sha256") != rows_digest(moves)):
+        die("mapping header/digest mismatch")
+    expected = {row["path"]: row for row in artifacts}
+    actual = {row.get("old_path"): row for row in moves}
+    if set(actual) != set(expected) or len(actual) != FULL_COUNT:
+        die("mapping selected set is not exactly the Full assignment")
+    for old, source in expected.items():
+        row = actual[old]
+        if any(row.get(key) != source.get(key) for key in ("artifact_id", "source_id", "family")):
+            die("mapping identity differs from frozen assignment: " + old)
+        if row.get("extension") != source["physical_extension"].lower() or row.get("scope") != source["scope_id"] or row.get("scope_path") != source["scope_path"]:
+            die("mapping family/scope differs from assignment: " + old)
+        if not isinstance(row.get("new_path"), str) or not safe_path(row["new_path"]) or not row["new_path"].startswith(source["scope_path"] + "/"):
+            die("unsafe/cross-scope mapping destination: " + old)
+        if not isinstance(row.get("bytes"), int) or not isinstance(row.get("sha256"), str):
+            die("mapping integrity absent: " + old)
+        prior = predecessor.get(old)
+        if prior is None or row["bytes"] != prior["bytes"] or row["sha256"] != prior["sha256"]:
+            die("mapping integrity is not bound to predecessor: " + old)
+        unchanged = row["new_path"] == old
+        if unchanged != bool(row.get("compatibility_path_preserved")):
+            die("unrecorded path preservation: " + old)
+    folded = [unicodedata.normalize("NFC", row["new_path"]).casefold() for row in moves]
+    if len(folded) != len(set(folded)) or set(row["new_path"] for row in moves) & set(m1):
+        die("mapping destination collision")
+    # A rehashed mapping is not authority.  Re-derive the deterministic route
+    # from frozen allocation plus the current old/new locations, including the
+    # conservative reference-preservation exceptions.
+    home = Path(args.home).resolve()
+    derived = candidate_paths(artifacts)
+    locations: dict[str, str] = {}
+    for row in moves:
+        old_path, new_path = home / row["old_path"], home / row["new_path"]
+        if old_path.is_file() and not old_path.is_symlink():
+            locations[row["old_path"]] = row["old_path"]
+        elif new_path.is_file() and not new_path.is_symlink():
+            locations[row["old_path"]] = row["new_path"]
+        else:
+            die("mapping row has no regular live source/destination: " + row["old_path"])
+    preserve_reference_targets(home, derived, m1, locations)
+    supplied = {row["old_path"]: row for row in moves}
+    for row in derived:
+        other = supplied[row["old_path"]]
+        if any(other.get(key) != row.get(key) for key in ("new_path", "compatibility_path_preserved", "reference_reason")):
+            die("mapping route differs from deterministic plan: " + row["old_path"])
+    return headers[0], moves, m1, artifacts
+
+
+def parent_fd(home_fd: int, rel: str, create: bool) -> int:
+    flags = os.O_RDONLY | getattr(os, "O_DIRECTORY", 0) | getattr(os, "O_NOFOLLOW", 0)
+    fd = os.dup(home_fd)
+    try:
+        for part in PurePosixPath(rel).parent.parts:
+            if create:
+                try:
+                    os.mkdir(part, 0o755, dir_fd=fd)
+                except FileExistsError:
+                    pass
+            child = os.open(part, flags, dir_fd=fd)
+            os.close(fd)
+            fd = child
+        return fd
+    except Exception:
+        os.close(fd)
+        raise
+
+
+def integrity(home: Path, row: dict, before: bool) -> None:
+    path = home / (row["old_path"] if before else row["new_path"])
+    if path.is_symlink() or not path.is_file() or path.stat().st_size == 0:
+        die("missing/unsafe artifact: " + str(path))
+    if path.stat().st_size != row["bytes"] or sha(path) != row["sha256"]:
+        die("bytes/SHA mismatch: " + str(path))
+
+
+def apply(args: argparse.Namespace) -> None:
+    home = Path(args.home).resolve()
+    header, moves, m1, _ = mapping(args)
+    predecessor_path = Path(args.predecessor_manifest).resolve()
+    predecessor = manifest_rows(predecessor_path, TOTAL_COUNT)
+    if header.get("predecessor_manifest_sha256") != sha(predecessor_path):
+        die("predecessor manifest binding mismatch")
+    tree_guard(home, {row["old_path"] for row in moves} | {row["new_path"] for row in moves} | set(m1))
+    home_inode_guard(home, {frozenset((row["old_path"], row["new_path"]))
+                            for row in moves if row["old_path"] != row["new_path"]})
+    validate_live_m1(home, m1)
+    if all(row["old_path"] == row["new_path"] or
+           ((home / row["old_path"]).is_file() and not (home / row["new_path"]).exists())
+           for row in moves):
+        validate_live_manifest(home, predecessor)
+    for row in moves:
+        old, new = home / row["old_path"], home / row["new_path"]
+        if old.exists() and new.exists() and old != new:
+            if old.is_symlink() or new.is_symlink() or os.stat(old).st_ino != os.stat(new).st_ino or os.stat(old).st_dev != os.stat(new).st_dev:
+                die("source/destination collision: " + row["old_path"])
+        elif not old.exists() and not new.exists():
+            die("neither source/destination exists: " + row["old_path"])
+        integrity(home, row, old.exists())
+    flags = os.O_RDONLY | getattr(os, "O_DIRECTORY", 0) | getattr(os, "O_NOFOLLOW", 0)
+    home_fd = os.open(home, flags)
+    try:
+        for row in moves:
+            if row["old_path"] == row["new_path"]:
+                continue
+            source_fd = parent_fd(home_fd, row["old_path"], False)
+            destination_fd = parent_fd(home_fd, row["new_path"], True)
+            old_name, new_name = PurePosixPath(row["old_path"]).name, PurePosixPath(row["new_path"]).name
+            try:
+                try:
+                    old_stat = os.stat(old_name, dir_fd=source_fd, follow_symlinks=False)
+                except FileNotFoundError:
+                    old_stat = None
+                try:
+                    new_stat = os.stat(new_name, dir_fd=destination_fd, follow_symlinks=False)
+                except FileNotFoundError:
+                    new_stat = None
+                if old_stat is not None and not stat.S_ISREG(old_stat.st_mode):
+                    die("nonregular source during apply: " + row["old_path"])
+                if new_stat is not None and not stat.S_ISREG(new_stat.st_mode):
+                    die("nonregular destination during apply: " + row["new_path"])
+                if old_stat is not None and new_stat is None:
+                    os.link(old_name, new_name, src_dir_fd=source_fd, dst_dir_fd=destination_fd, follow_symlinks=False)
+                    os.fsync(destination_fd)
+                    new_stat = os.stat(new_name, dir_fd=destination_fd, follow_symlinks=False)
+                if old_stat is not None and new_stat is not None:
+                    if (old_stat.st_dev, old_stat.st_ino) != (new_stat.st_dev, new_stat.st_ino):
+                        die("destination clobber race: " + row["new_path"])
+                    os.unlink(old_name, dir_fd=source_fd)
+                    os.fsync(source_fd)
+                    if (home / row["old_path"]).exists() or not stat.S_ISREG(os.stat(new_name, dir_fd=destination_fd, follow_symlinks=False).st_mode):
+                        die("post-unlink source/destination state is unsafe: " + row["new_path"])
+                    integrity(home, row, False)
+                elif old_stat is None and new_stat is None:
+                    die("source vanished during apply: " + row["old_path"])
+            finally:
+                os.close(source_fd); os.close(destination_fd)
+    finally:
+        os.close(home_fd)
+    home_inode_guard(home)
+    # Remove only empty old descendants; never remove a canonical scope root.
+    boundaries = {row["old_path"]: home / row["scope_path"] for row in moves}
+    for row in moves:
+        if row["old_path"] == row["new_path"]:
+            continue
+        directory = (home / row["old_path"]).parent
+        boundary = boundaries[row["old_path"]]
+        while directory != boundary:
+            try:
+                directory.rmdir()
+            except OSError:
+                break
+            directory = directory.parent
+
+
+def verify(args: argparse.Namespace) -> None:
+    home = Path(args.home).resolve()
+    header, moves, m1, artifacts = mapping(args)
+    predecessor_path = Path(args.predecessor_manifest).resolve()
+    predecessor = manifest_rows(predecessor_path, TOTAL_COUNT)
+    if header.get("predecessor_manifest_sha256") != sha(predecessor_path):
+        die("predecessor manifest binding mismatch")
+    if args.state == "before":
+        validate_live_manifest(home, predecessor)
+        home_inode_guard(home)
+        allowed = set(predecessor)
+        selected_paths = {row["old_path"] for row in moves}
+    else:
+        allowed = {row["new_path"] for row in moves} | set(m1)
+        selected_paths = {row["new_path"] for row in moves}
+        for row in moves:
+            integrity(home, row, False)
+        home_inode_guard(home)
+    validate_live_m1(home, m1)
+    actual: list[str] = []
+    for path in home.rglob("*"):
+        rel = path.relative_to(home).as_posix()
+        if path.is_symlink() or (not path.is_dir() and not path.is_file()):
+            die("symlink/nonregular: " + rel)
+        if path.is_file():
+            if (not path.stat().st_size or not safe_path(rel) or len(rel) > 240 or
+                    any(len(part) > 100 or part.startswith(".") or part in {"__pycache__", "tmp", "temp"}
+                        for part in PurePosixPath(rel).parts)):
+                die("empty/unsafe final path: " + rel)
+            actual.append(rel)
+    folded = [unicodedata.normalize("NFC", rel).casefold() for rel in actual]
+    if len(folded) != len(set(folded)) or set(actual) != allowed:
+        die(f"unexpected/missing paths: actual {len(actual)} expected {len(allowed)}")
+    expected_families = Counter(row["family"] for row in artifacts)
+    actual_families = Counter(row["family"] for row in moves)
+    expected_extensions = Counter(row["physical_extension"].lower() for row in artifacts)
+    actual_extensions = Counter(PurePosixPath(row).suffix[1:] for row in selected_paths)
+    if actual_families != expected_families or actual_extensions != expected_extensions:
+        die("family/extension distribution differs from frozen Full assignment")
+    print(json.dumps({"result": "ok", "state": args.state, "selected": FULL_COUNT, "m1": 200,
+                      "families": dict(sorted(actual_families.items())),
+                      "extensions": dict(sorted(actual_extensions.items()))}, sort_keys=True))
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser()
+    subs = parser.add_subparsers(dest="command", required=True)
+    def common(sub: argparse.ArgumentParser) -> None:
+        sub.add_argument("--assignment", default=str(DEFAULT_ASSIGNMENT))
+        sub.add_argument("--home", default=str(DEFAULT_HOME))
+        sub.add_argument("--m1-baseline", default=str(DEFAULT_M1))
+        sub.add_argument("--predecessor-manifest", default=str(DEFAULT_PREDECESSOR))
+    plan_parser = subs.add_parser("plan"); common(plan_parser); plan_parser.add_argument("--out", required=True); plan_parser.set_defaults(fn=plan)
+    apply_parser = subs.add_parser("apply"); common(apply_parser); apply_parser.add_argument("--mapping", required=True); apply_parser.set_defaults(fn=apply)
+    verify_parser = subs.add_parser("verify"); common(verify_parser); verify_parser.add_argument("--mapping", required=True); verify_parser.add_argument("--state", choices=("before", "after"), required=True); verify_parser.set_defaults(fn=verify)
+    args = parser.parse_args()
+    try:
+        args.fn(args)
+    except ValueError as error:
+        die(str(error))
+
+
+if __name__ == "__main__":
+    main()

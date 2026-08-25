@@ -51,6 +51,10 @@ progress/p01/full/m1-reservations.jsonl
 !progress/p[0-9][0-9]/full/manifests/
 !progress/p[0-9][0-9]/full/manifests/*.jsonl
 
+# p02 raw checkpoints contain local render-receipt paths. Acceptance is shared
+# through the portable wave manifests; keep the machine-specific receipts local.
+progress/p02/full/checkpoints/
+
 # p01's portable, token-free structure revision is current path authority.
 # Keep the allowlist exact so temporary renders and machine receipts remain local.
 !progress/p01/full/revisions/
@@ -62,3 +66,15 @@ progress/p01/full/revisions/v2/*
 !progress/p01/full/revisions/v2/p01-full-structure-v2.after.jsonl
 !progress/p01/full/revisions/v2/structure-policy.md
 !progress/p01/full/revisions/v2/migration-report.md
+
+# p02's portable, token-free structure revision is current path authority.
+# Keep the allowlist exact so temporary renders and machine receipts remain local.
+!progress/p02/full/revisions/
+progress/p02/full/revisions/*
+!progress/p02/full/revisions/v2/
+progress/p02/full/revisions/v2/*
+!progress/p02/full/revisions/v2/path-revision.jsonl
+!progress/p02/full/revisions/v2/format-audit.json
+!progress/p02/full/revisions/v2/p02-full-structure-v2.after.jsonl
+!progress/p02/full/revisions/v2/structure-policy.md
+!progress/p02/full/revisions/v2/migration-report.md
