@@ -1,0 +1,47 @@
+{
+  "anchor_summary": "error budget 2.4%",
+  "checkout_context": "Checkout SVC-17 incident context",
+  "content_spine_ids": [
+    "org.ntc",
+    "term.rollback-ready",
+    "rel.change.260713",
+    "date.2026-07-13",
+    "term.no-kio-claim"
+  ],
+  "date": "2026-07-13",
+  "fingerprint": "29672d999f9e00f4",
+  "incident": "INC-260713",
+  "measurements": [
+    {
+      "metric": "identity_availability_slo",
+      "note": "availability objective",
+      "service": "Identity SVC-23",
+      "topic": "identity",
+      "unit": "percent",
+      "value": "99.99"
+    },
+    {
+      "metric": "identity_p95",
+      "note": "below 350 ms page threshold",
+      "service": "Identity SVC-23",
+      "topic": "identity",
+      "unit": "milliseconds",
+      "value": "286"
+    },
+    {
+      "metric": "identity_cause",
+      "note": "never initiating cause",
+      "service": "Identity SVC-23",
+      "topic": "identity",
+      "unit": "classification",
+      "value": "load_degraded_only"
+    }
+  ],
+  "organization": "Northstar Transit Cloud",
+  "record_id": "p02-full-001121",
+  "scope_id": "p02-primary-10",
+  "scope_path": "changes/deployments",
+  "service": "Checkout SVC-17",
+  "source_id": "p02-src-001121",
+  "topic": "identity"
+}

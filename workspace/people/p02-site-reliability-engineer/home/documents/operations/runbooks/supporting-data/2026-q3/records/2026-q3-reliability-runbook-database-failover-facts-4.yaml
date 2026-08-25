@@ -1,0 +1,13 @@
+record_id: "p02-full-005809"
+source_id: "p02-src-005809"
+scope_id: "p02-primary-01"
+scope_path: "documents/operations/runbooks"
+content_spine_ids: ["org.ntc", "svc.identity.svc23", "rel.inc260713.timeline", "period.2026-q3", "term.no-kio-claim"]
+topic: "database_failover"
+organization: "Northstar Transit Cloud"
+service: "Checkout SVC-17"
+incident: "INC-260713"
+date: "2026-07-13"
+anchor_summary: "error budget 2.4%"
+measurements: [{"metric": "pg04_failover_review", "value": "reviewed", "unit": "classification", "note": "PG-04 failover review; no customer data", "topic": "database_failover"}, {"metric": "pg04_role_transition", "value": "recorded", "unit": "classification", "note": "primary transition evidence", "topic": "database_failover"}, {"metric": "checkout_availability_slo", "value": "99.95", "unit": "percent", "note": "30-day objective", "topic": "database_failover"}]
+fingerprint: "b5877f7afde10fc7"

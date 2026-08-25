@@ -1,0 +1,43 @@
+{
+  "anchor_summary": "error budget 2.4%",
+  "content_spine_ids": [
+    "org.ntc",
+    "svc.checkout.svc17",
+    "rel.inc260713.timeline",
+    "period.2026-q3",
+    "term.no-kio-claim"
+  ],
+  "date": "2026-07-13",
+  "fingerprint": "5c4202a13cd4c819",
+  "incident": "INC-260713",
+  "measurements": [
+    {
+      "metric": "consumer_headroom",
+      "note": "capacity headroom after mitigation",
+      "topic": "node_pressure",
+      "unit": "percent",
+      "value": "31"
+    },
+    {
+      "metric": "checkout_baseline",
+      "note": "baseline demand",
+      "topic": "node_pressure",
+      "unit": "requests_per_second",
+      "value": "1850"
+    },
+    {
+      "metric": "checkout_peak",
+      "note": "incident peak",
+      "topic": "node_pressure",
+      "unit": "requests_per_second",
+      "value": "2420"
+    }
+  ],
+  "organization": "Northstar Transit Cloud",
+  "record_id": "p02-full-004020",
+  "scope_id": "p02-primary-01",
+  "scope_path": "documents/operations/runbooks",
+  "service": "Checkout SVC-17",
+  "source_id": "p02-src-004020",
+  "topic": "node_pressure"
+}

@@ -1,0 +1,5 @@
+record_id	scope_id	spine_ids	service	incident	timestamp_utc	metric	value	unit	operational_note
+p02-full-006170-01	p02-primary-01	org.ntc, term.mitigation, rel.inc260713.timeline, date.2026-07-14, term.no-kio-claim	Checkout SVC-17	INC-260713	2026-07-13T10:21:00Z	checkout_peak	2420	requests_per_second	peak during incident
+p02-full-006170-02	p02-primary-01	org.ntc, term.mitigation, rel.inc260713.timeline, date.2026-07-14, term.no-kio-claim	Checkout SVC-17	INC-260713	2026-07-13T10:22:00Z	rate_limit_start	09:54	utc	authorizations rate-limited
+p02-full-006170-03	p02-primary-01	org.ntc, term.mitigation, rel.inc260713.timeline, date.2026-07-14, term.no-kio-claim	Identity SVC-23	INC-260713	2026-07-13T10:23:00Z	identity_p95	286	milliseconds	below 350 ms page threshold
+p02-src-006170	p02-primary-01	org.ntc, term.mitigation, rel.inc260713.timeline, date.2026-07-14, term.no-kio-claim	Platform Reliability	INC-260713	2026-07-13T10:42:00Z	context_anchor	error budget 2.4%	text	Northstar Transit Cloud; Checkout SVC-17 context; traffic_shift; 18f3860a1964f394

@@ -1,0 +1,13 @@
+record_id: "p02-full-009851"
+source_id: "p02-src-009851"
+scope_id: "p02-primary-12"
+scope_path: "meetings/operations"
+content_spine_ids: ["org.ntc", "action.act-260713-004", "rel.slo.2026-q3", "date.2026-07-15", "term.no-kio-claim"]
+topic: "capacity"
+organization: "Northstar Transit Cloud"
+service: "Checkout SVC-17"
+incident: "INC-260713"
+date: "2026-07-13"
+anchor_summary: "error budget 2.4%"
+measurements: [{"metric": "headroom", "value": "31", "unit": "percent", "note": "available capacity", "topic": "capacity"}, {"metric": "queue_drain", "value": "1460", "unit": "jobs_per_minute", "note": "drain rate", "topic": "capacity"}, {"metric": "error_budget_remaining", "value": "2.4", "unit": "percent", "note": "request-error allowance", "topic": "capacity"}]
+fingerprint: "21a0ab403ff89aba"

@@ -1,0 +1,43 @@
+{
+  "anchor_summary": "error budget 2.4%",
+  "content_spine_ids": [
+    "org.ntc",
+    "measure.queue.drain-rate",
+    "rel.capacity.2026-q3",
+    "date.2026-07-20",
+    "term.no-kio-claim"
+  ],
+  "date": "2026-07-13",
+  "fingerprint": "66463d4ddb31c1b0",
+  "incident": "INC-260713",
+  "measurements": [
+    {
+      "metric": "headroom",
+      "note": "available capacity",
+      "topic": "capacity",
+      "unit": "percent",
+      "value": "31"
+    },
+    {
+      "metric": "queue_drain",
+      "note": "drain rate",
+      "topic": "capacity",
+      "unit": "jobs_per_minute",
+      "value": "1460"
+    },
+    {
+      "metric": "error_budget_remaining",
+      "note": "request-error allowance",
+      "topic": "capacity",
+      "unit": "percent",
+      "value": "2.4"
+    }
+  ],
+  "organization": "Northstar Transit Cloud",
+  "record_id": "p02-full-005936",
+  "scope_id": "p02-primary-11",
+  "scope_path": "capacity/reports",
+  "service": "Checkout SVC-17",
+  "source_id": "p02-src-005936",
+  "topic": "capacity"
+}

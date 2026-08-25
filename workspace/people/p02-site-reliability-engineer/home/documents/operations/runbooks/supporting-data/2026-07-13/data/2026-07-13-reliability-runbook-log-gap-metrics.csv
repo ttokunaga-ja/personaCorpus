@@ -1,0 +1,5 @@
+record_id,scope_id,spine_ids,service,incident,timestamp_utc,metric,value,unit,operational_note
+p02-full-006758-01,p02-primary-01,"org.ntc, term.mitigation, rel.inc260713.timeline, date.2026-07-13, term.no-kio-claim",Telemetry SVC-31,INC-260713,2026-07-13T10:21:00Z,telemetry_export_gap,7,minutes,reconciled by 11:06 UTC
+p02-full-006758-02,p02-primary-01,"org.ntc, term.mitigation, rel.inc260713.timeline, date.2026-07-13, term.no-kio-claim",Telemetry SVC-31,INC-260713,2026-07-13T10:22:00Z,telemetry_delivery_slo,99.9,percent_within_10_minutes,delivery objective
+p02-full-006758-03,p02-primary-01,"org.ntc, term.mitigation, rel.inc260713.timeline, date.2026-07-13, term.no-kio-claim",Checkout SVC-17,INC-260713,2026-07-13T10:23:00Z,evidence_chain,1,complete,scope-local evidence retained
+p02-src-006758,p02-primary-01,"org.ntc, term.mitigation, rel.inc260713.timeline, date.2026-07-13, term.no-kio-claim",Platform Reliability,INC-260713,2026-07-13T10:42:00Z,context_anchor,error budget 2.4%,text,Northstar Transit Cloud; Checkout SVC-17 context; log_gap; 4b210fdb8dfd91a7

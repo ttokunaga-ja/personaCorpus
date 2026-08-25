@@ -1,0 +1,5 @@
+record_id,scope_id,spine_ids,service,incident,timestamp_utc,metric,value,unit,operational_note
+p02-full-002385-01,p02-primary-11,"org.ntc, measure.capacity.headroom, rel.capacity.2026-q3, date.2026-07-13, term.no-kio-claim",Checkout SVC-17,INC-260713,2026-07-13T10:21:00Z,headroom,31,percent,available capacity
+p02-full-002385-02,p02-primary-11,"org.ntc, measure.capacity.headroom, rel.capacity.2026-q3, date.2026-07-13, term.no-kio-claim",Checkout SVC-17,INC-260713,2026-07-13T10:22:00Z,queue_drain,1460,jobs_per_minute,drain rate
+p02-full-002385-03,p02-primary-11,"org.ntc, measure.capacity.headroom, rel.capacity.2026-q3, date.2026-07-13, term.no-kio-claim",Checkout SVC-17,INC-260713,2026-07-13T10:23:00Z,error_budget_remaining,2.4,percent,request-error allowance
+p02-src-002385,p02-primary-11,"org.ntc, measure.capacity.headroom, rel.capacity.2026-q3, date.2026-07-13, term.no-kio-claim",Checkout SVC-17,INC-260713,2026-07-13T10:42:00Z,context_anchor,error budget 2.4%,text,Northstar Transit Cloud; Checkout SVC-17 context; capacity; 22ce9fb382a5a2d8

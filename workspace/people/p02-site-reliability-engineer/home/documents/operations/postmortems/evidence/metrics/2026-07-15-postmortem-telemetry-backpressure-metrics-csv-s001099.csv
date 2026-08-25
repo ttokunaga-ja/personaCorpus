@@ -1,0 +1,5 @@
+record_id,scope_id,spine_ids,service,incident,timestamp_utc,metric,value,unit,operational_note
+p02-full-001099-01,p02-primary-02,"org.ntc, inc.inc-260407, rel.recurrence.2026-q2, date.2026-07-15, term.no-kio-claim",Checkout SVC-17,INC-260713,2026-07-13T10:21:00Z,checkout_availability_slo,99.95,percent,30-day objective
+p02-full-001099-02,p02-primary-02,"org.ntc, inc.inc-260407, rel.recurrence.2026-q2, date.2026-07-15, term.no-kio-claim",Checkout SVC-17,INC-260713,2026-07-13T10:22:00Z,error_budget_remaining,2.4,percent,request-error allowance
+p02-full-001099-03,p02-primary-02,"org.ntc, inc.inc-260407, rel.recurrence.2026-q2, date.2026-07-15, term.no-kio-claim",Checkout SVC-17,INC-260713,2026-07-13T10:23:00Z,incident_resolution,10:42,utc,resolution declared
+p02-src-001099,p02-primary-02,"org.ntc, inc.inc-260407, rel.recurrence.2026-q2, date.2026-07-15, term.no-kio-claim",Checkout SVC-17,INC-260713,2026-07-13T10:42:00Z,context_anchor,error budget 2.4%,text,Northstar Transit Cloud; Checkout SVC-17 context; incident_timeline; eaf4c3d0fef60b92

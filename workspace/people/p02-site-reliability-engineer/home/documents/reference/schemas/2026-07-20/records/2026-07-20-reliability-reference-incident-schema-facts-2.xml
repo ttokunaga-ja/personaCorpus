@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reliability-record><identity><artifact-id>p02-full-005837</artifact-id><source-id>p02-src-005837</source-id><scope-id>p02-secondary-02</scope-id></identity><context><organization>Northstar Transit Cloud</organization><service>Checkout SVC-17</service><incident>INC-260713</incident><date>2026-07-13</date><anchor>error budget 2.4%</anchor><topic>incident_timeline</topic><content-spine><id>org.ntc</id><id>term.rollback-ready</id><id>rel.slo.2026-q3</id><id>date.2026-07-20</id><id>term.no-kio-claim</id></content-spine></context><measurements>
+    <measurement><metric>checkout_availability_slo</metric><value>99.95</value><unit>percent</unit><note>30-day objective</note></measurement>
+    <measurement><metric>error_budget_remaining</metric><value>2.4</value><unit>percent</unit><note>request-error allowance</note></measurement>
+    <measurement><metric>incident_resolution</metric><value>10:42</value><unit>utc</unit><note>resolution declared</note></measurement>
+</measurements><fingerprint>3b5addcd363c7970</fingerprint></reliability-record>

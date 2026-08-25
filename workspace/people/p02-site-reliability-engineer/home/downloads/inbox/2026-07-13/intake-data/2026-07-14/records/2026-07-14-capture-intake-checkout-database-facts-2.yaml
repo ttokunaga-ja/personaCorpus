@@ -1,0 +1,13 @@
+record_id: "p02-full-007993"
+source_id: "p02-src-007993"
+scope_id: "p02-secondary-03"
+scope_path: "downloads/inbox"
+content_spine_ids: ["org.ntc", "dep.payments.q07", "rel.archive.closed", "date.2026-07-14", "term.no-kio-claim"]
+topic: "incident_timeline"
+organization: "Northstar Transit Cloud"
+service: "Checkout SVC-17"
+incident: "INC-260713"
+date: "2026-07-13"
+anchor_summary: "error budget 2.4%"
+measurements: [{"metric": "checkout_availability_slo", "value": "99.95", "unit": "percent", "note": "30-day objective", "topic": "incident_timeline"}, {"metric": "error_budget_remaining", "value": "2.4", "unit": "percent", "note": "request-error allowance", "topic": "incident_timeline"}, {"metric": "incident_resolution", "value": "10:42", "unit": "utc", "note": "resolution declared", "topic": "incident_timeline"}]
+fingerprint: "d50b25c11e107db0"

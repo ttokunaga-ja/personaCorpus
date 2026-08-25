@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reliability-record><identity><artifact-id>p02-full-010362</artifact-id><source-id>p02-src-010362</source-id><scope-id>p02-primary-11</scope-id></identity><context><organization>Northstar Transit Cloud</organization><service>Checkout SVC-17</service><incident>INC-260713</incident><date>2026-07-13</date><anchor>error budget 2.4%</anchor><topic>capacity</topic><content-spine><id>org.ntc</id><id>measure.capacity.headroom</id><id>rel.capacity.2026-q3</id><id>date.2026-07-13</id><id>term.no-kio-claim</id></content-spine></context><measurements>
+    <measurement><metric>headroom</metric><value>31</value><unit>percent</unit><note>available capacity</note></measurement>
+    <measurement><metric>queue_drain</metric><value>1460</value><unit>jobs_per_minute</unit><note>drain rate</note></measurement>
+    <measurement><metric>error_budget_remaining</metric><value>2.4</value><unit>percent</unit><note>request-error allowance</note></measurement>
+</measurements><fingerprint>238409ee8854db99</fingerprint></reliability-record>

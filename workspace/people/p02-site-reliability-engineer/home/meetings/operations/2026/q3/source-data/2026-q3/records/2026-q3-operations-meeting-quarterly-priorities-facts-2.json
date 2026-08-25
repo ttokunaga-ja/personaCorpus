@@ -1,0 +1,42 @@
+{
+  "anchor_summary": "error budget 2.4%",
+  "content_spine_ids": [
+    "org.ntc",
+    "period.2026-q3",
+    "rel.slo.2026-q3",
+    "term.no-kio-claim"
+  ],
+  "date": "2026-07-13",
+  "fingerprint": "45b805ef78323d97",
+  "incident": "INC-260713",
+  "measurements": [
+    {
+      "metric": "checkout_availability_slo",
+      "note": "30-day objective",
+      "topic": "incident_timeline",
+      "unit": "percent",
+      "value": "99.95"
+    },
+    {
+      "metric": "error_budget_remaining",
+      "note": "request-error allowance",
+      "topic": "incident_timeline",
+      "unit": "percent",
+      "value": "2.4"
+    },
+    {
+      "metric": "incident_resolution",
+      "note": "resolution declared",
+      "topic": "incident_timeline",
+      "unit": "utc",
+      "value": "10:42"
+    }
+  ],
+  "organization": "Northstar Transit Cloud",
+  "record_id": "p02-full-008151",
+  "scope_id": "p02-primary-12",
+  "scope_path": "meetings/operations",
+  "service": "Checkout SVC-17",
+  "source_id": "p02-src-008151",
+  "topic": "incident_timeline"
+}

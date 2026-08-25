@@ -1,0 +1,14 @@
+record_id: "p02-full-004171"
+source_id: "p02-src-004171"
+scope_id: "p02-primary-05"
+scope_path: "services/checkout/prod/oncall/operations"
+content_spine_ids: ["org.ntc", "inc.inc-260713", "rel.oncall.2026-07-13", "date.2026-07-13", "term.no-kio-claim"]
+topic: "traffic_shift"
+organization: "Northstar Transit Cloud"
+service: "Checkout SVC-17"
+checkout_context: "Checkout SVC-17 incident context"
+incident: "INC-260713"
+date: "2026-07-13"
+anchor_summary: "error budget 2.4%"
+measurements: [{"metric": "checkout_peak", "value": "2420", "unit": "requests_per_second", "note": "peak during incident", "topic": "traffic_shift", "service": "Checkout SVC-17"}, {"metric": "rate_limit_start", "value": "09:54", "unit": "utc", "note": "authorizations rate-limited", "topic": "traffic_shift", "service": "Checkout SVC-17"}, {"metric": "identity_p95", "value": "286", "unit": "milliseconds", "note": "below 350 ms page threshold", "topic": "traffic_shift", "service": "Identity SVC-23"}]
+fingerprint: "89d0b690eadb036e"

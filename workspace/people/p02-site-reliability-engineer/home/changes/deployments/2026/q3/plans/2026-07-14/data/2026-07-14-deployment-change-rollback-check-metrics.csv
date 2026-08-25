@@ -1,0 +1,5 @@
+record_id,scope_id,spine_ids,service,incident,timestamp_utc,metric,value,unit,operational_note
+p02-full-005786-01,p02-primary-10,"org.ntc, term.rollback-ready, rel.change.260713, date.2026-07-14, term.no-kio-claim",Checkout SVC-17,INC-260713,2026-07-13T10:21:00Z,rollback_approval,10:02,utc,approved change control
+p02-full-005786-02,p02-primary-10,"org.ntc, term.rollback-ready, rel.change.260713, date.2026-07-14, term.no-kio-claim",Checkout SVC-17,INC-260713,2026-07-13T10:22:00Z,concurrency_increase,10:11,utc,consumer concurrency raised
+p02-full-005786-03,p02-primary-10,"org.ntc, term.rollback-ready, rel.change.260713, date.2026-07-14, term.no-kio-claim",Checkout SVC-17,INC-260713,2026-07-13T10:23:00Z,impact_end,10:31,utc,impact closed
+p02-src-005786,p02-primary-10,"org.ntc, term.rollback-ready, rel.change.260713, date.2026-07-14, term.no-kio-claim",Checkout SVC-17,INC-260713,2026-07-13T10:42:00Z,context_anchor,error budget 2.4%,text,Northstar Transit Cloud; Checkout SVC-17 context; rollback; cf28031be570f4ec
