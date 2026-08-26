@@ -1,0 +1,101 @@
+{
+  "eml_newline_exceptions": [
+    {
+      "artifact_id": "p03-m1-0015",
+      "classification": "immutable M1 bare-LF EML; excluded from Full remediation",
+      "path": "compliance/audit-requests/audit-request-AR-20260713-AC27.eml",
+      "sha256": "sha256:b25ed61460e2b2c2d24307a1c2d35b4151bc1952e7216ca22cefbb5dcd1ae68c"
+    },
+    {
+      "artifact_id": "p03-m1-0016",
+      "classification": "immutable M1 bare-LF EML; excluded from Full remediation",
+      "path": "compliance/audit-requests/audit-request-AR-20260714-access-review.eml",
+      "sha256": "sha256:0faf3e609823aa663c8b767e8264acc0013c87803168e5a3eb9e523d29176127"
+    },
+    {
+      "artifact_id": "p03-m1-0017",
+      "classification": "immutable M1 bare-LF EML; excluded from Full remediation",
+      "path": "compliance/audit-requests/audit-request-AR-20260715-logging-evidence.eml",
+      "sha256": "sha256:85af519d09e2e0d2fe95f801fdfef4c58bae469e1082a5ba566b1f5c387839d9"
+    },
+    {
+      "artifact_id": "p03-m1-0018",
+      "classification": "immutable M1 bare-LF EML; excluded from Full remediation",
+      "path": "compliance/audit-requests/audit-request-AR-20260716-vendor-risk.eml",
+      "sha256": "sha256:def1bcb956d19f8e17fac5521af3b0622ed470ada2cce5dcf347c9d0a79db87c"
+    },
+    {
+      "artifact_id": "p03-m1-0019",
+      "classification": "immutable M1 bare-LF EML; excluded from Full remediation",
+      "path": "compliance/audit-requests/audit-request-AR-20260717-retention-sample.eml",
+      "sha256": "sha256:759458f3a55702c4840282c5d58211965666f76fd7ecb9f6fe905bb982d7b5d2"
+    },
+    {
+      "artifact_id": "p03-m1-0020",
+      "classification": "immutable M1 bare-LF EML; excluded from Full remediation",
+      "path": "compliance/audit-requests/audit-request-AR-20260720-incident-followup.eml",
+      "sha256": "sha256:4f381108feb11600c184d22f519c90da07c92eab2252c386c44a4a85aa224a74"
+    },
+    {
+      "artifact_id": "p03-m1-0021",
+      "classification": "immutable M1 bare-LF EML; excluded from Full remediation",
+      "path": "compliance/audit-requests/audit-request-AR-20260721-privacy-control.eml",
+      "sha256": "sha256:4c5a6c2c223e4c83ffb0bcbd14b71a5cbc5cecdf8f3be50e480593247db76fa8"
+    },
+    {
+      "artifact_id": "p03-m1-0022",
+      "classification": "immutable M1 bare-LF EML; excluded from Full remediation",
+      "path": "compliance/audit-requests/audit-request-AR-20260722-change-approval.eml",
+      "sha256": "sha256:07d6e903bfd6d687472a418aa2d0b386513acf441589e8a5395a543bfd206736"
+    },
+    {
+      "artifact_id": "p03-m1-0023",
+      "classification": "immutable M1 bare-LF EML; excluded from Full remediation",
+      "path": "compliance/audit-requests/audit-request-AR-20260723-backup-restore.eml",
+      "sha256": "sha256:b8d8447b07bb9330ecddd3ea44ece2df2c3c636983f4716dee62c4fac37ff323"
+    },
+    {
+      "artifact_id": "p03-m1-0024",
+      "classification": "immutable M1 bare-LF EML; excluded from Full remediation",
+      "path": "compliance/audit-requests/audit-request-AR-20260724-exception-register.eml",
+      "sha256": "sha256:92a6ccc9d4954256a6b387914b259fd63ec59182d7d8acd2798ea1a4afae51d2"
+    },
+    {
+      "artifact_id": "p03-m1-0025",
+      "classification": "immutable M1 bare-LF EML; excluded from Full remediation",
+      "path": "compliance/audit-requests/audit-response-AR-20260713-clarification.eml",
+      "sha256": "sha256:7dec4978ac98242939736f2dbc4da21f28f69e2da6321af225188209717a16dd"
+    },
+    {
+      "artifact_id": "p03-m1-0085",
+      "classification": "immutable M1 bare-LF EML; excluded from Full remediation",
+      "path": "mail/recent/AC27-evidence-followup.eml",
+      "sha256": "sha256:f3527c0a153afc8e7d87f33940eb6e9b5817a3fc10d681503657c520c8d4c78f"
+    },
+    {
+      "artifact_id": "p03-m1-0086",
+      "classification": "immutable M1 bare-LF EML; excluded from Full remediation",
+      "path": "mail/recent/RISK-031-status-update.eml",
+      "sha256": "sha256:f174d4e900f3d9b11b3da068a2890aa819cbd519d5117e21e53cb7ae0fc80190"
+    }
+  ],
+  "finding_schema_uri": {
+    "artifact_id": "p03-m1-0068",
+    "classification": "false positive: standard JSON Schema $schema identifier; no operational external connection",
+    "path": "documents/reference/finding-schema.json",
+    "sha256": "sha256:7d75cf4c1ccebdd572211e394aa0867b3b325e80431acd1f34a8e17d18d56fdb"
+  },
+  "full_legacy_date_period_findings": 0,
+  "immutable": true,
+  "kind": "m1-baseline-exception-report",
+  "persona": "p03",
+  "schema": "persona-corpus.p03-full-qa-v2.m1-baseline-exceptions/v1",
+  "similarity_exception": {
+    "artifacts": [
+      "p03-m1-0046",
+      "p03-m1-0045"
+    ],
+    "classification": "immutable M1-M1 baseline pair; excluded from Full remediation",
+    "jaccard": 0.918919
+  }
+}

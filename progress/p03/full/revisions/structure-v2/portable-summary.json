@@ -1,0 +1,108 @@
+{
+  "authority": {
+    "frozen_full_assignment_sha256": "sha256:62440cc218f205ec8114fc90a666295a43062d371c48fc27fd98ed93a6a20501",
+    "m1_baseline_sha256": "sha256:4ddc3e4e6edc755b1d031c8095377402717c10863d8fb4de6ff20fcc36121350",
+    "mapping_rows_sha256": "sha256:9f4deca7dcfbecd6ce0c5e6bdd483444c6da4fc11386cab88bc2fc883fd58d65",
+    "path_revision_overlay_sha256": "sha256:a5bde184f8faa4f305415bb91468ffb2fde7a05871fcab17dfea553c00023ef0",
+    "proposed_path_map_sha256": "sha256:5de0d2345f40a590b547f2ba67edd5f210b92e238c5a1e06d51611652ade63f0",
+    "qa_v2_predecessor_manifest_sha256": "sha256:9ff9969f794fecd9e5946be19ea7084654d91391790799d4d9e70ddd7be816e9",
+    "structure_v2_after_manifest_sha256": "sha256:0fa9bc821a483bdf6449b17479ca5a6fc27264c8f5b1736817c6bfb68a818c56",
+    "structure_v2_before_manifest_sha256": "sha256:9ff9969f794fecd9e5946be19ea7084654d91391790799d4d9e70ddd7be816e9"
+  },
+  "format": {
+    "known_unresolved_invalid_jsonl_count": 19,
+    "new_format_issue_count": 0,
+    "overall_format_qa_complete": false,
+    "status": "format_remediation_pending"
+  },
+  "git_migration_ready": false,
+  "lineage": {
+    "full_assignment_rows_covered_once": 9800,
+    "overlay_aware": true,
+    "predecessor_final_bytes_sha256_multiset_equal": true
+  },
+  "m1": {
+    "artifact_count": 200,
+    "paths_bytes_sha256_unchanged": true
+  },
+  "movement": {
+    "full_basename_preserved": 89,
+    "full_exact_path_unchanged": 47,
+    "renamed": 9753,
+    "unchanged": 247
+  },
+  "persona": "p03",
+  "physical": {
+    "casefold_nfc_collisions": 0,
+    "casefold_nfkc_collisions": 0,
+    "collision": 0,
+    "empty": 0,
+    "extension_distribution": {
+      "csv": 702,
+      "docx": 500,
+      "eml": 328,
+      "html": 472,
+      "json": 524,
+      "jsonl": 115,
+      "log": 239,
+      "markdown": 294,
+      "md": 706,
+      "pcap": 300,
+      "pdf": 2000,
+      "png": 300,
+      "pptx": 200,
+      "py": 275,
+      "rs": 262,
+      "sql": 295,
+      "ts": 263,
+      "tsv": 298,
+      "txt": 848,
+      "xlsx": 400,
+      "xml": 300,
+      "yaml": 379
+    },
+    "extra": 0,
+    "family_distribution": {
+      "code": 800,
+      "csv_tsv": 1000,
+      "docx": 500,
+      "domain_binary": 300,
+      "html_eml": 800,
+      "image": 300,
+      "md": 1000,
+      "pdf_scan": 500,
+      "pdf_text": 1500,
+      "pptx": 200,
+      "structured_text": 1500,
+      "txt_log": 1200,
+      "xlsx": 400
+    },
+    "file_bearing_directories": 1104,
+    "hardlink": 0,
+    "max_direct_file_count": 66,
+    "max_relative_path_chars": 128,
+    "max_relative_path_utf8_bytes": 128,
+    "missing": 0,
+    "nonregular": 0,
+    "old_empty_directories_removed": 0,
+    "over_100_mib": 0,
+    "portable": "pass",
+    "regular_files": 10000,
+    "symlink": 0,
+    "trailing_dot_or_space": 0,
+    "unicode_non_nfc": 0,
+    "windows_component_issues": 0
+  },
+  "portable_result": "pass",
+  "reference": {
+    "broken_nonself_references": 0,
+    "exact_relative_pairs": 163,
+    "nonself_pairs": 530,
+    "self_exact_hits": 94,
+    "status": "pass",
+    "unique_targets": 107
+  },
+  "revision_id": "p03-full-structure-v2",
+  "schema": "persona-corpus.p03-full-structure-v2-portable-summary/v1",
+  "status": "structure_v2_complete_format_remediation_pending"
+}

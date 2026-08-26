@@ -1,0 +1,27 @@
+{
+  "basename_targets_checked": 60,
+  "broken_nonself_references": 0,
+  "exact_path_targets_checked": 47,
+  "exact_relative_pairs": 163,
+  "nonself_pairs": 530,
+  "pairs_by_source_container": {
+    "docx": 149,
+    "json": 4,
+    "log": 10,
+    "pdf": 253,
+    "pptx": 8,
+    "txt": 14,
+    "xlsx": 88,
+    "yaml": 4
+  },
+  "persona": "p03",
+  "reference_reaudit_method": "all 10,000 final bytes re-read; logical predecessor identities used to re-scan plain text, OOXML raw/XML attributes, PDF text/metadata/annotations, and PNG metadata",
+  "revision_id": "p03-full-structure-v2",
+  "schema": "persona-corpus.p03-full-structure-v2-reference-audit/v1",
+  "self_exact_hits": 94,
+  "source_files_scanned": 10000,
+  "source_parse_error_count": 0,
+  "source_parse_errors": [],
+  "status": "pass",
+  "unique_targets": 107
+}

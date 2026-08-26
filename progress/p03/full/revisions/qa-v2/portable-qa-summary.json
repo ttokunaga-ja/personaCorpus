@@ -1,0 +1,55 @@
+{
+  "after_file_count": 10000,
+  "authority_sha256": {
+    "docx-language-r4-v12-authority.json": "sha256:606943358c2643ab51140c1226ea70c99b3a5c5f5a3c6bfc0621d860d4d7bc50",
+    "docx-visual-layout-r1-authority.json": "sha256:d2da0dc470f930f9da02a20c9c9be93a71694184efe7769d14cf64ca1b7aef8b",
+    "pdf-language-r4-v2-authority.json": "sha256:67c86dbc91cea6299db705ff462f82a005ae7724392cdba860fa25e05073afcf",
+    "pdf-visual-r3-authority.json": "sha256:6edc248c1d8d9c7d26c07e66bb8c7f437fbefa83f2b15dff885631683166a0bb",
+    "pdf-visual-r3-p09-authority.json": "sha256:af5c174bd8b8fec13ce8ee31573339deab61636673e5d24a6ff2a32a525b159f",
+    "pptx-language-r5-v9-authority.json": "sha256:256f5fd490d0e72944601ae869f5750c081f722a048bfdf2490df5d43c740d4c",
+    "pptx-layout-r4-authority.json": "sha256:fc8fdf34604c0c85795ebad33ab9d19f2b5697a2b04c1d2332f5e3b38509fb0c",
+    "pptx-layout-r4-staged-byte-authority.json": "sha256:fa17d7eaed585d568f4a697a391764ce3d515aff7334db3ba71063a628f47e5f",
+    "text-date-r3-authority.json": "sha256:633e969e60aae414b9e09ddc4f62841417dcc9cf4d29d81d5f59efac80076974",
+    "xlsx-language-r3-authority.json": "sha256:cff7a129b431a0ed95ca17590aac310ecb04423b3c13ad819909cd9cb8afaf6f",
+    "xlsx-language-r4-authority.json": "sha256:9f792ab893ff3440e442f1de99752c8d57df37b13d826d6533d6a854f6c36786"
+  },
+  "before_after_path_sets_equal": true,
+  "before_file_count": 10000,
+  "change_chains_collapsed": true,
+  "declared_full_remediation_count": 4270,
+  "exception_report": "m1-baseline-exception-report.json",
+  "full_assignment_count": 9800,
+  "kind": "portable-qa-summary",
+  "m1_baseline_unchanged": true,
+  "m1_immutable_file_count": 200,
+  "only_declared_full_targets_changed": true,
+  "persona": "p03",
+  "pptx_language_r5_predecessor_distribution": {
+    "artifacts": {
+      "pptx-layout-r2": 144,
+      "pptx-layout-r3": 16,
+      "pptx-layout-r4": 1,
+      "remediation-before": 1
+    },
+    "direct_before_artifact_id": "p03-full-007376",
+    "records": {
+      "pptx-layout-r2": 235,
+      "pptx-layout-r3": 27,
+      "pptx-layout-r4": 1,
+      "remediation-before": 1
+    }
+  },
+  "schema": "persona-corpus.p03-full-qa-v2.portable-summary/v1",
+  "terminal_revision_counts": {
+    "docx_language_r4": 255,
+    "docx_visual_layout_r1": 1,
+    "pdf_language_r4": 54,
+    "pdf_visual_r3": 6,
+    "pptx_language_r5": 162,
+    "pptx_layout_r2": 0,
+    "pptx_layout_r3": 0,
+    "pptx_layout_r4": 0,
+    "xlsx_language_r3": 8,
+    "xlsx_language_r4": 1
+  }
+}

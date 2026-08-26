@@ -1,0 +1,254 @@
+{
+  "checked_file_count": 10000,
+  "eml_bare_cr_count": 0,
+  "extension_distribution": {
+    "csv": 702,
+    "docx": 500,
+    "eml": 328,
+    "html": 472,
+    "json": 524,
+    "jsonl": 115,
+    "log": 239,
+    "markdown": 294,
+    "md": 706,
+    "pcap": 300,
+    "pdf": 2000,
+    "png": 300,
+    "pptx": 200,
+    "py": 275,
+    "rs": 262,
+    "sql": 295,
+    "ts": 263,
+    "tsv": 298,
+    "txt": 848,
+    "xlsx": 400,
+    "xml": 300,
+    "yaml": 379
+  },
+  "known_blockers": [
+    {
+      "artifact_id": "p03-full-003372",
+      "bytes": 1991,
+      "current_path": "cloud/team-shared/2026-07-14/logs/2026-07-14-team-assurance-handoff-evidence-log.jsonl",
+      "predecessor_path": "cloud/team-shared/foundation/logs/2026-07-14-team-assurance-handoff-evidence-log-jsonl-s003372.jsonl",
+      "reason": "payload is UTF-8 text but is not valid JSON Lines",
+      "scope_id": "p03-secondary-06",
+      "sha256": "sha256:f0f4c19e01870ffe2b46768b3bf93bf0df20aa29ddcbf06f2033ffd272bacc9e"
+    },
+    {
+      "artifact_id": "p03-full-009628",
+      "bytes": 2022,
+      "current_path": "compliance/audit-requests/2026-07-13/logs/2026-07-13-audit-request-request-response-evidence-log.jsonl",
+      "predecessor_path": "compliance/audit-requests/foundation/logs/2026-07-13-audit-request-request-response-evidence-log-jsonl-s009628.jsonl",
+      "reason": "payload is UTF-8 text but is not valid JSON Lines",
+      "scope_id": "p03-primary-07",
+      "sha256": "sha256:5ba0a57c6d04b8144b32781e3b0c564aea03d1ff8ae0a30638730b5839e932cd"
+    },
+    {
+      "artifact_id": "p03-full-002039",
+      "bytes": 1983,
+      "current_path": "desktop/working/2026-07-14/logs/2026-07-14-working-notes-review-draft-evidence-log.jsonl",
+      "predecessor_path": "desktop/working/foundation/logs/2026-07-14-working-notes-review-draft-evidence-log-jsonl-s002039.jsonl",
+      "reason": "payload is UTF-8 text but is not valid JSON Lines",
+      "scope_id": "p03-secondary-01",
+      "sha256": "sha256:9901daf2af01d7578b66952db754fd2959368230fad9f1b7edec2cab6aaa5282"
+    },
+    {
+      "artifact_id": "p03-full-006629",
+      "bytes": 1988,
+      "current_path": "desktop/working/2026-07-15/logs/2026-07-15-working-notes-timeline-annotation-evidence-log.jsonl",
+      "predecessor_path": "desktop/working/foundation/logs/2026-07-15-working-notes-timeline-annotation-evidence-log-jsonl-s006629.jsonl",
+      "reason": "payload is UTF-8 text but is not valid JSON Lines",
+      "scope_id": "p03-secondary-01",
+      "sha256": "sha256:6313e7eb27b2c8758e25e3046036870d05071e9c981b83d29b91bf4727c54a7d"
+    },
+    {
+      "artifact_id": "p03-full-005705",
+      "bytes": 2041,
+      "current_path": "security/incident-reports/2026-07-13/logs/2026-07-13-incident-evidence-timeline-review-evidence-log-02.jsonl",
+      "predecessor_path": "security/incident-reports/foundation/logs/2026-07-13-incident-evidence-timeline-review-evidence-log-jsonl-s005705.jsonl",
+      "reason": "payload is UTF-8 text but is not valid JSON Lines",
+      "scope_id": "p03-primary-04",
+      "sha256": "sha256:51c702406b882b523da79765df2f511dce1cc80c70fd4229bd419bf2d1d65746"
+    },
+    {
+      "artifact_id": "p03-full-006205",
+      "bytes": 1967,
+      "current_path": "security/incident-reports/2026-07-14/logs/2026-07-14-incident-evidence-timeline-review-evidence-log.jsonl",
+      "predecessor_path": "security/incident-reports/foundation/logs/2026-07-14-incident-evidence-timeline-review-evidence-log-jsonl-s006205.jsonl",
+      "reason": "payload is UTF-8 text but is not valid JSON Lines",
+      "scope_id": "p03-primary-04",
+      "sha256": "sha256:8a774ae11a845620637a7f371adbc184db11e4ee4b7ab628a80beb60b9213555"
+    },
+    {
+      "artifact_id": "p03-full-005372",
+      "bytes": 2005,
+      "current_path": "security/incident-reports/2026-07-15/logs/2026-07-15-incident-evidence-evidence-intake-evidence-log.jsonl",
+      "predecessor_path": "security/incident-reports/foundation/logs/2026-07-15-incident-evidence-evidence-intake-evidence-log-jsonl-s005372.jsonl",
+      "reason": "payload is UTF-8 text but is not valid JSON Lines",
+      "scope_id": "p03-primary-04",
+      "sha256": "sha256:c3d4e503c9f96ab61244a531b9a2066bc852594c8e7eeeef0e3ae0f8c15f377d"
+    },
+    {
+      "artifact_id": "p03-full-004041",
+      "bytes": 2035,
+      "current_path": "security/incident-reports/2026-07-15/logs/2026-07-15-incident-evidence-timeline-review-evidence-log-02.jsonl",
+      "predecessor_path": "security/incident-reports/foundation/logs/2026-07-15-incident-evidence-timeline-review-evidence-log-jsonl-s004041.jsonl",
+      "reason": "payload is UTF-8 text but is not valid JSON Lines",
+      "scope_id": "p03-primary-04",
+      "sha256": "sha256:0eacc038c11891008cbef2914303a5a6aa2de9fbaab2298bb9262428a2befccb"
+    },
+    {
+      "artifact_id": "p03-full-007444",
+      "bytes": 2019,
+      "current_path": "security/incident-reports/2026-07-20/logs/2026-07-20-incident-evidence-evidence-intake-evidence-log-02.jsonl",
+      "predecessor_path": "security/incident-reports/foundation/logs/2026-07-20-incident-evidence-evidence-intake-evidence-log-jsonl-s007444.jsonl",
+      "reason": "payload is UTF-8 text but is not valid JSON Lines",
+      "scope_id": "p03-primary-04",
+      "sha256": "sha256:7438f30f8fcacec099d0d04c34590fa6d47ab37ff3e6cb335fecac4a98682e19"
+    },
+    {
+      "artifact_id": "p03-full-006441",
+      "bytes": 1990,
+      "current_path": "security/pentest-reports/2026-07-13/logs/2026-07-13-assessment-assurance-scope-evidence-log-02.jsonl",
+      "predecessor_path": "security/pentest-reports/foundation/logs/2026-07-13-assessment-assurance-scope-evidence-log-jsonl-s006441.jsonl",
+      "reason": "payload is UTF-8 text but is not valid JSON Lines",
+      "scope_id": "p03-primary-02",
+      "sha256": "sha256:5e4edc4ade87035ffc276d9eeb38060d0c8e9ce17834747e2a4f7289748f707c"
+    },
+    {
+      "artifact_id": "p03-full-007041",
+      "bytes": 1986,
+      "current_path": "security/pentest-reports/2026-07-13/logs/2026-07-13-assessment-assurance-scope-evidence-log-03.jsonl",
+      "predecessor_path": "security/pentest-reports/foundation/logs/2026-07-13-assessment-assurance-scope-evidence-log-jsonl-s007041.jsonl",
+      "reason": "payload is UTF-8 text but is not valid JSON Lines",
+      "scope_id": "p03-primary-02",
+      "sha256": "sha256:c5ca9ac1309385b4522167f32490dffcd9978907cb9911032065e1d0183b2bf3"
+    },
+    {
+      "artifact_id": "p03-full-009041",
+      "bytes": 1971,
+      "current_path": "security/pentest-reports/2026-07-14/logs/2026-07-14-assessment-assurance-scope-evidence-log-02.jsonl",
+      "predecessor_path": "security/pentest-reports/foundation/logs/2026-07-14-assessment-assurance-scope-evidence-log-jsonl-s009041.jsonl",
+      "reason": "payload is UTF-8 text but is not valid JSON Lines",
+      "scope_id": "p03-primary-02",
+      "sha256": "sha256:422f7443a1bcebfbae7cee91507c2c5ecdcff50e9b45b7141b67b0b2a6e2323a"
+    },
+    {
+      "artifact_id": "p03-full-006775",
+      "bytes": 2046,
+      "current_path": "security/pentest-reports/2026-07-15/logs/2026-07-15-assessment-control-validation-evidence-log-02.jsonl",
+      "predecessor_path": "security/pentest-reports/foundation/logs/2026-07-15-assessment-control-validation-evidence-log-jsonl-s006775.jsonl",
+      "reason": "payload is UTF-8 text but is not valid JSON Lines",
+      "scope_id": "p03-primary-02",
+      "sha256": "sha256:e8d50c4c89eea2e0b27dcd61c1b2d681ee0b20cbbd191ef04a620fb646f4da59"
+    },
+    {
+      "artifact_id": "p03-full-009441",
+      "bytes": 2012,
+      "current_path": "security/pentest-reports/2026-07-20/logs/2026-07-20-assessment-assurance-scope-evidence-log-02.jsonl",
+      "predecessor_path": "security/pentest-reports/foundation/logs/2026-07-20-assessment-assurance-scope-evidence-log-jsonl-s009441.jsonl",
+      "reason": "payload is UTF-8 text but is not valid JSON Lines",
+      "scope_id": "p03-primary-02",
+      "sha256": "sha256:b02f23c94bc906d9460e7aba5c57379b5881954cfc978f8259a3f004c701bcbe"
+    },
+    {
+      "artifact_id": "p03-full-009541",
+      "bytes": 1985,
+      "current_path": "security/pentest-reports/2026-07-20/logs/2026-07-20-assessment-assurance-scope-evidence-log-03.jsonl",
+      "predecessor_path": "security/pentest-reports/foundation/logs/2026-07-20-assessment-assurance-scope-evidence-log-jsonl-s009541.jsonl",
+      "reason": "payload is UTF-8 text but is not valid JSON Lines",
+      "scope_id": "p03-primary-02",
+      "sha256": "sha256:9f5997cfdb7be81636bb88715f69080edad78655227e9854b2d211d4d6a6214d"
+    },
+    {
+      "artifact_id": "p03-full-009702",
+      "bytes": 2003,
+      "current_path": "security/vulnerabilities/2026-07-14/logs/2026-07-14-vulnerability-register-remediation-evidence-log.jsonl",
+      "predecessor_path": "security/vulnerabilities/foundation/logs/2026-07-14-vulnerability-register-remediation-evidence-log-jsonl-s009702.jsonl",
+      "reason": "payload is UTF-8 text but is not valid JSON Lines",
+      "scope_id": "p03-primary-03",
+      "sha256": "sha256:cef8175f458bfe70b35781d54ff0ac9bfb418c6debe95fad382f9107c21b1acc"
+    },
+    {
+      "artifact_id": "p03-full-009368",
+      "bytes": 1999,
+      "current_path": "security/vulnerabilities/2026-07-20/logs/2026-07-20-vulnerability-register-risk-treatment-evidence-log.jsonl",
+      "predecessor_path": "security/vulnerabilities/foundation/logs/2026-07-20-vulnerability-register-risk-treatment-evidence-log-jsonl-s009368.jsonl",
+      "reason": "payload is UTF-8 text but is not valid JSON Lines",
+      "scope_id": "p03-primary-03",
+      "sha256": "sha256:e70abd92e0bc41a160dd2ebf5d2a173a7e3330b5fe0da8eacef0cf5040030adc"
+    },
+    {
+      "artifact_id": "p03-full-008130",
+      "bytes": 2026,
+      "current_path": "soc/siem-exports/2026-07-14/logs/2026-07-14-siem-export-checksum-evidence-log.jsonl",
+      "predecessor_path": "soc/siem-exports/foundation/logs/2026-07-14-siem-export-checksum-evidence-log-jsonl-s008130.jsonl",
+      "reason": "payload is UTF-8 text but is not valid JSON Lines",
+      "scope_id": "p03-primary-09",
+      "sha256": "sha256:05a5232436a2ac17a52f448695d54980b562ac3afb0f01896f1b5bd98231d7ed"
+    },
+    {
+      "artifact_id": "p03-full-005127",
+      "bytes": 1976,
+      "current_path": "soc/siem-exports/2026-07-15/logs/2026-07-15-siem-export-review-window-evidence-log.jsonl",
+      "predecessor_path": "soc/siem-exports/foundation/logs/2026-07-15-siem-export-review-window-evidence-log-jsonl-s005127.jsonl",
+      "reason": "payload is UTF-8 text but is not valid JSON Lines",
+      "scope_id": "p03-primary-09",
+      "sha256": "sha256:566956f7b79d369867dc958f113a4a0aa10229c3db6ca78593bf8169e0954cbc"
+    }
+  ],
+  "known_unresolved_invalid_jsonl_count": 19,
+  "ledger_family_distribution": {
+    "code": 800,
+    "csv_tsv": 1000,
+    "docx": 500,
+    "domain_binary": 300,
+    "html_eml": 800,
+    "image": 300,
+    "md": 1000,
+    "pdf_scan": 500,
+    "pdf_text": 1500,
+    "pptx": 200,
+    "structured_text": 1500,
+    "txt_log": 1200,
+    "xlsx": 400
+  },
+  "m1_eml_newline_exception_count": 13,
+  "new_format_issue_count": 0,
+  "overall_format_qa_complete": false,
+  "pdf_family_classification": {
+    "pdf_scan": 500,
+    "pdf_text": 1500
+  },
+  "persona": "p03",
+  "physical_format_failure_count": 19,
+  "revision_id": "p03-full-structure-v2",
+  "schema": "persona-corpus.p03-full-structure-v2-format-audit/v1",
+  "status": "format_remediation_pending",
+  "validated_file_count": 9981,
+  "validated_physical_format_distribution": {
+    "csv": 702,
+    "docx": 500,
+    "eml": 328,
+    "html": 472,
+    "json": 524,
+    "jsonl": 96,
+    "log": 239,
+    "markdown": 294,
+    "md": 706,
+    "pcap": 300,
+    "pdf": 2000,
+    "png": 300,
+    "pptx": 200,
+    "py": 275,
+    "rs": 262,
+    "sql": 295,
+    "ts": 263,
+    "tsv": 298,
+    "txt": 848,
+    "xlsx": 400,
+    "xml": 300,
+    "yaml": 379
+  }
+}

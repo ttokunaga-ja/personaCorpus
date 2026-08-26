@@ -78,3 +78,29 @@ progress/p02/full/revisions/v2/*
 !progress/p02/full/revisions/v2/p02-full-structure-v2.after.jsonl
 !progress/p02/full/revisions/v2/structure-policy.md
 !progress/p02/full/revisions/v2/migration-report.md
+# p03 portable, token-free QA, structure, and JSONL remediation authority.
+# Keep exact exceptions so duplicate predecessor copies and local receipts stay ignored.
+!progress/p03/full/revisions/
+progress/p03/full/revisions/*
+!progress/p03/full/revisions/qa-v2/
+progress/p03/full/revisions/qa-v2/*
+!progress/p03/full/revisions/qa-v2/m1-baseline-exception-report.json
+!progress/p03/full/revisions/qa-v2/portable-qa-summary.json
+!progress/p03/full/revisions/qa-v2/remediation-before.jsonl
+!progress/p03/full/revisions/qa-v2/remediation-after.jsonl
+!progress/p03/full/revisions/qa-v2/remediation-diff-ledger.jsonl
+!progress/p03/full/revisions/structure-v2/
+progress/p03/full/revisions/structure-v2/*
+!progress/p03/full/revisions/structure-v2/format-audit.json
+!progress/p03/full/revisions/structure-v2/migration-report.md
+!progress/p03/full/revisions/structure-v2/p03-full-structure-v2.after.jsonl
+!progress/p03/full/revisions/structure-v2/path-revision.jsonl
+!progress/p03/full/revisions/structure-v2/portable-summary.json
+!progress/p03/full/revisions/structure-v2/reference-audit.json
+!progress/p03/full/revisions/structure-v2/structure-policy.md
+!progress/p03/full/revisions/jsonl-format-v1/
+progress/p03/full/revisions/jsonl-format-v1/*
+!progress/p03/full/revisions/jsonl-format-v1/final-manifest.jsonl
+!progress/p03/full/revisions/jsonl-format-v1/jsonl-format-report.json
+!progress/p03/full/revisions/jsonl-format-v1/portable-qa-summary.json
+!progress/p03/full/revisions/jsonl-format-v1/repair-ledger.jsonl
