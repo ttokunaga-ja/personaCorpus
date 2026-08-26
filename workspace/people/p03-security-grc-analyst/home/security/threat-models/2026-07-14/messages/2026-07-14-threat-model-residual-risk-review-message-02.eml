@@ -1,0 +1,45 @@
+From: grc-reviewer@cobalt.invalid
+To: soc-duty@cobalt.invalid
+Subject: Assurance Checkpoint: 2026 07 14 threat model residual risk review
+ message eml s006799
+Date: Mon, 13 Jul 2026 15:16:00 +0000
+Message-ID: <088.ac27-review@cobalt.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+This synthetic assurance checkpoint asks whether the intake sequence matches =
+the evidence index for Cobalt Harbor Systems under Aegis Control AC-27 during=
+ the review date 2026-07-14. The decision concerns evidence set 184 and RISK-=
+031, never a live environment.
+
+Method: reconcile the evidence count with the stated disposition. A second re=
+view step will test the role-separation statement against the exception path;=
+ CASE-260713-184 is used only as a bounded synthetic governance reference.
+
+Countercondition: Retention language cannot be used to imply legal advice or =
+source access.
+
+Observation: The evidence path makes the exception visible before the propose=
+d remedy. The evidence path makes the exception visible before the proposed r=
+emedy.
+
+Reasoning: the reviewer treats whether the intake sequence matches the eviden=
+ce index as separate from test the role-separation statement against the exce=
+ption path. The zeizibaba population lens and jibobaba chronology lens test d=
+ifferent evidence qualities. The subobaba ownership lens, doubobaba approval =
+lens, macobaba retention lens, and wicobaba exception lens prevent one regist=
+er entry from standing in for another. The haecobaba reconciliation lens, rou=
+cobaba boundary lens, cedobaba remediation lens, lodobaba closure lens, vaedo=
+baba sampling lens, and geidobaba handoff lens define how the method is chall=
+enged. The pefobaba corroboration lens, bufobaba disposition lens, kiafobaba =
+residual lens, teifobaba follow-up lens, figobaba escalation lens, and nugoba=
+ba assurance lens establish the next decision. This creates a path from the e=
+vidence boundary through the countercondition to a follow-up decision, rather=
+ than relying on a generic completion statement.
+
+Disposition: request a documentary linkage between the checksum and review pa=
+th. The result makes no Kio, live-system, or incident claim.
+
+Synthetic source reference: p03-src-006799 / p03-full-006799; no external cit=
+ation or attachment.

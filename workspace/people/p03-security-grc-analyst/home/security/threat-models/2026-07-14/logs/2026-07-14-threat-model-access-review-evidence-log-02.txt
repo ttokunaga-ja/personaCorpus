@@ -1,0 +1,14 @@
+2026-07-14T08:30:00Z INFO p03-full-005888 intake opened for AC-27 access-review
+2026-07-14T09:15:00Z INFO p03-src-005888 evidence set 184 normalized: 24/24 synthetic items
+2026-07-14T10:20:00Z WARN RISK-031 delayed attestation recorded as EXC-260713-006; compensating review bounded
+2026-07-14T13:30:00Z INFO AC-27 review population 48/48; timely attestations 47/48 (97.9%)
+2026-07-14T16:45:00Z INFO residual rating Medium; retention disposition 18 months; no live system access
+2026-07-14T16:47:00Z REVIEW The independent reviewer verifies preparer and reviewer separation for the exception.
+2026-07-14T16:49:00Z FINDING The delayed attestation is connected to EXC-260713-006 without rewriting the timeline.
+2026-07-14T16:50:00Z SPINE org.cobalt-harbor: Cobalt Harbor Systems (CHS) is a fictional organization operating a managed logistics and harbor-operations platform.
+2026-07-14T16:50:00Z SPINE evidence.set-184: Evidence set 184 has 24 synthetic items: 12 access-review attestations, 6 approval records, 4 checksum manifests, and 2 exception records.
+2026-07-14T16:50:00Z SPINE rel.ac27.evidence-184: Structured, CSV, and log evidence facts precede AC-27 workbooks, review DOCX, searchable PDFs, and security-review decks.
+2026-07-14T16:50:00Z SPINE date.2026-07-14: Evidence normalization, checksum confirmation, and action-owner acknowledgement.
+2026-07-14T16:50:00Z SPINE term.no-kio-claim: Corpus production and QA establish no Kio indexing, history, chunks, search quality, or performance claim.
+2026-07-14T17:15:00Z INFO evidence-chain CASE-260713-184 -> EV-184-19 -> p03-full-005888 verified
+NOTICE synthetic defensive GRC record; no Kio indexing, history, chunk, search, or performance claim.

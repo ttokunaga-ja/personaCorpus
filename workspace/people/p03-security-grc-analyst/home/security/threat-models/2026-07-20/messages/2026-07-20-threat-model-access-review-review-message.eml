@@ -1,0 +1,45 @@
+From: grc-reviewer@cobalt.invalid
+To: soc-duty@cobalt.invalid
+Subject: Governance Working Note: 2026 07 20 threat model access review review
+ message eml s004576
+Date: Sun, 19 Jul 2026 16:14:00 +0000
+Message-ID: <062.ac27-review@cobalt.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+This synthetic governance working note asks whether the compensating review i=
+s recorded as a distinct event for Cobalt Harbor Systems under Aegis Control =
+AC-27 during the review date 2026-07-20. The decision concerns evidence set 1=
+84 and RISK-031, never a live environment.
+
+Method: compare the roster cardinality with the attestation timing column. A =
+second review step will read the exception record for a discrete compensating=
+ step; CASE-260713-184 is used only as a bounded synthetic governance referen=
+ce.
+
+Countercondition: A documentary trail is not accepted as an operational acces=
+s claim.
+
+Observation: The observation confines its claim to the synthetic AC-27 eviden=
+ce package. The decision path is explicit about what would prevent closure.
+
+Reasoning: the reviewer treats whether the compensating review is recorded as=
+ a distinct event as separate from read the exception record for a discrete c=
+ompensating step. The vodibaba population lens and giadibaba chronology lens =
+test different evidence qualities. The peidibaba ownership lens, bifibaba app=
+roval lens, kufibaba retention lens, and tiafibaba exception lens prevent one=
+ register entry from standing in for another. The fagibaba reconciliation len=
+s, nigibaba boundary lens, zugibaba remediation lens, jougibaba closure lens,=
+ sahibaba sampling lens, and dohibaba handoff lens define how the method is c=
+hallenged. The maehibaba corroboration lens, wouhibaba disposition lens, heji=
+baba residual lens, rojibaba follow-up lens, ciajibaba escalation lens, and l=
+eijibaba assurance lens establish the next decision. This creates a path from=
+ the evidence boundary through the countercondition to a follow-up decision, =
+rather than relying on a generic completion statement.
+
+Disposition: preserve residual Medium while requesting a focused owner acknow=
+ledgement. The result makes no Kio, live-system, or incident claim.
+
+Synthetic source reference: p03-src-004576 / p03-full-004576; no external cit=
+ation or attachment.

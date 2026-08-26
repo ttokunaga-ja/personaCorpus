@@ -1,0 +1,37 @@
+artifact_id: p03-full-008545
+source_record: p03-src-008545
+scope: p03-primary-04
+organization: Cobalt Harbor
+review_date: '2026-07-13'
+risk_reference: RISK-031
+relationship: AC-27 relates to evidence set 184
+dependency_context: no upstream dependency
+evidence_question: How should a conflicting source be handled before the disposition
+  is recorded?
+source_facts: response coordinator retained timeline evidence for this review.
+counterexample: A single approval cannot settle a conflicting record; the discrepancy
+  must remain visible to the reviewer.
+evidence_instrument: process walkthrough note
+review_observation: the owner and custodian were named consistently
+challenge_performed: a review result was compared with a counterexample
+review_profile:
+- the evidence set was collected during the follow-up review
+- the accountable owner confirmed the operating boundary
+- the reviewer sampled a routine operating condition
+- the source fact supported acceptance without qualification
+- the comparison used the prior review conclusion
+- the evidence was retained with the decision record
+- the exception path was considered and recorded
+- the reviewer found no handover impact
+- the decision was suitable for targeted follow-up
+- the source chronology was complete
+- the control claim was independently corroborated
+- the review boundary excluded unavailable material
+- the next assurance trigger is the scheduled review
+- the disposition was communicated to the independent reviewer
+- the retained rationale supports repeat review
+- the record remains a local offline assurance artifact
+decision_rule: Treat the control as effective only when the counterexample has been
+  considered and the exception path is explicit.
+disposition: accepted with a retained review note
+operating_boundary: No Kio capability is used or required for this offline review.

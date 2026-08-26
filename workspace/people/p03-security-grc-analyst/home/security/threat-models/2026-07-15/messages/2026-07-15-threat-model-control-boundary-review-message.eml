@@ -1,0 +1,44 @@
+From: grc-reviewer@cobalt.invalid
+To: soc-duty@cobalt.invalid
+Subject: Control-Boundary Note: 2026 07 15 threat model control boundary
+ review message eml s004669
+Date: Mon, 20 Jul 2026 08:21:00 +0000
+Message-ID: <063.ac27-review@cobalt.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+This synthetic control-boundary note asks whether a packet completeness claim=
+ has supporting review logic for Cobalt Harbor Systems under Aegis Control AC=
+-27 during the review date 2026-07-15. The decision concerns evidence set 184=
+ and RISK-031, never a live environment.
+
+Method: map the checksum reference to its documentary handoff. A second revie=
+w step will inspect the queue state for a bounded owner response; CASE-260713=
+-184 is used only as a bounded synthetic governance reference.
+
+Countercondition: An acknowledgement is not treated as a control approval.
+
+Observation: The observed gap is framed as assurance evidence quality, not in=
+trusion activity. The assessment treats evidence completeness as one conditio=
+n, not the whole conclusion.
+
+Reasoning: the reviewer treats whether a packet completeness claim has suppor=
+ting review logic as separate from inspect the queue state for a bounded owne=
+r response. The gafibaba population lens and pifibaba chronology lens test di=
+fferent evidence qualities. The baefibaba ownership lens, koufibaba approval =
+lens, tagibaba retention lens, and fogibaba exception lens prevent one regist=
+er entry from standing in for another. The naegibaba reconciliation lens, zou=
+gibaba boundary lens, jehibaba remediation lens, sohibaba closure lens, diahi=
+baba sampling lens, and meihibaba handoff lens define how the method is chall=
+enged. The wejibaba corroboration lens, hujibaba disposition lens, riajibaba =
+residual lens, cakibaba follow-up lens, likibaba escalation lens, and vukibab=
+a assurance lens establish the next decision. This creates a path from the ev=
+idence boundary through the countercondition to a follow-up decision, rather =
+than relying on a generic completion statement.
+
+Disposition: schedule a non-operational recheck of the exception rationale. T=
+he result makes no Kio, live-system, or incident claim.
+
+Synthetic source reference: p03-src-004669 / p03-full-004669; no external cit=
+ation or attachment.

@@ -1,0 +1,45 @@
+From: grc-reviewer@cobalt.invalid
+To: soc-duty@cobalt.invalid
+Subject: Review Coordination Message: 2026 07 13 threat model control boundary
+ review message eml s007105
+Date: Mon, 20 Jul 2026 13:05:00 +0000
+Message-ID: <095.ac27-review@cobalt.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+This synthetic review coordination message asks whether a follow-up is linked=
+ to a closure criterion for Cobalt Harbor Systems under Aegis Control AC-27 d=
+uring the review date 2026-07-13. The decision concerns evidence set 184 and =
+RISK-031, never a live environment.
+
+Method: trace a single exception from intake notation to closure rationale. A=
+ second review step will test the review rationale for an explicit non-operat=
+ional limit; CASE-260713-184 is used only as a bounded synthetic governance r=
+eference.
+
+Countercondition: A stored record is not equivalent to a verified disposition.
+
+Observation: The reviewed note separates the population question from the tim=
+ing question. The note keeps the follow-up obligation separate from record re=
+tention.
+
+Reasoning: the reviewer treats whether a follow-up is linked to a closure cri=
+terion as separate from test the review rationale for an explicit non-operati=
+onal limit. The regobaba population lens and cugobaba chronology lens test di=
+fferent evidence qualities. The liagobaba ownership lens, veigobaba approval =
+lens, gihobaba retention lens, and puhobaba exception lens prevent one regist=
+er entry from standing in for another. The bouhobaba reconciliation lens, kaj=
+obaba boundary lens, tijobaba remediation lens, faejobaba closure lens, noujo=
+baba sampling lens, and zakobaba handoff lens define how the method is challe=
+nged. The jokobaba corroboration lens, saekobaba disposition lens, deikobaba =
+residual lens, melobaba follow-up lens, wolobaba escalation lens, and hialoba=
+ba assurance lens establish the next decision. This creates a path from the e=
+vidence boundary through the countercondition to a follow-up decision, rather=
+ than relying on a generic completion statement.
+
+Disposition: set a follow-up question for the stated control owner role. The =
+result makes no Kio, live-system, or incident claim.
+
+Synthetic source reference: p03-src-007105 / p03-full-007105; no external cit=
+ation or attachment.

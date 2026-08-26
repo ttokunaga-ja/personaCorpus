@@ -1,0 +1,29 @@
+{
+  "record": "IR-001571",
+  "source": "p03-src-001571",
+  "organization": "Cobalt Harbor Systems",
+  "case": "CASE-260713-184",
+  "control": "Aegis Control AC-27",
+  "evidence_set": 184,
+  "evidence_item": "EV-184-12",
+  "review_date": "2026-q3",
+  "assessment": {
+    "risk": "RISK-031",
+    "residual_rating": "Medium",
+    "population": 48,
+    "timely": 47,
+    "completed": 48
+  },
+  "disposition": "synthetic evidence retained for 18 months",
+  "synthetic_only": true,
+  "content_spine_references": [
+    {
+      "id": "org.cobalt-harbor",
+      "value": "Cobalt Harbor Systems, a fictional managed logistics and harbor-operations platform"
+    },
+    {
+      "id": "period.2026-q3",
+      "value": "2026-Q3 governance planning period from 2026-07-01 through 2026-09-30"
+    }
+  ]
+}

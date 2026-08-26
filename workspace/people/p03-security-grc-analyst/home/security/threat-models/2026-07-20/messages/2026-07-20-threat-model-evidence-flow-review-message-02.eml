@@ -1,0 +1,46 @@
+From: grc-reviewer@cobalt.invalid
+To: soc-duty@cobalt.invalid
+Subject: Assurance Checkpoint: 2026 07 20 threat model evidence flow review
+ message eml s009926
+Date: Sun, 19 Jul 2026 13:26:00 +0000
+Message-ID: <158.ac27-review@cobalt.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+This synthetic assurance checkpoint asks whether an action owner can reconstr=
+uct the decision boundary for Cobalt Harbor Systems under Aegis Control AC-27=
+ during the review date 2026-07-20. The decision concerns evidence set 184 an=
+d RISK-031, never a live environment.
+
+Method: contrast the population summary with the follow-up register. A second=
+ review step will compare the roster cardinality with the attestation timing =
+column; CASE-260713-184 is used only as a bounded synthetic governance refere=
+nce.
+
+Countercondition: The method does not infer outcomes from an external source =
+or link.
+
+Observation: The reasoning distinguishes a checksum reference from a verifica=
+tion outcome. The work note exposes why a complete packet may still need corr=
+oboration.
+
+Reasoning: the reviewer treats whether an action owner can reconstruct the de=
+cision boundary as separate from compare the roster cardinality with the atte=
+station timing column. The feihaebaba population lens and nejaebaba chronolog=
+y lens test different evidence qualities. The zojaebaba ownership lens, jiaja=
+ebaba approval lens, seijaebaba retention lens, and dikaebaba exception lens =
+prevent one register entry from standing in for another. The mukaebaba reconc=
+iliation lens, wiakaebaba boundary lens, halaebaba remediation lens, rilaebab=
+a closure lens, caelaebaba sampling lens, and loulaebaba handoff lens define =
+how the method is challenged. The vamaebaba corroboration lens, gomaebaba dis=
+position lens, paemaebaba residual lens, beimaebaba follow-up lens, kenaebaba=
+ escalation lens, and tonaebaba assurance lens establish the next decision. T=
+his creates a path from the evidence boundary through the countercondition to=
+ a follow-up decision, rather than relying on a generic completion statement.
+
+Disposition: hold disposition until the closure criterion is explicitly evide=
+nced. The result makes no Kio, live-system, or incident claim.
+
+Synthetic source reference: p03-src-009926 / p03-full-009926; no external cit=
+ation or attachment.

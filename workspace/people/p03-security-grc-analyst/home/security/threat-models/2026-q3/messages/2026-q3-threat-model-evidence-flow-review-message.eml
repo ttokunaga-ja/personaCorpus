@@ -1,0 +1,46 @@
+From: grc-reviewer@cobalt.invalid
+To: soc-duty@cobalt.invalid
+Subject: Control Inquiry: 2026 q3 threat model evidence flow review message
+ eml s006926
+Date: Thu, 16 Jul 2026 09:37:00 +0000
+Message-ID: <091.ac27-review@cobalt.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+This synthetic control inquiry asks whether the review record explains its st=
+opping condition for Cobalt Harbor Systems under Aegis Control AC-27 during t=
+he planning period 2026-q3. The decision concerns evidence set 184 and RISK-0=
+31, never a live environment.
+
+Method: inspect whether the final conclusion cites a reproducible check. A se=
+cond review step will test whether the action record distinguishes a task fro=
+m its evidence; CASE-260713-184 is used only as a bounded synthetic governanc=
+e reference.
+
+Countercondition: A control assertion remains bounded when a handoff lacks co=
+rroboration.
+
+Observation: The documentation preserves a trace from exception to follow-up.=
+ The rationale retains the residual-risk discussion without implying compromi=
+se.
+
+Reasoning: the reviewer treats whether the review record explains its stoppin=
+g condition as separate from test whether the action record distinguishes a t=
+ask from its evidence. The doucobaba population lens and madobaba chronology =
+lens test different evidence qualities. The widobaba ownership lens, haedobab=
+a approval lens, roudobaba retention lens, and cefobaba exception lens preven=
+t one register entry from standing in for another. The lofobaba reconciliatio=
+n lens, vaefobaba boundary lens, geifobaba remediation lens, pegobaba closure=
+ lens, bugobaba sampling lens, and kiagobaba handoff lens define how the meth=
+od is challenged. The teigobaba corroboration lens, fihobaba disposition lens=
+, nuhobaba residual lens, ziahobaba follow-up lens, jajobaba escalation lens,=
+ and sijobaba assurance lens establish the next decision. This creates a path=
+ from the evidence boundary through the countercondition to a follow-up decis=
+ion, rather than relying on a generic completion statement.
+
+Disposition: retain the packet under its synthetic evidence schedule. The res=
+ult makes no Kio, live-system, or incident claim.
+
+Synthetic source reference: p03-src-006926 / p03-full-006926; no external cit=
+ation or attachment.

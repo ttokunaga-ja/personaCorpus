@@ -1,0 +1,6 @@
+2026-07-14T08:30:00Z INFO record=p03-src-002603 file=2026-07-14-threat-model-residual-risk-evidence-log-log-s002603.log control=AC-27 event=evidence_intake status=opened classification=synthetic
+2026-07-14T10:20:00Z INFO record=p03-src-002603 topic=residual-risk observation="compensating-review closure retained RISK-031 at Medium residual rating" risk=RISK-031 exception=EXC-260713-006 status=tracked
+2026-07-14T15:10:00Z INFO record=p03-src-002603 spine=org.cobalt-harbor: Cobalt Harbor Systems is a fictional managed logistics and harbor-operations platform organization.
+2026-07-14T15:10:00Z INFO record=p03-src-002603 spine=evidence.set-184: Evidence set 184 is the bounded July 2026 AC-27 review package with 24 synthetic items.
+2026-07-14T15:10:00Z INFO record=p03-src-002603 spine=date.2026-07-14: Evidence normalization, checksum confirmation, and action-owner acknowledgement date.
+2026-07-14T16:45:00Z INFO record=p03-src-002603 evidence_set=184 verified=24/24 residual_risk=Medium disposition=review_closed

@@ -1,0 +1,30 @@
+From: grc-reviewer@cobalt.invalid
+To: soc-duty@cobalt.invalid
+Subject: [Synthetic GRC] Custody Check Review Message Eml =?utf-8?b?4oCU?= 004642
+Date: Mon, 20 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-004642@cobalt.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+
+Synthetic defensive GRC communication — no Kio claim
+
+Review period: 2026-07-20
+Selected spine context: Cobalt Harbor Systems is the fictional organization for this defensive GRC record. EV-184-07 is the Sentinel Export minimization statement; it reports only synthetic event categories and counts. The case-timeline relationship preserves the bounded review sequence without asserting intrusion or live-system access. Its assigned review date is 2026-07-20. This artifact makes no Kio indexing, history, search-quality, or performance claim. No direct file dependency.
+
+Question
+Which custody observation is sufficient for a case record but does not claim live-system access?
+
+Procedure
+Reviewed the title-derived work item, separated intake status from incident severity, and recorded only a bounded GRC disposition. The review method prioritizes verification, correlation, delineation, governance, constraint, retention, attestation, followup, segregation, declaration. Its evidence lens considers significance, partitioning, exceptionality, handoff, categorization, obligation, threshold, notation, authorization, defensibility. Its disposition lens records confirmation, oversight, limitation, review, resolution, reconciliation, intake, consolidation, witness, containment. Its assurance lens confirms provenance, cataloguing, assurance, planning, traceability, stewardship, knowledge, synthesis, lineage, completeness.
+
+Observation
+The case label supports a governance observation only. It does not establish control effectiveness beyond the stated review action.
+
+Disposition
+Record 004642 is documentation-complete for a bounded governance review. It does not assert a technical incident outcome.
+
+Accountable action
+Evidence custodian: verify that subsequent communications retain the same no-incident and no-live-data boundary.
+
+Safety boundary: synthetic content only; no secrets, personal data, raw telemetry, live links, or operational instructions.

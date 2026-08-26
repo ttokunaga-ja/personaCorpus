@@ -1,0 +1,6 @@
+2026-07-20T08:30:00Z INFO record=p03-src-000126 file=2026-07-20-threat-model-evidence-flow-evidence-log-txt-s000126.txt control=AC-27 event=evidence_intake status=opened classification=synthetic
+2026-07-20T10:20:00Z INFO record=p03-src-000126 topic=evidence-flow observation="evidence-set 184 identifiers and checksum reconciliation were bounded to intake" risk=RISK-031 exception=EXC-260713-006 status=tracked
+2026-07-20T15:10:00Z INFO record=p03-src-000126 spine=org.cobalt-harbor: Cobalt Harbor Systems is a fictional managed logistics and harbor-operations platform organization.
+2026-07-20T15:10:00Z INFO record=p03-src-000126 spine=control.ac-27: Aegis Control AC-27 requires evidence-backed quarterly access review, approval, retention, and exception disposition.
+2026-07-20T15:10:00Z INFO record=p03-src-000126 spine=date.2026-07-20: Seven-day follow-up closure-evidence and residual-risk validation date.
+2026-07-20T16:45:00Z INFO record=p03-src-000126 evidence_set=184 verified=24/24 residual_risk=Medium disposition=review_closed

@@ -1,0 +1,46 @@
+From: grc-reviewer@cobalt.invalid
+To: soc-duty@cobalt.invalid
+Subject: Assurance Checkpoint: 2026 07 15 threat model residual risk review
+ message eml s008799
+Date: Mon, 13 Jul 2026 10:56:00 +0000
+Message-ID: <128.ac27-review@cobalt.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+This synthetic assurance checkpoint asks whether the reviewer can challenge a=
+ conclusion without live access for Cobalt Harbor Systems under Aegis Control=
+ AC-27 during the review date 2026-07-15. The decision concerns evidence set =
+184 and RISK-031, never a live environment.
+
+Method: read the approval sequence before evaluating the completion claim. A =
+second review step will contrast the population summary with the follow-up re=
+gister; CASE-260713-184 is used only as a bounded synthetic governance refere=
+nce.
+
+Countercondition: The evidence chain is not generalized outside the AC-27 bou=
+ndary.
+
+Observation: The decision path is explicit about what would prevent closure. =
+The stated disposition has an observable condition rather than a generic clos=
+ure claim.
+
+Reasoning: the reviewer treats whether the reviewer can challenge a conclusio=
+n without live access as separate from contrast the population summary with t=
+he follow-up register. The meihubaba population lens and wejubaba chronology =
+lens test different evidence qualities. The hujubaba ownership lens, riajubab=
+a approval lens, cakubaba retention lens, and likubaba exception lens prevent=
+ one register entry from standing in for another. The vukubaba reconciliation=
+ lens, goukubaba boundary lens, palubaba remediation lens, bolubaba closure l=
+ens, kaelubaba sampling lens, and toulubaba handoff lens define how the metho=
+d is challenged. The femubaba corroboration lens, nomubaba disposition lens, =
+zaemubaba residual lens, jeimubaba follow-up lens, senubaba escalation lens, =
+and dunubaba assurance lens establish the next decision. This creates a path =
+from the evidence boundary through the countercondition to a follow-up decisi=
+on, rather than relying on a generic completion statement.
+
+Disposition: retain the exception and request a role-separated confirmation. =
+The result makes no Kio, live-system, or incident claim.
+
+Synthetic source reference: p03-src-008799 / p03-full-008799; no external cit=
+ation or attachment.

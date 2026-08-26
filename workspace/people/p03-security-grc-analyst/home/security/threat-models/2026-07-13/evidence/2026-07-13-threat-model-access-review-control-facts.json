@@ -1,0 +1,26 @@
+{
+  "artifact_id": "p03-full-005288",
+  "source_id": "p03-src-005288",
+  "review_date": "2026-07-13",
+  "subject": "access-review",
+  "organization": "Cobalt Harbor Systems",
+  "case_id": "CASE-260713-184",
+  "control_id": "AC-27",
+  "risk_id": "RISK-031",
+  "evidence_set": "184",
+  "population_reviewed": 48,
+  "timely_attestations": 47,
+  "final_completion_rate": "100.0%",
+  "residual_rating": "Medium",
+  "retention_minimum_months": 18,
+  "review_context": "The control owner confirms the quarterly review boundary before disposition.",
+  "control_observation": "The EV-184-19 checksum reconciliation is used as a defensive integrity statement.",
+  "positive_spine_assertions": [
+    "org.cobalt-harbor: Cobalt Harbor Systems (CHS) is a fictional organization operating a managed logistics and harbor-operations platform.",
+    "evidence.set-184: Evidence set 184 has 24 synthetic items: 12 access-review attestations, 6 approval records, 4 checksum manifests, and 2 exception records.",
+    "rel.ac27.evidence-184: Structured, CSV, and log evidence facts precede AC-27 workbooks, review DOCX, searchable PDFs, and security-review decks.",
+    "date.2026-07-13: Primary review date. Evidence intake opens 08:30 UTC; AC-27 review closes at 16:45 UTC.",
+    "term.no-kio-claim: Corpus production and QA establish no Kio indexing, history, chunks, search quality, or performance claim."
+  ],
+  "safety_note": "Synthetic defensive governance evidence; no live operational access or Kio claim."
+}

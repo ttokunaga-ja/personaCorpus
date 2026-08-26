@@ -1,0 +1,45 @@
+From: grc-reviewer@cobalt.invalid
+To: soc-duty@cobalt.invalid
+Subject: Control-Boundary Note: 2026 07 20 threat model control boundary
+ review message eml s003489
+Date: Sat, 18 Jul 2026 16:11:00 +0000
+Message-ID: <053.ac27-review@cobalt.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+This synthetic control-boundary note asks whether the evidence chain identifi=
+es its handoff point for Cobalt Harbor Systems under Aegis Control AC-27 duri=
+ng the review date 2026-07-20. The decision concerns evidence set 184 and RIS=
+K-031, never a live environment.
+
+Method: examine how the control owner acknowledges the retained risk. A secon=
+d review step will examine how the control owner acknowledges the retained ri=
+sk; CASE-260713-184 is used only as a bounded synthetic governance reference.
+
+Countercondition: A narrative remedy is rejected when its countercondition is=
+ omitted.
+
+Observation: The stated disposition has an observable condition rather than a=
+ generic closure claim. The evidence treatment records the compensating step =
+without rewriting chronology.
+
+Reasoning: the reviewer treats whether the evidence chain identifies its hand=
+off point as separate from examine how the control owner acknowledges the ret=
+ained risk. The javebaba population lens and sivebaba chronology lens test di=
+fferent evidence qualities. The daevebaba ownership lens, mouvebaba approval =
+lens, wawebaba retention lens, and howebaba exception lens prevent one regist=
+er entry from standing in for another. The raewebaba reconciliation lens, cei=
+webaba boundary lens, lezebaba remediation lens, vozebaba closure lens, giaze=
+baba sampling lens, and peizebaba handoff lens define how the method is chall=
+enged. The bibibaba corroboration lens, kubibaba disposition lens, tiabibaba =
+residual lens, facibaba follow-up lens, nicibaba escalation lens, and zucibab=
+a assurance lens establish the next decision. This creates a path from the ev=
+idence boundary through the countercondition to a follow-up decision, rather =
+than relying on a generic completion statement.
+
+Disposition: record the remedy as treatment rather than historical replacemen=
+t. The result makes no Kio, live-system, or incident claim.
+
+Synthetic source reference: p03-src-003489 / p03-full-003489; no external cit=
+ation or attachment.

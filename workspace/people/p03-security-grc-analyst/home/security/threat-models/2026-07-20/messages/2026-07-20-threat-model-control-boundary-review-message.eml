@@ -1,0 +1,45 @@
+From: grc-reviewer@cobalt.invalid
+To: soc-duty@cobalt.invalid
+Subject: Review Memorandum: 2026 07 20 threat model control boundary review
+ message eml s000513
+Date: Thu, 16 Jul 2026 08:09:00 +0000
+Message-ID: <027.ac27-review@cobalt.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+This synthetic review memorandum asks whether the packet boundary excludes un=
+related control evidence for Cobalt Harbor Systems under Aegis Control AC-27 =
+during the review date 2026-07-20. The decision concerns evidence set 184 and=
+ RISK-031, never a live environment.
+
+Method: sample the closure threshold against the stated countercondition. A s=
+econd review step will trace the decision note through the role-separated rev=
+iew; CASE-260713-184 is used only as a bounded synthetic governance reference.
+
+Countercondition: A compensating review cannot replace the original exception=
+ history.
+
+Observation: The control record remains usable without contactable people or =
+systems. The record identifies a decision boundary that another reviewer can =
+challenge.
+
+Reasoning: the reviewer treats whether the packet boundary excludes unrelated=
+ control evidence as separate from trace the decision note through the role-s=
+eparated review. The guzababa population lens and piazababa chronology lens t=
+est different evidence qualities. The babebaba ownership lens, kibebaba appro=
+val lens, tubebaba retention lens, and foubebaba exception lens prevent one r=
+egister entry from standing in for another. The nacebaba reconciliation lens,=
+ zicebaba boundary lens, jaecebaba remediation lens, soucebaba closure lens, =
+dedebaba sampling lens, and modebaba handoff lens define how the method is ch=
+allenged. The waedebaba corroboration lens, heidebaba disposition lens, refeb=
+aba residual lens, cufebaba follow-up lens, liafebaba escalation lens, and ve=
+ifebaba assurance lens establish the next decision. This creates a path from =
+the evidence boundary through the countercondition to a follow-up decision, r=
+ather than relying on a generic completion statement.
+
+Disposition: return the item for a countercondition clarification. The result=
+ makes no Kio, live-system, or incident claim.
+
+Synthetic source reference: p03-src-000513 / p03-full-000513; no external cit=
+ation or attachment.

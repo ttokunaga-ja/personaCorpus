@@ -1,0 +1,2 @@
+record_id	source_id	review_date	organization	case	control	evidence_set	risk	reviewed_roles	timely_attestations	final_completion	residual_risk	disposition	content_spine_references
+IR-001955	p03-src-001955	2026-q3	Cobalt Harbor Systems	CASE-260713-184	Aegis Control AC-27	184	RISK-031	48	47	48	Medium	synthetic evidence retained for 18 months	org.cobalt-harbor = Cobalt Harbor Systems, a fictional managed logistics and harbor-operations platform; period.2026-q3 = 2026-Q3 governance planning period from 2026-07-01 through 2026-09-30

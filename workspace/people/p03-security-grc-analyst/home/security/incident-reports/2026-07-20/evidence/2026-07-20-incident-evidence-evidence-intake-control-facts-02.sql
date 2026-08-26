@@ -1,0 +1,20 @@
+-- Offline, static assurance review record.
+SELECT
+  'p03-full-002616' AS artifact_id,
+  'p03-src-002616' AS source_record,
+  'p03-primary-04' AS scope,
+  'Cobalt Harbor' AS organization,
+  '2026-07-20' AS review_date,
+  'RISK-031' AS risk_reference,
+  'AC-27 relates to evidence set 184' AS relationship,
+  'no upstream dependency' AS dependency_context,
+  'How should a conflicting source be handled before the disposition is recorded?' AS evidence_question,
+  'risk owner retained decision record for this review.' AS source_facts,
+  'A file name is not a substitute for the source facts that support the conclusion.' AS counterexample,
+  'retention schedule extract' AS evidence_instrument,
+  'the accountable role was preserved through handover' AS review_observation,
+  'an ambiguous dependency was clarified before disposition' AS challenge_performed,
+  '["the evidence set was collected before the approval meeting", "the accountable owner confirmed the operating boundary", "the reviewer sampled a routine operating condition", "the source fact supported acceptance with a documented caveat", "the comparison used the current control objective", "the evidence was retained with the decision record", "the exception path was not invoked", "the reviewer found no handover impact", "the decision was suitable for routine monitoring", "the source chronology contained a reconciled late entry", "the control claim was independently corroborated", "the review boundary identified unavailable material as a limitation", "the next assurance trigger is the scheduled review", "the disposition was communicated to the owner", "the retained rationale supports repeat review", "the record remains a local offline assurance artifact"]' AS review_profile,
+  'Reject unsupported claims and retain a concise explanation of the missing fact for the next review cycle.' AS decision_rule,
+  'accepted with a retained review note' AS disposition,
+  'No Kio capability is used or required for this offline review.' AS operating_boundary;

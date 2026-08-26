@@ -1,0 +1,44 @@
+From: grc-reviewer@cobalt.invalid
+To: soc-duty@cobalt.invalid
+Subject: Assurance Checkpoint: 2026 07 20 threat model residual risk review
+ message eml s006427
+Date: Sun, 19 Jul 2026 14:06:00 +0000
+Message-ID: <078.ac27-review@cobalt.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+This synthetic assurance checkpoint asks whether the privileged-role denomina=
+tor is preserved for Cobalt Harbor Systems under Aegis Control AC-27 during t=
+he review date 2026-07-20. The decision concerns evidence set 184 and RISK-03=
+1, never a live environment.
+
+Method: evaluate the handoff wording for a clear governance boundary. A secon=
+d review step will reconcile the evidence count with the stated disposition; =
+CASE-260713-184 is used only as a bounded synthetic governance reference.
+
+Countercondition: The synthetic case label is not evidence of a security inci=
+dent.
+
+Observation: The register language gives the next reviewer a concrete documen=
+tary test. The documentation preserves a trace from exception to follow-up.
+
+Reasoning: the reviewer treats whether the privileged-role denominator is pre=
+served as separate from reconcile the evidence count with the stated disposit=
+ion. The caribaba population lens and liribaba chronology lens test different=
+ evidence qualities. The vuribaba ownership lens, gouribaba approval lens, pa=
+sibaba retention lens, and bosibaba exception lens prevent one register entry=
+ from standing in for another. The kaesibaba reconciliation lens, tousibaba b=
+oundary lens, fetibaba remediation lens, notibaba closure lens, zaetibaba sam=
+pling lens, and jeitibaba handoff lens define how the method is challenged. T=
+he sevibaba corroboration lens, duvibaba disposition lens, miavibaba residual=
+ lens, weivibaba follow-up lens, hiwibaba escalation lens, and ruwibaba assur=
+ance lens establish the next decision. This creates a path from the evidence =
+boundary through the countercondition to a follow-up decision, rather than re=
+lying on a generic completion statement.
+
+Disposition: record a conditional conclusion pending a timing reconciliation.=
+ The result makes no Kio, live-system, or incident claim.
+
+Synthetic source reference: p03-src-006427 / p03-full-006427; no external cit=
+ation or attachment.

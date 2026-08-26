@@ -1,0 +1,43 @@
+{
+  "record_id": "p03-src-000488",
+  "artifact_id": "p03-full-000488",
+  "organization": "Cobalt Harbor Systems",
+  "program": "Aegis Assurance",
+  "control": "AC-27",
+  "case_id": "CASE-260713-184",
+  "evidence_set": 184,
+  "risk_id": "RISK-031",
+  "review_date": "2026-07-13",
+  "topic": "access-review",
+  "artifact_filename": "2026-q3-threat-model-access-review-control-facts-json-s000488.json",
+  "sequence": "000488",
+  "observation": "reviewer completion reconciled against the 48-record synthetic population",
+  "spine_references": [
+    {
+      "spine_id": "org.cobalt-harbor",
+      "canonical_value": "Cobalt Harbor Systems is a fictional managed logistics and harbor-operations platform organization."
+    },
+    {
+      "spine_id": "evidence.set-184",
+      "canonical_value": "Evidence set 184 is the bounded July 2026 AC-27 review package with 24 synthetic items."
+    },
+    {
+      "spine_id": "period.2026-q3",
+      "canonical_value": "Governance planning period from 2026-07-01 through 2026-09-30."
+    }
+  ],
+  "evidence": {
+    "required_items": 24,
+    "verified_items": 24,
+    "privileged_role_records": 48,
+    "timely_attestations": 47,
+    "final_attestations": 48
+  },
+  "exception": {
+    "id": "EXC-260713-006",
+    "status": "closed",
+    "closure_date": "2026-07-14",
+    "residual_risk": "Medium"
+  },
+  "safety": "Synthetic defensive governance evidence; no live targets, credentials, or incident data."
+}

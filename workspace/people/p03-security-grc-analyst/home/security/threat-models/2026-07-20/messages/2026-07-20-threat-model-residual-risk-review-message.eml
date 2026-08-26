@@ -1,0 +1,45 @@
+From: grc-reviewer@cobalt.invalid
+To: soc-duty@cobalt.invalid
+Subject: Review Coordination Message: 2026 07 20 threat model residual risk
+ review message eml s001427
+Date: Thu, 16 Jul 2026 16:05:00 +0000
+Message-ID: <035.ac27-review@cobalt.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+This synthetic review coordination message asks whether the scope note limits=
+ the assertion to AC-27 for Cobalt Harbor Systems under Aegis Control AC-27 d=
+uring the review date 2026-07-20. The decision concerns evidence set 184 and =
+RISK-031, never a live environment.
+
+Method: trace the decision note through the role-separated review. A second r=
+eview step will check the retention marker before considering a disposition; =
+CASE-260713-184 is used only as a bounded synthetic governance reference.
+
+Countercondition: The review does not convert a risk treatment into incident =
+severity.
+
+Observation: The record identifies a decision boundary that another reviewer =
+can challenge. The narrative keeps role ownership distinct from the evidence =
+count.
+
+Reasoning: the reviewer treats whether the scope note limits the assertion to=
+ AC-27 as separate from check the retention marker before considering a dispo=
+sition. The jigebaba population lens and sugebaba chronology lens test differ=
+ent evidence qualities. The dougebaba ownership lens, mahebaba approval lens,=
+ wihebaba retention lens, and haehebaba exception lens prevent one register e=
+ntry from standing in for another. The rouhebaba reconciliation lens, cejebab=
+a boundary lens, lojebaba remediation lens, vaejebaba closure lens, geijebaba=
+ sampling lens, and pekebaba handoff lens define how the method is challenged=
+. The bukebaba corroboration lens, kiakebaba disposition lens, teikebaba resi=
+dual lens, filebaba follow-up lens, nulebaba escalation lens, and zialebaba a=
+ssurance lens establish the next decision. This creates a path from the evide=
+nce boundary through the countercondition to a follow-up decision, rather tha=
+n relying on a generic completion statement.
+
+Disposition: queue a completeness retest limited to the declared evidence set=
+. The result makes no Kio, live-system, or incident claim.
+
+Synthetic source reference: p03-src-001427 / p03-full-001427; no external cit=
+ation or attachment.

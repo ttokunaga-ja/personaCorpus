@@ -1,0 +1,45 @@
+From: grc-reviewer@cobalt.invalid
+To: soc-duty@cobalt.invalid
+Subject: Evidence Handling Update: 2026 07 14 threat model access review
+ review message eml s009076
+Date: Mon, 13 Jul 2026 09:52:00 +0000
+Message-ID: <136.ac27-review@cobalt.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+This synthetic evidence handling update asks whether the control conclusion h=
+as a stated countercondition for Cobalt Harbor Systems under Aegis Control AC=
+-27 during the review date 2026-07-14. The decision concerns evidence set 184=
+ and RISK-031, never a live environment.
+
+Method: inspect the queue state for a bounded owner response. A second review=
+ step will inspect whether the final conclusion cites a reproducible check; C=
+ASE-260713-184 is used only as a bounded synthetic governance reference.
+
+Countercondition: The action owner statement is insufficient when the closure=
+ threshold is unstated.
+
+Observation: The work note exposes why a complete packet may still need corro=
+boration. The method preserves the difference between a review event and a co=
+ntrol conclusion.
+
+Reasoning: the reviewer treats whether the control conclusion has a stated co=
+untercondition as separate from inspect whether the final conclusion cites a =
+reproducible check. The pianubaba population lens and bapubaba chronology len=
+s test different evidence qualities. The kipubaba ownership lens, tupubaba ap=
+proval lens, foupubaba retention lens, and narubaba exception lens prevent on=
+e register entry from standing in for another. The zirubaba reconciliation le=
+ns, jaerubaba boundary lens, sourubaba remediation lens, desubaba closure len=
+s, mosubaba sampling lens, and waesubaba handoff lens define how the method i=
+s challenged. The heisubaba corroboration lens, retubaba disposition lens, cu=
+tubaba residual lens, liatubaba follow-up lens, veitubaba escalation lens, an=
+d givubaba assurance lens establish the next decision. This creates a path fr=
+om the evidence boundary through the countercondition to a follow-up decision=
+, rather than relying on a generic completion statement.
+
+Disposition: record a defensive governance outcome with stated exclusions. Th=
+e result makes no Kio, live-system, or incident claim.
+
+Synthetic source reference: p03-src-009076 / p03-full-009076; no external cit=
+ation or attachment.

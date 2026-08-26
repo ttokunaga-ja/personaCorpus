@@ -1,0 +1,30 @@
+From: grc-reviewer@cobalt.invalid
+To: soc-duty@cobalt.invalid
+Subject: [Synthetic GRC] Custody Check Review Message Eml =?utf-8?b?4oCU?= 005142
+Date: Mon, 20 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-005142@cobalt.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+
+Synthetic defensive GRC communication — no Kio claim
+
+Review period: 2026-q3
+Selected spine context: Cobalt Harbor Systems is the fictional organization for this defensive GRC record. CASE-260713-184 is the synthetic evidence-intake case for evidence set 184, not a real incident. The case-timeline relationship preserves the bounded review sequence without asserting intrusion or live-system access. Its assigned governance period is 2026-Q3 (2026-07-01 through 2026-09-30). This artifact makes no Kio indexing, history, search-quality, or performance claim. No direct file dependency.
+
+Question
+Which accountable action records an evidence handoff without changing the source record?
+
+Procedure
+Checked the artifact against CASE-260713-184 terminology, then stated the evidence boundary before assigning a follow-up owner. The review method prioritizes taxonomy, triage, alignment, evaluation, sequence, qualification, sequencing, governance, rationale, context. Its evidence lens considers retention, assurance, completeness, relevance, collection, observation, interpretation, granularity, comparison, handoff. Its disposition lens records indexing, validation, consistency, closure, separation, disposition, confirmation, annotation, verification, defensibility. Its assurance lens confirms traceability, authorization, oversight, synthesis, reconciliation, segregation, acknowledgement, sensitivity, documentation, notation.
+
+Observation
+The report purpose is defensive documentation. It intentionally omits exploit mechanics, remediation commands, and live links.
+
+Disposition
+Record 005142 is documentation-complete for a bounded governance review. It does not assert a technical incident outcome.
+
+Accountable action
+Case recorder: link the narrative conceptually to CASE-260713-184 while keeping no external or local file reference.
+
+Safety boundary: synthetic content only; no secrets, personal data, raw telemetry, live links, or operational instructions.

@@ -1,0 +1,45 @@
+From: grc-reviewer@cobalt.invalid
+To: soc-duty@cobalt.invalid
+Subject: Assurance Notice: 2026 07 20 threat model control boundary review
+ message eml s004329
+Date: Fri, 17 Jul 2026 14:00:00 +0000
+Message-ID: <060.ac27-review@cobalt.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+This synthetic assurance notice asks whether preparer and reviewer decisions =
+are separated for Cobalt Harbor Systems under Aegis Control AC-27 during the =
+review date 2026-07-20. The decision concerns evidence set 184 and RISK-031, =
+never a live environment.
+
+Method: check the retention marker before considering a disposition. A second=
+ review step will trace a single exception from intake notation to closure ra=
+tionale; CASE-260713-184 is used only as a bounded synthetic governance refer=
+ence.
+
+Countercondition: The follow-up is limited to the stated governance question.
+
+Observation: The proposed review avoids introducing any new source or depende=
+ncy. The register language gives the next reviewer a concrete documentary tes=
+t.
+
+Reasoning: the reviewer treats whether preparer and reviewer decisions are se=
+parated as separate from trace a single exception from intake notation to clo=
+sure rationale. The cicibaba population lens and lucibaba chronology lens tes=
+t different evidence qualities. The viacibaba ownership lens, gadibaba approv=
+al lens, pidibaba retention lens, and baedibaba exception lens prevent one re=
+gister entry from standing in for another. The koudibaba reconciliation lens,=
+ tafibaba boundary lens, fofibaba remediation lens, naefibaba closure lens, z=
+oufibaba sampling lens, and jegibaba handoff lens define how the method is ch=
+allenged. The sogibaba corroboration lens, diagibaba disposition lens, meigib=
+aba residual lens, wehibaba follow-up lens, huhibaba escalation lens, and ria=
+hibaba assurance lens establish the next decision. This creates a path from t=
+he evidence boundary through the countercondition to a follow-up decision, ra=
+ther than relying on a generic completion statement.
+
+Disposition: ask for a bounded closure note without new source data. The resu=
+lt makes no Kio, live-system, or incident claim.
+
+Synthetic source reference: p03-src-004329 / p03-full-004329; no external cit=
+ation or attachment.

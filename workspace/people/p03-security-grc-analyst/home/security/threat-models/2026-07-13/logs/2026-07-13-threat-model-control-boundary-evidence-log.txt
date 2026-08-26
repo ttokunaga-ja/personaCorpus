@@ -1,0 +1,6 @@
+2026-07-13T08:30:00Z INFO record=p03-src-000041 file=2026-07-13-threat-model-control-boundary-evidence-log-txt-s000041.txt control=AC-27 event=evidence_intake status=opened classification=synthetic
+2026-07-13T10:20:00Z INFO record=p03-src-000041 topic=control-boundary observation="AC-27 role separation and retention boundary were documented without operational access" risk=RISK-031 exception=EXC-260713-006 status=tracked
+2026-07-13T15:10:00Z INFO record=p03-src-000041 spine=org.cobalt-harbor: Cobalt Harbor Systems is a fictional managed logistics and harbor-operations platform organization.
+2026-07-13T15:10:00Z INFO record=p03-src-000041 spine=evidence.set-184: Evidence set 184 is the bounded July 2026 AC-27 review package with 24 synthetic items.
+2026-07-13T15:10:00Z INFO record=p03-src-000041 spine=date.2026-07-13: Primary review date; evidence intake opens 08:30 UTC and AC-27 review closes 16:45 UTC.
+2026-07-13T16:45:00Z INFO record=p03-src-000041 evidence_set=184 verified=24/24 residual_risk=Medium disposition=review_closed

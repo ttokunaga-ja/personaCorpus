@@ -1,0 +1,47 @@
+From: grc-reviewer@cobalt.invalid
+To: soc-duty@cobalt.invalid
+Subject: Exception Disposition: 2026 07 20 threat model access review review
+ message eml s009576
+Date: Sat, 18 Jul 2026 13:23:00 +0000
+Message-ID: <149.ac27-review@cobalt.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+This synthetic exception disposition asks whether the control narrative avoid=
+s expanding the reviewed population for Cobalt Harbor Systems under Aegis Con=
+trol AC-27 during the review date 2026-07-20. The decision concerns evidence =
+set 184 and RISK-031, never a live environment.
+
+Method: compare the remedy statement with the residual-rating explanation. A =
+second review step will reconcile the stated review period with the supportin=
+g work note; CASE-260713-184 is used only as a bounded synthetic governance r=
+eference.
+
+Countercondition: A later follow-up cannot be represented as proof of an earl=
+ier attestation.
+
+Observation: The review statement names the boundary between intake and assur=
+ance assessment. The reviewed note separates the population question from the=
+ timing question.
+
+Reasoning: the reviewer treats whether the control narrative avoids expanding=
+ the reviewed population as separate from reconcile the stated review period =
+with the supporting work note. The rubaebaba population lens and coubaebaba c=
+hronology lens test different evidence qualities. The lacaebaba ownership len=
+s, vicaebaba approval lens, gaecaebaba retention lens, and poucaebaba excepti=
+on lens prevent one register entry from standing in for another. The bedaebab=
+a reconciliation lens, kodaebaba boundary lens, taedaebaba remediation lens, =
+feidaebaba closure lens, nefaebaba sampling lens, and zofaebaba handoff lens =
+define how the method is challenged. The jiafaebaba corroboration lens, seifa=
+ebaba disposition lens, digaebaba residual lens, mugaebaba follow-up lens, wi=
+agaebaba escalation lens, and hahaebaba assurance lens establish the next dec=
+ision. This creates a path from the evidence boundary through the countercond=
+ition to a follow-up decision, rather than relying on a generic completion st=
+atement.
+
+Disposition: defer the approval assertion until role separation is visible. T=
+he result makes no Kio, live-system, or incident claim.
+
+Synthetic source reference: p03-src-009576 / p03-full-009576; no external cit=
+ation or attachment.

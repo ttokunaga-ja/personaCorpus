@@ -1,0 +1,45 @@
+From: grc-reviewer@cobalt.invalid
+To: soc-duty@cobalt.invalid
+Subject: Control-Boundary Note: 2026 07 20 threat model residual risk review
+ message eml s009299
+Date: Mon, 20 Jul 2026 16:41:00 +0000
+Message-ID: <143.ac27-review@cobalt.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+This synthetic control-boundary note asks whether the completion register nam=
+es an accountable role for Cobalt Harbor Systems under Aegis Control AC-27 du=
+ring the review date 2026-07-20. The decision concerns evidence set 184 and R=
+ISK-031, never a live environment.
+
+Method: test whether the action record distinguishes a task from its evidence=
+. A second review step will challenge the completeness assertion using only t=
+he synthetic packet; CASE-260713-184 is used only as a bounded synthetic gove=
+rnance reference.
+
+Countercondition: The review population is not recast as a workforce or custo=
+mer figure.
+
+Observation: The narrative keeps role ownership distinct from the evidence co=
+unt. The proposed review avoids introducing any new source or dependency.
+
+Reasoning: the reviewer treats whether the completion register names an accou=
+ntable role as separate from challenge the completeness assertion using only =
+the synthetic packet. The jeitubaba population lens and sevubaba chronology l=
+ens test different evidence qualities. The duvubaba ownership lens, miavubaba=
+ approval lens, weivubaba retention lens, and hiwubaba exception lens prevent=
+ one register entry from standing in for another. The ruwubaba reconciliation=
+ lens, couwubaba boundary lens, lazubaba remediation lens, vizubaba closure l=
+ens, gaezubaba sampling lens, and pouzubaba handoff lens define how the metho=
+d is challenged. The bebaebaba corroboration lens, kobaebaba disposition lens=
+, taebaebaba residual lens, feibaebaba follow-up lens, necaebaba escalation l=
+ens, and zocaebaba assurance lens establish the next decision. This creates a=
+ path from the evidence boundary through the countercondition to a follow-up =
+decision, rather than relying on a generic completion statement.
+
+Disposition: route the item to the evidence-index owner for a bounded correct=
+ion. The result makes no Kio, live-system, or incident claim.
+
+Synthetic source reference: p03-src-009299 / p03-full-009299; no external cit=
+ation or attachment.

@@ -1,0 +1,13 @@
+/** Synthetic defensive AC-27 shape for 2026-07-13-threat-model-residual-risk-validation-tool-ts-s004799.ts on 2026-07-13; no live integration. */
+export const recordId = "p03-src-004799";
+export const artifactFilename = "2026-07-13-threat-model-residual-risk-validation-tool-ts-s004799.ts";
+export const reviewDate = "2026-07-13";
+export const observation = "compensating-review closure retained RISK-031 at Medium residual rating";
+export type EvidenceSummary = { requiredItems: number; verifiedItems: number; finalAttestations: number };
+export function isComplete(summary: EvidenceSummary): boolean {
+  return summary.requiredItems === 24 && summary.verifiedItems === 24 && summary.finalAttestations === 48;
+}
+
+// Spine reference org.cobalt-harbor: Cobalt Harbor Systems is a fictional managed logistics and harbor-operations platform organization.
+// Spine reference evidence.set-184: Evidence set 184 is the bounded July 2026 AC-27 review package with 24 synthetic items.
+// Spine reference date.2026-07-13: Primary review date; evidence intake opens 08:30 UTC and AC-27 review closes 16:45 UTC.

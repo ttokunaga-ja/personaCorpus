@@ -1,0 +1,46 @@
+From: grc-reviewer@cobalt.invalid
+To: soc-duty@cobalt.invalid
+Subject: Control Inquiry: 2026 07 13 threat model access review review message
+ eml s005988
+Date: Mon, 20 Jul 2026 16:17:00 +0000
+Message-ID: <071.ac27-review@cobalt.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+This synthetic control inquiry asks whether retention language is attached be=
+fore disposition for Cobalt Harbor Systems under Aegis Control AC-27 during t=
+he review date 2026-07-13. The decision concerns evidence set 184 and RISK-03=
+1, never a live environment.
+
+Method: compare the control claim with the explicitly excluded material. A se=
+cond review step will reconcile the evidence index with the reviewer's dispos=
+ition notes; CASE-260713-184 is used only as a bounded synthetic governance r=
+eference.
+
+Countercondition: The review excludes live systems, real identities, and unre=
+lated evidence sets.
+
+Observation: The rationale retains the residual-risk discussion without imply=
+ing compromise. The review method can be repeated using only the declared syn=
+thetic materials.
+
+Reasoning: the reviewer treats whether retention language is attached before =
+disposition as separate from reconcile the evidence index with the reviewer's=
+ disposition notes. The joukibaba population lens and salibaba chronology len=
+s test different evidence qualities. The dolibaba ownership lens, maelibaba a=
+pproval lens, woulibaba retention lens, and hemibaba exception lens prevent o=
+ne register entry from standing in for another. The romibaba reconciliation l=
+ens, ciamibaba boundary lens, leimibaba remediation lens, venibaba closure le=
+ns, gunibaba sampling lens, and pianibaba handoff lens define how the method =
+is challenged. The bapibaba corroboration lens, kipibaba disposition lens, tu=
+pibaba residual lens, foupibaba follow-up lens, naribaba escalation lens, and=
+ ziribaba assurance lens establish the next decision. This creates a path fro=
+m the evidence boundary through the countercondition to a follow-up decision,=
+ rather than relying on a generic completion statement.
+
+Disposition: keep the evidence chain open for a documented handoff check. The=
+ result makes no Kio, live-system, or incident claim.
+
+Synthetic source reference: p03-src-005988 / p03-full-005988; no external cit=
+ation or attachment.

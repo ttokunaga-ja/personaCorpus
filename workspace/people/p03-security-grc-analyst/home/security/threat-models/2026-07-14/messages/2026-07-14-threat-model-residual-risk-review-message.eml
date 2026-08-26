@@ -1,0 +1,46 @@
+From: grc-reviewer@cobalt.invalid
+To: soc-duty@cobalt.invalid
+Subject: Assurance Notice: 2026 07 14 threat model residual risk review
+ message eml s006487
+Date: Mon, 13 Jul 2026 16:20:00 +0000
+Message-ID: <080.ac27-review@cobalt.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+This synthetic assurance notice asks whether the control narrative avoids exp=
+anding the reviewed population for Cobalt Harbor Systems under Aegis Control =
+AC-27 during the review date 2026-07-14. The decision concerns evidence set 1=
+84 and RISK-031, never a live environment.
+
+Method: compare the remedy statement with the residual-rating explanation. A =
+second review step will reconcile the stated review period with the supportin=
+g work note; CASE-260713-184 is used only as a bounded synthetic governance r=
+eference.
+
+Countercondition: A later follow-up cannot be represented as proof of an earl=
+ier attestation.
+
+Observation: The review statement names the boundary between intake and assur=
+ance assessment. The reviewed note separates the population question from the=
+ timing question.
+
+Reasoning: the reviewer treats whether the control narrative avoids expanding=
+ the reviewed population as separate from reconcile the stated review period =
+with the supporting work note. The vesibaba population lens and gusibaba chro=
+nology lens test different evidence qualities. The piasibaba ownership lens, =
+batibaba approval lens, kitibaba retention lens, and tutibaba exception lens =
+prevent one register entry from standing in for another. The foutibaba reconc=
+iliation lens, navibaba boundary lens, zivibaba remediation lens, jaevibaba c=
+losure lens, souvibaba sampling lens, and dewibaba handoff lens define how th=
+e method is challenged. The mowibaba corroboration lens, waewibaba dispositio=
+n lens, heiwibaba residual lens, rezibaba follow-up lens, cuzibaba escalation=
+ lens, and liazibaba assurance lens establish the next decision. This creates=
+ a path from the evidence boundary through the countercondition to a follow-u=
+p decision, rather than relying on a generic completion statement.
+
+Disposition: defer the approval assertion until role separation is visible. T=
+he result makes no Kio, live-system, or incident claim.
+
+Synthetic source reference: p03-src-006487 / p03-full-006487; no external cit=
+ation or attachment.

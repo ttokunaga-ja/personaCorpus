@@ -1,0 +1,46 @@
+From: grc-reviewer@cobalt.invalid
+To: soc-duty@cobalt.invalid
+Subject: Exception Disposition: 2026 q3 threat model residual risk review
+ message eml s004299
+Date: Thu, 16 Jul 2026 13:53:00 +0000
+Message-ID: <059.ac27-review@cobalt.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+This synthetic exception disposition asks whether the reviewer can challenge =
+a conclusion without live access for Cobalt Harbor Systems under Aegis Contro=
+l AC-27 during the planning period 2026-q3. The decision concerns evidence se=
+t 184 and RISK-031, never a live environment.
+
+Method: read the approval sequence before evaluating the completion claim. A =
+second review step will contrast the population summary with the follow-up re=
+gister; CASE-260713-184 is used only as a bounded synthetic governance refere=
+nce.
+
+Countercondition: The evidence chain is not generalized outside the AC-27 bou=
+ndary.
+
+Observation: The decision path is explicit about what would prevent closure. =
+The stated disposition has an observable condition rather than a generic clos=
+ure claim.
+
+Reasoning: the reviewer treats whether the reviewer can challenge a conclusio=
+n without live access as separate from contrast the population summary with t=
+he follow-up register. The raebibaba population lens and ceibibaba chronology=
+ lens test different evidence qualities. The lecibaba ownership lens, vocibab=
+a approval lens, giacibaba retention lens, and peicibaba exception lens preve=
+nt one register entry from standing in for another. The bidibaba reconciliati=
+on lens, kudibaba boundary lens, tiadibaba remediation lens, fafibaba closure=
+ lens, nifibaba sampling lens, and zufibaba handoff lens define how the metho=
+d is challenged. The joufibaba corroboration lens, sagibaba disposition lens,=
+ dogibaba residual lens, maegibaba follow-up lens, wougibaba escalation lens,=
+ and hehibaba assurance lens establish the next decision. This creates a path=
+ from the evidence boundary through the countercondition to a follow-up decis=
+ion, rather than relying on a generic completion statement.
+
+Disposition: retain the exception and request a role-separated confirmation. =
+The result makes no Kio, live-system, or incident claim.
+
+Synthetic source reference: p03-src-004299 / p03-full-004299; no external cit=
+ation or attachment.

@@ -1,0 +1,45 @@
+From: grc-reviewer@cobalt.invalid
+To: soc-duty@cobalt.invalid
+Subject: Decision Brief: 2026 07 13 threat model control boundary review
+ message eml s009701
+Date: Wed, 15 Jul 2026 09:58:00 +0000
+Message-ID: <154.ac27-review@cobalt.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+This synthetic decision brief asks whether the compensating review is recorde=
+d as a distinct event for Cobalt Harbor Systems under Aegis Control AC-27 dur=
+ing the review date 2026-07-13. The decision concerns evidence set 184 and RI=
+SK-031, never a live environment.
+
+Method: compare the roster cardinality with the attestation timing column. A =
+second review step will read the exception record for a discrete compensating=
+ step; CASE-260713-184 is used only as a bounded synthetic governance referen=
+ce.
+
+Countercondition: A documentary trail is not accepted as an operational acces=
+s claim.
+
+Observation: The observation confines its claim to the synthetic AC-27 eviden=
+ce package. The decision path is explicit about what would prevent closure.
+
+Reasoning: the reviewer treats whether the compensating review is recorded as=
+ a distinct event as separate from read the exception record for a discrete c=
+ompensating step. The pufaebaba population lens and boufaebaba chronology len=
+s test different evidence qualities. The kagaebaba ownership lens, tigaebaba =
+approval lens, faegaebaba retention lens, and nougaebaba exception lens preve=
+nt one register entry from standing in for another. The zahaebaba reconciliat=
+ion lens, johaebaba boundary lens, saehaebaba remediation lens, deihaebaba cl=
+osure lens, mejaebaba sampling lens, and wojaebaba handoff lens define how th=
+e method is challenged. The hiajaebaba corroboration lens, reijaebaba disposi=
+tion lens, cikaebaba residual lens, lukaebaba follow-up lens, viakaebaba esca=
+lation lens, and galaebaba assurance lens establish the next decision. This c=
+reates a path from the evidence boundary through the countercondition to a fo=
+llow-up decision, rather than relying on a generic completion statement.
+
+Disposition: preserve residual Medium while requesting a focused owner acknow=
+ledgement. The result makes no Kio, live-system, or incident claim.
+
+Synthetic source reference: p03-src-009701 / p03-full-009701; no external cit=
+ation or attachment.

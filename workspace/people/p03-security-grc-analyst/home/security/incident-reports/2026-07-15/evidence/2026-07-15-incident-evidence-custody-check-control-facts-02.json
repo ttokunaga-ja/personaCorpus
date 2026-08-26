@@ -1,0 +1,33 @@
+{
+  "record": "IR-004006",
+  "source": "p03-src-004006",
+  "organization": "Cobalt Harbor Systems",
+  "case": "CASE-260713-184",
+  "control": "Aegis Control AC-27",
+  "evidence_set": 184,
+  "evidence_item": "EV-184-23",
+  "review_date": "2026-07-15",
+  "assessment": {
+    "risk": "RISK-031",
+    "residual_rating": "Medium",
+    "population": 48,
+    "timely": 47,
+    "completed": 48
+  },
+  "disposition": "synthetic evidence retained for 18 months",
+  "synthetic_only": true,
+  "content_spine_references": [
+    {
+      "id": "org.cobalt-harbor",
+      "value": "Cobalt Harbor Systems, a fictional managed logistics and harbor-operations platform"
+    },
+    {
+      "id": "evidence.ev-184-07",
+      "value": "EV-184-07, the Sentinel Export minimization statement reporting only synthetic event categories and counts"
+    },
+    {
+      "id": "date.2026-07-15",
+      "value": "2026-07-15, control-owner remediation-plan and retention-disposition validation"
+    }
+  ]
+}

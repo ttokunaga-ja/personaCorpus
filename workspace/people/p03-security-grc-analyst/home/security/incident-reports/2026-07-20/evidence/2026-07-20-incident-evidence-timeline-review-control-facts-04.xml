@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<incidentEvidence recordId="IR-007581" sourceId="p03-src-007581" syntheticOnly="true">
+  <organization>Cobalt Harbor Systems</organization><case>CASE-260713-184</case>
+  <control>Aegis Control AC-27</control><reviewDate>2026-07-20</reviewDate>
+  <evidence set="184" item="EV-184-22"/><assessment risk="RISK-031" residual="Medium">
+    <population reviewed="48" timely="47" completed="48"/>
+  </assessment><disposition>synthetic evidence retained for 18 months</disposition>
+  <contentSpineReferences><reference id="org.cobalt-harbor">Cobalt Harbor Systems, a fictional managed logistics and harbor-operations platform</reference><reference id="case.case-260713-184">CASE-260713-184, the synthetic evidence intake case; it opens and closes on 2026-07-13</reference><reference id="date.2026-07-20">2026-07-20, seven-day follow-up for closure evidence and residual-risk status</reference></contentSpineReferences>
+</incidentEvidence>

@@ -1,0 +1,14 @@
+2026-q3T08:30:00Z INFO p03-full-009303 intake opened for AC-27 residual-risk
+2026-q3T09:15:00Z INFO p03-src-009303 evidence set 184 normalized: 24/24 synthetic items
+2026-q3T10:20:00Z WARN RISK-031 delayed attestation recorded as EXC-260713-006; compensating review bounded
+2026-q3T13:30:00Z INFO AC-27 review population 48/48; timely attestations 47/48 (97.9%)
+2026-q3T16:45:00Z INFO residual rating Medium; retention disposition 18 months; no live system access
+2026-q3T16:47:00Z REVIEW The review facilitator checks the timeline handoff from intake to seven-day follow-up.
+2026-q3T16:49:00Z FINDING The EV-184-01 population summary is treated as a review fact, not raw identity data.
+2026-q3T16:50:00Z SPINE org.cobalt-harbor: Cobalt Harbor Systems (CHS) is a fictional organization operating a managed logistics and harbor-operations platform.
+2026-q3T16:50:00Z SPINE control.ac-27: Aegis Control AC-27 requires evidence-backed quarterly access review, approval, retention, and exception disposition.
+2026-q3T16:50:00Z SPINE rel.ac27.evidence-184: Structured, CSV, and log evidence facts precede AC-27 workbooks, review DOCX, searchable PDFs, and security-review decks.
+2026-q3T16:50:00Z SPINE period.2026-q3: Governance planning period from 2026-07-01 through 2026-09-30.
+2026-q3T16:50:00Z SPINE term.no-kio-claim: Corpus production and QA establish no Kio indexing, history, chunks, search quality, or performance claim.
+2026-q3T17:15:00Z INFO evidence-chain CASE-260713-184 -> EV-184-19 -> p03-full-009303 verified
+NOTICE synthetic defensive GRC record; no Kio indexing, history, chunk, search, or performance claim.

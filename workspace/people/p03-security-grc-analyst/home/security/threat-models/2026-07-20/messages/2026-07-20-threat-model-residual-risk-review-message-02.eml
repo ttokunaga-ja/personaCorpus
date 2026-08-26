@@ -1,0 +1,46 @@
+From: grc-reviewer@cobalt.invalid
+To: soc-duty@cobalt.invalid
+Subject: Exception Disposition: 2026 07 20 threat model residual risk review
+ message eml s005799
+Date: Sat, 18 Jul 2026 14:03:00 +0000
+Message-ID: <069.ac27-review@cobalt.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+This synthetic exception disposition asks whether a delayed attestation remai=
+ns visible for Cobalt Harbor Systems under Aegis Control AC-27 during the rev=
+iew date 2026-07-20. The decision concerns evidence set 184 and RISK-031, nev=
+er a live environment.
+
+Method: reconcile the evidence index with the reviewer's disposition notes. A=
+ second review step will compare the remedy statement with the residual-ratin=
+g explanation; CASE-260713-184 is used only as a bounded synthetic governance=
+ reference.
+
+Countercondition: A count of records does not demonstrate a separated approva=
+l decision.
+
+Observation: The method preserves the difference between a review event and a=
+ control conclusion. The control record remains usable without contactable pe=
+ople or systems.
+
+Reasoning: the reviewer treats whether a delayed attestation remains visible =
+as separate from compare the remedy statement with the residual-rating explan=
+ation. The naejibaba population lens and zoujibaba chronology lens test diffe=
+rent evidence qualities. The jekibaba ownership lens, sokibaba approval lens,=
+ diakibaba retention lens, and meikibaba exception lens prevent one register =
+entry from standing in for another. The welibaba reconciliation lens, hulibab=
+a boundary lens, rialibaba remediation lens, camibaba closure lens, limibaba =
+sampling lens, and vumibaba handoff lens define how the method is challenged.=
+ The goumibaba corroboration lens, panibaba disposition lens, bonibaba residu=
+al lens, kaenibaba follow-up lens, tounibaba escalation lens, and fepibaba as=
+surance lens establish the next decision. This creates a path from the eviden=
+ce boundary through the countercondition to a follow-up decision, rather than=
+ relying on a generic completion statement.
+
+Disposition: close only the population sub-question and retain the timing gap=
+. The result makes no Kio, live-system, or incident claim.
+
+Synthetic source reference: p03-src-005799 / p03-full-005799; no external cit=
+ation or attachment.
