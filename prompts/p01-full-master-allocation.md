@@ -1,8 +1,8 @@
 # p01 Full master allocation task (completed archive)
 
-> The 11,800-row master and content spine are accepted. Do not paste or rerun
-> this allocation prompt. Start or resume physical production with
-> `prompts/p01-full-production.md`.
+> The 11,800-row master, content spine, and 12,000-file p01 Full corpus are
+> accepted. Do not paste or rerun this allocation prompt or its historical
+> production prompt.
 
 The archived text below froze allocation only; it must not be reused to create,
 alter, or delete a final corpus artifact.

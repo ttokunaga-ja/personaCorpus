@@ -4,9 +4,28 @@
 `personaCorpus` プロジェクトの **Local** 環境で開始し、Worktreeは使いません。
 開始前にルートで `./bin/check-ready` が成功することを確認してください。
 
-p08／p09／p10とp01 Full pilotは完了済みです。次のp11／p12／p13同時開始と
-p01 Full master allocation手順は
-[MAC_PARALLEL_WAVE_02.md](MAC_PARALLEL_WAVE_02.md)です。
+## Full production prompt index（監査時点）
+
+ここでのREADYは、allocation/start packageが完成している意味です。Full physical artifactの
+完成ではなく、下表のp04--p20 homesはすべてM1 200件のままです。各行は必ず**新しいLocal task**で
+開始し、同じpersonaを別task・別PCで同時に扱いません。
+
+| Persona | 状態 | Full promptの扱い |
+|---|---|---|
+| p01 | Full完成・Git管理済み（12,000件） | production／pilot promptは履歴。再実行しない。 |
+| p02 | Full完成・Git管理済み（15,000件） | production promptは履歴。再実行しない。 |
+| p03 | Full完成・Git管理・remote push済み（10,000件） | production promptは履歴。再実行しない。 |
+| p04 | local-only partial candidate、stale parent、未受入 | recovery後にallocationを完成・再検証し、coordinator受入を得る。 |
+| p05--p06 | stale parent、package未作成 | recovery後にallocationを作る。 |
+| p07 | local-only package candidate、stale parent、未受入 | recovery、再検証、prompt統合、coordinator受入後に使用。 |
+| p08／p10 | M1 ledgerのみ、stale parent | recovery後にallocationを完成させる。 |
+| p09 | READY | [p09-full-production.md](p09-full-production.md)を新しいLocal taskへ貼り付ける。 |
+| p11--p14 | READY | 対応する`pNN-full-production.md`を新しいLocal taskへ貼り付ける。 |
+| p15 | local-only package candidate、stale parent、未受入 | recovery、再検証、prompt統合、coordinator受入後に使用。 |
+| p16--p20 | READY | 対応する`pNN-full-production.md`を新しいLocal taskへ貼り付ける。 |
+
+p01の12件pilot prompt／content spine／assignmentはhistoricalかつp01専用です。他personaの
+開始やp01のmass productionに再利用しません。
 
 | ID | Persona | Start prompt |
 |---|---|---|
@@ -45,9 +64,23 @@ M1完了済みpersonaをFullへ拡張するタスクでは、M1用promptを再�
   [p01-full-pilot.md](p01-full-pilot.md)
 - pilot固定content spine: [p01-full-pilot-content-spine.md](p01-full-pilot-content-spine.md)
 - pilot固定assignment: [p01-full-pilot-assignment.jsonl](p01-full-pilot-assignment.jsonl)
+- p01 Full mass production（完了済み履歴）:
+  [p01-full-production.md](p01-full-production.md)
+- p02 Full mass production（完了済み履歴）:
+  [p02-full-production.md](p02-full-production.md)
+- p03 Full mass production（完了済み履歴）:
+  [p03-full-production.md](p03-full-production.md)
+
+READYなp04--p20のpromptは、p04--p20用のcheckpoint v2 resume gate
+`bin/full-resume-gate`（SHA-256
+`3c4889deadd8b0eabcb6494454501db0adc063e7166d61dafc5cf6490660d069`）を使います。
+v2の具体的なcheckpoint／scan provenance契約は
+[Full台帳仕様](../runbooks/FULL_LEDGER_SPEC.md)を参照してください。p01--p03の完了済み
+accepted v1 protocolは閉じた履歴であり、このv2 gateへ変換・混在させません。
 
 Fullタスクも1親タスク＝1 personaです。既存M1 200ファイルの事前SHA-256 baselineを
 取得し、固定Full追加assignmentを検証してから、scope leaseをbatch境界で取得します。
-現在のp01はpilot後の212 filesです。mass制作前に
-[p01-full-master-allocation.md](p01-full-master-allocation.md)で11,800行の完全masterを
-固定・検証し、pilot promptを再利用しません。
+現在のp01は12,000 filesで完成・受入済みです。11,800行の完全masterとpilotを含む
+accepted chainは履歴として保持し、production promptやpilot promptを再実行しません。
+
+p01--p03は完了済みaccepted v1 checkpointとの連続性を保持するため、上記v2の開始／再開規則を適用しません。

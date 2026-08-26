@@ -28,9 +28,29 @@
 4. 親タスクはpersona leaseを取得し、異なるleaf scopeごとにSubagentを割り当てます。
 5. Subagentは指定された1フォルダと固定ファイル一覧だけを制作します。
 
-p08／p09／p10とp01 Full pilotは完了済みです。次のp11／p12／p13並列waveと
-p01 Full master allocationは
-[`prompts/MAC_PARALLEL_WAVE_02.md`](prompts/MAC_PARALLEL_WAVE_02.md)に固定しています。
+Fullの「READY」は、**物理Full成果物を作り終えた意味ではありません**。M1の200件を
+変えずに、新しいLocal taskが安全にphysical Full productionを開始できるallocation/start
+package（inventory、baseline、reservation、必要なreconciliation、content spine、complete master、
+production prompt）が揃った状態を指します。現在のp04--p20のpersona homeは、監査時点では
+いずれもM1の200件です。
+
+| Persona | Full準備の現在地 | 新規Local taskの扱い |
+|---|---|---|
+| p01--p03 | Full完成・QA受入・Git管理済み（12,000／15,000／10,000件） | production promptは履歴。明示承認された新revisionなしに再実行しない。 |
+| p04 | local-only partial candidate（inventory＋M1 baseline）。親leaseがstale | recovery承認後に準備を再開し、coordinator受入後に共有。 |
+| p05--p06 | Full package未作成。親leaseがstale | recovery承認後に準備を開始。 |
+| p07 | local-only allocation candidate。親leaseがstale、未受入 | recovery、再検証、prompt統合、coordinator受入後に開始。 |
+| p08／p10 | machine-readable M1 ledgerのみ。親leaseがstale | recovery承認後に準備を開始。 |
+| p09 | READY | persona専用Full promptを新しいLocal taskへ貼り付ける。 |
+| p11--p14 | READY | 各persona専用Full promptを新しいLocal taskへ貼り付ける。 |
+| p15 | local-only allocation candidate。親leaseがstale、未受入 | recovery、再検証、prompt統合、coordinator受入後に開始。 |
+| p16--p20 | READY | 各persona専用Full promptを新しいLocal taskへ貼り付ける。 |
+
+p01--p03のFull physical productionは完了しています。それぞれの
+[`prompts/p01-full-production.md`](prompts/p01-full-production.md)、
+[`prompts/p02-full-production.md`](prompts/p02-full-production.md)、
+[`prompts/p03-full-production.md`](prompts/p03-full-production.md)は受入済みv1 chainの
+履歴・再現用資料であり、現在のhomeへ再適用しません。
 
 異なるpersonaの親タスクは同時に実行できます。他personaのleaseは正常な並列状態であり、
 個別タスクは自分のpersonaのleaseと成果物だけを操作します。全体の
@@ -63,9 +83,9 @@ rootを共有し、別worktreeを作りません。
 この段階ではKioのindex、履歴、検索品質、性能達成を主張しません。
 
 Full追加制作はM1の200ファイルをbyte-for-byte保持し、canonical source inventory、
-凍結済みM1 assignment ledger／reservation、content spine、追加assignment、batch manifestを先に確定してから
-開始します。最初の検証対象は
-`prompts/p01-full-pilot.md`で完了しました。Git cloneは受入済み成果物、portable plan、
+凍結済みM1 assignment ledger／reservation、必要時のみdigest-bound same-scope reconciliation、content spine、追加assignment、batch manifestを先に確定してから
+開始します。`prompts/p01-full-pilot.md`は、既に完了した12件だけのhistoricalかつ
+persona-specificな検証記録であり、新しいFull productionの開始指示ではありません。Git cloneは受入済み成果物、portable plan、
 台帳、manifestを共有できますが、runtime、owner、lease topology、100 MiB超のrenderを
 持たないためclone単独では正式production環境になりません。別PCを使う場合はpersona
 単位bundle手順に従い、同じpersonaを2台で同時に担当しません。

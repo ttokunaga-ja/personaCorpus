@@ -1,5 +1,8 @@
 # p01 Full mass production task
 
+> **Historical completed-production prompt. Do not run against the current
+> 12,000-file accepted p01 home without a separately approved revision.**
+
 Paste the text below into **one new Codex Local task** opened at the
 `personaCorpus` repository root. It starts from the accepted 12-file pilot and
 is also safe to reuse after an accepted checkpoint if the task must be resumed.
