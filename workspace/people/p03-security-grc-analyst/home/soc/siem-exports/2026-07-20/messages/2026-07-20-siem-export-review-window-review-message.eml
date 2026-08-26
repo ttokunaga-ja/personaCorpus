@@ -1,0 +1,35 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Control Ownership decision for p03-full-008671
+Date: Mon, 20 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-008671@example.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline control ownership review for window review=
+ message eml s008671 on 2026-07-20. The evidence question was: What observabl=
+e evidence demonstrates that the stated control objective is met? The named c=
+ontrol owner assembled the source facts; the evidence custodian tested their =
+source reconciliation. The review relates AC-27 to evidence set 184 and recor=
+ds RISK-031 as the governing risk reference. Dependency context: no upstream =
+dependency. The source record is p03-src-008671 and this artifact is p03-full=
+-008671. The evidence instrument was the control test worksheet; the reviewer=
+ observed that the conclusion matched the scope of the stated control. During=
+ challenge, a missing custodian was treated as a review failure. Review profi=
+le: the evidence set was collected during the follow-up review; the evidence =
+custodian confirmed the record boundary; the reviewer sampled an adverse oper=
+ating condition; the source fact supported acceptance with a documented cavea=
+t; the comparison used the current control objective; the evidence was retain=
+ed in the review register; the exception path was considered and recorded; th=
+e reviewer assessed a handover impact; the decision was suitable for targeted=
+ follow-up; the source chronology was complete; the control claim was indepen=
+dently corroborated; the review boundary excluded unavailable material; the n=
+ext assurance trigger is the scheduled review; the disposition was communicat=
+ed to the independent reviewer; the retained rationale supports repeat review=
+; the record remains a local offline assurance artifact. Counterexample consi=
+dered: A generic assurance claim is rejected when it cannot be traced to an o=
+wner, date, and retained evidence. Decision rule: Treat the control as effect=
+ive only when the counterexample has been considered and the exception path i=
+s explicit. Disposition: escalated for corroboration with the decision basis =
+retained. No Kio capability is used or required for this offline review.

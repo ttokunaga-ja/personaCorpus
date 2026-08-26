@@ -1,0 +1,19 @@
+{
+  "record_id": "p03-src-003534",
+  "working_note": "Working-note focus: 2026 q3 working notes checksum check control facts json s003534; source p03-src-003534 is a bounded synthetic analyst record.",
+  "traceability": [
+    {
+      "spine_id": "org.cobalt-harbor",
+      "canonical_value": "Cobalt Harbor Systems (CHS) is a fictional organization operating a managed logistics and harbor-operations platform."
+    },
+    {
+      "spine_id": "case.case-260713-184",
+      "canonical_value": "CASE-260713-184 is the synthetic evidence intake case for evidence set 184, not a real incident."
+    },
+    {
+      "spine_id": "period.2026-q3",
+      "canonical_value": "Governance planning period from 2026-07-01 through 2026-09-30."
+    }
+  ],
+  "synthetic_only": true
+}

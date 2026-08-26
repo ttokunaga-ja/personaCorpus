@@ -1,0 +1,51 @@
+From: grc-reviewer@cobalt.invalid
+To: soc-duty@cobalt.invalid
+Subject:
+ [Synthetic AR-260713-027] reviewer attestation response request (2026-07-15)
+Date: Mon, 20 Jul 2026 09:30:00 +0000
+Message-ID: <p03-full-005514@cobalt.invalid>
+X-Synthetic-Record: p03-full-005514
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Hello control-evidence coordinator,
+
+This is a synthetic defensive request for AR-260713-027. Please obtain a revi=
+ewer statement for the bounded AC-27 request for the 2026-07-15 owner-validat=
+ion boundary. The assigned review lane is to confirm that a retention decisio=
+n is linked to the request identifier.
+
+Response boundary
+- Include: the request-response trail without credentials or operational acce=
+ss.
+- Exclude: raw events, personal data, credentials, and live-system material.
+
+Response test
+During the confirm phase, GRC will test reviewer role, acknowledgement timing=
+, and exception linkage. Lane question: is the returned summary specific enou=
+gh to support audit coordination. Do not replace the bounded record with a br=
+oad assurance statement.
+
+Exception and disposition
+For this lane, a retention statement without role separation is escalated for=
+ reviewer confirmation. Proposed disposition: record the control-owner dispos=
+ition; lane decision: record as complete after an owner and evidence boundary=
+ are confirmed. The GRC request owner records the response; the control owner=
+ acknowledges it. A person may not approve their own exception disposition.
+
+Assigned review prompts
+- Objective lens: owner accountability.
+- Evidence lens: excluded-item rationale.
+- Test lens: independent-reviewer test.
+- Observation lens: missing-exclusion observation.
+- Action lens: limit summary to synthetic facts.
+
+Analyst focus vocabulary: cadence, eligibility, population, signoff, assessme=
+nt, declaration, linkage, retention, accountability, context, handoff, receip=
+t, treatment, chain, escalation, precision, source, assurance, delimitation, =
+materiality, review, acknowledgement, control, identity. These are review pro=
+mpts, not asserted system facts.
+
+This message is synthetic documentation only. It makes no Kio indexing, histo=
+ry, search, or performance claim.

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<detectionReview>
+  <record_id>p03-full-006214</record_id>
+  <source_id>p03-src-006214</source_id>
+  <organization>Cobalt Harbor Systems</organization>
+  <program>Aegis Assurance</program>
+  <control>AC-27</control>
+  <review_date_or_period>2026-07-15</review_date_or_period>
+  <review_topic>evidence linkage</review_topic>
+  <evidence_set>184</evidence_set>
+  <case_id>CASE-260713-184</case_id>
+  <risk_id>RISK-031</risk_id>
+  <residual_risk>Medium</residual_risk>
+  <population_records>48</population_records>
+  <timely_attestations>47</timely_attestations>
+  <final_completion_records>48</final_completion_records>
+  <evidence_completeness>24 of 24</evidence_completeness>
+  <data_boundary>synthetic defensive governance evidence; no live events or routable targets</data_boundary>
+  <status>reconciled</status>
+  <reviewContext>
+    <review_topic>evidence linkage</review_topic>
+    <review_date_or_period>2026-07-15</review_date_or_period>
+    <evidence_reference>evidence set 184, reconciliation lane 006214</evidence_reference>
+    <decision>AC-27 control review confirms preparer and reviewer separation; CASE-260713-184 retains RISK-031 at Medium residual risk.</decision>
+    <synthetic_boundary>defensive governance record only; no live telemetry, credentials, personal data, or routable targets</synthetic_boundary>
+  </reviewContext>
+  <contentSpineTraceability>
+    <reference id="org.cobalt-harbor">Cobalt Harbor Systems (CHS) is a fictional organization operating a managed logistics and harbor-operations platform.</reference>
+    <reference id="control.ac-27">Aegis Control AC-27 requires evidence-backed quarterly access review, approval, retention, and exception disposition.</reference>
+    <reference id="date.2026-07-15">Control owner validates the remediation plan and retention disposition.</reference>
+  </contentSpineTraceability>
+</detectionReview>

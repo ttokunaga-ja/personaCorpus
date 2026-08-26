@@ -1,0 +1,53 @@
+From: grc-reviewer@cobalt.invalid
+To: vendor-assurance@cobalt.invalid
+Subject: AC-27 bounded review: 2026 07 20 control evidence checksum
+ reconciliation review message eml
+Date: Tue, 14 Jul 2026 10:20:00 +0000
+Message-ID: <p03-full-006044@cobalt.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Synthetic defensive GRC communication
+
+Review subject: checksum / reconciliation / review / message / eml
+Review window: 2026-07-20
+Accountable role: assurance coordinator
+
+Question
+For checksum / reconciliation / review / message / eml, whether an approval i=
+dentifies its decision point without standing in for a reviewer attestation d=
+uring 2026-07-20?
+
+Method
+Traced the item through intake, normalization, and retention disposition with=
+out accessing any live service; specifically, separate future acknowledgement=
+ from present observation.
+
+Observation
+The conclusion is limited to the synthetic July 2026 evidence package and sho=
+uld be rechecked for a later period. The review lens is approval-lineage: tre=
+at approval as context, not proof of timely review. Evidence set 184 is a bou=
+nded 24-item synthetic package.
+
+Disposition
+Use this message as a traceability aid only. AC-27 requires preparer and revi=
+ewer role separation for an exception disposition.
+
+Limitation
+This does not establish a legal retention conclusion. The followup-cadence le=
+ns requires that the record avoid predicting later review outcomes.
+
+Action
+Ask the accountable GRC reviewer to confirm the next-quarter evidence owner b=
+efore the next collection window. For this record, record the remaining timin=
+g limitation for follow-up.
+
+Artifact-specific review lens
+reviewer, condition, intake, mapping, action, closure, boundary, statement, i=
+ndex, disposition, minimum, locator, threshold, record, compensating. These d=
+imensions shape this artifact's question, method, observation, limitation, di=
+sposition, and accountable action; they are not additional source facts.
+
+No live link, attachment, credential, personal data, production access, or Ki=
+o indexing/search claim is included.

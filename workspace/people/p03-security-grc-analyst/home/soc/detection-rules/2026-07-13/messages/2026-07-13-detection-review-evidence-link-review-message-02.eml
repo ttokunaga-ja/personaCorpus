@@ -1,0 +1,35 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Data Retention decision for p03-full-001894
+Date: Mon, 13 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-001894@example.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline data retention review for link review mess=
+age eml s001894 on 2026-07-13. The evidence question was: What minimal trace =
+proves that the control remains attributable to its owner? The records owner =
+assembled the source facts; the retention reviewer tested their source reconc=
+iliation. The review relates AC-27 to evidence set 184 and records RISK-031 a=
+s the governing risk reference. Dependency context: no upstream dependency. T=
+he source record is p03-src-001894 and this artifact is p03-full-001894. The =
+evidence instrument was the reviewer observation log; the reviewer observed t=
+hat the rationale accounted for an incomplete sample. During challenge, a cla=
+imed control was tested against a negative sample. Review profile: the eviden=
+ce set was collected before the approval meeting; the evidence custodian conf=
+irmed the record boundary; the reviewer sampled an adverse operating conditio=
+n; the source fact supported acceptance without qualification; the comparison=
+ used the prior review conclusion; the evidence was retained with the decisio=
+n record; the exception path was considered and recorded; the reviewer found =
+no handover impact; the decision was suitable for targeted follow-up; the sou=
+rce chronology contained a reconciled late entry; the control claim was corro=
+borated by a compensating observation; the review boundary excluded unavailab=
+le material; the next assurance trigger is the scheduled review; the disposit=
+ion was communicated to the owner; the retained rationale supports repeat rev=
+iew; the record remains a local offline assurance artifact. Counterexample co=
+nsidered: A repeated control statement does not establish operation when no c=
+ounterexample was considered. Decision rule: Use the dependency as context ra=
+ther than proof; the local artifact must state its own conclusion and basis. =
+Disposition: escalated for corroboration with the decision basis retained. No=
+ Kio capability is used or required for this offline review.

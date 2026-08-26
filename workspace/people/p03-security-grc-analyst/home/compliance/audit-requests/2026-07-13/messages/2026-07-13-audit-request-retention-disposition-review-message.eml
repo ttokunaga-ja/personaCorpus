@@ -1,0 +1,51 @@
+From: grc-reviewer@cobalt.invalid
+To: soc-duty@cobalt.invalid
+Subject:
+ [Synthetic AR-260713-027] retention disposition response request (2026-07-13)
+Date: Mon, 20 Jul 2026 09:30:00 +0000
+Message-ID: <p03-full-002735@cobalt.invalid>
+X-Synthetic-Record: p03-full-002735
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Hello control-evidence coordinator,
+
+This is a synthetic defensive request for AR-260713-027. Please record the re=
+quested retention decision without extending the source boundary for the 2026=
+-07-13 intake boundary. The assigned review lane is to identify whether the r=
+esponse assigns an accountable follow-up role.
+
+Response boundary
+- Include: the evidence-set identifier without a workforce or customer list.
+- Exclude: raw events, personal data, credentials, and live-system material.
+
+Response test
+During the open phase, GRC will test retention rationale, role separation, an=
+d disposition record. Lane question: does the response keep the retention rat=
+ionale within its synthetic scope. Do not replace the bounded record with a b=
+road assurance statement.
+
+Exception and disposition
+For this lane, an unbounded assurance statement is rejected in favor of a nam=
+ed record. Proposed disposition: request materials supporting the bounded AC-=
+27 review; lane decision: return for clarification when the response exceeds =
+the synthetic evidence boundary. The GRC request owner records the response; =
+the control owner acknowledges it. A person may not approve their own excepti=
+on disposition.
+
+Assigned review prompts
+- Objective lens: record usability.
+- Evidence lens: accountability cue.
+- Test lens: retention-rationale test.
+- Observation lens: unclear-due-rule observation.
+- Action lens: record review result before closure.
+
+Analyst focus vocabulary: acknowledgement, control, identity, reconciliation,=
+ validation, clarification, exception, preservation, sufficiency, attribution=
+, dependency, minimization, routing, allocation, coordination, independence, =
+record, variance, closure, exclusion, priority, summary, attestation, disposi=
+tion. These are review prompts, not asserted system facts.
+
+This message is synthetic documentation only. It makes no Kio indexing, histo=
+ry, search, or performance claim.

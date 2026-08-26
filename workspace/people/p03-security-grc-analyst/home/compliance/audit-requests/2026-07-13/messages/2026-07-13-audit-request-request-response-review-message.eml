@@ -1,0 +1,51 @@
+From: grc-reviewer@cobalt.invalid
+To: soc-duty@cobalt.invalid
+Subject:
+ [Synthetic AR-260713-027] request and response response request (2026-07-13)
+Date: Mon, 20 Jul 2026 09:30:00 +0000
+Message-ID: <p03-full-008928@cobalt.invalid>
+X-Synthetic-Record: p03-full-008928
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Hello control-evidence coordinator,
+
+This is a synthetic defensive request for AR-260713-027. Please reconcile the=
+ request wording with the returned control-evidence summary for the 2026-07-1=
+3 intake boundary. The assigned review lane is to separate the requested atte=
+station from supporting approval material.
+
+Response boundary
+- Include: the exception link and compensating-review statement.
+- Exclude: raw events, personal data, credentials, and live-system material.
+
+Response test
+During the open phase, GRC will test request objective, returned boundary, an=
+d accountable response. Lane question: is the due rule explicit enough for a =
+receiving owner to act. Do not replace the bounded record with a broad assura=
+nce statement.
+
+Exception and disposition
+For this lane, an over-broad response is returned for boundary clarification =
+before disposition. Proposed disposition: request materials supporting the bo=
+unded AC-27 review; lane decision: ask the control owner to restate the concl=
+usion as a bounded response. The GRC request owner records the response; the =
+control owner acknowledges it. A person may not approve their own exception d=
+isposition.
+
+Assigned review prompts
+- Objective lens: scope delimitation.
+- Evidence lens: included-item rationale.
+- Test lens: retention-rationale test.
+- Observation lens: unowned-response observation.
+- Action lens: clarify then re-test.
+
+Analyst focus vocabulary: treatment, chain, escalation, precision, source, as=
+surance, delimitation, materiality, review, acknowledgement, control, identit=
+y, reconciliation, validation, clarification, exception, preservation, suffic=
+iency, attribution, dependency, minimization, routing, allocation, coordinati=
+on. These are review prompts, not asserted system facts.
+
+This message is synthetic documentation only. It makes no Kio indexing, histo=
+ry, search, or performance claim.

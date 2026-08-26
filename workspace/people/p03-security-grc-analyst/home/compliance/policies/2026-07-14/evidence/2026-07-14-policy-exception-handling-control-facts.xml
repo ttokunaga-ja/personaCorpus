@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<policyFoundation schema="chs.policy-foundation/v1" synthetic="true">
+  <artifact id="p03-full-000746" sourceId="p03-src-000746" sequence="16">2026 07 14 Policy Exception Handling Control Facts Xml S000746</artifact>
+  <organization>Cobalt Harbor Systems</organization>
+  <control>Aegis Control AC-27</control>
+  <case>CASE-260713-184</case>
+  <auditRequest>AR-260713-027</auditRequest>
+  <reviewDate utc="true">2026-07-14</reviewDate>
+  <evidenceSet id="184" verifiedItems="24" />
+  <reviewPopulation syntheticPrivilegedRoles="48" timelyAttestations="47" finalCompletion="48" />
+  <risk id="RISK-031" inherent="High" residual="Medium" />
+  <retention minimumMonths="18" decision="DEC-260713-004" />
+  <operationalAccess>false</operationalAccess>
+<contentSpineTraceability><reference id="org.cobalt-harbor">Cobalt Harbor Systems (CHS) is a fictional organization operating a managed logistics and harbor-operations platform.</reference><reference id="decision.dec-260713-004">Retain evidence set 184 under the synthetic GRC retention schedule; no live-source data is included.</reference><reference id="date.2026-07-14">Evidence normalization, checksum confirmation, and action-owner acknowledgement.</reference></contentSpineTraceability></policyFoundation>

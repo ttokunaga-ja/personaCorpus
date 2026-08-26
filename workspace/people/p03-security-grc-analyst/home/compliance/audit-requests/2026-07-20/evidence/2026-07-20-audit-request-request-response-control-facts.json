@@ -1,0 +1,46 @@
+{
+  "audit_request_foundation": {
+    "artifact_id": "p03-full-002088",
+    "source_id": "p03-src-002088",
+    "organization": "Cobalt Harbor Systems",
+    "program": "Aegis Assurance",
+    "control": "AC-27",
+    "audit_request": "AR-260713-027",
+    "case": "CASE-260713-184",
+    "evidence_set": 184,
+    "evidence_reference": "EV-184-01",
+    "topic": "request and response",
+    "effective_date": "2026-07-20",
+    "supporting_spine_fact": "audit.ar-260713-027",
+    "workflow_stage": "intake triage",
+    "review_lens": "checksum linkage",
+    "custodian_role": "retention disposition reviewer",
+    "control_record_sequence": 2088,
+    "context_note": "Control record 2088 documents intake triage through a checksum linkage lens; retention disposition reviewer confirms the bounded synthetic packet.",
+    "positive_spine_references": [
+      {
+        "id": "org.cobalt-harbor",
+        "value": "Cobalt Harbor Systems (CHS), a fictional managed logistics and harbor-operations platform."
+      },
+      {
+        "id": "audit.ar-260713-027",
+        "value": "AR-260713-027 is the fictional AC-27 audit request for bounded review material."
+      },
+      {
+        "id": "date.2026-07-20",
+        "value": "2026-07-20 is the seven-day closure-evidence and residual-risk follow-up."
+      }
+    ],
+    "positive_spine_references_json": "[{\"id\":\"org.cobalt-harbor\",\"value\":\"Cobalt Harbor Systems (CHS), a fictional managed logistics and harbor-operations platform.\"},{\"id\":\"audit.ar-260713-027\",\"value\":\"AR-260713-027 is the fictional AC-27 audit request for bounded review material.\"},{\"id\":\"date.2026-07-20\",\"value\":\"2026-07-20 is the seven-day closure-evidence and residual-risk follow-up.\"}]",
+    "review_population": 48,
+    "reviewed": 48,
+    "timely_attestations": 47,
+    "completion_after_compensating_review": 48,
+    "timely_attestation_rate": "97.9%",
+    "final_completion_rate": "100.0%",
+    "evidence_items_verified": "24 of 24",
+    "risk": "RISK-031",
+    "residual_risk": "Medium",
+    "synthetic_notice": "Synthetic defensive GRC foundation; no live-source data or Kio claim."
+  }
+}

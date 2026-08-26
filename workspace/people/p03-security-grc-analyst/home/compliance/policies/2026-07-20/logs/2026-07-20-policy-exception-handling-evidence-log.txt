@@ -1,0 +1,12 @@
+2026 07 20 Policy Exception Handling Evidence Log Txt S001426
+
+Artifact p03-full-001426 is a synthetic Cobalt Harbor Systems policy foundation record. It supports Aegis Control AC-27, evidence set 184, and audit request AR-260713-027.
+
+Review date: 2026-07-20 UTC
+Control objective: preserve evidence-backed quarterly access review, approval, retention, and exception disposition.
+Case linkage: CASE-260713-184 records bounded evidence intake only; it is not an incident.
+Risk linkage: RISK-031 remains residual Medium after the compensating review.
+Retention: retain the synthetic evidence package for at least 18 months under DEC-260713-004.
+
+Record sequence 36: the reviewer confirms 48 synthetic privileged-role records, 47 timely attestations, and final completion of 48 of 48 after the 2026-07-14 compensating review. Evidence set 184 contains 24 verified synthetic items: 12 attestations, 6 approvals, 4 checksum manifests, and 2 exception records. This record contains no live operational data.
+Content-spine traceability: org.cobalt-harbor = Cobalt Harbor Systems (CHS) is a fictional organization operating a managed logistics and harbor-operations platform. | control.retention-18m = Synthetic evidence retention minimum is 18 months; this is a corpus fact, not legal advice. | date.2026-07-20 = Seven-day follow-up validates closure evidence and residual-risk status.

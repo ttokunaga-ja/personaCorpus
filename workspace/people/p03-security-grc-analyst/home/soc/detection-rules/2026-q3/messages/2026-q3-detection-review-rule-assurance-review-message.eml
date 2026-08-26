@@ -1,0 +1,40 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Monitoring Coverage decision for p03-full-001044
+Date: Mon, 20 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-001044@example.invalid>
+X-Review-Period: 2026 Q3
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline monitoring coverage review for assurance r=
+eview message eml s001044 on 2026-07-20. The evidence question was: What deci=
+sion can be made from the retained source material without external access? T=
+he detection owner assembled the source facts; the telemetry reviewer tested =
+their control boundary. The review relates AC-27 to evidence set 184 and reco=
+rds RISK-031 as the governing risk reference. Dependency context: no upstream=
+ dependency. The source record is p03-src-001044 and this artifact is p03-ful=
+l-001044. The evidence instrument was the control test worksheet; the reviewe=
+r observed that the owner and custodian were named consistently. During chall=
+enge, a missing date was treated as a traceability concern. Review profile: t=
+he evidence set was collected before the approval meeting; the accountable ow=
+ner confirmed the operating boundary; the reviewer sampled an adverse operati=
+ng condition; the source fact supported acceptance without qualification; the=
+ comparison used the current control objective; the evidence was retained in =
+the review register; the exception path was not invoked; the reviewer found n=
+o handover impact; the decision was suitable for routine monitoring; the sour=
+ce chronology was complete; the control claim was corroborated by a compensat=
+ing observation; the review boundary excluded unavailable material; the next =
+assurance trigger is the scheduled review; the disposition was communicated t=
+o the owner; the retained rationale supports repeat review; the record remain=
+s a local offline assurance artifact. Counterexample considered: A repeated c=
+ontrol statement does not establish operation when no counterexample was cons=
+idered. Decision rule: Treat the control as effective only when the counterex=
+ample has been considered and the exception path is explicit. Disposition: es=
+calated for corroboration with the decision basis retained. No Kio capability=
+ is used or required for this offline review.
+
+Review period: 2026 Q3. This detection review rule assurance review message e=
+ml record was assessed using access attestation and compensating action; the =
+reviewer confirmed the review conclusion.

@@ -1,0 +1,8 @@
+record_id: "p03-src-000499"
+working_note: "Working-note focus: 2026 07 14 working notes review draft control facts yaml s000499; source p03-src-000499 is a bounded synthetic analyst record."
+traceability:
+  - spine_id: "org.cobalt-harbor"
+    canonical_value: "Cobalt Harbor Systems (CHS) is a fictional organization operating a managed logistics and harbor-operations platform."
+  - spine_id: "date.2026-07-14"
+    canonical_value: "Evidence normalization, checksum confirmation, and action-owner acknowledgement."
+synthetic_only: true

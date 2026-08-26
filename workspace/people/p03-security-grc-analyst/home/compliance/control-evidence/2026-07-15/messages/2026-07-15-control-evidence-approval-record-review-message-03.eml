@@ -1,0 +1,53 @@
+From: grc-reviewer@cobalt.invalid
+To: vendor-assurance@cobalt.invalid
+Subject: AC-27 bounded review: 2026 07 15 control evidence approval record
+ review message eml
+Date: Tue, 14 Jul 2026 10:20:00 +0000
+Message-ID: <p03-full-009642@cobalt.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Synthetic defensive GRC communication
+
+Review subject: approval / record / review / message / eml
+Review window: 2026-07-15
+Accountable role: AC-27 control owner
+
+Question
+For approval / record / review / message / eml, whether primary completion is=
+ distinct from a compensating review during 2026-07-15?
+
+Method
+Compared the stated review event with the evidence-chain index and separated =
+approval from attestation; specifically, separate preparer narrative from rev=
+iewer assessment.
+
+Observation
+The material is suitable for governance review because it retains a stable ev=
+idence label and a stated disposition. The review lens is completion-register=
+: avoid converting a late attestation into a timely one. Evidence set 184 is =
+a bounded 24-item synthetic package.
+
+Disposition
+Use this message as a traceability aid only. AC-27 requires preparer and revi=
+ewer role separation for an exception disposition.
+
+Limitation
+This record does not create a Kio history, chunk, search, or performance clai=
+m. The reviewer-independence lens requires that the record flag a conclusion =
+based only on an unchallenged preparer.
+
+Action
+Preserve the evidence-chain label and make the limitation visible to the requ=
+est coordinator. For this record, define the later evidence needed.
+
+Artifact-specific review lens
+threshold, review, index, intake, disposition, sequence, criterion, owner, au=
+dit, retention, handoff, rating, condition, acknowledgement, lineage, registe=
+r, rationale. These dimensions shape this artifact's question, method, observ=
+ation, limitation, disposition, and accountable action; they are not addition=
+al source facts.
+
+No live link, attachment, credential, personal data, production access, or Ki=
+o indexing/search claim is included.

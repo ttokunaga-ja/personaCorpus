@@ -1,0 +1,35 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Access Review decision for p03-full-000359
+Date: Tue, 14 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-000359@example.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline access review review for mapping review me=
+ssage eml s000359 on 2026-07-14. The evidence question was: How does the revi=
+ew distinguish complete evidence from an unsupported assertion? The system st=
+eward assembled the source facts; the access approver tested their source rec=
+onciliation. The review relates AC-27 to evidence set 184 and records RISK-03=
+1 as the governing risk reference. Dependency context: no upstream dependency=
+. The source record is p03-src-000359 and this artifact is p03-full-000359. T=
+he evidence instrument was the outcome verification note; the reviewer observ=
+ed that the verification date was visible beside the source fact. During chal=
+lenge, an exception rationale was tested for a documented decision rule. Revi=
+ew profile: the evidence set was collected during the follow-up review; the e=
+vidence custodian confirmed the record boundary; the reviewer sampled an adve=
+rse operating condition; the source fact supported acceptance without qualifi=
+cation; the comparison used the prior review conclusion; the evidence was ret=
+ained with the decision record; the exception path was considered and recorde=
+d; the reviewer found no handover impact; the decision was suitable for targe=
+ted follow-up; the source chronology was complete; the control claim was inde=
+pendently corroborated; the review boundary excluded unavailable material; th=
+e next assurance trigger is the scheduled review; the disposition was communi=
+cated to the owner; the retained rationale supports repeat review; the record=
+ remains a local offline assurance artifact. Counterexample considered: A com=
+plete-looking register is not reliable if the decision rule and disposition a=
+re absent. Decision rule: Approve when the evidence is specific, attributable=
+, and dated; otherwise classify the item as needing corroboration. Dispositio=
+n: escalated for corroboration with the decision basis retained. No Kio capab=
+ility is used or required for this offline review.

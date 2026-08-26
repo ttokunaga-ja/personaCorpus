@@ -1,0 +1,52 @@
+From: grc-reviewer@cobalt.invalid
+To: control-owner@cobalt.invalid
+Subject: Synthetic access governance policy review 042
+Message-ID: <p03-full-002328@cobalt.invalid>
+Date: Mon, 13 Jul 2026 08:30:00 +0000
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor Systems =E2=80=94 synthetic policy review
+
+Record: p03-full-002328
+Policy period: 2026-07-15
+Review lens: quarterly planning gate
+Workflow link: synthetic audit-request coordination
+
+Question: Which retention cue makes the resulting record retrievable during t=
+he next assurance request?
+
+Requested procedure:
+- State that the item is synthetic evidence and does not establish an operati=
+onal access result.
+- Describe how a missed acknowledgement would remain visible without changing=
+ the original record.
+- Frame the test around a policy obligation rather than a generalized assuran=
+ce slogan.
+
+Assigned policy basis: Aegis Control AC-27.
+
+Observation: The synthetic timeline provides a clear accountability checkpoin=
+t without creating a customer, employee, or system record. Identify the revie=
+w artifact that should demonstrate accountable timing without personal data.
+
+Policy-specific examination:
+- The disposition rationale preserves the condition that would cause the item=
+ to reopen.
+- The independent reviewer is given a question that can be answered from the =
+bounded record alone.
+- The policy record describes a future verification input without announcing =
+that it has occurred.
+- The review method identifies a policy record, a control rationale, and an a=
+ccountable disposition.
+
+
+Disposition: retain this bounded synthetic communication under the bounded sy=
+nthetic policy-review record boundary. Security GRC owns the documentation re=
+view; the control owner confirms the rationale for 2026-07-15. Identify which=
+ part of the note establishes a decision trail for a future synthetic audit r=
+equest.
+
+This message is synthetic defensive GRC documentation. It has no live links, =
+personal data, production access claim, or Kio readiness claim.

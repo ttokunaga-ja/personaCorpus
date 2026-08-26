@@ -1,0 +1,4 @@
+record_id,spine_id,canonical_value,working_note
+p03-src-003752,org.cobalt-harbor,Cobalt Harbor Systems (CHS) is a fictional organization operating a managed logistics and harbor-operations platform.,Working-note focus: 2026 07 14 working notes evidence triage evidence metrics csv s003752; source p03-src-003752 is a bounded synthetic analyst record.
+p03-src-003752,team.grc,"Security GRC owns the AC-27 evidence register, risk treatment tracking, and audit-request coordination.",Working-note focus: 2026 07 14 working notes evidence triage evidence metrics csv s003752; source p03-src-003752 is a bounded synthetic analyst record.
+p03-src-003752,date.2026-07-14,"Evidence normalization, checksum confirmation, and action-owner acknowledgement.",Working-note focus: 2026 07 14 working notes evidence triage evidence metrics csv s003752; source p03-src-003752 is a bounded synthetic analyst record.

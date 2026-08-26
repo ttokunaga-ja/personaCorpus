@@ -1,0 +1,18 @@
+{
+  "artifact_id": "p03-full-001074",
+  "event_category": "access-review",
+  "record_sequence": 1074,
+  "review_window": "2026-07-20",
+  "routable_addresses": false,
+  "sentinel_export_context": "Cobalt Harbor Systems Sentinel Export; evidence set 184; EV-184-07; checksum reconciliation; 2026-07-20; synthetic minimized defensive SIEM context",
+  "source_id": "p03-src-001074",
+  "spine_anchors": [
+    "org.cobalt-harbor",
+    "system.sentinel-export",
+    "rel.siem.minimization",
+    "date.2026-07-20",
+    "term.no-kio-claim"
+  ],
+  "synthetic_count": 48,
+  "topic": "checksum reconciliation"
+}

@@ -1,0 +1,52 @@
+From: grc-reviewer@cobalt.invalid
+To: soc-duty@cobalt.invalid
+Subject:
+ [Synthetic AR-260713-027] reviewer attestation response request (2026-07-15)
+Date: Mon, 20 Jul 2026 09:30:00 +0000
+Message-ID: <p03-full-003514@cobalt.invalid>
+X-Synthetic-Record: p03-full-003514
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Hello control-evidence coordinator,
+
+This is a synthetic defensive request for AR-260713-027. Please obtain a revi=
+ewer statement for the bounded AC-27 request for the 2026-07-15 owner-validat=
+ion boundary. The assigned review lane is to confirm that the request outcome=
+ can be traced to a bounded record.
+
+Response boundary
+- Include: the disposition record without an implied system query.
+- Exclude: raw events, personal data, credentials, and live-system material.
+ - Name synthetic evidence set 184 as the bounded control-evidence package; d=
+o not imply access to its underlying source material.
+
+Response test
+During the confirm phase, GRC will test reviewer role, acknowledgement timing=
+, and exception linkage. Lane question: is the due rule explicit enough for a=
+ receiving owner to act. Do not replace the bounded record with a broad assur=
+ance statement.
+
+Exception and disposition
+For this lane, an unbounded assurance statement is rejected in favor of a nam=
+ed record. Proposed disposition: record the control-owner disposition; lane d=
+ecision: route to the reviewer queue for an independent boundary test. The GR=
+C request owner records the response; the control owner acknowledges it. A pe=
+rson may not approve their own exception disposition.
+
+Assigned review prompts
+- Objective lens: retention linkage.
+- Evidence lens: identifier continuity.
+- Test lens: disposition-wording test.
+- Observation lens: incomplete-rationale observation.
+- Action lens: preserve exception then validate.
+
+Analyst focus vocabulary: integrity, remediation, visibility, confirmation, f=
+ollow-up, provenance, timeline, boundary, due-date, period, sequence, approva=
+l, decision, interval, request, workflow, consistency, governance, rationale,=
+ traceability, cadence, eligibility, population, signoff. These are review pr=
+ompts, not asserted system facts.
+
+This message is synthetic documentation only. It makes no Kio indexing, histo=
+ry, search, or performance claim.

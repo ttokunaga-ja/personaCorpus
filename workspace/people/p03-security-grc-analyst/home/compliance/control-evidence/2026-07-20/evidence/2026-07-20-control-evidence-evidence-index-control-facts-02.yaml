@@ -1,0 +1,37 @@
+artifact_id: p03-full-009827
+source_record: p03-src-009827
+scope: p03-primary-06
+organization: Cobalt Harbor
+review_date: '2026-07-20'
+risk_reference: RISK-031
+relationship: AC-27 relates to evidence set 184
+dependency_context: no upstream dependency
+evidence_question: Which review question exposes a gap between policy language and
+  operating evidence?
+source_facts: service owner retained contract evidence for this review.
+counterexample: A repeated control statement does not establish operation when no
+  counterexample was considered.
+evidence_instrument: contract obligation extract
+review_observation: the verification date was visible beside the source fact
+challenge_performed: a local conclusion was checked for reliance on external access
+review_profile:
+- the evidence set was collected during the follow-up review
+- the evidence custodian confirmed the record boundary
+- the reviewer sampled a routine operating condition
+- the source fact supported acceptance without qualification
+- the comparison used the prior review conclusion
+- the evidence was retained with the decision record
+- the exception path was considered and recorded
+- the reviewer found no handover impact
+- the decision was suitable for routine monitoring
+- the source chronology contained a reconciled late entry
+- the control claim was corroborated by a compensating observation
+- the review boundary excluded unavailable material
+- the next assurance trigger is the scheduled review
+- the disposition was communicated to the independent reviewer
+- the retained rationale supports repeat review
+- the record remains a local offline assurance artifact
+decision_rule: Escalate conflicting observations to the designated reviewer rather
+  than resolving them through filename or identifier changes.
+disposition: escalated for corroboration with the decision basis retained
+operating_boundary: No Kio capability is used or required for this offline review.

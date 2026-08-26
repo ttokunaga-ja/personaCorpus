@@ -1,0 +1,50 @@
+From: grc-reviewer@cobalt.invalid
+To: control-owner@cobalt.invalid
+Subject: Synthetic approval separation policy review 038
+Message-ID: <p03-full-001987@cobalt.invalid>
+Date: Mon, 13 Jul 2026 08:30:00 +0000
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor Systems =E2=80=94 synthetic policy review
+
+Record: p03-full-001987
+Policy period: 2026-07-20
+Review lens: disposition record
+Workflow link: synthetic audit-request coordination
+
+Question: What would cause the reviewer to hold disposition pending a compens=
+ating review?
+
+Requested procedure:
+- Name the preparer role and the independent reviewer role in separate fields.
+- Ask whether the record distinguishes an evidence-chain label from the under=
+lying evidence content.
+- Check that reviewer separation is observable from the wording, not inferred=
+ from a job title.
+
+Assigned policy basis: the synthetic 18-month retention minimum.
+
+Observation: The requested output can be evaluated from the named control, pe=
+riod, and disposition without adding source-system detail. Make the exception=
+ disposition conditional on documented compensating review.
+
+Policy-specific examination:
+- The exception follow-up explains why the original record is preserved rathe=
+r than revised.
+- The archival purpose can be assessed without any external url, attachment, =
+or live tracking reference.
+- Approval evidence is classified before a reviewer decides whether the polic=
+y path is complete.
+- The owner role is documented as a policy responsibility rather than evidenc=
+e of execution.
+
+
+Disposition: retain this bounded synthetic communication under the synthetic =
+18-month policy minimum. Security GRC owns the documentation review; the cont=
+rol owner confirms the rationale for 2026-07-20. Test that the policy term is=
+ specific enough to guide a later evidence request.
+
+This message is synthetic defensive GRC documentation. It has no live links, =
+personal data, production access claim, or Kio readiness claim.

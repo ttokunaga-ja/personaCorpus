@@ -1,0 +1,52 @@
+From: grc-reviewer@cobalt.invalid
+To: soc-duty@cobalt.invalid
+Subject:
+ [Synthetic AR-260713-027] retention disposition response request (2026-07-14)
+Date: Mon, 20 Jul 2026 09:30:00 +0000
+Message-ID: <p03-full-007359@cobalt.invalid>
+X-Synthetic-Record: p03-full-007359
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Hello control-evidence coordinator,
+
+This is a synthetic defensive request for AR-260713-027. Please record the re=
+quested retention decision without extending the source boundary for the 2026=
+-07-14 normalization boundary. The assigned review lane is to test whether th=
+e evidence handoff preserves its stated scope.
+
+Response boundary
+- Include: the request-response trail without credentials or operational acce=
+ss.
+- Exclude: raw events, personal data, credentials, and live-system material.
+
+Response test
+During the review phase, GRC will test retention rationale, role separation, =
+and disposition record. Lane question: is the returned summary specific enoug=
+h to support audit coordination. Do not replace the bounded record with a bro=
+ad assurance statement.
+
+Exception and disposition
+For this lane, an over-broad response is returned for boundary clarification =
+before disposition. Proposed disposition: confirm identifiers and checksum re=
+conciliation; lane decision: record as complete after an owner and evidence b=
+oundary are confirmed. The GRC request owner records the response; the contro=
+l owner acknowledges it. A person may not approve their own exception disposi=
+tion.
+
+Assigned review prompts
+- Objective lens: follow-up ownership.
+- Evidence lens: review-period label.
+- Test lens: period-assignment test.
+- Observation lens: unowned-response observation.
+- Action lens: hold for independent review.
+
+Analyst focus vocabulary: priority, summary, attestation, disposition, observ=
+ation, scope, ambiguity, criterion, intake, referral, verification, completen=
+ess, execution, procedure, supervision, audit, documentation, ownership, segr=
+egation, annotation, custody, integrity, remediation, visibility. These are r=
+eview prompts, not asserted system facts.
+
+This message is synthetic documentation only. It makes no Kio indexing, histo=
+ry, search, or performance claim.

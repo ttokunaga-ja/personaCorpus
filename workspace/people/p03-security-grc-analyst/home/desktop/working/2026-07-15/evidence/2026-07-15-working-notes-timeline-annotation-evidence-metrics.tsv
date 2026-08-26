@@ -1,0 +1,4 @@
+record_id	spine_id	canonical_value	working_note
+p03-src-005549	org.cobalt-harbor	Cobalt Harbor Systems (CHS) is a fictional organization operating a managed logistics and harbor-operations platform.	Working-note focus: 2026 07 15 working notes timeline annotation evidence metrics tsv s005549; source p03-src-005549 is a bounded synthetic analyst record.
+p03-src-005549	team.grc	Security GRC owns the AC-27 evidence register, risk treatment tracking, and audit-request coordination.	Working-note focus: 2026 07 15 working notes timeline annotation evidence metrics tsv s005549; source p03-src-005549 is a bounded synthetic analyst record.
+p03-src-005549	date.2026-07-15	Control owner validates the remediation plan and retention disposition.	Working-note focus: 2026 07 15 working notes timeline annotation evidence metrics tsv s005549; source p03-src-005549 is a bounded synthetic analyst record.

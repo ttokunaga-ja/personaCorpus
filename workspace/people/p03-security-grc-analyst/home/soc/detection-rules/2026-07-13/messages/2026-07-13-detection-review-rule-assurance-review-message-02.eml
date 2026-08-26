@@ -1,0 +1,36 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Incident Readiness decision for p03-full-008860
+Date: Mon, 13 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-008860@example.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline incident readiness review for assurance re=
+view message eml s008860 on 2026-07-13. The evidence question was: What minim=
+al trace proves that the control remains attributable to its owner? The respo=
+nse coordinator assembled the source facts; the case reviewer tested their re=
+cord completeness. The review relates AC-27 to evidence set 184 and records R=
+ISK-031 as the governing risk reference. Dependency context: no upstream depe=
+ndency. The source record is p03-src-008860 and this artifact is p03-full-008=
+860. The evidence instrument was the assumption challenge log; the reviewer o=
+bserved that the record explained the relationship between policy and practic=
+e. During challenge, a process narrative was checked for a named decision own=
+er. Review profile: the evidence set was collected before the approval meetin=
+g; the accountable owner confirmed the operating boundary; the reviewer sampl=
+ed an adverse operating condition; the source fact supported acceptance with =
+a documented caveat; the comparison used the current control objective; the e=
+vidence was retained in the review register; the exception path was not invok=
+ed; the reviewer assessed a handover impact; the decision was suitable for ro=
+utine monitoring; the source chronology contained a reconciled late entry; th=
+e control claim was independently corroborated; the review boundary excluded =
+unavailable material; the next assurance trigger is the scheduled review; the=
+ disposition was communicated to the independent reviewer; the retained ratio=
+nale supports repeat review; the record remains a local offline assurance art=
+ifact. Counterexample considered: A dependency reference is not meaningful un=
+less the receiving artifact explains why it was consulted. Decision rule: Esc=
+alate conflicting observations to the designated reviewer rather than resolvi=
+ng them through filename or identifier changes. Disposition: accepted with a =
+retained review note. No Kio capability is used or required for this offline =
+review.

@@ -1,0 +1,40 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Incident Readiness decision for p03-full-008360
+Date: Mon, 20 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-008360@example.invalid>
+X-Review-Period: 2026 Q3
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline incident readiness review for assurance re=
+view message eml s008360 on 2026-07-20. The evidence question was: What decis=
+ion can be made from the retained source material without external access? Th=
+e response coordinator assembled the source facts; the case reviewer tested t=
+heir record completeness. The review relates AC-27 to evidence set 184 and re=
+cords RISK-031 as the governing risk reference. Dependency context: no upstre=
+am dependency. The source record is p03-src-008360 and this artifact is p03-f=
+ull-008360. The evidence instrument was the evidence freshness check; the rev=
+iewer observed that the sample included an adverse operating condition. Durin=
+g challenge, a late evidence submission was separated from the original decis=
+ion. Review profile: the evidence set was collected before the approval meeti=
+ng; the accountable owner confirmed the operating boundary; the reviewer samp=
+led a routine operating condition; the source fact supported acceptance with =
+a documented caveat; the comparison used the prior review conclusion; the evi=
+dence was retained with the decision record; the exception path was not invok=
+ed; the reviewer assessed a handover impact; the decision was suitable for ro=
+utine monitoring; the source chronology was complete; the control claim was i=
+ndependently corroborated; the review boundary excluded unavailable material;=
+ the next assurance trigger is the scheduled review; the disposition was comm=
+unicated to the independent reviewer; the retained rationale supports repeat =
+review; the record remains a local offline assurance artifact. Counterexample=
+ considered: A dated narrative without a named custodian is insufficient beca=
+use responsibility cannot be tested. Decision rule: Treat the control as effe=
+ctive only when the counterexample has been considered and the exception path=
+ is explicit. Disposition: escalated for corroboration with the decision basi=
+s retained. No Kio capability is used or required for this offline review.
+
+Review period: 2026 Q3. This detection review rule assurance review message e=
+ml record was assessed using control boundary and operating ownership; the re=
+viewer confirmed the review conclusion.

@@ -1,0 +1,41 @@
+artifact_id: p03-full-009479
+source_record: p03-src-009479
+scope: p03-primary-05
+organization: Cobalt Harbor
+review_date: '2026-07-20'
+risk_reference: RISK-031
+relationship: AC-27 relates to evidence set 184
+dependency_context: no upstream dependency
+evidence_question: How does the review distinguish complete evidence from an unsupported
+  assertion?
+source_facts: risk owner retained decision record for this review.
+counterexample: A generic assurance claim is rejected when it cannot be traced to
+  an owner, date, and retained evidence.
+evidence_instrument: incident chronology
+review_observation: the control boundary was explained in practical terms
+challenge_performed: an unsupported completion status was tested for underlying proof
+review_profile:
+- the evidence set was collected during the follow-up review
+- the evidence custodian confirmed the record boundary
+- the reviewer sampled an adverse operating condition
+- the source fact supported acceptance without qualification
+- the comparison used the prior review conclusion
+- the evidence was retained in the review register
+- the exception path was not invoked
+- the reviewer found no handover impact
+- the decision was suitable for targeted follow-up
+- the source chronology was complete
+- the control claim was corroborated by a compensating observation
+- the review boundary excluded unavailable material
+- the next assurance trigger is the scheduled review
+- the disposition was communicated to the independent reviewer
+- the retained rationale supports repeat review
+- the record remains a local offline assurance artifact
+decision_rule: Reject unsupported claims and retain a concise explanation of the missing
+  fact for the next review cycle.
+disposition: accepted with a retained review note
+operating_boundary: No Kio capability is used or required for this offline review.
+review_period: 2026 Q3
+review_period_context: 'Review period: 2026 Q3. This policy approval separation control
+  facts record was assessed using risk treatment and residual uncertainty; the reviewer
+  recorded a bounded exception.'

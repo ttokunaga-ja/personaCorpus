@@ -1,0 +1,30 @@
+record:
+  record_id: "p03-full-005535"
+  source_id: "p03-src-005535"
+  organization: "Cobalt Harbor Systems"
+  program: "Aegis Assurance"
+  control: "AC-27"
+  review_date_or_period: "2026-07-13"
+  review_topic: "control mapping"
+  evidence_set: "184"
+  case_id: "CASE-260713-184"
+  risk_id: "RISK-031"
+  residual_risk: "Medium"
+  population_records: 48
+  timely_attestations: 47
+  final_completion_records: 48
+  evidence_completeness: "24 of 24"
+  data_boundary: "synthetic defensive governance evidence; no live events or routable targets"
+assurance:
+  status: reconciled
+  control_objective: evidence-backed defensive detection review
+review_context:
+  review_topic: "control mapping"
+  review_date_or_period: "2026-07-13"
+  evidence_reference: "evidence set 184, reconciliation lane 005535"
+  decision: "SOC duty review confirms the minimized Sentinel Export boundary; CASE-260713-184 retains RISK-031 at Medium residual risk."
+  synthetic_boundary: "defensive governance record only; no live telemetry, credentials, personal data, or routable targets"
+content_spine_traceability:
+  "org.cobalt-harbor": "Cobalt Harbor Systems (CHS) is a fictional organization operating a managed logistics and harbor-operations platform."
+  "team.soc": "Security Operations owns bounded SIEM exports, detection review evidence, and incident evidence-chain handoff."
+  "date.2026-07-13": "Primary review date. Evidence intake opens 08:30 UTC; AC-27 review closes at 16:45 UTC."

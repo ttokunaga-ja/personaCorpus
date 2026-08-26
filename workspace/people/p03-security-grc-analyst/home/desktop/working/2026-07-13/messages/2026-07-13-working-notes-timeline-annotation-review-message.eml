@@ -1,0 +1,51 @@
+From: grc-reviewer@cobalt.invalid
+To: soc-duty@cobalt.invalid
+Subject: AC-27 working review: s002141
+Date: Mon, 20 Jul 2026 10:00:00 +0000
+Message-ID: <p03-full-002141@cobalt.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Question
+What evidence-chain decision is needed for this 2026-07-13 working message, w=
+hile keeping the source period visible?
+
+Method
+This 2026-07-13 desktop working note is a synthetic defensive GRC record for =
+Cobalt Harbor Systems. It traces CASE-260713-184 through the Aegis AC-27 evid=
+ence chain and uses only the local foundation records listed below.
+Declared local dependencies:=20
+
+Observation and limitation
+Local foundation record is available for the bounded review.
+
+Focus: checksum check. Assigned period: 2026-07-13. Source period: read from =
+the referenced local record; the assigned period is not a claim that the sour=
+ce was created then. Review boundary: synthetic evidence only, no Kio indexin=
+g, history, chunks, search, or performance claim.
+
+Specific review lens: Separate the checksum reference from the reviewer ackno=
+wledgement in the local record.
+
+Path-scoped reading markers: intake-823696b8038c; provenance-e1ddb447a2da; ch=
+ronology-4edb40a9787b; boundary-db0f1b74a4f8; attestation-8a3b649090f4; recon=
+ciliation-058d960c9e5b; exception-d2b95d2b14c6; retention-13fa4b6a7a1c; owner=
+ship-ae9b1e765d63; population-b0c6ea768528; completion-8c269fb70f4a; residual=
+-40093fb783ca; approval-493eb7a93810; handoff-11f7fa6c4d65; scope-6a2075e2759=
+8; disposition-0b0e89778b99; source-347bf4330ce3; review-dac8e1e52b1b; eviden=
+ce-508776b99f4d; action-a0f7e72e9051; context-37351a7327d2; method-1cc9721344=
+fe; observation-0f111aa42fc5; limitation-db10f18a504a; routing-36913294a048; =
+catalogue-f20e0d4f5139; register-f968a6ea83f1; packet-f28b57a167b3; control-e=
+f34cec90019; assurance-8f604904629f; normalization-4f53f2166f70; validation-8=
+31fe3343826; annotation-3a82d57a6fe0; triage-8621e768fb42; closure-4525d395cb=
+7b; followup-cf944b309569; rationale-a06c76944d21; record-fb59bb4184e0; respo=
+nse-efeedfc2292f; coordination-41c4490502cc; integrity-53198eaa4f3c; lineage-=
+2782dc14235c; criteria-693c6a4fdf0d; finding-9d34bd66c6bf; treatment-29686025=
+be5f; accountability-855dbfce7d6c; reviewer-2a5dab40502a; preparer-d2904c0ba8=
+d1; archive-a3a8ab4116b2; confirmation-a247e02b7e17. These labels organize th=
+is artifact's declared dependency review; they do not add source facts.
+
+Disposition
+Retain the AC-27 source linkage for bounded synthetic review. This message do=
+es not indicate an incident, live-system access, or a Kio claim.

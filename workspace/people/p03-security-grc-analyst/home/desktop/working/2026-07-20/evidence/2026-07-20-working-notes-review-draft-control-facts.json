@@ -1,0 +1,15 @@
+{
+  "record_id": "p03-src-001039",
+  "working_note": "Working-note focus: 2026 07 20 working notes review draft control facts json s001039; source p03-src-001039 is a bounded synthetic analyst record.",
+  "traceability": [
+    {
+      "spine_id": "org.cobalt-harbor",
+      "canonical_value": "Cobalt Harbor Systems (CHS) is a fictional organization operating a managed logistics and harbor-operations platform."
+    },
+    {
+      "spine_id": "date.2026-07-20",
+      "canonical_value": "Seven-day follow-up validates closure evidence and residual-risk status."
+    }
+  ],
+  "synthetic_only": true
+}

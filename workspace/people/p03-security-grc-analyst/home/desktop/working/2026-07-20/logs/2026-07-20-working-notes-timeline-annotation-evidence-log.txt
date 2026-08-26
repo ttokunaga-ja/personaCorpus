@@ -1,0 +1,5 @@
+p03-src-003173 | Working-note focus: 2026 07 20 working notes timeline annotation evidence log txt s003173; source p03-src-003173 is a bounded synthetic analyst record.
+org.cobalt-harbor | Cobalt Harbor Systems (CHS) is a fictional organization operating a managed logistics and harbor-operations platform.
+team.grc | Security GRC owns the AC-27 evidence register, risk treatment tracking, and audit-request coordination.
+date.2026-07-20 | Seven-day follow-up validates closure evidence and residual-risk status.
+Synthetic defensive evidence only; no live-system data.

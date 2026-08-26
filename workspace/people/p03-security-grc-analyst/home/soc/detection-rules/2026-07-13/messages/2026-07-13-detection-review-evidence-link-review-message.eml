@@ -1,0 +1,35 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Incident Readiness decision for p03-full-000702
+Date: Mon, 13 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-000702@example.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline incident readiness review for link review =
+message eml s000702 on 2026-07-13. The evidence question was: Which review qu=
+estion exposes a gap between policy language and operating evidence? The resp=
+onse coordinator assembled the source facts; the case reviewer tested their r=
+ecord completeness. The review relates AC-27 to evidence set 184 and records =
+RISK-031 as the governing risk reference. Dependency context: no upstream dep=
+endency. The source record is p03-src-000702 and this artifact is p03-full-00=
+0702. The evidence instrument was the control-to-evidence map; the reviewer o=
+bserved that the record explained the relationship between policy and practic=
+e. During challenge, a compensating action was checked for accountable owners=
+hip. Review profile: the evidence set was collected before the approval meeti=
+ng; the evidence custodian confirmed the record boundary; the reviewer sample=
+d an adverse operating condition; the source fact supported acceptance with a=
+ documented caveat; the comparison used the current control objective; the ev=
+idence was retained with the decision record; the exception path was not invo=
+ked; the reviewer assessed a handover impact; the decision was suitable for r=
+outine monitoring; the source chronology contained a reconciled late entry; t=
+he control claim was independently corroborated; the review boundary excluded=
+ unavailable material; the next assurance trigger is the scheduled review; th=
+e disposition was communicated to the owner; the retained rationale supports =
+repeat review; the record remains a local offline assurance artifact. Counter=
+example considered: A complete-looking register is not reliable if the decisi=
+on rule and disposition are absent. Decision rule: Approve when the evidence =
+is specific, attributable, and dated; otherwise classify the item as needing =
+corroboration. Disposition: escalated for corroboration with the decision bas=
+is retained. No Kio capability is used or required for this offline review.

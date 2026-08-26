@@ -1,0 +1,52 @@
+From: grc-reviewer@cobalt.invalid
+To: control-owner@cobalt.invalid
+Subject: Synthetic exception handling policy review 047
+Message-ID: <p03-full-002894@cobalt.invalid>
+Date: Mon, 13 Jul 2026 08:30:00 +0000
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor Systems =E2=80=94 synthetic policy review
+
+Record: p03-full-002894
+Policy period: 2026-07-20
+Review lens: verification cadence
+Workflow link: synthetic audit-request coordination
+
+Question: Where should the control owner record a time-bounded exception so t=
+he next review can test closure?
+
+Requested procedure:
+- Check the retention wording against the 18-month corpus fact before archivi=
+ng the note.
+- Record whether the disposition needs a preparer acknowledgement or an indep=
+endent challenge.
+- Record how a bounded policy review prevents historical facts from being sil=
+ently rewritten.
+
+Assigned policy basis: synthetic decision decision.dec-260713-004.
+
+Observation: The record distinguishes a planned control test from proof that =
+a real environment was accessed or changed. Capture the narrow question a rev=
+iewer should answer before allowing archive classification.
+
+Policy-specific examination:
+- The review scope excludes raw data and limits the note to governance docume=
+ntation.
+- The retention minimum is applied to the note while avoiding an unsupported =
+legal interpretation.
+- The evidence request response is scoped to policy rationale and not custome=
+r or workforce data.
+- The exception boundary prevents a temporary deviation from being represente=
+d as a standing policy rule.
+
+
+Disposition: retain this bounded synthetic communication under the bounded sy=
+nthetic policy-review record boundary. Security GRC owns the documentation re=
+view; the control owner confirms the rationale for 2026-07-20. Describe how a=
+n action owner would acknowledge a clarification request in the documentation=
+ workflow.
+
+This message is synthetic defensive GRC documentation. It has no live links, =
+personal data, production access claim, or Kio readiness claim.

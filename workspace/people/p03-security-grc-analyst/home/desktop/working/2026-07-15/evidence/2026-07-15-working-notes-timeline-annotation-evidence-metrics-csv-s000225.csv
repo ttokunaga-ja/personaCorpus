@@ -1,0 +1,4 @@
+record_id,spine_id,canonical_value,working_note
+p03-src-000225,org.cobalt-harbor,Cobalt Harbor Systems (CHS) is a fictional organization operating a managed logistics and harbor-operations platform.,Working-note focus: 2026 07 15 working notes timeline annotation evidence metrics csv s000225; source p03-src-000225 is a bounded synthetic analyst record.
+p03-src-000225,case.case-260713-184,"CASE-260713-184 is the synthetic evidence intake case for evidence set 184, not a real incident.",Working-note focus: 2026 07 15 working notes timeline annotation evidence metrics csv s000225; source p03-src-000225 is a bounded synthetic analyst record.
+p03-src-000225,date.2026-07-15,Control owner validates the remediation plan and retention disposition.,Working-note focus: 2026 07 15 working notes timeline annotation evidence metrics csv s000225; source p03-src-000225 is a bounded synthetic analyst record.

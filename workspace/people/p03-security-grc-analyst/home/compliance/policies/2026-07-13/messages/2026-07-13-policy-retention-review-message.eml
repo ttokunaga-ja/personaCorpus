@@ -1,0 +1,52 @@
+From: grc-reviewer@cobalt.invalid
+To: control-owner@cobalt.invalid
+Subject: Synthetic retention policy review 048
+Message-ID: <p03-full-003013@cobalt.invalid>
+Date: Mon, 13 Jul 2026 08:30:00 +0000
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor Systems =E2=80=94 synthetic policy review
+
+Record: p03-full-003013
+Policy period: 2026-07-13
+Review lens: attestation follow-up
+Workflow link: synthetic audit-request coordination
+
+Question: How should an acknowledgement be phrased so it identifies responsib=
+ility without asserting a live-system result?
+
+Requested procedure:
+- Record the exception boundary, accountable owner, and next verification poi=
+nt.
+- Make the exception disposition conditional on documented compensating revie=
+w.
+- Identify the condition that turns a routine review into an exception follow=
+-up.
+
+Assigned policy basis: the synthetic 18-month retention minimum.
+
+Observation: The synthetic timeline provides a clear accountability checkpoin=
+t without creating a customer, employee, or system record. Ask whether the re=
+cord distinguishes an evidence-chain label from the underlying evidence conte=
+nt.
+
+Policy-specific examination:
+- The decision reason is retained with the control context needed for an inde=
+pendent review.
+- The disposition note leaves a visible path for an independent reviewer to r=
+equest clarification.
+- The owner timing note establishes when clarification is due without implyin=
+g a real service commitment.
+- The review scope excludes raw data and limits the note to governance docume=
+ntation.
+
+
+Disposition: retain this bounded synthetic communication under the synthetic =
+18-month policy minimum. Security GRC owns the documentation review; the cont=
+rol owner confirms the rationale for 2026-07-13. Specify the timing point at =
+which grc should request a clarification instead of closing the note.
+
+This message is synthetic defensive GRC documentation. It has no live links, =
+personal data, production access claim, or Kio readiness claim.

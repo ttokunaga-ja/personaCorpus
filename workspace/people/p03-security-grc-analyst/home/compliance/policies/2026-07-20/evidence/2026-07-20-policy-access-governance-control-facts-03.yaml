@@ -1,0 +1,32 @@
+schema: chs.policy-foundation/v1
+artifact_id: p03-full-005696
+source_id: p03-src-005696
+title: "2026 07 20 Policy Access Governance Control Facts Yaml S005696"
+synthetic: true
+organization: Cobalt Harbor Systems
+control: Aegis Control AC-27
+case: CASE-260713-184
+audit_request: AR-260713-027
+review_date_utc: 2026-07-20
+evidence_set:
+  id: 184
+  verified_items: 24
+review_population:
+  synthetic_privileged_roles: 48
+  timely_attestations: 47
+  final_completion: 48
+risk:
+  id: RISK-031
+  inherent: High
+  residual: Medium
+retention_minimum_months: 18
+decision: DEC-260713-004
+record_sequence: 190
+operational_access: false
+content_spine_traceability:
+  - id: org.cobalt-harbor
+    canonical_value: "Cobalt Harbor Systems (CHS) is a fictional organization operating a managed logistics and harbor-operations platform."
+  - id: decision.dec-260713-004
+    canonical_value: "Retain evidence set 184 under the synthetic GRC retention schedule; no live-source data is included."
+  - id: date.2026-07-20
+    canonical_value: "Seven-day follow-up validates closure evidence and residual-risk status."

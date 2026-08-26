@@ -1,0 +1,54 @@
+From: grc-reviewer@cobalt.invalid
+To: vendor-assurance@cobalt.invalid
+Subject: AC-27 bounded review: 2026 07 20 control evidence approval record
+ review message eml
+Date: Tue, 14 Jul 2026 10:20:00 +0000
+Message-ID: <p03-full-008042@cobalt.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Synthetic defensive GRC communication
+
+Review subject: approval / record / review / message / eml
+Review window: 2026-07-20
+Accountable role: control-evidence reviewer
+
+Question
+For approval / record / review / message / eml, whether completeness is state=
+d only within the 24-item boundary during 2026-07-20?
+
+Method
+Reviewed the exception linkage and checked that the compensating review did n=
+ot rewrite the original timing; specifically, test for raw-event, personal-da=
+ta, and live-link exclusions.
+
+Observation
+The record is a synthetic control-evidence statement; it is not a production =
+export or an incident record. The review lens is evidence-completeness: do no=
+t extrapolate a bounded set into broader assurance. Evidence set 184 is a bou=
+nded 24-item synthetic package.
+
+Disposition
+Use this message as a traceability aid only. AC-27 requires preparer and revi=
+ewer role separation for an exception disposition.
+
+Limitation
+This does not prove that any live account, endpoint, or service was accessed.=
+ The source-minimization lens requires that the record treat minimization as =
+a scope control, not a production-export claim.
+
+Action
+Keep the exception disposition linked to its compensating-review note and rec=
+heck closure evidence on the scheduled follow-up. For this record, document t=
+he outstanding criterion for the next review.
+
+Artifact-specific review lens
+retention, approval, outcome, evidence, control, independence, owner, audit, =
+label, residual, exclusion, reconciliation, timestamp, action, minimum, revie=
+w. These dimensions shape this artifact's question, method, observation, limi=
+tation, disposition, and accountable action; they are not additional source f=
+acts.
+
+No live link, attachment, credential, personal data, production access, or Ki=
+o indexing/search claim is included.

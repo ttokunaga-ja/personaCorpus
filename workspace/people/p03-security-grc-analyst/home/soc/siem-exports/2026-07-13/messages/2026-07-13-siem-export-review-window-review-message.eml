@@ -1,0 +1,35 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Access Review decision for p03-full-000459
+Date: Mon, 13 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-000459@example.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline access review review for window review mes=
+sage eml s000459 on 2026-07-13. The evidence question was: What observable ev=
+idence demonstrates that the stated control objective is met? The system stew=
+ard assembled the source facts; the access approver tested their exception ha=
+ndling. The review relates AC-27 to evidence set 184 and records RISK-031 as =
+the governing risk reference. Dependency context: no upstream dependency. The=
+ source record is p03-src-000459 and this artifact is p03-full-000459. The ev=
+idence instrument was the control narrative comparison; the reviewer observed=
+ that the conclusion identified the next assurance trigger. During challenge,=
+ a handoff record was assessed for continuity of evidence custody. Review pro=
+file: the evidence set was collected during the follow-up review; the evidenc=
+e custodian confirmed the record boundary; the reviewer sampled a routine ope=
+rating condition; the source fact supported acceptance with a documented cave=
+at; the comparison used the prior review conclusion; the evidence was retaine=
+d in the review register; the exception path was considered and recorded; the=
+ reviewer assessed a handover impact; the decision was suitable for targeted =
+follow-up; the source chronology was complete; the control claim was independ=
+ently corroborated; the review boundary excluded unavailable material; the ne=
+xt assurance trigger is the scheduled review; the disposition was communicate=
+d to the owner; the retained rationale supports repeat review; the record rem=
+ains a local offline assurance artifact. Counterexample considered: A repeate=
+d control statement does not establish operation when no counterexample was c=
+onsidered. Decision rule: Reject unsupported claims and retain a concise expl=
+anation of the missing fact for the next review cycle. Disposition: escalated=
+ for corroboration with the decision basis retained. No Kio capability is use=
+d or required for this offline review.

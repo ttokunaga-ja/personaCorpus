@@ -1,0 +1,37 @@
+artifact_id: p03-full-008279
+source_record: p03-src-008279
+scope: p03-primary-05
+organization: Cobalt Harbor
+review_date: '2026-07-15'
+risk_reference: RISK-031
+relationship: AC-27 relates to evidence set 184
+dependency_context: no upstream dependency
+evidence_question: How does the review distinguish complete evidence from an unsupported
+  assertion?
+source_facts: detection owner retained coverage record for this review.
+counterexample: A dependency reference is not meaningful unless the receiving artifact
+  explains why it was consulted.
+evidence_instrument: sampling rationale
+review_observation: the owner acknowledged a limitation without weakening traceability
+challenge_performed: a retained file was assessed for evidence freshness
+review_profile:
+- the evidence set was collected during the follow-up review
+- the evidence custodian confirmed the record boundary
+- the reviewer sampled an adverse operating condition
+- the source fact supported acceptance without qualification
+- the comparison used the current control objective
+- the evidence was retained in the review register
+- the exception path was considered and recorded
+- the reviewer found no handover impact
+- the decision was suitable for routine monitoring
+- the source chronology was complete
+- the control claim was independently corroborated
+- the review boundary excluded unavailable material
+- the next assurance trigger is the scheduled review
+- the disposition was communicated to the independent reviewer
+- the retained rationale supports repeat review
+- the record remains a local offline assurance artifact
+decision_rule: Use the dependency as context rather than proof; the local artifact
+  must state its own conclusion and basis.
+disposition: accepted with a retained review note
+operating_boundary: No Kio capability is used or required for this offline review.

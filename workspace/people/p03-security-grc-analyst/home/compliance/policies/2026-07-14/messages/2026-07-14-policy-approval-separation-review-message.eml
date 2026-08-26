@@ -1,0 +1,52 @@
+From: grc-reviewer@cobalt.invalid
+To: control-owner@cobalt.invalid
+Subject: Synthetic approval separation policy review 101
+Message-ID: <p03-full-006767@cobalt.invalid>
+Date: Mon, 13 Jul 2026 08:30:00 +0000
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor Systems =E2=80=94 synthetic policy review
+
+Record: p03-full-006767
+Policy period: 2026-07-14
+Review lens: review population boundary
+Workflow link: synthetic audit-request coordination
+
+Question: What narrow test can confirm that the operational note supports its=
+ assigned policy basis rather than a general policy summary?
+
+Requested procedure:
+- Preserve the policy clause, review purpose, and resulting disposition as se=
+parate statements.
+- Retain the governance question that would be revisited if the policy period=
+ changes.
+- Describe the limited role of a control owner when an independent reviewer m=
+ust disagree or concur.
+
+Assigned policy basis: synthetic decision decision.dec-260713-004.
+
+Observation: The record distinguishes a planned control test from proof that =
+a real environment was accessed or changed. Separate the policy control ratio=
+nale from an unsupported statement about an environment.
+
+Policy-specific examination:
+- The policy record describes a future verification input without announcing =
+that it has occurred.
+- The review timing records a planning checkpoint while avoiding an invented =
+completion event.
+- The decision label keeps future audit-request coordination separate from an=
+ audit access assertion.
+- The control test names a bounded evidence question before assigning a risk =
+conclusion.
+
+
+Disposition: retain this bounded synthetic communication under the bounded sy=
+nthetic policy-review record boundary. Security GRC owns the documentation re=
+view; the control owner confirms the rationale for 2026-07-14. State the obse=
+rvable output expected from a control test before disposition is marked compl=
+ete.
+
+This message is synthetic defensive GRC documentation. It has no live links, =
+personal data, production access claim, or Kio readiness claim.

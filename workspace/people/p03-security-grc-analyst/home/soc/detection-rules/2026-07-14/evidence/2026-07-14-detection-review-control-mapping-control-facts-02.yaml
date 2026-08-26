@@ -1,0 +1,37 @@
+artifact_id: p03-full-007535
+source_record: p03-src-007535
+scope: p03-primary-10
+organization: Cobalt Harbor
+review_date: '2026-07-14'
+risk_reference: RISK-031
+relationship: AC-27 relates to evidence set 184
+dependency_context: no upstream dependency
+evidence_question: How does the review distinguish complete evidence from an unsupported
+  assertion?
+source_facts: named control owner retained approval boundary for this review.
+counterexample: A generic assurance claim is rejected when it cannot be traced to
+  an owner, date, and retained evidence.
+evidence_instrument: control narrative comparison
+review_observation: the source chronology did not conceal a late correction
+challenge_performed: a process narrative was checked for a named decision owner
+review_profile:
+- the evidence set was collected during the follow-up review
+- the evidence custodian confirmed the record boundary
+- the reviewer sampled an adverse operating condition
+- the source fact supported acceptance with a documented caveat
+- the comparison used the prior review conclusion
+- the evidence was retained with the decision record
+- the exception path was considered and recorded
+- the reviewer found no handover impact
+- the decision was suitable for targeted follow-up
+- the source chronology was complete
+- the control claim was corroborated by a compensating observation
+- the review boundary identified unavailable material as a limitation
+- the next assurance trigger is completion of the follow-up action
+- the disposition was communicated to the owner
+- the retained rationale supports repeat review
+- the record remains a local offline assurance artifact
+decision_rule: Escalate conflicting observations to the designated reviewer rather
+  than resolving them through filename or identifier changes.
+disposition: accepted with a retained review note
+operating_boundary: No Kio capability is used or required for this offline review.

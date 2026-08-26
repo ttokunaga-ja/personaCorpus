@@ -1,0 +1,19 @@
+{
+  "record_id": "p03-src-001995",
+  "working_note": "Working-note focus: 2026 07 13 working notes review draft control facts json s001995; source p03-src-001995 is a bounded synthetic analyst record.",
+  "traceability": [
+    {
+      "spine_id": "org.cobalt-harbor",
+      "canonical_value": "Cobalt Harbor Systems (CHS) is a fictional organization operating a managed logistics and harbor-operations platform."
+    },
+    {
+      "spine_id": "case.case-260713-184",
+      "canonical_value": "CASE-260713-184 is the synthetic evidence intake case for evidence set 184, not a real incident."
+    },
+    {
+      "spine_id": "date.2026-07-13",
+      "canonical_value": "Primary review date. Evidence intake opens 08:30 UTC; AC-27 review closes at 16:45 UTC."
+    }
+  ],
+  "synthetic_only": true
+}

@@ -1,0 +1,53 @@
+From: grc-reviewer@cobalt.invalid
+To: soc-duty@cobalt.invalid
+Subject:
+ [Synthetic AR-260713-027] request and response response request (2026-07-20)
+Date: Mon, 20 Jul 2026 09:30:00 +0000
+Message-ID: <p03-full-003172@cobalt.invalid>
+X-Synthetic-Record: p03-full-003172
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Hello control-evidence coordinator,
+
+This is a synthetic defensive request for AR-260713-027. Please reconcile the=
+ request wording with the returned control-evidence summary for the 2026-07-2=
+0 follow-up boundary. The assigned review lane is to identify the minimum rec=
+ord needed to explain the request outcome.
+
+Response boundary
+- Include: the control owner acknowledgement without private correspondence.
+- Exclude: raw events, personal data, credentials, and live-system material.
+ - Name synthetic evidence set 184 as the bounded control-evidence package; d=
+o not imply access to its underlying source material.
+
+Response test
+During the close phase, GRC will test request objective, returned boundary, a=
+nd accountable response. Lane question: does the response distinguish what wa=
+s requested from what was returned. Do not replace the bounded record with a =
+broad assurance statement.
+
+Exception and disposition
+For this lane, a retention statement without role separation is escalated for=
+ reviewer confirmation. Proposed disposition: test closure evidence and resid=
+ual-risk status; lane decision: accept the response when its request ID, owne=
+r, and due rule are explicit. The GRC request owner records the response; the=
+ control owner acknowledges it. A person may not approve their own exception =
+disposition.
+
+Assigned review prompts
+- Objective lens: retention linkage.
+- Evidence lens: identifier continuity.
+- Test lens: closure-condition test.
+- Observation lens: unowned-response observation.
+- Action lens: confirm role separation before approval.
+
+Analyst focus vocabulary: population, signoff, assessment, declaration, linka=
+ge, retention, accountability, context, handoff, receipt, treatment, chain, e=
+scalation, precision, source, assurance, delimitation, materiality, review, a=
+cknowledgement, control, identity, reconciliation, validation. These are revi=
+ew prompts, not asserted system facts.
+
+This message is synthetic documentation only. It makes no Kio indexing, histo=
+ry, search, or performance claim.

@@ -1,0 +1,35 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Data Retention decision for p03-full-004235
+Date: Mon, 13 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-004235@example.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline data retention review for mapping review m=
+essage eml s004235 on 2026-07-13. The evidence question was: Which review que=
+stion exposes a gap between policy language and operating evidence? The recor=
+ds owner assembled the source facts; the retention reviewer tested their cont=
+rol boundary. The review relates AC-27 to evidence set 184 and records RISK-0=
+31 as the governing risk reference. Dependency context: no upstream dependenc=
+y. The source record is p03-src-004235 and this artifact is p03-full-004235. =
+The evidence instrument was the incident chronology; the reviewer observed th=
+at the exception route was visible to an independent reviewer. During challen=
+ge, a recertification statement was tested for an actual review event. Review=
+ profile: the evidence set was collected during the follow-up review; the evi=
+dence custodian confirmed the record boundary; the reviewer sampled a routine=
+ operating condition; the source fact supported acceptance with a documented =
+caveat; the comparison used the prior review conclusion; the evidence was ret=
+ained in the review register; the exception path was not invoked; the reviewe=
+r assessed a handover impact; the decision was suitable for routine monitorin=
+g; the source chronology was complete; the control claim was independently co=
+rroborated; the review boundary excluded unavailable material; the next assur=
+ance trigger is completion of the follow-up action; the disposition was commu=
+nicated to the owner; the retained rationale supports repeat review; the reco=
+rd remains a local offline assurance artifact. Counterexample considered: A c=
+omplete-looking register is not reliable if the decision rule and disposition=
+ are absent. Decision rule: Reject unsupported claims and retain a concise ex=
+planation of the missing fact for the next review cycle. Disposition: escalat=
+ed for corroboration with the decision basis retained. No Kio capability is u=
+sed or required for this offline review.

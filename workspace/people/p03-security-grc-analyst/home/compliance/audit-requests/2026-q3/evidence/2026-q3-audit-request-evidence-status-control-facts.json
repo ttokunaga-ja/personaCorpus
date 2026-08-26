@@ -1,0 +1,42 @@
+{
+  "audit_request_foundation": {
+    "artifact_id": "p03-full-003113",
+    "source_id": "p03-src-003113",
+    "organization": "Cobalt Harbor Systems",
+    "program": "Aegis Assurance",
+    "control": "AC-27",
+    "audit_request": "AR-260713-027",
+    "case": "CASE-260713-184",
+    "evidence_set": 184,
+    "evidence_reference": "EV-184-19",
+    "topic": "evidence status",
+    "effective_date": "2026-q3",
+    "supporting_spine_fact": "term.control-evidence",
+    "workflow_stage": "closure follow-up",
+    "review_lens": "response completeness",
+    "custodian_role": "evidence-chain custodian",
+    "control_record_sequence": 3113,
+    "context_note": "Control record 3113 documents closure follow-up through a response completeness lens; evidence-chain custodian confirms the bounded synthetic packet.",
+    "positive_spine_references": [
+      {
+        "id": "org.cobalt-harbor",
+        "value": "Cobalt Harbor Systems (CHS), a fictional managed logistics and harbor-operations platform."
+      },
+      {
+        "id": "period.2026-q3",
+        "value": "2026-Q3 spans 2026-07-01 through 2026-09-30 for governance planning."
+      }
+    ],
+    "positive_spine_references_json": "[{\"id\":\"org.cobalt-harbor\",\"value\":\"Cobalt Harbor Systems (CHS), a fictional managed logistics and harbor-operations platform.\"},{\"id\":\"period.2026-q3\",\"value\":\"2026-Q3 spans 2026-07-01 through 2026-09-30 for governance planning.\"}]",
+    "review_population": 48,
+    "reviewed": 48,
+    "timely_attestations": 47,
+    "completion_after_compensating_review": 48,
+    "timely_attestation_rate": "97.9%",
+    "final_completion_rate": "100.0%",
+    "evidence_items_verified": "24 of 24",
+    "risk": "RISK-031",
+    "residual_risk": "Medium",
+    "synthetic_notice": "Synthetic defensive GRC foundation; no live-source data or Kio claim."
+  }
+}

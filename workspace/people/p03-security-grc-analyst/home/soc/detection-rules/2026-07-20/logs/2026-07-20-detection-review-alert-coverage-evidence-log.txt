@@ -1,0 +1,7 @@
+Cobalt Harbor Systems | Aegis Assurance AC-27
+Record p03-full-002649 (p03-src-002649) documents the alert coverage review for 2026-07-20.
+Evidence set 184 contains 24 required synthetic items; 24 of 24 were reconciled. The review population is 48 synthetic privileged-role records, with 47 timely attestations and 48 final completions after compensating review.
+CASE-260713-184 retains RISK-031 at residual Medium. This bounded record supports defensive detection governance only and contains no live telemetry, credentials, personal data, or routable targets.
+status=reconciled artifact=p03-full-002649 evidence_completeness=24/24
+review_context={"decision": "SOC duty review confirms the minimized Sentinel Export boundary; CASE-260713-184 retains RISK-031 at Medium residual risk.", "evidence_reference": "evidence set 184, reconciliation lane 002649", "review_date_or_period": "2026-07-20", "review_topic": "alert coverage", "synthetic_boundary": "defensive governance record only; no live telemetry, credentials, personal data, or routable targets"}
+content_spine_traceability={"date.2026-07-20": "Seven-day follow-up validates closure evidence and residual-risk status.", "org.cobalt-harbor": "Cobalt Harbor Systems (CHS) is a fictional organization operating a managed logistics and harbor-operations platform.", "team.soc": "Security Operations owns bounded SIEM exports, detection review evidence, and incident evidence-chain handoff."}

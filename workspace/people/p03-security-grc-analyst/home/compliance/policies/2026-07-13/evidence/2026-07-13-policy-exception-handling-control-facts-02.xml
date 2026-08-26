@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<policyFoundation schema="chs.policy-foundation/v1" synthetic="true">
+  <artifact id="p03-full-001546" sourceId="p03-src-001546" sequence="59">2026 07 13 Policy Exception Handling Control Facts Xml S001546</artifact>
+  <organization>Cobalt Harbor Systems</organization>
+  <control>Aegis Control AC-27</control>
+  <case>CASE-260713-184</case>
+  <auditRequest>AR-260713-027</auditRequest>
+  <reviewDate utc="true">2026-07-13</reviewDate>
+  <evidenceSet id="184" verifiedItems="24" />
+  <reviewPopulation syntheticPrivilegedRoles="48" timelyAttestations="47" finalCompletion="48" />
+  <risk id="RISK-031" inherent="High" residual="Medium" />
+  <retention minimumMonths="18" decision="DEC-260713-004" />
+  <operationalAccess>false</operationalAccess>
+<contentSpineTraceability><reference id="org.cobalt-harbor">Cobalt Harbor Systems (CHS) is a fictional organization operating a managed logistics and harbor-operations platform.</reference><reference id="control.retention-18m">Synthetic evidence retention minimum is 18 months; this is a corpus fact, not legal advice.</reference><reference id="date.2026-07-13">Primary review date. Evidence intake opens 08:30 UTC; AC-27 review closes at 16:45 UTC.</reference></contentSpineTraceability></policyFoundation>

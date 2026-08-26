@@ -1,0 +1,46 @@
+From: soc-duty@cobalt.invalid
+To: grc-reviewer@cobalt.invalid
+Subject: AC-27 detection review update =?utf-8?b?4oCUIDIwMjYtMDctMTMg4oCU?=
+ p03-full-000105
+Date: Mon, 13 Jul 2026 15:10:00 +0000
+Message-ID: <p03-full-000105@cobalt.invalid>
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="===============8588598113209854083=="
+
+--===============8588598113209854083==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Cobalt Harbor Systems Security Operations
+
+Cobalt Harbor Systems Security Operations records the alert coverage assuranc=
+e review for 2026-07-13. The bounded Sentinel Export summary contains synthet=
+ic categories and counts only. Aegis Control AC-27 evidence set 184 reconcile=
+s 24 of 24 required synthetic items. RISK-031 remains residual Medium after t=
+he documented compensating review; this record makes no Kio, live-system, or =
+incident claim. No direct dependency is assigned to this communication record.
+
+Evidence register: 24/24 required synthetic items verified; review population=
+ 48; final completion 48/48.
+
+This message contains no live links, credentials, personal data, or operation=
+al access instructions.
+
+--===============8588598113209854083==
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+<html><body><h2>AC-27 detection review update</h2><p>Cobalt Harbor Systems Se=
+curity Operations records the alert coverage assurance review for 2026-07-13.=
+ The bounded Sentinel Export summary contains synthetic categories and counts=
+ only. Aegis Control AC-27 evidence set 184 reconciles 24 of 24 required synt=
+hetic items. RISK-031 remains residual Medium after the documented compensati=
+ng review; this record makes no Kio, live-system, or incident claim. No direc=
+t dependency is assigned to this communication record.</p><p><b>Evidence regi=
+ster:</b> 24/24 required synthetic items verified; review population 48; fina=
+l completion 48/48.</p><p>Synthetic defensive governance communication; no li=
+ve links or tracking.</p></body></html>
+
+--===============8588598113209854083==--

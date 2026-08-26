@@ -1,0 +1,51 @@
+From: grc-reviewer@cobalt.invalid
+To: control-owner@cobalt.invalid
+Subject: Synthetic access governance policy review 055
+Message-ID: <p03-full-004140@cobalt.invalid>
+Date: Mon, 13 Jul 2026 08:30:00 +0000
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor Systems =E2=80=94 synthetic policy review
+
+Record: p03-full-004140
+Policy period: 2026-07-14
+Review lens: review meeting input
+Workflow link: synthetic audit-request coordination
+
+Question: Where should the control owner record a time-bounded exception so t=
+he next review can test closure?
+
+Requested procedure:
+- Check the retention wording against the 18-month corpus fact before archivi=
+ng the note.
+- Explain why a policy exception requires a separate closure observation.
+- Preserve the rationale for a temporary exception without treating it as a p=
+ermanent policy change.
+
+Assigned policy basis: Aegis Control AC-27.
+
+Observation: The assigned policy topic is represented as a bounded governance=
+ record, not as a claim about production controls. Record how a bounded polic=
+y review prevents historical facts from being silently rewritten.
+
+Policy-specific examination:
+- The independent reviewer is given a question that can be answered from the =
+bounded record alone.
+- The synthetic nature of the artifact is repeated at the point where a reade=
+r might infer operations.
+- The review timing records a planning checkpoint while avoiding an invented =
+completion event.
+- The exception disposition states a review criterion that survives archival =
+and later re-evaluation.
+
+
+Disposition: retain this bounded synthetic communication under the bounded sy=
+nthetic policy-review record boundary. Security GRC owns the documentation re=
+view; the control owner confirms the rationale for 2026-07-14. Link the polic=
+y note to its synthetic decision record while keeping the source-system bound=
+ary explicit.
+
+This message is synthetic defensive GRC documentation. It has no live links, =
+personal data, production access claim, or Kio readiness claim.

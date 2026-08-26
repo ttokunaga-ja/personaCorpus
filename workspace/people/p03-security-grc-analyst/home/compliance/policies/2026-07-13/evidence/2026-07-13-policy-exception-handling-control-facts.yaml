@@ -1,0 +1,37 @@
+artifact_id: p03-full-001402
+source_record: p03-src-001402
+scope: p03-primary-05
+organization: Cobalt Harbor
+review_date: '2026-07-13'
+risk_reference: RISK-031
+relationship: AC-27 relates to evidence set 184
+dependency_context: no upstream dependency
+evidence_question: What minimal trace proves that the control remains attributable
+  to its owner?
+source_facts: risk owner retained decision record for this review.
+counterexample: A complete-looking register is not reliable if the decision rule and
+  disposition are absent.
+evidence_instrument: outcome verification note
+review_observation: the verification date was visible beside the source fact
+challenge_performed: a missing custodian was treated as a review failure
+review_profile:
+- the evidence set was collected before the approval meeting
+- the evidence custodian confirmed the record boundary
+- the reviewer sampled a routine operating condition
+- the source fact supported acceptance with a documented caveat
+- the comparison used the current control objective
+- the evidence was retained with the decision record
+- the exception path was considered and recorded
+- the reviewer found no handover impact
+- the decision was suitable for targeted follow-up
+- the source chronology was complete
+- the control claim was corroborated by a compensating observation
+- the review boundary excluded unavailable material
+- the next assurance trigger is the scheduled review
+- the disposition was communicated to the owner
+- the retained rationale supports repeat review
+- the record remains a local offline assurance artifact
+decision_rule: 'Preserve a bounded decision: cite the source, explain the rule, and
+  state whether the result is accepted or escalated.'
+disposition: escalated for corroboration with the decision basis retained
+operating_boundary: No Kio capability is used or required for this offline review.

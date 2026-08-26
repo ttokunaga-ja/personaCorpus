@@ -1,0 +1,40 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Change Assurance decision for p03-full-004512
+Date: Mon, 20 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-004512@example.invalid>
+X-Review-Period: 2026 Q3
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline change assurance review for assurance revi=
+ew message eml s004512 on 2026-07-20. The evidence question was: What decisio=
+n can be made from the retained source material without external access? The =
+change sponsor assembled the source facts; the assurance analyst tested their=
+ source reconciliation. The review relates AC-27 to evidence set 184 and reco=
+rds RISK-031 as the governing risk reference. Dependency context: no upstream=
+ dependency. The source record is p03-src-004512 and this artifact is p03-ful=
+l-004512. The evidence instrument was the incident chronology; the reviewer o=
+bserved that the rationale accounted for an incomplete sample. During challen=
+ge, a recertification statement was tested for an actual review event. Review=
+ profile: the evidence set was collected before the approval meeting; the acc=
+ountable owner confirmed the operating boundary; the reviewer sampled a routi=
+ne operating condition; the source fact supported acceptance without qualific=
+ation; the comparison used the prior review conclusion; the evidence was reta=
+ined with the decision record; the exception path was not invoked; the review=
+er assessed a handover impact; the decision was suitable for targeted follow-=
+up; the source chronology was complete; the control claim was independently c=
+orroborated; the review boundary excluded unavailable material; the next assu=
+rance trigger is completion of the follow-up action; the disposition was comm=
+unicated to the owner; the retained rationale supports repeat review; the rec=
+ord remains a local offline assurance artifact. Counterexample considered: A =
+single approval cannot settle a conflicting record; the discrepancy must rema=
+in visible to the reviewer. Decision rule: Escalate conflicting observations =
+to the designated reviewer rather than resolving them through filename or ide=
+ntifier changes. Disposition: escalated for corroboration with the decision b=
+asis retained. No Kio capability is used or required for this offline review.
+
+Review period: 2026 Q3. This detection review rule assurance review message e=
+ml record was assessed using retention basis and follow-up condition; the rev=
+iewer confirmed the review conclusion.

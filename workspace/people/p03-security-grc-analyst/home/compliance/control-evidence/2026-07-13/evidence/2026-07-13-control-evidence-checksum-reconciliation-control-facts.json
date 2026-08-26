@@ -1,0 +1,38 @@
+{
+  "artifact_id": "p03-full-000980",
+  "canonical_values": [
+    "AC-27 requires preparer and reviewer role separation for each exception disposition."
+  ],
+  "case_id": "CASE-260713-184",
+  "content_spine_ids": [
+    "org.cobalt-harbor",
+    "control.approval-dual",
+    "rel.ac27.evidence-184",
+    "date.2026-07-13",
+    "term.no-kio-claim"
+  ],
+  "control_id": "AC-27",
+  "evidence_card": "EV-184-21",
+  "evidence_items_verified": "24/24",
+  "evidence_set": 184,
+  "exception_id": "EXC-260713-006",
+  "final_completion_rate": "100.0%",
+  "organization": "Cobalt Harbor Systems",
+  "program": "Aegis Assurance",
+  "record_name": "2026-07-13-control-evidence-checksum-reconciliation-control-facts-json-s000980",
+  "residual_risk": "Medium",
+  "review_date": "2026-07-13",
+  "review_lane": "PRIV-21",
+  "review_population": 48,
+  "review_stage": "intake-and-closure",
+  "reviewed": 48,
+  "risk_id": "RISK-031",
+  "source_id": "p03-src-000980",
+  "stage_rationale": "The bounded intake and AC-27 closure record were checked against the same synthetic evidence chain.",
+  "synthetic_notice": "Synthetic defensive control-assurance record; no live-source data.",
+  "timely_attestations": 47,
+  "topic": "checksum-reconciliation",
+  "topic_observation": "Checksum reconciliation records the 24-item evidence package without retaining source-system content.",
+  "verification_pass": 2,
+  "working_paper_sequence": 980
+}

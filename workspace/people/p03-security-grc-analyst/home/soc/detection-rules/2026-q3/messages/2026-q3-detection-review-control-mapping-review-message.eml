@@ -1,0 +1,40 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Access Review decision for p03-full-003603
+Date: Mon, 20 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-003603@example.invalid>
+X-Review-Period: 2026 Q3
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline access review review for mapping review me=
+ssage eml s003603 on 2026-07-20. The evidence question was: How should a conf=
+licting source be handled before the disposition is recorded? The system stew=
+ard assembled the source facts; the access approver tested their control boun=
+dary. The review relates AC-27 to evidence set 184 and records RISK-031 as th=
+e governing risk reference. Dependency context: no upstream dependency. The s=
+ource record is p03-src-003603 and this artifact is p03-full-003603. The evid=
+ence instrument was the incident chronology; the reviewer observed that the s=
+ource chronology did not conceal a late correction. During challenge, a dupli=
+cated statement was not accepted as independent corroboration. Review profile=
+: the evidence set was collected during the follow-up review; the evidence cu=
+stodian confirmed the record boundary; the reviewer sampled a routine operati=
+ng condition; the source fact supported acceptance without qualification; the=
+ comparison used the current control objective; the evidence was retained in =
+the review register; the exception path was not invoked; the reviewer found n=
+o handover impact; the decision was suitable for routine monitoring; the sour=
+ce chronology contained a reconciled late entry; the control claim was corrob=
+orated by a compensating observation; the review boundary identified unavaila=
+ble material as a limitation; the next assurance trigger is the scheduled rev=
+iew; the disposition was communicated to the owner; the retained rationale su=
+pports repeat review; the record remains a local offline assurance artifact. =
+Counterexample considered: A repeated control statement does not establish op=
+eration when no counterexample was considered. Decision rule: Use the depende=
+ncy as context rather than proof; the local artifact must state its own concl=
+usion and basis. Disposition: accepted with a retained review note. No Kio ca=
+pability is used or required for this offline review.
+
+Review period: 2026 Q3. This detection review control mapping review message =
+eml record was assessed using source chronology and decision traceability; th=
+e reviewer documented an ownership check.

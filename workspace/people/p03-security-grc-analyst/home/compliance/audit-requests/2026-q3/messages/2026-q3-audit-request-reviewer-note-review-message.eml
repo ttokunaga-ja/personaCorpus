@@ -1,0 +1,53 @@
+From: grc-reviewer@cobalt.invalid
+To: soc-duty@cobalt.invalid
+Subject:
+ [Synthetic AR-260713-027] reviewer attestation response request (2026-q3)
+Date: Mon, 20 Jul 2026 09:30:00 +0000
+Message-ID: <p03-full-006262@cobalt.invalid>
+X-Synthetic-Record: p03-full-006262
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Hello control-evidence coordinator,
+
+This is a synthetic defensive request for AR-260713-027. Please obtain a revi=
+ewer statement for the bounded AC-27 request for the 2026-q3 planning-period =
+boundary. The assigned review lane is to confirm that the request outcome can=
+ be traced to a bounded record.
+
+Response boundary
+- Include: the evidence-set identifier without a workforce or customer list.
+- Exclude: raw events, personal data, credentials, and live-system material.
+ - Name synthetic evidence set 184 as the bounded control-evidence package; d=
+o not imply access to its underlying source material.
+
+Response test
+During the schedule phase, GRC will test reviewer role, acknowledgement timin=
+g, and exception linkage. Lane question: can the request be closed using the =
+stated response test alone. Do not replace the bounded record with a broad as=
+surance statement.
+
+Exception and disposition
+For this lane, a missing owner is treated as an open coordination observation=
+, not a passed control. Proposed disposition: define the Q3 response window a=
+nd retention handoff; lane decision: record a conditional close pending the s=
+tated follow-up validation. The GRC request owner records the response; the c=
+ontrol owner acknowledges it. A person may not approve their own exception di=
+sposition.
+
+Assigned review prompts
+- Objective lens: request specificity.
+- Evidence lens: summary granularity.
+- Test lens: exception-preservation test.
+- Observation lens: unclear-retention observation.
+- Action lens: route to control owner.
+
+Analyst focus vocabulary: consistency, governance, rationale, traceability, c=
+adence, eligibility, population, signoff, assessment, declaration, linkage, r=
+etention, accountability, context, handoff, receipt, treatment, chain, escala=
+tion, precision, source, assurance, delimitation, materiality. These are revi=
+ew prompts, not asserted system facts.
+
+This message is synthetic documentation only. It makes no Kio indexing, histo=
+ry, search, or performance claim.

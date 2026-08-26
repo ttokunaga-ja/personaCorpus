@@ -1,0 +1,37 @@
+{
+  "record": {
+    "record_id": "p03-full-002621",
+    "source_id": "p03-src-002621",
+    "organization": "Cobalt Harbor Systems",
+    "program": "Aegis Assurance",
+    "control": "AC-27",
+    "review_date_or_period": "2026-q3",
+    "review_topic": "alert coverage",
+    "evidence_set": "184",
+    "case_id": "CASE-260713-184",
+    "risk_id": "RISK-031",
+    "residual_risk": "Medium",
+    "population_records": 48,
+    "timely_attestations": 47,
+    "final_completion_records": 48,
+    "evidence_completeness": "24 of 24",
+    "data_boundary": "synthetic defensive governance evidence; no live events or routable targets"
+  },
+  "review_summary": [
+    "Record p03-full-002621 (p03-src-002621) documents the alert coverage review for 2026-q3.",
+    "Evidence set 184 contains 24 required synthetic items; 24 of 24 were reconciled. The review population is 48 synthetic privileged-role records, with 47 timely attestations and 48 final completions after compensating review.",
+    "CASE-260713-184 retains RISK-031 at residual Medium. This bounded record supports defensive detection governance only and contains no live telemetry, credentials, personal data, or routable targets."
+  ],
+  "review_context": {
+    "review_topic": "alert coverage",
+    "review_date_or_period": "2026-q3",
+    "evidence_reference": "evidence set 184, reconciliation lane 002621",
+    "decision": "Evidence reconciliation confirms 24 of 24 required synthetic items; CASE-260713-184 retains RISK-031 at Medium residual risk.",
+    "synthetic_boundary": "defensive governance record only; no live telemetry, credentials, personal data, or routable targets"
+  },
+  "content_spine_traceability": {
+    "org.cobalt-harbor": "Cobalt Harbor Systems (CHS) is a fictional organization operating a managed logistics and harbor-operations platform.",
+    "measure.evidence-completeness": "Evidence-set 184 completeness: 24 of 24 required synthetic items verified.",
+    "period.2026-q3": "Governance planning period from 2026-07-01 through 2026-09-30."
+  }
+}

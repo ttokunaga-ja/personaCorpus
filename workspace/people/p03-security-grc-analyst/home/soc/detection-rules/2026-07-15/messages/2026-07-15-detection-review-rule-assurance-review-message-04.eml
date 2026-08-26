@@ -1,0 +1,36 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Monitoring Coverage decision for p03-full-009960
+Date: Wed, 15 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-009960@example.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline monitoring coverage review for assurance r=
+eview message eml s009960 on 2026-07-15. The evidence question was: What obse=
+rvable evidence demonstrates that the stated control objective is met? The de=
+tection owner assembled the source facts; the telemetry reviewer tested their=
+ control boundary. The review relates AC-27 to evidence set 184 and records R=
+ISK-031 as the governing risk reference. Dependency context: no upstream depe=
+ndency. The source record is p03-src-009960 and this artifact is p03-full-009=
+960. The evidence instrument was the evidence freshness check; the reviewer o=
+bserved that the owner and custodian were named consistently. During challeng=
+e, a handover gap was assessed for accountability loss. Review profile: the e=
+vidence set was collected before the approval meeting; the accountable owner =
+confirmed the operating boundary; the reviewer sampled a routine operating co=
+ndition; the source fact supported acceptance with a documented caveat; the c=
+omparison used the prior review conclusion; the evidence was retained with th=
+e decision record; the exception path was considered and recorded; the review=
+er assessed a handover impact; the decision was suitable for routine monitori=
+ng; the source chronology contained a reconciled late entry; the control clai=
+m was corroborated by a compensating observation; the review boundary exclude=
+d unavailable material; the next assurance trigger is the scheduled review; t=
+he disposition was communicated to the independent reviewer; the retained rat=
+ionale supports repeat review; the record remains a local offline assurance a=
+rtifact. Counterexample considered: A dated narrative without a named custodi=
+an is insufficient because responsibility cannot be tested. Decision rule: Es=
+calate conflicting observations to the designated reviewer rather than resolv=
+ing them through filename or identifier changes. Disposition: accepted with a=
+ retained review note. No Kio capability is used or required for this offline=
+ review.

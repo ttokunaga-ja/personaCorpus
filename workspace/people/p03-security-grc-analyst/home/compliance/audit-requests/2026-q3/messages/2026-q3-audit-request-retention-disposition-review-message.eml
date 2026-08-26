@@ -1,0 +1,53 @@
+From: grc-reviewer@cobalt.invalid
+To: soc-duty@cobalt.invalid
+Subject:
+ [Synthetic AR-260713-027] retention disposition response request (2026-q3)
+Date: Mon, 20 Jul 2026 09:30:00 +0000
+Message-ID: <p03-full-008959@cobalt.invalid>
+X-Synthetic-Record: p03-full-008959
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Hello control-evidence coordinator,
+
+This is a synthetic defensive request for AR-260713-027. Please record the re=
+quested retention decision without extending the source boundary for the 2026=
+-q3 planning-period boundary. The assigned review lane is to test whether the=
+ response has a reviewable exception boundary.
+
+Response boundary
+- Include: the request-response trail without credentials or operational acce=
+ss.
+- Exclude: raw events, personal data, credentials, and live-system material.
+ - Name synthetic evidence set 184 as the bounded control-evidence package; d=
+o not imply access to its underlying source material.
+
+Response test
+During the schedule phase, GRC will test retention rationale, role separation=
+, and disposition record. Lane question: does the follow-up condition disting=
+uish acknowledgement from validation. Do not replace the bounded record with =
+a broad assurance statement.
+
+Exception and disposition
+For this lane, a summary that lacks the request ID is re-routed for evidence-=
+chain correction. Proposed disposition: define the Q3 response window and ret=
+ention handoff; lane decision: finalize the request only after the closure cr=
+iterion is met. The GRC request owner records the response; the control owner=
+ acknowledges it. A person may not approve their own exception disposition.
+
+Assigned review prompts
+- Objective lens: disposition clarity.
+- Evidence lens: synthetic-data boundary.
+- Test lens: closure-condition test.
+- Observation lens: over-broad-summary observation.
+- Action lens: assign owner then acknowledge.
+
+Analyst focus vocabulary: documentation, ownership, segregation, annotation, =
+custody, integrity, remediation, visibility, confirmation, follow-up, provena=
+nce, timeline, boundary, due-date, period, sequence, approval, decision, inte=
+rval, request, workflow, consistency, governance, rationale. These are review=
+ prompts, not asserted system facts.
+
+This message is synthetic documentation only. It makes no Kio indexing, histo=
+ry, search, or performance claim.

@@ -1,0 +1,41 @@
+artifact_id: p03-full-006679
+source_record: p03-src-006679
+scope: p03-primary-05
+organization: Cobalt Harbor
+review_date: '2026-07-20'
+risk_reference: RISK-031
+relationship: AC-27 relates to evidence set 184
+dependency_context: no upstream dependency
+evidence_question: Which responsibility boundary must be visible before the record
+  is approved?
+source_facts: records owner retained disposition record for this review.
+counterexample: A dependency reference is not meaningful unless the receiving artifact
+  explains why it was consulted.
+evidence_instrument: sampling rationale
+review_observation: the evidence owner confirmed the record's completeness
+challenge_performed: a corrective action was tested for closure evidence
+review_profile:
+- the evidence set was collected during the follow-up review
+- the evidence custodian confirmed the record boundary
+- the reviewer sampled an adverse operating condition
+- the source fact supported acceptance without qualification
+- the comparison used the current control objective
+- the evidence was retained in the review register
+- the exception path was not invoked
+- the reviewer found no handover impact
+- the decision was suitable for routine monitoring
+- the source chronology contained a reconciled late entry
+- the control claim was independently corroborated
+- the review boundary identified unavailable material as a limitation
+- the next assurance trigger is completion of the follow-up action
+- the disposition was communicated to the owner
+- the retained rationale supports repeat review
+- the record remains a local offline assurance artifact
+decision_rule: Approve when the evidence is specific, attributable, and dated; otherwise
+  classify the item as needing corroboration.
+disposition: accepted with a retained review note
+operating_boundary: No Kio capability is used or required for this offline review.
+review_period: 2026 Q3
+review_period_context: 'Review period: 2026 Q3. This policy approval separation control
+  facts record was assessed using evidence custody and reviewer independence; the
+  reviewer preserved an escalation decision.'

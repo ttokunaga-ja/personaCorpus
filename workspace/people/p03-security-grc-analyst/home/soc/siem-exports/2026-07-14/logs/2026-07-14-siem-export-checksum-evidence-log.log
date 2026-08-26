@@ -1,0 +1,10 @@
+Synthetic Sentinel Export evidence record
+Artifact: p03-full-000602
+Source: p03-src-000602
+Record sequence: 602
+Review window: 2026-07-14
+Topic: checksum reconciliation
+Spine anchors: org.cobalt-harbor, term.minimized-export, rel.siem.minimization, date.2026-07-14, term.no-kio-claim
+Context: Cobalt Harbor Systems Sentinel Export; evidence set 184; EV-184-07; checksum reconciliation; 2026-07-14; synthetic minimized defensive SIEM context
+Event category: checksum-reconciliation; synthetic count: 4
+Safety: minimized synthetic categories only; no raw events, identities, credentials, or routable addresses

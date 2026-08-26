@@ -1,0 +1,38 @@
+{
+  "artifact_id": "p03-full-003171",
+  "canonical_values": [
+    "Evidence set 184 contains 24 synthetic items: 12 access-review attestations, 6 approval records, 4 checksum manifests, and 2 exception records."
+  ],
+  "case_id": "CASE-260713-184",
+  "content_spine_ids": [
+    "org.cobalt-harbor",
+    "evidence.set-184",
+    "rel.ac27.evidence-184",
+    "date.2026-07-20",
+    "term.no-kio-claim"
+  ],
+  "control_id": "AC-27",
+  "evidence_card": "EV-184-04",
+  "evidence_items_verified": "24/24",
+  "evidence_set": 184,
+  "exception_id": "EXC-260713-006",
+  "final_completion_rate": "100.0%",
+  "organization": "Cobalt Harbor Systems",
+  "program": "Aegis Assurance",
+  "record_name": "2026-07-20-control-evidence-evidence-index-control-facts-json-s003171",
+  "residual_risk": "Medium",
+  "review_date": "2026-07-20",
+  "review_lane": "PRIV-04",
+  "review_population": 48,
+  "review_stage": "follow-up",
+  "reviewed": 48,
+  "risk_id": "RISK-031",
+  "source_id": "p03-src-003171",
+  "stage_rationale": "Seven-day closure follow-up confirmed the residual-risk status and checksum reconciliation.",
+  "synthetic_notice": "Synthetic defensive control-assurance record; no live-source data.",
+  "timely_attestations": 47,
+  "topic": "evidence-index",
+  "topic_observation": "Evidence indexing links bounded evidence references to the AC-27 review and retention disposition.",
+  "verification_pass": 4,
+  "working_paper_sequence": 3171
+}

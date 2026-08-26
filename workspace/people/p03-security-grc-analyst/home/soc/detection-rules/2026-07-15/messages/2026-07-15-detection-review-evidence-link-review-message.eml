@@ -1,0 +1,36 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Supplier Assurance decision for p03-full-004990
+Date: Wed, 15 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-004990@example.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline supplier assurance review for link review =
+message eml s004990 on 2026-07-15. The evidence question was: What decision c=
+an be made from the retained source material without external access? The ser=
+vice owner assembled the source facts; the vendor reviewer tested their recor=
+d completeness. The review relates AC-27 to evidence set 184 and records RISK=
+-031 as the governing risk reference. Dependency context: no upstream depende=
+ncy. The source record is p03-src-004990 and this artifact is p03-full-004990=
+. The evidence instrument was the process walkthrough note; the reviewer obse=
+rved that the conclusion identified the next assurance trigger. During challe=
+nge, a process narrative was checked for a named decision owner. Review profi=
+le: the evidence set was collected before the approval meeting; the evidence =
+custodian confirmed the record boundary; the reviewer sampled an adverse oper=
+ating condition; the source fact supported acceptance with a documented cavea=
+t; the comparison used the current control objective; the evidence was retain=
+ed with the decision record; the exception path was considered and recorded; =
+the reviewer found no handover impact; the decision was suitable for targeted=
+ follow-up; the source chronology contained a reconciled late entry; the cont=
+rol claim was independently corroborated; the review boundary excluded unavai=
+lable material; the next assurance trigger is completion of the follow-up act=
+ion; the disposition was communicated to the owner; the retained rationale su=
+pports repeat review; the record remains a local offline assurance artifact. =
+Counterexample considered: A generic assurance claim is rejected when it cann=
+ot be traced to an owner, date, and retained evidence. Decision rule: Escalat=
+e conflicting observations to the designated reviewer rather than resolving t=
+hem through filename or identifier changes. Disposition: accepted with a reta=
+ined review note. No Kio capability is used or required for this offline revi=
+ew.

@@ -1,0 +1,5 @@
+p03-src-006374 | Working-note focus: 2026 07 13 working notes checksum check evidence log txt s006374; source p03-src-006374 is a bounded synthetic analyst record.
+org.cobalt-harbor | Cobalt Harbor Systems (CHS) is a fictional organization operating a managed logistics and harbor-operations platform.
+team.grc | Security GRC owns the AC-27 evidence register, risk treatment tracking, and audit-request coordination.
+date.2026-07-13 | Primary review date. Evidence intake opens 08:30 UTC; AC-27 review closes at 16:45 UTC.
+Synthetic defensive evidence only; no live-system data.

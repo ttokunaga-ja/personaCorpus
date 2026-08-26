@@ -1,0 +1,38 @@
+{
+  "artifact_id": "p03-full-002222",
+  "canonical_values": [
+    "AC-27 requires preparer and reviewer role separation for each exception disposition."
+  ],
+  "case_id": "CASE-260713-184",
+  "content_spine_ids": [
+    "org.cobalt-harbor",
+    "control.approval-dual",
+    "rel.ac27.evidence-184",
+    "date.2026-07-15",
+    "term.no-kio-claim"
+  ],
+  "control_id": "AC-27",
+  "evidence_card": "EV-184-15",
+  "evidence_items_verified": "24/24",
+  "evidence_set": 184,
+  "exception_id": "EXC-260713-006",
+  "final_completion_rate": "100.0%",
+  "organization": "Cobalt Harbor Systems",
+  "program": "Aegis Assurance",
+  "record_name": "2026-07-15-control-evidence-approval-record-control-facts-json-s002222",
+  "residual_risk": "Medium",
+  "review_date": "2026-07-15",
+  "review_lane": "PRIV-15",
+  "review_population": 48,
+  "review_stage": "remediation-validation",
+  "reviewed": 48,
+  "risk_id": "RISK-031",
+  "source_id": "p03-src-002222",
+  "stage_rationale": "The control-owner remediation and retention disposition were validated as defensive governance evidence.",
+  "synthetic_notice": "Synthetic defensive control-assurance record; no live-source data.",
+  "timely_attestations": 47,
+  "topic": "approval-record",
+  "topic_observation": "Approval separation records preparer and reviewer roles for the synthetic exception disposition.",
+  "verification_pass": 1,
+  "working_paper_sequence": 2222
+}

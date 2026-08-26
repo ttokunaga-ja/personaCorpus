@@ -1,0 +1,37 @@
+artifact_id: p03-full-008228
+source_record: p03-src-008228
+scope: p03-primary-07
+organization: Cobalt Harbor
+review_date: '2026-07-13'
+risk_reference: RISK-031
+relationship: AC-27 relates to evidence set 184
+dependency_context: no upstream dependency
+evidence_question: Which responsibility boundary must be visible before the record
+  is approved?
+source_facts: change sponsor retained implementation record for this review.
+counterexample: A file name is not a substitute for the source facts that support
+  the conclusion.
+evidence_instrument: signed ownership matrix
+review_observation: the exception route was visible to an independent reviewer
+challenge_performed: a process narrative was checked for a named decision owner
+review_profile:
+- the evidence set was collected before the approval meeting
+- the accountable owner confirmed the operating boundary
+- the reviewer sampled an adverse operating condition
+- the source fact supported acceptance without qualification
+- the comparison used the prior review conclusion
+- the evidence was retained with the decision record
+- the exception path was not invoked
+- the reviewer found no handover impact
+- the decision was suitable for routine monitoring
+- the source chronology was complete
+- the control claim was independently corroborated
+- the review boundary excluded unavailable material
+- the next assurance trigger is the scheduled review
+- the disposition was communicated to the independent reviewer
+- the retained rationale supports repeat review
+- the record remains a local offline assurance artifact
+decision_rule: Use the dependency as context rather than proof; the local artifact
+  must state its own conclusion and basis.
+disposition: accepted with a retained review note
+operating_boundary: No Kio capability is used or required for this offline review.

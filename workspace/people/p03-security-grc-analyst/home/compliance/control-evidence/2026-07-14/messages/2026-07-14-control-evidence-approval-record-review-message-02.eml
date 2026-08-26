@@ -1,0 +1,54 @@
+From: grc-reviewer@cobalt.invalid
+To: vendor-assurance@cobalt.invalid
+Subject: AC-27 bounded review: 2026 07 14 control evidence approval record
+ review message eml
+Date: Tue, 14 Jul 2026 10:20:00 +0000
+Message-ID: <p03-full-001830@cobalt.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Synthetic defensive GRC communication
+
+Review subject: approval / record / review / message / eml
+Review window: 2026-07-14
+Accountable role: governance follow-up owner
+
+Question
+For approval / record / review / message / eml, whether primary completion is=
+ distinct from a compensating review during 2026-07-14?
+
+Method
+Sampled the evidence narrative for a clear population boundary, a disposition=
+, and an accountable next action; specifically, follow the exception label th=
+rough compensating review.
+
+Observation
+The review can support traceability, but it cannot by itself demonstrate ongo=
+ing operating effectiveness beyond the bounded package. The review lens is co=
+mpletion-register: avoid converting a late attestation into a timely one. Evi=
+dence set 184 is a bounded 24-item synthetic package.
+
+Disposition
+Use this message as a traceability aid only. AC-27 requires preparer and revi=
+ewer role separation for an exception disposition.
+
+Limitation
+This is not a statement about incident severity, intrusion, or compromise. Th=
+e exception-linkage lens requires that the record keep exception age distinct=
+ from final completion.
+
+Action
+Route the question to the control owner for a documented role-separation chec=
+k before relying on it in an audit response. For this record, obtain a review=
+er acknowledgement.
+
+Artifact-specific review lens
+threshold, handoff, evidence, completion, followup, closure, register, owner,=
+ population, date, authority, denominator, compensating, exception, intake, r=
+eviewer. These dimensions shape this artifact's question, method, observation=
+, limitation, disposition, and accountable action; they are not additional so=
+urce facts.
+
+No live link, attachment, credential, personal data, production access, or Ki=
+o indexing/search claim is included.

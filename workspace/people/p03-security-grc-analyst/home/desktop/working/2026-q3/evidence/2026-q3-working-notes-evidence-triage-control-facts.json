@@ -1,0 +1,19 @@
+{
+  "record_id": "p03-src-002408",
+  "working_note": "Working-note focus: 2026 q3 working notes evidence triage control facts json s002408; source p03-src-002408 is a bounded synthetic analyst record.",
+  "traceability": [
+    {
+      "spine_id": "org.cobalt-harbor",
+      "canonical_value": "Cobalt Harbor Systems (CHS) is a fictional organization operating a managed logistics and harbor-operations platform."
+    },
+    {
+      "spine_id": "team.grc",
+      "canonical_value": "Security GRC owns the AC-27 evidence register, risk treatment tracking, and audit-request coordination."
+    },
+    {
+      "spine_id": "period.2026-q3",
+      "canonical_value": "Governance planning period from 2026-07-01 through 2026-09-30."
+    }
+  ],
+  "synthetic_only": true
+}

@@ -1,0 +1,53 @@
+From: grc-reviewer@cobalt.invalid
+To: vendor-assurance@cobalt.invalid
+Subject: AC-27 bounded review: 2026 07 14 control evidence checksum
+ reconciliation review message eml
+Date: Tue, 14 Jul 2026 10:20:00 +0000
+Message-ID: <p03-full-009108@cobalt.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Synthetic defensive GRC communication
+
+Review subject: checksum / reconciliation / review / message / eml
+Review window: 2026-07-14
+Accountable role: GRC review desk
+
+Question
+For checksum / reconciliation / review / message / eml, whether residual Medi=
+um is governance risk rather than incident severity during 2026-07-14?
+
+Method
+Reconciled the named evidence identifier to the bounded ac-27 register and ch=
+ecked the review handoff; specifically, read ownership statements for a role-=
+separation boundary.
+
+Observation
+The item distinguishes a delayed attestation from the later compensating revi=
+ew, preserving the historical sequence. The review lens is residual-risk: ret=
+ain the difference between inherent and residual risk. Evidence set 184 is a =
+bounded 24-item synthetic package.
+
+Disposition
+Use this message as a traceability aid only. AC-27 requires preparer and revi=
+ewer role separation for an exception disposition.
+
+Limitation
+This does not replace the next quarterly access-review procedure. The role-se=
+paration lens requires that the record withhold reliance when one narrative a=
+ppears to perform both roles.
+
+Action
+Use this item only as a traceability aid; obtain a fresh bounded evidence pac=
+kage for any later conclusion. For this record, retain the exclusion statemen=
+t with the record.
+
+Artifact-specific review lens
+trail, threshold, approval, count, oversight, criterion, rationale, exception=
+, class, assertion, compensating, queue, completeness. These dimensions shape=
+ this artifact's question, method, observation, limitation, disposition, and =
+accountable action; they are not additional source facts.
+
+No live link, attachment, credential, personal data, production access, or Ki=
+o indexing/search claim is included.

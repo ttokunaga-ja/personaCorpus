@@ -1,0 +1,35 @@
+artifact_id: p03-full-000522
+source_id: p03-src-000522
+organization: Cobalt Harbor Systems
+program: Aegis Assurance
+control_id: AC-27
+case_id: CASE-260713-184
+risk_id: RISK-031
+evidence_set: 184
+review_date: 2026-q3
+topic: approval-record
+review_stage: governance-planning
+evidence_card: EV-184-19
+review_lane: PRIV-43
+verification_pass: 6
+working_paper_sequence: 522
+content_spine_ids:
+  - org.cobalt-harbor
+  - evidence.set-184
+  - rel.ac27.evidence-184
+  - period.2026-q3
+  - term.no-kio-claim
+canonical_values:
+  - Evidence set 184 contains 24 synthetic items: 12 access-review attestations, 6 approval records, 4 checksum manifests, and 2 exception records.
+stage_rationale: Quarterly governance planning preserves the completed July review and schedules evidence retention follow-through.
+topic_observation: Approval separation records preparer and reviewer roles for the synthetic exception disposition.
+population:
+  privileged_roles: 48
+  reviewed: 48
+  timely_attestations: 47
+assurance:
+  final_completion_rate: 100.0%
+  evidence_items_verified: 24/24
+  exception_id: EXC-260713-006
+  residual_risk: Medium
+synthetic_notice: Synthetic defensive control-assurance record with no live-source data.

@@ -1,0 +1,37 @@
+artifact_id: p03-full-007772
+source_record: p03-src-007772
+scope: p03-primary-09
+organization: Cobalt Harbor
+review_date: '2026-07-13'
+risk_reference: RISK-031
+relationship: AC-27 relates to evidence set 184
+dependency_context: no upstream dependency
+evidence_question: Which source fact would cause the reviewer to accept the control
+  conclusion?
+source_facts: service owner retained contract evidence for this review.
+counterexample: A dependency reference is not meaningful unless the receiving artifact
+  explains why it was consulted.
+evidence_instrument: quality review annotation
+review_observation: the retained fact predated the decision by one review cycle
+challenge_performed: a recertification statement was tested for an actual review event
+review_profile:
+- the evidence set was collected before the approval meeting
+- the accountable owner confirmed the operating boundary
+- the reviewer sampled an adverse operating condition
+- the source fact supported acceptance with a documented caveat
+- the comparison used the current control objective
+- the evidence was retained in the review register
+- the exception path was considered and recorded
+- the reviewer found no handover impact
+- the decision was suitable for routine monitoring
+- the source chronology contained a reconciled late entry
+- the control claim was corroborated by a compensating observation
+- the review boundary identified unavailable material as a limitation
+- the next assurance trigger is completion of the follow-up action
+- the disposition was communicated to the owner
+- the retained rationale supports repeat review
+- the record remains a local offline assurance artifact
+decision_rule: 'Preserve a bounded decision: cite the source, explain the rule, and
+  state whether the result is accepted or escalated.'
+disposition: accepted with a retained review note
+operating_boundary: No Kio capability is used or required for this offline review.

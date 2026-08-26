@@ -1,0 +1,5 @@
+{"event":"review_opened","at":"2026-07-20T08:30:00Z","record_id":"p03-full-004961","control":"AC-27"}
+{"event":"evidence_reconciled","at":"2026-07-20T15:10:00Z","evidence_set":184,"completeness":"24/24"}
+{"event":"review_closed","at":"2026-07-20T16:45:00Z","risk":"RISK-031","residual":"Medium"}
+{"event":"review_context_confirmed","review_topic":"alert coverage","review_date_or_period":"2026-07-20","evidence_reference":"evidence set 184, reconciliation lane 004961","decision":"Evidence reconciliation confirms 24 of 24 required synthetic items; CASE-260713-184 retains RISK-031 at Medium residual risk.","synthetic_boundary":"defensive governance record only; no live telemetry, credentials, personal data, or routable targets"}
+{"event":"content_spine_traceability_confirmed","references":{"org.cobalt-harbor":"Cobalt Harbor Systems (CHS) is a fictional organization operating a managed logistics and harbor-operations platform.","measure.evidence-completeness":"Evidence-set 184 completeness: 24 of 24 required synthetic items verified.","date.2026-07-20":"Seven-day follow-up validates closure evidence and residual-risk status."}}

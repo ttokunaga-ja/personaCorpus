@@ -1,0 +1,53 @@
+From: grc-reviewer@cobalt.invalid
+To: vendor-assurance@cobalt.invalid
+Subject: AC-27 bounded review: 2026 q3 control evidence approval record review
+ message eml
+Date: Tue, 14 Jul 2026 10:20:00 +0000
+Message-ID: <p03-full-002202@cobalt.invalid>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Synthetic defensive GRC communication
+
+Review subject: approval / record / review / message / eml
+Review window: 2026-q3
+Accountable role: GRC review desk
+
+Question
+For approval / record / review / message / eml, whether the exception decisio=
+n demonstrates distinct preparer and reviewer responsibilities during 2026-q3?
+
+Method
+Reconciled the named evidence identifier to the bounded ac-27 register and ch=
+ecked the review handoff; specifically, separate future acknowledgement from =
+present observation.
+
+Observation
+The item distinguishes a delayed attestation from the later compensating revi=
+ew, preserving the historical sequence. The review lens is role-separation: w=
+ithhold reliance when one narrative appears to perform both roles. Evidence s=
+et 184 is a bounded 24-item synthetic package.
+
+Disposition
+Use this message as a traceability aid only. AC-27 requires preparer and revi=
+ewer role separation for an exception disposition.
+
+Limitation
+This does not replace the next quarterly access-review procedure. The followu=
+p-cadence lens requires that the record avoid predicting later review outcome=
+s.
+
+Action
+Use this item only as a traceability aid; obtain a fresh bounded evidence pac=
+kage for any later conclusion. For this record, record the remaining timing l=
+imitation for follow-up.
+
+Artifact-specific review lens
+evidence, condition, index, sequence, queue, exclusion, population, chain, re=
+tention, denominator, control, collection, rationale, register. These dimensi=
+ons shape this artifact's question, method, observation, limitation, disposit=
+ion, and accountable action; they are not additional source facts.
+
+No live link, attachment, credential, personal data, production access, or Ki=
+o indexing/search claim is included.

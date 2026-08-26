@@ -1,0 +1,7 @@
+Cobalt Harbor Systems | Aegis Assurance AC-27
+Record p03-full-006613 (p03-src-006613) documents the alert coverage review for 2026-q3.
+Evidence set 184 contains 24 required synthetic items; 24 of 24 were reconciled. The review population is 48 synthetic privileged-role records, with 47 timely attestations and 48 final completions after compensating review.
+CASE-260713-184 retains RISK-031 at residual Medium. This bounded record supports defensive detection governance only and contains no live telemetry, credentials, personal data, or routable targets.
+status=reconciled artifact=p03-full-006613 evidence_completeness=24/24
+review_context={"decision": "AC-27 control review confirms preparer and reviewer separation; CASE-260713-184 retains RISK-031 at Medium residual risk.", "evidence_reference": "evidence set 184, reconciliation lane 006613", "review_date_or_period": "2026-q3", "review_topic": "alert coverage", "synthetic_boundary": "defensive governance record only; no live telemetry, credentials, personal data, or routable targets"}
+content_spine_traceability={"control.ac-27": "Aegis Control AC-27 requires evidence-backed quarterly access review, approval, retention, and exception disposition.", "org.cobalt-harbor": "Cobalt Harbor Systems (CHS) is a fictional organization operating a managed logistics and harbor-operations platform.", "period.2026-q3": "Governance planning period from 2026-07-01 through 2026-09-30."}

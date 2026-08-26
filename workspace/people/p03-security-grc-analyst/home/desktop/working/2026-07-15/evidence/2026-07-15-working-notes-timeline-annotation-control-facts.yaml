@@ -1,0 +1,10 @@
+record_id: "p03-src-001697"
+working_note: "Working-note focus: 2026 07 15 working notes timeline annotation control facts yaml s001697; source p03-src-001697 is a bounded synthetic analyst record."
+traceability:
+  - spine_id: "org.cobalt-harbor"
+    canonical_value: "Cobalt Harbor Systems (CHS) is a fictional organization operating a managed logistics and harbor-operations platform."
+  - spine_id: "team.grc"
+    canonical_value: "Security GRC owns the AC-27 evidence register, risk treatment tracking, and audit-request coordination."
+  - spine_id: "date.2026-07-15"
+    canonical_value: "Control owner validates the remediation plan and retention disposition."
+synthetic_only: true

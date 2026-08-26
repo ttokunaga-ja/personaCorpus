@@ -1,0 +1,41 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Data Retention decision for p03-full-005173
+Date: Mon, 20 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-005173@example.invalid>
+X-Review-Period: 2026 Q3
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline data retention review for minimization rev=
+iew message eml s005173 on 2026-07-20. The evidence question was: What decisi=
+on can be made from the retained source material without external access? The=
+ records owner assembled the source facts; the retention reviewer tested thei=
+r source reconciliation. The review relates AC-27 to evidence set 184 and rec=
+ords RISK-031 as the governing risk reference. Dependency context: no upstrea=
+m dependency. The source record is p03-src-005173 and this artifact is p03-fu=
+ll-005173. The evidence instrument was the recertification record; the review=
+er observed that the review basis could be repeated by a successor. During ch=
+allenge, a stale approval was compared with the current ownership assignment.=
+ Review profile: the evidence set was collected during the follow-up review; =
+the accountable owner confirmed the operating boundary; the reviewer sampled =
+an adverse operating condition; the source fact supported acceptance without =
+qualification; the comparison used the current control objective; the evidenc=
+e was retained with the decision record; the exception path was not invoked; =
+the reviewer found no handover impact; the decision was suitable for routine =
+monitoring; the source chronology was complete; the control claim was corrobo=
+rated by a compensating observation; the review boundary excluded unavailable=
+ material; the next assurance trigger is completion of the follow-up action; =
+the disposition was communicated to the owner; the retained rationale support=
+s repeat review; the record remains a local offline assurance artifact. Count=
+erexample considered: A repeated control statement does not establish operati=
+on when no counterexample was considered. Decision rule: Record an approval o=
+nly after the reviewer can reproduce the conclusion from the retained facts w=
+ithout network access. Disposition: escalated for corroboration with the deci=
+sion basis retained. No Kio capability is used or required for this offline r=
+eview.
+
+Review period: 2026 Q3. This siem export export minimization review message e=
+ml record was assessed using evidence custody and reviewer independence; the =
+reviewer confirmed the review conclusion.

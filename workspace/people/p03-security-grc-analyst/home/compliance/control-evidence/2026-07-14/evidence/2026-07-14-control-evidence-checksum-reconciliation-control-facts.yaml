@@ -1,0 +1,33 @@
+artifact_id: p03-full-006412
+source_id: p03-src-006412
+organization: Cobalt Harbor Systems
+program: Aegis Assurance
+control_id: AC-27
+case_id: CASE-260713-184
+risk_id: RISK-031
+evidence_set: 184
+review_date: 2026-07-14
+topic: checksum-reconciliation
+review_stage: normalization
+evidence_card: EV-184-05
+review_lane: PRIV-29
+verification_pass: 11
+working_paper_sequence: 6412
+content_spine_ids:
+  - org.cobalt-harbor
+  - evidence.ev-184-19
+  - rel.ac27.evidence-184
+  - date.2026-07-14
+  - term.no-kio-claim
+stage_rationale: Checksum normalization and action-owner acknowledgement were reviewed without accessing a live system.
+topic_observation: Checksum reconciliation records the 24-item evidence package without retaining source-system content.
+population:
+  privileged_roles: 48
+  reviewed: 48
+  timely_attestations: 47
+assurance:
+  final_completion_rate: 100.0%
+  evidence_items_verified: 24/24
+  exception_id: EXC-260713-006
+  residual_risk: Medium
+synthetic_notice: Synthetic defensive control-assurance record with no live-source data.

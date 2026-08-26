@@ -1,0 +1,15 @@
+{
+  "record_id": "p03-src-006808",
+  "working_note": "Working-note focus: 2026 07 15 working notes evidence triage control facts json s006808; source p03-src-006808 is a bounded synthetic analyst record.",
+  "traceability": [
+    {
+      "spine_id": "org.cobalt-harbor",
+      "canonical_value": "Cobalt Harbor Systems (CHS) is a fictional organization operating a managed logistics and harbor-operations platform."
+    },
+    {
+      "spine_id": "date.2026-07-15",
+      "canonical_value": "Control owner validates the remediation plan and retention disposition."
+    }
+  ],
+  "synthetic_only": true
+}

@@ -1,0 +1,37 @@
+artifact_id: p03-full-003133
+source_record: p03-src-003133
+scope: p03-primary-05
+organization: Cobalt Harbor
+review_date: '2026-07-15'
+risk_reference: RISK-031
+relationship: AC-27 relates to evidence set 184
+dependency_context: no upstream dependency
+evidence_question: What observable evidence demonstrates that the stated control objective
+  is met?
+source_facts: response coordinator retained timeline evidence for this review.
+counterexample: A status label alone is not evidence; it must be tied to a source
+  fact and a reviewer conclusion.
+evidence_instrument: control test worksheet
+review_observation: the exception route was visible to an independent reviewer
+challenge_performed: an old exception was assessed for continued relevance
+review_profile:
+- the evidence set was collected during the follow-up review
+- the accountable owner confirmed the operating boundary
+- the reviewer sampled an adverse operating condition
+- the source fact supported acceptance with a documented caveat
+- the comparison used the current control objective
+- the evidence was retained with the decision record
+- the exception path was not invoked
+- the reviewer found no handover impact
+- the decision was suitable for routine monitoring
+- the source chronology was complete
+- the control claim was corroborated by a compensating observation
+- the review boundary identified unavailable material as a limitation
+- the next assurance trigger is the scheduled review
+- the disposition was communicated to the owner
+- the retained rationale supports repeat review
+- the record remains a local offline assurance artifact
+decision_rule: Reject unsupported claims and retain a concise explanation of the missing
+  fact for the next review cycle.
+disposition: escalated for corroboration with the decision basis retained
+operating_boundary: No Kio capability is used or required for this offline review.

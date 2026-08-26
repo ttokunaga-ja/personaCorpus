@@ -1,0 +1,5 @@
+2026-07-20T08:30:00Z INFO organization="Cobalt Harbor Systems" policy-foundation artifact=p03-full-002230 case=CASE-260713-184 action=evidence-intake status=bounded synthetic=true
+2026-07-20T10:20:00Z WARN policy-foundation control=AC-27 risk=RISK-031 status=residual-medium exception=EXC-260713-006
+2026-07-20T15:10:00Z INFO policy-foundation evidence_set=184 verified_items=24 review_population=48 timely=47 final=48
+2026-07-20T16:45:00Z INFO policy-foundation retention_months=18 decision=DEC-260713-004 sequence=97 operational_access=false
+Content-spine traceability: org.cobalt-harbor = Cobalt Harbor Systems (CHS) is a fictional organization operating a managed logistics and harbor-operations platform. | control.retention-18m = Synthetic evidence retention minimum is 18 months; this is a corpus fact, not legal advice. | date.2026-07-20 = Seven-day follow-up validates closure evidence and residual-risk status.
