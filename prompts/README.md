@@ -15,14 +15,14 @@
 | p01 | Full完成・Git管理済み（12,000件） | production／pilot promptは履歴。再実行しない。 |
 | p02 | Full完成・Git管理済み（15,000件） | production promptは履歴。再実行しない。 |
 | p03 | Full完成・Git管理・remote push済み（10,000件） | production promptは履歴。再実行しない。 |
-| p04 | local-only partial candidate、stale parent、未受入 | recovery後にallocationを完成・再検証し、coordinator受入を得る。 |
-| p05--p06 | stale parent、package未作成 | recovery後にallocationを作る。 |
-| p07 | local-only package candidate、stale parent、未受入 | recovery、再検証、prompt統合、coordinator受入後に使用。 |
-| p08／p10 | M1 ledgerのみ、stale parent | recovery後にallocationを完成させる。 |
-| p09 | READY | [p09-full-production.md](p09-full-production.md)を新しいLocal taskへ貼り付ける。 |
-| p11--p14 | READY | 対応する`pNN-full-production.md`を新しいLocal taskへ貼り付ける。 |
-| p15 | local-only package candidate、stale parent、未受入 | recovery、再検証、prompt統合、coordinator受入後に使用。 |
-| p16--p20 | READY | 対応する`pNN-full-production.md`を新しいLocal taskへ貼り付ける。 |
+| p04 | portable partial preflight共有済み、production未開始 | M1 ledger、reservations、Full assignmentが未作成。READYではない。 |
+| p05--p06 | package未作成、production未開始 | allocation packageを作る。 |
+| p07 | READY、production未開始 | [p07-full-production.md](p07-full-production.md)を新しいLocal taskへ貼り付ける。 |
+| p08／p10 | M1 ledgerのみ、production未開始 | allocation packageを完成させる。 |
+| p09 | READY、production未開始 | [p09-full-production.md](p09-full-production.md)を新しいLocal taskへ貼り付ける。 |
+| p11--p14 | READY、production未開始 | 対応する`pNN-full-production.md`を新しいLocal taskへ貼り付ける。 |
+| p15 | READY、production未開始 | [p15-full-production.md](p15-full-production.md)を新しいLocal taskへ貼り付ける。 |
+| p16--p20 | READY、production未開始 | 対応する`pNN-full-production.md`を新しいLocal taskへ貼り付ける。 |
 
 p01の12件pilot prompt／content spine／assignmentはhistoricalかつp01専用です。他personaの
 開始やp01のmass productionに再利用しません。

@@ -37,14 +37,14 @@ production prompt）が揃った状態を指します。現在のp04--p20のpers
 | Persona | Full準備の現在地 | 新規Local taskの扱い |
 |---|---|---|
 | p01--p03 | Full完成・QA受入・Git管理済み（12,000／15,000／10,000件） | production promptは履歴。明示承認された新revisionなしに再実行しない。 |
-| p04 | local-only partial candidate（inventory＋M1 baseline）。親leaseがstale | recovery承認後に準備を再開し、coordinator受入後に共有。 |
-| p05--p06 | Full package未作成。親leaseがstale | recovery承認後に準備を開始。 |
-| p07 | local-only allocation candidate。親leaseがstale、未受入 | recovery、再検証、prompt統合、coordinator受入後に開始。 |
-| p08／p10 | machine-readable M1 ledgerのみ。親leaseがstale | recovery承認後に準備を開始。 |
-| p09 | READY | persona専用Full promptを新しいLocal taskへ貼り付ける。 |
-| p11--p14 | READY | 各persona専用Full promptを新しいLocal taskへ貼り付ける。 |
-| p15 | local-only allocation candidate。親leaseがstale、未受入 | recovery、再検証、prompt統合、coordinator受入後に開始。 |
-| p16--p20 | READY | 各persona専用Full promptを新しいLocal taskへ貼り付ける。 |
+| p04 | portable partial preflight（inventory＋M1 baseline）を共有済み。Full production未開始 | M1 ledger、reservations、Full assignmentが未作成のためREADYではない。 |
+| p05--p06 | Full package未作成。Full production未開始 | allocation packageの作成から開始する。 |
+| p07 | READY。Full production未開始 | persona専用Full promptを新しいLocal taskへ貼り付ける。 |
+| p08／p10 | machine-readable M1 ledgerのみ。Full production未開始 | allocation packageの作成から開始する。 |
+| p09 | READY。Full production未開始 | persona専用Full promptを新しいLocal taskへ貼り付ける。 |
+| p11--p14 | READY。Full production未開始 | 各persona専用Full promptを新しいLocal taskへ貼り付ける。 |
+| p15 | READY。Full production未開始 | persona専用Full promptを新しいLocal taskへ貼り付ける。 |
+| p16--p20 | READY。Full production未開始 | 各persona専用Full promptを新しいLocal taskへ貼り付ける。 |
 
 p01--p03のFull physical productionは完了しています。それぞれの
 [`prompts/p01-full-production.md`](prompts/p01-full-production.md)、
