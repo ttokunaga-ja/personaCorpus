@@ -10,6 +10,7 @@ __pycache__/
 /-.ppm
 /scratch_rows.jsonl
 /scratch_rows.tmp
+/created-paths.txt
 
 # Portable canonical authority is shared. The >100 MiB render, Rust
 # materialization receipts, and machine-specific copies remain local.
@@ -43,6 +44,7 @@ progress/p[0-9][0-9]/full/*
 !progress/p[0-9][0-9]/full/canonical-source-inventory.jsonl
 !progress/p[0-9][0-9]/full/m1-reservations.jsonl
 !progress/p[0-9][0-9]/full/m1-reservation-reconciliation.jsonl
+!progress/p14/full/m1-classification-reconciliation.jsonl
 progress/p01/full/m1-reservations.jsonl
 !progress/p01/full/m1-reservations-v3.jsonl
 !progress/p[0-9][0-9]/full/full-assignment-ledger.jsonl

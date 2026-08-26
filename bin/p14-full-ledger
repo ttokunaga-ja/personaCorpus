@@ -1,0 +1,145 @@
+#!/usr/bin/env python3
+"""Fail-closed p14 Full-ledger gate for its frozen PDF classification record."""
+from __future__ import annotations
+
+import hashlib
+import json
+import os
+import stat
+import subprocess
+import sys
+import tempfile
+from pathlib import Path
+
+P = "p14"
+ROOT = Path(__file__).resolve().parent.parent
+PATHS = {
+    "inventory": ROOT / "progress/p14/full/canonical-source-inventory.jsonl",
+    "m1": ROOT / "progress/p14/m1-assignment-ledger.jsonl",
+    "baseline": ROOT / "progress/p14/full/manifests/m1-baseline.jsonl",
+    "classification": ROOT / "progress/p14/full/m1-classification-reconciliation.jsonl",
+    "reservations": ROOT / "progress/p14/full/m1-reservations.jsonl",
+    "assignment": ROOT / "progress/p14/full/full-assignment-ledger.jsonl",
+    "spine": ROOT / "progress/p14/full/content-spine.md",
+}
+SHA = {
+    "inventory": "b2e1f81fb3486e1d62ef44fe9b78673b1abe83b26199b10377508dd3085debcc",
+    "m1": "623de06df03967a547e5245148ee77bf1da007bebc4739e3bcb1716edf16719e",
+    "baseline": "04c3c23f4ce88f2b6eddf7200f516dff14ee1f7667f8f342f8c03d26d46e906f",
+    "classification": "55704ae6054138a29b214f40354e4488414001f9770e1d0e1cbf0a40ef47acf7",
+    "reservations": "a03e5d979f58e3a6a9a995f2a47f10a9bcf69ab70a7aeba8fba76e502548d90e",
+    "assignment": "dacc16569d81c57307ff2bdbe54ac08b7506ccbc9e4ed98b7608836ffb1b9b67",
+    "spine": "113678951969396b222229cdaf888020a3064fec2bc66c5521e94d7fda298a58",
+}
+EXCEPTIONS = {
+    "p14-m1-000008": ("audit/evidence/bank-confirmation-redacted-scan.pdf", "pdf_scan", "pdf_text"),
+    "p14-m1-000012": ("audit/evidence/inventory-observation-signoff-scan.pdf", "pdf_scan", "pdf_text"),
+    "p14-m1-000115": ("finance/close/2026/q1/2026-01/2026-01-signed-reconciliation-scan.pdf", "pdf_scan", "pdf_text"),
+}
+
+def fail(message: str) -> None: raise SystemExit(f"p14-full-ledger: {message}")
+def digest(data: bytes) -> str: return hashlib.sha256(data).hexdigest()
+
+def option(argv: list[str], flag: str) -> str | None:
+    if flag not in argv: return None
+    i = argv.index(flag)
+    if i + 1 == len(argv): fail(f"missing value for {flag}")
+    value = argv[i + 1]; del argv[i:i + 2]; return value
+
+def exact_regular(name: str, supplied: str) -> Path:
+    candidate = Path(supplied)
+    expected = PATHS[name]
+    if not candidate.is_absolute() or candidate != expected:
+        fail(f"{name} path must be the exact canonical absolute path")
+    try: mode = candidate.lstat().st_mode
+    except OSError as exc: fail(f"{name} is unavailable: {exc}")
+    if not stat.S_ISREG(mode) or stat.S_ISLNK(mode): fail(f"{name} must be a regular non-symlink")
+    return candidate
+
+def snapshot(name: str, supplied: str, directory: Path) -> Path:
+    source = exact_regular(name, supplied)
+    first = source.read_bytes()
+    if digest(first) != SHA[name]: fail(f"{name} digest mismatch")
+    target = directory / f"{name}.jsonl"; target.write_bytes(first)
+    # Recheck path identity, bytes and digest after the private snapshot closes.
+    exact_regular(name, supplied)
+    second = source.read_bytes()
+    if second != first or digest(second) != SHA[name] or target.read_bytes() != first:
+        fail(f"{name} changed while snapshotting")
+    return target
+
+def pdf_family(path: Path) -> str:
+    result = subprocess.run(["pdftotext", str(path), "-"], stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, check=False)
+    if result.returncode: fail(f"pdftotext failed: {path}")
+    return "pdf_text" if any(not chr(byte).isspace() for byte in result.stdout) else "pdf_scan"
+
+def normalized_m1(snap: dict[str, Path], work: Path) -> Path:
+    rows = [json.loads(line) for line in snap["classification"].read_text(encoding="utf-8").splitlines()]
+    header = {"schema":"persona-corpus.m1-classification-reconciliation/v1","kind":"header","persona":P,"classification_id":"p14-m1-pdf-classification-v1","plan_digest":"sha256:f4e84efd49a98760733d628aaa44342dc7039cc845aced936e8a158eada95236","inventory_sha256":SHA["inventory"],"m1_assignment_sha256":SHA["m1"],"baseline_sha256":SHA["baseline"],"exception_count":3,"detection_method":"pdftotext-whitespace-empty-v1","state":"frozen"}
+    observed = {(x.get("m1_artifact_id"),x.get("m1_path"),x.get("declared_family"),x.get("detected_family")) for x in rows[1:]}
+    if len(rows) != 4 or rows[0] != header or observed != {(key,*value) for key,value in EXCEPTIONS.items()}:
+        fail("classification header or exceptions mismatch")
+    assignment = [json.loads(line) for line in snap["m1"].read_text(encoding="utf-8").splitlines()]
+    if len(assignment) != 201: fail("M1 assignment record count mismatch")
+    home = ROOT / "workspace/people/p14-finance-controller/home"; seen=set()
+    for row in assignment:
+        if row.get("kind") != "artifact" or row["family"] not in {"pdf_text","pdf_scan"}: continue
+        actual = pdf_family(home / row["path"]); artifact = row["artifact_id"]
+        if artifact in EXCEPTIONS:
+            if (row["path"],row["family"],actual) != EXCEPTIONS[artifact]: fail(f"exception observation changed: {artifact}")
+            row["family"] = actual; seen.add(artifact)
+        elif actual != row["family"]: fail(f"unrecorded PDF classification mismatch: {artifact}")
+    if seen != set(EXCEPTIONS): fail("classification exceptions do not cover exactly three PDFs")
+    output = work / "normalized-m1.jsonl"
+    output.write_text("".join(json.dumps(row,ensure_ascii=False,separators=(",",":"))+"\n" for row in assignment),encoding="utf-8")
+    return output
+
+def verify_semantic_relationships(assignment: Path) -> None:
+    """Require the fixed common facts plus the deterministic local anchor."""
+    common = ["org.cedar-works", "project.fy2026-close", "measure.cash-variance-jpy-12400000", "control.dual-review", "term.no-kio-claim"]
+    relation_by_scope = {
+        "p14-primary-01":"rel.close-to-forecast", "p14-primary-02":"rel.close-to-forecast", "p14-primary-03":"rel.close-to-forecast",
+        "p14-primary-04":"rel.assumption-to-outlook", "p14-primary-05":"rel.assumption-to-outlook", "p14-primary-06":"rel.assumption-to-outlook",
+        "p14-primary-07":"rel.transaction-to-control", "p14-primary-08":"rel.transaction-to-control",
+        "p14-primary-09":"rel.evidence-to-decision", "p14-primary-10":"rel.evidence-to-decision",
+        "p14-primary-11":"rel.model-to-export", "p14-primary-12":"rel.model-to-export",
+        "p14-secondary-01":"rel.reference-to-record", "p14-secondary-02":"rel.reference-to-record", "p14-secondary-03":"rel.reference-to-record", "p14-secondary-04":"rel.reference-to-record",
+        "p14-secondary-05":"rel.reference-to-record", "p14-secondary-06":"rel.reference-to-record", "p14-secondary-07":"rel.reference-to-record", "p14-secondary-08":"rel.reference-to-record",
+    }
+    rows = [json.loads(line) for line in assignment.read_text(encoding="utf-8").splitlines()]
+    artifacts = [row for row in rows if row.get("kind") == "artifact"]
+    if len(artifacts) != 8800: fail("assignment artifact count mismatch before semantic validation")
+    for row in artifacts:
+        scope = row.get("scope_id")
+        if scope not in relation_by_scope or row.get("content_spine_ids") != [*common, relation_by_scope[scope]]:
+            fail(f"semantic relationship mapping mismatch: {row.get('artifact_id')}")
+
+def main() -> None:
+    argv=sys.argv[1:]
+    if not argv: fail("expected inventory, manifest, reserve-m1, or verify")
+    command=argv[0]; shared=ROOT/"bin/full-ledger"
+    if command in {"inventory","manifest"}:
+        if option(argv,"--persona") != P: fail("p14 persona required")
+        argv.extend(["--persona",P]); raise SystemExit(subprocess.run([str(shared),*argv],check=False).returncode)
+    if command not in {"reserve-m1","verify"}: fail(f"unsupported command: {command}")
+    supplied={"classification":option(argv,"--classification"),"inventory":option(argv,"--inventory"),"m1":option(argv,"--m1-assignment"),"baseline":option(argv,"--baseline")}
+    if command=="verify": supplied.update({"reservations":option(argv,"--reservations"),"assignment":option(argv,"--assignment")})
+    if any(value is None for value in supplied.values()): fail("all fixed p14 inputs are required")
+    if option(argv,"--persona") != P: fail("p14 persona required")
+    with tempfile.TemporaryDirectory(prefix="p14-full-ledger-") as raw:
+        work=Path(raw); snap={name:snapshot(name,value,work) for name,value in supplied.items()}
+        spine = PATHS["spine"]
+        if not spine.is_file() or spine.is_symlink() or digest(spine.read_bytes()) != SHA["spine"]:
+            fail("content spine digest mismatch")
+        # Test-only deterministic mutation point: production does not set this.
+        # A mutation of a private snapshot must be caught before parsing/forwarding.
+        if hook := os.environ.get("P14_FULL_LEDGER_TEST_HOOK"):
+            subprocess.run([hook, str(snap["classification"])], check=True)
+        for name, path in snap.items():
+            if digest(path.read_bytes()) != SHA[name]: fail(f"{name} snapshot changed before use")
+        normalized=normalized_m1(snap,work)
+        if command == "verify": verify_semantic_relationships(snap["assignment"])
+        argv.extend(["--persona",P,"--inventory",str(snap["inventory"]),"--m1-assignment",str(normalized),"--baseline",str(snap["baseline"])])
+        if command=="verify": argv.extend(["--reservations",str(snap["reservations"]),"--assignment",str(snap["assignment"])])
+        raise SystemExit(subprocess.run([str(shared),*argv],check=False).returncode)
+if __name__=="__main__": main()
