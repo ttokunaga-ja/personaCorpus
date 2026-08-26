@@ -1,0 +1,36 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Change Assurance decision for p03-full-008140
+Date: Wed, 15 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-008140@example.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline change assurance review for attachment rev=
+iew message eml s008140 on 2026-07-15. The evidence question was: How does th=
+e review distinguish complete evidence from an unsupported assertion? The cha=
+nge sponsor assembled the source facts; the assurance analyst tested their co=
+ntrol boundary. The review relates AC-27 to evidence set 184 and records RISK=
+-031 as the governing risk reference. Dependency context: no upstream depende=
+ncy. The source record is p03-src-008140 and this artifact is p03-full-008140=
+. The evidence instrument was the exception decision sheet; the reviewer obse=
+rved that the control boundary was explained in practical terms. During chall=
+enge, a contradictory note was reconciled against the retained source. Review=
+ profile: the evidence set was collected before the approval meeting; the acc=
+ountable owner confirmed the operating boundary; the reviewer sampled an adve=
+rse operating condition; the source fact supported acceptance with a document=
+ed caveat; the comparison used the prior review conclusion; the evidence was =
+retained in the review register; the exception path was considered and record=
+ed; the reviewer assessed a handover impact; the decision was suitable for ta=
+rgeted follow-up; the source chronology contained a reconciled late entry; th=
+e control claim was corroborated by a compensating observation; the review bo=
+undary identified unavailable material as a limitation; the next assurance tr=
+igger is completion of the follow-up action; the disposition was communicated=
+ to the owner; the retained rationale supports repeat review; the record rema=
+ins a local offline assurance artifact. Counterexample considered: A dated na=
+rrative without a named custodian is insufficient because responsibility cann=
+ot be tested. Decision rule: Approve when the evidence is specific, attributa=
+ble, and dated; otherwise classify the item as needing corroboration. Disposi=
+tion: accepted with a retained review note. No Kio capability is used or requ=
+ired for this offline review.

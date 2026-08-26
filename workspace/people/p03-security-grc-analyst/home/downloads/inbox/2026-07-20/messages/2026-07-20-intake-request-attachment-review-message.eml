@@ -1,0 +1,35 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Data Retention decision for p03-full-008740
+Date: Mon, 20 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-008740@example.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline data retention review for attachment revie=
+w message eml s008740 on 2026-07-20. The evidence question was: Which source =
+fact would cause the reviewer to accept the control conclusion? The records o=
+wner assembled the source facts; the retention reviewer tested their exceptio=
+n handling. The review relates AC-27 to evidence set 184 and records RISK-031=
+ as the governing risk reference. Dependency context: no upstream dependency.=
+ The source record is p03-src-008740 and this artifact is p03-full-008740. Th=
+e evidence instrument was the issue disposition register; the reviewer observ=
+ed that the review showed how contradictory evidence was resolved. During cha=
+llenge, a policy reference was checked against the operating record. Review p=
+rofile: the evidence set was collected before the approval meeting; the accou=
+ntable owner confirmed the operating boundary; the reviewer sampled an advers=
+e operating condition; the source fact supported acceptance without qualifica=
+tion; the comparison used the prior review conclusion; the evidence was retai=
+ned with the decision record; the exception path was not invoked; the reviewe=
+r found no handover impact; the decision was suitable for routine monitoring;=
+ the source chronology contained a reconciled late entry; the control claim w=
+as independently corroborated; the review boundary excluded unavailable mater=
+ial; the next assurance trigger is the scheduled review; the disposition was =
+communicated to the independent reviewer; the retained rationale supports rep=
+eat review; the record remains a local offline assurance artifact. Counterexa=
+mple considered: A single approval cannot settle a conflicting record; the di=
+screpancy must remain visible to the reviewer. Decision rule: Escalate confli=
+cting observations to the designated reviewer rather than resolving them thro=
+ugh filename or identifier changes. Disposition: accepted with a retained rev=
+iew note. No Kio capability is used or required for this offline review.

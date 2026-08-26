@@ -1,0 +1,35 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Data Retention decision for p03-full-004926
+Date: Mon, 20 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-004926@example.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline data retention review for questionnaire re=
+view message eml s004926 on 2026-07-20. The evidence question was: What decis=
+ion can be made from the retained source material without external access? Th=
+e records owner assembled the source facts; the retention reviewer tested the=
+ir evidence quality. The review relates AC-27 to evidence set 184 and records=
+ RISK-031 as the governing risk reference. Dependency context: no upstream de=
+pendency. The source record is p03-src-004926 and this artifact is p03-full-0=
+04926. The evidence instrument was the reviewer observation log; the reviewer=
+ observed that the exception was linked to a compensating action. During chal=
+lenge, an old exception was assessed for continued relevance. Review profile:=
+ the evidence set was collected before the approval meeting; the evidence cus=
+todian confirmed the record boundary; the reviewer sampled an adverse operati=
+ng condition; the source fact supported acceptance with a documented caveat; =
+the comparison used the current control objective; the evidence was retained =
+with the decision record; the exception path was not invoked; the reviewer fo=
+und no handover impact; the decision was suitable for targeted follow-up; the=
+ source chronology contained a reconciled late entry; the control claim was i=
+ndependently corroborated; the review boundary excluded unavailable material;=
+ the next assurance trigger is completion of the follow-up action; the dispos=
+ition was communicated to the owner; the retained rationale supports repeat r=
+eview; the record remains a local offline assurance artifact. Counterexample =
+considered: A dated narrative without a named custodian is insufficient becau=
+se responsibility cannot be tested. Decision rule: Treat the control as effec=
+tive only when the counterexample has been considered and the exception path =
+is explicit. Disposition: accepted with a retained review note. No Kio capabi=
+lity is used or required for this offline review.

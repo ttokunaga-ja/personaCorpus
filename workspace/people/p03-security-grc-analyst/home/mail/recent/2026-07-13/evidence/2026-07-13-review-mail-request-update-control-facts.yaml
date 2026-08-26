@@ -1,0 +1,35 @@
+schema: chs.mail-control-facts/v1
+record_id: MR-001
+artifact_id: p03-full-000040
+source_id: p03-src-000040
+organization: Cobalt Harbor Systems
+program: Aegis Assurance
+control: AC-27
+case: CASE-260713-184
+audit_request: AR-260713-027
+risk: RISK-031
+exception: EXC-260713-006
+evidence_set: 184
+review_date: 2026-07-13
+mail_topic: audit request update
+classification: synthetic defensive governance record
+review_population: 48
+timely_attestations: 47
+final_attestations: 48
+evidence_items_verified: 24/24
+residual_risk: Medium
+sender: grc-reviewer@cobalt.invalid
+recipient: soc-duty@cobalt.invalid
+review_window:
+  opened_utc: '08:30'
+  closed_utc: '16:45'
+disposition: bounded review; no live-source data
+case_timeline:
+  intake_opened_utc_date: '2026-07-13'
+  normalization_utc_date: '2026-07-14'
+  remediation_validation_utc_date: '2026-07-15'
+  follow_up_closure_utc_date: '2026-07-20'
+content_spine_traceability:
+  'org.cobalt-harbor': 'Cobalt Harbor Systems'
+  'exception.exc-260713-006': 'EXC-260713-006 is the delayed reviewer attestation; compensating review completes on 2026-07-14'
+  'date.2026-07-13': '2026-07-13 is the CASE-260713-184 AC-27 evidence intake and review-close date'

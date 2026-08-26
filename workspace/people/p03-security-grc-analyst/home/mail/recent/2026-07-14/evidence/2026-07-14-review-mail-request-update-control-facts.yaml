@@ -1,0 +1,45 @@
+artifact_id: p03-full-000812
+source_record: p03-src-000812
+scope: p03-secondary-07
+organization: Cobalt Harbor
+review_date: '2026-07-13'
+risk_reference: RISK-031
+relationship: AC-27 relates to evidence set 184
+dependency_context: no upstream dependency
+evidence_question: How does the review distinguish complete evidence from an unsupported
+  assertion?
+source_facts: system steward retained review register for this review.
+counterexample: A status label alone is not evidence; it must be tied to a source
+  fact and a reviewer conclusion.
+evidence_instrument: approval trail summary
+review_observation: the evidence owner confirmed the record's completeness
+challenge_performed: an old exception was assessed for continued relevance
+review_profile:
+- the evidence set was collected before the approval meeting
+- the accountable owner confirmed the operating boundary
+- the reviewer sampled an adverse operating condition
+- the source fact supported acceptance with a documented caveat
+- the comparison used the prior review conclusion
+- the evidence was retained with the decision record
+- the exception path was not invoked
+- the reviewer found no handover impact
+- the decision was suitable for targeted follow-up
+- the source chronology contained a reconciled late entry
+- the control claim was independently corroborated
+- the review boundary excluded unavailable material
+- the next assurance trigger is the scheduled review
+- the disposition was communicated to the owner
+- the retained rationale supports repeat review
+- the record remains a local offline assurance artifact
+decision_rule: Record an approval only after the reviewer can reproduce the conclusion
+  from the retained facts without network access.
+disposition: accepted with a retained review note
+operating_boundary: No Kio capability is used or required for this offline review.
+review_period: 2026 Q3
+review_period_context: 'Review period: 2026 Q3. This review mail request update control
+  facts record was assessed using source chronology and decision traceability; the
+  reviewer recorded a bounded exception.'
+artifact_assigned_review_date: '2026-07-14'
+artifact_assigned_review_date_context: 'Artifact-assigned review date: 2026-07-14.
+  This mail request update control facts entry confirms that the evidence reminder
+  retained its synthetic control context.'

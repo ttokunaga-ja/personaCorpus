@@ -1,0 +1,41 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Control Ownership decision for p03-full-000766
+Date: Mon, 20 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-000766@example.invalid>
+X-Review-Period: 2026 Q3
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline control ownership review for calendar revi=
+ew message eml s000766 on 2026-07-20. The evidence question was: What decisio=
+n can be made from the retained source material without external access? The =
+named control owner assembled the source facts; the evidence custodian tested=
+ their evidence quality. The review relates AC-27 to evidence set 184 and rec=
+ords RISK-031 as the governing risk reference. Dependency context: no upstrea=
+m dependency. The source record is p03-src-000766 and this artifact is p03-fu=
+ll-000766. The evidence instrument was the control narrative comparison; the =
+reviewer observed that the owner and custodian were named consistently. Durin=
+g challenge, a summary was checked against the underlying decision minute. Re=
+view profile: the evidence set was collected before the approval meeting; the=
+ evidence custodian confirmed the record boundary; the reviewer sampled an ad=
+verse operating condition; the source fact supported acceptance with a docume=
+nted caveat; the comparison used the current control objective; the evidence =
+was retained with the decision record; the exception path was considered and =
+recorded; the reviewer assessed a handover impact; the decision was suitable =
+for routine monitoring; the source chronology contained a reconciled late ent=
+ry; the control claim was independently corroborated; the review boundary exc=
+luded unavailable material; the next assurance trigger is the scheduled revie=
+w; the disposition was communicated to the owner; the retained rationale supp=
+orts repeat review; the record remains a local offline assurance artifact. Co=
+unterexample considered: A dependency reference is not meaningful unless the =
+receiving artifact explains why it was consulted. Decision rule: Approve when=
+ the evidence is specific, attributable, and dated; otherwise classify the it=
+em as needing corroboration. Disposition: escalated for corroboration with th=
+e decision basis retained. No Kio capability is used or required for this off=
+line review.
+
+Review period: 2026 Q3. This personal grc review calendar review message eml =
+record was assessed using closure evidence and accountable disposition; the r=
+eviewer confirmed the review conclusion.

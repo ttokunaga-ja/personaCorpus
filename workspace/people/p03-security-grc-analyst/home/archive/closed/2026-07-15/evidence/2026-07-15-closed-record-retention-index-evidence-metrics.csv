@@ -1,0 +1,12 @@
+metric,value,unit,status,evidence_reference
+review_population,48,synthetic privileged-role records,closed,EV-184-01
+timely_attestation,47 of 48,97.9 percent,remediated,EXC-260713-006
+final_completion,48 of 48 (100.0%),percent,verified,EV-184-19
+evidence_completeness,24 of 24,required synthetic items,verified,EV-184-19
+residual_risk,Medium,rating,accepted,RISK-031
+record_id,p03-full-008625,identifier,closed,CASE-260713-184
+disposition_follow_up_anchor,2026-07-15,UTC date,retained,frozen ledger anchor
+closure_conclusion,the residual rating remains proportionate,checksum reconciliation,record-specific,the retention decision cites the approved synthetic schedule
+ledger_traceability,org.cobalt-harbor,"Cobalt Harbor Systems (CHS), a fictional managed logistics and harbor-operations platform.",frozen positive spine reference,p03-full-008625
+ledger_traceability,case.case-260713-184,"CASE-260713-184, the synthetic evidence intake case for evidence set 184; not a real incident.",frozen positive spine reference,p03-full-008625
+ledger_traceability,date.2026-07-15,Control owner validates the remediation plan and retention disposition.,frozen positive spine reference,p03-full-008625

@@ -1,0 +1,11 @@
+metric,value,unit,evidence_reference
+review_population,48,synthetic privileged-role records,EV-184-01
+timely_attestation,97.9%,47 of 48,EXC-260713-006
+final_completion,100.0%,48 of 48,ACT-260713-011
+evidence_completeness,24 of 24,required synthetic items,EV-184-19
+residual_risk,Medium,rating,RISK-031
+artifact_source,p03-src-003179,treatment review,2026-q3
+analytical_conclusion,"Record 3179 concludes that treatment review requires a bounded AC-27 evidence review for 2026-q3; RISK-031 remains Medium after the compensating review, with no personal records in scope.",bounded review conclusion,"org.cobalt-harbor, measure.residual-rating, rel.privacy.vendor, period.2026-q3, term.no-kio-claim"
+positive_spine_traceability,org.cobalt-harbor = Cobalt Harbor Systems,raw spine ID and canonical value,p03-src-003179
+positive_spine_traceability,measure.residual-rating = RISK-031 residual rating is Medium after compensating review and follow-up actions,raw spine ID and canonical value,p03-src-003179
+positive_spine_traceability,period.2026-q3 = governance planning period from 2026-07-01 through 2026-09-30,raw spine ID and canonical value,p03-src-003179

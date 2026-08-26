@@ -1,0 +1,25 @@
+record_id: VRF-000733
+source_id: p03-src-000733
+subject: subprocessor map
+organization: Cobalt Harbor Systems
+program: Aegis Assurance
+control: AC-27
+case: CASE-260713-184
+risk: RISK-031
+evidence_set: 184
+review_date: 2026-07-13
+review_population: 48
+timely_attestations: 47
+final_completion: 48
+residual_risk: Medium
+supplier_action: ACT-260713-013
+data_classification: synthetic-defensive
+retention: 18 months
+note: Bounded supplier-assurance control fact; no live data.
+content_spine_trace:
+  - spine_id: org.cobalt-harbor
+    canonical_value: "Cobalt Harbor Systems (CHS) is a fictional organization operating a managed logistics and harbor-operations platform."
+  - spine_id: risk.risk-031
+    canonical_value: "RISK-031: incomplete quarterly privileged-access review evidence could prevent AC-27 operating-effectiveness confirmation; inherent High and residual Medium after bounded remediation."
+  - spine_id: period.2026-q3
+    canonical_value: "Governance planning period from 2026-07-01 through 2026-09-30."

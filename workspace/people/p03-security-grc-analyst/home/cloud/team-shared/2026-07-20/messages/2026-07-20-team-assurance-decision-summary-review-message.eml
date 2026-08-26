@@ -1,0 +1,63 @@
+From: grc-reviewer@cobalt.invalid
+To: soc-duty@cobalt.invalid
+Date: Mon, 20 Jul 2026 16:45:00 +0000
+Subject: AC-27 decision summary review - retention disposition
+Message-ID: <p03-full-002859@cobalt.invalid>
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="===============2165592974308707373=="
+
+--===============2165592974308707373==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Artifact p03-full-002859 is a synthetic Cobalt Harbor Systems decision summar=
+y record for 2026-07-20.
+
+## Review lens: retention disposition
+
+separate retention from legal advice. Record the synthetic 18-month minimum u=
+nder DEC-260713-004 without asserting external policy.
+
+## Method note
+
+This record uses a checksum lineage comparison method. It deliberately checks=
+ one bounded relationship in the evidence chain and does not generalize the r=
+esult to a live environment.
+
+## Decision and follow-up
+
+Retain only minimized synthetic evidence identifiers. The applicable facts re=
+main Aegis Control AC-27, CASE-260713-184, evidence set 184, and RISK-031 res=
+idual Medium.
+
+## Safety boundary
+
+This is defensive GRC evidence only. It contains no real people, systems, cre=
+dentials, or operational events, and it makes no Kio indexing, history, chunk=
+s, search-quality, or performance claim.
+
+--===============2165592974308707373==
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+<!doctype html><html lang=3D"en"><head><meta charset=3D"utf-8"><title>Decisio=
+n Summary AC-27 review</title><style>body{font-family:Arial;max-width:760px;m=
+argin:30px auto;line-height:1.55;color:#18313e}h1{color:#12354a;border-bottom=
+:3px solid #245b76}.callout{background:#eef6f8;padding:12px;border-left:4px s=
+olid #245b76}</style></head><body><header><h1>Decision Summary assurance revi=
+ew</h1><p><strong>Artifact:</strong> p03-full-002859 | <strong>Period:</stron=
+g> 2026-07-20</p></header><main><article><section><h2>Retention Disposition</=
+h2><p>separate retention from legal advice. Record the synthetic 18-month min=
+imum under DEC-260713-004 without asserting external policy.</p></section><se=
+ction><h2>Review method</h2><p>This record uses a checksum lineage comparison=
+ method. It deliberately checks one bounded relationship in the evidence chai=
+n and does not generalize the result to a live environment.</p></section><sec=
+tion class=3D"callout"><h2>Disposition and follow-up</h2><p>Retain only minim=
+ized synthetic evidence identifiers.</p></section><section><h2>Evidence bound=
+ary</h2><p>Evidence set 184 contains 24 required synthetic items; RISK-031 re=
+mains residual Medium. No Kio claim.</p></section></article></main></body></h=
+tml>
+
+--===============2165592974308707373==--

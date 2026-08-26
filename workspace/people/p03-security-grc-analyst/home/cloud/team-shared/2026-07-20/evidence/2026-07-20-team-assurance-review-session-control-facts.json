@@ -1,0 +1,26 @@
+{
+  "artifact_id": "p03-full-003630",
+  "case": "CASE-260713-184",
+  "control": "AC-27",
+  "evidence_set": 184,
+  "organization": "Cobalt Harbor Systems",
+  "program": "Aegis Assurance",
+  "record_context": {
+    "date": "2026-07-20",
+    "focus": "control fact stewardship",
+    "locator": "2026-07-20-team-assurance-review-session-control-facts-json;assigned_source_slot=003630;ledger_spine_refs=org.cobalt-harbor=Cobalt Harbor Systems | team.grc=Security GRC owns the AC-27 evidence register risk treatment tracking and audit-request coordination | date.2026-07-20=Seven-day follow-up validates closure evidence and residual-risk status;spine_dates=2026-07-13;2026-07-14;2026-07-15;2026-07-20",
+    "positive_refs": "org.cobalt-harbor=Cobalt Harbor Systems | team.grc=Security GRC owns the AC-27 evidence register risk treatment tracking and audit-request coordination | date.2026-07-20=Seven-day follow-up validates closure evidence and residual-risk status",
+    "spine_dates": "2026-07-13;2026-07-14;2026-07-15;2026-07-20",
+    "topic": "review-session"
+  },
+  "review": {
+    "date": "2026-07-20",
+    "evidence_completeness": "24/24",
+    "final_completion_rate": "100.0%",
+    "timely_attestation_rate": "97.9%"
+  },
+  "risk": "RISK-031",
+  "source_id": "p03-src-003630",
+  "subject": "2026-07-20-team-assurance-review-session-control-facts-json",
+  "synthetic_notice": "Synthetic defensive governance data only; no live system access or personal data."
+}

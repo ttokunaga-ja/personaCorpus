@@ -1,0 +1,45 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Data Retention decision for p03-full-006203
+Date: Mon, 20 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-006203@example.invalid>
+X-Artifact-Assigned-Review-Date: 2026-07-14
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline data retention review for archive review m=
+essage eml s006203 on 2026-07-20. The evidence question was: How should a con=
+flicting source be handled before the disposition is recorded? The records ow=
+ner assembled the source facts; the retention reviewer tested their control b=
+oundary. The review relates AC-27 to evidence set 184 and records RISK-031 as=
+ the governing risk reference. Dependency context: no upstream dependency. Th=
+e source record is p03-src-006203 and this artifact is p03-full-006203. The e=
+vidence instrument was the assumption challenge log; the reviewer observed th=
+at the approved scope was not expanded beyond the available evidence. During =
+challenge, an unassigned exception was tested against the escalation route. R=
+eview profile: the evidence set was collected during the follow-up review; th=
+e evidence custodian confirmed the record boundary; the reviewer sampled a ro=
+utine operating condition; the source fact supported acceptance with a docume=
+nted caveat; the comparison used the current control objective; the evidence =
+was retained with the decision record; the exception path was not invoked; th=
+e reviewer found no handover impact; the decision was suitable for routine mo=
+nitoring; the source chronology was complete; the control claim was independe=
+ntly corroborated; the review boundary identified unavailable material as a l=
+imitation; the next assurance trigger is completion of the follow-up action; =
+the disposition was communicated to the owner; the retained rationale support=
+s repeat review; the record remains a local offline assurance artifact. Count=
+erexample considered: A dated narrative without a named custodian is insuffic=
+ient because responsibility cannot be tested. Decision rule: Preserve a bound=
+ed decision: cite the source, explain the rule, and state whether the result =
+is accepted or escalated. Disposition: escalated for corroboration with the d=
+ecision basis retained. No Kio capability is used or required for this offlin=
+e review.
+
+Review period: 2026 Q3. This closed record evidence archive review message em=
+l record was assessed using evidence custody and reviewer independence; the r=
+eviewer documented an ownership check.
+
+Artifact-assigned review date: 2026-07-14. This closed record evidence archiv=
+e message eml entry confirms that the closure notice was reconciled with the =
+evidence register.

@@ -1,0 +1,35 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Access Review decision for p03-full-000921
+Date: Tue, 14 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-000921@example.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline access review review for receipt review me=
+ssage eml s000921 on 2026-07-14. The evidence question was: What minimal trac=
+e proves that the control remains attributable to its owner? The system stewa=
+rd assembled the source facts; the access approver tested their control bound=
+ary. The review relates AC-27 to evidence set 184 and records RISK-031 as the=
+ governing risk reference. Dependency context: no upstream dependency. The so=
+urce record is p03-src-000921 and this artifact is p03-full-000921. The evide=
+nce instrument was the signed ownership matrix; the reviewer observed that th=
+e evidence owner confirmed the record's completeness. During challenge, a sin=
+gle reviewer conclusion was checked for independent challenge. Review profile=
+: the evidence set was collected during the follow-up review; the accountable=
+ owner confirmed the operating boundary; the reviewer sampled a routine opera=
+ting condition; the source fact supported acceptance with a documented caveat=
+; the comparison used the current control objective; the evidence was retaine=
+d in the review register; the exception path was not invoked; the reviewer as=
+sessed a handover impact; the decision was suitable for targeted follow-up; t=
+he source chronology contained a reconciled late entry; the control claim was=
+ independently corroborated; the review boundary excluded unavailable materia=
+l; the next assurance trigger is the scheduled review; the disposition was co=
+mmunicated to the owner; the retained rationale supports repeat review; the r=
+ecord remains a local offline assurance artifact. Counterexample considered: =
+A file name is not a substitute for the source facts that support the conclus=
+ion. Decision rule: Treat the control as effective only when the counterexamp=
+le has been considered and the exception path is explicit. Disposition: escal=
+ated for corroboration with the decision basis retained. No Kio capability is=
+ used or required for this offline review.

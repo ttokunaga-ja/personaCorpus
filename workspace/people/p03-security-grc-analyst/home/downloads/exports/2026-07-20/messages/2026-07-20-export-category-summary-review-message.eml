@@ -1,0 +1,35 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Change Assurance decision for p03-full-002300
+Date: Mon, 20 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-002300@example.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline change assurance review for summary review=
+ message eml s002300 on 2026-07-20. The evidence question was: Which review q=
+uestion exposes a gap between policy language and operating evidence? The cha=
+nge sponsor assembled the source facts; the assurance analyst tested their co=
+ntrol boundary. The review relates AC-27 to evidence set 184 and records RISK=
+-031 as the governing risk reference. Dependency context: no upstream depende=
+ncy. The source record is p03-src-002300 and this artifact is p03-full-002300=
+. The evidence instrument was the change-impact assessment; the reviewer obse=
+rved that the approval boundary matched the operating record. During challeng=
+e, a claimed control was tested against a negative sample. Review profile: th=
+e evidence set was collected before the approval meeting; the accountable own=
+er confirmed the operating boundary; the reviewer sampled an adverse operatin=
+g condition; the source fact supported acceptance with a documented caveat; t=
+he comparison used the current control objective; the evidence was retained w=
+ith the decision record; the exception path was considered and recorded; the =
+reviewer assessed a handover impact; the decision was suitable for routine mo=
+nitoring; the source chronology was complete; the control claim was independe=
+ntly corroborated; the review boundary identified unavailable material as a l=
+imitation; the next assurance trigger is the scheduled review; the dispositio=
+n was communicated to the owner; the retained rationale supports repeat revie=
+w; the record remains a local offline assurance artifact. Counterexample cons=
+idered: A complete-looking register is not reliable if the decision rule and =
+disposition are absent. Decision rule: Preserve a bounded decision: cite the =
+source, explain the rule, and state whether the result is accepted or escalat=
+ed. Disposition: accepted with a retained review note. No Kio capability is u=
+sed or required for this offline review.

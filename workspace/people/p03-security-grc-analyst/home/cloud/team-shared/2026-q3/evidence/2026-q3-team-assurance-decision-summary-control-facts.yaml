@@ -1,0 +1,41 @@
+artifact_id: p03-full-009723
+source_record: p03-src-009723
+scope: p03-secondary-06
+organization: Cobalt Harbor
+review_date: '2026-07-20'
+risk_reference: RISK-031
+relationship: AC-27 relates to evidence set 184
+dependency_context: no upstream dependency
+evidence_question: What minimal trace proves that the control remains attributable
+  to its owner?
+source_facts: records owner retained disposition record for this review.
+counterexample: A generic assurance claim is rejected when it cannot be traced to
+  an owner, date, and retained evidence.
+evidence_instrument: outcome verification note
+review_observation: the record explained why an exception remained open
+challenge_performed: an ambiguous dependency was clarified before disposition
+review_profile:
+- the evidence set was collected during the follow-up review
+- the evidence custodian confirmed the record boundary
+- the reviewer sampled a routine operating condition
+- the source fact supported acceptance with a documented caveat
+- the comparison used the current control objective
+- the evidence was retained with the decision record
+- the exception path was considered and recorded
+- the reviewer assessed a handover impact
+- the decision was suitable for targeted follow-up
+- the source chronology was complete
+- the control claim was corroborated by a compensating observation
+- the review boundary excluded unavailable material
+- the next assurance trigger is the scheduled review
+- the disposition was communicated to the independent reviewer
+- the retained rationale supports repeat review
+- the record remains a local offline assurance artifact
+decision_rule: Accept only when the source fact, accountable role, and review conclusion
+  agree; otherwise record a follow-up disposition.
+disposition: escalated for corroboration with the decision basis retained
+operating_boundary: No Kio capability is used or required for this offline review.
+review_period: 2026 Q3
+review_period_context: 'Review period: 2026 Q3. This team assurance decision summary
+  control facts record was assessed using evidence custody and reviewer independence;
+  the reviewer retained a challenge response.'

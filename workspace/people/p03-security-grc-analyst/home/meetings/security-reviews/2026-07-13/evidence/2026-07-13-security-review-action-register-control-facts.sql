@@ -1,0 +1,4 @@
+-- Cobalt Harbor Systems synthetic AC-27 review foundation; RISK-031; GRC-REV-000881; confirm ACT-260713-012 checksum-reconciliation follow-up and its 2026-07-20 closure evidence; ACT-260713-012 checksum reconciliation.
+CREATE TABLE IF NOT EXISTS review_foundation (artifact_id TEXT PRIMARY KEY, source_id TEXT NOT NULL, review_date TEXT NOT NULL, control_id TEXT NOT NULL, case_id TEXT NOT NULL, evidence_set INTEGER NOT NULL, timely_attestations INTEGER NOT NULL, final_completion INTEGER NOT NULL, residual_risk TEXT NOT NULL);
+INSERT INTO review_foundation (artifact_id, source_id, review_date, control_id, case_id, evidence_set, timely_attestations, final_completion, residual_risk) VALUES ('p03-full-000881', 'p03-src-000881', '2026-07-13', 'AC-27', 'CASE-260713-184', 184, 47, 48, 'Medium');
+-- Decision: confirm the compensating-review linkage; spine: org.cobalt-harbor, action.act-260713-012 (ACT-260713-012), rel.case.timeline, date.2026-07-13, term.no-kio-claim.

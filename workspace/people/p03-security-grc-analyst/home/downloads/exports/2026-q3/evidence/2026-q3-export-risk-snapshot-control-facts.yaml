@@ -1,0 +1,41 @@
+artifact_id: p03-full-006123
+source_record: p03-src-006123
+scope: p03-secondary-04
+organization: Cobalt Harbor
+review_date: '2026-07-20'
+risk_reference: RISK-031
+relationship: AC-27 relates to evidence set 184
+dependency_context: no upstream dependency
+evidence_question: How does the review distinguish complete evidence from an unsupported
+  assertion?
+source_facts: records owner retained disposition record for this review.
+counterexample: A dated narrative without a named custodian is insufficient because
+  responsibility cannot be tested.
+evidence_instrument: process walkthrough note
+review_observation: the evidence sequence exposed a material dependency
+challenge_performed: a summary was checked against the underlying decision minute
+review_profile:
+- the evidence set was collected during the follow-up review
+- the evidence custodian confirmed the record boundary
+- the reviewer sampled a routine operating condition
+- the source fact supported acceptance with a documented caveat
+- the comparison used the prior review conclusion
+- the evidence was retained with the decision record
+- the exception path was considered and recorded
+- the reviewer assessed a handover impact
+- the decision was suitable for targeted follow-up
+- the source chronology contained a reconciled late entry
+- the control claim was corroborated by a compensating observation
+- the review boundary excluded unavailable material
+- the next assurance trigger is completion of the follow-up action
+- the disposition was communicated to the owner
+- the retained rationale supports repeat review
+- the record remains a local offline assurance artifact
+decision_rule: Reject unsupported claims and retain a concise explanation of the missing
+  fact for the next review cycle.
+disposition: accepted with a retained review note
+operating_boundary: No Kio capability is used or required for this offline review.
+review_period: 2026 Q3
+review_period_context: 'Review period: 2026 Q3. This export risk snapshot control
+  facts record was assessed using evidence custody and reviewer independence; the
+  reviewer recorded a bounded exception.'

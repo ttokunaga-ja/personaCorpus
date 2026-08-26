@@ -1,0 +1,2 @@
+artifact_id	docket	organization	review_date	topic	agenda	decision_context	action_context	spine_ids	control	case	evidence_set	risk	population	timely_attestations	final_completion	residual_risk
+p03-full-000648	GRC-REV-000648	Cobalt Harbor Systems	2026-07-15	Quarterly Review	reconcile the Q3 AC-27 review population, compensating review, and evidence-chain handoff	retain the synthetic evidence package	ACT-260713-011 completion register	org.cobalt-harbor, period.2026-q3, rel.case.timeline, date.2026-07-15, term.no-kio-claim	AC-27	CASE-260713-184	184	RISK-031	48	47	48	Medium

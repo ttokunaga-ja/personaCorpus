@@ -1,0 +1,35 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Incident Readiness decision for p03-full-001299
+Date: Mon, 13 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-001299@example.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline incident readiness review for review messa=
+ge eml s001299 on 2026-07-13. The evidence question was: What decision can be=
+ made from the retained source material without external access? The response=
+ coordinator assembled the source facts; the case reviewer tested their recor=
+d completeness. The review relates AC-27 to evidence set 184 and records RISK=
+-031 as the governing risk reference. Dependency context: no upstream depende=
+ncy. The source record is p03-src-001299 and this artifact is p03-full-001299=
+. The evidence instrument was the exception decision sheet; the reviewer obse=
+rved that the review showed how contradictory evidence was resolved. During c=
+hallenge, an incomplete register was challenged for its missing decision rule=
+. Review profile: the evidence set was collected during the follow-up review;=
+ the evidence custodian confirmed the record boundary; the reviewer sampled a=
+ routine operating condition; the source fact supported acceptance without qu=
+alification; the comparison used the current control objective; the evidence =
+was retained in the review register; the exception path was not invoked; the =
+reviewer found no handover impact; the decision was suitable for targeted fol=
+low-up; the source chronology was complete; the control claim was corroborate=
+d by a compensating observation; the review boundary excluded unavailable mat=
+erial; the next assurance trigger is the scheduled review; the disposition wa=
+s communicated to the owner; the retained rationale supports repeat review; t=
+he record remains a local offline assurance artifact. Counterexample consider=
+ed: A single approval cannot settle a conflicting record; the discrepancy mus=
+t remain visible to the reviewer. Decision rule: Use the dependency as contex=
+t rather than proof; the local artifact must state its own conclusion and bas=
+is. Disposition: accepted with a retained review note. No Kio capability is u=
+sed or required for this offline review.

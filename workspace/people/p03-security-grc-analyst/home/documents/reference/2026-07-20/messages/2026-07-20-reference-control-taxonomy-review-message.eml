@@ -1,0 +1,36 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Monitoring Coverage decision for p03-full-003736
+Date: Mon, 20 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-003736@example.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline monitoring coverage review for taxonomy re=
+view message eml s003736 on 2026-07-20. The evidence question was: Which resp=
+onsibility boundary must be visible before the record is approved? The detect=
+ion owner assembled the source facts; the telemetry reviewer tested their con=
+trol boundary. The review relates AC-27 to evidence set 184 and records RISK-=
+031 as the governing risk reference. Dependency context: no upstream dependen=
+cy. The source record is p03-src-003736 and this artifact is p03-full-003736.=
+ The evidence instrument was the reviewer observation log; the reviewer obser=
+ved that the reviewer could locate the controlling decision without inference=
+. During challenge, a claimed control was tested against a negative sample. R=
+eview profile: the evidence set was collected before the approval meeting; th=
+e accountable owner confirmed the operating boundary; the reviewer sampled a =
+routine operating condition; the source fact supported acceptance with a docu=
+mented caveat; the comparison used the current control objective; the evidenc=
+e was retained in the review register; the exception path was not invoked; th=
+e reviewer assessed a handover impact; the decision was suitable for routine =
+monitoring; the source chronology contained a reconciled late entry; the cont=
+rol claim was corroborated by a compensating observation; the review boundary=
+ identified unavailable material as a limitation; the next assurance trigger =
+is the scheduled review; the disposition was communicated to the owner; the r=
+etained rationale supports repeat review; the record remains a local offline =
+assurance artifact. Counterexample considered: A generic assurance claim is r=
+ejected when it cannot be traced to an owner, date, and retained evidence. De=
+cision rule: Use the dependency as context rather than proof; the local artif=
+act must state its own conclusion and basis. Disposition: escalated for corro=
+boration with the decision basis retained. No Kio capability is used or requi=
+red for this offline review.

@@ -1,0 +1,6 @@
+2026-07-13T09:15:00Z INFO artifact=p03-full-003638 source=p03-src-003638 topic=export-evidence-export period=2026-q3 export_window=39 event=sentinel_export_normalized
+2026-07-13T09:16:00Z INFO organization=Cobalt_Harbor_Systems focus=minimized_evidence-chain_intake_and_checksum_confirmation assigned_canonical_dates=none spine=org.cobalt-harbor|risk.risk-031|rel.siem.minimization|period.2026-q3|term.no-kio-claim
+2026-07-13T09:17:00Z INFO positive_spine_references=[{"id": "org.cobalt-harbor", "value": "Cobalt Harbor Systems, a fictional managed logistics and harbor-operations platform."}, {"id": "risk.risk-031", "value": "RISK-031: incomplete quarterly privileged-access review evidence; residual Medium after bounded remediation."}, {"id": "period.2026-q3", "value": "Governance planning period from 2026-07-01 through 2026-09-30."}]
+2026-07-13T10:20:00Z WARN case=CASE-260713-184 risk=RISK-031 state=tracked detail=delayed_attestation_compensating_review
+2026-07-14T11:45:00Z INFO control=AC-27 evidence_set=184 verified=24/24 completion=48/48 residual_risk=Medium
+2026-07-20T17:15:00Z INFO notice=synthetic_defensive_data_only minimized_export=true live_access=false

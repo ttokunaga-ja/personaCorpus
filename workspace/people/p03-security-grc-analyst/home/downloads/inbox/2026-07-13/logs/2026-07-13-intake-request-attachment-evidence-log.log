@@ -1,0 +1,4 @@
+2026-07-13T15:10:00Z INFO intake record=INB-084 control=AC-27 case=CASE-260713-184 marker=foundation-b001-084
+2026-07-13T15:10:00Z INFO checksum evidence=EV-184-19 result=normalized synthetic_only=true
+2026-07-13T15:10:00Z INFO disposition risk=RISK-031 residual=Medium status=recorded
+SPINE_TRACEABILITY org.cobalt-harbor=Cobalt Harbor Systems | audit.ar-260713-027=AR-260713-027 fictional audit request for AC-27 review material | date.2026-07-13=2026-07-13 primary review date

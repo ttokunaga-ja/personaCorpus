@@ -1,0 +1,35 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Access Review decision for p03-full-007490
+Date: Mon, 13 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-007490@example.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline access review review for package review me=
+ssage eml s007490 on 2026-07-13. The evidence question was: How should a conf=
+licting source be handled before the disposition is recorded? The system stew=
+ard assembled the source facts; the access approver tested their independent =
+confirmation. The review relates AC-27 to evidence set 184 and records RISK-0=
+31 as the governing risk reference. Dependency context: no upstream dependenc=
+y. The source record is p03-src-007490 and this artifact is p03-full-007490. =
+The evidence instrument was the assumption challenge log; the reviewer observ=
+ed that the evidence owner confirmed the record's completeness. During challe=
+nge, a claimed control was tested against a negative sample. Review profile: =
+the evidence set was collected before the approval meeting; the evidence cust=
+odian confirmed the record boundary; the reviewer sampled a routine operating=
+ condition; the source fact supported acceptance without qualification; the c=
+omparison used the prior review conclusion; the evidence was retained in the =
+review register; the exception path was considered and recorded; the reviewer=
+ found no handover impact; the decision was suitable for targeted follow-up; =
+the source chronology was complete; the control claim was corroborated by a c=
+ompensating observation; the review boundary identified unavailable material =
+as a limitation; the next assurance trigger is completion of the follow-up ac=
+tion; the disposition was communicated to the owner; the retained rationale s=
+upports repeat review; the record remains a local offline assurance artifact.=
+ Counterexample considered: A repeated control statement does not establish o=
+peration when no counterexample was considered. Decision rule: Reject unsuppo=
+rted claims and retain a concise explanation of the missing fact for the next=
+ review cycle. Disposition: accepted with a retained review note. No Kio capa=
+bility is used or required for this offline review.

@@ -1,0 +1,36 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Change Assurance decision for p03-full-006736
+Date: Wed, 15 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-006736@example.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline change assurance review for use review mes=
+sage eml s006736 on 2026-07-15. The evidence question was: Which review quest=
+ion exposes a gap between policy language and operating evidence? The change =
+sponsor assembled the source facts; the assurance analyst tested their source=
+ reconciliation. The review relates AC-27 to evidence set 184 and records RIS=
+K-031 as the governing risk reference. Dependency context: no upstream depend=
+ency. The source record is p03-src-006736 and this artifact is p03-full-00673=
+6. The evidence instrument was the incident chronology; the reviewer observed=
+ that the owner and custodian were named consistently. During challenge, an u=
+nsupported completion status was tested for underlying proof. Review profile:=
+ the evidence set was collected before the approval meeting; the accountable =
+owner confirmed the operating boundary; the reviewer sampled a routine operat=
+ing condition; the source fact supported acceptance without qualification; th=
+e comparison used the current control objective; the evidence was retained in=
+ the review register; the exception path was considered and recorded; the rev=
+iewer found no handover impact; the decision was suitable for routine monitor=
+ing; the source chronology contained a reconciled late entry; the control cla=
+im was independently corroborated; the review boundary identified unavailable=
+ material as a limitation; the next assurance trigger is completion of the fo=
+llow-up action; the disposition was communicated to the owner; the retained r=
+ationale supports repeat review; the record remains a local offline assurance=
+ artifact. Counterexample considered: A generic assurance claim is rejected w=
+hen it cannot be traced to an owner, date, and retained evidence. Decision ru=
+le: Record an approval only after the reviewer can reproduce the conclusion f=
+rom the retained facts without network access. Disposition: accepted with a r=
+etained review note. No Kio capability is used or required for this offline r=
+eview.

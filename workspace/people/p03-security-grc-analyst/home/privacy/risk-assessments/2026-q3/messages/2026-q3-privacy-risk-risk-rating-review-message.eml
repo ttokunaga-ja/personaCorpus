@@ -1,0 +1,40 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Change Assurance decision for p03-full-001641
+Date: Mon, 20 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-001641@example.invalid>
+X-Review-Period: 2026 Q3
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline change assurance review for rating review =
+message eml s001641 on 2026-07-20. The evidence question was: Which source fa=
+ct would cause the reviewer to accept the control conclusion? The change spon=
+sor assembled the source facts; the assurance analyst tested their source rec=
+onciliation. The review relates AC-27 to evidence set 184 and records RISK-03=
+1 as the governing risk reference. Dependency context: no upstream dependency=
+. The source record is p03-src-001641 and this artifact is p03-full-001641. T=
+he evidence instrument was the risk treatment worksheet; the reviewer observe=
+d that the review preserved a clear separation of duties. During challenge, a=
+ compensating action was checked for accountable ownership. Review profile: t=
+he evidence set was collected during the follow-up review; the accountable ow=
+ner confirmed the operating boundary; the reviewer sampled a routine operatin=
+g condition; the source fact supported acceptance with a documented caveat; t=
+he comparison used the prior review conclusion; the evidence was retained wit=
+h the decision record; the exception path was considered and recorded; the re=
+viewer found no handover impact; the decision was suitable for routine monito=
+ring; the source chronology contained a reconciled late entry; the control cl=
+aim was corroborated by a compensating observation; the review boundary exclu=
+ded unavailable material; the next assurance trigger is the scheduled review;=
+ the disposition was communicated to the owner; the retained rationale suppor=
+ts repeat review; the record remains a local offline assurance artifact. Coun=
+terexample considered: A single approval cannot settle a conflicting record; =
+the discrepancy must remain visible to the reviewer. Decision rule: Treat the=
+ control as effective only when the counterexample has been considered and th=
+e exception path is explicit. Disposition: accepted with a retained review no=
+te. No Kio capability is used or required for this offline review.
+
+Review period: 2026 Q3. This privacy risk risk rating review message eml reco=
+rd was assessed using retention basis and follow-up condition; the reviewer i=
+dentified a corroboration need.

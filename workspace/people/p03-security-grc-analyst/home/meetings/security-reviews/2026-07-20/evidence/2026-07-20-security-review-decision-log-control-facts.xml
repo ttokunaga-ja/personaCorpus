@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<securityReviewFoundation schemaVersion="1.0">
+  <identity artifactId="p03-full-004682" sourceId="p03-src-004682" docket="GRC-REV-004682"/>
+  <organization>Cobalt Harbor Systems</organization>
+  <program>Aegis Assurance</program><control>AC-27</control>
+  <case>CASE-260713-184</case><evidenceSet>184</evidenceSet><risk>RISK-031</risk>
+  <reviewDate>2026-07-20</reviewDate><subject>Decision Log</subject>
+  <agenda>record DEC-260713-004 retention disposition with preparer-reviewer separation</agenda><decision>close checksum reconciliation evidence</decision><action>ACT-260713-011 completion register</action>
+  <spineIds>org.cobalt-harbor, action.act-260713-012 (ACT-260713-012), rel.case.timeline, date.2026-07-20, term.no-kio-claim</spineIds>
+  <measures population="48" timelyAttestations="47" finalCompletion="48" evidenceItems="24"/>
+  <disposition residualRisk="Medium">Retain synthetic evidence for 18 months</disposition>
+  <safety>Defensive synthetic governance facts only; no Kio claim.</safety>
+</securityReviewFoundation>

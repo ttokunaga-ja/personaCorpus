@@ -1,0 +1,62 @@
+From: grc-reviewer@cobalt.invalid
+To: soc-duty@cobalt.invalid
+Date: Mon, 20 Jul 2026 16:45:00 +0000
+Subject: AC-27 shared register review - reporting scope
+Message-ID: <p03-full-005201@cobalt.invalid>
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="===============3120550655159777923=="
+
+--===============3120550655159777923==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Artifact p03-full-005201 is a synthetic Cobalt Harbor Systems shared register=
+ record for 2026-07-20.
+
+## Review lens: reporting scope
+
+avoid broad security assertions. Present counts, dates, identifiers, and deci=
+sions only within the frozen content spine.
+
+## Method note
+
+This record uses a safety-language audit method. It deliberately checks one b=
+ounded relationship in the evidence chain and does not generalize the result =
+to a live environment.
+
+## Decision and follow-up
+
+Remove any implication of live systems, accounts, or customers. The applicabl=
+e facts remain Aegis Control AC-27, CASE-260713-184, evidence set 184, and RI=
+SK-031 residual Medium.
+
+## Safety boundary
+
+This is defensive GRC evidence only. It contains no real people, systems, cre=
+dentials, or operational events, and it makes no Kio indexing, history, chunk=
+s, search-quality, or performance claim.
+
+--===============3120550655159777923==
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+<!doctype html><html lang=3D"en"><head><meta charset=3D"utf-8"><title>Shared =
+Register AC-27 review</title><style>body{font-family:Arial;max-width:760px;ma=
+rgin:30px auto;line-height:1.55;color:#18313e}h1{color:#12354a;border-bottom:=
+3px solid #245b76}.callout{background:#eef6f8;padding:12px;border-left:4px so=
+lid #245b76}</style></head><body><header><h1>Shared Register assurance review=
+</h1><p><strong>Artifact:</strong> p03-full-005201 | <strong>Period:</strong>=
+ 2026-07-20</p></header><main><article><section><h2>Reporting Scope</h2><p>av=
+oid broad security assertions. Present counts, dates, identifiers, and decisi=
+ons only within the frozen content spine.</p></section><section><h2>Review me=
+thod</h2><p>This record uses a safety-language audit method. It deliberately =
+checks one bounded relationship in the evidence chain and does not generalize=
+ the result to a live environment.</p></section><section class=3D"callout"><h=
+2>Disposition and follow-up</h2><p>Remove any implication of live systems, ac=
+counts, or customers.</p></section><section><h2>Evidence boundary</h2><p>Evid=
+ence set 184 contains 24 required synthetic items; RISK-031 remains residual =
+Medium. No Kio claim.</p></section></article></main></body></html>
+
+--===============3120550655159777923==--

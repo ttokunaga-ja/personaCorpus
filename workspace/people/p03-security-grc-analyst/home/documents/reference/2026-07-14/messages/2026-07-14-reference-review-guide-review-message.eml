@@ -1,0 +1,35 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Change Assurance decision for p03-full-008762
+Date: Tue, 14 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-008762@example.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline change assurance review for guide review m=
+essage eml s008762 on 2026-07-14. The evidence question was: What minimal tra=
+ce proves that the control remains attributable to its owner? The change spon=
+sor assembled the source facts; the assurance analyst tested their record com=
+pleteness. The review relates AC-27 to evidence set 184 and records RISK-031 =
+as the governing risk reference. Dependency context: no upstream dependency. =
+The source record is p03-src-008762 and this artifact is p03-full-008762. The=
+ evidence instrument was the reviewer observation log; the reviewer observed =
+that the control boundary was explained in practical terms. During challenge,=
+ a retained file was assessed for evidence freshness. Review profile: the evi=
+dence set was collected before the approval meeting; the evidence custodian c=
+onfirmed the record boundary; the reviewer sampled a routine operating condit=
+ion; the source fact supported acceptance with a documented caveat; the compa=
+rison used the current control objective; the evidence was retained with the =
+decision record; the exception path was not invoked; the reviewer found no ha=
+ndover impact; the decision was suitable for routine monitoring; the source c=
+hronology contained a reconciled late entry; the control claim was independen=
+tly corroborated; the review boundary excluded unavailable material; the next=
+ assurance trigger is the scheduled review; the disposition was communicated =
+to the independent reviewer; the retained rationale supports repeat review; t=
+he record remains a local offline assurance artifact. Counterexample consider=
+ed: A status label alone is not evidence; it must be tied to a source fact an=
+d a reviewer conclusion. Decision rule: Accept only when the source fact, acc=
+ountable role, and review conclusion agree; otherwise record a follow-up disp=
+osition. Disposition: escalated for corroboration with the decision basis ret=
+ained. No Kio capability is used or required for this offline review.

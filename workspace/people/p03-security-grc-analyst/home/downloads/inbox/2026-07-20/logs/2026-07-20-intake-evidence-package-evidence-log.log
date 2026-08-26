@@ -1,0 +1,4 @@
+2026-07-13T15:10:00Z INFO intake record=INB-137 control=AC-27 case=CASE-260713-184 marker=foundation-b001-137
+2026-07-13T15:10:00Z INFO checksum evidence=EV-184-19 result=normalized synthetic_only=true
+2026-07-13T15:10:00Z INFO disposition risk=RISK-031 residual=Medium status=recorded
+SPINE_TRACEABILITY org.cobalt-harbor=Cobalt Harbor Systems | evidence.ev-184-19=EV-184-19 evidence set 184 checksum reconciliation record | date.2026-07-20=2026-07-20 closure-evidence follow-up date

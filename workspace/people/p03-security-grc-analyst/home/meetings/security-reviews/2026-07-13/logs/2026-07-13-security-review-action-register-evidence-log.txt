@@ -1,0 +1,7 @@
+2026-07-13T08:30:00Z | REVIEW_OPEN | Cobalt Harbor Systems | GRC-REV-002945 | bounded AC-27 evidence intake
+2026-07-13T09:15:00Z | EVIDENCE_CHECK | evidence set 184 | minimized Sentinel Export summary posted
+2026-07-13T10:20:00Z | RISK_TRACK | RISK-031 | EXC-260713-006 opened for missing reviewer attestation
+2026-07-13T13:30:00Z | AGENDA | confirm ACT-260713-012 checksum-reconciliation follow-up and its 2026-07-20 closure evidence
+2026-07-13T15:10:00Z | DECISION | confirm the compensating-review linkage | action: ACT-260713-011 completion register
+2026-07-13T16:45:00Z | REVIEW_CLOSE | residual risk Medium | CASE-260713-184 | spine: org.cobalt-harbor, action.act-260713-012 (ACT-260713-012), rel.case.timeline, date.2026-07-13, term.no-kio-claim
+Scope: defensive synthetic governance record; no live systems, personal data, credentials, or incident telemetry.

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ac27Foundation artifactId="p03-full-000716" reviewPeriod="2026-07-15">
+  <organization>Cobalt Harbor Systems</organization><control>Aegis Control AC-27</control>
+  <case>CASE-260713-184</case><evidenceSet>184</evidenceSet><risk residual="Medium">RISK-031</risk>
+  <attestation timely="47" population="48" rate="97.9%" finalRate="100.0%"/>
+  <workingFile>2026-07-15-personal-grc-attestation-status-control-facts-xml-s000716.xml</workingFile><topic>attestation status</topic><focus>retention rationale</focus>
+  <purpose>document a review handoff</purpose><ledgerDateAnchors>2026-07-15</ledgerDateAnchors><positiveSpineTraceability>org.cobalt-harbor = Cobalt Harbor Systems (CHS), a fictional managed logistics and harbor-operations platform | action.act-260713-011 = Publish an AC-27 reviewer-completion register; completed 2026-07-15 | date.2026-07-15 = Control owner validates the remediation plan and retention disposition</positiveSpineTraceability><conclusion>For 2026-07-15, this working file document a review handoff focused on retention rationale; it supports a Medium residual-risk conclusion without asserting live-system access.</conclusion>
+  <spine>org.cobalt-harbor; action.act-260713-011; rel.risk-031.treatment; date.2026-07-15; term.no-kio-claim</spine><action completed="2026-07-15">ACT-260713-011</action><notice>synthetic defensive control evidence</notice>
+</ac27Foundation>

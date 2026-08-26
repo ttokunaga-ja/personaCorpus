@@ -1,0 +1,4 @@
+{"case": "CASE-260713-184", "control": "AC-27", "event": "intake_received", "marker": "foundation-b001-114", "record_id": "INB-114"}
+{"audit_request": "AR-260713-027", "event": "checksum_reconciled", "evidence": "EV-184-19", "status": "bounded-synthetic"}
+{"disposition": "synthetic intake normalized; bounded review retained", "event": "disposition_recorded", "risk": "RISK-031"}
+{"event": "content_spine_traceability", "references": {"audit.ar-260713-027": "AR-260713-027 fictional audit request for AC-27 review material", "org.cobalt-harbor": "Cobalt Harbor Systems", "period.2026-q3": "2026-Q3 governance planning period 2026-07-01 through 2026-09-30"}}

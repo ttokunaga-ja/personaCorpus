@@ -1,0 +1,2 @@
+source_reference,reference_checkpoint,ledger_traceability,organization,review_date,control,evidence_set,case_id,risk_id,reviewed,timely,final_completion,residual_risk
+2026-07-20-reference-exception-playbook-evidence-metrics-csv-s005765,AC27-RF-hms,org.cobalt-harbor: Cobalt Harbor Systems is a fictional managed logistics and harbor-operations platform organization. ; date.2026-07-20: Seven-day follow-up validates closure evidence and residual-risk status.,Cobalt Harbor Systems,2026-07-13,AC-27,184,CASE-260713-184,RISK-031,48,47,48,Medium

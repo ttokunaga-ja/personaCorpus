@@ -1,0 +1,4 @@
+-- Cobalt Harbor Systems synthetic AC-27 review foundation; RISK-031; GRC-REV-009516; reconcile the Q3 AC-27 review population, compensating review, and evidence-chain handoff; AR-260713-027 response packet.
+CREATE TABLE IF NOT EXISTS review_foundation (artifact_id TEXT PRIMARY KEY, source_id TEXT NOT NULL, review_date TEXT NOT NULL, control_id TEXT NOT NULL, case_id TEXT NOT NULL, evidence_set INTEGER NOT NULL, timely_attestations INTEGER NOT NULL, final_completion INTEGER NOT NULL, residual_risk TEXT NOT NULL);
+INSERT INTO review_foundation (artifact_id, source_id, review_date, control_id, case_id, evidence_set, timely_attestations, final_completion, residual_risk) VALUES ('p03-full-009516', 'p03-src-009516', '2026-Q3', 'AC-27', 'CASE-260713-184', 184, 47, 48, 'Medium');
+-- Decision: retain the synthetic evidence package; spine: org.cobalt-harbor, period.2026-q3, rel.case.timeline, term.no-kio-claim.

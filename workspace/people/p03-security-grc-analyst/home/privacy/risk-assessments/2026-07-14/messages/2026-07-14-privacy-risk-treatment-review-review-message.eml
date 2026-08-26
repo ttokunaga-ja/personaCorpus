@@ -1,0 +1,35 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Change Assurance decision for p03-full-004487
+Date: Tue, 14 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-004487@example.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline change assurance review for review message=
+ eml s004487 on 2026-07-14. The evidence question was: Which source fact woul=
+d cause the reviewer to accept the control conclusion? The change sponsor ass=
+embled the source facts; the assurance analyst tested their record completene=
+ss. The review relates AC-27 to evidence set 184 and records RISK-031 as the =
+governing risk reference. Dependency context: no upstream dependency. The sou=
+rce record is p03-src-004487 and this artifact is p03-full-004487. The eviden=
+ce instrument was the risk treatment worksheet; the reviewer observed that th=
+e evidence could be followed without an external system. During challenge, an=
+ exception rationale was tested for a documented decision rule. Review profil=
+e: the evidence set was collected during the follow-up review; the evidence c=
+ustodian confirmed the record boundary; the reviewer sampled an adverse opera=
+ting condition; the source fact supported acceptance without qualification; t=
+he comparison used the prior review conclusion; the evidence was retained in =
+the review register; the exception path was not invoked; the reviewer assesse=
+d a handover impact; the decision was suitable for targeted follow-up; the so=
+urce chronology was complete; the control claim was independently corroborate=
+d; the review boundary excluded unavailable material; the next assurance trig=
+ger is completion of the follow-up action; the disposition was communicated t=
+o the owner; the retained rationale supports repeat review; the record remain=
+s a local offline assurance artifact. Counterexample considered: A repeated c=
+ontrol statement does not establish operation when no counterexample was cons=
+idered. Decision rule: Preserve a bounded decision: cite the source, explain =
+the rule, and state whether the result is accepted or escalated. Disposition:=
+ escalated for corroboration with the decision basis retained. No Kio capabil=
+ity is used or required for this offline review.

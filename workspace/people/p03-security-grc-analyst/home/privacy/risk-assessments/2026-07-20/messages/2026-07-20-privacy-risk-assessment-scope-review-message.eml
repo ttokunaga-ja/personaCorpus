@@ -1,0 +1,35 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Data Retention decision for p03-full-000234
+Date: Mon, 20 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-000234@example.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline data retention review for scope review mes=
+sage eml s000234 on 2026-07-20. The evidence question was: How should a confl=
+icting source be handled before the disposition is recorded? The records owne=
+r assembled the source facts; the retention reviewer tested their source reco=
+nciliation. The review relates AC-27 to evidence set 184 and records RISK-031=
+ as the governing risk reference. Dependency context: no upstream dependency.=
+ The source record is p03-src-000234 and this artifact is p03-full-000234. Th=
+e evidence instrument was the contract obligation extract; the reviewer obser=
+ved that the reviewer could locate the controlling decision without inference=
+. During challenge, a generic assurance phrase was rejected pending source fa=
+cts. Review profile: the evidence set was collected before the approval meeti=
+ng; the evidence custodian confirmed the record boundary; the reviewer sample=
+d a routine operating condition; the source fact supported acceptance with a =
+documented caveat; the comparison used the prior review conclusion; the evide=
+nce was retained with the decision record; the exception path was considered =
+and recorded; the reviewer assessed a handover impact; the decision was suita=
+ble for routine monitoring; the source chronology was complete; the control c=
+laim was independently corroborated; the review boundary excluded unavailable=
+ material; the next assurance trigger is the scheduled review; the dispositio=
+n was communicated to the owner; the retained rationale supports repeat revie=
+w; the record remains a local offline assurance artifact. Counterexample cons=
+idered: A status label alone is not evidence; it must be tied to a source fac=
+t and a reviewer conclusion. Decision rule: Reject unsupported claims and ret=
+ain a concise explanation of the missing fact for the next review cycle. Disp=
+osition: escalated for corroboration with the decision basis retained. No Kio=
+ capability is used or required for this offline review.

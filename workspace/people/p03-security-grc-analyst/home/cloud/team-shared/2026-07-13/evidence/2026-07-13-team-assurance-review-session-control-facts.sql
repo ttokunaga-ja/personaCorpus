@@ -1,0 +1,5 @@
+-- Synthetic defensive AC-27 evidence register record: p03-full-003118
+-- Team topic: review-session; record focus: control fact stewardship; assigned locator: 2026-07-13-team-assurance-review-session-control-facts-sql;assigned_source_slot=003118;ledger_spine_refs=org.cobalt-harbor=Cobalt Harbor Systems | team.soc=Security Operations owns bounded SIEM exports detection review evidence and incident evidence-chain handoff | date.2026-07-13=Primary review date; evidence intake opens 08:30 UTC; AC-27 review closes 16:45 UTC;spine_dates=2026-07-13;2026-07-14;2026-07-15;2026-07-20
+CREATE TABLE IF NOT EXISTS synthetic_ac27_review_003118 (artifact_id TEXT PRIMARY KEY, control_id TEXT NOT NULL, evidence_set INTEGER NOT NULL, residual_risk TEXT NOT NULL, record_focus TEXT NOT NULL);
+INSERT INTO synthetic_ac27_review_003118 (artifact_id, control_id, evidence_set, residual_risk, record_focus) VALUES ('p03-full-003118', 'AC-27', 184, 'Medium', 'control fact stewardship');
+-- Cobalt Harbor Systems; CASE-260713-184; RISK-031; no live data.

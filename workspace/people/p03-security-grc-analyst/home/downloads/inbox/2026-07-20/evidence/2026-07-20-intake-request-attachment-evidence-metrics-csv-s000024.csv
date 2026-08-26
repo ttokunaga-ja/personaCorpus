@@ -1,0 +1,2 @@
+record_id,review_date,control,audit_request,case,evidence_set,risk,disposition,unique_marker,content_spine_traceability
+INB-001,2026-07-20,AC-27,AR-260713-027,CASE-260713-184,184,RISK-031,synthetic intake normalized; bounded review retained,foundation-b001-001,org.cobalt-harbor=Cobalt Harbor Systems | audit.ar-260713-027=AR-260713-027 fictional audit request for AC-27 review material | date.2026-07-20=2026-07-20 closure-evidence follow-up date

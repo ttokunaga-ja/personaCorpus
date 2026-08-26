@@ -1,0 +1,39 @@
+{
+  "record_type": "synthetic_defensive_export_foundation",
+  "organization": "Cobalt Harbor Systems",
+  "service": "Sentinel Export",
+  "control": "Aegis Control AC-27",
+  "case_id": "CASE-260713-184",
+  "risk_id": "RISK-031",
+  "evidence_set": 184,
+  "review_period": "2026-q3",
+  "assigned_canonical_dates": [],
+  "artifact_id": "p03-full-003039",
+  "source_id": "p03-src-003039",
+  "subject": "risk snapshot",
+  "topic_key": "export-risk-snapshot",
+  "subject_focus": "RISK-031 residual-risk treatment and exception disposition",
+  "content_spine_context": "org.cobalt-harbor, system.sentinel-export, rel.siem.minimization, period.2026-q3, term.no-kio-claim",
+  "positive_spine_references": [
+    {
+      "id": "org.cobalt-harbor",
+      "value": "Cobalt Harbor Systems, a fictional managed logistics and harbor-operations platform."
+    },
+    {
+      "id": "system.sentinel-export",
+      "value": "Sentinel Export, the fictional CHS minimized SIEM export service."
+    },
+    {
+      "id": "period.2026-q3",
+      "value": "Governance planning period from 2026-07-01 through 2026-09-30."
+    }
+  ],
+  "synthetic_export_sequence": 3039,
+  "export_window": 16,
+  "synthetic_notice": "Synthetic defensive data only; minimized categories and counts; no live system data.",
+  "review_population": 48,
+  "timely_attestations": 47,
+  "final_completion": 48,
+  "evidence_items_verified": "24 of 24",
+  "residual_risk": "Medium"
+}

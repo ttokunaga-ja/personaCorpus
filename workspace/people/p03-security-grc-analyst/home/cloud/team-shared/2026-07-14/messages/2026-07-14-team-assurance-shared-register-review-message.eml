@@ -1,0 +1,63 @@
+From: grc-reviewer@cobalt.invalid
+To: soc-duty@cobalt.invalid
+Date: Tue, 14 Jul 2026 16:45:00 +0000
+Subject: AC-27 shared register review - reproducible review
+Message-ID: <p03-full-004701@cobalt.invalid>
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="===============3117428768496543549=="
+
+--===============3117428768496543549==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Artifact p03-full-004701 is a synthetic Cobalt Harbor Systems shared register=
+ record for 2026-07-14.
+
+## Review lens: reproducible review
+
+make a reviewer able to trace the basis. Name the applicable local evidence c=
+ontext and the relevant control identifiers.
+
+## Method note
+
+This record uses a source-to-report traceability method. It deliberately chec=
+ks one bounded relationship in the evidence chain and does not generalize the=
+ result to a live environment.
+
+## Decision and follow-up
+
+Use checksum reconciliation as the repeatable verification point. The applica=
+ble facts remain Aegis Control AC-27, CASE-260713-184, evidence set 184, and =
+RISK-031 residual Medium.
+
+## Safety boundary
+
+This is defensive GRC evidence only. It contains no real people, systems, cre=
+dentials, or operational events, and it makes no Kio indexing, history, chunk=
+s, search-quality, or performance claim.
+
+--===============3117428768496543549==
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+<!doctype html><html lang=3D"en"><head><meta charset=3D"utf-8"><title>Shared =
+Register AC-27 review</title><style>body{font-family:Arial;max-width:760px;ma=
+rgin:30px auto;line-height:1.55;color:#18313e}h1{color:#12354a;border-bottom:=
+3px solid #245b76}.callout{background:#eef6f8;padding:12px;border-left:4px so=
+lid #245b76}</style></head><body><header><h1>Shared Register assurance review=
+</h1><p><strong>Artifact:</strong> p03-full-004701 | <strong>Period:</strong>=
+ 2026-07-14</p></header><main><article><section><h2>Reproducible Review</h2><=
+p>make a reviewer able to trace the basis. Name the applicable local evidence=
+ context and the relevant control identifiers.</p></section><section><h2>Revi=
+ew method</h2><p>This record uses a source-to-report traceability method. It =
+deliberately checks one bounded relationship in the evidence chain and does n=
+ot generalize the result to a live environment.</p></section><section class=
+=3D"callout"><h2>Disposition and follow-up</h2><p>Use checksum reconciliation=
+ as the repeatable verification point.</p></section><section><h2>Evidence bou=
+ndary</h2><p>Evidence set 184 contains 24 required synthetic items; RISK-031 =
+remains residual Medium. No Kio claim.</p></section></article></main></body><=
+/html>
+
+--===============3117428768496543549==--

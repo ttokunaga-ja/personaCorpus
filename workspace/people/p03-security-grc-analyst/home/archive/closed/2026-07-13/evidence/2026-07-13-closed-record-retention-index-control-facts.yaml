@@ -1,0 +1,20 @@
+record_id: "p03-full-000389"
+source_id: "p03-src-000389"
+record_date: "2026-07-13"
+organization: "Cobalt Harbor Systems"
+program: "Aegis Assurance"
+control: "AC-27"
+case_id: "CASE-260713-184"
+evidence_set: "184"
+risk_id: "RISK-031"
+record_class: "retention_index"
+final_disposition: "Closed; retained under synthetic GRC retention schedule"
+residual_risk: "Medium"
+retention_minimum_months: 18
+disposition_follow_up_anchors: ["2026-07-20", "2026-07-13"]
+ledger_traceability: [{"id": "org.cobalt-harbor", "canonical_value": "Cobalt Harbor Systems (CHS), a fictional managed logistics and harbor-operations platform."}, {"id": "date.2026-07-20", "canonical_value": "Seven-day follow-up validates closure evidence and residual-risk status."}, {"id": "date.2026-07-13", "canonical_value": "Primary review date: evidence intake opens 08:30 UTC and the AC-27 review closes 16:45 UTC."}]
+synthetic_notice: "Synthetic defensive governance record; no live-source data."
+review_focus: "review-population coverage"
+closure_finding: "the bounded evidence set is complete"
+closure_rationale: "the retention decision cites the approved synthetic schedule"
+conclusion: "Closed archive conclusion: the bounded evidence set is complete; the retention decision cites the approved synthetic schedule; focus: review-population coverage."

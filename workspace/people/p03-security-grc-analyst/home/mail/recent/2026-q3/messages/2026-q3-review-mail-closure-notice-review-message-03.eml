@@ -1,0 +1,40 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Supplier Assurance decision for p03-full-005459
+Date: Mon, 13 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-005459@example.invalid>
+X-Review-Period: 2026 Q3
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline supplier assurance review for notice revie=
+w message eml s005459 on 2026-07-13. The evidence question was: What observab=
+le evidence demonstrates that the stated control objective is met? The servic=
+e owner assembled the source facts; the vendor reviewer tested their evidence=
+ quality. The review relates AC-27 to evidence set 184 and records RISK-031 a=
+s the governing risk reference. Dependency context: no upstream dependency. T=
+he source record is p03-src-005459 and this artifact is p03-full-005459. The =
+evidence instrument was the outcome verification note; the reviewer observed =
+that the approved scope was not expanded beyond the available evidence. Durin=
+g challenge, a review result was compared with a counterexample. Review profi=
+le: the evidence set was collected during the follow-up review; the evidence =
+custodian confirmed the record boundary; the reviewer sampled a routine opera=
+ting condition; the source fact supported acceptance without qualification; t=
+he comparison used the current control objective; the evidence was retained i=
+n the review register; the exception path was considered and recorded; the re=
+viewer found no handover impact; the decision was suitable for targeted follo=
+w-up; the source chronology was complete; the control claim was corroborated =
+by a compensating observation; the review boundary excluded unavailable mater=
+ial; the next assurance trigger is completion of the follow-up action; the di=
+sposition was communicated to the owner; the retained rationale supports repe=
+at review; the record remains a local offline assurance artifact. Counterexam=
+ple considered: A repeated control statement does not establish operation whe=
+n no counterexample was considered. Decision rule: Reject unsupported claims =
+and retain a concise explanation of the missing fact for the next review cycl=
+e. Disposition: escalated for corroboration with the decision basis retained.=
+ No Kio capability is used or required for this offline review.
+
+Review period: 2026 Q3. This review mail closure notice review message eml re=
+cord was assessed using exception ageing and escalation criteria; the reviewe=
+r accepted the retained basis.

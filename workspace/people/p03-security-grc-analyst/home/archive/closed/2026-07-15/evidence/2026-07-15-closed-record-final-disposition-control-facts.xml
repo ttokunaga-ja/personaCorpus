@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<closedRecord artifact_id="p03-full-000646" source_id="p03-src-000646">
+  <record_id>p03-full-000646</record_id>
+  <source_id>p03-src-000646</source_id>
+  <record_date>2026-07-15</record_date>
+  <organization>Cobalt Harbor Systems</organization>
+  <program>Aegis Assurance</program>
+  <control>AC-27</control>
+  <case_id>CASE-260713-184</case_id>
+  <evidence_set>184</evidence_set>
+  <risk_id>RISK-031</risk_id>
+  <record_class>final_disposition</record_class>
+  <final_disposition>Closed; retained under synthetic GRC retention schedule</final_disposition>
+  <residual_risk>Medium</residual_risk>
+  <retention_minimum_months>18</retention_minimum_months>
+  <disposition_follow_up_anchors>['2026-07-15']</disposition_follow_up_anchors>
+  <ledger_traceability>[{'id': 'org.cobalt-harbor', 'canonical_value': 'Cobalt Harbor Systems (CHS), a fictional managed logistics and harbor-operations platform.'}, {'id': 'decision.dec-260713-004', 'canonical_value': 'Retain evidence set 184 under the synthetic GRC retention schedule; no live-source data is included.'}, {'id': 'date.2026-07-15', 'canonical_value': 'Control owner validates the remediation plan and retention disposition.'}]</ledger_traceability>
+  <synthetic_notice>Synthetic defensive governance record; no live-source data.</synthetic_notice>
+  <review_focus>exception closure</review_focus>
+  <closure_finding>the bounded evidence set is complete</closure_finding>
+  <closure_rationale>the delayed attestation was documented and compensated</closure_rationale>
+  <conclusion>Closed archive conclusion: the bounded evidence set is complete; the delayed attestation was documented and compensated; focus: exception closure.</conclusion>
+</closedRecord>

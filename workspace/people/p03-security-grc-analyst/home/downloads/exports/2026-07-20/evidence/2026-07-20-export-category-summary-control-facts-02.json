@@ -1,0 +1,41 @@
+{
+  "record_type": "synthetic_defensive_export_foundation",
+  "organization": "Cobalt Harbor Systems",
+  "service": "Sentinel Export",
+  "control": "Aegis Control AC-27",
+  "case_id": "CASE-260713-184",
+  "risk_id": "RISK-031",
+  "evidence_set": 184,
+  "review_period": "2026-07-20",
+  "assigned_canonical_dates": [
+    "2026-07-20"
+  ],
+  "artifact_id": "p03-full-000372",
+  "source_id": "p03-src-000372",
+  "subject": "category summary",
+  "topic_key": "export-category-summary",
+  "subject_focus": "category-level evidence grouping and count reconciliation",
+  "content_spine_context": "org.cobalt-harbor, system.sentinel-export, rel.siem.minimization, date.2026-07-20, term.no-kio-claim",
+  "positive_spine_references": [
+    {
+      "id": "org.cobalt-harbor",
+      "value": "Cobalt Harbor Systems, a fictional managed logistics and harbor-operations platform."
+    },
+    {
+      "id": "system.sentinel-export",
+      "value": "Sentinel Export, the fictional CHS minimized SIEM export service."
+    },
+    {
+      "id": "date.2026-07-20",
+      "value": "Seven-day follow-up closure-evidence and residual-risk validation date."
+    }
+  ],
+  "synthetic_export_sequence": 372,
+  "export_window": 37,
+  "synthetic_notice": "Synthetic defensive data only; minimized categories and counts; no live system data.",
+  "review_population": 48,
+  "timely_attestations": 47,
+  "final_completion": 48,
+  "evidence_items_verified": "24 of 24",
+  "residual_risk": "Medium"
+}

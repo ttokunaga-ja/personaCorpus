@@ -1,0 +1,4 @@
+{"case": "CASE-260713-184", "control": "AC-27", "event": "intake_received", "marker": "foundation-b001-095", "record_id": "INB-095"}
+{"audit_request": "AR-260713-027", "event": "checksum_reconciled", "evidence": "EV-184-19", "status": "bounded-synthetic"}
+{"disposition": "synthetic intake normalized; bounded review retained", "event": "disposition_recorded", "risk": "RISK-031"}
+{"event": "content_spine_traceability", "references": {"date.2026-07-14": "2026-07-14 evidence normalization and checksum confirmation date", "org.cobalt-harbor": "Cobalt Harbor Systems"}}

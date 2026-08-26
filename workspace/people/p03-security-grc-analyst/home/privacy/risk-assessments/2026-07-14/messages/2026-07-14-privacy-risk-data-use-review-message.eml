@@ -1,0 +1,35 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Exception Governance decision for p03-full-004736
+Date: Tue, 14 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-004736@example.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline exception governance review for use review=
+ message eml s004736 on 2026-07-14. The evidence question was: What decision =
+can be made from the retained source material without external access? The ri=
+sk owner assembled the source facts; the exception reviewer tested their revi=
+ew repeatability. The review relates AC-27 to evidence set 184 and records RI=
+SK-031 as the governing risk reference. Dependency context: no upstream depen=
+dency. The source record is p03-src-004736 and this artifact is p03-full-0047=
+36. The evidence instrument was the policy-to-practice comparison; the review=
+er observed that the conclusion matched the scope of the stated control. Duri=
+ng challenge, an unsupported completion status was tested for underlying proo=
+f. Review profile: the evidence set was collected before the approval meeting=
+; the accountable owner confirmed the operating boundary; the reviewer sample=
+d a routine operating condition; the source fact supported acceptance without=
+ qualification; the comparison used the prior review conclusion; the evidence=
+ was retained in the review register; the exception path was not invoked; the=
+ reviewer assessed a handover impact; the decision was suitable for routine m=
+onitoring; the source chronology contained a reconciled late entry; the contr=
+ol claim was independently corroborated; the review boundary excluded unavail=
+able material; the next assurance trigger is completion of the follow-up acti=
+on; the disposition was communicated to the owner; the retained rationale sup=
+ports repeat review; the record remains a local offline assurance artifact. C=
+ounterexample considered: A dependency reference is not meaningful unless the=
+ receiving artifact explains why it was consulted. Decision rule: Record an a=
+pproval only after the reviewer can reproduce the conclusion from the retaine=
+d facts without network access. Disposition: accepted with a retained review =
+note. No Kio capability is used or required for this offline review.

@@ -1,0 +1,41 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Access Review decision for p03-full-004859
+Date: Mon, 13 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-004859@example.invalid>
+X-Review-Period: 2026 Q3
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline access review review for notice review mes=
+sage eml s004859 on 2026-07-13. The evidence question was: What observable ev=
+idence demonstrates that the stated control objective is met? The system stew=
+ard assembled the source facts; the access approver tested their independent =
+confirmation. The review relates AC-27 to evidence set 184 and records RISK-0=
+31 as the governing risk reference. Dependency context: no upstream dependenc=
+y. The source record is p03-src-004859 and this artifact is p03-full-004859. =
+The evidence instrument was the versioned review register; the reviewer obser=
+ved that the conclusion identified the next assurance trigger. During challen=
+ge, a local conclusion was checked for reliance on external access. Review pr=
+ofile: the evidence set was collected during the follow-up review; the eviden=
+ce custodian confirmed the record boundary; the reviewer sampled a routine op=
+erating condition; the source fact supported acceptance with a documented cav=
+eat; the comparison used the current control objective; the evidence was reta=
+ined with the decision record; the exception path was considered and recorded=
+; the reviewer assessed a handover impact; the decision was suitable for rout=
+ine monitoring; the source chronology contained a reconciled late entry; the =
+control claim was independently corroborated; the review boundary excluded un=
+available material; the next assurance trigger is completion of the follow-up=
+ action; the disposition was communicated to the owner; the retained rational=
+e supports repeat review; the record remains a local offline assurance artifa=
+ct. Counterexample considered: A complete-looking register is not reliable if=
+ the decision rule and disposition are absent. Decision rule: Treat the contr=
+ol as effective only when the counterexample has been considered and the exce=
+ption path is explicit. Disposition: escalated for corroboration with the dec=
+ision basis retained. No Kio capability is used or required for this offline =
+review.
+
+Review period: 2026 Q3. This review mail closure notice review message eml re=
+cord was assessed using source chronology and decision traceability; the revi=
+ewer accepted the retained basis.

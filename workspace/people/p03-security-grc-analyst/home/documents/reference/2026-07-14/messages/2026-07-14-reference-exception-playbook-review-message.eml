@@ -1,0 +1,36 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Exception Governance decision for p03-full-003861
+Date: Tue, 14 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-003861@example.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline exception governance review for playbook r=
+eview message eml s003861 on 2026-07-14. The evidence question was: Which sou=
+rce fact would cause the reviewer to accept the control conclusion? The risk =
+owner assembled the source facts; the exception reviewer tested their control=
+ boundary. The review relates AC-27 to evidence set 184 and records RISK-031 =
+as the governing risk reference. Dependency context: no upstream dependency. =
+The source record is p03-src-003861 and this artifact is p03-full-003861. The=
+ evidence instrument was the sampled access attestation; the reviewer observe=
+d that the local conclusion did not depend on a portal or live endpoint. Duri=
+ng challenge, a control objective was tested for a measurable outcome. Review=
+ profile: the evidence set was collected during the follow-up review; the acc=
+ountable owner confirmed the operating boundary; the reviewer sampled an adve=
+rse operating condition; the source fact supported acceptance without qualifi=
+cation; the comparison used the current control objective; the evidence was r=
+etained in the review register; the exception path was not invoked; the revie=
+wer found no handover impact; the decision was suitable for targeted follow-u=
+p; the source chronology contained a reconciled late entry; the control claim=
+ was corroborated by a compensating observation; the review boundary identifi=
+ed unavailable material as a limitation; the next assurance trigger is the sc=
+heduled review; the disposition was communicated to the owner; the retained r=
+ationale supports repeat review; the record remains a local offline assurance=
+ artifact. Counterexample considered: A generic assurance claim is rejected w=
+hen it cannot be traced to an owner, date, and retained evidence. Decision ru=
+le: Approve when the evidence is specific, attributable, and dated; otherwise=
+ classify the item as needing corroboration. Disposition: escalated for corro=
+boration with the decision basis retained. No Kio capability is used or requi=
+red for this offline review.

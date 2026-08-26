@@ -1,0 +1,40 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Supplier Assurance decision for p03-full-003459
+Date: Mon, 20 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-003459@example.invalid>
+X-Review-Period: 2026 Q3
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline supplier assurance review for notice revie=
+w message eml s003459 on 2026-07-20. The evidence question was: What minimal =
+trace proves that the control remains attributable to its owner? The service =
+owner assembled the source facts; the vendor reviewer tested their control bo=
+undary. The review relates AC-27 to evidence set 184 and records RISK-031 as =
+the governing risk reference. Dependency context: no upstream dependency. The=
+ source record is p03-src-003459 and this artifact is p03-full-003459. The ev=
+idence instrument was the versioned review register; the reviewer observed th=
+at the conclusion matched the scope of the stated control. During challenge, =
+a late evidence submission was separated from the original decision. Review p=
+rofile: the evidence set was collected during the follow-up review; the evide=
+nce custodian confirmed the record boundary; the reviewer sampled a routine o=
+perating condition; the source fact supported acceptance without qualificatio=
+n; the comparison used the prior review conclusion; the evidence was retained=
+ in the review register; the exception path was not invoked; the reviewer ass=
+essed a handover impact; the decision was suitable for targeted follow-up; th=
+e source chronology was complete; the control claim was corroborated by a com=
+pensating observation; the review boundary identified unavailable material as=
+ a limitation; the next assurance trigger is the scheduled review; the dispos=
+ition was communicated to the owner; the retained rationale supports repeat r=
+eview; the record remains a local offline assurance artifact. Counterexample =
+considered: A file name is not a substitute for the source facts that support=
+ the conclusion. Decision rule: Approve when the evidence is specific, attrib=
+utable, and dated; otherwise classify the item as needing corroboration. Disp=
+osition: accepted with a retained review note. No Kio capability is used or r=
+equired for this offline review.
+
+Review period: 2026 Q3. This review mail closure notice review message eml re=
+cord was assessed using exception ageing and escalation criteria; the reviewe=
+r retained a challenge response.

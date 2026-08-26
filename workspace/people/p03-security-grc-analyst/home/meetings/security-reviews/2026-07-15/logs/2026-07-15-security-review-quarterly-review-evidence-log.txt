@@ -1,0 +1,7 @@
+2026-07-15 | RETENTION_VALIDATION | Cobalt Harbor Systems | GRC-REV-002924 | Quarterly Review
+2026-07-15 | EVIDENCE_CHECK | AC-27 evidence set 184 | 24/24 synthetic items verified
+2026-07-15 | RISK_TRACK | RISK-031 | 47/48 timely attestations; compensating review remains documented
+2026-07-15 | AGENDA | reconcile the Q3 AC-27 review population, compensating review, and evidence-chain handoff
+2026-07-15 | DECISION | retain the synthetic evidence package | action: ACT-260713-012 checksum reconciliation
+2026-07-15 | DISPOSITION | residual risk Medium | org.cobalt-harbor, action.act-260713-012 (ACT-260713-012), rel.case.timeline, date.2026-07-15, term.no-kio-claim
+Scope: defensive synthetic governance record; no live systems, personal data, credentials, or incident telemetry.

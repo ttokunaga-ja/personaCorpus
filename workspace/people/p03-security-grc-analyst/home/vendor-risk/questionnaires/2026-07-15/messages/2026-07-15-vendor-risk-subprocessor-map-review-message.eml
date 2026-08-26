@@ -1,0 +1,36 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Supplier Assurance decision for p03-full-002989
+Date: Wed, 15 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-002989@example.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline supplier assurance review for map review m=
+essage eml s002989 on 2026-07-15. The evidence question was: Which review que=
+stion exposes a gap between policy language and operating evidence? The servi=
+ce owner assembled the source facts; the vendor reviewer tested their record =
+completeness. The review relates AC-27 to evidence set 184 and records RISK-0=
+31 as the governing risk reference. Dependency context: no upstream dependenc=
+y. The source record is p03-src-002989 and this artifact is p03-full-002989. =
+The evidence instrument was the service inventory snapshot; the reviewer obse=
+rved that the conclusion matched the scope of the stated control. During chal=
+lenge, a missing date was treated as a traceability concern. Review profile: =
+the evidence set was collected during the follow-up review; the accountable o=
+wner confirmed the operating boundary; the reviewer sampled an adverse operat=
+ing condition; the source fact supported acceptance with a documented caveat;=
+ the comparison used the prior review conclusion; the evidence was retained w=
+ith the decision record; the exception path was not invoked; the reviewer ass=
+essed a handover impact; the decision was suitable for targeted follow-up; th=
+e source chronology contained a reconciled late entry; the control claim was =
+independently corroborated; the review boundary identified unavailable materi=
+al as a limitation; the next assurance trigger is the scheduled review; the d=
+isposition was communicated to the owner; the retained rationale supports rep=
+eat review; the record remains a local offline assurance artifact. Counterexa=
+mple considered: A single approval cannot settle a conflicting record; the di=
+screpancy must remain visible to the reviewer. Decision rule: Preserve a boun=
+ded decision: cite the source, explain the rule, and state whether the result=
+ is accepted or escalated. Disposition: escalated for corroboration with the =
+decision basis retained. No Kio capability is used or required for this offli=
+ne review.

@@ -1,0 +1,44 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Control Ownership decision for p03-full-004460
+Date: Mon, 20 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-004460@example.invalid>
+X-Artifact-Assigned-Review-Date: 2026-07-15
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline control ownership review for closure revie=
+w message eml s004460 on 2026-07-20. The evidence question was: How does the =
+review distinguish complete evidence from an unsupported assertion? The named=
+ control owner assembled the source facts; the evidence custodian tested thei=
+r review repeatability. The review relates AC-27 to evidence set 184 and reco=
+rds RISK-031 as the governing risk reference. Dependency context: no upstream=
+ dependency. The source record is p03-src-004460 and this artifact is p03-ful=
+l-004460. The evidence instrument was the exception ageing report; the review=
+er observed that the review basis could be repeated by a successor. During ch=
+allenge, an exception rationale was tested for a documented decision rule. Re=
+view profile: the evidence set was collected before the approval meeting; the=
+ accountable owner confirmed the operating boundary; the reviewer sampled an =
+adverse operating condition; the source fact supported acceptance with a docu=
+mented caveat; the comparison used the prior review conclusion; the evidence =
+was retained with the decision record; the exception path was considered and =
+recorded; the reviewer found no handover impact; the decision was suitable fo=
+r targeted follow-up; the source chronology was complete; the control claim w=
+as independently corroborated; the review boundary excluded unavailable mater=
+ial; the next assurance trigger is completion of the follow-up action; the di=
+sposition was communicated to the owner; the retained rationale supports repe=
+at review; the record remains a local offline assurance artifact. Counterexam=
+ple considered: A dated narrative without a named custodian is insufficient b=
+ecause responsibility cannot be tested. Decision rule: Accept only when the s=
+ource fact, accountable role, and review conclusion agree; otherwise record a=
+ follow-up disposition. Disposition: accepted with a retained review note. No=
+ Kio capability is used or required for this offline review.
+
+Review period: 2026 Q3. This closed record case closure review message eml re=
+cord was assessed using closure evidence and accountable disposition; the rev=
+iewer recorded a bounded exception.
+
+Artifact-assigned review date: 2026-07-15. This closed record case closure me=
+ssage eml entry confirms that the closure notice was reconciled with the evid=
+ence register.

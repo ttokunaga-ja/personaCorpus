@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<securityReviewFoundation schemaVersion="1.0">
+  <identity artifactId="p03-full-002983" sourceId="p03-src-002983" docket="GRC-REV-002983"/>
+  <organization>Cobalt Harbor Systems</organization>
+  <program>Aegis Assurance</program><control>AC-27</control>
+  <case>CASE-260713-184</case><evidenceSet>184</evidenceSet><risk>RISK-031</risk>
+  <reviewDate>2026-07-14</reviewDate><subject>Assurance Briefing</subject>
+  <agenda>prepare a bounded AC-27 assurance readout with numerator, denominator, and residual-risk rationale</agenda><decision>queue the seven-day closure validation</decision><action>EXC-260713-006 reviewer attestation</action>
+  <spineIds>org.cobalt-harbor, decision.dec-260713-004 (DEC-260713-004), rel.case.timeline, date.2026-07-14, term.no-kio-claim</spineIds>
+  <measures population="48" timelyAttestations="47" finalCompletion="48" evidenceItems="24"/>
+  <disposition residualRisk="Medium">Retain synthetic evidence for 18 months</disposition>
+  <safety>Defensive synthetic governance facts only; no Kio claim.</safety>
+</securityReviewFoundation>

@@ -1,0 +1,41 @@
+artifact_id: p03-full-002414
+source_record: p03-src-002414
+scope: p03-secondary-03
+organization: Cobalt Harbor
+review_date: '2026-07-20'
+risk_reference: RISK-031
+relationship: AC-27 relates to evidence set 184
+dependency_context: no upstream dependency
+evidence_question: How does the review distinguish complete evidence from an unsupported
+  assertion?
+source_facts: named control owner retained approval boundary for this review.
+counterexample: A single approval cannot settle a conflicting record; the discrepancy
+  must remain visible to the reviewer.
+evidence_instrument: control narrative comparison
+review_observation: the record explained why an exception remained open
+challenge_performed: an ambiguous dependency was clarified before disposition
+review_profile:
+- the evidence set was collected before the approval meeting
+- the evidence custodian confirmed the record boundary
+- the reviewer sampled an adverse operating condition
+- the source fact supported acceptance with a documented caveat
+- the comparison used the prior review conclusion
+- the evidence was retained with the decision record
+- the exception path was considered and recorded
+- the reviewer found no handover impact
+- the decision was suitable for targeted follow-up
+- the source chronology was complete
+- the control claim was independently corroborated
+- the review boundary identified unavailable material as a limitation
+- the next assurance trigger is the scheduled review
+- the disposition was communicated to the owner
+- the retained rationale supports repeat review
+- the record remains a local offline assurance artifact
+decision_rule: Treat the control as effective only when the counterexample has been
+  considered and the exception path is explicit.
+disposition: escalated for corroboration with the decision basis retained
+operating_boundary: No Kio capability is used or required for this offline review.
+review_period: 2026 Q3
+review_period_context: 'Review period: 2026 Q3. This intake evidence package control
+  facts record was assessed using closure evidence and accountable disposition; the
+  reviewer recorded a bounded exception.'

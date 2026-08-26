@@ -1,0 +1,62 @@
+From: grc-reviewer@cobalt.invalid
+To: soc-duty@cobalt.invalid
+Date: Wed, 15 Jul 2026 16:45:00 +0000
+Subject: AC-27 review session review - SOC minimization
+Message-ID: <p03-full-003202@cobalt.invalid>
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="===============3357107055724644503=="
+
+--===============3357107055724644503==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Artifact p03-full-003202 is a synthetic Cobalt Harbor Systems review session =
+record for 2026-07-15.
+
+## Review lens: SOC minimization
+
+limit SIEM evidence to safe summaries. Treat Sentinel Export as categories an=
+d counts, not raw events or operational telemetry.
+
+## Method note
+
+This record uses a retention-label review method. It deliberately checks one =
+bounded relationship in the evidence chain and does not generalize the result=
+ to a live environment.
+
+## Decision and follow-up
+
+Preserve the SOC-to-GRC evidence-chain handoff boundary. The applicable facts=
+ remain Aegis Control AC-27, CASE-260713-184, evidence set 184, and RISK-031 =
+residual Medium.
+
+## Safety boundary
+
+This is defensive GRC evidence only. It contains no real people, systems, cre=
+dentials, or operational events, and it makes no Kio indexing, history, chunk=
+s, search-quality, or performance claim.
+
+--===============3357107055724644503==
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+<!doctype html><html lang=3D"en"><head><meta charset=3D"utf-8"><title>Review =
+Session AC-27 review</title><style>body{font-family:Arial;max-width:760px;mar=
+gin:30px auto;line-height:1.55;color:#18313e}h1{color:#12354a;border-bottom:3=
+px solid #245b76}.callout{background:#eef6f8;padding:12px;border-left:4px sol=
+id #245b76}</style></head><body><header><h1>Review Session assurance review</=
+h1><p><strong>Artifact:</strong> p03-full-003202 | <strong>Period:</strong> 2=
+026-07-15</p></header><main><article><section><h2>Soc Minimization</h2><p>lim=
+it SIEM evidence to safe summaries. Treat Sentinel Export as categories and c=
+ounts, not raw events or operational telemetry.</p></section><section><h2>Rev=
+iew method</h2><p>This record uses a retention-label review method. It delibe=
+rately checks one bounded relationship in the evidence chain and does not gen=
+eralize the result to a live environment.</p></section><section class=3D"call=
+out"><h2>Disposition and follow-up</h2><p>Preserve the SOC-to-GRC evidence-ch=
+ain handoff boundary.</p></section><section><h2>Evidence boundary</h2><p>Evid=
+ence set 184 contains 24 required synthetic items; RISK-031 remains residual =
+Medium. No Kio claim.</p></section></article></main></body></html>
+
+--===============3357107055724644503==--

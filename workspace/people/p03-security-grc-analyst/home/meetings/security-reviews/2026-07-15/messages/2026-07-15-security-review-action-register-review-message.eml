@@ -1,0 +1,35 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Access Review decision for p03-full-002013
+Date: Wed, 15 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-002013@example.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline access review review for register review m=
+essage eml s002013 on 2026-07-15. The evidence question was: What minimal tra=
+ce proves that the control remains attributable to its owner? The system stew=
+ard assembled the source facts; the access approver tested their control boun=
+dary. The review relates AC-27 to evidence set 184 and records RISK-031 as th=
+e governing risk reference. Dependency context: no upstream dependency. The s=
+ource record is p03-src-002013 and this artifact is p03-full-002013. The evid=
+ence instrument was the process walkthrough note; the reviewer observed that =
+the rationale accounted for an incomplete sample. During challenge, a missing=
+ date was treated as a traceability concern. Review profile: the evidence set=
+ was collected during the follow-up review; the accountable owner confirmed t=
+he operating boundary; the reviewer sampled an adverse operating condition; t=
+he source fact supported acceptance with a documented caveat; the comparison =
+used the current control objective; the evidence was retained in the review r=
+egister; the exception path was considered and recorded; the reviewer assesse=
+d a handover impact; the decision was suitable for targeted follow-up; the so=
+urce chronology contained a reconciled late entry; the control claim was corr=
+oborated by a compensating observation; the review boundary excluded unavaila=
+ble material; the next assurance trigger is the scheduled review; the disposi=
+tion was communicated to the owner; the retained rationale supports repeat re=
+view; the record remains a local offline assurance artifact. Counterexample c=
+onsidered: A complete-looking register is not reliable if the decision rule a=
+nd disposition are absent. Decision rule: Accept only when the source fact, a=
+ccountable role, and review conclusion agree; otherwise record a follow-up di=
+sposition. Disposition: accepted with a retained review note. No Kio capabili=
+ty is used or required for this offline review.

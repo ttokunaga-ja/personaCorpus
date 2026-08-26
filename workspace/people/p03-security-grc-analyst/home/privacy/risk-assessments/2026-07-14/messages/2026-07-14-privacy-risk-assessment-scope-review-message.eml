@@ -1,0 +1,35 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Change Assurance decision for p03-full-003262
+Date: Tue, 14 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-003262@example.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline change assurance review for scope review m=
+essage eml s003262 on 2026-07-14. The evidence question was: Which source fac=
+t would cause the reviewer to accept the control conclusion? The change spons=
+or assembled the source facts; the assurance analyst tested their evidence qu=
+ality. The review relates AC-27 to evidence set 184 and records RISK-031 as t=
+he governing risk reference. Dependency context: no upstream dependency. The =
+source record is p03-src-003262 and this artifact is p03-full-003262. The evi=
+dence instrument was the risk treatment worksheet; the reviewer observed that=
+ the approval boundary matched the operating record. During challenge, a broa=
+d claim was narrowed to the observable control action. Review profile: the ev=
+idence set was collected before the approval meeting; the evidence custodian =
+confirmed the record boundary; the reviewer sampled an adverse operating cond=
+ition; the source fact supported acceptance with a documented caveat; the com=
+parison used the current control objective; the evidence was retained with th=
+e decision record; the exception path was not invoked; the reviewer assessed =
+a handover impact; the decision was suitable for routine monitoring; the sour=
+ce chronology was complete; the control claim was corroborated by a compensat=
+ing observation; the review boundary identified unavailable material as a lim=
+itation; the next assurance trigger is the scheduled review; the disposition =
+was communicated to the owner; the retained rationale supports repeat review;=
+ the record remains a local offline assurance artifact. Counterexample consid=
+ered: A generic assurance claim is rejected when it cannot be traced to an ow=
+ner, date, and retained evidence. Decision rule: Escalate conflicting observa=
+tions to the designated reviewer rather than resolving them through filename =
+or identifier changes. Disposition: accepted with a retained review note. No =
+Kio capability is used or required for this offline review.

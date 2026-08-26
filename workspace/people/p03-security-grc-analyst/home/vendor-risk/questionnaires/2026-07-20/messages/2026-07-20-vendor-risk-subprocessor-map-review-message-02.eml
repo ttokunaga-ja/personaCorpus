@@ -1,0 +1,35 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Control Ownership decision for p03-full-001141
+Date: Mon, 20 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-001141@example.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline control ownership review for map review me=
+ssage eml s001141 on 2026-07-20. The evidence question was: How does the revi=
+ew distinguish complete evidence from an unsupported assertion? The named con=
+trol owner assembled the source facts; the evidence custodian tested their ev=
+idence quality. The review relates AC-27 to evidence set 184 and records RISK=
+-031 as the governing risk reference. Dependency context: no upstream depende=
+ncy. The source record is p03-src-001141 and this artifact is p03-full-001141=
+. The evidence instrument was the contract obligation extract; the reviewer o=
+bserved that the retained fact predated the decision by one review cycle. Dur=
+ing challenge, a stale approval was compared with the current ownership assig=
+nment. Review profile: the evidence set was collected during the follow-up re=
+view; the accountable owner confirmed the operating boundary; the reviewer sa=
+mpled an adverse operating condition; the source fact supported acceptance wi=
+thout qualification; the comparison used the current control objective; the e=
+vidence was retained with the decision record; the exception path was conside=
+red and recorded; the reviewer found no handover impact; the decision was sui=
+table for routine monitoring; the source chronology was complete; the control=
+ claim was corroborated by a compensating observation; the review boundary ex=
+cluded unavailable material; the next assurance trigger is the scheduled revi=
+ew; the disposition was communicated to the owner; the retained rationale sup=
+ports repeat review; the record remains a local offline assurance artifact. C=
+ounterexample considered: A complete-looking register is not reliable if the =
+decision rule and disposition are absent. Decision rule: Reject unsupported c=
+laims and retain a concise explanation of the missing fact for the next revie=
+w cycle. Disposition: escalated for corroboration with the decision basis ret=
+ained. No Kio capability is used or required for this offline review.

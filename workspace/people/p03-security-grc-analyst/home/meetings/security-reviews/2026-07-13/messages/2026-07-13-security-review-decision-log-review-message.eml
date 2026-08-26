@@ -1,0 +1,35 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Monitoring Coverage decision for p03-full-001330
+Date: Mon, 13 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-001330@example.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline monitoring coverage review for log review =
+message eml s001330 on 2026-07-13. The evidence question was: How does the re=
+view distinguish complete evidence from an unsupported assertion? The detecti=
+on owner assembled the source facts; the telemetry reviewer tested their cont=
+rol boundary. The review relates AC-27 to evidence set 184 and records RISK-0=
+31 as the governing risk reference. Dependency context: no upstream dependenc=
+y. The source record is p03-src-001330 and this artifact is p03-full-001330. =
+The evidence instrument was the signed ownership matrix; the reviewer observe=
+d that the evidence owner confirmed the record's completeness. During challen=
+ge, an absent relationship was made explicit before acceptance. Review profil=
+e: the evidence set was collected before the approval meeting; the evidence c=
+ustodian confirmed the record boundary; the reviewer sampled a routine operat=
+ing condition; the source fact supported acceptance without qualification; th=
+e comparison used the current control objective; the evidence was retained wi=
+th the decision record; the exception path was not invoked; the reviewer foun=
+d no handover impact; the decision was suitable for targeted follow-up; the s=
+ource chronology was complete; the control claim was corroborated by a compen=
+sating observation; the review boundary excluded unavailable material; the ne=
+xt assurance trigger is the scheduled review; the disposition was communicate=
+d to the owner; the retained rationale supports repeat review; the record rem=
+ains a local offline assurance artifact. Counterexample considered: A single =
+approval cannot settle a conflicting record; the discrepancy must remain visi=
+ble to the reviewer. Decision rule: Escalate conflicting observations to the =
+designated reviewer rather than resolving them through filename or identifier=
+ changes. Disposition: escalated for corroboration with the decision basis re=
+tained. No Kio capability is used or required for this offline review.

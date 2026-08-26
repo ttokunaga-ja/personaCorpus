@@ -1,0 +1,31 @@
+{
+  "record_type": "ac27_foundation",
+  "artifact_id": "p03-full-003838",
+  "organization": "Cobalt Harbor Systems",
+  "program": "Aegis Assurance",
+  "control": "AC-27",
+  "case": "CASE-260713-184",
+  "evidence_set": 184,
+  "risk": "RISK-031",
+  "review_period": "2026-07-20",
+  "topic": "review calendar",
+  "record_sequence": "003838",
+  "working_file": "2026-07-20-personal-grc-review-calendar-control-facts-json-s003838.json",
+  "content_spine_ids": "org.cobalt-harbor; measure.timely-attestation; rel.risk-031.treatment; date.2026-07-20; term.no-kio-claim",
+  "ledger_date_anchors": "2026-07-20",
+  "positive_spine_traceability": "org.cobalt-harbor = Cobalt Harbor Systems (CHS), a fictional managed logistics and harbor-operations platform | measure.timely-attestation = Timely attestation rate before compensating review: 97.9% (47 of 48) | date.2026-07-20 = Seven-day follow-up validates closure evidence and residual-risk status",
+  "working_purpose": "capture a non-operational assurance observation",
+  "review_focus": "retention rationale",
+  "record_conclusion": "For 2026-07-20, this working file capture a non-operational assurance observation focused on retention rationale; it supports a Medium residual-risk conclusion without asserting live-system access.",
+  "timely_attestations": "47 of 48 (97.9%)",
+  "final_completion": "48 of 48 (100.0%)",
+  "action": "ACT-260713-011",
+  "classification": "synthetic defensive control evidence",
+  "assessment": {
+    "inherent": "High",
+    "residual": "Medium",
+    "exception": "EXC-260713-006"
+  },
+  "retention_months": 18,
+  "source_notice": "No live-system access or raw events."
+}

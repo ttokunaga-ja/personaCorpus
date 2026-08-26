@@ -1,0 +1,36 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Change Assurance decision for p03-full-002642
+Date: Wed, 15 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-002642@example.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline change assurance review for export review =
+message eml s002642 on 2026-07-15. The evidence question was: Which responsib=
+ility boundary must be visible before the record is approved? The change spon=
+sor assembled the source facts; the assurance analyst tested their review rep=
+eatability. The review relates AC-27 to evidence set 184 and records RISK-031=
+ as the governing risk reference. Dependency context: no upstream dependency.=
+ The source record is p03-src-002642 and this artifact is p03-full-002642. Th=
+e evidence instrument was the service inventory snapshot; the reviewer observ=
+ed that the reviewer recorded why an unavailable source was not relied upon. =
+During challenge, a handoff record was assessed for continuity of evidence cu=
+stody. Review profile: the evidence set was collected before the approval mee=
+ting; the evidence custodian confirmed the record boundary; the reviewer samp=
+led a routine operating condition; the source fact supported acceptance witho=
+ut qualification; the comparison used the current control objective; the evid=
+ence was retained in the review register; the exception path was considered a=
+nd recorded; the reviewer found no handover impact; the decision was suitable=
+ for routine monitoring; the source chronology contained a reconciled late en=
+try; the control claim was independently corroborated; the review boundary id=
+entified unavailable material as a limitation; the next assurance trigger is =
+the scheduled review; the disposition was communicated to the owner; the reta=
+ined rationale supports repeat review; the record remains a local offline ass=
+urance artifact. Counterexample considered: A dependency reference is not mea=
+ningful unless the receiving artifact explains why it was consulted. Decision=
+ rule: Preserve a bounded decision: cite the source, explain the rule, and st=
+ate whether the result is accepted or escalated. Disposition: accepted with a=
+ retained review note. No Kio capability is used or required for this offline=
+ review.

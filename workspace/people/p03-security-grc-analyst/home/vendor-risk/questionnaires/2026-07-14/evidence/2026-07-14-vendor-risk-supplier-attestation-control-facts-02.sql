@@ -1,0 +1,20 @@
+-- Offline, static assurance review record.
+SELECT
+  'p03-full-009248' AS artifact_id,
+  'p03-src-009248' AS source_record,
+  'p03-primary-08' AS scope,
+  'Cobalt Harbor' AS organization,
+  '2026-07-14' AS review_date,
+  'RISK-031' AS risk_reference,
+  'AC-27 relates to evidence set 184' AS relationship,
+  'no upstream dependency' AS dependency_context,
+  'How should a conflicting source be handled before the disposition is recorded?' AS evidence_question,
+  'change sponsor retained implementation record for this review.' AS source_facts,
+  'A file name is not a substitute for the source facts that support the conclusion.' AS counterexample,
+  'issue disposition register' AS evidence_instrument,
+  'the owner and custodian were named consistently' AS review_observation,
+  'a duplicated statement was not accepted as independent corroboration' AS challenge_performed,
+  '["the evidence set was collected before the approval meeting", "the accountable owner confirmed the operating boundary", "the reviewer sampled a routine operating condition", "the source fact supported acceptance without qualification", "the comparison used the prior review conclusion", "the evidence was retained with the decision record", "the exception path was not invoked", "the reviewer found no handover impact", "the decision was suitable for routine monitoring", "the source chronology was complete", "the control claim was corroborated by a compensating observation", "the review boundary excluded unavailable material", "the next assurance trigger is the scheduled review", "the disposition was communicated to the independent reviewer", "the retained rationale supports repeat review", "the record remains a local offline assurance artifact"]' AS review_profile,
+  'Escalate conflicting observations to the designated reviewer rather than resolving them through filename or identifier changes.' AS decision_rule,
+  'escalated for corroboration with the decision basis retained' AS disposition,
+  'No Kio capability is used or required for this offline review.' AS operating_boundary;

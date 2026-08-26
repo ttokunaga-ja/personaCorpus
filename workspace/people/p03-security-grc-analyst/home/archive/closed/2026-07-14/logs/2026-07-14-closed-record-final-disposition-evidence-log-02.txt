@@ -1,0 +1,12 @@
+record=p03-full-007674 source=p03-src-007674 date=2026-07-14
+organization=Cobalt Harbor Systems control=AC-27 case=CASE-260713-184
+event=closed-record-review result=bounded-evidence-confirmed
+evidence_set=184 completeness=24 of 24 final_completion=48 of 48 (100.0%)
+risk=RISK-031 residual=Medium disposition=DEC-260713-004
+record_date=2026-07-14 disposition_follow_up_anchor=2026-07-14
+review_focus=approval separation finding=the seven-day follow-up confirms completion
+closure_rationale=the follow-up confirms the remediation register
+retention=18-month-minimum synthetic_notice=no-live-source-data
+ledger_traceability_id=org.cobalt-harbor canonical_value=Cobalt Harbor Systems (CHS), a fictional managed logistics and harbor-operations platform.
+ledger_traceability_id=case.case-260713-184 canonical_value=CASE-260713-184, the synthetic evidence intake case for evidence set 184; not a real incident.
+ledger_traceability_id=date.2026-07-14 canonical_value=Evidence normalization, checksum confirmation, and action-owner acknowledgement.

@@ -1,0 +1,22 @@
+{
+  "artifact_id": "p03-full-000239",
+  "audit_request": "AR-260713-027",
+  "case": "CASE-260713-184",
+  "content_spine_traceability": {
+    "org.cobalt-harbor": "Cobalt Harbor Systems",
+    "period.2026-q3": "2026-Q3 governance planning period 2026-07-01 through 2026-09-30"
+  },
+  "control": "AC-27",
+  "disposition": "synthetic intake normalized; bounded review retained",
+  "evidence_record": "EV-184-19",
+  "evidence_set": 184,
+  "network_note": "No live endpoints, raw events, or routable addresses are represented.",
+  "organization": "Cobalt Harbor Systems",
+  "program": "Aegis Assurance",
+  "record_id": "INB-002",
+  "review_date": "2026-07-13",
+  "review_period": "2026-Q3",
+  "risk": "RISK-031",
+  "source_id": "p03-src-000239",
+  "unique_marker": "foundation-b001-002"
+}

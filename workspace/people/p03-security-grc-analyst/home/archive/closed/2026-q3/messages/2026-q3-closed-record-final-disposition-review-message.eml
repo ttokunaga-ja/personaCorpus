@@ -1,0 +1,40 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Incident Readiness decision for p03-full-008574
+Date: Mon, 20 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-008574@example.invalid>
+X-Review-Period: 2026 Q3
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline incident readiness review for disposition =
+review message eml s008574 on 2026-07-20. The evidence question was: What obs=
+ervable evidence demonstrates that the stated control objective is met? The r=
+esponse coordinator assembled the source facts; the case reviewer tested thei=
+r review repeatability. The review relates AC-27 to evidence set 184 and reco=
+rds RISK-031 as the governing risk reference. Dependency context: no upstream=
+ dependency. The source record is p03-src-008574 and this artifact is p03-ful=
+l-008574. The evidence instrument was the data-classification note; the revie=
+wer observed that the review distinguished a planned activity from completed =
+operation. During challenge, a conflicting approval was escalated instead of =
+silently merged. Review profile: the evidence set was collected before the ap=
+proval meeting; the evidence custodian confirmed the record boundary; the rev=
+iewer sampled an adverse operating condition; the source fact supported accep=
+tance with a documented caveat; the comparison used the current control objec=
+tive; the evidence was retained with the decision record; the exception path =
+was considered and recorded; the reviewer found no handover impact; the decis=
+ion was suitable for targeted follow-up; the source chronology was complete; =
+the control claim was independently corroborated; the review boundary exclude=
+d unavailable material; the next assurance trigger is the scheduled review; t=
+he disposition was communicated to the independent reviewer; the retained rat=
+ionale supports repeat review; the record remains a local offline assurance a=
+rtifact. Counterexample considered: A repeated control statement does not est=
+ablish operation when no counterexample was considered. Decision rule: Accept=
+ only when the source fact, accountable role, and review conclusion agree; ot=
+herwise record a follow-up disposition. Disposition: accepted with a retained=
+ review note. No Kio capability is used or required for this offline review.
+
+Review period: 2026 Q3. This closed record final disposition review message e=
+ml record was assessed using control boundary and operating ownership; the re=
+viewer accepted the retained basis.

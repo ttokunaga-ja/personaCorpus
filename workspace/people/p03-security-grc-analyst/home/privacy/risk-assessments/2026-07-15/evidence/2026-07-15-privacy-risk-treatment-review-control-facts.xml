@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<privacyGrcFoundation schema="chs.privacy-grc-foundation/v1">
+  <organization>Cobalt Harbor Systems</organization>
+  <program>Aegis Assurance</program>
+  <control>Aegis Control AC-27</control>
+  <review_date>2026-07-13</review_date>
+  <evidence_set>184</evidence_set>
+  <case>CASE-260713-184</case>
+  <risk>RISK-031</risk>
+  <residual_risk>Medium</residual_risk>
+  <notice>Synthetic privacy/GRC foundation; no personal records or live operational data.</notice>
+  <artifact_id>p03-full-001347</artifact_id>
+  <source_id>p03-src-001347</source_id>
+  <record_key>2026-07-15-privacy-risk-treatment-review-control-facts-xml-s001347</record_key>
+  <subject>treatment review</subject>
+  <period>2026-07-15</period>
+  <content_spine_ids>org.cobalt-harbor, team.privacy, rel.privacy.vendor, date.2026-07-15, term.no-kio-claim</content_spine_ids>
+  <positive_spine_traceability>{'org.cobalt-harbor': 'Cobalt Harbor Systems', 'team.privacy': 'Privacy Assurance owns privacy-risk assessments and data-use reviews', 'date.2026-07-15': 'control owner validates the remediation plan and retention disposition'}</positive_spine_traceability>
+  <analytical_conclusion>Record 1347 concludes that treatment review requires a bounded AC-27 evidence review for 2026-07-15; RISK-031 remains Medium after the compensating review, with no personal records in scope.</analytical_conclusion>
+  <population>48</population>
+  <reviewed>48</reviewed>
+  <timely>47</timely>
+  <completion_rate>100.0%</completion_rate>
+  <completeness>24 of 24</completeness>
+  <retention_months>18</retention_months>
+</privacyGrcFoundation>

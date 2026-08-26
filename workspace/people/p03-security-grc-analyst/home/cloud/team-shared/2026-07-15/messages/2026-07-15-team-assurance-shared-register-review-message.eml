@@ -1,0 +1,64 @@
+From: privacy-assurance@cobalt-harbor.example.invalid
+To: shared-register-review@cobalt-harbor.example.invalid
+Subject: Privacy shared-register handover review and ageing follow-up
+Date: Wed, 15 Jul 2026 10:30:00 +0000
+Message-ID: <p03-full-006701@cobalt-harbor.example.invalid>
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="=_p03_full_006701_text_similarity_r2"
+
+--=_p03_full_006701_text_similarity_r2
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Cobalt Harbor Privacy Assurance Team completed a shared-register handover rev=
+iew on 2026-07-15.
+
+Evidence question: can the incoming custodian reproduce the privacy dispositi=
+on from the shared register, its ownership handover, and the retained decisio=
+n notes without relying on a live service?
+
+Source facts: the departing custodian supplied the shared-register extract, t=
+he Privacy Assurance Team checked the handover acknowledgement, and the recei=
+ving reviewer compared open entries with the AC-27 case timeline and evidence=
+ set 184. RISK-031 is the governing residual-risk reference for this handover=
+. The review identified one ageing exception whose owner and next-review date=
+ remain visible.
+
+Challenge and counterexample: a register entry marked complete without a rece=
+iving-custodian acknowledgement would not support handover acceptance. The re=
+viewer tested that counterexample against the evidence custody note rather th=
+an inferring closure from the status field.
+
+Decision rule: accept the handover only when ownership, source chronology, an=
+d the follow-up condition agree. Disposition: the handover is accepted with a=
+ scheduled follow-up for the ageing exception; the Privacy Assurance Team ret=
+ains the challenge note for the next review cycle.
+
+No Kio capability is used or required for this offline review.
+
+--=_p03_full_006701_text_similarity_r2
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+<!doctype html><html lang=3D"en"><head><meta charset=3D"utf-8"><title>Shared-=
+register handover review</title></head><body><main>
+<h1>Shared-register handover review</h1><p><strong>Cobalt Harbor Privacy Assu=
+rance Team</strong> completed this review on <strong>2026-07-15</strong>.</p>
+<h2>Evidence question</h2><p>Can the incoming custodian reproduce the privacy=
+ disposition from the shared register, ownership handover, and retained decis=
+ion notes without a live service?</p>
+<h2>Source facts and relationship</h2><p>The departing custodian supplied the=
+ shared-register extract. The receiving reviewer compared open entries with t=
+he <strong>AC-27</strong> case timeline and <strong>evidence set 184</strong>=
+. <strong>RISK-031</strong> is the governing residual-risk reference for this=
+ handover; an ageing exception retains its owner and next-review date.</p>
+<h2>Challenge and decision</h2><p>A completion status without receiving-custo=
+dian acknowledgement is not enough. Acceptance requires ownership, chronology=
+, and follow-up agreement. The handover is accepted with scheduled ageing-exc=
+eption follow-up.</p>
+<p>No Kio capability is used or required for this offline review.</p></main><=
+/body></html>
+
+--=_p03_full_006701_text_similarity_r2--

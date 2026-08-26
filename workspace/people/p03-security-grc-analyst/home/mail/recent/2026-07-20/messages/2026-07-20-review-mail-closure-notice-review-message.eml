@@ -1,0 +1,47 @@
+Date: Mon, 20 Jul 2026 10:00:00 +0000
+From: GRC Review Operations <grc-review@cobalt.invalid>
+To: Control Assurance Distribution <control-assurance@cobalt.invalid>
+Subject: Closure Notice: Aegis Control AC-27 - 2026-07-20
+Message-ID: <p03-full-002267@cobalt.invalid>
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="===============9000523376836176358=="
+
+--===============9000523376836176358==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Cobalt Harbor Systems
+
+Closure Notice for Aegis Control AC-27
+Date: 2026-07-20
+Case: CASE-260713-184
+Evidence set: 184 (24 of 24 required synthetic items verified)
+Risk: RISK-031 residual rating Medium
+Exception: EXC-260713-006 closed after a one-calendar-day compensating review.
+
+The synthetic review population contains 48 records, with 47 timely attestati=
+ons and final completion at 48 of 48. This defensive record contains no real =
+personal data, credentials, live-system access details, or Kio performance cl=
+aim.
+
+--===============9000523376836176358==
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+<!doctype html><html lang=3D"en"><head><meta charset=3D"utf-8"><style>body{fo=
+nt-family:Arial,sans-serif;max-width:720px;color:#263746}h1{color:#173f5f}.me=
+ta{color:#526a7d}.note{background:#eef5fa;padding:12px}</style></head><body><=
+h1>Closure Notice</h1><p class=3D"meta">Cobalt Harbor Systems | Aegis Control=
+ AC-27 | 2026-07-20 | p03-full-002267</p><p>This synthetic review message rec=
+ords CASE-260713-184. Evidence set 184 is complete: 24 of 24 required synthet=
+ic items were verified.</p><p>The review population contains 48 synthetic rec=
+ords; 47 attestations were timely and the remaining record received a documen=
+ted compensating review. EXC-260713-006 is closed after one calendar day. RIS=
+K-031 retains a Medium residual rating.</p><p class=3D"note">Defensive GRC do=
+cumentation only. No real personal data, credentials, live-system access deta=
+ils, or Kio indexing, history, search, chunk, or performance claim.</p></body=
+></html>
+
+--===============9000523376836176358==--

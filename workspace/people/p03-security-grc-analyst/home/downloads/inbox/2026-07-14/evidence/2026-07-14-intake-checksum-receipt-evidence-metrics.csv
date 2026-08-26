@@ -1,0 +1,2 @@
+record_id,review_date,control,audit_request,case,evidence_set,risk,disposition,unique_marker,content_spine_traceability
+INB-032,2026-07-14,AC-27,AR-260713-027,CASE-260713-184,184,RISK-031,synthetic intake normalized; bounded review retained,foundation-b001-032,org.cobalt-harbor=Cobalt Harbor Systems | evidence.ev-184-19=EV-184-19 evidence set 184 checksum reconciliation record | date.2026-07-14=2026-07-14 evidence normalization and checksum confirmation date

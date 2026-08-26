@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<syntheticExportFoundation>
+  <field name="record_type">synthetic_defensive_export_foundation</field>
+  <field name="organization">Cobalt Harbor Systems</field>
+  <field name="service">Sentinel Export</field>
+  <field name="control">Aegis Control AC-27</field>
+  <field name="case_id">CASE-260713-184</field>
+  <field name="risk_id">RISK-031</field>
+  <field name="evidence_set">184</field>
+  <field name="review_period">2026-07-14</field>
+  <field name="assigned_canonical_dates">['2026-07-14']</field>
+  <field name="artifact_id">p03-full-009948</field>
+  <field name="source_id">p03-src-009948</field>
+  <field name="subject">category summary</field>
+  <field name="topic_key">export-category-summary</field>
+  <field name="subject_focus">category-level evidence grouping and count reconciliation</field>
+  <field name="content_spine_context">org.cobalt-harbor, system.sentinel-export, rel.siem.minimization, date.2026-07-14, term.no-kio-claim</field>
+  <field name="positive_spine_references">[{'id': 'org.cobalt-harbor', 'value': 'Cobalt Harbor Systems, a fictional managed logistics and harbor-operations platform.'}, {'id': 'system.sentinel-export', 'value': 'Sentinel Export, the fictional CHS minimized SIEM export service.'}, {'id': 'date.2026-07-14', 'value': 'Evidence normalization, checksum confirmation, and action-owner acknowledgement date.'}]</field>
+  <field name="synthetic_export_sequence">9948</field>
+  <field name="export_window">13</field>
+  <field name="synthetic_notice">Synthetic defensive data only; minimized categories and counts; no live system data.</field>
+  <field name="review_population">48</field>
+  <field name="timely_attestations">47</field>
+  <field name="final_completion">48</field>
+  <field name="evidence_items_verified">24 of 24</field>
+  <field name="residual_risk">Medium</field>
+</syntheticExportFoundation>

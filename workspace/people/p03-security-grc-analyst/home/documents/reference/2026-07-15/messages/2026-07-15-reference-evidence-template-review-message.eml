@@ -1,0 +1,35 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Access Review decision for p03-full-000959
+Date: Wed, 15 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-000959@example.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline access review review for template review m=
+essage eml s000959 on 2026-07-15. The evidence question was: What minimal tra=
+ce proves that the control remains attributable to its owner? The system stew=
+ard assembled the source facts; the access approver tested their ownership tr=
+ace. The review relates AC-27 to evidence set 184 and records RISK-031 as the=
+ governing risk reference. Dependency context: no upstream dependency. The so=
+urce record is p03-src-000959 and this artifact is p03-full-000959. The evide=
+nce instrument was the reviewer observation log; the reviewer observed that t=
+he review showed how contradictory evidence was resolved. During challenge, a=
+ claimed control was tested against a negative sample. Review profile: the ev=
+idence set was collected during the follow-up review; the evidence custodian =
+confirmed the record boundary; the reviewer sampled an adverse operating cond=
+ition; the source fact supported acceptance with a documented caveat; the com=
+parison used the current control objective; the evidence was retained with th=
+e decision record; the exception path was not invoked; the reviewer assessed =
+a handover impact; the decision was suitable for targeted follow-up; the sour=
+ce chronology contained a reconciled late entry; the control claim was indepe=
+ndently corroborated; the review boundary excluded unavailable material; the =
+next assurance trigger is the scheduled review; the disposition was communica=
+ted to the owner; the retained rationale supports repeat review; the record r=
+emains a local offline assurance artifact. Counterexample considered: A compl=
+ete-looking register is not reliable if the decision rule and disposition are=
+ absent. Decision rule: Treat the control as effective only when the countere=
+xample has been considered and the exception path is explicit. Disposition: a=
+ccepted with a retained review note. No Kio capability is used or required fo=
+r this offline review.

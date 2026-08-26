@@ -1,0 +1,7 @@
+Cobalt Harbor Systems — Aegis Assurance intake evidence note
+record: INB-131 | marker: foundation-b001-131
+control: AC-27 | audit request: AR-260713-027 | case: CASE-260713-184
+evidence set: 184 | checksum record: EV-184-19 | risk: RISK-031
+disposition: synthetic intake normalized; bounded review retained
+No live endpoints, raw events, or routable addresses are represented.
+SPINE_TRACEABILITY org.cobalt-harbor=Cobalt Harbor Systems | date.2026-07-20=2026-07-20 closure-evidence follow-up date

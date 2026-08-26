@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ac27_intake_record>
+  <artifact_id>p03-full-000582</artifact_id>
+  <source_id>p03-src-000582</source_id>
+  <record_id>INB-007</record_id>
+  <review_date>2026-07-20</review_date>
+  <organization>Cobalt Harbor Systems</organization>
+  <program>Aegis Assurance</program>
+  <control>AC-27</control>
+  <audit_request>AR-260713-027</audit_request>
+  <case>CASE-260713-184</case>
+  <evidence_set>184</evidence_set>
+  <evidence_record>EV-184-19</evidence_record>
+  <risk>RISK-031</risk>
+  <disposition>synthetic intake normalized; bounded review retained</disposition>
+  <network_note>No live endpoints, raw events, or routable addresses are represented.</network_note>
+  <unique_marker>foundation-b001-007</unique_marker>
+  <content_spine_traceability>org.cobalt-harbor=Cobalt Harbor Systems | audit.ar-260713-027=AR-260713-027 fictional audit request for AC-27 review material | date.2026-07-20=2026-07-20 closure-evidence follow-up date</content_spine_traceability>
+</ac27_intake_record>

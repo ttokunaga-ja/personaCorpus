@@ -1,0 +1,35 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Change Assurance decision for p03-full-001073
+Date: Mon, 20 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-001073@example.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline change assurance review for map review mes=
+sage eml s001073 on 2026-07-20. The evidence question was: What decision can =
+be made from the retained source material without external access? The change=
+ sponsor assembled the source facts; the assurance analyst tested their revie=
+w repeatability. The review relates AC-27 to evidence set 184 and records RIS=
+K-031 as the governing risk reference. Dependency context: no upstream depend=
+ency. The source record is p03-src-001073 and this artifact is p03-full-00107=
+3. The evidence instrument was the sampling rationale; the reviewer observed =
+that the review showed how contradictory evidence was resolved. During challe=
+nge, a policy reference was checked against the operating record. Review prof=
+ile: the evidence set was collected during the follow-up review; the accounta=
+ble owner confirmed the operating boundary; the reviewer sampled a routine op=
+erating condition; the source fact supported acceptance without qualification=
+; the comparison used the current control objective; the evidence was retaine=
+d with the decision record; the exception path was not invoked; the reviewer =
+found no handover impact; the decision was suitable for routine monitoring; t=
+he source chronology was complete; the control claim was corroborated by a co=
+mpensating observation; the review boundary excluded unavailable material; th=
+e next assurance trigger is the scheduled review; the disposition was communi=
+cated to the owner; the retained rationale supports repeat review; the record=
+ remains a local offline assurance artifact. Counterexample considered: A sta=
+tus label alone is not evidence; it must be tied to a source fact and a revie=
+wer conclusion. Decision rule: Record an approval only after the reviewer can=
+ reproduce the conclusion from the retained facts without network access. Dis=
+position: accepted with a retained review note. No Kio capability is used or =
+required for this offline review.

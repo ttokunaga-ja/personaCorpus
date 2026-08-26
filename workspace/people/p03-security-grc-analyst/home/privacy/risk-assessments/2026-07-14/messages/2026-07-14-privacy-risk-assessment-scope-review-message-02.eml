@@ -1,0 +1,35 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Change Assurance decision for p03-full-005262
+Date: Tue, 14 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-005262@example.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline change assurance review for scope review m=
+essage eml s005262 on 2026-07-14. The evidence question was: Which responsibi=
+lity boundary must be visible before the record is approved? The change spons=
+or assembled the source facts; the assurance analyst tested their record comp=
+leteness. The review relates AC-27 to evidence set 184 and records RISK-031 a=
+s the governing risk reference. Dependency context: no upstream dependency. T=
+he source record is p03-src-005262 and this artifact is p03-full-005262. The =
+evidence instrument was the incident chronology; the reviewer observed that t=
+he review showed how contradictory evidence was resolved. During challenge, a=
+n ambiguous dependency was clarified before disposition. Review profile: the =
+evidence set was collected before the approval meeting; the evidence custodia=
+n confirmed the record boundary; the reviewer sampled an adverse operating co=
+ndition; the source fact supported acceptance with a documented caveat; the c=
+omparison used the prior review conclusion; the evidence was retained in the =
+review register; the exception path was not invoked; the reviewer assessed a =
+handover impact; the decision was suitable for routine monitoring; the source=
+ chronology was complete; the control claim was corroborated by a compensatin=
+g observation; the review boundary excluded unavailable material; the next as=
+surance trigger is completion of the follow-up action; the disposition was co=
+mmunicated to the owner; the retained rationale supports repeat review; the r=
+ecord remains a local offline assurance artifact. Counterexample considered: =
+A repeated control statement does not establish operation when no counterexam=
+ple was considered. Decision rule: Use the dependency as context rather than =
+proof; the local artifact must state its own conclusion and basis. Dispositio=
+n: accepted with a retained review note. No Kio capability is used or require=
+d for this offline review.

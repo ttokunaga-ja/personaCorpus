@@ -1,0 +1,37 @@
+artifact_id: p03-full-009612
+source_record: p03-src-009612
+scope: p03-primary-11
+organization: Cobalt Harbor
+review_date: '2026-07-20'
+risk_reference: RISK-031
+relationship: AC-27 relates to evidence set 184
+dependency_context: no upstream dependency
+evidence_question: How does the review distinguish complete evidence from an unsupported
+  assertion?
+source_facts: service owner retained contract evidence for this review.
+counterexample: A single approval cannot settle a conflicting record; the discrepancy
+  must remain visible to the reviewer.
+evidence_instrument: risk treatment worksheet
+review_observation: the exception route was visible to an independent reviewer
+challenge_performed: a process narrative was checked for a named decision owner
+review_profile:
+- the evidence set was collected before the approval meeting
+- the accountable owner confirmed the operating boundary
+- the reviewer sampled an adverse operating condition
+- the source fact supported acceptance with a documented caveat
+- the comparison used the prior review conclusion
+- the evidence was retained in the review register
+- the exception path was not invoked
+- the reviewer assessed a handover impact
+- the decision was suitable for targeted follow-up
+- the source chronology was complete
+- the control claim was corroborated by a compensating observation
+- the review boundary excluded unavailable material
+- the next assurance trigger is the scheduled review
+- the disposition was communicated to the independent reviewer
+- the retained rationale supports repeat review
+- the record remains a local offline assurance artifact
+decision_rule: Record an approval only after the reviewer can reproduce the conclusion
+  from the retained facts without network access.
+disposition: accepted with a retained review note
+operating_boundary: No Kio capability is used or required for this offline review.

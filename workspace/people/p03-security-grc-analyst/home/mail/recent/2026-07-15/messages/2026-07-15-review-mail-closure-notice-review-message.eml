@@ -1,0 +1,35 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Incident Readiness decision for p03-full-006459
+Date: Wed, 15 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-006459@example.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline incident readiness review for notice revie=
+w message eml s006459 on 2026-07-15. The evidence question was: How should a =
+conflicting source be handled before the disposition is recorded? The respons=
+e coordinator assembled the source facts; the case reviewer tested their sour=
+ce reconciliation. The review relates AC-27 to evidence set 184 and records R=
+ISK-031 as the governing risk reference. Dependency context: no upstream depe=
+ndency. The source record is p03-src-006459 and this artifact is p03-full-006=
+459. The evidence instrument was the control narrative comparison; the review=
+er observed that the verification date was visible beside the source fact. Du=
+ring challenge, a scope boundary was compared with the evidence collection bo=
+undary. Review profile: the evidence set was collected during the follow-up r=
+eview; the evidence custodian confirmed the record boundary; the reviewer sam=
+pled a routine operating condition; the source fact supported acceptance with=
+ a documented caveat; the comparison used the current control objective; the =
+evidence was retained with the decision record; the exception path was not in=
+voked; the reviewer found no handover impact; the decision was suitable for t=
+argeted follow-up; the source chronology was complete; the control claim was =
+independently corroborated; the review boundary identified unavailable materi=
+al as a limitation; the next assurance trigger is completion of the follow-up=
+ action; the disposition was communicated to the owner; the retained rational=
+e supports repeat review; the record remains a local offline assurance artifa=
+ct. Counterexample considered: A status label alone is not evidence; it must =
+be tied to a source fact and a reviewer conclusion. Decision rule: Escalate c=
+onflicting observations to the designated reviewer rather than resolving them=
+ through filename or identifier changes. Disposition: accepted with a retaine=
+d review note. No Kio capability is used or required for this offline review.

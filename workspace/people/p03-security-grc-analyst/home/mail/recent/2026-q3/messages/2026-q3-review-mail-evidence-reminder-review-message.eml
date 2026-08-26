@@ -1,0 +1,40 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Control Ownership decision for p03-full-005702
+Date: Mon, 13 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-005702@example.invalid>
+X-Review-Period: 2026 Q3
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline control ownership review for reminder revi=
+ew message eml s005702 on 2026-07-13. The evidence question was: Which source=
+ fact would cause the reviewer to accept the control conclusion? The named co=
+ntrol owner assembled the source facts; the evidence custodian tested their r=
+ecord completeness. The review relates AC-27 to evidence set 184 and records =
+RISK-031 as the governing risk reference. Dependency context: no upstream dep=
+endency. The source record is p03-src-005702 and this artifact is p03-full-00=
+5702. The evidence instrument was the recertification record; the reviewer ob=
+served that the review preserved a clear separation of duties. During challen=
+ge, an ambiguous dependency was clarified before disposition. Review profile:=
+ the evidence set was collected before the approval meeting; the evidence cus=
+todian confirmed the record boundary; the reviewer sampled an adverse operati=
+ng condition; the source fact supported acceptance without qualification; the=
+ comparison used the prior review conclusion; the evidence was retained in th=
+e review register; the exception path was considered and recorded; the review=
+er found no handover impact; the decision was suitable for routine monitoring=
+; the source chronology contained a reconciled late entry; the control claim =
+was corroborated by a compensating observation; the review boundary excluded =
+unavailable material; the next assurance trigger is completion of the follow-=
+up action; the disposition was communicated to the owner; the retained ration=
+ale supports repeat review; the record remains a local offline assurance arti=
+fact. Counterexample considered: A complete-looking register is not reliable =
+if the decision rule and disposition are absent. Decision rule: Reject unsupp=
+orted claims and retain a concise explanation of the missing fact for the nex=
+t review cycle. Disposition: accepted with a retained review note. No Kio cap=
+ability is used or required for this offline review.
+
+Review period: 2026 Q3. This review mail evidence reminder review message eml=
+ record was assessed using closure evidence and accountable disposition; the =
+reviewer identified a corroboration need.

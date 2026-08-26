@@ -1,0 +1,41 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Exception Governance decision for p03-full-008014
+Date: Mon, 20 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-008014@example.invalid>
+X-Review-Period: 2026 Q3
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline exception governance review for guide revi=
+ew message eml s008014 on 2026-07-20. The evidence question was: How does the=
+ review distinguish complete evidence from an unsupported assertion? The risk=
+ owner assembled the source facts; the exception reviewer tested their contro=
+l boundary. The review relates AC-27 to evidence set 184 and records RISK-031=
+ as the governing risk reference. Dependency context: no upstream dependency.=
+ The source record is p03-src-008014 and this artifact is p03-full-008014. Th=
+e evidence instrument was the risk treatment worksheet; the reviewer observed=
+ that the review showed how contradictory evidence was resolved. During chall=
+enge, a stale approval was compared with the current ownership assignment. Re=
+view profile: the evidence set was collected before the approval meeting; the=
+ evidence custodian confirmed the record boundary; the reviewer sampled an ad=
+verse operating condition; the source fact supported acceptance with a docume=
+nted caveat; the comparison used the prior review conclusion; the evidence wa=
+s retained in the review register; the exception path was considered and reco=
+rded; the reviewer found no handover impact; the decision was suitable for ta=
+rgeted follow-up; the source chronology contained a reconciled late entry; th=
+e control claim was corroborated by a compensating observation; the review bo=
+undary identified unavailable material as a limitation; the next assurance tr=
+igger is completion of the follow-up action; the disposition was communicated=
+ to the owner; the retained rationale supports repeat review; the record rema=
+ins a local offline assurance artifact. Counterexample considered: A complete=
+-looking register is not reliable if the decision rule and disposition are ab=
+sent. Decision rule: Treat the control as effective only when the counterexam=
+ple has been considered and the exception path is explicit. Disposition: esca=
+lated for corroboration with the decision basis retained. No Kio capability i=
+s used or required for this offline review.
+
+Review period: 2026 Q3. This reference review guide review message eml record=
+ was assessed using risk treatment and residual uncertainty; the reviewer rec=
+orded a bounded exception.

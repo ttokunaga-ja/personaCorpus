@@ -1,0 +1,12 @@
+{"sequence": 1, "artifact_id": "p03-full-009775", "entry": "record=p03-full-009775 source=p03-src-009775 date=2026-07-14"}
+{"sequence": 2, "artifact_id": "p03-full-009775", "entry": "organization=Cobalt Harbor Systems control=AC-27 case=CASE-260713-184"}
+{"sequence": 3, "artifact_id": "p03-full-009775", "entry": "event=closed-record-review result=bounded-evidence-confirmed"}
+{"sequence": 4, "artifact_id": "p03-full-009775", "entry": "evidence_set=184 completeness=24 of 24 final_completion=48 of 48 (100.0%)"}
+{"sequence": 5, "artifact_id": "p03-full-009775", "entry": "risk=RISK-031 residual=Medium disposition=DEC-260713-004"}
+{"sequence": 6, "artifact_id": "p03-full-009775", "entry": "record_date=2026-07-14 disposition_follow_up_anchor=2026-07-14"}
+{"sequence": 7, "artifact_id": "p03-full-009775", "entry": "review_focus=follow-up confirmation finding=the retention index links the closure decision"}
+{"sequence": 8, "artifact_id": "p03-full-009775", "entry": "closure_rationale=reviewer and preparer roles remained separate"}
+{"sequence": 9, "artifact_id": "p03-full-009775", "entry": "retention=18-month-minimum synthetic_notice=no-live-source-data"}
+{"sequence": 10, "artifact_id": "p03-full-009775", "entry": "ledger_traceability_id=org.cobalt-harbor canonical_value=Cobalt Harbor Systems (CHS), a fictional managed logistics and harbor-operations platform."}
+{"sequence": 11, "artifact_id": "p03-full-009775", "entry": "ledger_traceability_id=decision.dec-260713-004 canonical_value=Retain evidence set 184 under the synthetic GRC retention schedule; no live-source data is included."}
+{"sequence": 12, "artifact_id": "p03-full-009775", "entry": "ledger_traceability_id=date.2026-07-14 canonical_value=Evidence normalization, checksum confirmation, and action-owner acknowledgement."}

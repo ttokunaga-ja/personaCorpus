@@ -1,0 +1,12 @@
+Cobalt Harbor Systems | Aegis Assurance reference
+Artifact: 2026 07 20 Reference Control Taxonomy Evidence Log Txt
+Source reference: 2026-07-20-reference-control-taxonomy-evidence-log-txt-s003244
+Control: AC-27 | Review date: 2026-07-13
+Evidence set 184 | CASE-260713-184 | RISK-031
+Purpose: bounded defensive evidence normalization for a compensating review.
+Population: 48 synthetic privileged-role records; 47 timely attestations; final completion 48 of 48.
+Exception: EXC-260713-006 closed after compensating review on 2026-07-14.
+Disposition: retain synthetic evidence for 18 months; residual risk is Medium.
+Traceability: org.cobalt-harbor: Cobalt Harbor Systems is a fictional managed logistics and harbor-operations platform organization. | date.2026-07-20: Seven-day follow-up validates closure evidence and residual-risk status.
+Reference checkpoint: AC27-RF-dtt — Evidence normalization checkpoint signature dtt for 2026 07 20 Reference Control Taxonomy Evidence Log Txt.
+Safety: minimized categories and counts only; no live targets, credentials, or raw event content.

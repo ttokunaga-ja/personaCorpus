@@ -1,0 +1,24 @@
+schema: chs.privacy-grc-foundation/v1
+organization: "Cobalt Harbor Systems"
+program: "Aegis Assurance"
+control: "Aegis Control AC-27"
+review_date: "2026-07-13"
+evidence_set: "184"
+case: "CASE-260713-184"
+risk: "RISK-031"
+residual_risk: "Medium"
+notice: "Synthetic privacy/GRC foundation; no personal records or live operational data."
+artifact_id: "p03-full-003480"
+source_id: "p03-src-003480"
+record_key: "2026-07-15-privacy-risk-data-use-control-facts-yaml-s003480"
+subject: "data-use"
+period: "2026-07-15"
+content_spine_ids: "org.cobalt-harbor, team.privacy, rel.privacy.vendor, date.2026-07-15, term.no-kio-claim"
+positive_spine_traceability: {'org.cobalt-harbor': 'Cobalt Harbor Systems', 'team.privacy': 'Privacy Assurance owns privacy-risk assessments and data-use reviews', 'date.2026-07-15': 'control owner validates the remediation plan and retention disposition'}
+analytical_conclusion: "Record 3480 concludes that data-use requires a bounded AC-27 evidence review for 2026-07-15; RISK-031 remains Medium after the compensating review, with no personal records in scope."
+population: 48
+reviewed: 48
+timely: 47
+completion_rate: "100.0%"
+completeness: "24 of 24"
+retention_months: 18

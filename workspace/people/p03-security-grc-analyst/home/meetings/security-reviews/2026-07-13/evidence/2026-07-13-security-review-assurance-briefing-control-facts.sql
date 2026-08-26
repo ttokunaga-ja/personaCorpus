@@ -1,0 +1,4 @@
+-- Cobalt Harbor Systems synthetic AC-27 review foundation; RISK-031; GRC-REV-009347; prepare a bounded AC-27 assurance readout with numerator, denominator, and residual-risk rationale; AR-260713-027 response packet.
+CREATE TABLE IF NOT EXISTS review_foundation (artifact_id TEXT PRIMARY KEY, source_id TEXT NOT NULL, review_date TEXT NOT NULL, control_id TEXT NOT NULL, case_id TEXT NOT NULL, evidence_set INTEGER NOT NULL, timely_attestations INTEGER NOT NULL, final_completion INTEGER NOT NULL, residual_risk TEXT NOT NULL);
+INSERT INTO review_foundation (artifact_id, source_id, review_date, control_id, case_id, evidence_set, timely_attestations, final_completion, residual_risk) VALUES ('p03-full-009347', 'p03-src-009347', '2026-07-13', 'AC-27', 'CASE-260713-184', 184, 47, 48, 'Medium');
+-- Decision: queue the seven-day closure validation; spine: org.cobalt-harbor, action.act-260713-012 (ACT-260713-012), rel.case.timeline, date.2026-07-13, term.no-kio-claim.

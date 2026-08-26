@@ -1,0 +1,7 @@
+2026-07-14 | EVIDENCE_NORMALIZATION | Cobalt Harbor Systems | GRC-REV-003019 | Assurance Briefing
+2026-07-14 | EVIDENCE_CHECK | AC-27 evidence set 184 | 24/24 synthetic items verified
+2026-07-14 | RISK_TRACK | RISK-031 | 47/48 timely attestations; compensating review remains documented
+2026-07-14 | AGENDA | prepare a bounded AC-27 assurance readout with numerator, denominator, and residual-risk rationale
+2026-07-14 | DECISION | queue the seven-day closure validation | action: AR-260713-027 response packet
+2026-07-14 | DISPOSITION | residual risk Medium | org.cobalt-harbor, decision.dec-260713-004 (DEC-260713-004), rel.case.timeline, date.2026-07-14, term.no-kio-claim
+Scope: defensive synthetic governance record; no live systems, personal data, credentials, or incident telemetry.

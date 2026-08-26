@@ -1,0 +1,35 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Exception Governance decision for p03-full-005359
+Date: Mon, 13 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-005359@example.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline exception governance review for notice rev=
+iew message eml s005359 on 2026-07-13. The evidence question was: What observ=
+able evidence demonstrates that the stated control objective is met? The risk=
+ owner assembled the source facts; the exception reviewer tested their except=
+ion handling. The review relates AC-27 to evidence set 184 and records RISK-0=
+31 as the governing risk reference. Dependency context: no upstream dependenc=
+y. The source record is p03-src-005359 and this artifact is p03-full-005359. =
+The evidence instrument was the recertification record; the reviewer observed=
+ that the record explained why an exception remained open. During challenge, =
+a claimed control was tested against a negative sample. Review profile: the e=
+vidence set was collected during the follow-up review; the evidence custodian=
+ confirmed the record boundary; the reviewer sampled an adverse operating con=
+dition; the source fact supported acceptance with a documented caveat; the co=
+mparison used the prior review conclusion; the evidence was retained with the=
+ decision record; the exception path was considered and recorded; the reviewe=
+r assessed a handover impact; the decision was suitable for routine monitorin=
+g; the source chronology was complete; the control claim was corroborated by =
+a compensating observation; the review boundary excluded unavailable material=
+; the next assurance trigger is completion of the follow-up action; the dispo=
+sition was communicated to the owner; the retained rationale supports repeat =
+review; the record remains a local offline assurance artifact. Counterexample=
+ considered: A dated narrative without a named custodian is insufficient beca=
+use responsibility cannot be tested. Decision rule: Use the dependency as con=
+text rather than proof; the local artifact must state its own conclusion and =
+basis. Disposition: accepted with a retained review note. No Kio capability i=
+s used or required for this offline review.

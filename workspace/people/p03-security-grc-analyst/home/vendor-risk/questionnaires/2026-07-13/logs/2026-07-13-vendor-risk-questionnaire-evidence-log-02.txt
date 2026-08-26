@@ -1,0 +1,6 @@
+2026-07-13T08:30:00Z INFO vendor-risk record=VRF-004626 case=CASE-260713-184 control=AC-27 intake=opened classification=synthetic
+2026-07-13T11:45:00Z INFO vendor-risk record=VRF-004626 subject=questionnaire scope=bounded restricted_data=false
+2026-07-14T10:20:00Z WARN vendor-risk record=VRF-004626 risk=RISK-031 finding=delayed_attestation compensating_review=scheduled
+2026-07-15T13:30:00Z INFO vendor-risk record=VRF-004626 evidence_set=184 completeness=24/24 action=ACT-260713-013 ordinal=4626
+2026-07-20T17:15:00Z INFO vendor-risk record=VRF-004626 residual_risk=Medium retention_months=18 disposition=follow_up_queued
+2026-07-20T17:16:00Z INFO vendor-risk record=VRF-004626 content_spine_trace=[{"spine_id": "org.cobalt-harbor", "canonical_value": "Cobalt Harbor Systems (CHS) is a fictional organization operating a managed logistics and harbor-operations platform."}, {"spine_id": "team.vendor-risk", "canonical_value": "Third-Party Assurance owns supplier questionnaires, assurance follow-up, and exception evidence."}, {"spine_id": "date.2026-07-13", "canonical_value": "Primary review date; evidence intake opens 08:30 UTC and AC-27 review closes 16:45 UTC."}]

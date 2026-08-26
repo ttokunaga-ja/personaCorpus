@@ -1,0 +1,41 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Control Ownership decision for p03-full-007169
+Date: Mon, 20 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-007169@example.invalid>
+X-Review-Period: 2026 Q3
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline control ownership review for index review =
+message eml s007169 on 2026-07-20. The evidence question was: How should a co=
+nflicting source be handled before the disposition is recorded? The named con=
+trol owner assembled the source facts; the evidence custodian tested their re=
+cord completeness. The review relates AC-27 to evidence set 184 and records R=
+ISK-031 as the governing risk reference. Dependency context: no upstream depe=
+ndency. The source record is p03-src-007169 and this artifact is p03-full-007=
+169. The evidence instrument was the versioned review register; the reviewer =
+observed that the conclusion identified the next assurance trigger. During ch=
+allenge, a handoff record was assessed for continuity of evidence custody. Re=
+view profile: the evidence set was collected during the follow-up review; the=
+ accountable owner confirmed the operating boundary; the reviewer sampled a r=
+outine operating condition; the source fact supported acceptance without qual=
+ification; the comparison used the prior review conclusion; the evidence was =
+retained in the review register; the exception path was not invoked; the revi=
+ewer found no handover impact; the decision was suitable for routine monitori=
+ng; the source chronology was complete; the control claim was corroborated by=
+ a compensating observation; the review boundary identified unavailable mater=
+ial as a limitation; the next assurance trigger is completion of the follow-u=
+p action; the disposition was communicated to the owner; the retained rationa=
+le supports repeat review; the record remains a local offline assurance artif=
+act. Counterexample considered: A single approval cannot settle a conflicting=
+ record; the discrepancy must remain visible to the reviewer. Decision rule: =
+Escalate conflicting observations to the designated reviewer rather than reso=
+lving them through filename or identifier changes. Disposition: escalated for=
+ corroboration with the decision basis retained. No Kio capability is used or=
+ required for this offline review.
+
+Review period: 2026 Q3. This closed record retention index review message eml=
+ record was assessed using closure evidence and accountable disposition; the =
+reviewer documented an ownership check.

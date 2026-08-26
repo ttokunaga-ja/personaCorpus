@@ -1,0 +1,20 @@
+-- Offline, static assurance review record.
+SELECT
+  'p03-full-005083' AS artifact_id,
+  'p03-src-005083' AS source_record,
+  'p03-secondary-04' AS scope,
+  'Cobalt Harbor' AS organization,
+  '2026-07-14' AS review_date,
+  'RISK-031' AS risk_reference,
+  'AC-27 relates to evidence set 184' AS relationship,
+  'no upstream dependency' AS dependency_context,
+  'Which review question exposes a gap between policy language and operating evidence?' AS evidence_question,
+  'detection owner retained coverage record for this review.' AS source_facts,
+  'A complete-looking register is not reliable if the decision rule and disposition are absent.' AS counterexample,
+  'reviewer observation log' AS evidence_instrument,
+  'the reviewer recorded why an unavailable source was not relied upon' AS review_observation,
+  'a contradictory note was reconciled against the retained source' AS challenge_performed,
+  '["the evidence set was collected during the follow-up review", "the evidence custodian confirmed the record boundary", "the reviewer sampled a routine operating condition", "the source fact supported acceptance with a documented caveat", "the comparison used the current control objective", "the evidence was retained in the review register", "the exception path was considered and recorded", "the reviewer assessed a handover impact", "the decision was suitable for targeted follow-up", "the source chronology contained a reconciled late entry", "the control claim was independently corroborated", "the review boundary excluded unavailable material", "the next assurance trigger is completion of the follow-up action", "the disposition was communicated to the owner", "the retained rationale supports repeat review", "the record remains a local offline assurance artifact"]' AS review_profile,
+  'Treat the control as effective only when the counterexample has been considered and the exception path is explicit.' AS decision_rule,
+  'accepted with a retained review note' AS disposition,
+  'No Kio capability is used or required for this offline review.' AS operating_boundary;

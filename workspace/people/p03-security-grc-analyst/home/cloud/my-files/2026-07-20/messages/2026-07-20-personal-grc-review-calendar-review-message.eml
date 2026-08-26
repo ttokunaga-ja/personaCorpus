@@ -1,0 +1,35 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Supplier Assurance decision for p03-full-000202
+Date: Mon, 20 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-000202@example.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline supplier assurance review for calendar rev=
+iew message eml s000202 on 2026-07-20. The evidence question was: How should =
+a conflicting source be handled before the disposition is recorded? The servi=
+ce owner assembled the source facts; the vendor reviewer tested their control=
+ boundary. The review relates AC-27 to evidence set 184 and records RISK-031 =
+as the governing risk reference. Dependency context: no upstream dependency. =
+The source record is p03-src-000202 and this artifact is p03-full-000202. The=
+ evidence instrument was the quality review annotation; the reviewer observed=
+ that the source chronology did not conceal a late correction. During challen=
+ge, a process narrative was checked for a named decision owner. Review profil=
+e: the evidence set was collected before the approval meeting; the evidence c=
+ustodian confirmed the record boundary; the reviewer sampled a routine operat=
+ing condition; the source fact supported acceptance with a documented caveat;=
+ the comparison used the prior review conclusion; the evidence was retained i=
+n the review register; the exception path was considered and recorded; the re=
+viewer assessed a handover impact; the decision was suitable for routine moni=
+toring; the source chronology was complete; the control claim was independent=
+ly corroborated; the review boundary excluded unavailable material; the next =
+assurance trigger is the scheduled review; the disposition was communicated t=
+o the owner; the retained rationale supports repeat review; the record remain=
+s a local offline assurance artifact. Counterexample considered: A repeated c=
+ontrol statement does not establish operation when no counterexample was cons=
+idered. Decision rule: Approve when the evidence is specific, attributable, a=
+nd dated; otherwise classify the item as needing corroboration. Disposition: =
+accepted with a retained review note. No Kio capability is used or required f=
+or this offline review.

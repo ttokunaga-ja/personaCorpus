@@ -1,0 +1,28 @@
+record_type: ac27_foundation
+artifact_id: "p03-full-001962"
+organization: "Cobalt Harbor Systems"
+program: "Aegis Assurance"
+control: "AC-27"
+case: "CASE-260713-184"
+evidence_set: 184
+risk: "RISK-031"
+review_period: "2026-07-13"
+topic: "review calendar"
+record_sequence: "001962"
+working_file: "2026-07-13-personal-grc-review-calendar-control-facts-yaml-s001962.yaml"
+content_spine_ids: "org.cobalt-harbor; team.grc; rel.risk-031.treatment; date.2026-07-13; term.no-kio-claim"
+ledger_date_anchors: "2026-07-13"
+positive_spine_traceability: "org.cobalt-harbor = Cobalt Harbor Systems (CHS), a fictional managed logistics and harbor-operations platform | team.grc = Security GRC owns the AC-27 evidence register, risk treatment tracking, and audit-request coordination | date.2026-07-13 = Primary review date; bounded evidence intake opens 08:30 UTC and AC-27 review closes 16:45 UTC"
+working_purpose: "retain a decision-ready summary"
+review_focus: "approval separation"
+record_conclusion: "For 2026-07-13, this working file retain a decision-ready summary focused on approval separation; it supports a Medium residual-risk conclusion without asserting live-system access."
+timely_attestations: "47 of 48 (97.9%)"
+final_completion: "48 of 48 (100.0%)"
+action: "ACT-260713-011"
+classification: "synthetic defensive control evidence"
+assessment:
+  inherent: High
+  residual: Medium
+  exception: EXC-260713-006
+retention_months: 18
+source_notice: synthetic defensive record; no live-system access

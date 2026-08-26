@@ -1,0 +1,32 @@
+{
+  "schema": "chs.privacy-grc-foundation/v1",
+  "record": {
+    "organization": "Cobalt Harbor Systems",
+    "program": "Aegis Assurance",
+    "control": "Aegis Control AC-27",
+    "review_date": "2026-07-13",
+    "evidence_set": "184",
+    "case": "CASE-260713-184",
+    "risk": "RISK-031",
+    "residual_risk": "Medium",
+    "notice": "Synthetic privacy/GRC foundation; no personal records or live operational data.",
+    "artifact_id": "p03-full-005113",
+    "source_id": "p03-src-005113",
+    "record_key": "2026-07-13-privacy-risk-risk-rating-control-facts-json-s005113",
+    "subject": "risk rating",
+    "period": "2026-07-13",
+    "content_spine_ids": "org.cobalt-harbor, risk.risk-031, rel.privacy.vendor, date.2026-07-13, term.no-kio-claim",
+    "positive_spine_traceability": {
+      "org.cobalt-harbor": "Cobalt Harbor Systems",
+      "risk.risk-031": "incomplete quarterly privileged-access review evidence; inherent High and residual Medium after bounded remediation",
+      "date.2026-07-13": "primary review date; evidence intake opens 08:30 UTC and AC-27 review closes 16:45 UTC"
+    },
+    "analytical_conclusion": "Record 5113 concludes that risk rating requires a bounded AC-27 evidence review for 2026-07-13; RISK-031 remains Medium after the compensating review, with no personal records in scope.",
+    "population": 48,
+    "reviewed": 48,
+    "timely": 47,
+    "completion_rate": "100.0%",
+    "completeness": "24 of 24",
+    "retention_months": 18
+  }
+}

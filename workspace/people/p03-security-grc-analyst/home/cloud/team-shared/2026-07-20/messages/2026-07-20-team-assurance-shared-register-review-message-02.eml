@@ -1,0 +1,36 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Data Retention decision for p03-full-007201
+Date: Mon, 20 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-007201@example.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline data retention review for register review =
+message eml s007201 on 2026-07-20. The evidence question was: How does the re=
+view distinguish complete evidence from an unsupported assertion? The records=
+ owner assembled the source facts; the retention reviewer tested their except=
+ion handling. The review relates AC-27 to evidence set 184 and records RISK-0=
+31 as the governing risk reference. Dependency context: no upstream dependenc=
+y. The source record is p03-src-007201 and this artifact is p03-full-007201. =
+The evidence instrument was the training completion record; the reviewer obse=
+rved that the evidence set included a challenge from outside the delivery tea=
+m. During challenge, an incomplete register was challenged for its missing de=
+cision rule. Review profile: the evidence set was collected during the follow=
+-up review; the accountable owner confirmed the operating boundary; the revie=
+wer sampled a routine operating condition; the source fact supported acceptan=
+ce without qualification; the comparison used the prior review conclusion; th=
+e evidence was retained with the decision record; the exception path was not =
+invoked; the reviewer found no handover impact; the decision was suitable for=
+ routine monitoring; the source chronology was complete; the control claim wa=
+s corroborated by a compensating observation; the review boundary identified =
+unavailable material as a limitation; the next assurance trigger is completio=
+n of the follow-up action; the disposition was communicated to the owner; the=
+ retained rationale supports repeat review; the record remains a local offlin=
+e assurance artifact. Counterexample considered: A single approval cannot set=
+tle a conflicting record; the discrepancy must remain visible to the reviewer=
+. Decision rule: Accept only when the source fact, accountable role, and revi=
+ew conclusion agree; otherwise record a follow-up disposition. Disposition: a=
+ccepted with a retained review note. No Kio capability is used or required fo=
+r this offline review.

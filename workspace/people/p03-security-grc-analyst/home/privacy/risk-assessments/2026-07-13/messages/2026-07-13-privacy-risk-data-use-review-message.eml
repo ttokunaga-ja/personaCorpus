@@ -1,0 +1,36 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Access Review decision for p03-full-006236
+Date: Mon, 13 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-006236@example.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline access review review for use review messag=
+e eml s006236 on 2026-07-13. The evidence question was: How should a conflict=
+ing source be handled before the disposition is recorded? The system steward =
+assembled the source facts; the access approver tested their control boundary=
+. The review relates AC-27 to evidence set 184 and records RISK-031 as the go=
+verning risk reference. Dependency context: no upstream dependency. The sourc=
+e record is p03-src-006236 and this artifact is p03-full-006236. The evidence=
+ instrument was the sampled access attestation; the reviewer observed that th=
+e approved scope was not expanded beyond the available evidence. During chall=
+enge, an incomplete register was challenged for its missing decision rule. Re=
+view profile: the evidence set was collected before the approval meeting; the=
+ accountable owner confirmed the operating boundary; the reviewer sampled an =
+adverse operating condition; the source fact supported acceptance with a docu=
+mented caveat; the comparison used the current control objective; the evidenc=
+e was retained in the review register; the exception path was considered and =
+recorded; the reviewer found no handover impact; the decision was suitable fo=
+r routine monitoring; the source chronology was complete; the control claim w=
+as independently corroborated; the review boundary identified unavailable mat=
+erial as a limitation; the next assurance trigger is completion of the follow=
+-up action; the disposition was communicated to the owner; the retained ratio=
+nale supports repeat review; the record remains a local offline assurance art=
+ifact. Counterexample considered: A dependency reference is not meaningful un=
+less the receiving artifact explains why it was consulted. Decision rule: Rej=
+ect unsupported claims and retain a concise explanation of the missing fact f=
+or the next review cycle. Disposition: escalated for corroboration with the d=
+ecision basis retained. No Kio capability is used or required for this offlin=
+e review.

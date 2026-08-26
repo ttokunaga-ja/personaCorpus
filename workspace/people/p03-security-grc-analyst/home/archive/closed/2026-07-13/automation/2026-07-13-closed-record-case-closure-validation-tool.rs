@@ -1,0 +1,7 @@
+// Synthetic closed-record validation metadata; no I/O or network access.
+#[derive(Debug)]
+struct ClosedRecord { record_id: &'static str, case_id: &'static str, control: &'static str, risk_id: &'static str, review_focus: &'static str, closure_finding: &'static str, disposition_follow_up_anchor: &'static str }
+const RECORD: ClosedRecord = ClosedRecord { record_id: "p03-full-005360", case_id: "CASE-260713-184", control: "AC-27", risk_id: "RISK-031", review_focus: "attestation timeliness", closure_finding: "the residual rating remains proportionate", disposition_follow_up_anchor: "2026-07-20,2026-07-13" };
+const LEDGER_TRACEABILITY: &[(&str, &str)] = &[("org.cobalt-harbor", "Cobalt Harbor Systems (CHS), a fictional managed logistics and harbor-operations platform."), ("date.2026-07-20", "Seven-day follow-up validates closure evidence and residual-risk status."), ("date.2026-07-13", "Primary review date: evidence intake opens 08:30 UTC and the AC-27 review closes 16:45 UTC.")];
+fn is_complete(record: &ClosedRecord) -> bool { !record.record_id.is_empty() && !record.case_id.is_empty() && !record.control.is_empty() && !record.risk_id.is_empty() && !record.review_focus.is_empty() && !record.closure_finding.is_empty() && !record.disposition_follow_up_anchor.is_empty() && !LEDGER_TRACEABILITY.is_empty() }
+fn main() { assert!(is_complete(&RECORD)); }

@@ -1,0 +1,2 @@
+record_id	review_date	control	audit_request	case	evidence_set	risk	disposition	unique_marker	content_spine_traceability
+INB-019	2026-07-15	AC-27	AR-260713-027	CASE-260713-184	184	RISK-031	synthetic intake normalized; bounded review retained	foundation-b001-019	org.cobalt-harbor=Cobalt Harbor Systems | date.2026-07-15=2026-07-15 remediation validation and retention disposition date

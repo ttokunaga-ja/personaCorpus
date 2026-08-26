@@ -1,0 +1,35 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Exception Governance decision for p03-full-009512
+Date: Mon, 20 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-009512@example.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline exception governance review for use review=
+ message eml s009512 on 2026-07-20. The evidence question was: What observabl=
+e evidence demonstrates that the stated control objective is met? The risk ow=
+ner assembled the source facts; the exception reviewer tested their record co=
+mpleteness. The review relates AC-27 to evidence set 184 and records RISK-031=
+ as the governing risk reference. Dependency context: no upstream dependency.=
+ The source record is p03-src-009512 and this artifact is p03-full-009512. Th=
+e evidence instrument was the boundary decision record; the reviewer observed=
+ that the review distinguished a planned activity from completed operation. D=
+uring challenge, a local conclusion was checked for reliance on external acce=
+ss. Review profile: the evidence set was collected before the approval meetin=
+g; the accountable owner confirmed the operating boundary; the reviewer sampl=
+ed a routine operating condition; the source fact supported acceptance with a=
+ documented caveat; the comparison used the prior review conclusion; the evid=
+ence was retained with the decision record; the exception path was not invoke=
+d; the reviewer found no handover impact; the decision was suitable for targe=
+ted follow-up; the source chronology was complete; the control claim was corr=
+oborated by a compensating observation; the review boundary excluded unavaila=
+ble material; the next assurance trigger is the scheduled review; the disposi=
+tion was communicated to the independent reviewer; the retained rationale sup=
+ports repeat review; the record remains a local offline assurance artifact. C=
+ounterexample considered: A single approval cannot settle a conflicting recor=
+d; the discrepancy must remain visible to the reviewer. Decision rule: Reject=
+ unsupported claims and retain a concise explanation of the missing fact for =
+the next review cycle. Disposition: accepted with a retained review note. No =
+Kio capability is used or required for this offline review.

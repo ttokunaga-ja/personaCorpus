@@ -1,0 +1,35 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Access Review decision for p03-full-000542
+Date: Wed, 15 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-000542@example.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline access review review for export review mes=
+sage eml s000542 on 2026-07-15. The evidence question was: What observable ev=
+idence demonstrates that the stated control objective is met? The system stew=
+ard assembled the source facts; the access approver tested their independent =
+confirmation. The review relates AC-27 to evidence set 184 and records RISK-0=
+31 as the governing risk reference. Dependency context: no upstream dependenc=
+y. The source record is p03-src-000542 and this artifact is p03-full-000542. =
+The evidence instrument was the sampling rationale; the reviewer observed tha=
+t the source record separated assertion from corroboration. During challenge,=
+ an ambiguous dependency was clarified before disposition. Review profile: th=
+e evidence set was collected before the approval meeting; the evidence custod=
+ian confirmed the record boundary; the reviewer sampled an adverse operating =
+condition; the source fact supported acceptance with a documented caveat; the=
+ comparison used the current control objective; the evidence was retained in =
+the review register; the exception path was not invoked; the reviewer found n=
+o handover impact; the decision was suitable for routine monitoring; the sour=
+ce chronology contained a reconciled late entry; the control claim was indepe=
+ndently corroborated; the review boundary excluded unavailable material; the =
+next assurance trigger is the scheduled review; the disposition was communica=
+ted to the owner; the retained rationale supports repeat review; the record r=
+emains a local offline assurance artifact. Counterexample considered: A gener=
+ic assurance claim is rejected when it cannot be traced to an owner, date, an=
+d retained evidence. Decision rule: Escalate conflicting observations to the =
+designated reviewer rather than resolving them through filename or identifier=
+ changes. Disposition: escalated for corroboration with the decision basis re=
+tained. No Kio capability is used or required for this offline review.

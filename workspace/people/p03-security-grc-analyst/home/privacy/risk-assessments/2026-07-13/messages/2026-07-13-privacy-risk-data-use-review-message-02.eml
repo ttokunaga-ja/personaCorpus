@@ -1,0 +1,35 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Supplier Assurance decision for p03-full-009488
+Date: Mon, 13 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-009488@example.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline supplier assurance review for use review m=
+essage eml s009488 on 2026-07-13. The evidence question was: Which responsibi=
+lity boundary must be visible before the record is approved? The service owne=
+r assembled the source facts; the vendor reviewer tested their ownership trac=
+e. The review relates AC-27 to evidence set 184 and records RISK-031 as the g=
+overning risk reference. Dependency context: no upstream dependency. The sour=
+ce record is p03-src-009488 and this artifact is p03-full-009488. The evidenc=
+e instrument was the evidence custody note; the reviewer observed that the so=
+urce chronology did not conceal a late correction. During challenge, an old e=
+xception was assessed for continued relevance. Review profile: the evidence s=
+et was collected before the approval meeting; the accountable owner confirmed=
+ the operating boundary; the reviewer sampled a routine operating condition; =
+the source fact supported acceptance without qualification; the comparison us=
+ed the current control objective; the evidence was retained in the review reg=
+ister; the exception path was not invoked; the reviewer found no handover imp=
+act; the decision was suitable for targeted follow-up; the source chronology =
+was complete; the control claim was corroborated by a compensating observatio=
+n; the review boundary excluded unavailable material; the next assurance trig=
+ger is the scheduled review; the disposition was communicated to the independ=
+ent reviewer; the retained rationale supports repeat review; the record remai=
+ns a local offline assurance artifact. Counterexample considered: A dated nar=
+rative without a named custodian is insufficient because responsibility canno=
+t be tested. Decision rule: Treat the control as effective only when the coun=
+terexample has been considered and the exception path is explicit. Dispositio=
+n: escalated for corroboration with the decision basis retained. No Kio capab=
+ility is used or required for this offline review.

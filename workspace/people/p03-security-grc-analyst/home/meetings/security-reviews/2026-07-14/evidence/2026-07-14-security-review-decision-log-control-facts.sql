@@ -1,0 +1,4 @@
+-- Cobalt Harbor Systems synthetic AC-27 review foundation; RISK-031; GRC-REV-004382; record DEC-260713-004 retention disposition with preparer-reviewer separation; EXC-260713-006 reviewer attestation.
+CREATE TABLE IF NOT EXISTS review_foundation (artifact_id TEXT PRIMARY KEY, source_id TEXT NOT NULL, review_date TEXT NOT NULL, control_id TEXT NOT NULL, case_id TEXT NOT NULL, evidence_set INTEGER NOT NULL, timely_attestations INTEGER NOT NULL, final_completion INTEGER NOT NULL, residual_risk TEXT NOT NULL);
+INSERT INTO review_foundation (artifact_id, source_id, review_date, control_id, case_id, evidence_set, timely_attestations, final_completion, residual_risk) VALUES ('p03-full-004382', 'p03-src-004382', '2026-07-14', 'AC-27', 'CASE-260713-184', 184, 47, 48, 'Medium');
+-- Decision: close checksum reconciliation evidence; spine: org.cobalt-harbor, action.act-260713-012 (ACT-260713-012), rel.case.timeline, date.2026-07-14, term.no-kio-claim.

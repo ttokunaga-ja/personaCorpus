@@ -1,0 +1,40 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Supplier Assurance decision for p03-full-003393
+Date: Mon, 20 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-003393@example.invalid>
+X-Review-Period: 2026 Q3
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline supplier assurance review for receipt revi=
+ew message eml s003393 on 2026-07-20. The evidence question was: Which source=
+ fact would cause the reviewer to accept the control conclusion? The service =
+owner assembled the source facts; the vendor reviewer tested their evidence q=
+uality. The review relates AC-27 to evidence set 184 and records RISK-031 as =
+the governing risk reference. Dependency context: no upstream dependency. The=
+ source record is p03-src-003393 and this artifact is p03-full-003393. The ev=
+idence instrument was the exception ageing report; the reviewer observed that=
+ the local conclusion did not depend on a portal or live endpoint. During cha=
+llenge, a broad claim was narrowed to the observable control action. Review p=
+rofile: the evidence set was collected during the follow-up review; the accou=
+ntable owner confirmed the operating boundary; the reviewer sampled a routine=
+ operating condition; the source fact supported acceptance without qualificat=
+ion; the comparison used the prior review conclusion; the evidence was retain=
+ed in the review register; the exception path was considered and recorded; th=
+e reviewer found no handover impact; the decision was suitable for targeted f=
+ollow-up; the source chronology was complete; the control claim was corrobora=
+ted by a compensating observation; the review boundary identified unavailable=
+ material as a limitation; the next assurance trigger is the scheduled review=
+; the disposition was communicated to the owner; the retained rationale suppo=
+rts repeat review; the record remains a local offline assurance artifact. Cou=
+nterexample considered: A status label alone is not evidence; it must be tied=
+ to a source fact and a reviewer conclusion. Decision rule: Reject unsupporte=
+d claims and retain a concise explanation of the missing fact for the next re=
+view cycle. Disposition: accepted with a retained review note. No Kio capabil=
+ity is used or required for this offline review.
+
+Review period: 2026 Q3. This intake checksum receipt review message eml recor=
+d was assessed using exception ageing and escalation criteria; the reviewer i=
+dentified a corroboration need.

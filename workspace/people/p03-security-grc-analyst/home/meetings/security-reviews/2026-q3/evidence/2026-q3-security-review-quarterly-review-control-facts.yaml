@@ -1,0 +1,20 @@
+schema_version: 1
+artifact_id: p03-full-002760
+source_id: p03-src-002760
+docket: GRC-REV-002760
+organization: Cobalt Harbor Systems
+program: Aegis Assurance
+control: AC-27
+case: CASE-260713-184
+evidence_set: 184
+risk: RISK-031
+review_date: 2026-Q3
+subject: Quarterly Review
+agenda: reconcile the Q3 AC-27 review population, compensating review, and evidence-chain handoff
+decision_context: retain the synthetic evidence package
+action_context: EXC-260713-006 reviewer attestation
+spine_ids: org.cobalt-harbor, period.2026-q3, rel.case.timeline, term.no-kio-claim
+period: 2026-Q3
+residual_risk: Medium
+retention: synthetic evidence retained for 18 months
+safety: defensive synthetic governance facts only; no Kio claim

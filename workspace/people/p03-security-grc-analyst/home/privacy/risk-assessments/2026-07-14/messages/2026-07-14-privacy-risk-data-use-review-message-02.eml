@@ -1,0 +1,36 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Access Review decision for p03-full-007988
+Date: Tue, 14 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-007988@example.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline access review review for use review messag=
+e eml s007988 on 2026-07-14. The evidence question was: What observable evide=
+nce demonstrates that the stated control objective is met? The system steward=
+ assembled the source facts; the access approver tested their exception handl=
+ing. The review relates AC-27 to evidence set 184 and records RISK-031 as the=
+ governing risk reference. Dependency context: no upstream dependency. The so=
+urce record is p03-src-007988 and this artifact is p03-full-007988. The evide=
+nce instrument was the evidence custody note; the reviewer observed that the =
+review distinguished a planned activity from completed operation. During chal=
+lenge, a policy reference was checked against the operating record. Review pr=
+ofile: the evidence set was collected before the approval meeting; the accoun=
+table owner confirmed the operating boundary; the reviewer sampled an adverse=
+ operating condition; the source fact supported acceptance without qualificat=
+ion; the comparison used the current control objective; the evidence was reta=
+ined with the decision record; the exception path was not invoked; the review=
+er found no handover impact; the decision was suitable for targeted follow-up=
+; the source chronology contained a reconciled late entry; the control claim =
+was corroborated by a compensating observation; the review boundary identifie=
+d unavailable material as a limitation; the next assurance trigger is complet=
+ion of the follow-up action; the disposition was communicated to the owner; t=
+he retained rationale supports repeat review; the record remains a local offl=
+ine assurance artifact. Counterexample considered: A repeated control stateme=
+nt does not establish operation when no counterexample was considered. Decisi=
+on rule: Accept only when the source fact, accountable role, and review concl=
+usion agree; otherwise record a follow-up disposition. Disposition: accepted =
+with a retained review note. No Kio capability is used or required for this o=
+ffline review.

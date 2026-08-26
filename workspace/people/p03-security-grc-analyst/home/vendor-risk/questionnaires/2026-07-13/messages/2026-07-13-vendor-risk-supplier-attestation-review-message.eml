@@ -1,0 +1,35 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Incident Readiness decision for p03-full-003360
+Date: Mon, 13 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-003360@example.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline incident readiness review for attestation =
+review message eml s003360 on 2026-07-13. The evidence question was: How shou=
+ld a conflicting source be handled before the disposition is recorded? The re=
+sponse coordinator assembled the source facts; the case reviewer tested their=
+ evidence quality. The review relates AC-27 to evidence set 184 and records R=
+ISK-031 as the governing risk reference. Dependency context: no upstream depe=
+ndency. The source record is p03-src-003360 and this artifact is p03-full-003=
+360. The evidence instrument was the exception ageing report; the reviewer ob=
+served that the record explained the relationship between policy and practice=
+. During challenge, a missing date was treated as a traceability concern. Rev=
+iew profile: the evidence set was collected before the approval meeting; the =
+accountable owner confirmed the operating boundary; the reviewer sampled a ro=
+utine operating condition; the source fact supported acceptance without quali=
+fication; the comparison used the prior review conclusion; the evidence was r=
+etained with the decision record; the exception path was not invoked; the rev=
+iewer found no handover impact; the decision was suitable for targeted follow=
+-up; the source chronology was complete; the control claim was corroborated b=
+y a compensating observation; the review boundary identified unavailable mate=
+rial as a limitation; the next assurance trigger is the scheduled review; the=
+ disposition was communicated to the owner; the retained rationale supports r=
+epeat review; the record remains a local offline assurance artifact. Countere=
+xample considered: A file name is not a substitute for the source facts that =
+support the conclusion. Decision rule: Accept only when the source fact, acco=
+untable role, and review conclusion agree; otherwise record a follow-up dispo=
+sition. Disposition: accepted with a retained review note. No Kio capability =
+is used or required for this offline review.

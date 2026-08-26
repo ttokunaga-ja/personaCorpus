@@ -1,0 +1,35 @@
+{
+  "record_id": "p03-full-008674",
+  "source_id": "p03-src-008674",
+  "record_date": "2026-Q3",
+  "organization": "Cobalt Harbor Systems",
+  "program": "Aegis Assurance",
+  "control": "AC-27",
+  "case_id": "CASE-260713-184",
+  "evidence_set": "184",
+  "risk_id": "RISK-031",
+  "record_class": "final_disposition",
+  "final_disposition": "Closed; retained under synthetic GRC retention schedule",
+  "residual_risk": "Medium",
+  "retention_minimum_months": 18,
+  "disposition_follow_up_anchors": [],
+  "ledger_traceability": [
+    {
+      "id": "org.cobalt-harbor",
+      "canonical_value": "Cobalt Harbor Systems (CHS), a fictional managed logistics and harbor-operations platform."
+    },
+    {
+      "id": "decision.dec-260713-004",
+      "canonical_value": "Retain evidence set 184 under the synthetic GRC retention schedule; no live-source data is included."
+    },
+    {
+      "id": "period.2026-q3",
+      "canonical_value": "Governance planning period from 2026-07-01 through 2026-09-30."
+    }
+  ],
+  "synthetic_notice": "Synthetic defensive governance record; no live-source data.",
+  "review_focus": "approval separation",
+  "closure_finding": "the control conclusion is supported by synthetic records",
+  "closure_rationale": "the follow-up confirms the remediation register",
+  "conclusion": "Closed archive conclusion: the control conclusion is supported by synthetic records; the follow-up confirms the remediation register; focus: approval separation."
+}

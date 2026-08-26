@@ -1,0 +1,35 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Supplier Assurance decision for p03-full-008513
+Date: Tue, 14 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-008513@example.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline supplier assurance review for rating revie=
+w message eml s008513 on 2026-07-14. The evidence question was: How should a =
+conflicting source be handled before the disposition is recorded? The service=
+ owner assembled the source facts; the vendor reviewer tested their exception=
+ handling. The review relates AC-27 to evidence set 184 and records RISK-031 =
+as the governing risk reference. Dependency context: no upstream dependency. =
+The source record is p03-src-008513 and this artifact is p03-full-008513. The=
+ evidence instrument was the process walkthrough note; the reviewer observed =
+that the control boundary was explained in practical terms. During challenge,=
+ a handover gap was assessed for accountability loss. Review profile: the evi=
+dence set was collected during the follow-up review; the accountable owner co=
+nfirmed the operating boundary; the reviewer sampled a routine operating cond=
+ition; the source fact supported acceptance without qualification; the compar=
+ison used the prior review conclusion; the evidence was retained in the revie=
+w register; the exception path was considered and recorded; the reviewer foun=
+d no handover impact; the decision was suitable for targeted follow-up; the s=
+ource chronology was complete; the control claim was independently corroborat=
+ed; the review boundary excluded unavailable material; the next assurance tri=
+gger is the scheduled review; the disposition was communicated to the indepen=
+dent reviewer; the retained rationale supports repeat review; the record rema=
+ins a local offline assurance artifact. Counterexample considered: A file nam=
+e is not a substitute for the source facts that support the conclusion. Decis=
+ion rule: Escalate conflicting observations to the designated reviewer rather=
+ than resolving them through filename or identifier changes. Disposition: esc=
+alated for corroboration with the decision basis retained. No Kio capability =
+is used or required for this offline review.

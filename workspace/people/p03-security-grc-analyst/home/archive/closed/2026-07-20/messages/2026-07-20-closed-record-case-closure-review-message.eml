@@ -1,0 +1,35 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Supplier Assurance decision for p03-full-006360
+Date: Mon, 20 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-006360@example.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline supplier assurance review for closure revi=
+ew message eml s006360 on 2026-07-20. The evidence question was: Which review=
+ question exposes a gap between policy language and operating evidence? The s=
+ervice owner assembled the source facts; the vendor reviewer tested their own=
+ership trace. The review relates AC-27 to evidence set 184 and records RISK-0=
+31 as the governing risk reference. Dependency context: no upstream dependenc=
+y. The source record is p03-src-006360 and this artifact is p03-full-006360. =
+The evidence instrument was the versioned review register; the reviewer obser=
+ved that the review preserved a clear separation of duties. During challenge,=
+ an old exception was assessed for continued relevance. Review profile: the e=
+vidence set was collected before the approval meeting; the accountable owner =
+confirmed the operating boundary; the reviewer sampled a routine operating co=
+ndition; the source fact supported acceptance with a documented caveat; the c=
+omparison used the current control objective; the evidence was retained in th=
+e review register; the exception path was considered and recorded; the review=
+er assessed a handover impact; the decision was suitable for routine monitori=
+ng; the source chronology was complete; the control claim was independently c=
+orroborated; the review boundary identified unavailable material as a limitat=
+ion; the next assurance trigger is completion of the follow-up action; the di=
+sposition was communicated to the owner; the retained rationale supports repe=
+at review; the record remains a local offline assurance artifact. Counterexam=
+ple considered: A generic assurance claim is rejected when it cannot be trace=
+d to an owner, date, and retained evidence. Decision rule: Preserve a bounded=
+ decision: cite the source, explain the rule, and state whether the result is=
+ accepted or escalated. Disposition: accepted with a retained review note. No=
+ Kio capability is used or required for this offline review.

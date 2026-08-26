@@ -1,0 +1,25 @@
+record_id: VRF-002439
+source_id: p03-src-002439
+subject: risk followup
+organization: Cobalt Harbor Systems
+program: Aegis Assurance
+control: AC-27
+case: CASE-260713-184
+risk: RISK-031
+evidence_set: 184
+review_date: 2026-07-13
+review_population: 48
+timely_attestations: 47
+final_completion: 48
+residual_risk: Medium
+supplier_action: ACT-260713-013
+data_classification: synthetic-defensive
+retention: 18 months
+note: Bounded supplier-assurance control fact; no live data.
+content_spine_trace:
+  - spine_id: org.cobalt-harbor
+    canonical_value: "Cobalt Harbor Systems (CHS) is a fictional organization operating a managed logistics and harbor-operations platform."
+  - spine_id: team.vendor-risk
+    canonical_value: "Third-Party Assurance owns supplier questionnaires, assurance follow-up, and exception evidence."
+  - spine_id: date.2026-07-20
+    canonical_value: "Seven-day follow-up validates closure evidence and residual-risk status."

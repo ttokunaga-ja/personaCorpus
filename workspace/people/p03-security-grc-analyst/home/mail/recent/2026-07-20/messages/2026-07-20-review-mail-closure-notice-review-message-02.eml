@@ -1,0 +1,35 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Change Assurance decision for p03-full-004959
+Date: Mon, 20 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-004959@example.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline change assurance review for notice review =
+message eml s004959 on 2026-07-20. The evidence question was: What decision c=
+an be made from the retained source material without external access? The cha=
+nge sponsor assembled the source facts; the assurance analyst tested their ex=
+ception handling. The review relates AC-27 to evidence set 184 and records RI=
+SK-031 as the governing risk reference. Dependency context: no upstream depen=
+dency. The source record is p03-src-004959 and this artifact is p03-full-0049=
+59. The evidence instrument was the signed ownership matrix; the reviewer obs=
+erved that the owner acknowledged a limitation without weakening traceability=
+. During challenge, a control objective was tested for a measurable outcome. =
+Review profile: the evidence set was collected during the follow-up review; t=
+he evidence custodian confirmed the record boundary; the reviewer sampled an =
+adverse operating condition; the source fact supported acceptance with a docu=
+mented caveat; the comparison used the current control objective; the evidenc=
+e was retained in the review register; the exception path was considered and =
+recorded; the reviewer found no handover impact; the decision was suitable fo=
+r targeted follow-up; the source chronology contained a reconciled late entry=
+; the control claim was independently corroborated; the review boundary exclu=
+ded unavailable material; the next assurance trigger is completion of the fol=
+low-up action; the disposition was communicated to the owner; the retained ra=
+tionale supports repeat review; the record remains a local offline assurance =
+artifact. Counterexample considered: A repeated control statement does not es=
+tablish operation when no counterexample was considered. Decision rule: Prese=
+rve a bounded decision: cite the source, explain the rule, and state whether =
+the result is accepted or escalated. Disposition: accepted with a retained re=
+view note. No Kio capability is used or required for this offline review.

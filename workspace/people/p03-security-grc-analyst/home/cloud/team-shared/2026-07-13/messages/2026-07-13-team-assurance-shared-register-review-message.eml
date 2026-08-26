@@ -1,0 +1,62 @@
+From: grc-reviewer@cobalt.invalid
+To: soc-duty@cobalt.invalid
+Date: Mon, 13 Jul 2026 16:45:00 +0000
+Subject: AC-27 shared register review - case timeline
+Message-ID: <p03-full-007701@cobalt.invalid>
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="===============3127427996800162104=="
+
+--===============3127427996800162104==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Artifact p03-full-007701 is a synthetic Cobalt Harbor Systems shared register=
+ record for 2026-07-13.
+
+## Review lens: case timeline
+
+retain ordered governance events. Use the 08:30 intake, 10:20 risk flag, 15:1=
+0 linkage review, and 16:45 closure sequence.
+
+## Method note
+
+This record uses a seven-day review framing method. It deliberately checks on=
+e bounded relationship in the evidence chain and does not generalize the resu=
+lt to a live environment.
+
+## Decision and follow-up
+
+Keep the 17:15 follow-up queue as a bounded case record. The applicable facts=
+ remain Aegis Control AC-27, CASE-260713-184, evidence set 184, and RISK-031 =
+residual Medium.
+
+## Safety boundary
+
+This is defensive GRC evidence only. It contains no real people, systems, cre=
+dentials, or operational events, and it makes no Kio indexing, history, chunk=
+s, search-quality, or performance claim.
+
+--===============3127427996800162104==
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+<!doctype html><html lang=3D"en"><head><meta charset=3D"utf-8"><title>Shared =
+Register AC-27 review</title><style>body{font-family:Arial;max-width:760px;ma=
+rgin:30px auto;line-height:1.55;color:#18313e}h1{color:#12354a;border-bottom:=
+3px solid #245b76}.callout{background:#eef6f8;padding:12px;border-left:4px so=
+lid #245b76}</style></head><body><header><h1>Shared Register assurance review=
+</h1><p><strong>Artifact:</strong> p03-full-007701 | <strong>Period:</strong>=
+ 2026-07-13</p></header><main><article><section><h2>Case Timeline</h2><p>reta=
+in ordered governance events. Use the 08:30 intake, 10:20 risk flag, 15:10 li=
+nkage review, and 16:45 closure sequence.</p></section><section><h2>Review me=
+thod</h2><p>This record uses a seven-day review framing method. It deliberate=
+ly checks one bounded relationship in the evidence chain and does not general=
+ize the result to a live environment.</p></section><section class=3D"callout"=
+><h2>Disposition and follow-up</h2><p>Keep the 17:15 follow-up queue as a bou=
+nded case record.</p></section><section><h2>Evidence boundary</h2><p>Evidence=
+ set 184 contains 24 required synthetic items; RISK-031 remains residual Medi=
+um. No Kio claim.</p></section></article></main></body></html>
+
+--===============3127427996800162104==--

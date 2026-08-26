@@ -1,0 +1,11 @@
+metric	value	unit	evidence_reference
+review_population	48	synthetic privileged-role records	EV-184-01
+timely_attestation	97.9%	47 of 48	EXC-260713-006
+final_completion	100.0%	48 of 48	ACT-260713-011
+evidence_completeness	24 of 24	required synthetic items	EV-184-19
+residual_risk	Medium	rating	RISK-031
+artifact_source	p03-src-003648	data-use	2026-07-14
+analytical_conclusion	Record 3648 concludes that data-use requires a bounded AC-27 evidence review for 2026-07-14; RISK-031 remains Medium after the compensating review, with no personal records in scope.	bounded review conclusion	org.cobalt-harbor, team.privacy, rel.privacy.vendor, date.2026-07-14, term.no-kio-claim
+positive_spine_traceability	org.cobalt-harbor = Cobalt Harbor Systems	raw spine ID and canonical value	p03-src-003648
+positive_spine_traceability	team.privacy = Privacy Assurance owns privacy-risk assessments and data-use reviews	raw spine ID and canonical value	p03-src-003648
+positive_spine_traceability	date.2026-07-14 = evidence normalization, checksum confirmation, and action-owner acknowledgement	raw spine ID and canonical value	p03-src-003648

@@ -1,0 +1,35 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Incident Readiness decision for p03-full-000575
+Date: Wed, 15 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-000575@example.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline incident readiness review for review messa=
+ge eml s000575 on 2026-07-15. The evidence question was: Which responsibility=
+ boundary must be visible before the record is approved? The response coordin=
+ator assembled the source facts; the case reviewer tested their control bound=
+ary. The review relates AC-27 to evidence set 184 and records RISK-031 as the=
+ governing risk reference. Dependency context: no upstream dependency. The so=
+urce record is p03-src-000575 and this artifact is p03-full-000575. The evide=
+nce instrument was the control test worksheet; the reviewer observed that the=
+ reviewer could locate the controlling decision without inference. During cha=
+llenge, a conflicting approval was escalated instead of silently merged. Revi=
+ew profile: the evidence set was collected during the follow-up review; the e=
+vidence custodian confirmed the record boundary; the reviewer sampled an adve=
+rse operating condition; the source fact supported acceptance with a document=
+ed caveat; the comparison used the current control objective; the evidence wa=
+s retained with the decision record; the exception path was not invoked; the =
+reviewer found no handover impact; the decision was suitable for routine moni=
+toring; the source chronology contained a reconciled late entry; the control =
+claim was independently corroborated; the review boundary excluded unavailabl=
+e material; the next assurance trigger is the scheduled review; the dispositi=
+on was communicated to the owner; the retained rationale supports repeat revi=
+ew; the record remains a local offline assurance artifact. Counterexample con=
+sidered: A dependency reference is not meaningful unless the receiving artifa=
+ct explains why it was consulted. Decision rule: Reject unsupported claims an=
+d retain a concise explanation of the missing fact for the next review cycle.=
+ Disposition: escalated for corroboration with the decision basis retained. N=
+o Kio capability is used or required for this offline review.

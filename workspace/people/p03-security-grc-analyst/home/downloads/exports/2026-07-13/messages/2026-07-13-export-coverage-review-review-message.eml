@@ -1,0 +1,35 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Supplier Assurance decision for p03-full-000421
+Date: Mon, 13 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-000421@example.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline supplier assurance review for review messa=
+ge eml s000421 on 2026-07-13. The evidence question was: What minimal trace p=
+roves that the control remains attributable to its owner? The service owner a=
+ssembled the source facts; the vendor reviewer tested their source reconcilia=
+tion. The review relates AC-27 to evidence set 184 and records RISK-031 as th=
+e governing risk reference. Dependency context: no upstream dependency. The s=
+ource record is p03-src-000421 and this artifact is p03-full-000421. The evid=
+ence instrument was the evidence custody note; the reviewer observed that the=
+ record explained the relationship between policy and practice. During challe=
+nge, a scope boundary was compared with the evidence collection boundary. Rev=
+iew profile: the evidence set was collected during the follow-up review; the =
+accountable owner confirmed the operating boundary; the reviewer sampled an a=
+dverse operating condition; the source fact supported acceptance without qual=
+ification; the comparison used the prior review conclusion; the evidence was =
+retained with the decision record; the exception path was not invoked; the re=
+viewer assessed a handover impact; the decision was suitable for targeted fol=
+low-up; the source chronology was complete; the control claim was independent=
+ly corroborated; the review boundary excluded unavailable material; the next =
+assurance trigger is the scheduled review; the disposition was communicated t=
+o the owner; the retained rationale supports repeat review; the record remain=
+s a local offline assurance artifact. Counterexample considered: A repeated c=
+ontrol statement does not establish operation when no counterexample was cons=
+idered. Decision rule: Record an approval only after the reviewer can reprodu=
+ce the conclusion from the retained facts without network access. Disposition=
+: escalated for corroboration with the decision basis retained. No Kio capabi=
+lity is used or required for this offline review.

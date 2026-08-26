@@ -1,0 +1,20 @@
+schema_version: 1
+artifact_id: p03-full-001502
+source_id: p03-src-001502
+docket: GRC-REV-001502
+organization: Cobalt Harbor Systems
+program: Aegis Assurance
+control: AC-27
+case: CASE-260713-184
+evidence_set: 184
+risk: RISK-031
+review_date: 2026-Q3
+subject: Decision Log
+agenda: record DEC-260713-004 retention disposition with preparer-reviewer separation
+decision_context: close checksum reconciliation evidence
+action_context: EXC-260713-006 reviewer attestation
+spine_ids: org.cobalt-harbor, action.act-260713-012 (ACT-260713-012), rel.case.timeline, period.2026-q3, term.no-kio-claim
+period: 2026-Q3
+residual_risk: Medium
+retention: synthetic evidence retained for 18 months
+safety: defensive synthetic governance facts only; no Kio claim

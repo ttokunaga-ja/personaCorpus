@@ -1,0 +1,35 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Supplier Assurance decision for p03-full-002800
+Date: Mon, 13 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-002800@example.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline supplier assurance review for attachment r=
+eview message eml s002800 on 2026-07-13. The evidence question was: How does =
+the review distinguish complete evidence from an unsupported assertion? The s=
+ervice owner assembled the source facts; the vendor reviewer tested their evi=
+dence quality. The review relates AC-27 to evidence set 184 and records RISK-=
+031 as the governing risk reference. Dependency context: no upstream dependen=
+cy. The source record is p03-src-002800 and this artifact is p03-full-002800.=
+ The evidence instrument was the data-classification note; the reviewer obser=
+ved that the source record separated assertion from corroboration. During cha=
+llenge, an unsupported completion status was tested for underlying proof. Rev=
+iew profile: the evidence set was collected before the approval meeting; the =
+accountable owner confirmed the operating boundary; the reviewer sampled a ro=
+utine operating condition; the source fact supported acceptance without quali=
+fication; the comparison used the current control objective; the evidence was=
+ retained with the decision record; the exception path was considered and rec=
+orded; the reviewer assessed a handover impact; the decision was suitable for=
+ routine monitoring; the source chronology contained a reconciled late entry;=
+ the control claim was independently corroborated; the review boundary identi=
+fied unavailable material as a limitation; the next assurance trigger is the =
+scheduled review; the disposition was communicated to the owner; the retained=
+ rationale supports repeat review; the record remains a local offline assuran=
+ce artifact. Counterexample considered: A complete-looking register is not re=
+liable if the decision rule and disposition are absent. Decision rule: Preser=
+ve a bounded decision: cite the source, explain the rule, and state whether t=
+he result is accepted or escalated. Disposition: accepted with a retained rev=
+iew note. No Kio capability is used or required for this offline review.

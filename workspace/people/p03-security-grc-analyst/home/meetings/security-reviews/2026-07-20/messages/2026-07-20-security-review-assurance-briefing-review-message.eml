@@ -1,0 +1,36 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Change Assurance decision for p03-full-001671
+Date: Mon, 20 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-001671@example.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline change assurance review for briefing revie=
+w message eml s001671 on 2026-07-20. The evidence question was: What observab=
+le evidence demonstrates that the stated control objective is met? The change=
+ sponsor assembled the source facts; the assurance analyst tested their revie=
+w repeatability. The review relates AC-27 to evidence set 184 and records RIS=
+K-031 as the governing risk reference. Dependency context: no upstream depend=
+ency. The source record is p03-src-001671 and this artifact is p03-full-00167=
+1. The evidence instrument was the versioned review register; the reviewer ob=
+served that the verification date was visible beside the source fact. During =
+challenge, a conflicting approval was escalated instead of silently merged. R=
+eview profile: the evidence set was collected during the follow-up review; th=
+e evidence custodian confirmed the record boundary; the reviewer sampled an a=
+dverse operating condition; the source fact supported acceptance without qual=
+ification; the comparison used the prior review conclusion; the evidence was =
+retained in the review register; the exception path was not invoked; the revi=
+ewer assessed a handover impact; the decision was suitable for routine monito=
+ring; the source chronology contained a reconciled late entry; the control cl=
+aim was corroborated by a compensating observation; the review boundary exclu=
+ded unavailable material; the next assurance trigger is the scheduled review;=
+ the disposition was communicated to the owner; the retained rationale suppor=
+ts repeat review; the record remains a local offline assurance artifact. Coun=
+terexample considered: A dated narrative without a named custodian is insuffi=
+cient because responsibility cannot be tested. Decision rule: Approve when th=
+e evidence is specific, attributable, and dated; otherwise classify the item =
+as needing corroboration. Disposition: escalated for corroboration with the d=
+ecision basis retained. No Kio capability is used or required for this offlin=
+e review.

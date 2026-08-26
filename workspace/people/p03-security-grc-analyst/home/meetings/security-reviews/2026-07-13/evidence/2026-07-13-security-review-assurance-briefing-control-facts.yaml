@@ -1,0 +1,20 @@
+schema_version: 1
+artifact_id: p03-full-003611
+source_id: p03-src-003611
+docket: GRC-REV-003611
+organization: Cobalt Harbor Systems
+program: Aegis Assurance
+control: AC-27
+case: CASE-260713-184
+evidence_set: 184
+risk: RISK-031
+review_date: 2026-07-13
+subject: Assurance Briefing
+agenda: prepare a bounded AC-27 assurance readout with numerator, denominator, and residual-risk rationale
+decision_context: queue the seven-day closure validation
+action_context: AR-260713-027 response packet
+spine_ids: org.cobalt-harbor, action.act-260713-012 (ACT-260713-012), rel.case.timeline, date.2026-07-13, term.no-kio-claim
+period: 2026-Q3
+residual_risk: Medium
+retention: synthetic evidence retained for 18 months
+safety: defensive synthetic governance facts only; no Kio claim

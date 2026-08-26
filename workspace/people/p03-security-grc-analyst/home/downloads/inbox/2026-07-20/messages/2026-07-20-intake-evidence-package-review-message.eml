@@ -1,0 +1,35 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Change Assurance decision for p03-full-002542
+Date: Mon, 20 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-002542@example.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline change assurance review for package review=
+ message eml s002542 on 2026-07-20. The evidence question was: Which review q=
+uestion exposes a gap between policy language and operating evidence? The cha=
+nge sponsor assembled the source facts; the assurance analyst tested their re=
+cord completeness. The review relates AC-27 to evidence set 184 and records R=
+ISK-031 as the governing risk reference. Dependency context: no upstream depe=
+ndency. The source record is p03-src-002542 and this artifact is p03-full-002=
+542. The evidence instrument was the approval trail summary; the reviewer obs=
+erved that the conclusion matched the scope of the stated control. During cha=
+llenge, a claimed control was tested against a negative sample. Review profil=
+e: the evidence set was collected before the approval meeting; the evidence c=
+ustodian confirmed the record boundary; the reviewer sampled an adverse opera=
+ting condition; the source fact supported acceptance with a documented caveat=
+; the comparison used the prior review conclusion; the evidence was retained =
+with the decision record; the exception path was considered and recorded; the=
+ reviewer assessed a handover impact; the decision was suitable for targeted =
+follow-up; the source chronology was complete; the control claim was independ=
+ently corroborated; the review boundary identified unavailable material as a =
+limitation; the next assurance trigger is the scheduled review; the dispositi=
+on was communicated to the owner; the retained rationale supports repeat revi=
+ew; the record remains a local offline assurance artifact. Counterexample con=
+sidered: A complete-looking register is not reliable if the decision rule and=
+ disposition are absent. Decision rule: Record an approval only after the rev=
+iewer can reproduce the conclusion from the retained facts without network ac=
+cess. Disposition: escalated for corroboration with the decision basis retain=
+ed. No Kio capability is used or required for this offline review.

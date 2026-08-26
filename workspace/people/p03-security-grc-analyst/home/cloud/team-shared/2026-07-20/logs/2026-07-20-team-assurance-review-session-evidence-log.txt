@@ -1,0 +1,4 @@
+2026-07-20T15:10:00Z p03-full-003874 review-session evidence-chain event logging evidence normalization complete for evidence set 184
+2026-07-20T16:45:00Z p03-full-003874 CASE-260713-184 retained RISK-031 residual Medium for this record
+2026-07-14T09:00:00Z p03-full-003874 compensating review confirmed; 48 of 48 synthetic roles complete
+record_locator=2026-07-20-team-assurance-review-session-evidence-log-txt;assigned_source_slot=003874;ledger_spine_refs=org.cobalt-harbor=Cobalt Harbor Systems | team.soc=Security Operations owns bounded SIEM exports detection review evidence and incident evidence-chain handoff | date.2026-07-20=Seven-day follow-up validates closure evidence and residual-risk status;spine_dates=2026-07-13;2026-07-14;2026-07-15;2026-07-20 classification=synthetic-defensive organization=Cobalt_Harbor_Systems

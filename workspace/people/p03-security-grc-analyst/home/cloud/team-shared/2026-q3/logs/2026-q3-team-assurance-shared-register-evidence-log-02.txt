@@ -1,0 +1,4 @@
+2026-07-20T15:10:00Z p03-full-007101 shared-register evidence-chain event logging evidence normalization complete for evidence set 184
+2026-07-20T16:45:00Z p03-full-007101 CASE-260713-184 retained RISK-031 residual Medium for this record
+2026-07-14T09:00:00Z p03-full-007101 compensating review confirmed; 48 of 48 synthetic roles complete
+record_locator=2026-q3-team-assurance-shared-register-evidence-log-txt;assigned_source_slot=007101;ledger_spine_refs=org.cobalt-harbor=Cobalt Harbor Systems | team.grc=Security GRC owns the AC-27 evidence register risk treatment tracking and audit-request coordination | period.2026-q3=Governance planning period 2026-07-01 through 2026-09-30;spine_dates=2026-07-13;2026-07-14;2026-07-15;2026-07-20 classification=synthetic-defensive organization=Cobalt_Harbor_Systems

@@ -1,0 +1,35 @@
+From: assurance-review@example.invalid
+To: records-review@example.invalid
+Subject: Change Assurance decision for p03-full-001104
+Date: Wed, 15 Jul 2026 09:00:00 +0000
+Message-ID: <p03-full-001104@example.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Cobalt Harbor performed an offline change assurance review for review message=
+ eml s001104 on 2026-07-15. The evidence question was: What observable eviden=
+ce demonstrates that the stated control objective is met? The change sponsor =
+assembled the source facts; the assurance analyst tested their evidence quali=
+ty. The review relates AC-27 to evidence set 184 and records RISK-031 as the =
+governing risk reference. Dependency context: no upstream dependency. The sou=
+rce record is p03-src-001104 and this artifact is p03-full-001104. The eviden=
+ce instrument was the risk treatment worksheet; the reviewer observed that th=
+e review distinguished a planned activity from completed operation. During ch=
+allenge, a broad claim was narrowed to the observable control action. Review =
+profile: the evidence set was collected before the approval meeting; the acco=
+untable owner confirmed the operating boundary; the reviewer sampled a routin=
+e operating condition; the source fact supported acceptance without qualifica=
+tion; the comparison used the current control objective; the evidence was ret=
+ained in the review register; the exception path was considered and recorded;=
+ the reviewer found no handover impact; the decision was suitable for routine=
+ monitoring; the source chronology was complete; the control claim was corrob=
+orated by a compensating observation; the review boundary excluded unavailabl=
+e material; the next assurance trigger is the scheduled review; the dispositi=
+on was communicated to the owner; the retained rationale supports repeat revi=
+ew; the record remains a local offline assurance artifact. Counterexample con=
+sidered: A single approval cannot settle a conflicting record; the discrepanc=
+y must remain visible to the reviewer. Decision rule: Reject unsupported clai=
+ms and retain a concise explanation of the missing fact for the next review c=
+ycle. Disposition: escalated for corroboration with the decision basis retain=
+ed. No Kio capability is used or required for this offline review.
