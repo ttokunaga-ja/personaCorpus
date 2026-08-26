@@ -16,10 +16,20 @@ ledger plus the persona's `progress/.../full/` and
 - deterministic canonical source inventory;
 - frozen M1 artifact IDs, paths, scopes, families and physical extensions;
 - deterministic 200-row M1 source/path reservations;
+- an optional, frozen digest-bound same-scope reconciliation for accepted
+  legacy physical-family mismatches (never an ad hoc reservation exception);
 - byte-frozen M1 baseline and cumulative accepted manifests;
 - immutable Full addition assignment;
 - content spine and batch checkpoints;
 - recomputed actual-file manifests and validation summaries.
+
+Prepared p04--p20 Full production uses checkpoint schema
+`persona-corpus.full-batch-checkpoint/v2` with `bin/full-resume-gate` to prove
+one append-only acceptance chain and a byte-identical live-home tip. The v2
+record is token-free and includes pinned before/after manifest bytes, exact
+family counts, required QA booleans, and final-image scan provenance where
+needed. It neither changes lease ownership/recovery rules nor retrofits the
+accepted p01--p03 v1/persona-isolated chains mid-wave.
 
 These records coordinate production but do not replace the Rust plan or owner
 record. Production tasks never stage or commit them; the wave coordinator does

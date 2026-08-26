@@ -24,6 +24,7 @@ for required in \
   "$corpus_root/prompts/p01-full-pilot-assignment.jsonl" \
   "$corpus_root/bin/full-ledger" \
   "$corpus_root/bin/p01-m1-assignment" \
+  "$corpus_root/bin/p02-m1-assignment" \
   "$corpus_root/canonical/persona-schedule.json" \
   "$corpus_root/canonical/persona-render.json" \
   "$corpus_root/canonical/materialized/persona-materialization.json" \
@@ -44,6 +45,7 @@ done
 "$corpus_root/bin/persona" --help >/dev/null
 "$corpus_root/bin/full-ledger" --help >/dev/null
 "$corpus_root/bin/p01-m1-assignment" --help >/dev/null
+"$corpus_root/bin/p02-m1-assignment" --help >/dev/null
 
 if ! cmp -s "$plan" "$workspace/persona-plan.json"; then
   echo "canonical and workspace plans differ" >&2

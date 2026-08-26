@@ -13,8 +13,15 @@ guidance from the Kio planning repository. In this standalone project:
 - `CROSS_PC_PERSONA_BUNDLES.md` defines persona-exclusive transfer between
   machines without synchronizing leases or `_control/`.
 - `./bin/full-ledger` publishes create-only Full inventories, manifests and M1
-  reservations; `./bin/p01-m1-assignment` backfills the legacy p01 M1
-  assignment ledger for the first pilot.
+  reservations, including an explicit digest-bound legacy reconciliation only
+  where accepted; persona-specific `./bin/p01-m1-assignment`,
+  `./bin/p02-m1-assignment`, and `./bin/p03-m1-assignment` safely backfill their
+  legacy M1 assignment ledgers. Post-Full p02/p03 backfills also use the
+  read-only `./bin/m1-home-manifest-guard` so the complete home path set must
+  match the accepted root corpus manifest before an M1 ledger is emitted.
+- `./bin/full-resume-gate` is the pinned read-only v2 acceptance-chain/live-home
+  gate for prepared p04--p20 Full packages. It does not replace the completed,
+  closed p01--p03 persona-isolated v1 chains or any lease rule.
 - `GIT_MANAGEMENT.md` defines the tracked accepted-artifact boundary, and
   `./bin/corpus-manifest` verifies all Git-managed final artifact bytes.
 

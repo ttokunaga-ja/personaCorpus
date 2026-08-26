@@ -1,5 +1,7 @@
 #!/bin/sh
-# Read-only/full-production ledger helper.  It deliberately has no lease API.
+# Isolated p03-capable copy of the Full ledger helper. It deliberately has no
+# lease API and preserves p03's reviewed trust anchor without changing the
+# shared helper.
 set -eu
 
 script_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
@@ -30,13 +32,32 @@ sha256() {
 # Reconciliation is an exceptional, reviewed compatibility bridge rather than a
 # general-purpose override mechanism.  Keep its trust anchor here, beside the
 # code which changes the otherwise strict M1-to-canonical pairing rules.
-approved_reconciliation_persona=p02
-approved_reconciliation_rel=progress/p02/full/m1-reservation-reconciliation.jsonl
-approved_reconciliation_id=p02-m1-same-scope-family-balance-v1
-approved_reconciliation_sha256=cb55ac00908354632520ae4fce6dae4c7c93bddf5ad129bfafcb18b61a56dbf7
+approved_reconciliation_persona=
+approved_reconciliation_rel=
+approved_reconciliation_id=
+approved_reconciliation_sha256=
+
+select_reconciliation_anchor() {
+  case "$persona" in
+    p02)
+      approved_reconciliation_persona=p02
+      approved_reconciliation_rel=progress/p02/full/m1-reservation-reconciliation.jsonl
+      approved_reconciliation_id=p02-m1-same-scope-family-balance-v1
+      approved_reconciliation_sha256=cb55ac00908354632520ae4fce6dae4c7c93bddf5ad129bfafcb18b61a56dbf7
+      ;;
+    p03)
+      approved_reconciliation_persona=p03
+      approved_reconciliation_rel=progress/p03/full/m1-reservation-reconciliation.jsonl
+      approved_reconciliation_id=p03-m1-same-scope-family-balance-v1
+      approved_reconciliation_sha256=5e723463a6322aad8f0c2c8248c851e33797504603dfbd7b0524e69168100d5d
+      ;;
+    *) die "no approved reconciliation exists for persona: $persona" ;;
+  esac
+}
 
 check_reconciliation_anchor() {
   [ -n "$reconciliation" ] || return 0
+  select_reconciliation_anchor
   approved_reconciliation_path="$root/$approved_reconciliation_rel"
   [ "$persona" = "$approved_reconciliation_persona" ] || die "no approved reconciliation exists for persona: $persona"
   [ "$reconciliation" = "$approved_reconciliation_path" ] || die "reconciliation path is not the approved canonical path"

@@ -1,0 +1,467 @@
+#!/usr/bin/env python3
+"""Read-only, fail-closed acceptance-chain gate for Full production.
+
+This tool intentionally knows nothing about leases or canonical rendering.  It
+checks that the local, token-free evidence for already accepted Full batches is
+a single append-only chain and that the current home is exactly its tip.
+"""
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import os
+import re
+import stat
+import subprocess
+import sys
+import tempfile
+import io
+from collections import defaultdict
+from datetime import datetime
+from pathlib import Path
+from PIL import Image, UnidentifiedImageError
+
+SHA = re.compile(r"sha256:[0-9a-f]{64}\Z")
+FILE_SHA = re.compile(r"[0-9a-f]{64}\Z")
+SNAPSHOTS: dict[Path, tuple[tuple[int, int, int, int], bytes, str]] = {}
+
+
+class GateError(Exception):
+    pass
+
+
+def fail(message: str) -> None:
+    raise GateError(message)
+
+
+def safe_rel(value: object, what: str = "path") -> str:
+    if not isinstance(value, str) or not value or "\x00" in value or "\\" in value:
+        fail(f"unsafe {what}")
+    p = Path(value)
+    if p.is_absolute() or any(part in ("", ".", "..") for part in p.parts):
+        fail(f"unsafe {what}: {value!r}")
+    return value
+
+
+def regular(path: Path, what: str) -> None:
+    if path.is_symlink() or not path.is_file():
+        fail(f"{what} must be a non-symlink regular file: {path}")
+
+
+def stable_read(path: Path, what: str) -> tuple[bytes, str]:
+    before = path.lstat()
+    marker = (before.st_dev, before.st_ino, before.st_size, before.st_mtime_ns)
+    if not stat.S_ISREG(before.st_mode) or path.is_symlink():
+        fail(f"{what} must be a non-symlink regular file: {path}")
+    prior = SNAPSHOTS.get(path)
+    if prior is not None:
+        if prior[0] != marker:
+            fail(f"{what} changed while being validated: {path}")
+        return prior[1], prior[2]
+    data = path.read_bytes()
+    after = path.lstat()
+    if marker != (after.st_dev, after.st_ino, after.st_size, after.st_mtime_ns) or len(data) != after.st_size:
+        fail(f"{what} changed while read: {path}")
+    digest = hashlib.sha256(data).hexdigest()
+    SNAPSHOTS[path] = (marker, data, digest)
+    return data, digest
+
+
+def directory(path: Path, what: str) -> None:
+    if path.is_symlink() or not path.is_dir():
+        fail(f"{what} must be a non-symlink directory: {path}")
+
+
+def load_json(path: Path, what: str) -> object:
+    try:
+        data, _ = stable_read(path, what)
+        return json.loads(data.decode("utf-8"))
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError) as e:
+        fail(f"invalid {what}: {path}: {e}")
+
+
+def load_jsonl(path: Path, what: str) -> list[dict]:
+    out: list[dict] = []
+    try:
+        data, _ = stable_read(path, what)
+        for n, line in enumerate(data.decode("utf-8").splitlines(keepends=True), 1):
+                if not line.endswith("\n") or not line.strip():
+                    fail(f"invalid {what} JSONL line {n}")
+                obj = json.loads(line)
+                if not isinstance(obj, dict):
+                    fail(f"invalid {what} JSONL object {n}")
+                out.append(obj)
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError) as e:
+        fail(f"invalid {what}: {path}: {e}")
+    if not out:
+        fail(f"empty {what}: {path}")
+    return out
+
+
+def file_sha256(path: Path, what: str) -> str:
+    return stable_read(path, what)[1]
+
+
+def manifest(path: Path, persona: str, what: str) -> dict[str, tuple[int, str]]:
+    lines = load_jsonl(path, what)
+    h, rows = lines[0], lines[1:]
+    if h.get("schema") != "persona-corpus.full-manifest/v1" or h.get("kind") != "header" or h.get("persona") != persona or not isinstance(h.get("plan_digest"), str) or not SHA.fullmatch(h["plan_digest"]):
+        fail(f"wrong {what} header schema/persona")
+    if not isinstance(h.get("file_count"), int) or h["file_count"] < 0 or h["file_count"] != len(rows):
+        fail(f"wrong {what} file_count")
+    result: dict[str, tuple[int, str]] = {}
+    digests: set[str] = set()
+    for row in rows:
+        if row.get("schema") != "persona-corpus.full-manifest/v1" or row.get("kind") != "file" or row.get("persona") != persona:
+            fail(f"wrong {what} file schema/persona")
+        rel = safe_rel(row.get("path"), f"{what} path")
+        size, digest = row.get("bytes"), row.get("sha256")
+        if not isinstance(size, int) or size < 0 or not isinstance(digest, str) or not SHA.fullmatch(digest):
+            fail(f"wrong {what} file digest/bytes")
+        if rel in result:
+            fail(f"duplicate {what} path: {rel}")
+        if "/__pycache__/" in f"/{rel}" or rel.endswith((".pyc", ".pyo")):
+            fail(f"cache path in {what}")
+        if digest in digests:
+            fail(f"duplicate {what} SHA-256")
+        digests.add(digest)
+        result[rel] = (size, digest)
+    return result
+
+
+def assignment(path: Path, persona: str) -> tuple[dict[str, dict], dict[str, list[dict]], str]:
+    lines = load_jsonl(path, "assignment")
+    h, rows = lines[0], lines[1:]
+    if h.get("schema") != "persona-corpus.full-addition-assignment/v1" or h.get("kind") != "header" or h.get("persona") != persona or not isinstance(h.get("plan_digest"), str) or not SHA.fullmatch(h["plan_digest"]):
+        fail("wrong assignment header schema/persona")
+    by_id: dict[str, dict] = {}
+    by_batch: dict[str, list[dict]] = defaultdict(list)
+    paths: set[str] = set()
+    for row in rows:
+        if row.get("schema") != "persona-corpus.full-addition-assignment/v1" or row.get("kind") != "artifact" or row.get("persona") != persona:
+            fail("wrong assignment artifact schema/persona")
+        aid, batch, scope = row.get("artifact_id"), row.get("batch_id"), row.get("scope_id")
+        if not all(isinstance(x, str) and x for x in (aid, batch, scope)):
+            fail("assignment artifact lacks id/batch/scope")
+        rel = safe_rel(row.get("path"), "assignment path")
+        if "/__pycache__/" in f"/{rel}" or rel.endswith((".pyc", ".pyo")):
+            fail("cache path in assignment")
+        if aid in by_id or rel in paths:
+            fail("duplicate assignment artifact/path")
+        by_id[aid], paths = row, paths | {rel}
+        by_batch[batch].append(row)
+    if not rows or h.get("artifact_count") != len(rows):
+        fail("empty assignment")
+    return by_id, by_batch, h["plan_digest"]
+
+
+def stable_bytes(home: Path, rel: str) -> bytes:
+    path = home / safe_rel(rel, "live evidence path")
+    return stable_read(path, "live evidence")[0]
+
+
+def normalized_rgb_digest(data: bytes, what: str) -> tuple[int, int, str]:
+    try:
+        with Image.open(io.BytesIO(data)) as image:
+            image.load()
+            rgb = image.convert("RGB")
+            width, height = rgb.size
+            payload = width.to_bytes(8, "big") + height.to_bytes(8, "big") + b"RGB\0" + rgb.tobytes()
+    except (UnidentifiedImageError, OSError, ValueError) as e:
+        fail(f"invalid {what} image: {e}")
+    return width, height, "sha256:" + hashlib.sha256(payload).hexdigest()
+
+
+def scan_pdf_digest(data: bytes) -> tuple[int, int, str]:
+    if not data.startswith(b"%PDF-"):
+        fail("scan provenance target lacks PDF magic")
+    with tempfile.TemporaryDirectory(prefix="full-resume-gate-pdf-") as td:
+        source = Path(td) / "scan.pdf"
+        prefix = Path(td) / "page"
+        source.write_bytes(data)
+        try:
+            run = subprocess.run(["pdfimages", "-png", str(source), str(prefix)], capture_output=True, text=True, timeout=30)
+        except (OSError, subprocess.TimeoutExpired) as e:
+            fail(f"pdfimages unavailable/failed: {e}")
+        if run.returncode != 0:
+            fail("pdfimages failed for scan provenance")
+        extracted = sorted(Path(td).glob("page-*.png"))
+        if len(extracted) != 1:
+            fail("scan PDF must extract exactly one image")
+        return normalized_rgb_digest(extracted[0].read_bytes(), "extracted scan")
+
+
+def live_manifest(home: Path) -> dict[str, tuple[int, str]]:
+    directory(home, "home")
+    out: dict[str, tuple[int, str]] = {}
+    hashes: set[str] = set()
+    for base, dirs, files in os.walk(home, followlinks=False):
+        bp = Path(base)
+        for name in dirs:
+            p = bp / name
+            if p.is_symlink() or name == "__pycache__":
+                fail("home contains symlink/cache directory")
+        for name in files:
+            p = bp / name
+            if p.is_symlink() or not p.is_file():
+                fail("home contains symlink/nonregular file")
+            rel = p.relative_to(home).as_posix()
+            safe_rel(rel, "live home path")
+            if p.name.endswith((".pyc", ".pyo")):
+                fail("home contains cache file")
+            data = stable_bytes(home, rel)
+            digest = "sha256:" + hashlib.sha256(data).hexdigest()
+            if digest in hashes:
+                fail("home contains duplicate SHA-256")
+            hashes.add(digest)
+            out[rel] = (len(data), digest)
+    return out
+
+
+def manifest_ref(value: object, manifests_dir: Path, baseline: Path, persona: str, what: str) -> Path:
+    if not isinstance(value, str) or not value:
+        fail(f"missing {what} manifest reference")
+    # Checkpoint references are logical, repository-relative evidence paths.
+    # Resolve only their basename inside the explicitly admitted manifest dir.
+    name = Path(value).name
+    canonical = f"progress/{persona}/full/manifests/{name}"
+    if value != name and value != canonical:
+        fail(f"unsafe {what} manifest reference")
+    if not name or name in (".", ".."):
+        fail(f"unsafe {what} manifest reference")
+    candidate = manifests_dir / name
+    if candidate == baseline or name == baseline.name:
+        return baseline
+    return candidate
+
+
+def provenance_for_group(group: list[dict], by_id: dict[str, dict], after: dict[str, tuple[int, str]], require: bool, home: Path, earlier_artifacts: set[str]) -> None:
+    scans = [r for cp in group for r in cp["rows"] if r.get("family") == "pdf_scan"]
+    records: list[dict] = []
+    for cp in group:
+        evidence = cp["raw"].get("scan_provenance")
+        if evidence is None:
+            if require and scans:
+                fail("accepted scan batch lacks scan_provenance")
+            continue
+        if not isinstance(evidence, list):
+            fail("scan_provenance must be a list")
+        required_record = {"scan_artifact_id", "scan_path", "scan_sha256", "source_kind", "dependency_artifact_id", "image_path", "image_sha256", "pixel_qa", "source_pixel_sha256", "rendered_pixel_sha256"}
+        if not all(isinstance(x, dict) and set(x) == required_record for x in evidence):
+            fail("invalid scan provenance record")
+        records.extend(evidence)
+    if not require:
+        return
+    if len(records) != len(scans):
+        fail("scan provenance count does not match accepted scans")
+    expected = {r["artifact_id"]: r for r in scans}
+    seen: set[str] = set()
+    for rec in records:
+        aid = rec.get("scan_artifact_id")
+        if aid not in expected or aid in seen:
+            fail("duplicate/unknown scan provenance artifact")
+        seen.add(aid)
+        scan = expected[aid]
+        if rec.get("scan_path") != scan["path"] or rec.get("scan_sha256") != after.get(scan["path"], (None, None))[1]:
+            fail("scan provenance does not bind current scan")
+        qa = rec.get("pixel_qa")
+        if not isinstance(qa, dict) or set(qa) != {"passed", "width", "height", "method"} or qa.get("passed") is not True or not isinstance(qa.get("width"), int) or qa["width"] <= 0 or not isinstance(qa.get("height"), int) or qa["height"] <= 0:
+            fail("scan provenance lacks pixel QA")
+        kind = rec.get("source_kind")
+        if kind == "dependency":
+            dep = rec.get("dependency_artifact_id")
+            if not isinstance(dep, str) or dep not in scan.get("dependencies", []) or dep not in by_id:
+                fail("scan provenance dependency is not declared by master")
+            if dep not in earlier_artifacts:
+                fail("scan provenance image dependency was not accepted in an earlier group")
+            image = by_id[dep]
+            if image.get("family") != "image":
+                fail("scan provenance dependency is not an image artifact")
+            if rec.get("image_path") != image.get("path") or rec.get("image_sha256") != after.get(image.get("path"), (None, None))[1]:
+                fail("scan provenance image binding mismatch")
+            scan_data, image_data = stable_bytes(home, scan["path"]), stable_bytes(home, image["path"])
+            if not image_data.startswith(b"\x89PNG\r\n\x1a\n") or len(image_data) < 24 or image_data[12:16] != b"IHDR":
+                fail("scan provenance source lacks PNG/IHDR magic")
+            width, height, source_digest = normalized_rgb_digest(image_data, "source PNG")
+            rendered_width, rendered_height, rendered_digest = scan_pdf_digest(scan_data)
+            if qa["width"] != width or qa["height"] != height or qa.get("method") != "normalized-rgb-sha256/v1":
+                fail("scan provenance PNG dimensions/pixel method mismatch")
+            if (width, height, source_digest) != (rendered_width, rendered_height, rendered_digest) or rec.get("source_pixel_sha256") != source_digest or rec.get("rendered_pixel_sha256") != rendered_digest:
+                fail("scan provenance pixel digest mismatch")
+            image_deps = [d for d in scan.get("dependencies", []) if d in by_id and by_id[d].get("family") == "image"]
+            if len(image_deps) != 1 or image_deps[0] != dep or scan.get("scratch_input") not in (None, "") or scan.get("scratch_input_path") not in (None, ""):
+                fail("scan must have exactly one final image dependency and no scratch route")
+        else:
+            fail("scan provenance source_kind must be dependency")
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument("--persona", required=True)
+    ap.add_argument("--home", required=True)
+    ap.add_argument("--baseline", required=True)
+    ap.add_argument("--assignment", required=True)
+    ap.add_argument("--checkpoints-dir", required=True)
+    ap.add_argument("--manifests-dir", required=True)
+    ap.add_argument("--require-scan-provenance", action="store_true")
+    a = ap.parse_args()
+    persona = a.persona
+    if not re.fullmatch(r"p[0-9]{2}", persona):
+        fail("invalid persona")
+    home, baseline_path, assignment_path = Path(a.home), Path(a.baseline), Path(a.assignment)
+    checkpoints_dir, manifests_dir = Path(a.checkpoints_dir), Path(a.manifests_dir)
+    if checkpoints_dir.exists() or checkpoints_dir.is_symlink():
+        directory(checkpoints_dir, "checkpoints directory")
+        checkpoint_entries = sorted(checkpoints_dir.iterdir())
+    else:
+        # A new persona has no accepted checkpoints yet.  The absent directory
+        # is a valid zero-checkpoint state, but its admitted parent must exist;
+        # this command never creates it.
+        directory(checkpoints_dir.parent, "checkpoints directory parent")
+        checkpoint_entries = []
+    directory(manifests_dir, "manifests directory")
+    for p in manifests_dir.iterdir():
+        if p.is_symlink() or not p.is_file() or p.suffix != ".jsonl":
+            fail("unsafe/non-manifest entry in manifests directory")
+    baseline = manifest(baseline_path, persona, "baseline")
+    baseline_digest = file_sha256(baseline_path, "baseline")
+    by_id, by_batch, plan_digest = assignment(assignment_path, persona)
+    baseline_header = load_jsonl(baseline_path, "baseline")[0]
+    if baseline_header.get("plan_digest") != plan_digest:
+        fail("baseline and assignment plan_digest differ")
+    # Checkpoint folders are an immutable acceptance log: reject anything other
+    # than a regular JSON checkpoint, including hidden lock/cache files.
+    cps: list[dict] = []
+    for p in checkpoint_entries:
+        if p.is_symlink() or not p.is_file() or p.suffix != ".json":
+            fail("unsafe/non-checkpoint entry in checkpoints directory")
+        raw = load_json(p, "checkpoint")
+        allowed = {"schema", "kind", "persona", "plan_digest", "scope_id", "batch_id", "assignment_count", "accepted_additions", "m1_file_count", "m1_sha256_unchanged", "acceptance_group", "before_manifest", "after_manifest", "before_manifest_sha256", "after_manifest_sha256", "family_counts", "qa", "accepted_at", "scan_provenance"}
+        if not isinstance(raw, dict) or set(raw) != allowed or raw.get("schema") != "persona-corpus.full-batch-checkpoint/v2" or raw.get("kind") != "checkpoint" or raw.get("persona") != persona or raw.get("plan_digest") != plan_digest:
+            fail("wrong checkpoint schema/persona")
+        batch, scope = raw.get("batch_id"), raw.get("scope_id")
+        if not isinstance(batch, str) or batch not in by_batch or not isinstance(scope, str):
+            fail("unknown checkpoint batch/scope")
+        rows = by_batch[batch]
+        if any(r.get("scope_id") != scope for r in rows):
+            fail("checkpoint scope does not match master batch")
+        count = len(rows)
+        if raw.get("assignment_count") != count or raw.get("accepted_additions") != count or raw.get("m1_file_count") != len(baseline) or raw.get("m1_sha256_unchanged") is not True:
+            fail("checkpoint count/M1 assertion mismatch")
+        expected_families: dict[str, int] = {}
+        for row in rows:
+            family = row.get("family")
+            if not isinstance(family, str) or not family:
+                fail("assignment lacks family")
+            expected_families[family] = expected_families.get(family, 0) + 1
+        required_qa = {"structure", "family", "content_spine", "dependencies", "skill_required", "secrets_pii"}
+        if raw.get("family_counts") != expected_families or not isinstance(raw.get("qa"), dict) or set(raw["qa"]) != required_qa or any(v is not True for v in raw["qa"].values()):
+            fail("checkpoint family_counts/qa mismatch")
+        try:
+            stamp = raw.get("accepted_at")
+            if not isinstance(stamp, str) or not stamp.endswith("Z"):
+                raise ValueError
+            datetime.strptime(stamp, "%Y-%m-%dT%H:%M:%SZ")
+        except ValueError:
+            fail("checkpoint accepted_at must be UTC RFC3339 seconds")
+        if p.name != f"{batch}.json":
+            fail("checkpoint filename must equal batch_id.json")
+        group = raw.get("acceptance_group", batch)
+        if not isinstance(group, str) or not group:
+            fail("invalid acceptance group")
+        before_path = manifest_ref(raw.get("before_manifest"), manifests_dir, baseline_path, persona, "before")
+        after_path = manifest_ref(raw.get("after_manifest"), manifests_dir, baseline_path, persona, "after")
+        before_digest, after_digest = raw.get("before_manifest_sha256"), raw.get("after_manifest_sha256")
+        if not isinstance(before_digest, str) or not FILE_SHA.fullmatch(before_digest) or not isinstance(after_digest, str) or not FILE_SHA.fullmatch(after_digest):
+            fail("checkpoint lacks valid manifest byte digests")
+        if before_digest != file_sha256(before_path, "before manifest") or after_digest != file_sha256(after_path, "after manifest"):
+            fail("checkpoint manifest byte digest mismatch")
+        cps.append({"file": p, "raw": raw, "batch": batch, "group": group, "before_path": before_path, "after_path": after_path, "before_digest": before_digest, "after_digest": after_digest, "rows": rows})
+    batches = [x["batch"] for x in cps]
+    if len(batches) != len(set(batches)):
+        fail("more than one checkpoint for accepted batch")
+    groups: dict[str, list[dict]] = defaultdict(list)
+    for cp in cps:
+        groups[cp["group"]].append(cp)
+    nodes: list[tuple[str, str, Path, list[dict]]] = []
+    for gid, group in groups.items():
+        before_paths, after_paths = {x["before_path"] for x in group}, {x["after_path"] for x in group}
+        before_digests, after_digests = {x["before_digest"] for x in group}, {x["after_digest"] for x in group}
+        if len(before_paths) != 1 or len(after_paths) != 1 or len(before_digests) != 1 or len(after_digests) != 1:
+            fail("shared group members must use identical before/after manifests")
+        before_path, after_path = before_paths.pop(), after_paths.pop()
+        before_digest, after_digest = before_digests.pop(), after_digests.pop()
+        if before_path == after_path or before_digest == after_digest:
+            fail("acceptance group must use distinct append-only manifests")
+        before, after = manifest(before_path, persona, "before manifest"), manifest(after_path, persona, "after manifest")
+        for hpath in (before_path, after_path):
+            if load_jsonl(hpath, "checkpoint manifest")[0].get("plan_digest") != plan_digest:
+                fail("checkpoint manifest plan_digest differs")
+        expected = {r["path"] for x in group for r in x["rows"]}
+        if len(expected) != sum(len(x["rows"]) for x in group):
+            fail("duplicate assignment path inside acceptance group")
+        delta = set(after) - set(before)
+        if delta != expected or set(before) - set(after):
+            fail("manifest delta is not exactly accepted batch paths")
+        for path, state in before.items():
+            if after.get(path) != state:
+                fail("M1/earlier accepted file changed in acceptance chain")
+        nodes.append((before_digest, after_digest, after_path, group))
+    # New group-before files are deliberately create-only copies of the prior
+    # group-after.  Thus the graph is formed by checkpoint-bound manifest byte
+    # digests, not pathname identity.  A duplicate edge or a second incoming or
+    # outgoing content digest is an ambiguous/forked audit trail and fails.
+    if nodes:
+        outgoing: dict[str, tuple[str, Path, list[dict]]] = {}
+        incoming: set[str] = set()
+        for before_digest, after_digest, after_path, group in nodes:
+            if before_digest in outgoing or after_digest in incoming:
+                fail("fork, cycle, or ambiguous acceptance chain")
+            outgoing[before_digest] = (after_digest, after_path, group)
+            incoming.add(after_digest)
+        cursor = baseline_digest
+        latest_path = baseline_path
+        visited = 0
+        ordered_groups: list[tuple[str, str, Path, list[dict]]] = []
+        while cursor in outgoing:
+            after_digest, after_path, group = outgoing[cursor]
+            ordered_groups.append((cursor, after_digest, after_path, group))
+            cursor, latest_path = after_digest, after_path
+            visited += 1
+            if visited > len(nodes):
+                fail("acceptance chain cycle")
+        if visited != len(nodes) or any(before not in incoming and before != baseline_digest for before, _, _, _ in nodes):
+            fail("acceptance chain has gap/non-root branch")
+        earlier_artifacts: set[str] = set()
+        for _, _, after_path, group in ordered_groups:
+            provenance_for_group(group, by_id, manifest(after_path, persona, "ordered after manifest"), a.require_scan_provenance, home, earlier_artifacts)
+            earlier_artifacts.update(row["artifact_id"] for cp in group for row in cp["rows"])
+        trusted = manifest(latest_path, persona, "latest trusted after manifest")
+    else:
+        trusted = baseline
+    current = live_manifest(home)
+    if current != trusted:
+        fail("live home is not byte-identical to latest trusted manifest")
+    referenced = {baseline_path.name} | {cp["before_path"].name for cp in cps} | {cp["after_path"].name for cp in cps}
+    unaccepted_before = 0
+    for p in manifests_dir.iterdir():
+        if p.name in referenced:
+            continue
+        # An interrupted batch may retain a create-only before manifest.  It is
+        # never trusted or followed; allowing only this explicit filename class
+        # preserves resumability while rejecting stray accepted/after evidence.
+        if p.name.endswith(".before.jsonl"):
+            unaccepted_before += 1
+        else:
+            fail("unreferenced manifest is not an interrupted before record")
+    print(json.dumps({"result": "ok", "persona": persona, "accepted_batches": len(cps), "accepted_groups": len(nodes), "trusted_file_count": len(trusted), "ignored_unaccepted_before_manifests": unaccepted_before}, separators=(",", ":")))
+    return 0
+
+
+if __name__ == "__main__":
+    try:
+        raise SystemExit(main())
+    except GateError as e:
+        print(f"full-resume-gate: {e}", file=sys.stderr)
+        raise SystemExit(1)

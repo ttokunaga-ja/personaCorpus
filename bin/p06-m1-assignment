@@ -1,0 +1,161 @@
+#!/usr/bin/env python3
+"""Create-only, deterministic machine ledger for p06's frozen M1 assignment."""
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import os
+import re
+from collections import Counter
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+PERSONA = "p06"
+ROLE = "life-science-researcher"
+INPUT = ROOT / "progress/p06/m1-assignments.md"
+HOME = ROOT / f"workspace/people/{PERSONA}-{ROLE}/home"
+PINNED = "f85b7d0687065c25257a95e39eb8ff7a4668d76e39d9f58f7ceca35afe121eaa"
+FAMILIES = {
+    "md": 12,
+    "txt_log": 12,
+    "code": 6,
+    "structured_text": 10,
+    "csv_tsv": 30,
+    "html_eml": 4,
+    "ipynb": 6,
+    "pdf_text": 36,
+    "pdf_scan": 16,
+    "docx": 16,
+    "xlsx": 16,
+    "pptx": 10,
+    "image": 18,
+    "domain_binary": 8,
+}
+
+
+def fail(message: str) -> None:
+    raise SystemExit(f"p06-m1-assignment: {message}")
+
+
+def sha256(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--out", required=True, type=Path)
+    args = parser.parse_args()
+    out = args.out
+    if not out.is_absolute() or out.exists() or out.is_symlink():
+        fail("--out must be a new, absolute regular path")
+    try:
+        out_dir = out.parent.resolve(strict=True)
+    except OSError as error:
+        fail(f"cannot resolve output directory: {error}")
+    protected = tuple(
+        (ROOT / name).resolve()
+        for name in ("workspace", "canonical", "scratch", ".git", "_control")
+    )
+    if not out_dir.is_dir() or any(
+        out_dir == base or base in out_dir.parents for base in protected
+    ):
+        fail("unsafe output directory")
+    out = out_dir / out.name
+    if sha256(INPUT) != PINNED:
+        fail("frozen Markdown SHA-256 mismatch")
+
+    plan = json.loads((ROOT / "canonical/persona-plan.json").read_text())
+    persona = next(p for p in plan["personas"] if p["id"] == PERSONA)
+    scopes = {scope["id"]: scope["path"] for scope in persona["scopes"]}
+    rows: list[tuple[str, str, str, str]] = []
+    scope_id: str | None = None
+    for line in INPUT.read_text().splitlines():
+        heading = re.match(r"^### (p06-(?:primary|secondary)-\d\d) — \d+ files$", line)
+        if heading:
+            scope_id = heading.group(1)
+            continue
+        folder = re.match(
+            r"^Final folder: `workspace/people/p06-life-science-researcher/home/(.+)`$",
+            line,
+        )
+        if folder:
+            if scope_id is None or folder.group(1) != scopes[scope_id]:
+                fail(f"scope folder mismatch: {line}")
+            continue
+        item = re.match(
+            r"^- `([^`]+)` — family=([a-z_]+); ext=\.([^; ]+)(?:;.*)?$", line
+        )
+        if item:
+            if scope_id is None:
+                fail(f"artifact without scope: {line}")
+            filename, family, extension = item.groups()
+            if filename.rsplit(".", 1)[-1] != extension:
+                fail(f"extension mismatch: {line}")
+            rows.append(
+                (scope_id, f"{scopes[scope_id]}/{filename}", filename, family)
+            )
+
+    if len(rows) != 200 or len({row[1] for row in rows}) != 200:
+        fail(f"expected 200 unique rows, got {len(rows)}")
+    if Counter(row[3] for row in rows) != Counter(FAMILIES):
+        fail("family distribution differs from frozen contract")
+    if set(row[0] for row in rows) != set(scopes):
+        fail("scope set differs from plan")
+    expected = {row[1] for row in rows}
+    actual = {
+        path.relative_to(HOME).as_posix()
+        for path in HOME.rglob("*")
+        if path.is_file() and not path.is_symlink()
+    }
+    unsafe = [
+        path
+        for path in HOME.rglob("*")
+        if path.is_symlink() or (not path.is_dir() and not path.is_file())
+    ]
+    if unsafe or actual != expected:
+        fail("home is not exactly the frozen regular-file set")
+
+    plan_digest = "sha256:" + sha256(ROOT / "canonical/persona-plan.json")
+    payload = [
+        {
+            "schema": "persona-corpus.m1-assignment/v1",
+            "kind": "header",
+            "persona": PERSONA,
+            "plan_digest": plan_digest,
+            "source_assignment_sha256": "sha256:" + PINNED,
+            "assignment_id": "p06-m1-frozen-v1",
+            "artifact_count": 200,
+        }
+    ]
+    for index, (row_scope, path, filename, family) in enumerate(
+        sorted(rows, key=lambda row: row[1]), 1
+    ):
+        payload.append(
+            {
+                "schema": "persona-corpus.m1-assignment/v1",
+                "kind": "artifact",
+                "persona": PERSONA,
+                "artifact_id": f"p06-m1-{index:04d}",
+                "scope_id": row_scope,
+                "scope_path": scopes[row_scope],
+                "family": family,
+                "physical_extension": filename.rsplit(".", 1)[-1],
+                "path": path,
+                "state": "frozen",
+            }
+        )
+    data = "".join(
+        json.dumps(row, ensure_ascii=False, separators=(",", ":")) + "\n"
+        for row in payload
+    ).encode()
+    try:
+        descriptor = os.open(out, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o644)
+    except FileExistsError:
+        fail("refusing to overwrite output")
+    with os.fdopen(descriptor, "wb") as handle:
+        handle.write(data)
+
+
+if __name__ == "__main__":
+    main()

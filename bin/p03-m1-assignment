@@ -1,0 +1,150 @@
+#!/bin/sh
+# Deterministically backfill p03's frozen M1 Markdown assignment into the
+# machine-readable ledger required by Full production.  This conversion is
+# read-only with respect to the display assignment and final artifact tree.
+set -eu
+
+script_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd -P)
+root=$(CDPATH= cd -- "$script_dir/.." && pwd -P)
+input="$root/progress/p03/m1-assignments.md"
+plan="$root/canonical/persona-plan.json"
+home="$root/workspace/people/p03-security-grc-analyst/home"
+corpus_manifest="$root/manifests/corpus-sha256.jsonl"
+home_guard="$root/bin/m1-home-manifest-guard"
+input_sha256='30dd24c19194ff422501bd1fb31f46cefa10a455c295028bfe904d9936233bbc'
+
+die() { echo "p03-m1-assignment: $*" >&2; exit 1; }
+sha256() {
+  if command -v shasum >/dev/null 2>&1; then shasum -a 256 "$1" | awk '{print $1}'
+  elif command -v sha256sum >/dev/null 2>&1; then sha256sum "$1" | awk '{print $1}'
+  else die "need shasum or sha256sum"; fi
+}
+
+case "${1:-}" in
+  --help|-h) echo "usage: p03-m1-assignment --out /absolute/new.jsonl"; exit 0 ;;
+esac
+[ "${1:-}" = --out ] && [ "$#" -eq 2 ] || die "usage: p03-m1-assignment --out /absolute/new.jsonl"
+out=$2
+case "$out" in /*) ;; *) die "--out must be an absolute path";; esac
+[ ! -e "$out" ] || die "refusing to overwrite existing output: $out"
+[ -f "$input" ] || die "missing frozen p03 M1 assignment: $input"
+[ -f "$plan" ] || die "missing canonical plan: $plan"
+[ -d "$home" ] || die "missing p03 final home: $home"
+[ -x "$home_guard" ] || die "missing executable home manifest guard: $home_guard"
+[ -f "$corpus_manifest" ] || die "missing accepted corpus manifest: $corpus_manifest"
+out_dir=$(dirname -- "$out")
+[ -d "$out_dir" ] || die "output directory does not exist: $out_dir"
+out_dir_physical=$(CDPATH= cd -- "$out_dir" && pwd -P) || die "cannot resolve output directory"
+case "$out_dir_physical/" in
+  "$root/workspace/"*|"$root/canonical/"*|"$root/_control/"*|"$root/.git/"*|"$root/scratch/"*) die "unsafe output directory: $out_dir";;
+esac
+[ "$(sha256 "$input")" = "$input_sha256" ] || die "frozen Markdown SHA-256 mismatch"
+
+rows=$(mktemp "${TMPDIR:-/tmp}/p03-m1-assignment-rows.XXXXXX") || die "cannot create row buffer"
+scope_counts=$(mktemp "${TMPDIR:-/tmp}/p03-m1-assignment-scopes.XXXXXX") || die "cannot create scope buffer"
+families=$(mktemp "${TMPDIR:-/tmp}/p03-m1-assignment-families.XXXXXX") || die "cannot create family buffer"
+actual=$(mktemp "${TMPDIR:-/tmp}/p03-m1-assignment-files.XXXXXX") || die "cannot create file buffer"
+tmp=$(mktemp "$out_dir/.p03-m1-assignment.XXXXXX") || die "cannot create output buffer"
+trap 'rm -f "$rows" "$rows.normalized" "$scope_counts" "$families" "$actual" "$tmp" "$rows.sorted" "$rows.paths" "$scope_counts.plan" "$scope_counts.actual" "$families.actual" "$families.expected"' EXIT HUP INT TERM
+
+# This table grammar deliberately accepts only the frozen allocation rows.
+# The row's full repository path is normalized only after checking its exact
+# p03 home prefix, so a display typo cannot become a plausible ledger path.
+awk -F'|' '
+  function trim(v) { gsub(/^[[:space:]]+|[[:space:]]+$/, "", v); return v }
+  /^\| p03-(primary|secondary)-[0-9][0-9] \|/ {
+    if (NF != 11) exit 41
+    scope=trim($2); full=trim($3); filename=trim($4); family=trim($5)
+    if (scope == "" || full == "" || filename == "" || family == "") exit 42
+    print scope "\t" full "\t" family "\t" filename
+  }
+' "$input" > "$rows" || die "could not parse frozen Markdown"
+
+count=$(wc -l < "$rows" | tr -d ' ')
+[ "$count" -eq 200 ] || die "expected 200 frozen assignment rows, found $count"
+prefix='workspace/people/p03-security-grc-analyst/home/'
+awk -F'\t' -v prefix="$prefix" '
+  index($2, prefix) != 1 { exit 43 }
+  {
+    scope_path=substr($2, length(prefix)+1)
+    if (scope_path == "" || scope_path ~ /(^\/|\/\.\/|\/\.\.\/|\/$)/) exit 44
+    print $1 "\t" scope_path "\t" $3 "\t" $4
+  }
+' "$rows" > "$rows.normalized" || die "frozen paths are outside p03 final home or unsafe"
+mv "$rows.normalized" "$rows"
+tab=$(printf '\t')
+LC_ALL=C sort -t "$tab" -k2,2 -k4,4 "$rows" > "$rows.sorted"
+awk -F'\t' '{ print $2 "/" $4 }' "$rows.sorted" | uniq -d | grep -q . && die "duplicate frozen assignment path"
+mv "$rows.sorted" "$rows"
+
+# Compare every scope ID/path with the authoritative plan and retain the
+# fixed twenty scope cardinalities in the frozen source.
+awk -F'\t' '{ seen[$1 "\t" $2]++ } END { for (key in seen) print key "\t" seen[key] }' "$rows" | LC_ALL=C sort > "$scope_counts"
+[ "$(wc -l < "$scope_counts" | tr -d ' ')" -eq 20 ] || die "expected 20 frozen scopes"
+jq -r '.personas[] | select(.id == "p03") | .scopes[] | [.id,.path] | @tsv' "$plan" | LC_ALL=C sort > "$scope_counts.plan"
+awk -F'\t' '{ print $1 "\t" $2 }' "$scope_counts" | LC_ALL=C sort > "$scope_counts.actual"
+cmp -s "$scope_counts.plan" "$scope_counts.actual" || die "frozen scope IDs or paths differ from canonical plan"
+awk -F'\t' '
+  $1 == "p03-primary-01" && $3 == 20 { ok[$1]=1 }
+  $1 == "p03-primary-02" && $3 == 18 { ok[$1]=1 }
+  ($1 == "p03-primary-03" || $1 == "p03-primary-04") && $3 == 16 { ok[$1]=1 }
+  $1 == "p03-primary-05" && $3 == 14 { ok[$1]=1 }
+  ($1 == "p03-primary-06" || $1 == "p03-primary-07") && $3 == 12 { ok[$1]=1 }
+  ($1 == "p03-primary-08" || $1 == "p03-primary-09") && $3 == 10 { ok[$1]=1 }
+  ($1 == "p03-primary-10" || $1 == "p03-primary-11") && $3 == 8 { ok[$1]=1 }
+  $1 == "p03-primary-12" && $3 == 6 { ok[$1]=1 }
+  $1 == "p03-secondary-01" && $3 == 10 { ok[$1]=1 }
+  ($1 == "p03-secondary-02" || $1 == "p03-secondary-03") && $3 == 8 { ok[$1]=1 }
+  ($1 == "p03-secondary-04" || $1 == "p03-secondary-05") && $3 == 6 { ok[$1]=1 }
+  ($1 == "p03-secondary-06" || $1 == "p03-secondary-07" || $1 == "p03-secondary-08") && $3 == 4 { ok[$1]=1 }
+  END { exit length(ok) == 20 ? 0 : 1 }
+' "$scope_counts" || die "scope row counts differ from frozen contract"
+
+# Check all nonzero families against the frozen total contract.  This catches
+# table edits even though the source Markdown digest is independently pinned.
+awk -F'\t' '{ seen[$3]++ } END { for (f in seen) print f "\t" seen[f] }' "$rows" | LC_ALL=C sort > "$families.actual"
+printf 'code\t16\ncsv_tsv\t20\ndocx\t10\ndomain_binary\t6\nhtml_eml\t16\nimage\t6\nmd\t20\npdf_scan\t10\npdf_text\t30\npptx\t4\nstructured_text\t30\ntxt_log\t24\nxlsx\t8\n' \
+  | LC_ALL=C sort > "$families.expected"
+cmp -s "$families.actual" "$families.expected" || die "artifact families differ from frozen global distribution"
+
+# First require the complete post-Full home path set to match the accepted root
+# manifest.  Then require all 200 frozen M1 paths within that accepted tree.
+"$home_guard" --home "$home" --manifest "$corpus_manifest" --persona p03 \
+  --prefix workspace/people/p03-security-grc-analyst/home/ > "$actual" ||
+  die "p03 final home failed accepted-manifest validation"
+awk -F'\t' '{ print $2 "/" $4 }' "$rows" | LC_ALL=C sort > "$rows.paths"
+if comm -23 "$rows.paths" "$actual" | grep -q .; then
+  die "frozen assignment contains a path missing from p03 final home"
+fi
+
+plan_digest="sha256:$(sha256 "$plan")"
+newline=$(printf '\nx')
+newline=${newline%x}
+{
+  jq -cn --arg d "$plan_digest" --arg input_digest "sha256:$input_sha256" --argjson n "$count" \
+    '{schema:"persona-corpus.m1-assignment/v1",kind:"header",persona:"p03",plan_digest:$d,source_assignment_sha256:$input_digest,assignment_id:"p03-m1-frozen-v1",artifact_count:$n}'
+  row=0
+  while IFS="$(printf '\t')" read -r scope scope_path family filename; do
+    row=$((row + 1))
+    extension=${filename##*.}
+    case "$extension" in ''|*/*|*"$newline"*) die "unsafe physical extension: $filename";; esac
+    jq -cn --arg id "$(printf 'p03-m1-%04d' "$row")" --arg scope "$scope" --arg scope_path "$scope_path" --arg family "$family" \
+      --arg extension "$extension" --arg path "$scope_path/$filename" \
+      '{schema:"persona-corpus.m1-assignment/v1",kind:"artifact",persona:"p03",artifact_id:$id,scope_id:$scope,scope_path:$scope_path,family:$family,physical_extension:$extension,path:$path,state:"frozen"}'
+  done < "$rows"
+} > "$tmp"
+
+jq -se --arg d "$plan_digest" '
+  . as $rows | ($rows[0]) as $h | ($rows[1:]) as $a |
+  ($h.schema == "persona-corpus.m1-assignment/v1" and $h.kind == "header" and $h.persona == "p03" and $h.plan_digest == $d and $h.artifact_count == 200) and
+  ($a|length == 200) and ([ $a[].artifact_id ]|unique|length == 200) and ([ $a[].path ]|unique|length == 200)
+' "$tmp" >/dev/null || die "generated ledger failed schema checks"
+
+# link(2) publication remains create-only if another process wins after the
+# earlier existence check.
+if ln "$tmp" "$out"; then
+  rm -f "$tmp"
+else
+  die "refusing to overwrite existing output: $out"
+fi
+trap - EXIT HUP INT TERM

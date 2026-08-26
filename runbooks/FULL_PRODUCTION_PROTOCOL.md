@@ -37,6 +37,7 @@ progress/<persona>/
     content-spine.md
     canonical-source-inventory.jsonl
     m1-reservations.jsonl
+    m1-reservation-reconciliation.jsonl  # accepted legacy exception only
     full-assignment-ledger.jsonl
     manifests/
       m1-baseline.jsonl
@@ -73,6 +74,21 @@ tracked p01 pilot assignment is an explicitly bounded 12-row exception used to
 validate this machinery before the remaining 11,788 p01 additions are
 allocated. The eventual complete p01 ledger has all 11,800 additions and
 retains those 12 accepted pilot rows unchanged.
+
+Strict M1 reservation pairing is by exact Rust scope and family. A legacy M1
+file whose physical family differs from its canonical source must not be
+silently coerced or regenerated. It requires a separate frozen reconciliation
+record bound to the exact plan, render, inventory, M1 assignment and baseline
+digests. Each exception preserves both physical and canonical family facts,
+maps only within the same Rust scope, and is accepted only when exact scope
+reservation counts and global reservation-family totals still reconcile with
+the frozen M1 ledger. The
+default has no reconciliation record and remains strict. When one exists,
+pass it to `full-ledger reserve-m1` and every `full-ledger verify`; workers may
+not edit it or add exceptions. The CLI accepts only a reviewed persona-specific
+canonical path, reconciliation ID, and SHA-256 pinned in its trust anchor; a
+different path, symlink, or otherwise valid balanced mapping is not an approved
+substitute.
 
 ## Production order and artifact quality
 
@@ -169,9 +185,19 @@ immutable source inventory and the actual byte manifest.  A worker can report
 only token-free counts, failed paths, QA evidence locations, and manifest
 digests.  Parents must not release a failed or incomplete batch as accepted.
 
+Prepared p04--p20 packages additionally run the pinned, read-only
+`bin/full-resume-gate` before any initial write and before every resume. It
+requires one unambiguous append-only v2 acceptance chain and exact equality
+between the live home and its latest trusted manifest. The v2 checkpoint and
+final-image scan provenance contract is specified in `FULL_LEDGER_SPEC.md`.
+This is a production safety gate, not a change to persona ownership, helper
+trust anchors, ordinary scope lease claims, release-token handling, or recovery
+approval requirements. p01--p03 have completed accepted v1/persona-isolated
+chains; keep those closed histories unchanged and do not convert them to v2.
+
 ## Pilot and expansion gate
 
-Run p01 as the first Full pilot.  Its first batch is the fixed 12-row assignment
+The p01 pilot is historical and persona-specific. Its first batch was the fixed 12-row assignment
 in `prompts/p01-full-pilot-assignment.jsonl`; it contains base data plus every
 required skill family and is intentionally smaller than an ordinary Full
 batch.  It must preserve the 200-file M1 baseline and demonstrate normal

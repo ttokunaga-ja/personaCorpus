@@ -1,6 +1,7 @@
 #!/bin/sh
 # Isolated p16-capable copy of the Full ledger helper. It deliberately has no
-# lease API and does not change the shared helper used by active p01/p02 waves.
+# lease API and preserves p16's reviewed trust anchor without changing the
+# shared helper.
 set -eu
 
 script_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)

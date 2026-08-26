@@ -1,0 +1,77 @@
+#!/usr/bin/env python3
+"""Create-only, deterministic machine ledger for p07's frozen M1 assignment."""
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import os
+import re
+import sys
+from collections import Counter
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+PERSONA = "p07"
+ROLE = "humanities-researcher"
+INPUT = ROOT / "progress/p07/m1-assignments.md"
+HOME = ROOT / f"workspace/people/{PERSONA}-{ROLE}/home"
+PINNED = "86167aaaad7764f33e9fa7a7913ccd8f8c20ad384f02b34e798370b68c56f669"
+FAMILIES = {"md":24,"txt_log":20,"code":0,"structured_text":8,"csv_tsv":6,"html_eml":10,"ipynb":0,"pdf_text":50,"pdf_scan":40,"docx":20,"xlsx":2,"pptx":4,"image":12,"media":2,"domain_binary":2}
+
+def fail(message: str) -> None: raise SystemExit(f"p07-m1-assignment: {message}")
+def sha(path: Path) -> str: return hashlib.sha256(path.read_bytes()).hexdigest()
+
+def main() -> None:
+    parser=argparse.ArgumentParser()
+    parser.add_argument("--out", required=True, type=Path)
+    args=parser.parse_args()
+    out=args.out
+    if not out.is_absolute() or out.exists() or out.is_symlink(): fail("--out must be a new, absolute regular path")
+    try:
+        out_dir=out.parent.resolve(strict=True)
+    except OSError as error:
+        fail(f"cannot resolve output directory: {error}")
+    protected=tuple((ROOT / name).resolve() for name in ("workspace","canonical","scratch",".git","_control"))
+    if not out_dir.is_dir() or any(out_dir == base or base in out_dir.parents for base in protected): fail("unsafe output directory")
+    out=out_dir / out.name
+    if sha(INPUT) != PINNED: fail("frozen Markdown SHA-256 mismatch")
+    plan=json.loads((ROOT/"canonical/persona-plan.json").read_text())
+    persona=next(p for p in plan["personas"] if p["id"]==PERSONA)
+    scopes={s["id"] : s["path"] for s in persona["scopes"]}
+    rows=[]
+    scope=None
+    for line in INPUT.read_text().splitlines():
+        heading=re.match(r"^### (p07-(?:primary|secondary)-\d\d) — \d+ files$",line)
+        if heading:
+            scope=heading.group(1)
+            continue
+        folder=re.match(r"^Final folder: `workspace/people/p07-humanities-researcher/home/(.+)`$",line)
+        if folder:
+            if scope is None or folder.group(1)!=scopes[scope]: fail(f"scope folder mismatch: {line}")
+            continue
+        item=re.match(r"^- `([^`]+)` — family=([a-z_]+); ext=\.([^; ]+)(?:;.*)?$",line)
+        if item:
+            if scope is None: fail(f"artifact without scope: {line}")
+            filename,family,extension=item.groups()
+            if filename.rsplit(".",1)[-1] != extension: fail(f"extension mismatch: {line}")
+            rows.append((scope,f"{scopes[scope]}/{filename}",filename,family))
+    if len(rows)!=200 or len({r[1] for r in rows})!=200: fail(f"expected 200 unique rows, got {len(rows)}")
+    if Counter(r[3] for r in rows)!=Counter(FAMILIES): fail("family distribution differs from frozen contract")
+    if set(r[0] for r in rows)!=set(scopes): fail("scope set differs from plan")
+    expected={r[1] for r in rows}
+    actual={p.relative_to(HOME).as_posix() for p in HOME.rglob("*") if p.is_file() and not p.is_symlink()}
+    unsafe=[p for p in HOME.rglob("*") if p.is_symlink() or (not p.is_dir() and not p.is_file())]
+    if unsafe or actual != expected: fail("home is not exactly the frozen regular-file set")
+    plan_digest="sha256:"+sha(ROOT/"canonical/persona-plan.json")
+    payload=[{"schema":"persona-corpus.m1-assignment/v1","kind":"header","persona":PERSONA,"plan_digest":plan_digest,"source_assignment_sha256":"sha256:"+PINNED,"assignment_id":"p07-m1-frozen-v1","artifact_count":200}]
+    for index,(scope,path,filename,family) in enumerate(sorted(rows,key=lambda r:r[1]),1):
+        extension=filename.rsplit(".",1)[-1]
+        payload.append({"schema":"persona-corpus.m1-assignment/v1","kind":"artifact","persona":PERSONA,"artifact_id":f"p07-m1-{index:04d}","scope_id":scope,"scope_path":scopes[scope],"family":family,"physical_extension":extension,"path":path,"state":"frozen"})
+    data="".join(json.dumps(x,ensure_ascii=False,separators=(",",":"))+"\n" for x in payload).encode()
+    try:
+        fd=os.open(out, os.O_WRONLY|os.O_CREAT|os.O_EXCL, 0o644)
+    except FileExistsError: fail("refusing to overwrite output")
+    with os.fdopen(fd,"wb") as handle: handle.write(data)
+
+if __name__=="__main__": main()

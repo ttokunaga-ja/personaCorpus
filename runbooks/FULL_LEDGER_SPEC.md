@@ -10,6 +10,7 @@ never merge them or overwrite an earlier record.
 | Canonical source inventory | `progress/<persona>/full/canonical-source-inventory.jsonl` | Read-only projection of all plan/render source IDs, scopes, families and variants. |
 | M1 assignment ledger | `progress/<persona>/m1-assignment-ledger.jsonl` | Sole machine-readable M1 allocation authority: frozen artifact ID, path, scope, declared family, physical extension and state; no source reservation yet. |
 | M1 reservations | `progress/<persona>/full/m1-reservations.jsonl` | Deterministic pairing of the existing 200 M1 paths and bytes to canonical source IDs. |
+| M1 reservation reconciliation | `progress/<persona>/full/m1-reservation-reconciliation.jsonl` | Rare, frozen, digest-bound exception mapping for accepted legacy M1 files whose physical family differs from the canonical family, while preserving the same Rust scope and all aggregate totals. |
 | Fixed Full assignment | `progress/<persona>/full/full-assignment-ledger.jsonl` | Frozen destination path, batch and dependency allocation for each Full addition. |
 | Actual manifests/checkpoints | `progress/<persona>/full/manifests/m1-baseline.jsonl`, `<batch-id>.{before,after}.jsonl`, and `progress/<persona>/full/checkpoints/<batch-id>.json` | Immutable M1 bytes, cumulative observed bytes, and token-free batch acceptance evidence. |
 
@@ -31,6 +32,14 @@ It also requires `canonical/materialized/persona-materialization.json`: its
 plan SHA-256 must pin the current canonical plan and its render SHA-256 must
 pin the current canonical render bytes.
 
+Historical p03 production used the mechanically isolated
+`./bin/p03-full-ledger` for every ledger operation while the p01 and p02 waves
+were active. It retained the same validation and create-only behavior, kept
+p02's anchor byte-compatible, and added only the closed p03 reconciliation
+anchor. That accepted p03 chain is closed: preserve the isolated helper as
+provenance, but do not rerun or convert the completed chain without an
+explicitly approved revision.
+
 ```bash
 ./bin/full-ledger inventory --persona p01 \
   --out /absolute/progress/p01/full/canonical-source-inventory.jsonl
@@ -38,15 +47,39 @@ pin the current canonical render bytes.
 ./bin/full-ledger manifest --persona p01 \
   --out /absolute/progress/p01/full/manifests/m1-baseline.jsonl
 
-# p01 legacy backfill only; new M1 tasks already publish this frozen ledger.
+# Legacy backfills only; new M1 tasks already publish this frozen ledger.
 ./bin/p01-m1-assignment \
   --out /absolute/progress/p01/m1-assignment-ledger-v2.jsonl
+
+./bin/p02-m1-assignment \
+  --out /absolute/progress/p02/m1-assignment-ledger.jsonl
+
+./bin/p03-m1-assignment \
+  --out /absolute/progress/p03/m1-assignment-ledger.jsonl
 
 ./bin/full-ledger reserve-m1 --persona p01 \
   --inventory /absolute/progress/p01/full/canonical-source-inventory.jsonl \
   --m1-assignment /absolute/progress/p01/m1-assignment-ledger-v2.jsonl \
   --baseline /absolute/progress/p01/full/manifests/m1-baseline.jsonl \
   --out /absolute/progress/p01/full/m1-reservations-v3.jsonl
+
+# Strict scope/family pairing is the default. Only a frozen, accepted legacy
+# exception may pass the optional reconciliation record. p02 uses the shared
+# helper below; p03 uses the isolated helper in the following example.
+./bin/full-ledger reserve-m1 --persona p02 \
+  --inventory /absolute/progress/p02/full/canonical-source-inventory.jsonl \
+  --m1-assignment /absolute/progress/p02/m1-assignment-ledger.jsonl \
+  --baseline /absolute/progress/p02/full/manifests/m1-baseline.jsonl \
+  --reconciliation /absolute/progress/p02/full/m1-reservation-reconciliation.jsonl \
+  --out /absolute/progress/p02/full/m1-reservations.jsonl
+
+# p03 uses its isolated helper and reviewed two-row reconciliation.
+./bin/p03-full-ledger reserve-m1 --persona p03 \
+  --inventory /absolute/progress/p03/full/canonical-source-inventory.jsonl \
+  --m1-assignment /absolute/progress/p03/m1-assignment-ledger.jsonl \
+  --baseline /absolute/progress/p03/full/manifests/m1-baseline.jsonl \
+  --reconciliation /absolute/progress/p03/full/m1-reservation-reconciliation.jsonl \
+  --out /absolute/progress/p03/full/m1-reservations.jsonl
 
 # Validate the complete mass ledger before any mass worker starts. This command
 # accepts an incomplete ledger only for the exact tracked p01 12-row pilot.
@@ -118,8 +151,12 @@ each `(scope_id, family)` group:
 
 New M1 parents must publish this frozen ledger before launching workers, then
 derive `m1-assignments.md` from it for human display. Existing M1 personas need
-a checked backfill from their frozen assignment; p01 uses the create-only
-`./bin/p01-m1-assignment` helper. The reservation header binds
+a checked backfill from their frozen assignment; p01, p02 and p03 use the
+create-only persona-specific helpers `./bin/p01-m1-assignment`,
+`./bin/p02-m1-assignment`, and `./bin/p03-m1-assignment`. Because p02 and p03
+are already Full-complete, their helpers first require the entire physical home
+path set to match that persona's accepted root corpus-manifest subset, then
+require all 200 frozen M1 paths within it. The reservation header binds
 `m1_assignment_sha256`; an M1 ledger and a reservation cannot be mixed across
 revisions.
 
@@ -128,6 +165,42 @@ grandfathered M1 path, byte count, and SHA-256 alongside the paired source ID.
 The original extension and bytes remain authoritative for that accepted M1
 file even if they differ from canonical renderer bytes. Never rename or
 regenerate M1 to force parity.
+
+### Exceptional M1 reconciliation
+
+The normal rule is strict: every M1 file pairs positionally inside its exact
+`(scope_id, family)` group. A mismatch must fail; an extension, display name,
+or a same global total is never an implicit exception.
+
+An accepted legacy mismatch may be reconciled only with the optional,
+create-only `persona-corpus.full-m1-reservation-reconciliation/v1` record. Its
+header is bound to the exact plan, render, inventory, M1-assignment, and
+baseline SHA-256 values and declares one named policy. Each frozen exception
+row records both the physical M1 scope/path/family/extension and the canonical
+source scope/family/variant/extension, plus a reason. The exception must stay
+inside the same Rust scope; the record must be one-to-one; all non-exception
+rows remain strict positional pairings; and the M1 ledger, reconciliation, and
+reservation records together preserve both the accepted physical M1 facts and
+the canonical source facts.
+
+`same-scope-global-family-balanced-v1` is the currently accepted policy. It
+permits only the explicit rows in the digest-bound record after checking exact
+per-scope reservation counts and global reservation-family totals against the
+frozen M1 ledger. It does not permit an arbitrary family swap, an out-of-scope source,
+or a new exception after production begins. `reserve-m1` and every `verify`
+invocation must receive the same reconciliation record; its digest is bound in
+the reservation header. Omitting `--reconciliation` retains the strict default.
+
+Self-consistency is not sufficient approval. `full-ledger` also pins every
+accepted reconciliation by persona, canonical repository path,
+`reconciliation_id`, and exact SHA-256. It rejects alternate paths, symlinks,
+unapproved-but-balanced mappings, and other personas. The approved file is
+copied once to a private snapshot, then the snapshot alone is hashed and
+parsed, so a concurrent pathname replacement cannot change the mapping being
+validated. The shared helper's current allowlist contains only p02's reviewed
+four-row record. The isolated p03 helper contains that identical p02 anchor plus
+p03's reviewed two-row record; all p03 inventory, manifest, reservation, and
+verify operations must use the isolated helper until a coordinated idle migration.
 
 ## Fixed Full assignment
 
@@ -158,12 +231,11 @@ Once a row has entered production, do not edit it. A pre-write allocation
 correction is a new append-only revision naming its predecessor and reason. If
 the old path was already written, stop for coordinator direction.
 
-The tracked p01 pilot assignment is a bounded exception: it allocates only 12
-verified tail source IDs, all outside the deterministic M1 reservations. It is
-valid for the pilot only. Do not infer that the remaining p01 addition ledger
-exists; mass p01 production remains gated until all 11,800 Full additions are
-reconciled and allocated. That later master retains the 12 pilot rows exactly
-and adds the remaining 11,788 rows.
+The tracked p01 pilot assignment is a bounded historical exception: it allocates
+12 verified tail source IDs, all outside the deterministic M1 reservations. The
+completed 11,800-row p01 master retains those 12 rows exactly and adds the other
+11,788 rows. p01 now has 12,000 accepted files; neither the pilot nor master is
+a start instruction for another production run.
 
 ## Actual manifests and checkpoints
 
@@ -180,12 +252,51 @@ checkpoint, for example:
 {"schema":"persona-corpus.full-batch-checkpoint/v1","kind":"checkpoint","persona":"p01","scope_id":"p01-primary-01","batch_id":"p01-primary-01-b003","assignment_count":240,"accepted_additions":240,"m1_file_count":200,"m1_sha256_unchanged":true,"before_manifest":"progress/p01/full/manifests/p01-primary-01-b003.before.jsonl","after_manifest":"progress/p01/full/manifests/p01-primary-01-b003.after.jsonl","qa":{"pdf":true,"docx":true,"xlsx":true,"pptx":true,"image":true,"structure":true},"accepted_at":"2026-08-23T12:00:00Z","notes":"token-free; physical-artifact evidence only"}
 ```
 
+The v1 example above is retained only for accepted p01--p03 v1 evidence. Do
+not rewrite, convert, or mix those completed persona-isolated chains.
+
+For prepared p04--p20 Full packages, `bin/full-resume-gate` is the required
+read-only, fail-closed start/resume gate. Its pinned SHA-256 is
+`3c4889deadd8b0eabcb6494454501db0adc063e7166d61dafc5cf6490660d069`.
+It accepts only one append-only checkpoint chain rooted at the immutable M1
+baseline and requires the live persona home to be byte-identical to the unique
+latest trusted manifest. A fork, gap, duplicate checkpoint, uncheckpointed
+delta, stale after manifest, symlink, nonregular file, cache, or modified prior
+artifact is a stop condition, not a recovery invitation.
+
+Each p04--p20 accepted batch uses exactly the following checkpoint v2 fields:
+
+```json
+{"schema":"persona-corpus.full-batch-checkpoint/v2","kind":"checkpoint","persona":"pNN","plan_digest":"sha256:<64-lowercase-hex>","scope_id":"pNN-primary-01","batch_id":"pNN-primary-01-full-b001","assignment_count":120,"accepted_additions":120,"m1_file_count":200,"m1_sha256_unchanged":true,"acceptance_group":"pNN-group-001","before_manifest":"progress/pNN/full/manifests/pNN-group-001.before.jsonl","after_manifest":"progress/pNN/full/manifests/pNN-group-001.after.jsonl","before_manifest_sha256":"<64-lowercase-hex>","after_manifest_sha256":"<64-lowercase-hex>","family_counts":{"md":120},"qa":{"structure":true,"family":true,"content_spine":true,"dependencies":true,"skill_required":true,"secrets_pii":true},"accepted_at":"2026-08-24T00:00:00Z","scan_provenance":[]}
+```
+
+The object has no optional or extra fields. `family_counts` must equal the
+master rows for that batch. Every `qa` value is required and true. The
+manifest references must be either their basename or the shown logical
+repository-relative path; their bytes are pinned by the two manifest SHA-256
+fields. All members of one `acceptance_group` share identical before/after
+manifest paths and byte digests.
+
+When `--require-scan-provenance` is used, every accepted `pdf_scan` row has one
+v2 `scan_provenance` object with exactly these fields:
+`scan_artifact_id`, `scan_path`, `scan_sha256`, `source_kind`,
+`dependency_artifact_id`, `image_path`, `image_sha256`, `pixel_qa`,
+`source_pixel_sha256`, and `rendered_pixel_sha256`. It proves that the scan
+extracts exactly one image whose normalized RGB pixels equal its one final,
+same-scope image dependency; scratch-only scan sources are not accepted.
+`source_kind` is exactly `dependency`; `pixel_qa` is exactly
+`{"passed":true,"width":<positive-int>,"height":<positive-int>,"method":"normalized-rgb-sha256/v1"}`.
+The dependency must be a declared final `image` artifact accepted in an earlier
+acceptance group, and the PDF must extract exactly one raster image with the
+same normalized RGB digest and dimensions.
+
 Write a checkpoint only after parent QA. Release tokens stay solely in the
 parent process and never appear in any record. A failed or interrupted batch
 gets a token-free failure note and no accepted checkpoint; recovery remains an
 explicit user/coordinator decision. Concurrent members each keep their own
 checkpoint but record the same `acceptance_group`, before-manifest and
-after-manifest; none is written until the selected union passes.
+after-manifest; none is written until the selected union passes. The p04--p20
+package work changes neither helper trust anchors nor lease/recovery rules.
 
 ## Reconciliation gates
 
@@ -194,6 +305,10 @@ Before the p01 pilot and after every accepted batch, verify:
 - canonical inventory source rows equal `persona.raw_files`;
 - the M1 assignment ledger, baseline and M1 reservation ledger each contain exactly
   200 matching unique paths and M1 SHA-256 values remain unchanged;
+- when a reconciliation record is supplied, its header digest bindings, frozen
+  exception set, same-scope constraint, exact scope reservation totals and
+  global reservation-family totals all match the frozen M1 ledger; otherwise
+  strict `(scope_id, family)` pairing is required;
 - a mass assignment contains every canonical non-reserved source ID exactly
   once; only the exact tracked 12-row p01 pilot may be incomplete;
 - assignment paths are unique, canonical-scope-local, extension-compatible,

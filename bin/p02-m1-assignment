@@ -1,0 +1,140 @@
+#!/bin/sh
+# Deterministically backfill p02's accepted legacy M1 Markdown assignment into
+# the machine-readable ledger required by Full production.  This is a
+# read-only conversion: it never changes the frozen Markdown or final files.
+set -eu
+
+script_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd -P)
+root=$(CDPATH= cd -- "$script_dir/.." && pwd -P)
+input="$root/progress/p02/m1-assignments.md"
+plan="$root/canonical/persona-plan.json"
+home="$root/workspace/people/p02-site-reliability-engineer/home"
+corpus_manifest="$root/manifests/corpus-sha256.jsonl"
+home_guard="$root/bin/m1-home-manifest-guard"
+input_sha256='a3557153096edd1ef42ecae7a9a83e9832972918390b0b94b180e6e2efbd065b'
+
+die() { echo "p02-m1-assignment: $*" >&2; exit 1; }
+sha256() {
+  if command -v shasum >/dev/null 2>&1; then shasum -a 256 "$1" | awk '{print $1}'
+  elif command -v sha256sum >/dev/null 2>&1; then sha256sum "$1" | awk '{print $1}'
+  else die "need shasum or sha256sum"; fi
+}
+
+case "${1:-}" in
+  --help|-h) echo "usage: p02-m1-assignment --out /absolute/new.jsonl"; exit 0 ;;
+esac
+[ "${1:-}" = --out ] && [ "$#" -eq 2 ] || die "usage: p02-m1-assignment --out /absolute/new.jsonl"
+out=$2
+case "$out" in /*) ;; *) die "--out must be an absolute path";; esac
+[ ! -e "$out" ] || die "refusing to overwrite existing output: $out"
+[ -f "$input" ] || die "missing frozen p02 M1 assignment: $input"
+[ -f "$plan" ] || die "missing canonical plan: $plan"
+[ -d "$home" ] || die "missing p02 final home: $home"
+[ -x "$home_guard" ] || die "missing executable home manifest guard: $home_guard"
+[ -f "$corpus_manifest" ] || die "missing accepted corpus manifest: $corpus_manifest"
+out_dir=$(dirname -- "$out")
+[ -d "$out_dir" ] || die "output directory does not exist: $out_dir"
+out_dir_physical=$(CDPATH= cd -- "$out_dir" && pwd -P) || die "cannot resolve output directory"
+case "$out_dir_physical/" in
+  "$root/workspace/"*|"$root/canonical/"*|"$root/_control/"*|"$root/.git/"*|"$root/scratch/"*) die "unsafe output directory: $out_dir";;
+esac
+[ "$(sha256 "$input")" = "$input_sha256" ] || die "frozen Markdown SHA-256 mismatch"
+
+rows=$(mktemp "${TMPDIR:-/tmp}/p02-m1-assignment-rows.XXXXXX") || die "cannot create row buffer"
+scope_counts=$(mktemp "${TMPDIR:-/tmp}/p02-m1-assignment-scopes.XXXXXX") || die "cannot create scope buffer"
+families=$(mktemp "${TMPDIR:-/tmp}/p02-m1-assignment-families.XXXXXX") || die "cannot create family buffer"
+actual=$(mktemp "${TMPDIR:-/tmp}/p02-m1-assignment-files.XXXXXX") || die "cannot create file buffer"
+tmp=$(mktemp "$out_dir/.p02-m1-assignment.XXXXXX") || die "cannot create output buffer"
+trap 'rm -f "$rows" "$scope_counts" "$families" "$actual" "$tmp"' EXIT HUP INT TERM
+
+# The table grammar is intentionally narrow.  Any edit to the frozen display
+# that cannot be parsed as a p02 allocation must stop this one-time backfill.
+awk -F'|' '
+  function trim(v) { gsub(/^[[:space:]]+|[[:space:]]+$/, "", v); return v }
+  /^## p02-(primary|secondary)-[0-9]+[[:space:]]*$/ { scope=$0; sub(/^## /, "", scope); scope_path=""; expected=""; next }
+  /^- Leaf folder: `/ && scope != "" { v=$0; sub(/^- Leaf folder: `/, "", v); sub(/`[[:space:]]*$/, "", v); scope_path=v; next }
+  /^- Count: [0-9]+$/ && scope != "" { expected=$0; sub(/^- Count: /, "", expected); next }
+  /^\| [0-9]+ \|/ && scope != "" {
+    if (scope_path == "" || expected == "") exit 41
+    filename=trim($3); family=trim($4)
+    if (filename == "" || family == "") exit 42
+    print scope "\t" scope_path "\t" expected "\t" family "\t" filename
+  }
+' "$input" > "$rows" || die "could not parse frozen Markdown"
+
+awk -F'|' '
+  function trim(v) { gsub(/^[[:space:]]+|[[:space:]]+$/, "", v); return v }
+  /^\| [a-z_]+ \| [0-9]+ \|/ { print trim($2) "\t" trim($3) }
+' "$input" > "$families" || die "could not parse frozen family distribution"
+
+count=$(wc -l < "$rows" | tr -d ' ')
+[ "$count" -eq 200 ] || die "expected 200 frozen assignment rows, found $count"
+tab=$(printf '\t')
+LC_ALL=C sort -t "$tab" -k2,2 -k5,5 "$rows" > "$rows.sorted"
+awk -F'\t' '{ print $2 "/" $5 }' "$rows.sorted" | uniq -d | grep -q . && die "duplicate frozen assignment path"
+mv "$rows.sorted" "$rows"
+
+# Check all stated scope counts, then compare scope IDs and paths with the
+# authoritative Rust plan.  The latter prevents a Markdown path typo from
+# being converted into a valid-looking ledger.
+awk -F'\t' '{ key=$1 "\t" $2 "\t" $3; seen[key]++ } END { for (key in seen) print key "\t" seen[key] }' "$rows" | LC_ALL=C sort > "$scope_counts"
+[ "$(wc -l < "$scope_counts" | tr -d ' ')" -eq 20 ] || die "expected 20 frozen scopes"
+if ! awk -F'\t' '$3 != $4 { exit 1 }' "$scope_counts"; then die "scope row count disagrees with frozen Markdown"; fi
+jq -r '.personas[] | select(.id == "p02") | .scopes[] | [.id,.path] | @tsv' "$plan" | LC_ALL=C sort > "$scope_counts.plan"
+awk -F'\t' '{ print $1 "\t" $2 }' "$scope_counts" | LC_ALL=C sort > "$scope_counts.actual"
+cmp -s "$scope_counts.plan" "$scope_counts.actual" || die "frozen scope IDs or paths differ from canonical plan"
+rm -f "$scope_counts.plan" "$scope_counts.actual"
+
+# Check the global family table is complete and matches its 200 artifact rows.
+awk -F'\t' '{ seen[$4]++ } END { for (f in seen) print f "\t" seen[f] }' "$rows" | LC_ALL=C sort > "$families.actual"
+families_count=$(wc -l < "$families" | tr -d ' ')
+[ "$families_count" -eq 15 ] || die "expected 15 declared global families"
+families_total=$(awk -F'\t' '{ sum += $2 } END { print sum + 0 }' "$families")
+[ "$families_total" -eq 200 ] || die "declared global family total is not 200"
+awk -F'\t' '$2 != 0 { print }' "$families" | LC_ALL=C sort > "$families.declared"
+cmp -s "$families.actual" "$families.declared" || die "artifact families differ from frozen global distribution"
+rm -f "$families.actual" "$families.declared"
+
+# The accepted home may already contain Full additions.  First require its
+# entire path set to match the accepted root manifest, then require every
+# frozen M1 path to be present within that accepted tree.
+"$home_guard" --home "$home" --manifest "$corpus_manifest" --persona p02 \
+  --prefix workspace/people/p02-site-reliability-engineer/home/ > "$actual" ||
+  die "p02 final home failed accepted-manifest validation"
+awk -F'\t' '{ print $2 "/" $5 }' "$rows" | LC_ALL=C sort > "$rows.paths"
+if comm -23 "$rows.paths" "$actual" | grep -q .; then
+  die "frozen assignment contains a path missing from p02 final home"
+fi
+rm -f "$rows.paths"
+
+plan_digest="sha256:$(sha256 "$plan")"
+newline=$(printf '\nx')
+newline=${newline%x}
+{
+  jq -cn --arg d "$plan_digest" --arg input_digest "sha256:$input_sha256" --argjson n "$count" \
+    '{schema:"persona-corpus.m1-assignment/v1",kind:"header",persona:"p02",plan_digest:$d,source_assignment_sha256:$input_digest,assignment_id:"p02-m1-frozen-v1",artifact_count:$n}'
+  row=0
+  while IFS="$(printf '\t')" read -r scope scope_path expected family filename; do
+    row=$((row + 1))
+    extension=${filename##*.}
+    case "$extension" in ''|*/*|*"$newline"*) die "unsafe physical extension: $filename";; esac
+    jq -cn --arg id "$(printf 'p02-m1-%04d' "$row")" --arg scope "$scope" --arg scope_path "$scope_path" --arg family "$family" \
+      --arg extension "$extension" --arg path "$scope_path/$filename" \
+      '{schema:"persona-corpus.m1-assignment/v1",kind:"artifact",persona:"p02",artifact_id:$id,scope_id:$scope,scope_path:$scope_path,family:$family,physical_extension:$extension,path:$path,state:"frozen"}'
+  done < "$rows"
+} > "$tmp"
+
+jq -se --arg d "$plan_digest" '
+  . as $rows | ($rows[0]) as $h | ($rows[1:]) as $a |
+  ($h.schema == "persona-corpus.m1-assignment/v1" and $h.kind == "header" and $h.persona == "p02" and $h.plan_digest == $d and $h.artifact_count == 200) and
+  ($a|length == 200) and ([ $a[].artifact_id ]|unique|length == 200) and ([ $a[].path ]|unique|length == 200)
+' "$tmp" >/dev/null || die "generated ledger failed schema checks"
+
+# link(2) publication is create-only even if another process creates out after
+# the initial check.
+if ln "$tmp" "$out"; then
+  rm -f "$tmp" "$rows" "$scope_counts" "$families" "$actual"
+else
+  die "refusing to overwrite existing output: $out"
+fi
+trap - EXIT HUP INT TERM
