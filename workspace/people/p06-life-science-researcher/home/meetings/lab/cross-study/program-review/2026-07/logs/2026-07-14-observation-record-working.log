@@ -1,0 +1,13 @@
+2026-07-14T08:11:00Z INFO record=OCW-LAB-YIESOEV5 sample=OCW-A24-015 mean_ng_ml=6.688 duplicate_cv_percent=0.14 recovery_percent=92.8 status=PASS classification=synthetic
+2026-07-14T08:22:00Z INFO record=OCW-LAB-YIESOEV5 sample=OCW-A24-015 mean_ng_ml=7.059 duplicate_cv_percent=0.43 recovery_percent=93.6 status=PASS classification=synthetic
+2026-07-14T08:33:00Z INFO record=OCW-LAB-YIESOEV5 sample=OCW-A24-014 mean_ng_ml=7.121 duplicate_cv_percent=0.57 recovery_percent=97.8 status=PASS classification=synthetic
+2026-07-14T09:44:00Z INFO record=OCW-LAB-YIESOEV5 sample=OCW-A24-009 mean_ng_ml=6.393 duplicate_cv_percent=0.28 recovery_percent=97.5 status=PASS classification=synthetic
+2026-07-14T09:55:00Z INFO record=OCW-LAB-YIESOEV5 sample=OCW-A24-017 mean_ng_ml=6.361 duplicate_cv_percent=0.43 recovery_percent=98.9 status=PASS classification=synthetic
+2026-07-14T09:06:00Z INFO record=OCW-LAB-YIESOEV5 sample=OCW-A24-002 mean_ng_ml=6.527 duplicate_cv_percent=0.14 recovery_percent=97.8 status=PASS classification=synthetic
+2026-07-14T09:17:00Z INFO record=OCW-LAB-YIESOEV5 sample=OCW-A24-011 mean_ng_ml=6.450 duplicate_cv_percent=0.00 recovery_percent=95.3 status=PASS classification=synthetic
+2026-07-14T10:28:00Z INFO record=OCW-LAB-YIESOEV5 sample=OCW-A24-012 mean_ng_ml=6.500 duplicate_cv_percent=0.43 recovery_percent=97.7 status=PASS classification=synthetic
+2026-07-14T10:39:00Z INFO record=OCW-LAB-YIESOEV5 sample=OCW-A24-023 mean_ng_ml=6.766 duplicate_cv_percent=0.71 recovery_percent=99.0 status=PASS classification=synthetic
+2026-07-14T10:50:00Z INFO record=OCW-LAB-YIESOEV5 sample=OCW-A24-008 mean_ng_ml=7.171 duplicate_cv_percent=0.42 recovery_percent=96.3 status=PASS classification=synthetic
+2026-07-14T10:01:00Z INFO record=OCW-LAB-YIESOEV5 sample=OCW-A24-010 mean_ng_ml=6.996 duplicate_cv_percent=0.28 recovery_percent=97.0 status=PASS classification=synthetic
+2026-07-14T11:12:00Z INFO record=OCW-LAB-YIESOEV5 sample=OCW-A24-020 mean_ng_ml=7.101 duplicate_cv_percent=0.28 recovery_percent=95.5 status=PASS classification=synthetic
+2026-07-14T17:30:00Z INFO instrument=SpectraNova_SN-4 lot=CAL-260713-A slope=0.998 r_squared=0.9992 blank_au=0.02 disposition=reviewed

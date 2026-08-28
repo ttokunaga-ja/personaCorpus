@@ -38,7 +38,8 @@ production prompt）が揃った状態を指します。次の表はGit管理済
 |---|---|---|
 | p01--p03 | Full完成・QA受入・Git管理済み（12,000／15,000／10,000件） | production promptは履歴。明示承認された新revisionなしに再実行しない。 |
 | p04 | Full完成・QA受入済み（10,000件、v2 checkpoint 84件） | 受入済みchainは閉じている。明示承認された新revisionなしに再実行しない。 |
-| p05--p06 | Full package未作成。Full production未開始 | allocation packageの作成から開始する。 |
+| p05 | Full package未作成。Full production未開始 | allocation packageの作成から開始する。 |
+| p06 | Full完成・QA受入・Git管理済み（8,000件、v2 checkpoint 104件） | 受入済みchainは閉じている。明示承認された新revisionなしに再実行しない。 |
 | p07 | READY。Full production未開始 | persona専用Full promptを新しいLocal taskへ貼り付ける。 |
 | p08／p10 | machine-readable M1 ledgerのみ。Full production未開始 | allocation packageの作成から開始する。 |
 | p09 | READY。Full production未開始 | persona専用Full promptを新しいLocal taskへ貼り付ける。 |
@@ -46,11 +47,11 @@ production prompt）が揃った状態を指します。次の表はGit管理済
 | p15 | READY。Full production未開始 | persona専用Full promptを新しいLocal taskへ貼り付ける。 |
 | p16--p20 | READY。Full production未開始 | 各persona専用Full promptを新しいLocal taskへ貼り付ける。 |
 
-p01--p04のFull physical productionは完了しています。p01--p03の
+p01--p04およびp06のFull physical productionは完了しています。p01--p03の
 [`prompts/p01-full-production.md`](prompts/p01-full-production.md)、
 [`prompts/p02-full-production.md`](prompts/p02-full-production.md)、
 [`prompts/p03-full-production.md`](prompts/p03-full-production.md)は受入済みv1 chainの
-履歴・再現用資料であり、現在のhomeへ再適用しません。p04の受入済みv2 chainも
+履歴・再現用資料であり、現在のhomeへ再適用しません。p04とp06の受入済みv2 chainも
 同様に閉じており、再開用gateを新規productionの開始指示として扱いません。
 
 異なるpersonaの親タスクは同時に実行できます。他personaのleaseは正常な並列状態であり、

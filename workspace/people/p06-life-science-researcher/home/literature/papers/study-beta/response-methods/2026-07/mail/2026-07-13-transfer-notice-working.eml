@@ -1,0 +1,88 @@
+From: ocw.lab.l453urrp@orchid-cellworks.example
+To: lab-review@orchid-cellworks.example
+Date: Mon, 13 Jul 2026 17:30:00 +0000
+Message-ID: <ocw.lab.l453urrp.20260713@orchid-cellworks.example>
+Subject: Synthetic Study Beta review - OCW-LAB-L453URRP
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="===============5791391735488967631=="
+
+--===============5791391735488967631==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+ORCHID CELLWORKS - SYNTHETIC LABORATORY HANDOFF
+Record: OCW-LAB-L453URRP
+Work date: 2026-07-13
+Study: Study Beta; cohort B-16; run BETA-B16-R02
+Protocol: OCW-BIO-017
+
+Purpose
+Document instrument review retained the approved calibration lot for a bounde=
+d internal review.
+
+Fixed acceptance facts
+Study Alpha cohort A-24 assay 6.8 ng/mL. Duplicate CV <=3D10.0%.
+Recovery 90-110%. Study Beta baseline 1.00 and treated 1.18.
+CAL-260713-A slope 0.998, R^2 0.9992, blank 0.02 AU.
+
+Disposition
+Observed concentration: 6.80 ng/mL.
+Duplicate CV: 6.8%.
+Recovery: 99.0%.
+Review status: accepted for synthetic artifact production.
+
+Safety
+No real patient, participant, sample, PHI, PII, credential, private endpoint,
+or unpublished research material is present. No indexing or retrieval claim.
+
+--===============5791391735488967631==
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+<!doctype html>
+<html lang=3D"en"><head><meta charset=3D"utf-8"><title>OCW-LAB-L453URRP labor=
+atory review</title>
+<style>body{font-family:Arial,sans-serif;max-width:960px;margin:40px auto;col=
+or:#183042}h1{color:#155e75}table{border-collapse:collapse;width:100%}th,td{b=
+order:1px solid #a8b9c2;padding:7px;text-align:right}th:first-child,td:first-=
+child{text-align:left}.note{background:#e8f3f6;padding:12px}</style></head>
+<body><header><p>Orchid Cellworks | Synthetic laboratory record</p><h1>Study =
+Beta assay review</h1><p>OCW-LAB-L453URRP | 2026-07-13 | BETA-B16-R02 | OCW-B=
+IO-017</p></header>
+<section class=3D"note"><strong>Acceptance contract:</strong> assay 6.8 ng/mL=
+; duplicate CV &lt;=3D10.0%; recovery 90-110%; CAL-260713-A slope 0.998, R<su=
+p>2</sup> 0.9992, blank 0.02 AU.</section>
+<h2>Measurement review</h2><table><thead><tr><th>Sample</th><th>Well</th><th>=
+Mean ng/mL</th><th>CV %</th><th>Recovery %</th><th>Status</th></tr></thead><t=
+body><tr><td>OCW-B16-006</td><td>A01</td><td>6.968</td><td>0.14</td><td>92.1<=
+/td><td>PASS</td></tr>
+<tr><td>OCW-B16-014</td><td>B01</td><td>6.891</td><td>0.28</td><td>96.4</td><=
+td>PASS</td></tr>
+<tr><td>OCW-B16-007</td><td>C01</td><td>6.412</td><td>0.70</td><td>92.4</td><=
+td>PASS</td></tr>
+<tr><td>OCW-B16-010</td><td>D01</td><td>7.157</td><td>0.14</td><td>92.6</td><=
+td>PASS</td></tr>
+<tr><td>OCW-B16-008</td><td>E01</td><td>6.975</td><td>0.00</td><td>96.2</td><=
+td>PASS</td></tr>
+<tr><td>OCW-B16-003</td><td>F01</td><td>7.066</td><td>0.42</td><td>98.9</td><=
+td>PASS</td></tr>
+<tr><td>OCW-B16-014</td><td>G01</td><td>6.675</td><td>0.43</td><td>97.2</td><=
+td>PASS</td></tr>
+<tr><td>OCW-B16-014</td><td>H01</td><td>7.136</td><td>0.42</td><td>92.7</td><=
+td>PASS</td></tr>
+<tr><td>OCW-B16-004</td><td>A02</td><td>7.115</td><td>0.00</td><td>99.6</td><=
+td>PASS</td></tr>
+<tr><td>OCW-B16-009</td><td>B02</td><td>7.136</td><td>0.28</td><td>96.1</td><=
+td>PASS</td></tr>
+<tr><td>OCW-B16-005</td><td>C02</td><td>6.849</td><td>0.43</td><td>95.5</td><=
+td>PASS</td></tr>
+<tr><td>OCW-B16-013</td><td>D02</td><td>6.498</td><td>0.28</td><td>95.7</td><=
+td>PASS</td></tr></tbody></table>
+<h2>Interpretation</h2><p>Instrument review retained the approved calibration=
+ lot. Study Beta remains baseline 1.00 and treated 1.18.</p>
+<footer><p>Wholly synthetic; no real patient, participant, PHI, PII, credenti=
+al, or unpublished data. No Kio readiness claim.</p></footer></body></html>
+
+--===============5791391735488967631==--

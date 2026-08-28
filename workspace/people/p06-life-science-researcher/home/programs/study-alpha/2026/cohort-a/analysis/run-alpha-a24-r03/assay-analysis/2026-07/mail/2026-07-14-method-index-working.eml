@@ -1,0 +1,88 @@
+From: ocw.lab.wdlbzx4l@orchid-cellworks.example
+To: lab-review@orchid-cellworks.example
+Date: Mon, 13 Jul 2026 17:30:00 +0000
+Message-ID: <ocw.lab.wdlbzx4l.20260714@orchid-cellworks.example>
+Subject: Synthetic Study Alpha review - OCW-LAB-WDLBZX4L
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="===============3401230310100608146=="
+
+--===============3401230310100608146==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+ORCHID CELLWORKS - SYNTHETIC LABORATORY HANDOFF
+Record: OCW-LAB-WDLBZX4L
+Work date: 2026-07-14
+Study: Study Alpha; cohort A-24; run ALPHA-A24-R03
+Protocol: OCW-BIO-017
+
+Purpose
+Document recovery controls supported release of the synthetic run summary for=
+ a bounded internal review.
+
+Fixed acceptance facts
+Study Alpha cohort A-24 assay 6.8 ng/mL. Duplicate CV <=3D10.0%.
+Recovery 90-110%. Study Beta baseline 1.00 and treated 1.18.
+CAL-260713-A slope 0.998, R^2 0.9992, blank 0.02 AU.
+
+Disposition
+Observed concentration: 6.92 ng/mL.
+Duplicate CV: 5.0%.
+Recovery: 98.2%.
+Review status: accepted for synthetic artifact production.
+
+Safety
+No real patient, participant, sample, PHI, PII, credential, private endpoint,
+or unpublished research material is present. No indexing or retrieval claim.
+
+--===============3401230310100608146==
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+<!doctype html>
+<html lang=3D"en"><head><meta charset=3D"utf-8"><title>OCW-LAB-WDLBZX4L labor=
+atory review</title>
+<style>body{font-family:Arial,sans-serif;max-width:960px;margin:40px auto;col=
+or:#183042}h1{color:#155e75}table{border-collapse:collapse;width:100%}th,td{b=
+order:1px solid #a8b9c2;padding:7px;text-align:right}th:first-child,td:first-=
+child{text-align:left}.note{background:#e8f3f6;padding:12px}</style></head>
+<body><header><p>Orchid Cellworks | Synthetic laboratory record</p><h1>Study =
+Alpha assay review</h1><p>OCW-LAB-WDLBZX4L | 2026-07-14 | ALPHA-A24-R03 | OCW=
+-BIO-017</p></header>
+<section class=3D"note"><strong>Acceptance contract:</strong> assay 6.8 ng/mL=
+; duplicate CV &lt;=3D10.0%; recovery 90-110%; CAL-260713-A slope 0.998, R<su=
+p>2</sup> 0.9992, blank 0.02 AU.</section>
+<h2>Measurement review</h2><table><thead><tr><th>Sample</th><th>Well</th><th>=
+Mean ng/mL</th><th>CV %</th><th>Recovery %</th><th>Status</th></tr></thead><t=
+body><tr><td>OCW-A24-021</td><td>A01</td><td>6.415</td><td>0.00</td><td>97.7<=
+/td><td>PASS</td></tr>
+<tr><td>OCW-A24-011</td><td>B01</td><td>7.094</td><td>0.28</td><td>96.1</td><=
+td>PASS</td></tr>
+<tr><td>OCW-A24-021</td><td>C01</td><td>6.437</td><td>0.28</td><td>98.8</td><=
+td>PASS</td></tr>
+<tr><td>OCW-A24-001</td><td>D01</td><td>6.466</td><td>0.43</td><td>100.0</td>=
+<td>PASS</td></tr>
+<tr><td>OCW-A24-023</td><td>E01</td><td>7.052</td><td>0.14</td><td>97.0</td><=
+td>PASS</td></tr>
+<tr><td>OCW-A24-007</td><td>F01</td><td>7.171</td><td>0.42</td><td>92.4</td><=
+td>PASS</td></tr>
+<tr><td>OCW-A24-011</td><td>G01</td><td>6.940</td><td>0.70</td><td>95.5</td><=
+td>PASS</td></tr>
+<tr><td>OCW-A24-014</td><td>H01</td><td>6.856</td><td>0.42</td><td>93.0</td><=
+td>PASS</td></tr>
+<tr><td>OCW-A24-018</td><td>A02</td><td>6.527</td><td>0.14</td><td>95.7</td><=
+td>PASS</td></tr>
+<tr><td>OCW-A24-017</td><td>B02</td><td>7.059</td><td>0.28</td><td>97.2</td><=
+td>PASS</td></tr>
+<tr><td>OCW-A24-001</td><td>C02</td><td>6.491</td><td>0.14</td><td>99.9</td><=
+td>PASS</td></tr>
+<tr><td>OCW-A24-019</td><td>D02</td><td>7.136</td><td>0.42</td><td>94.6</td><=
+td>PASS</td></tr></tbody></table>
+<h2>Interpretation</h2><p>Recovery controls supported release of the syntheti=
+c run summary. Study Beta remains baseline 1.00 and treated 1.18.</p>
+<footer><p>Wholly synthetic; no real patient, participant, PHI, PII, credenti=
+al, or unpublished data. No Kio readiness claim.</p></footer></body></html>
+
+--===============3401230310100608146==--

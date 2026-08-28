@@ -1,0 +1,23 @@
+ORCHID CELLWORKS - SYNTHETIC LABORATORY HANDOFF
+Record: OCW-LAB-IMR73K6X
+Work date: 2026-07-14
+Study: Study Alpha / Study Beta; cohort A-24 / B-16; run ALPHA-A24-R03 / BETA-B16-R02
+Protocol: OCW-BIO-017
+
+Purpose
+Document instrument review retained the approved calibration lot for a bounded internal review.
+
+Fixed acceptance facts
+Study Alpha cohort A-24 assay 6.8 ng/mL. Duplicate CV <=10.0%.
+Recovery 90-110%. Study Beta baseline 1.00 and treated 1.18.
+CAL-260713-A slope 0.998, R^2 0.9992, blank 0.02 AU.
+
+Disposition
+Observed concentration: 6.38 ng/mL.
+Duplicate CV: 6.5%.
+Recovery: 93.0%.
+Review status: accepted for synthetic artifact production.
+
+Safety
+No real patient, participant, sample, PHI, PII, credential, private endpoint,
+or unpublished research material is present. No indexing or retrieval claim.

@@ -1,0 +1,37 @@
+{
+  "schema": "orchid-cellworks.synthetic-lab-record/v1",
+  "record": {
+    "code": "OCW-LAB-EZDEKEAE",
+    "organization": "Orchid Cellworks",
+    "study": "Study Alpha / Study Beta",
+    "cohort": "A-24 / B-16",
+    "run": "ALPHA-A24-R03 / BETA-B16-R02",
+    "protocol": "OCW-BIO-017",
+    "work_date": "2026-07-14",
+    "classification": "synthetic S2/S3 laboratory data"
+  },
+  "assay": {
+    "reference_concentration_ng_ml": 6.8,
+    "observed_concentration_ng_ml": 6.44,
+    "duplicate_cv_percent": 9.1,
+    "duplicate_cv_limit_percent": 10.0,
+    "recovery_percent": 93.6,
+    "recovery_window_percent": [
+      90.0,
+      110.0
+    ]
+  },
+  "calibration": {
+    "instrument": "SpectraNova SN-4",
+    "lot": "CAL-260713-A",
+    "slope": 0.998,
+    "r_squared": 0.9992,
+    "blank_au": 0.02
+  },
+  "study_beta_response": {
+    "baseline": 1.0,
+    "treated": 1.18
+  },
+  "observation": "the treated response remained above the normalized baseline",
+  "safety": "Wholly synthetic; no patient, participant, PHI, PII, credential, or unpublished source data."
+}
