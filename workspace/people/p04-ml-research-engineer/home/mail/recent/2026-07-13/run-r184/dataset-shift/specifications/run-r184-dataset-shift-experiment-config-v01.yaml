@@ -1,0 +1,45 @@
+schema: "helix-forge.synthetic-evaluation-record/v1"
+artifact_id: "p04-full-008624"
+scope_id: "p04-secondary-07"
+topic: "Specifications"
+run:
+  id: "R184"
+  date: "2026-07-13"
+  records: 2400
+dataset:
+  name: "HF-Eval-S1/S2"
+  version: "3.2"
+  synthetic_only: true
+models:
+  - name: "Alpha M-14"
+    precision: 0.881
+    recall: 0.865
+    f1: 0.873
+  - name: "Beta B-07"
+    f1: 0.846
+slices:
+  - id: "slice-01"
+    records: 251
+    precision: 0.873
+    recall: 0.860
+    f1: 0.866
+  - id: "slice-02"
+    records: 242
+    precision: 0.890
+    recall: 0.873
+    f1: 0.881
+  - id: "slice-03"
+    records: 161
+    precision: 0.872
+    recall: 0.849
+    f1: 0.860
+  - id: "slice-04"
+    records: 234
+    precision: 0.889
+    recall: 0.862
+    f1: 0.875
+  - id: "slice-05"
+    records: 194
+    precision: 0.871
+    recall: 0.875
+    f1: 0.873

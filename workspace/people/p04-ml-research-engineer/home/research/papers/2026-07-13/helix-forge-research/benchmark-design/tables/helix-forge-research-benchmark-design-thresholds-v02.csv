@@ -1,0 +1,26 @@
+slice_id,records,precision,recall,f1,model,run_id,artifact_id,dataset,data_class
+slice-01,217,0.864,0.852,0.858,Alpha M-14,R184,p04-full-009476,HF-Eval-S1/S2 v3.2,synthetic
+slice-02,178,0.881,0.865,0.873,Alpha M-14,R184,p04-full-009476,HF-Eval-S1/S2 v3.2,synthetic
+slice-03,177,0.863,0.878,0.870,Alpha M-14,R184,p04-full-009476,HF-Eval-S1/S2 v3.2,synthetic
+slice-04,242,0.880,0.854,0.867,Alpha M-14,R184,p04-full-009476,HF-Eval-S1/S2 v3.2,synthetic
+slice-05,198,0.862,0.867,0.864,Alpha M-14,R184,p04-full-009476,HF-Eval-S1/S2 v3.2,synthetic
+slice-06,242,0.879,0.880,0.879,Alpha M-14,R184,p04-full-009476,HF-Eval-S1/S2 v3.2,synthetic
+slice-07,235,0.896,0.856,0.876,Alpha M-14,R184,p04-full-009476,HF-Eval-S1/S2 v3.2,synthetic
+slice-08,250,0.878,0.869,0.873,Alpha M-14,R184,p04-full-009476,HF-Eval-S1/S2 v3.2,synthetic
+slice-09,181,0.895,0.882,0.888,Alpha M-14,R184,p04-full-009476,HF-Eval-S1/S2 v3.2,synthetic
+slice-10,165,0.877,0.858,0.867,Alpha M-14,R184,p04-full-009476,HF-Eval-S1/S2 v3.2,synthetic
+slice-11,223,0.894,0.871,0.882,Alpha M-14,R184,p04-full-009476,HF-Eval-S1/S2 v3.2,synthetic
+slice-12,223,0.876,0.847,0.861,Alpha M-14,R184,p04-full-009476,HF-Eval-S1/S2 v3.2,synthetic
+slice-13,186,0.893,0.860,0.876,Alpha M-14,R184,p04-full-009476,HF-Eval-S1/S2 v3.2,synthetic
+slice-14,242,0.875,0.873,0.874,Alpha M-14,R184,p04-full-009476,HF-Eval-S1/S2 v3.2,synthetic
+slice-15,241,0.892,0.849,0.870,Alpha M-14,R184,p04-full-009476,HF-Eval-S1/S2 v3.2,synthetic
+slice-16,211,0.874,0.862,0.868,Alpha M-14,R184,p04-full-009476,HF-Eval-S1/S2 v3.2,synthetic
+slice-17,167,0.891,0.875,0.883,Alpha M-14,R184,p04-full-009476,HF-Eval-S1/S2 v3.2,synthetic
+slice-18,211,0.873,0.851,0.862,Alpha M-14,R184,p04-full-009476,HF-Eval-S1/S2 v3.2,synthetic
+slice-19,204,0.890,0.864,0.877,Alpha M-14,R184,p04-full-009476,HF-Eval-S1/S2 v3.2,synthetic
+slice-20,219,0.872,0.877,0.874,Alpha M-14,R184,p04-full-009476,HF-Eval-S1/S2 v3.2,synthetic
+slice-21,245,0.889,0.853,0.871,Alpha M-14,R184,p04-full-009476,HF-Eval-S1/S2 v3.2,synthetic
+slice-22,229,0.871,0.866,0.868,Alpha M-14,R184,p04-full-009476,HF-Eval-S1/S2 v3.2,synthetic
+slice-23,192,0.888,0.879,0.883,Alpha M-14,R184,p04-full-009476,HF-Eval-S1/S2 v3.2,synthetic
+slice-24,192,0.870,0.855,0.862,Alpha M-14,R184,p04-full-009476,HF-Eval-S1/S2 v3.2,synthetic
+aggregate,2400,0.881,0.865,0.873,Alpha M-14,R184,p04-full-009476,HF-Eval-S1/S2 v3.2,synthetic

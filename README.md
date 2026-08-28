@@ -31,13 +31,13 @@
 Fullの「READY」は、**物理Full成果物を作り終えた意味ではありません**。M1の200件を
 変えずに、新しいLocal taskが安全にphysical Full productionを開始できるallocation/start
 package（inventory、baseline、reservation、必要なreconciliation、content spine、complete master、
-production prompt）が揃った状態を指します。現在のp04--p20のpersona homeは、監査時点では
-いずれもM1の200件です。
+production prompt）が揃った状態を指します。次の表はGit管理済みの受入状態を示します。
+並列production中のpersonaでは、未受入のworking-tree成果物がこの状態より先行する場合があります。
 
 | Persona | Full準備の現在地 | 新規Local taskの扱い |
 |---|---|---|
 | p01--p03 | Full完成・QA受入・Git管理済み（12,000／15,000／10,000件） | production promptは履歴。明示承認された新revisionなしに再実行しない。 |
-| p04 | portable partial preflight（inventory＋M1 baseline）を共有済み。Full production未開始 | M1 ledger、reservations、Full assignmentが未作成のためREADYではない。 |
+| p04 | Full完成・QA受入済み（10,000件、v2 checkpoint 84件） | 受入済みchainは閉じている。明示承認された新revisionなしに再実行しない。 |
 | p05--p06 | Full package未作成。Full production未開始 | allocation packageの作成から開始する。 |
 | p07 | READY。Full production未開始 | persona専用Full promptを新しいLocal taskへ貼り付ける。 |
 | p08／p10 | machine-readable M1 ledgerのみ。Full production未開始 | allocation packageの作成から開始する。 |
@@ -46,11 +46,12 @@ production prompt）が揃った状態を指します。現在のp04--p20のpers
 | p15 | READY。Full production未開始 | persona専用Full promptを新しいLocal taskへ貼り付ける。 |
 | p16--p20 | READY。Full production未開始 | 各persona専用Full promptを新しいLocal taskへ貼り付ける。 |
 
-p01--p03のFull physical productionは完了しています。それぞれの
+p01--p04のFull physical productionは完了しています。p01--p03の
 [`prompts/p01-full-production.md`](prompts/p01-full-production.md)、
 [`prompts/p02-full-production.md`](prompts/p02-full-production.md)、
 [`prompts/p03-full-production.md`](prompts/p03-full-production.md)は受入済みv1 chainの
-履歴・再現用資料であり、現在のhomeへ再適用しません。
+履歴・再現用資料であり、現在のhomeへ再適用しません。p04の受入済みv2 chainも
+同様に閉じており、再開用gateを新規productionの開始指示として扱いません。
 
 異なるpersonaの親タスクは同時に実行できます。他personaのleaseは正常な並列状態であり、
 個別タスクは自分のpersonaのleaseと成果物だけを操作します。全体の

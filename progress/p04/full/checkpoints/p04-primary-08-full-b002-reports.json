@@ -1,0 +1,33 @@
+{
+  "schema": "persona-corpus.full-batch-checkpoint/v2",
+  "kind": "checkpoint",
+  "persona": "p04",
+  "plan_digest": "sha256:f4e84efd49a98760733d628aaa44342dc7039cc845aced936e8a158eada95236",
+  "scope_id": "p04-primary-08",
+  "batch_id": "p04-primary-08-full-b002-reports",
+  "assignment_count": 116,
+  "accepted_additions": 116,
+  "m1_file_count": 200,
+  "m1_sha256_unchanged": true,
+  "acceptance_group": "p04-group-005",
+  "before_manifest": "progress/p04/full/manifests/p04-group-005.before.jsonl",
+  "after_manifest": "progress/p04/full/manifests/p04-group-005.after.jsonl",
+  "before_manifest_sha256": "85b86860a6a14dd2634f2b9d7fa328ccd8d113021ad74f2f4ea358a078f067b8",
+  "after_manifest_sha256": "f1fdab22ce6f73726d104e6c28ed3f97aebb5b2e5f5ef1385f1cd4c572f03290",
+  "family_counts": {
+    "docx": 14,
+    "pdf_text": 77,
+    "pptx": 11,
+    "xlsx": 14
+  },
+  "qa": {
+    "structure": true,
+    "family": true,
+    "content_spine": true,
+    "dependencies": true,
+    "skill_required": true,
+    "secrets_pii": true
+  },
+  "accepted_at": "2026-08-28T13:16:40Z",
+  "scan_provenance": []
+}

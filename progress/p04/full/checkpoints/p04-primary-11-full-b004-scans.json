@@ -1,0 +1,82 @@
+{
+  "schema": "persona-corpus.full-batch-checkpoint/v2",
+  "kind": "checkpoint",
+  "persona": "p04",
+  "plan_digest": "sha256:f4e84efd49a98760733d628aaa44342dc7039cc845aced936e8a158eada95236",
+  "scope_id": "p04-primary-11",
+  "batch_id": "p04-primary-11-full-b004-scans",
+  "assignment_count": 3,
+  "accepted_additions": 3,
+  "m1_file_count": 200,
+  "m1_sha256_unchanged": true,
+  "acceptance_group": "p04-group-007",
+  "before_manifest": "progress/p04/full/manifests/p04-group-007.before.jsonl",
+  "after_manifest": "progress/p04/full/manifests/p04-group-007.after.jsonl",
+  "before_manifest_sha256": "c9c58719d046f28b7c3ef1902c6ca0019cf8300e191e10f35b745ceb129bc6e5",
+  "after_manifest_sha256": "fae8920b406ffa3dc7bc68a96fcdb17d38d8c61fd5e014430cce344b594d3511",
+  "family_counts": {
+    "pdf_scan": 3
+  },
+  "qa": {
+    "structure": true,
+    "family": true,
+    "content_spine": true,
+    "dependencies": true,
+    "skill_required": true,
+    "secrets_pii": true
+  },
+  "accepted_at": "2026-08-28T14:44:59Z",
+  "scan_provenance": [
+    {
+      "scan_artifact_id": "p04-full-001985",
+      "scan_path": "presentations/lab-meetings/2026-07-13/run-r184/bootstrap-confidence/scans/run-r184-bootstrap-confidence-lab-notebook-scan-v01.pdf",
+      "scan_sha256": "sha256:b41e673aeb65ec06a6d3781615b226087874929dba65239d556d19ac6338b488",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-000411",
+      "image_path": "presentations/lab-meetings/2026-07-13/run-r184/benchmark-design/figures/run-r184-benchmark-design-metric-figure-v01.png",
+      "image_sha256": "sha256:93e854530a97b23026ec2ff002d76c1b867c944a552045c1a5793949813d0a79",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:ce2df928fd0d23fb5908b353016706a8b3786ae5c79d5279cbf8e49e6b529b7c",
+      "rendered_pixel_sha256": "sha256:ce2df928fd0d23fb5908b353016706a8b3786ae5c79d5279cbf8e49e6b529b7c"
+    },
+    {
+      "scan_artifact_id": "p04-full-004636",
+      "scan_path": "presentations/lab-meetings/2026-07-13/run-r184/metric-contracts/scans/run-r184-metric-contracts-whiteboard-scan-v01.pdf",
+      "scan_sha256": "sha256:e93502aa7bdb0d0a8012f8e502a86b5a28ea07b9380d6fc01aa86b4da3daf661",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-001941",
+      "image_path": "presentations/lab-meetings/2026-07-13/run-r184/benchmark-design/figures/run-r184-benchmark-design-metric-figure-v02.png",
+      "image_sha256": "sha256:177d108b38ae81a6c308f198973e5ff3762de628c4c7b6cfc8b0508282b079bb",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:480256a774cc62482364e3347f56f1a1be27ec671a8d472a102dadf00738f641",
+      "rendered_pixel_sha256": "sha256:480256a774cc62482364e3347f56f1a1be27ec671a8d472a102dadf00738f641"
+    },
+    {
+      "scan_artifact_id": "p04-full-004836",
+      "scan_path": "presentations/lab-meetings/2026-07-13/run-r184/benchmark-design/scans/run-r184-benchmark-design-whiteboard-scan-v01.pdf",
+      "scan_sha256": "sha256:be6e7fb227a853f5b1bcb8936691b1febd18803d773c580a80570c9a8dad48f3",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-002578",
+      "image_path": "presentations/lab-meetings/2026-07-13/run-r184/intent-routing/figures/run-r184-intent-routing-metric-figure-v01.png",
+      "image_sha256": "sha256:f6633db6eb54c2de1bac0d43846d07f2b0cadc5cdaff77f60ab2a9b009ac0414",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:82b2a47955b75b7bb12e6becf86f81f2e6df2b252f25269900688e3e4b0e637e",
+      "rendered_pixel_sha256": "sha256:82b2a47955b75b7bb12e6becf86f81f2e6df2b252f25269900688e3e4b0e637e"
+    }
+  ]
+}

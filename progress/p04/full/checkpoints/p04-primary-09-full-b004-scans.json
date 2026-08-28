@@ -1,0 +1,99 @@
+{
+  "schema": "persona-corpus.full-batch-checkpoint/v2",
+  "kind": "checkpoint",
+  "persona": "p04",
+  "plan_digest": "sha256:f4e84efd49a98760733d628aaa44342dc7039cc845aced936e8a158eada95236",
+  "scope_id": "p04-primary-09",
+  "batch_id": "p04-primary-09-full-b004-scans",
+  "assignment_count": 4,
+  "accepted_additions": 4,
+  "m1_file_count": 200,
+  "m1_sha256_unchanged": true,
+  "acceptance_group": "p04-group-007",
+  "before_manifest": "progress/p04/full/manifests/p04-group-007.before.jsonl",
+  "after_manifest": "progress/p04/full/manifests/p04-group-007.after.jsonl",
+  "before_manifest_sha256": "c9c58719d046f28b7c3ef1902c6ca0019cf8300e191e10f35b745ceb129bc6e5",
+  "after_manifest_sha256": "fae8920b406ffa3dc7bc68a96fcdb17d38d8c61fd5e014430cce344b594d3511",
+  "family_counts": {
+    "pdf_scan": 4
+  },
+  "qa": {
+    "structure": true,
+    "family": true,
+    "content_spine": true,
+    "dependencies": true,
+    "skill_required": true,
+    "secrets_pii": true
+  },
+  "accepted_at": "2026-08-28T14:44:59Z",
+  "scan_provenance": [
+    {
+      "scan_artifact_id": "p04-full-002389",
+      "scan_path": "models/model-cards/model-reviews/alpha-beta/class-balance/scans/alpha-beta-class-balance-whiteboard-scan-v01.pdf",
+      "scan_sha256": "sha256:ef34c4a12fb4e44d0d07a5220e4eeb2d920d8e000ab0e2a40e4f4b8f7849fc4b",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-000426",
+      "image_path": "models/model-cards/model-reviews/alpha-beta/label-quality/figures/alpha-beta-label-quality-metric-figure-v01.png",
+      "image_sha256": "sha256:678034128863f7c11b1fb3448dd4764707c898252eeeb3a60f548c24ab4f61af",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:b19d4ca1ce576e2d0f1b293beb15af29b470bcce7d90e5097e73d6bc9fe66351",
+      "rendered_pixel_sha256": "sha256:b19d4ca1ce576e2d0f1b293beb15af29b470bcce7d90e5097e73d6bc9fe66351"
+    },
+    {
+      "scan_artifact_id": "p04-full-003847",
+      "scan_path": "models/model-cards/model-reviews/alpha-beta/review-actions/scans/alpha-beta-review-actions-lab-notebook-scan-v01.pdf",
+      "scan_sha256": "sha256:3e7de3161375c95dcb10559cf26efbfb7df08d35c2780beadf44a5ad72ff3164",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-000467",
+      "image_path": "models/model-cards/model-reviews/alpha-beta/experiment-tracking/figures/alpha-beta-experiment-tracking-comparison-visual-v01.png",
+      "image_sha256": "sha256:d51011d28ad5ff4c662f60d398498ca8efed70e996ae6f40cd5e4e68b72da5fa",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:cef8ff3ce406ac62e29880e6c86d772d9ec42b09db8f760311c247cfa264ae93",
+      "rendered_pixel_sha256": "sha256:cef8ff3ce406ac62e29880e6c86d772d9ec42b09db8f760311c247cfa264ae93"
+    },
+    {
+      "scan_artifact_id": "p04-full-007348",
+      "scan_path": "models/model-cards/model-reviews/alpha-beta/label-quality/scans/alpha-beta-label-quality-whiteboard-scan-v01.pdf",
+      "scan_sha256": "sha256:5f4517642a1da211a62c28dcc85fddb5672b13f91c94f96dcdf12fd40b68eaeb",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-000749",
+      "image_path": "models/model-cards/model-reviews/alpha-beta/threshold-selection/figures/alpha-beta-threshold-selection-calibration-figure-v01.png",
+      "image_sha256": "sha256:344ad15f56c2fefa9f5a431e1735bb04f5f6356ee6b0ccde1090d26b4fba93bb",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:5fa8150b9c5740d77ed5885320d489f0114e2705dbd66a9a0cfcfe396a1a2e42",
+      "rendered_pixel_sha256": "sha256:5fa8150b9c5740d77ed5885320d489f0114e2705dbd66a9a0cfcfe396a1a2e42"
+    },
+    {
+      "scan_artifact_id": "p04-full-008048",
+      "scan_path": "models/model-cards/model-reviews/alpha-beta/reproducibility/scans/alpha-beta-reproducibility-review-sheet-scan-v01.pdf",
+      "scan_sha256": "sha256:ce1b7f727d8a1ec61230999dcee0eaa09f335f2dcd16133a81bae20d5a3cb3e1",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-001202",
+      "image_path": "models/model-cards/model-reviews/alpha-beta/slice-robustness/figures/alpha-beta-slice-robustness-calibration-figure-v01.png",
+      "image_sha256": "sha256:7c0360bfed6a30e9930a112802c3900d0e9b076e834a8e73b514c23ccb51263e",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:25103e3a94a9ef89fa1b2e8b12ab0d0f2b934593ce571ef863ebbfad93c1cd9c",
+      "rendered_pixel_sha256": "sha256:25103e3a94a9ef89fa1b2e8b12ab0d0f2b934593ce571ef863ebbfad93c1cd9c"
+    }
+  ]
+}

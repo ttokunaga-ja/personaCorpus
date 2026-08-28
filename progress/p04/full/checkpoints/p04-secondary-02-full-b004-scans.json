@@ -1,0 +1,82 @@
+{
+  "schema": "persona-corpus.full-batch-checkpoint/v2",
+  "kind": "checkpoint",
+  "persona": "p04",
+  "plan_digest": "sha256:f4e84efd49a98760733d628aaa44342dc7039cc845aced936e8a158eada95236",
+  "scope_id": "p04-secondary-02",
+  "batch_id": "p04-secondary-02-full-b004-scans",
+  "assignment_count": 3,
+  "accepted_additions": 3,
+  "m1_file_count": 200,
+  "m1_sha256_unchanged": true,
+  "acceptance_group": "p04-group-007",
+  "before_manifest": "progress/p04/full/manifests/p04-group-007.before.jsonl",
+  "after_manifest": "progress/p04/full/manifests/p04-group-007.after.jsonl",
+  "before_manifest_sha256": "c9c58719d046f28b7c3ef1902c6ca0019cf8300e191e10f35b745ceb129bc6e5",
+  "after_manifest_sha256": "fae8920b406ffa3dc7bc68a96fcdb17d38d8c61fd5e014430cce344b594d3511",
+  "family_counts": {
+    "pdf_scan": 3
+  },
+  "qa": {
+    "structure": true,
+    "family": true,
+    "content_spine": true,
+    "dependencies": true,
+    "skill_required": true,
+    "secrets_pii": true
+  },
+  "accepted_at": "2026-08-28T14:44:59Z",
+  "scan_provenance": [
+    {
+      "scan_artifact_id": "p04-full-001212",
+      "scan_path": "documents/reference/2026-07-13/run-r184/model-governance/scans/run-r184-model-governance-review-sheet-scan-v01.pdf",
+      "scan_sha256": "sha256:13ad8d34eb6690fa2ddc914fb7b32ba0fa2bad64f84f966de1a4342ee74ed4f4",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-000132",
+      "image_path": "documents/reference/2026-07-13/run-r184/comparison-study/figures/run-r184-comparison-study-metric-figure-v01.png",
+      "image_sha256": "sha256:b872154d7d62296a4c5ad93ce2528cee7a6d8b193bdbb241f92c837fb085f013",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:0be505cc96f142aac40d021c858122814b7434eb940b03e9fe5e03af66198b27",
+      "rendered_pixel_sha256": "sha256:0be505cc96f142aac40d021c858122814b7434eb940b03e9fe5e03af66198b27"
+    },
+    {
+      "scan_artifact_id": "p04-full-002765",
+      "scan_path": "documents/reference/2026-07-13/run-r184/model-governance/scans/run-r184-model-governance-whiteboard-scan-v01.pdf",
+      "scan_sha256": "sha256:5ab39086b8e3b7586abf77218cd5cad30bddcbdd48a9330b75dc048ef00f8a72",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-000373",
+      "image_path": "documents/reference/2026-07-13/run-r184/evaluation-slices/figures/run-r184-evaluation-slices-review-board-v01.png",
+      "image_sha256": "sha256:a3af15111e268897f0ff615a5f2e70e81c70ae0999ebad9c343240e4c831591f",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:fa0cba6050127110243eae87b08954a0a46756b3c715f01f0bf16e37886dbc77",
+      "rendered_pixel_sha256": "sha256:fa0cba6050127110243eae87b08954a0a46756b3c715f01f0bf16e37886dbc77"
+    },
+    {
+      "scan_artifact_id": "p04-full-002855",
+      "scan_path": "documents/reference/2026-07-13/run-r184/bootstrap-confidence/scans/run-r184-bootstrap-confidence-whiteboard-scan-v01.pdf",
+      "scan_sha256": "sha256:1d7748247960b19a740a17e84d20316703b04db39911f37c2156deaab349af1b",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-000631",
+      "image_path": "documents/reference/2026-07-13/run-r184/uncertainty-analysis/figures/run-r184-uncertainty-analysis-comparison-visual-v01.png",
+      "image_sha256": "sha256:ebed252754afb1d62f446455108505ea076071b4bb1878fb9034d4ca1799a356",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:d00fcdc98a9e34412bc21e7d7c469b1cc23deec34ee67e16e29a044bb1dcdd09",
+      "rendered_pixel_sha256": "sha256:d00fcdc98a9e34412bc21e7d7c469b1cc23deec34ee67e16e29a044bb1dcdd09"
+    }
+  ]
+}

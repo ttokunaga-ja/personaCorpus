@@ -1,0 +1,88 @@
+{
+  "artifact_id": "p04-full-009014",
+  "dataset": {
+    "name": "HF-Eval-S1/S2",
+    "synthetic_only": true,
+    "version": "3.2"
+  },
+  "dependencies": [],
+  "dependency_note": "No upstream artifact is required for this bounded record.",
+  "models": [
+    {
+      "f1": 0.873,
+      "name": "Alpha M-14",
+      "precision": 0.881,
+      "recall": 0.865
+    },
+    {
+      "f1": 0.846,
+      "name": "Beta B-07"
+    }
+  ],
+  "run": {
+    "date": "2026-07-13",
+    "id": "R184",
+    "records": 2400
+  },
+  "schema": "helix-forge.synthetic-evaluation-record/v1",
+  "scope_id": "p04-secondary-03",
+  "slices": [
+    {
+      "f1": 0.869,
+      "precision": 0.863,
+      "recall": 0.876,
+      "records": 211,
+      "slice_id": "slice-01"
+    },
+    {
+      "f1": 0.866,
+      "precision": 0.88,
+      "recall": 0.852,
+      "records": 175,
+      "slice_id": "slice-02"
+    },
+    {
+      "f1": 0.863,
+      "precision": 0.862,
+      "recall": 0.865,
+      "records": 175,
+      "slice_id": "slice-03"
+    },
+    {
+      "f1": 0.878,
+      "precision": 0.879,
+      "recall": 0.878,
+      "records": 241,
+      "slice_id": "slice-04"
+    },
+    {
+      "f1": 0.874,
+      "precision": 0.896,
+      "recall": 0.854,
+      "records": 198,
+      "slice_id": "slice-05"
+    },
+    {
+      "f1": 0.872,
+      "precision": 0.878,
+      "recall": 0.867,
+      "records": 242,
+      "slice_id": "slice-06"
+    },
+    {
+      "f1": 0.887,
+      "precision": 0.895,
+      "recall": 0.88,
+      "records": 235,
+      "slice_id": "slice-07"
+    },
+    {
+      "f1": 0.866,
+      "precision": 0.877,
+      "recall": 0.856,
+      "records": 203,
+      "slice_id": "slice-08"
+    }
+  ],
+  "topic": "Specifications"
+}

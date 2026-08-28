@@ -1,0 +1,17 @@
+Helix Forge Research Quality Assurance Handoff
+Helix Forge Lab | p04-full-008995 | p04-primary-07
+
+Purpose
+This bounded plain-text record captures the logs decision for the 2026-07-13 evaluation cycle.
+
+Observed position
+The bounded evaluation uses HF-Eval-S1/S2 v3.2 and run R184 dated 2026-07-13. Model Alpha M-14 reached F1 0.873, precision 0.881, and recall 0.865; Model Beta B-07 reached F1 0.846. The 2,400-record evaluation population is synthetic and contains no live customer data.
+
+Interpretation
+The result is suitable for a research checkpoint. It does not establish a deployment decision. Slice-level calibration, dataset lineage, and the frozen scoring policy must remain visible when the record is reused.
+
+Lineage
+No upstream artifact is required for this bounded record.
+
+Follow-up
+Re-run the saved notebook logic against the same synthetic split, compare threshold sensitivity, and record any drift before promotion. No live users, credentials, or external systems are represented.

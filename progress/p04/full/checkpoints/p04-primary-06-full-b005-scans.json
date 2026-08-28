@@ -1,0 +1,201 @@
+{
+  "schema": "persona-corpus.full-batch-checkpoint/v2",
+  "kind": "checkpoint",
+  "persona": "p04",
+  "plan_digest": "sha256:f4e84efd49a98760733d628aaa44342dc7039cc845aced936e8a158eada95236",
+  "scope_id": "p04-primary-06",
+  "batch_id": "p04-primary-06-full-b005-scans",
+  "assignment_count": 10,
+  "accepted_additions": 10,
+  "m1_file_count": 200,
+  "m1_sha256_unchanged": true,
+  "acceptance_group": "p04-group-007",
+  "before_manifest": "progress/p04/full/manifests/p04-group-007.before.jsonl",
+  "after_manifest": "progress/p04/full/manifests/p04-group-007.after.jsonl",
+  "before_manifest_sha256": "c9c58719d046f28b7c3ef1902c6ca0019cf8300e191e10f35b745ceb129bc6e5",
+  "after_manifest_sha256": "fae8920b406ffa3dc7bc68a96fcdb17d38d8c61fd5e014430cce344b594d3511",
+  "family_counts": {
+    "pdf_scan": 10
+  },
+  "qa": {
+    "structure": true,
+    "family": true,
+    "content_spine": true,
+    "dependencies": true,
+    "skill_required": true,
+    "secrets_pii": true
+  },
+  "accepted_at": "2026-08-28T14:44:59Z",
+  "scan_provenance": [
+    {
+      "scan_artifact_id": "p04-full-000554",
+      "scan_path": "research/programs/model-beta/experiments/results/2026-07-13/model-beta-b07/data-lineage/scans/model-beta-b07-data-lineage-review-sheet-scan-v01.pdf",
+      "scan_sha256": "sha256:b8ebd70c5b827f0ef36b4a1168339760fa8a633d64d7862b98d151e0bcd7cf4d",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-001358",
+      "image_path": "research/programs/model-beta/experiments/results/2026-07-13/model-beta-b07/slice-robustness/figures/model-beta-b07-slice-robustness-calibration-figure-v01.png",
+      "image_sha256": "sha256:28763e0b3336d256daac4709474c276227a3fc3da07082b1285bfed9edd9013c",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:d7a48cc2c59ee8a791399a3aabcf8cdea3a37df52ccf4eac2145fa4e56b0dcb5",
+      "rendered_pixel_sha256": "sha256:d7a48cc2c59ee8a791399a3aabcf8cdea3a37df52ccf4eac2145fa4e56b0dcb5"
+    },
+    {
+      "scan_artifact_id": "p04-full-000641",
+      "scan_path": "research/programs/model-beta/experiments/results/2026-07-13/model-beta-b07/evaluation-slices/scans/model-beta-b07-evaluation-slices-review-sheet-scan-v01.pdf",
+      "scan_sha256": "sha256:63b57ff9a360b86d084037afb06297bd86eb34a80e99e60685b3c05f2d9997a1",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-001727",
+      "image_path": "research/programs/model-beta/experiments/results/2026-07-13/model-beta-b07/benchmark-design/figures/model-beta-b07-benchmark-design-slice-heatmap-v01.png",
+      "image_sha256": "sha256:9ab538f502a7a2f815bd53c98095a5543029a6321f9b9c1a154dbd1c4926cf11",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:f2289f5bded8a06864ab7beba89ada192f4a3495c96f47821aa0967f11a319d7",
+      "rendered_pixel_sha256": "sha256:f2289f5bded8a06864ab7beba89ada192f4a3495c96f47821aa0967f11a319d7"
+    },
+    {
+      "scan_artifact_id": "p04-full-001509",
+      "scan_path": "research/programs/model-beta/experiments/results/2026-07-13/model-beta-b07/review-actions/scans/model-beta-b07-review-actions-lab-notebook-scan-v01.pdf",
+      "scan_sha256": "sha256:9fb7973c838ff5b74c1927fa31115300f64d1b6f9786f76a4d97583015725b96",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-001993",
+      "image_path": "research/programs/model-beta/experiments/results/2026-07-13/model-beta-b07/experiment-tracking/figures/model-beta-b07-experiment-tracking-comparison-visual-v01.png",
+      "image_sha256": "sha256:46bf91b168a0b465d70c6dc4bf0e615b1c8cc74892d66e97704139cbd49f0472",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:425f76d60b3842a7b958d2a45ca8f8eb285e78ef9bd88c3f5b31d4dcdf3aa10d",
+      "rendered_pixel_sha256": "sha256:425f76d60b3842a7b958d2a45ca8f8eb285e78ef9bd88c3f5b31d4dcdf3aa10d"
+    },
+    {
+      "scan_artifact_id": "p04-full-002084",
+      "scan_path": "research/programs/model-beta/experiments/results/2026-07-13/model-beta-b07/failure-analysis/scans/model-beta-b07-failure-analysis-whiteboard-scan-v01.pdf",
+      "scan_sha256": "sha256:c18c3673cfcb8be9ce996b63feffe3f40280e71b1ea4b8213fc7189526c9480f",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-002211",
+      "image_path": "research/programs/model-beta/experiments/results/2026-07-13/model-beta-b07/model-governance/figures/model-beta-b07-model-governance-review-board-v01.png",
+      "image_sha256": "sha256:fdcf2885ee1017b5f23936bc40cd3fcf520a06e37dd5db568c904d474f038eb9",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:d7cb8d29c58045156bed7bf46d3f94a2a2dc2dd2247399839ab99fa1e21bc09e",
+      "rendered_pixel_sha256": "sha256:d7cb8d29c58045156bed7bf46d3f94a2a2dc2dd2247399839ab99fa1e21bc09e"
+    },
+    {
+      "scan_artifact_id": "p04-full-004944",
+      "scan_path": "research/programs/model-beta/experiments/results/2026-07-13/model-beta-b07/reproducibility/scans/model-beta-b07-reproducibility-whiteboard-scan-v01.pdf",
+      "scan_sha256": "sha256:48efb353dd29079cc2d8166ca0ebdc404ab0402f90837a188cd5e2c3a7fecdd1",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-002636",
+      "image_path": "research/programs/model-beta/experiments/results/2026-07-13/model-beta-b07/latency-quality/figures/model-beta-b07-latency-quality-comparison-visual-v01.png",
+      "image_sha256": "sha256:872232b4abf8b3689ad0b26276510e608791afb698e550b2d10517c50647af10",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:a1c1fd8925220bf66031f5c638817c82219b13ef46ca56e4b0ff87dc32b8790b",
+      "rendered_pixel_sha256": "sha256:a1c1fd8925220bf66031f5c638817c82219b13ef46ca56e4b0ff87dc32b8790b"
+    },
+    {
+      "scan_artifact_id": "p04-full-006844",
+      "scan_path": "research/programs/model-beta/experiments/results/2026-07-13/model-beta-b07/metric-contracts/scans/model-beta-b07-metric-contracts-whiteboard-scan-v01.pdf",
+      "scan_sha256": "sha256:2aba3b5329bfeaf2c2bc4d0f97bc4df00b7b41840b03db0ca250c79825ab3955",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-002692",
+      "image_path": "research/programs/model-beta/experiments/results/2026-07-13/model-beta-b07/class-balance/figures/model-beta-b07-class-balance-review-board-v01.png",
+      "image_sha256": "sha256:454067908cc195d2b47fb49d2ab0958f833ed9c4f36510e798ad873bc0f3721f",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:4fc4391355c876ae7fa0f6f0cd09ef9810e76f490d9cc07ac7372186624965d7",
+      "rendered_pixel_sha256": "sha256:4fc4391355c876ae7fa0f6f0cd09ef9810e76f490d9cc07ac7372186624965d7"
+    },
+    {
+      "scan_artifact_id": "p04-full-007542",
+      "scan_path": "research/programs/model-beta/experiments/results/2026-07-13/model-beta-b07/bootstrap-confidence/scans/model-beta-b07-bootstrap-confidence-whiteboard-scan-v01.pdf",
+      "scan_sha256": "sha256:9454905f2aa42371a98bf92dd642809ae3c589158f6f484e7e954f601743e445",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-002816",
+      "image_path": "research/programs/model-beta/experiments/results/2026-07-13/model-beta-b07/threshold-selection/figures/model-beta-b07-threshold-selection-slice-heatmap-v01.png",
+      "image_sha256": "sha256:573a1140c04ab6fbe0a721f8e7d2ef82b2c8f122692a7c1220dbd96f7ca4088d",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:ebe4dc32fc5e1830c630222cf514ce865ccdd225f8b846054eae3b43d6da3a55",
+      "rendered_pixel_sha256": "sha256:ebe4dc32fc5e1830c630222cf514ce865ccdd225f8b846054eae3b43d6da3a55"
+    },
+    {
+      "scan_artifact_id": "p04-full-008642",
+      "scan_path": "research/programs/model-beta/experiments/results/2026-07-13/model-beta-b07/deployment-readiness/scans/model-beta-b07-deployment-readiness-lab-notebook-scan-v01.pdf",
+      "scan_sha256": "sha256:49cc6029129cb5d9b2af75f24bfee712bc01223dfa235d42bb2151c1e29c95dc",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-003200",
+      "image_path": "research/programs/model-beta/experiments/results/2026-07-13/model-beta-b07/feature-drift/figures/model-beta-b07-feature-drift-calibration-figure-v01.png",
+      "image_sha256": "sha256:82fe6165c435d0c87a3540a11cbefba9d2b01a5308d040362b73db0019266338",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:655ffe8a7a57643ed11ae6ee99bce278e152e7ba3beb4d6eeea518b3ad6bdb70",
+      "rendered_pixel_sha256": "sha256:655ffe8a7a57643ed11ae6ee99bce278e152e7ba3beb4d6eeea518b3ad6bdb70"
+    },
+    {
+      "scan_artifact_id": "p04-full-008742",
+      "scan_path": "research/programs/model-beta/experiments/results/2026-07-13/model-beta-b07/dataset-assurance/scans/model-beta-b07-dataset-assurance-lab-notebook-scan-v01.pdf",
+      "scan_sha256": "sha256:29a2b4961fdf4a6e73884e6e1fca7af4375fddb51cf036bc84fbd4f9d31f4e30",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-003275",
+      "image_path": "research/programs/model-beta/experiments/results/2026-07-13/model-beta-b07/benchmark-design/figures/model-beta-b07-benchmark-design-slice-heatmap-v02.png",
+      "image_sha256": "sha256:f3294d15aa995c161dd164a54b6573b5c8b01d4f66ecbe5ab6584910dfdef3cf",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:cb0c41a4df74b468efd3eb11f5f0d701206dc4758979219dda8ea2775e52e54b",
+      "rendered_pixel_sha256": "sha256:cb0c41a4df74b468efd3eb11f5f0d701206dc4758979219dda8ea2775e52e54b"
+    },
+    {
+      "scan_artifact_id": "p04-full-009542",
+      "scan_path": "research/programs/model-beta/experiments/results/2026-07-13/model-beta-b07/dataset-assurance/scans/model-beta-b07-dataset-assurance-whiteboard-scan-v01.pdf",
+      "scan_sha256": "sha256:2f7d02d65bbf6909c8d274423dedf8dcf860eacd3328730480de0ca796c5daa2",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-007994",
+      "image_path": "research/programs/model-beta/experiments/results/2026-07-13/model-beta-b07/failure-analysis/figures/model-beta-b07-failure-analysis-calibration-figure-v01.png",
+      "image_sha256": "sha256:8293d0135ec2e8321c798570a7f5df73ece9c80aab02f48012b2a41c49c19db9",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:bba18937b8e7e1bd6c32fc283df5a8d623ea963fb269a996d2ef68179e6d505a",
+      "rendered_pixel_sha256": "sha256:bba18937b8e7e1bd6c32fc283df5a8d623ea963fb269a996d2ef68179e6d505a"
+    }
+  ]
+}

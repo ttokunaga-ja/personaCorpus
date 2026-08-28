@@ -1,0 +1,21 @@
+-- Helix Forge Lab synthetic evaluation record: p04-full-003428
+-- Run R184 | HF-Eval-S1/S2 v3.2 | 2,400 synthetic records
+BEGIN;
+CREATE TEMP TABLE eval_p04_full_003428 (
+  slice_id TEXT PRIMARY KEY,
+  records INTEGER NOT NULL CHECK (records > 0),
+  precision_score REAL NOT NULL CHECK (precision_score BETWEEN 0 AND 1),
+  recall_score REAL NOT NULL CHECK (recall_score BETWEEN 0 AND 1),
+  f1_score REAL NOT NULL CHECK (f1_score BETWEEN 0 AND 1)
+);
+INSERT INTO eval_p04_full_003428 (slice_id, records, precision_score, recall_score, f1_score) VALUES
+  ('slice-01', 176, 0.878, 0.863, 0.870),
+  ('slice-02', 205, 0.895, 0.876, 0.885),
+  ('slice-03', 238, 0.877, 0.852, 0.864),
+  ('slice-04', 225, 0.894, 0.865, 0.879),
+  ('slice-05', 237, 0.876, 0.878, 0.877),
+  ('slice-06', 214, 0.893, 0.854, 0.873),
+  ('slice-07', 221, 0.875, 0.867, 0.871),
+  ('slice-08', 243, 0.892, 0.880, 0.886);
+SELECT COUNT(*) AS slice_count, ROUND(AVG(f1_score), 3) AS mean_f1 FROM eval_p04_full_003428;
+ROLLBACK;

@@ -1,0 +1,26 @@
+slice_id	records	precision	recall	f1	model	run_id	artifact_id	dataset	data_class
+slice-01	199	0.886	0.848	0.867	Alpha M-14	R184	p04-full-006536	HF-Eval-S1/S2 v3.2	synthetic
+slice-02	169	0.868	0.861	0.864	Alpha M-14	R184	p04-full-006536	HF-Eval-S1/S2 v3.2	synthetic
+slice-03	220	0.885	0.874	0.879	Alpha M-14	R184	p04-full-006536	HF-Eval-S1/S2 v3.2	synthetic
+slice-04	216	0.867	0.850	0.858	Alpha M-14	R184	p04-full-006536	HF-Eval-S1/S2 v3.2	synthetic
+slice-05	233	0.884	0.863	0.873	Alpha M-14	R184	p04-full-006536	HF-Eval-S1/S2 v3.2	synthetic
+slice-06	165	0.866	0.876	0.871	Alpha M-14	R184	p04-full-006536	HF-Eval-S1/S2 v3.2	synthetic
+slice-07	244	0.883	0.852	0.867	Alpha M-14	R184	p04-full-006536	HF-Eval-S1/S2 v3.2	synthetic
+slice-08	207	0.865	0.865	0.865	Alpha M-14	R184	p04-full-006536	HF-Eval-S1/S2 v3.2	synthetic
+slice-09	207	0.882	0.878	0.880	Alpha M-14	R184	p04-full-006536	HF-Eval-S1/S2 v3.2	synthetic
+slice-10	178	0.864	0.854	0.859	Alpha M-14	R184	p04-full-006536	HF-Eval-S1/S2 v3.2	synthetic
+slice-11	182	0.881	0.867	0.874	Alpha M-14	R184	p04-full-006536	HF-Eval-S1/S2 v3.2	synthetic
+slice-12	250	0.863	0.880	0.871	Alpha M-14	R184	p04-full-006536	HF-Eval-S1/S2 v3.2	synthetic
+slice-13	168	0.880	0.856	0.868	Alpha M-14	R184	p04-full-006536	HF-Eval-S1/S2 v3.2	synthetic
+slice-14	233	0.862	0.869	0.865	Alpha M-14	R184	p04-full-006536	HF-Eval-S1/S2 v3.2	synthetic
+slice-15	189	0.879	0.882	0.880	Alpha M-14	R184	p04-full-006536	HF-Eval-S1/S2 v3.2	synthetic
+slice-16	185	0.896	0.858	0.877	Alpha M-14	R184	p04-full-006536	HF-Eval-S1/S2 v3.2	synthetic
+slice-17	202	0.878	0.871	0.874	Alpha M-14	R184	p04-full-006536	HF-Eval-S1/S2 v3.2	synthetic
+slice-18	229	0.895	0.847	0.870	Alpha M-14	R184	p04-full-006536	HF-Eval-S1/S2 v3.2	synthetic
+slice-19	213	0.877	0.860	0.868	Alpha M-14	R184	p04-full-006536	HF-Eval-S1/S2 v3.2	synthetic
+slice-20	176	0.894	0.873	0.883	Alpha M-14	R184	p04-full-006536	HF-Eval-S1/S2 v3.2	synthetic
+slice-21	176	0.876	0.849	0.862	Alpha M-14	R184	p04-full-006536	HF-Eval-S1/S2 v3.2	synthetic
+slice-22	242	0.893	0.862	0.877	Alpha M-14	R184	p04-full-006536	HF-Eval-S1/S2 v3.2	synthetic
+slice-23	246	0.875	0.875	0.875	Alpha M-14	R184	p04-full-006536	HF-Eval-S1/S2 v3.2	synthetic
+slice-24	219	0.892	0.851	0.871	Alpha M-14	R184	p04-full-006536	HF-Eval-S1/S2 v3.2	synthetic
+aggregate	2400	0.881	0.865	0.873	Alpha M-14	R184	p04-full-006536	HF-Eval-S1/S2 v3.2	synthetic

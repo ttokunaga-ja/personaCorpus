@@ -1,0 +1,286 @@
+{
+  "schema": "persona-corpus.full-batch-checkpoint/v2",
+  "kind": "checkpoint",
+  "persona": "p04",
+  "plan_digest": "sha256:f4e84efd49a98760733d628aaa44342dc7039cc845aced936e8a158eada95236",
+  "scope_id": "p04-primary-04",
+  "batch_id": "p04-primary-04-full-b005-scans",
+  "assignment_count": 15,
+  "accepted_additions": 15,
+  "m1_file_count": 200,
+  "m1_sha256_unchanged": true,
+  "acceptance_group": "p04-group-007",
+  "before_manifest": "progress/p04/full/manifests/p04-group-007.before.jsonl",
+  "after_manifest": "progress/p04/full/manifests/p04-group-007.after.jsonl",
+  "before_manifest_sha256": "c9c58719d046f28b7c3ef1902c6ca0019cf8300e191e10f35b745ceb129bc6e5",
+  "after_manifest_sha256": "fae8920b406ffa3dc7bc68a96fcdb17d38d8c61fd5e014430cce344b594d3511",
+  "family_counts": {
+    "pdf_scan": 15
+  },
+  "qa": {
+    "structure": true,
+    "family": true,
+    "content_spine": true,
+    "dependencies": true,
+    "skill_required": true,
+    "secrets_pii": true
+  },
+  "accepted_at": "2026-08-28T14:44:59Z",
+  "scan_provenance": [
+    {
+      "scan_artifact_id": "p04-full-000290",
+      "scan_path": "research/programs/model-alpha/experiments/results/2026-07-13/model-alpha-m14/error-taxonomy/scans/model-alpha-m14-error-taxonomy-whiteboard-scan-v01.pdf",
+      "scan_sha256": "sha256:9c497848a0d942a4e1050a87edca87651f4934181fe88d390981a0a02501b4af",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-000691",
+      "image_path": "research/programs/model-alpha/experiments/results/2026-07-13/model-alpha-m14/seed-stability/figures/model-alpha-m14-seed-stability-review-board-v01.png",
+      "image_sha256": "sha256:30341d0f9b784b11f98a3686de9d0a20b1c3236de51a7cb3586ee6604e048deb",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:9c4f1a7bd6b470bfa8974b9cb93546cc86d009fdf76ffa3765b31492e0b72d22",
+      "rendered_pixel_sha256": "sha256:9c4f1a7bd6b470bfa8974b9cb93546cc86d009fdf76ffa3765b31492e0b72d22"
+    },
+    {
+      "scan_artifact_id": "p04-full-003644",
+      "scan_path": "research/programs/model-alpha/experiments/results/2026-07-13/model-alpha-m14/failure-analysis/scans/model-alpha-m14-failure-analysis-lab-notebook-scan-v01.pdf",
+      "scan_sha256": "sha256:b632283f0f110341dcb0a4b116fab3f2d385ca9757b3ef593ea208b8ac2ce368",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-000802",
+      "image_path": "research/programs/model-alpha/experiments/results/2026-07-13/model-alpha-m14/review-actions/figures/model-alpha-m14-review-actions-slice-heatmap-v01.png",
+      "image_sha256": "sha256:bd679f64039e30d639e5cf9eaad6e4caab2082f98773e2bc6cf585d35300a988",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:c5e94c84b4f72dc7b2128ac2a62a41ee7f2be49f7387adbfeed9eb9b4e80d657",
+      "rendered_pixel_sha256": "sha256:c5e94c84b4f72dc7b2128ac2a62a41ee7f2be49f7387adbfeed9eb9b4e80d657"
+    },
+    {
+      "scan_artifact_id": "p04-full-003744",
+      "scan_path": "research/programs/model-alpha/experiments/results/2026-07-13/model-alpha-m14/synthetic-sampling/scans/model-alpha-m14-synthetic-sampling-lab-notebook-scan-v01.pdf",
+      "scan_sha256": "sha256:5507be042592ffb73039373d2f7bd02db5819a17662e26c45b3f48730552b20e",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-000894",
+      "image_path": "research/programs/model-alpha/experiments/results/2026-07-13/model-alpha-m14/method-validation/figures/model-alpha-m14-method-validation-calibration-figure-v01.png",
+      "image_sha256": "sha256:cbbaa1ff24100fddf5e981434a2666e5eae83437890593ad4c378f5405798f4a",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:9d51d097a1b1040a1fad00c760a3ff76cbc1c99778c202667f78967892a2e875",
+      "rendered_pixel_sha256": "sha256:9d51d097a1b1040a1fad00c760a3ff76cbc1c99778c202667f78967892a2e875"
+    },
+    {
+      "scan_artifact_id": "p04-full-004542",
+      "scan_path": "research/programs/model-alpha/experiments/results/2026-07-13/model-alpha-m14/synthetic-sampling/scans/model-alpha-m14-synthetic-sampling-whiteboard-scan-v01.pdf",
+      "scan_sha256": "sha256:f5d407edd44feab25b809b7d9ed5678cc17d8d0884bf825909f08446cada81b5",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-001434",
+      "image_path": "research/programs/model-alpha/experiments/results/2026-07-13/model-alpha-m14/failure-analysis/figures/model-alpha-m14-failure-analysis-review-board-v01.png",
+      "image_sha256": "sha256:e3c3a09d6f6b3b1342735e6abecffa7fe58ac320840d111c9081409b91d9003c",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:5cee5d1ac711b8a3e6e28dc4f51a1b27be60af69a2108a70bd0289075cb2e0c2",
+      "rendered_pixel_sha256": "sha256:5cee5d1ac711b8a3e6e28dc4f51a1b27be60af69a2108a70bd0289075cb2e0c2"
+    },
+    {
+      "scan_artifact_id": "p04-full-005042",
+      "scan_path": "research/programs/model-alpha/experiments/results/2026-07-13/model-alpha-m14/dataset-shift/scans/model-alpha-m14-dataset-shift-whiteboard-scan-v01.pdf",
+      "scan_sha256": "sha256:558fbff7fbd28073ad48fe76117879a13a708b601f0603c133929b33b587769f",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-001498",
+      "image_path": "research/programs/model-alpha/experiments/results/2026-07-13/model-alpha-m14/failure-analysis/figures/model-alpha-m14-failure-analysis-calibration-figure-v01.png",
+      "image_sha256": "sha256:dcc9d58dd3366c27e6bec4f0f00d43db2df1d69638d63ffa4ac87fecdb028e3f",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:3b6e233144c03cfbadf4ed5b066392f1f9d0c720ac35886ca3da50754a02781f",
+      "rendered_pixel_sha256": "sha256:3b6e233144c03cfbadf4ed5b066392f1f9d0c720ac35886ca3da50754a02781f"
+    },
+    {
+      "scan_artifact_id": "p04-full-005443",
+      "scan_path": "research/programs/model-alpha/experiments/results/2026-07-13/model-alpha-m14/quality-assurance/scans/model-alpha-m14-quality-assurance-review-sheet-scan-v01.pdf",
+      "scan_sha256": "sha256:5e1e44207e29167c357e3938bbaf6fe8eeeb32179e6a087b8acb25053b5d7f12",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-001751",
+      "image_path": "research/programs/model-alpha/experiments/results/2026-07-13/model-alpha-m14/metric-contracts/figures/model-alpha-m14-metric-contracts-review-board-v01.png",
+      "image_sha256": "sha256:f04ca14049f470673eeb0ef4980595d305f58622f44314461289115a32916fbc",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:c0f3b7e1c8526a405de8224dbe5b4d494d11629458c7efd2c00cb69f3d7d0bc8",
+      "rendered_pixel_sha256": "sha256:c0f3b7e1c8526a405de8224dbe5b4d494d11629458c7efd2c00cb69f3d7d0bc8"
+    },
+    {
+      "scan_artifact_id": "p04-full-005643",
+      "scan_path": "research/programs/model-alpha/experiments/results/2026-07-13/model-alpha-m14/threshold-selection/scans/model-alpha-m14-threshold-selection-review-sheet-scan-v01.pdf",
+      "scan_sha256": "sha256:7b4fa82e56866348cf168f641b56881a78d14fb9c0d846482727fa7a62173669",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-001920",
+      "image_path": "research/programs/model-alpha/experiments/results/2026-07-13/model-alpha-m14/seed-stability/figures/model-alpha-m14-seed-stability-review-board-v02.png",
+      "image_sha256": "sha256:bdb07658c7e5ffb6fdf5aea6ba6d2845cdf503fbad02cfe8328d8c82b64406af",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:8369aef4a5fbe958f7654c11e4ceb4e58c72e761bbce02a7fe9e58d9d79674ac",
+      "rendered_pixel_sha256": "sha256:8369aef4a5fbe958f7654c11e4ceb4e58c72e761bbce02a7fe9e58d9d79674ac"
+    },
+    {
+      "scan_artifact_id": "p04-full-005743",
+      "scan_path": "research/programs/model-alpha/experiments/results/2026-07-13/model-alpha-m14/seed-stability/scans/model-alpha-m14-seed-stability-review-sheet-scan-v01.pdf",
+      "scan_sha256": "sha256:e581f90c44b26565439411e4bef957d81924c856fb4a21726ed5d2c9835e70cf",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-001978",
+      "image_path": "research/programs/model-alpha/experiments/results/2026-07-13/model-alpha-m14/error-taxonomy/figures/model-alpha-m14-error-taxonomy-calibration-figure-v01.png",
+      "image_sha256": "sha256:554e524ce89bb854d831a0f0c6a23f9b7fda8804f87922e6efbe62a8a9395668",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:3c186d685150e5e3936f741a927f80aa1d150de9982eee5f4db68a3f95c7cd90",
+      "rendered_pixel_sha256": "sha256:3c186d685150e5e3936f741a927f80aa1d150de9982eee5f4db68a3f95c7cd90"
+    },
+    {
+      "scan_artifact_id": "p04-full-005943",
+      "scan_path": "research/programs/model-alpha/experiments/results/2026-07-13/model-alpha-m14/intent-routing/scans/model-alpha-m14-intent-routing-review-sheet-scan-v01.pdf",
+      "scan_sha256": "sha256:30bf5bbff7ddfb0868b6b496f9726de2c143c4b6ca690af7aace9fc83e421985",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-002112",
+      "image_path": "research/programs/model-alpha/experiments/results/2026-07-13/model-alpha-m14/bootstrap-confidence/figures/model-alpha-m14-bootstrap-confidence-metric-figure-v01.png",
+      "image_sha256": "sha256:b2064a624f937c4bea0e5af67e21ec262b5a0dab9e81828959d3df20d0c270e5",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:c00f6f6cb903aee3b3bda221c64ca1a336f2983ada4a35d1cfaeee24b84c134c",
+      "rendered_pixel_sha256": "sha256:c00f6f6cb903aee3b3bda221c64ca1a336f2983ada4a35d1cfaeee24b84c134c"
+    },
+    {
+      "scan_artifact_id": "p04-full-006043",
+      "scan_path": "research/programs/model-alpha/experiments/results/2026-07-13/model-alpha-m14/data-lineage/scans/model-alpha-m14-data-lineage-lab-notebook-scan-v01.pdf",
+      "scan_sha256": "sha256:290caf47027a07404fa598f66181814b3e449c0dcee74c6dc4e59f689fc01f5e",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-002619",
+      "image_path": "research/programs/model-alpha/experiments/results/2026-07-13/model-alpha-m14/artifact-validation/figures/model-alpha-m14-artifact-validation-comparison-visual-v01.png",
+      "image_sha256": "sha256:3c823d67cd032bdd3fc46b444fa6b70359255e2b9cd5b5e70a75bc9de39e6524",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:1ce8c45803cc89150e297e5336db26f29a8f25a3907ef136e6bb6eec96535999",
+      "rendered_pixel_sha256": "sha256:1ce8c45803cc89150e297e5336db26f29a8f25a3907ef136e6bb6eec96535999"
+    },
+    {
+      "scan_artifact_id": "p04-full-006143",
+      "scan_path": "research/programs/model-alpha/experiments/results/2026-07-13/model-alpha-m14/experiment-tracking/scans/model-alpha-m14-experiment-tracking-lab-notebook-scan-v01.pdf",
+      "scan_sha256": "sha256:7f8f6eee562308b95f6ad3b74f48e330da81934d5b5913b5fe54561134da7eca",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-002661",
+      "image_path": "research/programs/model-alpha/experiments/results/2026-07-13/model-alpha-m14/calibration/figures/model-alpha-m14-calibration-slice-heatmap-v01.png",
+      "image_sha256": "sha256:a515f5f89bbe716dfff440c3c1e1bf5526d62b39f8513769ce9156b1622d8bf3",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:86851eb65cbb96304314d1e55b9e1712bfe97c1dfbb8af6c62ef2fd9329b13dd",
+      "rendered_pixel_sha256": "sha256:86851eb65cbb96304314d1e55b9e1712bfe97c1dfbb8af6c62ef2fd9329b13dd"
+    },
+    {
+      "scan_artifact_id": "p04-full-006243",
+      "scan_path": "research/programs/model-alpha/experiments/results/2026-07-13/model-alpha-m14/quality-assurance/scans/model-alpha-m14-quality-assurance-lab-notebook-scan-v01.pdf",
+      "scan_sha256": "sha256:295441c5de3d205121ff32270b0621570d008b1f75bd90430c25bb556d62d2fa",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-002753",
+      "image_path": "research/programs/model-alpha/experiments/results/2026-07-13/model-alpha-m14/threshold-selection/figures/model-alpha-m14-threshold-selection-calibration-figure-v01.png",
+      "image_sha256": "sha256:19ba6adb1f1c2409abaec129575750abc5f8ff5d7abe97d747f756d5272fc54c",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:6155fd5bcb1da6e933a11489cca6cda1386147d0a643b598d41b65392e700294",
+      "rendered_pixel_sha256": "sha256:6155fd5bcb1da6e933a11489cca6cda1386147d0a643b598d41b65392e700294"
+    },
+    {
+      "scan_artifact_id": "p04-full-006543",
+      "scan_path": "research/programs/model-alpha/experiments/results/2026-07-13/model-alpha-m14/seed-stability/scans/model-alpha-m14-seed-stability-lab-notebook-scan-v01.pdf",
+      "scan_sha256": "sha256:8573740b8bd7e5f006fce34dcfc3ebe82211cb35cfc81bf491908ae279bf454a",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-002870",
+      "image_path": "research/programs/model-alpha/experiments/results/2026-07-13/model-alpha-m14/quality-assurance/figures/model-alpha-m14-quality-assurance-metric-figure-v01.png",
+      "image_sha256": "sha256:69609d4e7e90e9dfd2016a6ee88d7fb7fe9297135c81158ee9c00bcadd63c55e",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:7273152e3bc3ed5a066c814b84cbfce9233ea952ad0509eb3c100e779c72fa33",
+      "rendered_pixel_sha256": "sha256:7273152e3bc3ed5a066c814b84cbfce9233ea952ad0509eb3c100e779c72fa33"
+    },
+    {
+      "scan_artifact_id": "p04-full-007444",
+      "scan_path": "research/programs/model-alpha/experiments/results/2026-07-13/model-alpha-m14/label-quality/scans/model-alpha-m14-label-quality-whiteboard-scan-v01.pdf",
+      "scan_sha256": "sha256:759093179d2897eee10f4fac88755e0e88970117f7c7eea9356321f9b8cfa141",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-003120",
+      "image_path": "research/programs/model-alpha/experiments/results/2026-07-13/model-alpha-m14/dataset-assurance/figures/model-alpha-m14-dataset-assurance-slice-heatmap-v01.png",
+      "image_sha256": "sha256:834e4821942498d0609268cb34f5ace0640b30fb73a80b86c39a6ce3f4cde2a0",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:767abb202fb4445b833931e006d635f516e9b61511e1f9d96c81479163cfd985",
+      "rendered_pixel_sha256": "sha256:767abb202fb4445b833931e006d635f516e9b61511e1f9d96c81479163cfd985"
+    },
+    {
+      "scan_artifact_id": "p04-full-008845",
+      "scan_path": "research/programs/model-alpha/experiments/results/2026-07-13/model-alpha-m14/slice-robustness/scans/model-alpha-m14-slice-robustness-lab-notebook-scan-v01.pdf",
+      "scan_sha256": "sha256:522538e7154bb21931ce3c0f252ba8f18850b42b03db0171c3e0b0ab9dc4c84f",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-003258",
+      "image_path": "research/programs/model-alpha/experiments/results/2026-07-13/model-alpha-m14/ablation-design/figures/model-alpha-m14-ablation-design-comparison-visual-v01.png",
+      "image_sha256": "sha256:b95d9a09b59fdd1ba3c54b9bd930d56004c056de995dd4b5f92ec45f1cfde6f1",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:984ab65aa6547e98e98e12a59742323bd8e25d88e90ec6c526f33e43f9795291",
+      "rendered_pixel_sha256": "sha256:984ab65aa6547e98e98e12a59742323bd8e25d88e90ec6c526f33e43f9795291"
+    }
+  ]
+}

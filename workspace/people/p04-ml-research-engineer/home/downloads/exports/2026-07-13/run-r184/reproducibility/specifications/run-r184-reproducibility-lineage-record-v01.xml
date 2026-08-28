@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<evaluation-record schema="helix-forge.synthetic-evaluation-record/v1" artifact-id="p04-full-009518">
+  <scope id="p04-secondary-04" topic="Specifications" />
+  <run id="R184" date="2026-07-13" records="2400" />
+  <dataset name="HF-Eval-S1/S2" version="3.2" synthetic-only="true" />
+  <models>
+    <model name="Alpha M-14" precision="0.881" recall="0.865" f1="0.873" />
+    <model name="Beta B-07" f1="0.846" />
+  </models>
+  <slices>
+    <slice id="slice-01" records="204" precision="0.881" recall="0.872" f1="0.876" />
+    <slice id="slice-02" records="171" precision="0.863" recall="0.848" f1="0.855" />
+    <slice id="slice-03" records="221" precision="0.880" recall="0.861" f1="0.870" />
+    <slice id="slice-04" records="217" precision="0.862" recall="0.874" f1="0.868" />
+    <slice id="slice-05" records="186" precision="0.879" recall="0.850" f1="0.864" />
+    <slice id="slice-06" records="236" precision="0.896" recall="0.863" f1="0.879" />
+  </slices>
+</evaluation-record>

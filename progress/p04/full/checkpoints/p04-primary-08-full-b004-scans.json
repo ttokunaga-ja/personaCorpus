@@ -1,0 +1,99 @@
+{
+  "schema": "persona-corpus.full-batch-checkpoint/v2",
+  "kind": "checkpoint",
+  "persona": "p04",
+  "plan_digest": "sha256:f4e84efd49a98760733d628aaa44342dc7039cc845aced936e8a158eada95236",
+  "scope_id": "p04-primary-08",
+  "batch_id": "p04-primary-08-full-b004-scans",
+  "assignment_count": 4,
+  "accepted_additions": 4,
+  "m1_file_count": 200,
+  "m1_sha256_unchanged": true,
+  "acceptance_group": "p04-group-007",
+  "before_manifest": "progress/p04/full/manifests/p04-group-007.before.jsonl",
+  "after_manifest": "progress/p04/full/manifests/p04-group-007.after.jsonl",
+  "before_manifest_sha256": "c9c58719d046f28b7c3ef1902c6ca0019cf8300e191e10f35b745ceb129bc6e5",
+  "after_manifest_sha256": "fae8920b406ffa3dc7bc68a96fcdb17d38d8c61fd5e014430cce344b594d3511",
+  "family_counts": {
+    "pdf_scan": 4
+  },
+  "qa": {
+    "structure": true,
+    "family": true,
+    "content_spine": true,
+    "dependencies": true,
+    "skill_required": true,
+    "secrets_pii": true
+  },
+  "accepted_at": "2026-08-28T14:44:59Z",
+  "scan_provenance": [
+    {
+      "scan_artifact_id": "p04-full-002959",
+      "scan_path": "datasets/cards/hf-eval-v3.2/dataset-assurance/experiment-tracking/scans/dataset-assurance-experiment-tracking-review-sheet-scan-v01.pdf",
+      "scan_sha256": "sha256:e95734f459367cf8b4738712e561831a7a3774cca4abbf14aaa3da3c15b2d4d8",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-000357",
+      "image_path": "datasets/cards/hf-eval-v3.2/dataset-assurance/result-interpretation/figures/dataset-assurance-result-interpretation-slice-heatmap-v01.png",
+      "image_sha256": "sha256:2ab2b3a4156eb03eb8cfc462bc61d6d68646a35aa3fc199fc2e8c1eb3a92279b",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:8ed513a9908388e0413fea0a160e97996da0e308a3af8ebc3cd70cd3632c3bbb",
+      "rendered_pixel_sha256": "sha256:8ed513a9908388e0413fea0a160e97996da0e308a3af8ebc3cd70cd3632c3bbb"
+    },
+    {
+      "scan_artifact_id": "p04-full-003447",
+      "scan_path": "datasets/cards/hf-eval-v3.2/dataset-assurance/ablation-design/scans/dataset-assurance-ablation-design-review-sheet-scan-v01.pdf",
+      "scan_sha256": "sha256:457349d4214a3056c5228f501ed5e856dbc94358e087a4459e16db513a67c0cd",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-000670",
+      "image_path": "datasets/cards/hf-eval-v3.2/dataset-assurance/failure-analysis/figures/dataset-assurance-failure-analysis-review-board-v01.png",
+      "image_sha256": "sha256:713405be2c14498783a59bcc5ae4427971e78baf8c9df59a63e482e91eb2d206",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:04688d027082e8679978b8f632a2a82544477668e55ad469157f0609385d373e",
+      "rendered_pixel_sha256": "sha256:04688d027082e8679978b8f632a2a82544477668e55ad469157f0609385d373e"
+    },
+    {
+      "scan_artifact_id": "p04-full-004445",
+      "scan_path": "datasets/cards/hf-eval-v3.2/dataset-assurance/metric-contracts/scans/dataset-assurance-metric-contracts-whiteboard-scan-v01.pdf",
+      "scan_sha256": "sha256:24df1b83498137445cc3d95a1e8b401a28f995ff9c3cff4a44bcc09aa03ae2d5",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-000955",
+      "image_path": "datasets/cards/hf-eval-v3.2/dataset-assurance/method-validation/figures/dataset-assurance-method-validation-slice-heatmap-v01.png",
+      "image_sha256": "sha256:84341d373934aaf35e95b6046a16da0a5da4fe05d2956177cebf230fd99013df",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:083aba8e5423eb90a601cebdc73049954c09206b378d0707d846559572673618",
+      "rendered_pixel_sha256": "sha256:083aba8e5423eb90a601cebdc73049954c09206b378d0707d846559572673618"
+    },
+    {
+      "scan_artifact_id": "p04-full-004744",
+      "scan_path": "datasets/cards/hf-eval-v3.2/dataset-assurance/result-interpretation/scans/dataset-assurance-result-interpretation-whiteboard-scan-v01.pdf",
+      "scan_sha256": "sha256:4bf5be9b480d267dea0661d21ddb16d4d7bf806f872c5d9956d8129cf428751f",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-001611",
+      "image_path": "datasets/cards/hf-eval-v3.2/dataset-assurance/seed-stability/figures/dataset-assurance-seed-stability-review-board-v01.png",
+      "image_sha256": "sha256:3c72adc745f0fc78227161198cab4ccb988216a8199b71f154a1db6679605c45",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:b7984a7178f4d899f33bea5e39fc190c38e73f7bd377726f3718eafd5536b690",
+      "rendered_pixel_sha256": "sha256:b7984a7178f4d899f33bea5e39fc190c38e73f7bd377726f3718eafd5536b690"
+    }
+  ]
+}

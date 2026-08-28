@@ -1,0 +1,99 @@
+{
+  "schema": "persona-corpus.full-batch-checkpoint/v2",
+  "kind": "checkpoint",
+  "persona": "p04",
+  "plan_digest": "sha256:f4e84efd49a98760733d628aaa44342dc7039cc845aced936e8a158eada95236",
+  "scope_id": "p04-secondary-01",
+  "batch_id": "p04-secondary-01-full-b005-scans",
+  "assignment_count": 4,
+  "accepted_additions": 4,
+  "m1_file_count": 200,
+  "m1_sha256_unchanged": true,
+  "acceptance_group": "p04-group-007",
+  "before_manifest": "progress/p04/full/manifests/p04-group-007.before.jsonl",
+  "after_manifest": "progress/p04/full/manifests/p04-group-007.after.jsonl",
+  "before_manifest_sha256": "c9c58719d046f28b7c3ef1902c6ca0019cf8300e191e10f35b745ceb129bc6e5",
+  "after_manifest_sha256": "fae8920b406ffa3dc7bc68a96fcdb17d38d8c61fd5e014430cce344b594d3511",
+  "family_counts": {
+    "pdf_scan": 4
+  },
+  "qa": {
+    "structure": true,
+    "family": true,
+    "content_spine": true,
+    "dependencies": true,
+    "skill_required": true,
+    "secrets_pii": true
+  },
+  "accepted_at": "2026-08-28T14:44:59Z",
+  "scan_provenance": [
+    {
+      "scan_artifact_id": "p04-full-001799",
+      "scan_path": "desktop/working/2026-07-13/run-r184/reproducibility/scans/run-r184-reproducibility-lab-notebook-scan-v01.pdf",
+      "scan_sha256": "sha256:a2dc1b298a3f04e4a0445c1b37617bac8604cbdd976c746354845724abe2eedc",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-000326",
+      "image_path": "desktop/working/2026-07-13/run-r184/quality-assurance/figures/run-r184-quality-assurance-comparison-visual-v01.png",
+      "image_sha256": "sha256:69613d5e77de52b7aff24d0af10961c9e8c4a5506ff387a681fec002420b21c6",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:ae5f0a3798e7f24a71fcea62f970d2bbcb414f35d7181008f19914b6f59363e9",
+      "rendered_pixel_sha256": "sha256:ae5f0a3798e7f24a71fcea62f970d2bbcb414f35d7181008f19914b6f59363e9"
+    },
+    {
+      "scan_artifact_id": "p04-full-002670",
+      "scan_path": "desktop/working/2026-07-13/run-r184/uncertainty-analysis/scans/run-r184-uncertainty-analysis-whiteboard-scan-v01.pdf",
+      "scan_sha256": "sha256:6a18c344fc5050e7e96ff274b4aa968c484fd0260842430cbf76a0040ba0067e",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-000577",
+      "image_path": "desktop/working/2026-07-13/run-r184/bootstrap-confidence/figures/run-r184-bootstrap-confidence-metric-figure-v01.png",
+      "image_sha256": "sha256:3781a8159e727c0a76a7475600114369c1e706d46808e0497ba6481588024262",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:f4dae08e2ece12a495229d5b6e5d5cb066850ab947e0c649ddffd0ee0fee9bbc",
+      "rendered_pixel_sha256": "sha256:f4dae08e2ece12a495229d5b6e5d5cb066850ab947e0c649ddffd0ee0fee9bbc"
+    },
+    {
+      "scan_artifact_id": "p04-full-006349",
+      "scan_path": "desktop/working/2026-07-13/run-r184/seed-stability/scans/run-r184-seed-stability-lab-notebook-scan-v01.pdf",
+      "scan_sha256": "sha256:44a4ed9d5f235507b5b05b98e651a8f76531c97ea92e25150714f8c31d9f884c",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-001317",
+      "image_path": "desktop/working/2026-07-13/run-r184/review-actions/figures/run-r184-review-actions-metric-figure-v01.png",
+      "image_sha256": "sha256:c5774382b7e6ed62c8301210b1246118a0a314407ff255a924d1deb8c16bf4f9",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:bc97d9a994a208498c49637ee7b3533191096fe74613846a304623612d700a42",
+      "rendered_pixel_sha256": "sha256:bc97d9a994a208498c49637ee7b3533191096fe74613846a304623612d700a42"
+    },
+    {
+      "scan_artifact_id": "p04-full-008349",
+      "scan_path": "desktop/working/2026-07-13/run-r184/experiment-tracking/scans/run-r184-experiment-tracking-lab-notebook-scan-v01.pdf",
+      "scan_sha256": "sha256:7c24653e34fe599f2d0bdf8111a1de3f88a2d7d8b7de6962ce423a94d6a04eae",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-002093",
+      "image_path": "desktop/working/2026-07-13/run-r184/review-actions/figures/run-r184-review-actions-metric-figure-v02.png",
+      "image_sha256": "sha256:77b1f57c551fa92b55b39e05107b767a76dc708520ddf26806d5f73148f1e34a",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:54afc98da67315817054b437b23f059747ec45340564b33b751af461e1d8c594",
+      "rendered_pixel_sha256": "sha256:54afc98da67315817054b437b23f059747ec45340564b33b751af461e1d8c594"
+    }
+  ]
+}

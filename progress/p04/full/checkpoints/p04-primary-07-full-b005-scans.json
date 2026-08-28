@@ -1,0 +1,286 @@
+{
+  "schema": "persona-corpus.full-batch-checkpoint/v2",
+  "kind": "checkpoint",
+  "persona": "p04",
+  "plan_digest": "sha256:f4e84efd49a98760733d628aaa44342dc7039cc845aced936e8a158eada95236",
+  "scope_id": "p04-primary-07",
+  "batch_id": "p04-primary-07-full-b005-scans",
+  "assignment_count": 15,
+  "accepted_additions": 15,
+  "m1_file_count": 200,
+  "m1_sha256_unchanged": true,
+  "acceptance_group": "p04-group-007",
+  "before_manifest": "progress/p04/full/manifests/p04-group-007.before.jsonl",
+  "after_manifest": "progress/p04/full/manifests/p04-group-007.after.jsonl",
+  "before_manifest_sha256": "c9c58719d046f28b7c3ef1902c6ca0019cf8300e191e10f35b745ceb129bc6e5",
+  "after_manifest_sha256": "fae8920b406ffa3dc7bc68a96fcdb17d38d8c61fd5e014430cce344b594d3511",
+  "family_counts": {
+    "pdf_scan": 15
+  },
+  "qa": {
+    "structure": true,
+    "family": true,
+    "content_spine": true,
+    "dependencies": true,
+    "skill_required": true,
+    "secrets_pii": true
+  },
+  "accepted_at": "2026-08-28T14:44:59Z",
+  "scan_provenance": [
+    {
+      "scan_artifact_id": "p04-full-001024",
+      "scan_path": "notebooks/exports/2026-07-13/helix-forge-research/seed-stability/scans/helix-forge-research-seed-stability-review-sheet-scan-v01.pdf",
+      "scan_sha256": "sha256:ae477de72c83c00f24afa6c96d43ff1867ef8b6ce32ff3bb47ce707b6e694fe7",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-000224",
+      "image_path": "notebooks/exports/2026-07-13/helix-forge-research/dataset-assurance/figures/helix-forge-research-dataset-assurance-slice-heatmap-v01.png",
+      "image_sha256": "sha256:8e929d86120ac9e9350526e28d0a3f15c461d2572229b0ec04424ffaac3ab661",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:4d3ea2096ff630cc55a8411ca33cc5a642be774de0a928a93a80f7aa46744cc4",
+      "rendered_pixel_sha256": "sha256:4d3ea2096ff630cc55a8411ca33cc5a642be774de0a928a93a80f7aa46744cc4"
+    },
+    {
+      "scan_artifact_id": "p04-full-002478",
+      "scan_path": "notebooks/exports/2026-07-13/helix-forge-research/class-balance/scans/helix-forge-research-class-balance-whiteboard-scan-v01.pdf",
+      "scan_sha256": "sha256:ceab2da5c8dccced3cd1452d9f3e28e3406f13ac96bf99603689278d5edb26ad",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-000822",
+      "image_path": "notebooks/exports/2026-07-13/helix-forge-research/data-lineage/figures/helix-forge-research-data-lineage-review-board-v01.png",
+      "image_sha256": "sha256:a79aa3bcdce90790e8609267a07c97dc69de74b1ccbd24ce0b7970834a3c6fdf",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:aa92e68dee7e277eff83cadea000154a83762b9330329c873031f7d007e46727",
+      "rendered_pixel_sha256": "sha256:aa92e68dee7e277eff83cadea000154a83762b9330329c873031f7d007e46727"
+    },
+    {
+      "scan_artifact_id": "p04-full-003062",
+      "scan_path": "notebooks/exports/2026-07-13/helix-forge-research/result-interpretation/scans/helix-forge-research-result-interpretation-review-sheet-scan-v01.pdf",
+      "scan_sha256": "sha256:05e70b8a446a572734e048d76f0481245ab450209f38c083c353b505c2e345ab",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-001090",
+      "image_path": "notebooks/exports/2026-07-13/helix-forge-research/ablation-design/figures/helix-forge-research-ablation-design-comparison-visual-v01.png",
+      "image_sha256": "sha256:fba6a972cb60636e4abd601a690a89102b08e453d2a63deb2c2536a8a26bb462",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:bb5ab53d8bb70646ed8881cedeb2aca8060123863bdc8c6e28d67616b4fedfda",
+      "rendered_pixel_sha256": "sha256:bb5ab53d8bb70646ed8881cedeb2aca8060123863bdc8c6e28d67616b4fedfda"
+    },
+    {
+      "scan_artifact_id": "p04-full-004349",
+      "scan_path": "notebooks/exports/2026-07-13/helix-forge-research/metric-contracts/scans/helix-forge-research-metric-contracts-whiteboard-scan-v01.pdf",
+      "scan_sha256": "sha256:aa10165f449ecc6cd1449b136f85baa4ef2e6bb22c1bf1f8264a97256455a3e8",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-001180",
+      "image_path": "notebooks/exports/2026-07-13/helix-forge-research/uncertainty-analysis/figures/helix-forge-research-uncertainty-analysis-metric-figure-v01.png",
+      "image_sha256": "sha256:cc42f6590cfec2c2a9fe2db6079f9a13c7d9a41ad1a6add477b38cb88e096d72",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:521d9b5ceee505137d9dcf7eef6aa592c2550ce1e4af2c8e87b0cd5b2b3c5fd8",
+      "rendered_pixel_sha256": "sha256:521d9b5ceee505137d9dcf7eef6aa592c2550ce1e4af2c8e87b0cd5b2b3c5fd8"
+    },
+    {
+      "scan_artifact_id": "p04-full-005345",
+      "scan_path": "notebooks/exports/2026-07-13/helix-forge-research/comparison-study/scans/helix-forge-research-comparison-study-review-sheet-scan-v01.pdf",
+      "scan_sha256": "sha256:a81252723f985fbe5feb37dc9bde771c66dcc0b40b066d9795f3a89a91ddcead",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-001416",
+      "image_path": "notebooks/exports/2026-07-13/helix-forge-research/method-validation/figures/helix-forge-research-method-validation-slice-heatmap-v01.png",
+      "image_sha256": "sha256:6e843d1fe6a42de1eeac8dac61acb0ec65c3070247a0a0b666ee0604f208a742",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:aa393c19bbeba97e51e579b39a5a17b7ea5f18a07a71606cbf237eaaa67f5fc7",
+      "rendered_pixel_sha256": "sha256:aa393c19bbeba97e51e579b39a5a17b7ea5f18a07a71606cbf237eaaa67f5fc7"
+    },
+    {
+      "scan_artifact_id": "p04-full-005845",
+      "scan_path": "notebooks/exports/2026-07-13/helix-forge-research/uncertainty-analysis/scans/helix-forge-research-uncertainty-analysis-review-sheet-scan-v01.pdf",
+      "scan_sha256": "sha256:5b68fbdc4bce7ca705d0c739c2e4f8c16248666bb4e6a9fbec2d12c2f28e94ac",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-002052",
+      "image_path": "notebooks/exports/2026-07-13/helix-forge-research/failure-analysis/figures/helix-forge-research-failure-analysis-review-board-v01.png",
+      "image_sha256": "sha256:6375eec01158e40ed546201ff8e82b698b83ae1b454f166ddb8420bc918dae50",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:c12c35f1c69dc247b8fb918c2140ffcca7ee76b4270a1edbad992fddf5fa369d",
+      "rendered_pixel_sha256": "sha256:c12c35f1c69dc247b8fb918c2140ffcca7ee76b4270a1edbad992fddf5fa369d"
+    },
+    {
+      "scan_artifact_id": "p04-full-006445",
+      "scan_path": "notebooks/exports/2026-07-13/helix-forge-research/slice-robustness/scans/helix-forge-research-slice-robustness-lab-notebook-scan-v01.pdf",
+      "scan_sha256": "sha256:fda9a3ad007c4af6ed80fc8c130cf4d1e1f6141036d3c9ad354518767385fec1",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-002273",
+      "image_path": "notebooks/exports/2026-07-13/helix-forge-research/intent-routing/figures/helix-forge-research-intent-routing-metric-figure-v01.png",
+      "image_sha256": "sha256:c4e8cc01a37224f666a55c740a254e07bf0c9ac00a9f5bf397e2cf3bd11bd547",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:eca81b764b763851b86c9449e59c4330f6dc3224fb950937ff1a04317deb02e9",
+      "rendered_pixel_sha256": "sha256:eca81b764b763851b86c9449e59c4330f6dc3224fb950937ff1a04317deb02e9"
+    },
+    {
+      "scan_artifact_id": "p04-full-007643",
+      "scan_path": "notebooks/exports/2026-07-13/helix-forge-research/data-lineage/scans/helix-forge-research-data-lineage-review-sheet-scan-v01.pdf",
+      "scan_sha256": "sha256:e98f9dff9c2eafa9b1a25f1e2afe3b80f00f2334b7bd0320161ed3db20cf658e",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-002334",
+      "image_path": "notebooks/exports/2026-07-13/helix-forge-research/label-quality/figures/helix-forge-research-label-quality-comparison-visual-v01.png",
+      "image_sha256": "sha256:d74dda8ec64e5f86d73917183b679452a946768693a755c26da2d6b6071de200",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:f8d94cb16266869ea3a3d0b5ca7fa5bb0c303e8acf2c30f342a2eb8a657ee298",
+      "rendered_pixel_sha256": "sha256:f8d94cb16266869ea3a3d0b5ca7fa5bb0c303e8acf2c30f342a2eb8a657ee298"
+    },
+    {
+      "scan_artifact_id": "p04-full-007743",
+      "scan_path": "notebooks/exports/2026-07-13/helix-forge-research/experiment-tracking/scans/helix-forge-research-experiment-tracking-review-sheet-scan-v01.pdf",
+      "scan_sha256": "sha256:40080e45a634a576a3eeeb3298fec6d2e43cf64c4255c6a0c9fe015b3bb8efa4",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-002369",
+      "image_path": "notebooks/exports/2026-07-13/helix-forge-research/feature-drift/figures/helix-forge-research-feature-drift-review-board-v01.png",
+      "image_sha256": "sha256:bcc4ee44b407691f8ed6ca625a7995b45c57427a0e86578f0e0320d2b015544f",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:366dc0175d69baa51e7ea7f0b616b8f077326d8f482a838df4c8840d3e04284a",
+      "rendered_pixel_sha256": "sha256:366dc0175d69baa51e7ea7f0b616b8f077326d8f482a838df4c8840d3e04284a"
+    },
+    {
+      "scan_artifact_id": "p04-full-007943",
+      "scan_path": "notebooks/exports/2026-07-13/helix-forge-research/method-validation/scans/helix-forge-research-method-validation-review-sheet-scan-v01.pdf",
+      "scan_sha256": "sha256:16bc7974d2d7bbf90d3798ceea1730ec28577a0da4abe3bd2ac27eec503766bc",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-002911",
+      "image_path": "notebooks/exports/2026-07-13/helix-forge-research/slice-robustness/figures/helix-forge-research-slice-robustness-calibration-figure-v01.png",
+      "image_sha256": "sha256:88240b8f9728525f05543d81ba19fddadc2d600f484d78b5834d9bbaeffc7ffd",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:cc0eb9781c3df67b05bc0d1d7c98bbd1e67883c61261fe47ff74c8ba69052534",
+      "rendered_pixel_sha256": "sha256:cc0eb9781c3df67b05bc0d1d7c98bbd1e67883c61261fe47ff74c8ba69052534"
+    },
+    {
+      "scan_artifact_id": "p04-full-008443",
+      "scan_path": "notebooks/exports/2026-07-13/helix-forge-research/data-lineage/scans/helix-forge-research-data-lineage-lab-notebook-scan-v01.pdf",
+      "scan_sha256": "sha256:99ec4ee784ba2b0c339ec3a8f32a265de0cd6bd4317527a06de33c82119fb3c1",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-002966",
+      "image_path": "notebooks/exports/2026-07-13/helix-forge-research/method-validation/figures/helix-forge-research-method-validation-slice-heatmap-v02.png",
+      "image_sha256": "sha256:77bbd662ff47bdcc6e5fff0ec335973b7ba8e2b90b8f7c1a921fd74ca394e773",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:d395a9a73dd9eb66d6250b3c10f90e737bfc203cdebcb0d0689a0a1e2b7b0825",
+      "rendered_pixel_sha256": "sha256:d395a9a73dd9eb66d6250b3c10f90e737bfc203cdebcb0d0689a0a1e2b7b0825"
+    },
+    {
+      "scan_artifact_id": "p04-full-008943",
+      "scan_path": "notebooks/exports/2026-07-13/helix-forge-research/seed-stability/scans/helix-forge-research-seed-stability-lab-notebook-scan-v01.pdf",
+      "scan_sha256": "sha256:189e03e4f548235748f328403729afed8735a834200f5c484df6b8e919c177b6",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-004032",
+      "image_path": "notebooks/exports/2026-07-13/helix-forge-research/experiment-tracking/figures/helix-forge-research-experiment-tracking-comparison-visual-v01.png",
+      "image_sha256": "sha256:0a6a8c33be7c5855eb9ac0bf7c57c6e03ae57d64e98a2f101130ca28b817e3ff",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:e270494a4e00ebea7e10e5d6b595cb38375e29dd15e16fdf1cb3b040d6844419",
+      "rendered_pixel_sha256": "sha256:e270494a4e00ebea7e10e5d6b595cb38375e29dd15e16fdf1cb3b040d6844419"
+    },
+    {
+      "scan_artifact_id": "p04-full-009043",
+      "scan_path": "notebooks/exports/2026-07-13/helix-forge-research/ablation-design/scans/helix-forge-research-ablation-design-lab-notebook-scan-v01.pdf",
+      "scan_sha256": "sha256:8865fed1569c4744f8e4097c8c7fbc54d7d12ec2e5d4c540ef1e01938a853efb",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-004232",
+      "image_path": "notebooks/exports/2026-07-13/helix-forge-research/method-validation/figures/helix-forge-research-method-validation-slice-heatmap-v03.png",
+      "image_sha256": "sha256:ebb39a284342367115c8bd73402f02de310d7ccfab2f08aafdb28e6bad35a6f9",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:2de6ce7a37a48140e91a6e65af08026260e457f57a9b94760156049497143a27",
+      "rendered_pixel_sha256": "sha256:2de6ce7a37a48140e91a6e65af08026260e457f57a9b94760156049497143a27"
+    },
+    {
+      "scan_artifact_id": "p04-full-009143",
+      "scan_path": "notebooks/exports/2026-07-13/helix-forge-research/intent-routing/scans/helix-forge-research-intent-routing-lab-notebook-scan-v01.pdf",
+      "scan_sha256": "sha256:70cedef3b04937728cd1f25c42e425943dd803a13788a32acb3c268c25265757",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-004531",
+      "image_path": "notebooks/exports/2026-07-13/helix-forge-research/ablation-design/figures/helix-forge-research-ablation-design-comparison-visual-v02.png",
+      "image_sha256": "sha256:5286e2cca9e2f52130236fb823c313d58b4dad027ce8263a0d8d40929854725b",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:79bdd2f75f1d1461fbd81c9d8c657b327adb5ef02b9f1272ba47d067662d4c62",
+      "rendered_pixel_sha256": "sha256:79bdd2f75f1d1461fbd81c9d8c657b327adb5ef02b9f1272ba47d067662d4c62"
+    },
+    {
+      "scan_artifact_id": "p04-full-009243",
+      "scan_path": "notebooks/exports/2026-07-13/helix-forge-research/data-lineage/scans/helix-forge-research-data-lineage-whiteboard-scan-v01.pdf",
+      "scan_sha256": "sha256:6a0466d1eb28826b718f535722a613fff1789eb3e77c7a086e0fcaf03341fdb8",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p04-full-005531",
+      "image_path": "notebooks/exports/2026-07-13/helix-forge-research/data-lineage/figures/helix-forge-research-data-lineage-review-board-v02.png",
+      "image_sha256": "sha256:33d93ee5dcc5b98090a4bee5d0c587b69522389a0e54e7587f4bfaf2805e35a2",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:c9bf0b9b8133cefde53d06bdcfc489f3de2d96372dc717d78de928facc47d193",
+      "rendered_pixel_sha256": "sha256:c9bf0b9b8133cefde53d06bdcfc489f3de2d96372dc717d78de928facc47d193"
+    }
+  ]
+}
