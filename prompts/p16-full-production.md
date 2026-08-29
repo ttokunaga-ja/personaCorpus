@@ -22,7 +22,7 @@ byte-for-byte不変とし、固定masterのFull追加7,800件を制作・受入�
 - reservations `d103a0c7936d56eeec7274bfcfff2afc8b492dc06161fda2e24b06ceacec6411`
 - content spine `5ce9c3734da011c17ef2898e501003c41f561b5b7accf3e8f4f696576caf19a1`
 - Full master `1a1f8e77787fe2b63b478ec269262fe06eb7f7cead5565be0fb701cdb6bfaee5`
-- isolated helper `bin/p16-full-ledger` `4945749361f3f16d28c78e64195e4528aa1210198330b59c7e281adef39ccc7f`
+- isolated helper `bin/p16-full-ledger` `e6dc4e93c9a0a6c6fd4c51ad7e23b541a53287b1a143e9e399267d9dc8da79f5`
 
 常に`./bin/p16-full-ledger`を使用します。共有`bin/full-ledger`、canonical、owner、runtime、
 assignment、reservations、content spine、masterを変更しません。全verifyには次のabsolute reconciliation
@@ -53,7 +53,7 @@ test "$(shasum -a 256 ./bin/full-resume-gate | awk '{print $1}')" = 3c4889deadd8
 ```
 
 Before every initial/candidate/official verify, pin isolated `bin/p16-full-ledger`
-`4945749361f3f16d28c78e64195e4528aa1210198330b59c7e281adef39ccc7f` and run its exact absolute-path verify
+`e6dc4e93c9a0a6c6fd4c51ad7e23b541a53287b1a143e9e399267d9dc8da79f5` and run its exact absolute-path verify
 above including reconciliation plus before/all group batch-id/after. One create-only `persona-corpus.full-batch-checkpoint/v2` `<batch-id>.json` per
 master batch records exact scope/batch, shared before/after, plan_digest, counts/family_counts, all-true
 `{structure,family,content_spine,dependencies,skill_required,secrets_pii}`, UTC accepted_at, before/after byte SHA

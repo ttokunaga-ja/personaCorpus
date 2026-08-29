@@ -36,7 +36,7 @@ accepted Rust plan、materialization record、workspace ownerだけをcanonical 
 canonicalを再生成・再解釈しません。次のportable inputは開始時にSHA-256を照合し、
 再生成、編集、置換、移動、削除しません。
 
-- human M1 assignment display: `e35eedc4590fe31acfc7f0f7036a46f86b7c4c0fbe627d4ef0431c7c2337744d`
+- human M1 assignment display: `c2d61cbb5da470dd562e9b330b72abf901b86df57c386b01def112497f811a4a`
 - frozen M1 assignment ledger: `8711998fd9a07dd0ff687dbf1fb5ba89515cab80220e76693b615d9e242340dd`
 - canonical source inventory: `49cac673140f43c5a21b216799698ac9f1eaaa836b6ce91351fa9e08caa9b3d0`
 - immutable M1 baseline: `171bec6dde0901f35f2874678c519b5f110867fa9ebdec8c828717824c1ef8dd`
@@ -46,7 +46,7 @@ canonicalを再生成・再解釈しません。次のportable inputは開始時
 - content spine: `7aa5dfdfa5076ffa73d52f66dd07ad1cf2c56a03ecfac110f7a72acaaa33fa43`
 - complete Full assignment: `d7c9211cc41d582906aed9837b7098a08701773f4f40d22daf3c85767bbd0b50`
 - isolated p19 ledger CLI (`bin/p19-full-ledger`):
-  `7f9e587f8da9f53d456777396d161b3bb40a4c19af098d2fc4e59bf05385ec62`
+  `0a43c37ec54b12a68c9ed0021652ed601a897b7996f6ddda9777844c80594594`
 
 固定状態はinventory 9,000 sources、M1 reservation/baseline 200 files、Full assignment
 8,800 rows、107 batches、6,864 dependency edges are scope-local and strictly earlier batchesです。
@@ -230,7 +230,7 @@ test "$(shasum -a 256 ./bin/full-resume-gate | awk '{print $1}')" = 3c4889deadd8
 ```
 
 Before each initial/candidate/official verify, pin isolated `bin/p19-full-ledger`
-`7f9e587f8da9f53d456777396d161b3bb40a4c19af098d2fc4e59bf05385ec62` and invoke its exact absolute-path command
+`0a43c37ec54b12a68c9ed0021652ed601a897b7996f6ddda9777844c80594594` and invoke its exact absolute-path command
 above with reconciliation and relevant before/all group batch-id/after. Exactly one create-only
 `persona-corpus.full-batch-checkpoint/v2` `<batch-id>.json` exists for every exact master batch and contains
 scope/batch, shared group before/after, plan_digest, exact counts/family_counts, all-true
