@@ -23,7 +23,7 @@ productionを担当してください。既存M1 200件をbyte-for-byte保持し
 canonical plan/render/materialization/workspace ownerだけがauthorityです。canonicalを再生成・
 再解釈せず、次の固定inputをSHA-256照合して編集・置換・移動・削除しません。
 
-- M1 human display: `a02171eca9778f2674bd1ef60d3c0b7d4d77eb51c2b4fa4712227f7cb05c7096`
+- M1 human display: `b21836fdc67d0dab1a992ee8a134d0d967f44f2e89b914ed36e4036004767ff9`
 - shared `bin/full-ledger`: `f3481bded3b49133e66333004e170e63e406a8eb8ced77782ab3929d2e2059a2`
 - frozen M1 ledger: `a8c5680d8864f3051d3634a567e78008512f578aaffb430f8e83185279844ec2`
 - source inventory: `f6a11d4d3bea53187d04d9eb0ef650d3af1ed6a9346558af59f60787eebbead7`

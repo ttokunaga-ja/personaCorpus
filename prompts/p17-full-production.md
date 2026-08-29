@@ -27,7 +27,7 @@ accepted Rust plan、materialization record、workspace ownerのみをcanonical 
 canonicalを再生成・再解釈しません。開始時に以下のSHA-256を照合し、これらを再生成、編集、置換、
 移動、削除しません。
 
-- human M1 assignment display: `440b26763fc5a2252fa93c7a93f0f131149586fa1bf4910414644c6a1ec09608`
+- human M1 assignment display: `7a6623024a5c4f304fe663ca9bcdc5318f08512e68535aa70ed78d6ffffc8355`
 - frozen M1 assignment ledger: `8f341a3205c9b76f647e82f251b546e97782e5edcc6c667a7b3a61362bd98c91`
 - canonical source inventory: `a37a1d0c6530bf46c129bc911f158d7eda29af8b88bdac4edb7010f360933b18`
 - immutable M1 baseline: `350ef46f62459a8395444edce81f8ebc8f96e6250ae65b10f630c0564120d269`

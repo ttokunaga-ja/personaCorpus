@@ -33,7 +33,7 @@ accepted Rust plan、materialization record、workspace ownerだけをcanonical 
 Full authority revision is `p20-full-master-v2` / `p20-content-spine-v2`; the
 discarded v1 allocation accepted no Full artifact and must not be revived.
 
-- human M1 display: `3059db87d85d4c5896ccfa7cc43fab8781e8313cf550869ad357ae07e0293693`
+- human M1 display: `3306d811d500c0bce99b4f6d64b8ad0301b33281e0e78963793c74a6fa664d31`
 - frozen M1 ledger: `7708aa6e346fc0b37059b85d778f8810f5a1aba288659f1bd85e489fcb6dcde9`
 - canonical source inventory: `07ddf5c46ed022d56617c93998f950bba3a2480e55b88c10da83d5df44f68cd3`
 - immutable M1 baseline: `62292ec602e0f0b92df82b9d25aa5c7a2d3efaee544a9dabada1411746029cb8`
