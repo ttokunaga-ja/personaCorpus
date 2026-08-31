@@ -1,0 +1,286 @@
+{
+  "schema": "persona-corpus.full-batch-checkpoint/v2",
+  "kind": "checkpoint",
+  "persona": "p08",
+  "plan_digest": "sha256:f4e84efd49a98760733d628aaa44342dc7039cc845aced936e8a158eada95236",
+  "scope_id": "p08-primary-10",
+  "batch_id": "p08-primary-10-full-b004-scans",
+  "assignment_count": 15,
+  "accepted_additions": 15,
+  "m1_file_count": 200,
+  "m1_sha256_unchanged": true,
+  "acceptance_group": "p08-full-group-042",
+  "before_manifest": "progress/p08/full/manifests/p08-full-group-041.after.jsonl",
+  "after_manifest": "progress/p08/full/manifests/p08-full-group-042.after.jsonl",
+  "before_manifest_sha256": "4e912fb7aacd9bec18bc06731bd88ee6de72da2a376fcd621e65b4a6df8de5de",
+  "after_manifest_sha256": "1ff8a9e7f35e5a5c73c46c9e724a4cf4689531bf67a11e5cd491807b10658a7b",
+  "family_counts": {
+    "pdf_scan": 15
+  },
+  "qa": {
+    "structure": true,
+    "family": true,
+    "content_spine": true,
+    "dependencies": true,
+    "skill_required": true,
+    "secrets_pii": true
+  },
+  "accepted_at": "2026-08-29T01:11:01Z",
+  "scan_provenance": [
+    {
+      "scan_artifact_id": "p08-full-000033",
+      "scan_path": "launches/release-plans/fy2026/milestone-m27/milestone-m27/annotated-scans/milestone-m27-milestone-m27-discovery-board-v01.pdf",
+      "scan_sha256": "sha256:da420a14bb2b4d504d146f6222435534a177f414e891da083c817d091a5ddb43",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-000644",
+      "image_path": "launches/release-plans/fy2026/milestone-m27/fy2026-planning/product-visuals/milestone-m27-fy2026-planning-roadmap-visual-v01.png",
+      "image_sha256": "sha256:a2ebae864b145134529d4cee607440ef5788bfd97e9c8fc8ed65121134db0aed",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:4d63bcf9b6f4461ec38fd4e7e9c0be4a834c34248ef967054519a9a62efdbf4e",
+      "rendered_pixel_sha256": "sha256:4d63bcf9b6f4461ec38fd4e7e9c0be4a834c34248ef967054519a9a62efdbf4e"
+    },
+    {
+      "scan_artifact_id": "p08-full-002554",
+      "scan_path": "launches/release-plans/fy2026/milestone-m27/customer-learning/annotated-scans/milestone-m27-customer-learning-discovery-board-v01.pdf",
+      "scan_sha256": "sha256:1348295d0d8ac3fd42a9c182ff957d5b9d898147f5dd4ab3e57c0de670afed4e",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-000873",
+      "image_path": "launches/release-plans/fy2026/milestone-m27/fy2026-planning/product-visuals/milestone-m27-fy2026-planning-adoption-visual-v01.png",
+      "image_sha256": "sha256:93ad91ceebaa2e5a5b663ec6072fda213b3fbb060c2e6329f9accdb817d9cc77",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:3789dd067ceb81d798afce293a2aaae6d29c10422b5ab84bc427abb1943deae2",
+      "rendered_pixel_sha256": "sha256:3789dd067ceb81d798afce293a2aaae6d29c10422b5ab84bc427abb1943deae2"
+    },
+    {
+      "scan_artifact_id": "p08-full-002921",
+      "scan_path": "launches/release-plans/fy2026/milestone-m27/customer-learning/annotated-scans/milestone-m27-customer-learning-review-sheet-v01.pdf",
+      "scan_sha256": "sha256:ffb0576f882dc96e1b80a122d16167716df848727d3e8eacb879580475a9a975",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-001132",
+      "image_path": "launches/release-plans/fy2026/milestone-m27/decision-quality/product-visuals/milestone-m27-decision-quality-roadmap-visual-v01.png",
+      "image_sha256": "sha256:4e3fcc38f4e7c8ad696a8f472a040706015266c9e0cdb679e9ca6e9156bf9800",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:9250a7f458134bb2f130c56e6b5206faa4055003bde22358d98f9ec7d3e4c6f8",
+      "rendered_pixel_sha256": "sha256:9250a7f458134bb2f130c56e6b5206faa4055003bde22358d98f9ec7d3e4c6f8"
+    },
+    {
+      "scan_artifact_id": "p08-full-003837",
+      "scan_path": "launches/release-plans/fy2026/milestone-m27/decision-quality/annotated-scans/milestone-m27-decision-quality-discovery-board-v01.pdf",
+      "scan_sha256": "sha256:7e534ea6b555e1f26cc757d8f42638b1339aba914db29b1af9def38bb27bd53d",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-001402",
+      "image_path": "launches/release-plans/fy2026/milestone-m27/launch-readiness/product-visuals/milestone-m27-launch-readiness-adoption-visual-v01.png",
+      "image_sha256": "sha256:c98a2faa926bbb807d56ef1c1370c01d90ada7373d3dd209f4caa548875b5958",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:9dd5c237323cfa0201bb079fd822bc9b2d61cd8813b40579b138bb62e56a6ef5",
+      "rendered_pixel_sha256": "sha256:9dd5c237323cfa0201bb079fd822bc9b2d61cd8813b40579b138bb62e56a6ef5"
+    },
+    {
+      "scan_artifact_id": "p08-full-004070",
+      "scan_path": "launches/release-plans/fy2026/milestone-m27/milestone-m27/annotated-scans/milestone-m27-milestone-m27-annotated-workshop-v01.pdf",
+      "scan_sha256": "sha256:1a50b41f59ec8a75dd7158253c7246eb9c6647336f2f8e0996a76e2ea1d5b94d",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-001472",
+      "image_path": "launches/release-plans/fy2026/milestone-m27/customer-learning/product-visuals/milestone-m27-customer-learning-adoption-visual-v01.png",
+      "image_sha256": "sha256:35894be346b080a0af0149fb9540cea8a8ddf92cedbf1114709c9e6ac82ecfdb",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:12541d4dc46dd5edbe21a869294533b2184408d67b44efb77f6a0622f8cd19d9",
+      "rendered_pixel_sha256": "sha256:12541d4dc46dd5edbe21a869294533b2184408d67b44efb77f6a0622f8cd19d9"
+    },
+    {
+      "scan_artifact_id": "p08-full-004103",
+      "scan_path": "launches/release-plans/fy2026/milestone-m27/customer-learning/annotated-scans/milestone-m27-customer-learning-annotated-workshop-v01.pdf",
+      "scan_sha256": "sha256:4d918648c70bc982b401c32643254a38f8b20c92aebbba93040945169f55be15",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-001503",
+      "image_path": "launches/release-plans/fy2026/milestone-m27/product-alpha-q3/product-visuals/milestone-m27-product-alpha-q3-customer-insight-v01.png",
+      "image_sha256": "sha256:106dd0a2bdf23ffb404bb9ca60253509d7281b57980b902030bad1fa675d0108",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:2b5831fb8f2041793360a3166446b6c5ccd88b332b1d43f623514854cf7e4a68",
+      "rendered_pixel_sha256": "sha256:2b5831fb8f2041793360a3166446b6c5ccd88b332b1d43f623514854cf7e4a68"
+    },
+    {
+      "scan_artifact_id": "p08-full-004134",
+      "scan_path": "launches/release-plans/fy2026/milestone-m27/product-beta-q4/annotated-scans/milestone-m27-product-beta-q4-review-sheet-v01.pdf",
+      "scan_sha256": "sha256:aaa5b82b54118702eb91953b9231be33df22ac51f42e64062fb8c36be5c3f2c2",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-001736",
+      "image_path": "launches/release-plans/fy2026/milestone-m27/product-alpha-q3/product-visuals/milestone-m27-product-alpha-q3-roadmap-visual-v01.png",
+      "image_sha256": "sha256:e3ef1ffa54ec07b489f5d3e081c711bfeddee930ec440b5db8059d06eec8a9e6",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:6130fe6c1488ea258289558fb009c7994426d57f50c189723039c2a8dc41c0ff",
+      "rendered_pixel_sha256": "sha256:6130fe6c1488ea258289558fb009c7994426d57f50c189723039c2a8dc41c0ff"
+    },
+    {
+      "scan_artifact_id": "p08-full-004170",
+      "scan_path": "launches/release-plans/fy2026/milestone-m27/product-beta-q4/annotated-scans/milestone-m27-product-beta-q4-review-sheet-v02.pdf",
+      "scan_sha256": "sha256:f7d417bebdf25b584548153e42f1a9f66e299eec6ed6f6ff2189bc8aad846cb3",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-001838",
+      "image_path": "launches/release-plans/fy2026/milestone-m27/portfolio-health/product-visuals/milestone-m27-portfolio-health-roadmap-visual-v01.png",
+      "image_sha256": "sha256:8414a8ac8341fb1816d4511f15048322dd33163768fa640894037c5183147174",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:688853e99848807c1418f11f158fc962576faa8b77c724719e9d46ad7fa9cdab",
+      "rendered_pixel_sha256": "sha256:688853e99848807c1418f11f158fc962576faa8b77c724719e9d46ad7fa9cdab"
+    },
+    {
+      "scan_artifact_id": "p08-full-004271",
+      "scan_path": "launches/release-plans/fy2026/milestone-m27/portfolio-health/annotated-scans/milestone-m27-portfolio-health-review-sheet-v01.pdf",
+      "scan_sha256": "sha256:6d607bb2009fea760ceb6d010cf3b9f414157a39e536b6fbe5ee335927c77136",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-002760",
+      "image_path": "launches/release-plans/fy2026/milestone-m27/decision-quality/product-visuals/milestone-m27-decision-quality-adoption-visual-v01.png",
+      "image_sha256": "sha256:202932e396b2ec6a115dcd28f3f505b50cd865de312bc6921a74f45612be0d70",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:fa221ad32041df1df30dcd57e8053addce230a59a6abda064befe67cec3b7ac9",
+      "rendered_pixel_sha256": "sha256:fa221ad32041df1df30dcd57e8053addce230a59a6abda064befe67cec3b7ac9"
+    },
+    {
+      "scan_artifact_id": "p08-full-005558",
+      "scan_path": "launches/release-plans/fy2026/milestone-m27/decision-quality/annotated-scans/milestone-m27-decision-quality-review-sheet-v01.pdf",
+      "scan_sha256": "sha256:2714354d8f40e607d392c85d8139ea9abc4f57cebe707892f71b10c75860ce27",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-003294",
+      "image_path": "launches/release-plans/fy2026/milestone-m27/fy2026-planning/product-visuals/milestone-m27-fy2026-planning-roadmap-visual-v02.png",
+      "image_sha256": "sha256:19cb7c7d5d728013da92299bc3fde3c52b71d38e4eeed2aa389acdf544691aa9",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:3038b1e61d9dfd93e0d42c6471cf11a916bd862071881768c88edc24a0622695",
+      "rendered_pixel_sha256": "sha256:3038b1e61d9dfd93e0d42c6471cf11a916bd862071881768c88edc24a0622695"
+    },
+    {
+      "scan_artifact_id": "p08-full-006087",
+      "scan_path": "launches/release-plans/fy2026/milestone-m27/product-beta-q4/annotated-scans/milestone-m27-product-beta-q4-discovery-board-v01.pdf",
+      "scan_sha256": "sha256:e906febcc90ea49648331ebcb8aba5c531748d9226e51dbd2ee9c432733fadf6",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-003362",
+      "image_path": "launches/release-plans/fy2026/milestone-m27/roadmap-confidence/product-visuals/milestone-m27-roadmap-confidence-adoption-visual-v01.png",
+      "image_sha256": "sha256:4d38f784e3565767e3879a0fbbc42f3723f50adcf9e3e65c8fb09f1cb190522b",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:0d84a131ee0c82c618fc5f4aadcea11fa60704669ae9b1f1b96ec0eb1854779d",
+      "rendered_pixel_sha256": "sha256:0d84a131ee0c82c618fc5f4aadcea11fa60704669ae9b1f1b96ec0eb1854779d"
+    },
+    {
+      "scan_artifact_id": "p08-full-006287",
+      "scan_path": "launches/release-plans/fy2026/milestone-m27/decision-quality/annotated-scans/milestone-m27-decision-quality-annotated-workshop-v01.pdf",
+      "scan_sha256": "sha256:a080d1a79c92a28ddb0632e3f5d42f1e99a4bc08dfd785afe3ce5f83eba041d4",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-003631",
+      "image_path": "launches/release-plans/fy2026/milestone-m27/portfolio-health/product-visuals/milestone-m27-portfolio-health-customer-insight-v01.png",
+      "image_sha256": "sha256:7131ce205518e4b4427110f18d833c3290358c38ede1d7c49a3be695ded24ad6",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:6071140b8b0ba69d513fffcb32f0db53aea571998c5a4b6b18065f0b61b239ad",
+      "rendered_pixel_sha256": "sha256:6071140b8b0ba69d513fffcb32f0db53aea571998c5a4b6b18065f0b61b239ad"
+    },
+    {
+      "scan_artifact_id": "p08-full-006487",
+      "scan_path": "launches/release-plans/fy2026/milestone-m27/customer-learning/annotated-scans/milestone-m27-customer-learning-review-sheet-v02.pdf",
+      "scan_sha256": "sha256:0f2143095411d4c33a7485a6f4a60cfbe47278b4c54959d20cd1e6c461cc9089",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-003731",
+      "image_path": "launches/release-plans/fy2026/milestone-m27/roadmap-confidence/product-visuals/milestone-m27-roadmap-confidence-roadmap-visual-v01.png",
+      "image_sha256": "sha256:a353c73bd633dcd693893e4001e20b71b944b1cc5954daaaff856c3b63acdce8",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:031e3f7f62303957a1fa8c198e8b5090bb5d3e7e28d5b0766fff2d90e8b9e728",
+      "rendered_pixel_sha256": "sha256:031e3f7f62303957a1fa8c198e8b5090bb5d3e7e28d5b0766fff2d90e8b9e728"
+    },
+    {
+      "scan_artifact_id": "p08-full-007187",
+      "scan_path": "launches/release-plans/fy2026/milestone-m27/decision-quality/annotated-scans/milestone-m27-decision-quality-annotated-workshop-v02.pdf",
+      "scan_sha256": "sha256:b306d8ccd6ef05ff12621446c369718a395dbfc217d68736305c344c8b051b6d",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-003902",
+      "image_path": "launches/release-plans/fy2026/milestone-m27/fy2026-planning/product-visuals/milestone-m27-fy2026-planning-roadmap-visual-v03.png",
+      "image_sha256": "sha256:f1f995f47be45169224ba87960cdcaba75e409b0a802ff1962703b9ec4906888",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:fdb8efed9ca5177747e9b8e2cc8db297ac21fc4c1257f876a1b2e6c1c9898be2",
+      "rendered_pixel_sha256": "sha256:fdb8efed9ca5177747e9b8e2cc8db297ac21fc4c1257f876a1b2e6c1c9898be2"
+    },
+    {
+      "scan_artifact_id": "p08-full-007287",
+      "scan_path": "launches/release-plans/fy2026/milestone-m27/product-beta-q4/annotated-scans/milestone-m27-product-beta-q4-review-sheet-v03.pdf",
+      "scan_sha256": "sha256:5e28f24e0e9896482a152350fa2562c1c7f4724f61c0f16afb8782e31482eb60",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-004408",
+      "image_path": "launches/release-plans/fy2026/milestone-m27/product-alpha-q3/product-visuals/milestone-m27-product-alpha-q3-roadmap-visual-v02.png",
+      "image_sha256": "sha256:d982aed1423cc5f1554c350c49b55035e92faae42550dff8a44888fa20153133",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:34b719498bc4f2e61aa7aef63d30a65a6891ff60ec09ea1f1b833acca8a424a8",
+      "rendered_pixel_sha256": "sha256:34b719498bc4f2e61aa7aef63d30a65a6891ff60ec09ea1f1b833acca8a424a8"
+    }
+  ]
+}

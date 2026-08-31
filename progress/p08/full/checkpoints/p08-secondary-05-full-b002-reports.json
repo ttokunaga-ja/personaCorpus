@@ -1,0 +1,33 @@
+{
+  "schema": "persona-corpus.full-batch-checkpoint/v2",
+  "kind": "checkpoint",
+  "persona": "p08",
+  "plan_digest": "sha256:f4e84efd49a98760733d628aaa44342dc7039cc845aced936e8a158eada95236",
+  "scope_id": "p08-secondary-05",
+  "batch_id": "p08-secondary-05-full-b002-reports",
+  "assignment_count": 113,
+  "accepted_additions": 113,
+  "m1_file_count": 200,
+  "m1_sha256_unchanged": true,
+  "acceptance_group": "p08-full-group-068",
+  "before_manifest": "progress/p08/full/manifests/p08-full-group-067.after.jsonl",
+  "after_manifest": "progress/p08/full/manifests/p08-full-group-068.after.jsonl",
+  "before_manifest_sha256": "b87fb3a2a334dd3b2c4973294a5bf1afe65252f6927b280213f6e4b1ec1a11a5",
+  "after_manifest_sha256": "b30ca54f31206cf098c42c3b9573e491df895b94ea44e80e33173663272a3720",
+  "family_counts": {
+    "docx": 35,
+    "pdf_text": 25,
+    "pptx": 30,
+    "xlsx": 23
+  },
+  "qa": {
+    "structure": true,
+    "family": true,
+    "content_spine": true,
+    "dependencies": true,
+    "skill_required": true,
+    "secrets_pii": true
+  },
+  "accepted_at": "2026-08-29T09:48:12Z",
+  "scan_provenance": []
+}

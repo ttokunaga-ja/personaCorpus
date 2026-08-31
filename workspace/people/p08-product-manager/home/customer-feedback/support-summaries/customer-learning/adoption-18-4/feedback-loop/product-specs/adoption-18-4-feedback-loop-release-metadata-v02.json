@@ -1,0 +1,88 @@
+{
+  "artifact_id": "p08-full-006229",
+  "dataset": {
+    "name": "Product Planning-S1/S2",
+    "synthetic_only": true,
+    "version": "3.2"
+  },
+  "dependencies": [],
+  "dependency_note": "No upstream artifact is required for this bounded record.",
+  "models": [
+    {
+      "f1": 0.873,
+      "name": "Product Alpha",
+      "precision": 0.881,
+      "recall": 0.865
+    },
+    {
+      "f1": 0.846,
+      "name": "Product Beta"
+    }
+  ],
+  "run": {
+    "date": "2026-07-13",
+    "id": "M-27",
+    "records": 2400
+  },
+  "schema": "juniper-works.synthetic-evaluation-record/v1",
+  "scope_id": "p08-primary-08",
+  "slices": [
+    {
+      "f1": 0.861,
+      "precision": 0.875,
+      "recall": 0.848,
+      "records": 203,
+      "slice_id": "slice-01"
+    },
+    {
+      "f1": 0.876,
+      "precision": 0.892,
+      "recall": 0.861,
+      "records": 171,
+      "slice_id": "slice-02"
+    },
+    {
+      "f1": 0.874,
+      "precision": 0.874,
+      "recall": 0.874,
+      "records": 173,
+      "slice_id": "slice-03"
+    },
+    {
+      "f1": 0.87,
+      "precision": 0.891,
+      "recall": 0.85,
+      "records": 193,
+      "slice_id": "slice-04"
+    },
+    {
+      "f1": 0.868,
+      "precision": 0.873,
+      "recall": 0.863,
+      "records": 174,
+      "slice_id": "slice-05"
+    },
+    {
+      "f1": 0.883,
+      "precision": 0.89,
+      "recall": 0.876,
+      "records": 183,
+      "slice_id": "slice-06"
+    },
+    {
+      "f1": 0.862,
+      "precision": 0.872,
+      "recall": 0.852,
+      "records": 253,
+      "slice_id": "slice-07"
+    },
+    {
+      "f1": 0.877,
+      "precision": 0.889,
+      "recall": 0.865,
+      "records": 212,
+      "slice_id": "slice-08"
+    }
+  ],
+  "topic": "Product Specs"
+}

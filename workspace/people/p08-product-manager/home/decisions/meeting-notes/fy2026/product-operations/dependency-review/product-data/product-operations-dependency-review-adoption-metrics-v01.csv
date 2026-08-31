@@ -1,0 +1,26 @@
+slice_id,records,precision,recall,f1,model,run_id,artifact_id,dataset,data_class
+slice-01,209,0.871,0.866,0.868,Product Alpha,M-27,p08-full-004783,Product Alpha Q3 / Product Beta Q4,synthetic
+slice-02,221,0.888,0.879,0.883,Product Alpha,M-27,p08-full-004783,Product Alpha Q3 / Product Beta Q4,synthetic
+slice-03,198,0.870,0.855,0.862,Product Alpha,M-27,p08-full-004783,Product Alpha Q3 / Product Beta Q4,synthetic
+slice-04,205,0.887,0.868,0.877,Product Alpha,M-27,p08-full-004783,Product Alpha Q3 / Product Beta Q4,synthetic
+slice-05,180,0.869,0.881,0.875,Product Alpha,M-27,p08-full-004783,Product Alpha Q3 / Product Beta Q4,synthetic
+slice-06,186,0.886,0.857,0.871,Product Alpha,M-27,p08-full-004783,Product Alpha Q3 / Product Beta Q4,synthetic
+slice-07,160,0.868,0.870,0.869,Product Alpha,M-27,p08-full-004783,Product Alpha Q3 / Product Beta Q4,synthetic
+slice-08,165,0.885,0.883,0.884,Product Alpha,M-27,p08-full-004783,Product Alpha Q3 / Product Beta Q4,synthetic
+slice-09,234,0.867,0.859,0.863,Product Alpha,M-27,p08-full-004783,Product Alpha Q3 / Product Beta Q4,synthetic
+slice-10,239,0.884,0.872,0.878,Product Alpha,M-27,p08-full-004783,Product Alpha Q3 / Product Beta Q4,synthetic
+slice-11,165,0.866,0.848,0.857,Product Alpha,M-27,p08-full-004783,Product Alpha Q3 / Product Beta Q4,synthetic
+slice-12,194,0.883,0.861,0.872,Product Alpha,M-27,p08-full-004783,Product Alpha Q3 / Product Beta Q4,synthetic
+slice-13,178,0.865,0.874,0.869,Product Alpha,M-27,p08-full-004783,Product Alpha Q3 / Product Beta Q4,synthetic
+slice-14,190,0.882,0.850,0.866,Product Alpha,M-27,p08-full-004783,Product Alpha Q3 / Product Beta Q4,synthetic
+slice-15,167,0.864,0.863,0.863,Product Alpha,M-27,p08-full-004783,Product Alpha Q3 / Product Beta Q4,synthetic
+slice-16,174,0.881,0.876,0.878,Product Alpha,M-27,p08-full-004783,Product Alpha Q3 / Product Beta Q4,synthetic
+slice-17,244,0.863,0.852,0.857,Product Alpha,M-27,p08-full-004783,Product Alpha Q3 / Product Beta Q4,synthetic
+slice-18,250,0.880,0.865,0.872,Product Alpha,M-27,p08-full-004783,Product Alpha Q3 / Product Beta Q4,synthetic
+slice-19,224,0.862,0.878,0.870,Product Alpha,M-27,p08-full-004783,Product Alpha Q3 / Product Beta Q4,synthetic
+slice-20,229,0.879,0.854,0.866,Product Alpha,M-27,p08-full-004783,Product Alpha Q3 / Product Beta Q4,synthetic
+slice-21,203,0.896,0.867,0.881,Product Alpha,M-27,p08-full-004783,Product Alpha Q3 / Product Beta Q4,synthetic
+slice-22,208,0.878,0.880,0.879,Product Alpha,M-27,p08-full-004783,Product Alpha Q3 / Product Beta Q4,synthetic
+slice-23,229,0.895,0.856,0.875,Product Alpha,M-27,p08-full-004783,Product Alpha Q3 / Product Beta Q4,synthetic
+slice-24,163,0.877,0.869,0.873,Product Alpha,M-27,p08-full-004783,Product Alpha Q3 / Product Beta Q4,synthetic
+aggregate,2400,0.881,0.865,0.873,Product Alpha,M-27,p08-full-004783,Product Alpha Q3 / Product Beta Q4,synthetic

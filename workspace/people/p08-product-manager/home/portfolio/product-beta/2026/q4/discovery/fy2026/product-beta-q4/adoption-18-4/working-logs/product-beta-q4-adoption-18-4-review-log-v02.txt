@@ -1,0 +1,17 @@
+Product Beta Q4 Adoption 18 4 Review Log
+Juniper Works | p08-full-001788 | p08-primary-04
+
+Purpose
+This bounded plain-text record captures the working logs decision for the 2026-07-13 evaluation cycle.
+
+Observed position
+Planning context: Product Alpha Q3, Product Beta Q4, FY2026, milestone M-27, adoption 18.4%, dated 2026-07-13. All content is synthetic-only; it represents no customers, credentials, production telemetry, or external systems. Model Product Alpha reached F1 0.873, precision 0.881, and recall 0.865; Model Product Beta reached F1 0.846.
+
+Interpretation
+The result is suitable for a research checkpoint. It does not establish a deployment decision. Slice-level calibration, dataset lineage, and the frozen scoring policy must remain visible when the record is reused.
+
+Lineage
+The 18.4% adoption evaluation population is synthetic and contains no live customer data.
+
+Follow-up
+Re-run the saved notebook logic against the same synthetic split, compare threshold sensitivity, and record any drift before promotion. No live users, credentials, or external systems are represented.

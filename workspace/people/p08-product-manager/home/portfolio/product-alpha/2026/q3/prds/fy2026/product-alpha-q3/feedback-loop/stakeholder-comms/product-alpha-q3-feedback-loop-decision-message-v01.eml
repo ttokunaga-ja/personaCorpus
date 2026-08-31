@@ -1,0 +1,65 @@
+From: Juniper Works Product
+To: Juniper Works Planning
+Subject: M-27 Stakeholder Comms review | p08-full-000504
+Message-ID: <p08-full-000504@juniper-works.invalid>
+Date: Mon, 13 Jul 2026 09:00:00 +0000
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="===============1079288221677323968=="
+
+--===============1079288221677323968==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Artifact p08-full-000504 records stakeholder comms work for Juniper Works.
+Planning context: Product Alpha Q3, Product Beta Q4, FY2026, milestone M-27, =
+adoption 18.4%, dated 2026-07-13.
+All content is synthetic-only; it represents no customers, credentials, produ=
+ction telemetry, or external systems.
+Model Product Alpha reached F1 0.873, precision 0.881, and recall 0.865; Mode=
+l Product Beta reached F1 0.846.
+The 18.4% adoption evaluation population is synthetic and contains no live cu=
+stomer data.
+No upstream artifact is required for this bounded record.
+Research checkpoint only; the 2,400 records are synthetic.
+
+--===============1079288221677323968==
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+<!doctype html>
+<html lang=3D"en"><head><meta charset=3D"utf-8"><meta name=3D"viewport" conte=
+nt=3D"width=3Ddevice-width,initial-scale=3D1">
+<title>Product Alpha Q3 Feedback Loop Decision Message</title>
+<style>
+body{font:16px/1.55 Arial,sans-serif;color:#263746;max-width:900px;margin:34p=
+x auto;padding:0 22px}
+header{border-bottom:4px solid #147d78} .meta{color:#617785} table{border-col=
+lapse:collapse;width:100%}
+th{background:#142b3b;color:white} th,td{padding:8px 10px;border:1px solid #c=
+7d8dc;text-align:right}
+th:first-child,td:first-child{text-align:left} .callout{background:#dceff1;bo=
+rder-left:5px solid #147d78;padding:14px}
+</style></head><body>
+<header><h1>Product Alpha Q3 Feedback Loop Decision Message</h1><p class=3D"m=
+eta">Juniper Works | p08-full-000504 | run M-27</p></header>
+<h2>Evaluation position</h2>
+<p>Model Product Alpha reached F1 0.873, precision 0.881, and recall 0.865 on=
+ Product Alpha Q3 / Product Beta Q4. Model Product Beta reached F1 0.846 unde=
+r the same synthetic evaluation policy.</p>
+<table><thead><tr><th>Slice</th><th>Records</th><th>Precision</th><th>Recall<=
+/th><th>F1</th></tr></thead><tbody><tr><td>slice-01</td><td>210</td><td>0.872=
+</td><td>0.854</td><td>0.863</td></tr><tr><td>slice-02</td><td>174</td><td>0.=
+889</td><td>0.867</td><td>0.878</td></tr><tr><td>slice-03</td><td>175</td><td=
+>0.871</td><td>0.880</td><td>0.875</td></tr><tr><td>slice-04</td><td>241</td>=
+<td>0.888</td><td>0.856</td><td>0.872</td></tr><tr><td>slice-05</td><td>245</=
+td><td>0.870</td><td>0.869</td><td>0.869</td></tr><tr><td>slice-06</td><td>17=
+1</td><td>0.887</td><td>0.882</td><td>0.884</td></tr></tbody></table>
+<h2>Lineage</h2><p>No upstream artifact is required for this bounded record.<=
+/p>
+<p class=3D"callout">Research checkpoint only. The 2,400 records are syntheti=
+c; no live users, credentials, or external systems are represented.</p>
+</body></html>
+
+--===============1079288221677323968==--

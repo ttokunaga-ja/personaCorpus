@@ -1,0 +1,26 @@
+slice_id	records	precision	recall	f1	model	run_id	artifact_id	dataset	data_class
+slice-01	247	0.884	0.861	0.872	Product Alpha	M-27	p08-full-007233	Product Alpha Q3 / Product Beta Q4	synthetic
+slice-02	240	0.866	0.874	0.870	Product Alpha	M-27	p08-full-007233	Product Alpha Q3 / Product Beta Q4	synthetic
+slice-03	208	0.883	0.850	0.866	Product Alpha	M-27	p08-full-007233	Product Alpha Q3 / Product Beta Q4	synthetic
+slice-04	163	0.865	0.863	0.864	Product Alpha	M-27	p08-full-007233	Product Alpha Q3 / Product Beta Q4	synthetic
+slice-05	254	0.882	0.876	0.879	Product Alpha	M-27	p08-full-007233	Product Alpha Q3 / Product Beta Q4	synthetic
+slice-06	223	0.864	0.852	0.858	Product Alpha	M-27	p08-full-007233	Product Alpha Q3 / Product Beta Q4	synthetic
+slice-07	178	0.881	0.865	0.873	Product Alpha	M-27	p08-full-007233	Product Alpha Q3 / Product Beta Q4	synthetic
+slice-08	222	0.863	0.878	0.870	Product Alpha	M-27	p08-full-007233	Product Alpha Q3 / Product Beta Q4	synthetic
+slice-09	215	0.880	0.854	0.867	Product Alpha	M-27	p08-full-007233	Product Alpha Q3 / Product Beta Q4	synthetic
+slice-10	182	0.862	0.867	0.864	Product Alpha	M-27	p08-full-007233	Product Alpha Q3 / Product Beta Q4	synthetic
+slice-11	184	0.879	0.880	0.879	Product Alpha	M-27	p08-full-007233	Product Alpha Q3 / Product Beta Q4	synthetic
+slice-12	204	0.896	0.856	0.876	Product Alpha	M-27	p08-full-007233	Product Alpha Q3 / Product Beta Q4	synthetic
+slice-13	216	0.878	0.869	0.873	Product Alpha	M-27	p08-full-007233	Product Alpha Q3 / Product Beta Q4	synthetic
+slice-14	209	0.895	0.882	0.888	Product Alpha	M-27	p08-full-007233	Product Alpha Q3 / Product Beta Q4	synthetic
+slice-15	177	0.877	0.858	0.867	Product Alpha	M-27	p08-full-007233	Product Alpha Q3 / Product Beta Q4	synthetic
+slice-16	227	0.894	0.871	0.882	Product Alpha	M-27	p08-full-007233	Product Alpha Q3 / Product Beta Q4	synthetic
+slice-17	223	0.876	0.847	0.861	Product Alpha	M-27	p08-full-007233	Product Alpha Q3 / Product Beta Q4	synthetic
+slice-18	192	0.893	0.860	0.876	Product Alpha	M-27	p08-full-007233	Product Alpha Q3 / Product Beta Q4	synthetic
+slice-19	242	0.875	0.873	0.874	Product Alpha	M-27	p08-full-007233	Product Alpha Q3 / Product Beta Q4	synthetic
+slice-20	191	0.892	0.849	0.870	Product Alpha	M-27	p08-full-007233	Product Alpha Q3 / Product Beta Q4	synthetic
+slice-21	184	0.874	0.862	0.868	Product Alpha	M-27	p08-full-007233	Product Alpha Q3 / Product Beta Q4	synthetic
+slice-22	246	0.891	0.875	0.883	Product Alpha	M-27	p08-full-007233	Product Alpha Q3 / Product Beta Q4	synthetic
+slice-23	248	0.873	0.851	0.862	Product Alpha	M-27	p08-full-007233	Product Alpha Q3 / Product Beta Q4	synthetic
+slice-24	173	0.890	0.864	0.877	Product Alpha	M-27	p08-full-007233	Product Alpha Q3 / Product Beta Q4	synthetic
+aggregate	2400	0.881	0.865	0.873	Product Alpha	M-27	p08-full-007233	Product Alpha Q3 / Product Beta Q4	synthetic

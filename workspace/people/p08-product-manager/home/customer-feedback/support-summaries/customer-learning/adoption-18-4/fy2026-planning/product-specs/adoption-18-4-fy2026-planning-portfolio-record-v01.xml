@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<evaluation-record schema="juniper-works.synthetic-evaluation-record/v1" artifact-id="p08-full-001882">
+  <scope id="p08-primary-08" topic="Product Specs" />
+  <run id="M-27" date="2026-07-13" records="2400" />
+  <dataset name="Product Planning-S1/S2" version="3.2" synthetic-only="true" />
+  <models>
+    <model name="Product Alpha" precision="0.881" recall="0.865" f1="0.873" />
+    <model name="Product Beta" f1="0.846" />
+  </models>
+  <slices>
+    <slice id="slice-01" records="246" precision="0.888" recall="0.870" f1="0.879" />
+    <slice id="slice-02" records="240" precision="0.870" recall="0.883" f1="0.876" />
+    <slice id="slice-03" records="160" precision="0.887" recall="0.859" f1="0.873" />
+    <slice id="slice-04" records="234" precision="0.869" recall="0.872" f1="0.870" />
+    <slice id="slice-05" records="194" precision="0.886" recall="0.848" f1="0.867" />
+    <slice id="slice-06" records="193" precision="0.868" recall="0.861" f1="0.864" />
+  </slices>
+</evaluation-record>

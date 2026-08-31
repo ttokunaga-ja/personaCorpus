@@ -1,0 +1,30 @@
+{
+  "schema": "persona-corpus.full-batch-checkpoint/v2",
+  "kind": "checkpoint",
+  "persona": "p08",
+  "plan_digest": "sha256:f4e84efd49a98760733d628aaa44342dc7039cc845aced936e8a158eada95236",
+  "scope_id": "p08-primary-02",
+  "batch_id": "p08-primary-02-full-b004-visuals",
+  "assignment_count": 39,
+  "accepted_additions": 39,
+  "m1_file_count": 200,
+  "m1_sha256_unchanged": true,
+  "acceptance_group": "p08-full-group-009",
+  "before_manifest": "progress/p08/full/manifests/p08-full-group-008.after.jsonl",
+  "after_manifest": "progress/p08/full/manifests/p08-full-group-009.after.jsonl",
+  "before_manifest_sha256": "53ef6319f9992ba52f10f63b0d331e768366690c890d89762887491f1a662a08",
+  "after_manifest_sha256": "5c2fe1d56ef92e4ef81dcfa2920a40a51462819399853cbee7ac9f6e5e51799d",
+  "family_counts": {
+    "image": 39
+  },
+  "qa": {
+    "structure": true,
+    "family": true,
+    "content_spine": true,
+    "dependencies": true,
+    "skill_required": true,
+    "secrets_pii": true
+  },
+  "accepted_at": "2026-08-28T12:27:23Z",
+  "scan_provenance": []
+}

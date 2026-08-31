@@ -1,0 +1,235 @@
+{
+  "schema": "persona-corpus.full-batch-checkpoint/v2",
+  "kind": "checkpoint",
+  "persona": "p08",
+  "plan_digest": "sha256:f4e84efd49a98760733d628aaa44342dc7039cc845aced936e8a158eada95236",
+  "scope_id": "p08-secondary-05",
+  "batch_id": "p08-secondary-05-full-b004-scans",
+  "assignment_count": 12,
+  "accepted_additions": 12,
+  "m1_file_count": 200,
+  "m1_sha256_unchanged": true,
+  "acceptance_group": "p08-full-group-070",
+  "before_manifest": "progress/p08/full/manifests/p08-full-group-069.after.jsonl",
+  "after_manifest": "progress/p08/full/manifests/p08-full-group-070.after.jsonl",
+  "before_manifest_sha256": "f0f26d9634c5b20937c266ea2ef31e415c8f69f50d491e8f690dcf48288ba3d0",
+  "after_manifest_sha256": "1524396871474e9c9845975c148b4dd8410a860adaaff7a67cad5dfe67b05cf3",
+  "family_counts": {
+    "pdf_scan": 12
+  },
+  "qa": {
+    "structure": true,
+    "family": true,
+    "content_spine": true,
+    "dependencies": true,
+    "skill_required": true,
+    "secrets_pii": true
+  },
+  "accepted_at": "2026-08-29T10:33:59Z",
+  "scan_provenance": [
+    {
+      "scan_artifact_id": "p08-full-000755",
+      "scan_path": "cloud/my-files/fy2026/juniper-works/milestone-m27/annotated-scans/juniper-works-milestone-m27-discovery-board-v01.pdf",
+      "scan_sha256": "sha256:e55b5db87f84c0726ccc31276399f961b25e19a08280b4d8ca48f2f51bce99f2",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-000185",
+      "image_path": "cloud/my-files/fy2026/juniper-works/portfolio-health/product-visuals/juniper-works-portfolio-health-adoption-visual-v01.png",
+      "image_sha256": "sha256:5347615bd1c6e674826a60849fd988c29b0c31bc55ef1014eb36b7e0dac0a137",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:1a8303aa206e3fa2ccba96d37b9dce3dd7e6a7281692ba63df05a41f033a1e87",
+      "rendered_pixel_sha256": "sha256:1a8303aa206e3fa2ccba96d37b9dce3dd7e6a7281692ba63df05a41f033a1e87"
+    },
+    {
+      "scan_artifact_id": "p08-full-001110",
+      "scan_path": "cloud/my-files/fy2026/juniper-works/feedback-loop/annotated-scans/juniper-works-feedback-loop-review-sheet-v01.pdf",
+      "scan_sha256": "sha256:59aa470321c82bcb6dc17a96bb289a7a723e4077b6884687af63bf947ec326f3",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-000345",
+      "image_path": "cloud/my-files/fy2026/juniper-works/decision-quality/product-visuals/juniper-works-decision-quality-adoption-visual-v01.png",
+      "image_sha256": "sha256:7aca6cfaad3beb416dc5364e6922498f413290af83153df8435c87153a00b1f4",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:84c9d51ab070c987bfd2728848bbeca24d8f520ef6a10b1a901f92de5d93e96c",
+      "rendered_pixel_sha256": "sha256:84c9d51ab070c987bfd2728848bbeca24d8f520ef6a10b1a901f92de5d93e96c"
+    },
+    {
+      "scan_artifact_id": "p08-full-001468",
+      "scan_path": "cloud/my-files/fy2026/juniper-works/milestone-m27/annotated-scans/juniper-works-milestone-m27-review-sheet-v01.pdf",
+      "scan_sha256": "sha256:9ec052ca25cfe129cb1db08e4949fdd1244eab733d3107f1467d9a4e4e075fc0",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-000587",
+      "image_path": "cloud/my-files/fy2026/juniper-works/customer-learning/product-visuals/juniper-works-customer-learning-customer-insight-v01.png",
+      "image_sha256": "sha256:771e589e9b50783d6cbff76e404ecaf049fc08f506c5218f2b0207eb2c65764f",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:37b007a9302140e5b05885b4b5890ce2b02870f208599bd997c025c8ca98e25f",
+      "rendered_pixel_sha256": "sha256:37b007a9302140e5b05885b4b5890ce2b02870f208599bd997c025c8ca98e25f"
+    },
+    {
+      "scan_artifact_id": "p08-full-001601",
+      "scan_path": "cloud/my-files/fy2026/juniper-works/dependency-review/annotated-scans/juniper-works-dependency-review-review-sheet-v01.pdf",
+      "scan_sha256": "sha256:b6aea425390bd782774b128b9ed541bf765e9c06446d5da4e080f03083d444bc",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-000803",
+      "image_path": "cloud/my-files/fy2026/juniper-works/adoption-18-4/product-visuals/juniper-works-adoption-18-4-adoption-visual-v01.png",
+      "image_sha256": "sha256:253cd96cdc756781273c19b321ab768a924dc4e62ab73e708c580bd107c510a7",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:6847811bb7fdcfae416f3c3c1b4037be5493264bf4160047e733bc2d280c968e",
+      "rendered_pixel_sha256": "sha256:6847811bb7fdcfae416f3c3c1b4037be5493264bf4160047e733bc2d280c968e"
+    },
+    {
+      "scan_artifact_id": "p08-full-002095",
+      "scan_path": "cloud/my-files/fy2026/juniper-works/milestone-m27/annotated-scans/juniper-works-milestone-m27-discovery-board-v02.pdf",
+      "scan_sha256": "sha256:9e631b101b67fb25067d34117e33f81bd3c539a0d1bc2785f8aede060fee5c37",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-001065",
+      "image_path": "cloud/my-files/fy2026/juniper-works/product-beta-q4/product-visuals/juniper-works-product-beta-q4-roadmap-visual-v01.png",
+      "image_sha256": "sha256:2c3d0e0d605766b57a141167d0e4cfb060d718ed6f6ec238b38d1cd4ab9ef6bc",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:4f85869cca3dbcae3d7a383f4ebe6a3d1048ff6577144b695e001ab3cc6cdbb3",
+      "rendered_pixel_sha256": "sha256:4f85869cca3dbcae3d7a383f4ebe6a3d1048ff6577144b695e001ab3cc6cdbb3"
+    },
+    {
+      "scan_artifact_id": "p08-full-002461",
+      "scan_path": "cloud/my-files/fy2026/juniper-works/roadmap-confidence/annotated-scans/juniper-works-roadmap-confidence-review-sheet-v01.pdf",
+      "scan_sha256": "sha256:5ef6ac18f499a1b6cd47186fc8ec3a5ad7c401b947295ab217669a0031249b05",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-001288",
+      "image_path": "cloud/my-files/fy2026/juniper-works/product-alpha-q3/product-visuals/juniper-works-product-alpha-q3-customer-insight-v01.png",
+      "image_sha256": "sha256:3ccf1be27c6b3e265eb77d6f742929010b00497627c8186ac05ab332d970e394",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:d8cce317b3849741df283b4e5d490ece537f52a56bf1ddb1afe395aaf778cba3",
+      "rendered_pixel_sha256": "sha256:d8cce317b3849741df283b4e5d490ece537f52a56bf1ddb1afe395aaf778cba3"
+    },
+    {
+      "scan_artifact_id": "p08-full-003219",
+      "scan_path": "cloud/my-files/fy2026/juniper-works/launch-readiness/annotated-scans/juniper-works-launch-readiness-annotated-workshop-v01.pdf",
+      "scan_sha256": "sha256:89721c8bbab92386a7f58f09c405f2895de874c983f0a5fe7a50a3cbe0835bf9",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-001822",
+      "image_path": "cloud/my-files/fy2026/juniper-works/adoption-18-4/product-visuals/juniper-works-adoption-18-4-adoption-visual-v02.png",
+      "image_sha256": "sha256:6c0d948ca939260375bbd164380833804e0c5f798d7b173f95e5bb0a03575970",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:007f5f2f3217d5bff488d7294384fc57a539b65989cf78b58f2e7fd7e852619e",
+      "rendered_pixel_sha256": "sha256:007f5f2f3217d5bff488d7294384fc57a539b65989cf78b58f2e7fd7e852619e"
+    },
+    {
+      "scan_artifact_id": "p08-full-004796",
+      "scan_path": "cloud/my-files/fy2026/juniper-works/feedback-loop/annotated-scans/juniper-works-feedback-loop-discovery-board-v01.pdf",
+      "scan_sha256": "sha256:c02c6c6248509e1571a05069a2994c5c728c2f14723bc7727a9cb7d7a9984e4d",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-002732",
+      "image_path": "cloud/my-files/fy2026/juniper-works/launch-readiness/product-visuals/juniper-works-launch-readiness-roadmap-visual-v01.png",
+      "image_sha256": "sha256:10ce6c52eb99171638daa3e498710d5a7f2cb53c9784b7f5e8a9294f79e402f9",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:8dcb18cc7930d0942b7619a193db05c5d1f8c7041f8c55c5dcad4242162fcc23",
+      "rendered_pixel_sha256": "sha256:8dcb18cc7930d0942b7619a193db05c5d1f8c7041f8c55c5dcad4242162fcc23"
+    },
+    {
+      "scan_artifact_id": "p08-full-005418",
+      "scan_path": "cloud/my-files/fy2026/juniper-works/milestone-m27/annotated-scans/juniper-works-milestone-m27-review-sheet-v02.pdf",
+      "scan_sha256": "sha256:7d3476b82f0f989aeacf6b21254c502a82b153bd8249a7383dfaee3aef500399",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-003990",
+      "image_path": "cloud/my-files/fy2026/juniper-works/dependency-review/product-visuals/juniper-works-dependency-review-customer-insight-v01.png",
+      "image_sha256": "sha256:5fb874b04da257d37782331f9f0d9b6182a0abd9239848dbc407fcb706ac3c89",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:048ef1b98669caa1f768e2accf67972bd8f84b48737866d429ec20a0a345efce",
+      "rendered_pixel_sha256": "sha256:048ef1b98669caa1f768e2accf67972bd8f84b48737866d429ec20a0a345efce"
+    },
+    {
+      "scan_artifact_id": "p08-full-005689",
+      "scan_path": "cloud/my-files/fy2026/juniper-works/product-alpha-q3/annotated-scans/juniper-works-product-alpha-q3-discovery-board-v01.pdf",
+      "scan_sha256": "sha256:3bd895c15a139e86c67f2942534eb99ca77c671e4eb15dc662b67e2925f59098",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-004337",
+      "image_path": "cloud/my-files/fy2026/juniper-works/milestone-m27/product-visuals/juniper-works-milestone-m27-roadmap-visual-v01.png",
+      "image_sha256": "sha256:2365b32f4f90b19a2f4fd0eb718fef999782ec770718d56f708402fd7b91330c",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:588d0ce460bd1f4ea01dcffb9f086944c3de1682ddf9144c5ade8398a71a7f34",
+      "rendered_pixel_sha256": "sha256:588d0ce460bd1f4ea01dcffb9f086944c3de1682ddf9144c5ade8398a71a7f34"
+    },
+    {
+      "scan_artifact_id": "p08-full-007319",
+      "scan_path": "cloud/my-files/fy2026/juniper-works/feedback-loop/annotated-scans/juniper-works-feedback-loop-review-sheet-v02.pdf",
+      "scan_sha256": "sha256:9f7d8ab7a90de7780bcdb29b9f75f91968ab5ecfebbbc912b395df50755e6a82",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-004930",
+      "image_path": "cloud/my-files/fy2026/juniper-works/milestone-m27/product-visuals/juniper-works-milestone-m27-adoption-visual-v01.png",
+      "image_sha256": "sha256:a9e049dba632745eedad42a0e6fb1c1c0b9591aeca4cb58d7cf651bb0e415c18",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:7447988e62446a7e744d963143a1728f5f2ff31bd93ea5466fdcce44bc88f6cc",
+      "rendered_pixel_sha256": "sha256:7447988e62446a7e744d963143a1728f5f2ff31bd93ea5466fdcce44bc88f6cc"
+    },
+    {
+      "scan_artifact_id": "p08-full-007419",
+      "scan_path": "cloud/my-files/fy2026/juniper-works/milestone-m27/annotated-scans/juniper-works-milestone-m27-discovery-board-v03.pdf",
+      "scan_sha256": "sha256:1903f8f3349ce5aa9e7977382a5e608dfe8f416ed5c9bae6b0c99cdeca96598e",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-005881",
+      "image_path": "cloud/my-files/fy2026/juniper-works/product-alpha-q3/product-visuals/juniper-works-product-alpha-q3-customer-insight-v02.png",
+      "image_sha256": "sha256:4f90add79899bc5f5b6695b94f86054c98032fecbfb779b9118b4e60c1b77008",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:01e2ee5ec9d0fd59d3226774226b4c76906a9c0f36189993cbd37584749f1b31",
+      "rendered_pixel_sha256": "sha256:01e2ee5ec9d0fd59d3226774226b4c76906a9c0f36189993cbd37584749f1b31"
+    }
+  ]
+}

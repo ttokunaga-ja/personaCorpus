@@ -1,0 +1,677 @@
+{
+  "schema": "persona-corpus.full-batch-checkpoint/v2",
+  "kind": "checkpoint",
+  "persona": "p08",
+  "plan_digest": "sha256:f4e84efd49a98760733d628aaa44342dc7039cc845aced936e8a158eada95236",
+  "scope_id": "p08-primary-01",
+  "batch_id": "p08-primary-01-full-b005-scans",
+  "assignment_count": 38,
+  "accepted_additions": 38,
+  "m1_file_count": 200,
+  "m1_sha256_unchanged": true,
+  "acceptance_group": "p08-full-group-005",
+  "before_manifest": "progress/p08/full/manifests/p08-full-group-004.after.jsonl",
+  "after_manifest": "progress/p08/full/manifests/p08-full-group-005.after.jsonl",
+  "before_manifest_sha256": "e9fb61bb903b925909722a6edb23f6d7134b9c65515e6d791266f6e25bf9887f",
+  "after_manifest_sha256": "dd4addcd45cf819239624c8aea826b73298191e3328188e2476b81435024bf84",
+  "family_counts": {
+    "pdf_scan": 38
+  },
+  "qa": {
+    "structure": true,
+    "family": true,
+    "content_spine": true,
+    "dependencies": true,
+    "skill_required": true,
+    "secrets_pii": true
+  },
+  "accepted_at": "2026-08-28T11:44:50Z",
+  "scan_provenance": [
+    {
+      "scan_artifact_id": "p08-full-000186",
+      "scan_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/customer-learning/annotated-scans/product-alpha-q3-customer-learning-annotated-workshop-v01.pdf",
+      "scan_sha256": "sha256:8f74764f972855c6b381942f7cf894bc26ca2acfcb342233f386e38cda1392d8",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-000016",
+      "image_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/product-alpha-q3/product-visuals/product-alpha-q3-product-alpha-q3-roadmap-visual-v01.png",
+      "image_sha256": "sha256:560567846fae0b9b9cf6d2c75cbf0f9e7d752b5d32cf30a7d312a15f1378efd1",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:ec7c50aa33daada52e87b5a5cdf3a8336d5812f20b1e39e75d76787cc08a940b",
+      "rendered_pixel_sha256": "sha256:ec7c50aa33daada52e87b5a5cdf3a8336d5812f20b1e39e75d76787cc08a940b"
+    },
+    {
+      "scan_artifact_id": "p08-full-000329",
+      "scan_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/decision-quality/annotated-scans/product-alpha-q3-decision-quality-discovery-board-v01.pdf",
+      "scan_sha256": "sha256:223beb0290fe0ed4a66072b5210c0419175b6b4101bbe681f2a3b029a8432325",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-000024",
+      "image_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/fy2026-planning/product-visuals/product-alpha-q3-fy2026-planning-adoption-visual-v01.png",
+      "image_sha256": "sha256:dc1c03a726adde32a4b65764b94725de0f619867fc0dddc6e657afdc505288df",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:0bbdbfac08262376e5799e0971f1dd1b415b4d7d84c696608bdde58497ea57ce",
+      "rendered_pixel_sha256": "sha256:0bbdbfac08262376e5799e0971f1dd1b415b4d7d84c696608bdde58497ea57ce"
+    },
+    {
+      "scan_artifact_id": "p08-full-000538",
+      "scan_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/milestone-m27/annotated-scans/product-alpha-q3-milestone-m27-annotated-workshop-v01.pdf",
+      "scan_sha256": "sha256:8a299dea1eac3ebb3537a45e041423a7f2432873540944aba801c024a7f73952",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-000099",
+      "image_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/roadmap-confidence/product-visuals/product-alpha-q3-roadmap-confidence-customer-insight-v01.png",
+      "image_sha256": "sha256:a8759a0ca2631a428efefb40dd39049d90fcaf50848815aabea818bd52c16ace",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:8a721ea4ec202c2e259fd081ec8c531b567f8b217c7a8111835d80eac21f67a8",
+      "rendered_pixel_sha256": "sha256:8a721ea4ec202c2e259fd081ec8c531b567f8b217c7a8111835d80eac21f67a8"
+    },
+    {
+      "scan_artifact_id": "p08-full-001016",
+      "scan_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/portfolio-health/annotated-scans/product-alpha-q3-portfolio-health-annotated-workshop-v01.pdf",
+      "scan_sha256": "sha256:ef62d346dd585eb2ad75516127377f2cbcdab660471159affcec55d351630d22",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-000250",
+      "image_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/product-alpha-q3/product-visuals/product-alpha-q3-product-alpha-q3-customer-insight-v01.png",
+      "image_sha256": "sha256:f843afe03cb55cd7e809c7a242c43643d38825a58907fce7eeb731758cf9f55a",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:a0436defa86804ffeaa862b593fb84059d1ada7b4611a437b2918b4ac6d8f554",
+      "rendered_pixel_sha256": "sha256:a0436defa86804ffeaa862b593fb84059d1ada7b4611a437b2918b4ac6d8f554"
+    },
+    {
+      "scan_artifact_id": "p08-full-001240",
+      "scan_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/roadmap-confidence/annotated-scans/product-alpha-q3-roadmap-confidence-discovery-board-v01.pdf",
+      "scan_sha256": "sha256:c4e7960344ba000ba7fad658eea299fc19034b4f8e1f8bf165520ef4e1ac336f",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-000263",
+      "image_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/fy2026-planning/product-visuals/product-alpha-q3-fy2026-planning-roadmap-visual-v01.png",
+      "image_sha256": "sha256:acee104b52b4b3223f3939b816d09c9a2da23ee7377d33f961a29dfaf5505739",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:dcd5658503d813edd5baa0334eaa3319b9207cf728823500b3e7c97d256da4ea",
+      "rendered_pixel_sha256": "sha256:dcd5658503d813edd5baa0334eaa3319b9207cf728823500b3e7c97d256da4ea"
+    },
+    {
+      "scan_artifact_id": "p08-full-001268",
+      "scan_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/fy2026-planning/annotated-scans/product-alpha-q3-fy2026-planning-discovery-board-v01.pdf",
+      "scan_sha256": "sha256:0850325dba1fcf65f6f0ba883dffdaad505975a7fa06ca170cead381d2391065",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-000323",
+      "image_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/milestone-m27/product-visuals/product-alpha-q3-milestone-m27-roadmap-visual-v01.png",
+      "image_sha256": "sha256:9c31d755fdd2f9ef5a9a5a6db9fa6ae708fa5b5c0f5ecd198766345919a1410b",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:9b2d950d7340cd023ecb06a26db77dcadd72db6d92971b093e3ef30937abc280",
+      "rendered_pixel_sha256": "sha256:9b2d950d7340cd023ecb06a26db77dcadd72db6d92971b093e3ef30937abc280"
+    },
+    {
+      "scan_artifact_id": "p08-full-001562",
+      "scan_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/fy2026-planning/annotated-scans/product-alpha-q3-fy2026-planning-review-sheet-v01.pdf",
+      "scan_sha256": "sha256:02258cc14ea7d7cb8f497ff3a64d7ccc89c16926b09c2cc97af0602e5d7271fa",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-000465",
+      "image_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/portfolio-health/product-visuals/product-alpha-q3-portfolio-health-customer-insight-v01.png",
+      "image_sha256": "sha256:8cd43cf1d6212465cb133e06e2f7346929e37b32eb3ad1a6ed60d610ac11b930",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:3c9dca100911d01b80d3f9581aedb8f8d20fd56d1442585df927a1c96a3fda16",
+      "rendered_pixel_sha256": "sha256:3c9dca100911d01b80d3f9581aedb8f8d20fd56d1442585df927a1c96a3fda16"
+    },
+    {
+      "scan_artifact_id": "p08-full-001830",
+      "scan_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/roadmap-confidence/annotated-scans/product-alpha-q3-roadmap-confidence-annotated-workshop-v01.pdf",
+      "scan_sha256": "sha256:f38c745eb9f345498d51ac8e9530ef926584d2946addba30dcab4204a17f6c39",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-000564",
+      "image_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/roadmap-confidence/product-visuals/product-alpha-q3-roadmap-confidence-customer-insight-v02.png",
+      "image_sha256": "sha256:e94cc8e734f207231b2162731a9392b7a299d5bb47033e27fd4598385cafdab0",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:90ca8ee6c7728fe413db3c3b993da6112b4d6a13e656d9b680de8288e334dd1e",
+      "rendered_pixel_sha256": "sha256:90ca8ee6c7728fe413db3c3b993da6112b4d6a13e656d9b680de8288e334dd1e"
+    },
+    {
+      "scan_artifact_id": "p08-full-002159",
+      "scan_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/customer-learning/annotated-scans/product-alpha-q3-customer-learning-discovery-board-v01.pdf",
+      "scan_sha256": "sha256:aad9f579dd68199f7f2fa332164d9611e27b383184e99c73fa3ed7b745e99c88",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-000723",
+      "image_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/adoption-18-4/product-visuals/product-alpha-q3-adoption-18-4-customer-insight-v01.png",
+      "image_sha256": "sha256:6abd3e19b71716bc35a9999bf0a7d0121133bcc17e3c6fb951f7c1bdff952bb4",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:04069e4796f6112dc773c09e22cfa8722ec2d09d404267d30ff041e693975362",
+      "rendered_pixel_sha256": "sha256:04069e4796f6112dc773c09e22cfa8722ec2d09d404267d30ff041e693975362"
+    },
+    {
+      "scan_artifact_id": "p08-full-002495",
+      "scan_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/portfolio-health/annotated-scans/product-alpha-q3-portfolio-health-review-sheet-v01.pdf",
+      "scan_sha256": "sha256:629fe57389f3ea8062c4f85951fdeb068b817dd6859eb6228340a1f23009a7a0",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-000736",
+      "image_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/portfolio-health/product-visuals/product-alpha-q3-portfolio-health-adoption-visual-v01.png",
+      "image_sha256": "sha256:bc34e836a9027f9bf2f6eb8ed2c96f050c40ab2a012b0ae1b0ef26e10ad0dad5",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:65ba27e65bf9ebf771ac0ab5af981dd81aec99e973ee49f76ff00b7fd1236861",
+      "rendered_pixel_sha256": "sha256:65ba27e65bf9ebf771ac0ab5af981dd81aec99e973ee49f76ff00b7fd1236861"
+    },
+    {
+      "scan_artifact_id": "p08-full-003778",
+      "scan_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/decision-quality/annotated-scans/product-alpha-q3-decision-quality-review-sheet-v01.pdf",
+      "scan_sha256": "sha256:c244c11c61395112d96efa22854bfc09090573ca4be57e1c0b0fc71fdae68d03",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-000763",
+      "image_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/decision-quality/product-visuals/product-alpha-q3-decision-quality-customer-insight-v01.png",
+      "image_sha256": "sha256:22f8de69b8d5b95f007fc66925bb1838b376050d749cbf491882116edb605beb",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:0e14732bf5f09b1cdb6f40881de2265193ffe8a352f61c89c28335c70b8a7a6e",
+      "rendered_pixel_sha256": "sha256:0e14732bf5f09b1cdb6f40881de2265193ffe8a352f61c89c28335c70b8a7a6e"
+    },
+    {
+      "scan_artifact_id": "p08-full-004008",
+      "scan_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/product-alpha-q3/annotated-scans/product-alpha-q3-product-alpha-q3-annotated-workshop-v01.pdf",
+      "scan_sha256": "sha256:84b6f8228c446c28151c1900a808accc711276d0e1eab187b4add9bc65f735f1",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-000790",
+      "image_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/product-beta-q4/product-visuals/product-alpha-q3-product-beta-q4-roadmap-visual-v01.png",
+      "image_sha256": "sha256:57c17742d5862d2dec3a1d494172c40d38a4851c0bdd5c7130bf4867510f24c5",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:9804480778cc47d4b224d40c758e7e14a798229c535d1ae99cf1b0839e24415d",
+      "rendered_pixel_sha256": "sha256:9804480778cc47d4b224d40c758e7e14a798229c535d1ae99cf1b0839e24415d"
+    },
+    {
+      "scan_artifact_id": "p08-full-004435",
+      "scan_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/adoption-18-4/annotated-scans/product-alpha-q3-adoption-18-4-discovery-board-v01.pdf",
+      "scan_sha256": "sha256:cec80f487533da0e3516eb200b645071c33d639ae293ccfab10188860f6907d0",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-001051",
+      "image_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/decision-quality/product-visuals/product-alpha-q3-decision-quality-adoption-visual-v01.png",
+      "image_sha256": "sha256:1474e44d8cf8aa3f34aa1fac3c523d4e9652a28d3d98f482eaa8e153298a76b3",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:1bd0684ed0609dc3da5d72329697c3e230ac297e586938a4a170609de99fe1b8",
+      "rendered_pixel_sha256": "sha256:1bd0684ed0609dc3da5d72329697c3e230ac297e586938a4a170609de99fe1b8"
+    },
+    {
+      "scan_artifact_id": "p08-full-004895",
+      "scan_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/fy2026-planning/annotated-scans/product-alpha-q3-fy2026-planning-discovery-board-v02.pdf",
+      "scan_sha256": "sha256:7c3fe625474c7a03c1ad12463caa9721e19c5281bdc44fac595f0ec0a98343f5",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-001146",
+      "image_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/feedback-loop/product-visuals/product-alpha-q3-feedback-loop-customer-insight-v01.png",
+      "image_sha256": "sha256:7dbaedf6a18e3cd948bdb5578bbce4a4a05daf4e68e6c101542d52407435216c",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:01c3359ce9af80d80564dd8e35fb3f88927df8ce8e9d461b8da124eec26b52fc",
+      "rendered_pixel_sha256": "sha256:01c3359ce9af80d80564dd8e35fb3f88927df8ce8e9d461b8da124eec26b52fc"
+    },
+    {
+      "scan_artifact_id": "p08-full-005191",
+      "scan_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/product-beta-q4/annotated-scans/product-alpha-q3-product-beta-q4-discovery-board-v01.pdf",
+      "scan_sha256": "sha256:d671a276f972938cffad5333c572ee1f70bfe60bbbb56b913f45373f2ddd56af",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-001442",
+      "image_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/feedback-loop/product-visuals/product-alpha-q3-feedback-loop-adoption-visual-v01.png",
+      "image_sha256": "sha256:3ef194a1a7bb0cbf8f551223cdbac5dffe8fefbc11bd75ea78b6e8165654d10b",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:cef3ffe3284b5374ea2ba00b5b3ff61d8821e53c8946928fa3e00eb029bbb3d3",
+      "rendered_pixel_sha256": "sha256:cef3ffe3284b5374ea2ba00b5b3ff61d8821e53c8946928fa3e00eb029bbb3d3"
+    },
+    {
+      "scan_artifact_id": "p08-full-005219",
+      "scan_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/customer-learning/annotated-scans/product-alpha-q3-customer-learning-discovery-board-v02.pdf",
+      "scan_sha256": "sha256:a5765efd5aa1f92d7908722a6792bb57a631376c52e9be90002491c10f014dc8",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-001751",
+      "image_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/milestone-m27/product-visuals/product-alpha-q3-milestone-m27-adoption-visual-v01.png",
+      "image_sha256": "sha256:994019c2e7d484e88d3002544843d9eea54e4175ea10c82410eae0db3d13efe6",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:760e7a8a31e157fb6350cfc2e1088e09deb46c228cd117edcad37aaef2474c9d",
+      "rendered_pixel_sha256": "sha256:760e7a8a31e157fb6350cfc2e1088e09deb46c228cd117edcad37aaef2474c9d"
+    },
+    {
+      "scan_artifact_id": "p08-full-005259",
+      "scan_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/decision-quality/annotated-scans/product-alpha-q3-decision-quality-discovery-board-v02.pdf",
+      "scan_sha256": "sha256:51807c31d53a8d5a34e78a48dc0633aaa0320678acbbd2b4a564f6701e1bdd22",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-002008",
+      "image_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/dependency-review/product-visuals/product-alpha-q3-dependency-review-adoption-visual-v01.png",
+      "image_sha256": "sha256:e364ebf705211e7c1108a45f0da59f89d08a18503e5c9cc1847ffabdb4adebbf",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:0e9393e92d581f5f7a56b1bfb36f6484cb473e449911e2d0b614038a54d1b196",
+      "rendered_pixel_sha256": "sha256:0e9393e92d581f5f7a56b1bfb36f6484cb473e449911e2d0b614038a54d1b196"
+    },
+    {
+      "scan_artifact_id": "p08-full-005352",
+      "scan_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/launch-readiness/annotated-scans/product-alpha-q3-launch-readiness-annotated-workshop-v01.pdf",
+      "scan_sha256": "sha256:b2b4d511fe9353ae793ed33b1ef7e55d2076f29d0a168264e34ac72fb217a65c",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-002022",
+      "image_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/roadmap-confidence/product-visuals/product-alpha-q3-roadmap-confidence-roadmap-visual-v01.png",
+      "image_sha256": "sha256:3e06a6781bc3349e841fe26adb50460fad2ecac070c9fbb2305c078882828886",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:3b4f08fdc4ca6b36da1960c0b0e3512032d9e1f9a4c056ac8c18671eb2abbf6f",
+      "rendered_pixel_sha256": "sha256:3b4f08fdc4ca6b36da1960c0b0e3512032d9e1f9a4c056ac8c18671eb2abbf6f"
+    },
+    {
+      "scan_artifact_id": "p08-full-005489",
+      "scan_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/product-alpha-q3/annotated-scans/product-alpha-q3-product-alpha-q3-review-sheet-v01.pdf",
+      "scan_sha256": "sha256:9042cd1779f33374f651750c14f2c1d39ca01ff6ec5ddd07ab7354501ee693b7",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-002294",
+      "image_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/dependency-review/product-visuals/product-alpha-q3-dependency-review-adoption-visual-v02.png",
+      "image_sha256": "sha256:a78bbe7d35323dfeb67291f25513c3b05a38adde41b5638ae4e87e418bb6e954",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:21a9839d0363e05ec3058a09780cc1511bae4e8049990020069fa24346c7ca33",
+      "rendered_pixel_sha256": "sha256:21a9839d0363e05ec3058a09780cc1511bae4e8049990020069fa24346c7ca33"
+    },
+    {
+      "scan_artifact_id": "p08-full-005518",
+      "scan_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/customer-learning/annotated-scans/product-alpha-q3-customer-learning-review-sheet-v01.pdf",
+      "scan_sha256": "sha256:d99e9531b2f6a7e7def5f9f844a86aaa42d9a953af016a42cf50f12eb579da87",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-002376",
+      "image_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/portfolio-health/product-visuals/product-alpha-q3-portfolio-health-roadmap-visual-v01.png",
+      "image_sha256": "sha256:2217e68c6818895b47325e8249501602e1d5ecc4b34bdae6b8fea13abf5bb20a",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:0e4af7125a380459b7b171caf81218af5a99585d5190869ffc6c68f42e9d68ee",
+      "rendered_pixel_sha256": "sha256:0e4af7125a380459b7b171caf81218af5a99585d5190869ffc6c68f42e9d68ee"
+    },
+    {
+      "scan_artifact_id": "p08-full-005788",
+      "scan_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/product-beta-q4/annotated-scans/product-alpha-q3-product-beta-q4-annotated-workshop-v01.pdf",
+      "scan_sha256": "sha256:79a40365c7e4ac87718a285166908d8cbbede4991255da226a42af7bf5d01fae",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-002575",
+      "image_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/fy2026-planning/product-visuals/product-alpha-q3-fy2026-planning-adoption-visual-v02.png",
+      "image_sha256": "sha256:bfbbd81c3d1ff22a28ba589246fef2e8b3255ae5a3e895ca86ff7cf12475668f",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:7a1d0133f4274d871a4e695feb7094e07730442bf24c8de9e54f49d6e45eeb89",
+      "rendered_pixel_sha256": "sha256:7a1d0133f4274d871a4e695feb7094e07730442bf24c8de9e54f49d6e45eeb89"
+    },
+    {
+      "scan_artifact_id": "p08-full-005816",
+      "scan_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/customer-learning/annotated-scans/product-alpha-q3-customer-learning-annotated-workshop-v02.pdf",
+      "scan_sha256": "sha256:33385d7a05e5a1bbf5b900c058a731f79d678513bf500fbba4a5efa57c30e614",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-002631",
+      "image_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/feedback-loop/product-visuals/product-alpha-q3-feedback-loop-roadmap-visual-v01.png",
+      "image_sha256": "sha256:efba124d649887865a6c0974cbfd7664e302744ef7a9dd3759ac6bb7ad423587",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:9d02694b43b405710d620ce27678a06e27d5b711bea2ebd92317f36522fad279",
+      "rendered_pixel_sha256": "sha256:9d02694b43b405710d620ce27678a06e27d5b711bea2ebd92317f36522fad279"
+    },
+    {
+      "scan_artifact_id": "p08-full-006116",
+      "scan_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/portfolio-health/annotated-scans/product-alpha-q3-portfolio-health-discovery-board-v01.pdf",
+      "scan_sha256": "sha256:c199aaa4290109162f6570c98e54948a2ae1d939f3a0e61d3809a699336e18c8",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-002887",
+      "image_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/launch-readiness/product-visuals/product-alpha-q3-launch-readiness-customer-insight-v01.png",
+      "image_sha256": "sha256:5f34ebcd2e602b60c89510bd8546eafa17b6a321a133fa4f2865dfd0a7709bc1",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:65b59e2b61608a50452cc3dd9036c84810d06310f2be6e5a78a54646cb8331eb",
+      "rendered_pixel_sha256": "sha256:65b59e2b61608a50452cc3dd9036c84810d06310f2be6e5a78a54646cb8331eb"
+    },
+    {
+      "scan_artifact_id": "p08-full-006256",
+      "scan_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/fy2026-planning/annotated-scans/product-alpha-q3-fy2026-planning-discovery-board-v03.pdf",
+      "scan_sha256": "sha256:8dfcca787de6da5946dcf53e41fc3ca0173a72aaf283d4aab7173276a0c42e3f",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-002971",
+      "image_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/launch-readiness/product-visuals/product-alpha-q3-launch-readiness-adoption-visual-v01.png",
+      "image_sha256": "sha256:57d324bbecc762df683c811f01b0831223f7109528f307a3da5c6845ef87f683",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:a06d7d2b6e30603a32160f09aa0cad19ce0ae9fe5e81a93abbc574fec9ef5837",
+      "rendered_pixel_sha256": "sha256:a06d7d2b6e30603a32160f09aa0cad19ce0ae9fe5e81a93abbc574fec9ef5837"
+    },
+    {
+      "scan_artifact_id": "p08-full-006386",
+      "scan_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/product-alpha-q3/annotated-scans/product-alpha-q3-product-alpha-q3-review-sheet-v02.pdf",
+      "scan_sha256": "sha256:345964bb7daf949e3169d102a315b458a50b2f9b15b79ddbfed55d75660398c5",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-003262",
+      "image_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/portfolio-health/product-visuals/product-alpha-q3-portfolio-health-roadmap-visual-v02.png",
+      "image_sha256": "sha256:01b41168cef44e167c6f365af090afce5d7cde188aa6c70cdf396dbdce967a3a",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:48543d2f3c0842cc907954d0dae007fc3b108b69046790842cc1beab5614e926",
+      "rendered_pixel_sha256": "sha256:48543d2f3c0842cc907954d0dae007fc3b108b69046790842cc1beab5614e926"
+    },
+    {
+      "scan_artifact_id": "p08-full-006516",
+      "scan_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/roadmap-confidence/annotated-scans/product-alpha-q3-roadmap-confidence-discovery-board-v02.pdf",
+      "scan_sha256": "sha256:6200ce624bda081c3e901cf4a41d0425fb606326057d4aff2d1abaf7b03d6f4c",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-003480",
+      "image_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/dependency-review/product-visuals/product-alpha-q3-dependency-review-roadmap-visual-v01.png",
+      "image_sha256": "sha256:22ea9b5d8ba77ea9eaa0579aaae1d0861ee23f38bc6756b224b1e457c8099074",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:49077e46d7793c8b9f5724ea4c0793d388abdac289b2849139af5b3be75ccc54",
+      "rendered_pixel_sha256": "sha256:49077e46d7793c8b9f5724ea4c0793d388abdac289b2849139af5b3be75ccc54"
+    },
+    {
+      "scan_artifact_id": "p08-full-006555",
+      "scan_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/product-beta-q4/annotated-scans/product-alpha-q3-product-beta-q4-discovery-board-v02.pdf",
+      "scan_sha256": "sha256:a654cdbe4f423dab55c94ae948142937c10b13473a18148c2dae46406b13e569",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-003560",
+      "image_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/launch-readiness/product-visuals/product-alpha-q3-launch-readiness-customer-insight-v02.png",
+      "image_sha256": "sha256:1e9fdcd8919959c4b83cdf00bccbb817a89c761d5401504191033825b822fd12",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:a519daab22d90b1409f9a376f541d7ea0f9b07161a2b236c9df005a6009da176",
+      "rendered_pixel_sha256": "sha256:a519daab22d90b1409f9a376f541d7ea0f9b07161a2b236c9df005a6009da176"
+    },
+    {
+      "scan_artifact_id": "p08-full-006655",
+      "scan_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/customer-learning/annotated-scans/product-alpha-q3-customer-learning-discovery-board-v03.pdf",
+      "scan_sha256": "sha256:08e8a3637fb3423bf2bc3a5ed708ec9c97a67b424c3349444244ab9a75643093",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-003818",
+      "image_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/product-beta-q4/product-visuals/product-alpha-q3-product-beta-q4-customer-insight-v01.png",
+      "image_sha256": "sha256:23b19bcb54561cf89948775451c54a6ba4915c566368569cb4b2313e540c56d8",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:946c079218d11c12d245607495211549b0c70b6d62575dd6ff8db6a05b52312d",
+      "rendered_pixel_sha256": "sha256:946c079218d11c12d245607495211549b0c70b6d62575dd6ff8db6a05b52312d"
+    },
+    {
+      "scan_artifact_id": "p08-full-006816",
+      "scan_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/roadmap-confidence/annotated-scans/product-alpha-q3-roadmap-confidence-review-sheet-v01.pdf",
+      "scan_sha256": "sha256:e6bb67bb8a35844ae9d0f53ec8192dd61c1f67903a4aa0ec6d8da3d378b28fdd",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-003859",
+      "image_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/launch-readiness/product-visuals/product-alpha-q3-launch-readiness-adoption-visual-v02.png",
+      "image_sha256": "sha256:90fc3b2a46beef9a8c2898081a751ad85a5d1d3106c041d4f4a74c1bcb543724",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:e0e7eee93131fe7f707428e725dff6d2709e79554641218bb704bd68fb7af7ab",
+      "rendered_pixel_sha256": "sha256:e0e7eee93131fe7f707428e725dff6d2709e79554641218bb704bd68fb7af7ab"
+    },
+    {
+      "scan_artifact_id": "p08-full-006986",
+      "scan_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/product-alpha-q3/annotated-scans/product-alpha-q3-product-alpha-q3-discovery-board-v01.pdf",
+      "scan_sha256": "sha256:e497c3e3b3e98944b3bcc6d5be2390c23b840b7e64e1eb677585161a4a0e16fe",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-004073",
+      "image_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/dependency-review/product-visuals/product-alpha-q3-dependency-review-adoption-visual-v03.png",
+      "image_sha256": "sha256:1a506550056d00aaec69f57f9688d63083ed2abaede77ab6af8b51c3a2ee5319",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:ec4bd4bf0c2f7b715aa4cd8fcfa82d4ceb5d8d656ce39197cde3e6530910888b",
+      "rendered_pixel_sha256": "sha256:ec4bd4bf0c2f7b715aa4cd8fcfa82d4ceb5d8d656ce39197cde3e6530910888b"
+    },
+    {
+      "scan_artifact_id": "p08-full-007215",
+      "scan_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/product-beta-q4/annotated-scans/product-alpha-q3-product-beta-q4-review-sheet-v01.pdf",
+      "scan_sha256": "sha256:90d04ecfdd458d9ddae0f3f7736f4dc8225570ab99b73a24eccdab01510f41e2",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-004138",
+      "image_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/customer-learning/product-visuals/product-alpha-q3-customer-learning-adoption-visual-v01.png",
+      "image_sha256": "sha256:c21aa0f5c3dc061cdcedbbabe202851415c28069e00bac5317e6d4620e24086a",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:0a412791af315f8d965a4a672a11608dd0381ee750bbc9d33d7bd1c8fa38bc40",
+      "rendered_pixel_sha256": "sha256:0a412791af315f8d965a4a672a11608dd0381ee750bbc9d33d7bd1c8fa38bc40"
+    },
+    {
+      "scan_artifact_id": "p08-full-007255",
+      "scan_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/customer-learning/annotated-scans/product-alpha-q3-customer-learning-annotated-workshop-v03.pdf",
+      "scan_sha256": "sha256:fb28bdb18ca8a07c457119714f9373c101369972795f0e4e2247c1a8841b1e68",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-004151",
+      "image_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/portfolio-health/product-visuals/product-alpha-q3-portfolio-health-roadmap-visual-v03.png",
+      "image_sha256": "sha256:a65fe04eec12c8c146516ce32eed434fdfb6a934521ba3a75f8b31945778f585",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:f9a31aae08dc97b5bfbf38c526b98b6ce22157bea5ce755a46d05caca2fc7c86",
+      "rendered_pixel_sha256": "sha256:f9a31aae08dc97b5bfbf38c526b98b6ce22157bea5ce755a46d05caca2fc7c86"
+    },
+    {
+      "scan_artifact_id": "p08-full-007355",
+      "scan_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/decision-quality/annotated-scans/product-alpha-q3-decision-quality-review-sheet-v02.pdf",
+      "scan_sha256": "sha256:9418cce367029c14a6472851c84a8997c216b7b92fcd622db4a2e48a59ee0874",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-004382",
+      "image_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/roadmap-confidence/product-visuals/product-alpha-q3-roadmap-confidence-customer-insight-v03.png",
+      "image_sha256": "sha256:9fdf82c163dcfb52c0917d955d54c9468a3a12dff74970fd2e2eed0369c96f0b",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:69a0ae3bd4d393fdbee6648717f65c095e536c0aee159e118095b19f0948952b",
+      "rendered_pixel_sha256": "sha256:69a0ae3bd4d393fdbee6648717f65c095e536c0aee159e118095b19f0948952b"
+    },
+    {
+      "scan_artifact_id": "p08-full-007486",
+      "scan_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/dependency-review/annotated-scans/product-alpha-q3-dependency-review-discovery-board-v01.pdf",
+      "scan_sha256": "sha256:0ddf4e541da2b9103e60c6e0c05e3e3a5e2a68785c5e0ba67c068be0f8ed4974",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-004423",
+      "image_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/milestone-m27/product-visuals/product-alpha-q3-milestone-m27-adoption-visual-v02.png",
+      "image_sha256": "sha256:00fa6bb6c3375403a3a67c7a0237d6b50c98ff59159d2b300070241ba5db3da9",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:6d783caff27add35c8644d40be0aabddd42ddb7cc2828bce36a67dda3622f008",
+      "rendered_pixel_sha256": "sha256:6d783caff27add35c8644d40be0aabddd42ddb7cc2828bce36a67dda3622f008"
+    },
+    {
+      "scan_artifact_id": "p08-full-007515",
+      "scan_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/product-beta-q4/annotated-scans/product-alpha-q3-product-beta-q4-annotated-workshop-v02.pdf",
+      "scan_sha256": "sha256:134b9751183776d264c084a4b2b5eee3e75239ba631b002460d32a730337f57d",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-004664",
+      "image_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/dependency-review/product-visuals/product-alpha-q3-dependency-review-customer-insight-v01.png",
+      "image_sha256": "sha256:2d20039f69acfe184cb989905061d2615f73326ae0d8873e3b1fa30abf1bd343",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:379de48c6580cd29f43f49066f4382bc2b4d5453f060dbc8e686587da8064600",
+      "rendered_pixel_sha256": "sha256:379de48c6580cd29f43f49066f4382bc2b4d5453f060dbc8e686587da8064600"
+    },
+    {
+      "scan_artifact_id": "p08-full-007555",
+      "scan_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/customer-learning/annotated-scans/product-alpha-q3-customer-learning-discovery-board-v04.pdf",
+      "scan_sha256": "sha256:5d8d580b4ce2e7b721770c090bef4b318c51706f5ff6fa801a8132d05fcbb32f",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-004676",
+      "image_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/dependency-review/product-visuals/product-alpha-q3-dependency-review-adoption-visual-v04.png",
+      "image_sha256": "sha256:7a84ba1bf7e211de9218f38d284239e8328d22291e954c45d97cf8d3fc5e276d",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:9ef4d10d8d705f35564e9879bfcab56e0b8e884c794ede91e054e782d3bde42e",
+      "rendered_pixel_sha256": "sha256:9ef4d10d8d705f35564e9879bfcab56e0b8e884c794ede91e054e782d3bde42e"
+    },
+    {
+      "scan_artifact_id": "p08-full-007586",
+      "scan_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/product-alpha-q3/annotated-scans/product-alpha-q3-product-alpha-q3-annotated-workshop-v02.pdf",
+      "scan_sha256": "sha256:3cdca2764a5a836e12df59101132ec967cdfe14dea1b1386378ce01a7346d331",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-004704",
+      "image_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/product-beta-q4/product-visuals/product-alpha-q3-product-beta-q4-customer-insight-v02.png",
+      "image_sha256": "sha256:c5a8fd394deaf9bc426aad09ef6fc1c8c76dc9832a01dfcd918588a73b2bd391",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:319ebaba2fc1a2fa275893042cfadeb755fa69b1352e2ab4ac7a7499a284deed",
+      "rendered_pixel_sha256": "sha256:319ebaba2fc1a2fa275893042cfadeb755fa69b1352e2ab4ac7a7499a284deed"
+    },
+    {
+      "scan_artifact_id": "p08-full-007615",
+      "scan_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/customer-learning/annotated-scans/product-alpha-q3-customer-learning-annotated-workshop-v04.pdf",
+      "scan_sha256": "sha256:255d4644fe1f688d22666a6de361e09d302ef16fa8880c9f300036c306fe2d10",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-004732",
+      "image_path": "portfolio/product-alpha/2026/q3/prds/fy2026/product-alpha-q3/customer-learning/product-visuals/product-alpha-q3-customer-learning-customer-insight-v01.png",
+      "image_sha256": "sha256:77a24c0593c1a1a9ca7a308c1ef24c81f07f711af6086e9048f494299f2379d1",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:6f9e4a25d319fc2c21defe254fb1615f866e87a1f1b0b1eb4cf605beb3b4c316",
+      "rendered_pixel_sha256": "sha256:6f9e4a25d319fc2c21defe254fb1615f866e87a1f1b0b1eb4cf605beb3b4c316"
+    }
+  ]
+}

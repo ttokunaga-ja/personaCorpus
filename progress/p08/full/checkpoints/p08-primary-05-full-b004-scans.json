@@ -1,0 +1,218 @@
+{
+  "schema": "persona-corpus.full-batch-checkpoint/v2",
+  "kind": "checkpoint",
+  "persona": "p08",
+  "plan_digest": "sha256:f4e84efd49a98760733d628aaa44342dc7039cc845aced936e8a158eada95236",
+  "scope_id": "p08-primary-05",
+  "batch_id": "p08-primary-05-full-b004-scans",
+  "assignment_count": 11,
+  "accepted_additions": 11,
+  "m1_file_count": 200,
+  "m1_sha256_unchanged": true,
+  "acceptance_group": "p08-full-group-022",
+  "before_manifest": "progress/p08/full/manifests/p08-full-group-021.after.jsonl",
+  "after_manifest": "progress/p08/full/manifests/p08-full-group-022.after.jsonl",
+  "before_manifest_sha256": "ddec42ad64018def802b5f52b3a3c619b72bb0d21a56cb3c43aef479ae48d693",
+  "after_manifest_sha256": "9ad5db5f5c456ef85fd28695cf7f8be0c6805e33eb43a80b913bf633b5c3d5d1",
+  "family_counts": {
+    "pdf_scan": 11
+  },
+  "qa": {
+    "structure": true,
+    "family": true,
+    "content_spine": true,
+    "dependencies": true,
+    "skill_required": true,
+    "secrets_pii": true
+  },
+  "accepted_at": "2026-08-28T15:00:00Z",
+  "scan_provenance": [
+    {
+      "scan_artifact_id": "p08-full-000131",
+      "scan_path": "roadmap/quarterly/fy2026/portfolio-roadmap/decision-quality/annotated-scans/portfolio-roadmap-decision-quality-annotated-workshop-v01.pdf",
+      "scan_sha256": "sha256:07eac5452e7684a7e713d730db77e22a32bd050723cc06773f11a7877bffb8f2",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-000118",
+      "image_path": "roadmap/quarterly/fy2026/portfolio-roadmap/milestone-m27/product-visuals/portfolio-roadmap-milestone-m27-customer-insight-v01.png",
+      "image_sha256": "sha256:2521b9e7ce13e81abbf4378965eb38227f23dc1e4bba25c5790aff8df0a8d489",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:c86795ab9583226926a50f5623c0d877af363614bee9cec2075443c51d188e8a",
+      "rendered_pixel_sha256": "sha256:c86795ab9583226926a50f5623c0d877af363614bee9cec2075443c51d188e8a"
+    },
+    {
+      "scan_artifact_id": "p08-full-000688",
+      "scan_path": "roadmap/quarterly/fy2026/portfolio-roadmap/fy2026-planning/annotated-scans/portfolio-roadmap-fy2026-planning-review-sheet-v01.pdf",
+      "scan_sha256": "sha256:c2eb9da0662994e5115d5d72d71054dcd5b6d7eef6ad156ea90d9b11fc1bc07e",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-000210",
+      "image_path": "roadmap/quarterly/fy2026/portfolio-roadmap/portfolio-health/product-visuals/portfolio-roadmap-portfolio-health-customer-insight-v01.png",
+      "image_sha256": "sha256:1b592801c7bf545380753143e87b4796c4fac9e787049be476dc36c8855eea16",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:553d31326ab852d4c51e9500aab15a73fb3fec67719ab78d8dc5e3ed71aaa31b",
+      "rendered_pixel_sha256": "sha256:553d31326ab852d4c51e9500aab15a73fb3fec67719ab78d8dc5e3ed71aaa31b"
+    },
+    {
+      "scan_artifact_id": "p08-full-000853",
+      "scan_path": "roadmap/quarterly/fy2026/portfolio-roadmap/adoption-18-4/annotated-scans/portfolio-roadmap-adoption-18-4-discovery-board-v01.pdf",
+      "scan_sha256": "sha256:28e17be3298ee3ef4c6e3db653b64690ce589d352fe5bd897fe5fadbb2901ec3",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-000302",
+      "image_path": "roadmap/quarterly/fy2026/portfolio-roadmap/roadmap-confidence/product-visuals/portfolio-roadmap-roadmap-confidence-roadmap-visual-v01.png",
+      "image_sha256": "sha256:bd4b01c946abb3acb53c9c86faebc318dc602b7f0a1591a2c03f00404f10102a",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:0d03284968296607e7c0d69ea93fe4607cd827d1f7f871064145e9a0901b5ad4",
+      "rendered_pixel_sha256": "sha256:0d03284968296607e7c0d69ea93fe4607cd827d1f7f871064145e9a0901b5ad4"
+    },
+    {
+      "scan_artifact_id": "p08-full-000950",
+      "scan_path": "roadmap/quarterly/fy2026/portfolio-roadmap/roadmap-confidence/annotated-scans/portfolio-roadmap-roadmap-confidence-annotated-workshop-v01.pdf",
+      "scan_sha256": "sha256:960920490566f4b87e2c8852da581d5231931906d41ca559ed50d43baa876244",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-000383",
+      "image_path": "roadmap/quarterly/fy2026/portfolio-roadmap/fy2026-planning/product-visuals/portfolio-roadmap-fy2026-planning-roadmap-visual-v01.png",
+      "image_sha256": "sha256:cfdb36a9f4adeac088050ec71ca0e06dd6827125a3f809eb608044d209a167a6",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:984732c9d02ba103b25873920fbd954b58b75d59346e3155d576473cf85c5911",
+      "rendered_pixel_sha256": "sha256:984732c9d02ba103b25873920fbd954b58b75d59346e3155d576473cf85c5911"
+    },
+    {
+      "scan_artifact_id": "p08-full-001307",
+      "scan_path": "roadmap/quarterly/fy2026/portfolio-roadmap/portfolio-health/annotated-scans/portfolio-roadmap-portfolio-health-discovery-board-v01.pdf",
+      "scan_sha256": "sha256:a78a77a992cef6a159ed48234242011d9f66f572d1782c4c84c99a41eec2a773",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-000452",
+      "image_path": "roadmap/quarterly/fy2026/portfolio-roadmap/adoption-18-4/product-visuals/portfolio-roadmap-adoption-18-4-roadmap-visual-v01.png",
+      "image_sha256": "sha256:16ac29464c69223eb219a1f16e9cee4058688087744b7ae775323cd5221edfc5",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:589a904735b383338cf6cf4fb65c02476a02ae2053816f5f800ed2db6a543ed8",
+      "rendered_pixel_sha256": "sha256:589a904735b383338cf6cf4fb65c02476a02ae2053816f5f800ed2db6a543ed8"
+    },
+    {
+      "scan_artifact_id": "p08-full-002254",
+      "scan_path": "roadmap/quarterly/fy2026/portfolio-roadmap/adoption-18-4/annotated-scans/portfolio-roadmap-adoption-18-4-annotated-workshop-v01.pdf",
+      "scan_sha256": "sha256:b41f59081092740898c524df1b93c3fd90797d51cc1c4a33844f636fb71b802a",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-000527",
+      "image_path": "roadmap/quarterly/fy2026/portfolio-roadmap/fy2026-planning/product-visuals/portfolio-roadmap-fy2026-planning-customer-insight-v01.png",
+      "image_sha256": "sha256:349f26ee36748f7d5886124fda57f47267cc778d9e23670bc01195f713d6bdf7",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:bd411760efdc9938041638c90de78441eaa4656a21dde976312f058017263e07",
+      "rendered_pixel_sha256": "sha256:bd411760efdc9938041638c90de78441eaa4656a21dde976312f058017263e07"
+    },
+    {
+      "scan_artifact_id": "p08-full-002427",
+      "scan_path": "roadmap/quarterly/fy2026/portfolio-roadmap/decision-quality/annotated-scans/portfolio-roadmap-decision-quality-review-sheet-v01.pdf",
+      "scan_sha256": "sha256:693c77b55075f4919f53959a08e6572982741a613b8b0edde038d33d2a83ade8",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-000542",
+      "image_path": "roadmap/quarterly/fy2026/portfolio-roadmap/dependency-review/product-visuals/portfolio-roadmap-dependency-review-adoption-visual-v01.png",
+      "image_sha256": "sha256:bbc12bd4f6505438c225ac505b4712c6191c581e2bee7c0f4249f90d2ee0dd50",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:778b85eaf4aba48bac69577f52f2c8409f01bde9315ba3f8b2104f284626b0fe",
+      "rendered_pixel_sha256": "sha256:778b85eaf4aba48bac69577f52f2c8409f01bde9315ba3f8b2104f284626b0fe"
+    },
+    {
+      "scan_artifact_id": "p08-full-003738",
+      "scan_path": "roadmap/quarterly/fy2026/portfolio-roadmap/customer-learning/annotated-scans/portfolio-roadmap-customer-learning-review-sheet-v01.pdf",
+      "scan_sha256": "sha256:425ae7b67bc379dc915d5d0d63da32d5c32ce691ec9dc6a6a6b6d4cffd28480b",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-000631",
+      "image_path": "roadmap/quarterly/fy2026/portfolio-roadmap/product-alpha-q3/product-visuals/portfolio-roadmap-product-alpha-q3-customer-insight-v01.png",
+      "image_sha256": "sha256:f66054d0935ccc7d3a152ccbbec85879bfdd27e0b5a20818cec3bcc042deb09f",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:73ed134317efe09b08c44a466df1847d9194e07fd287449bd742c7d1484c9541",
+      "rendered_pixel_sha256": "sha256:73ed134317efe09b08c44a466df1847d9194e07fd287449bd742c7d1484c9541"
+    },
+    {
+      "scan_artifact_id": "p08-full-004329",
+      "scan_path": "roadmap/quarterly/fy2026/portfolio-roadmap/customer-learning/annotated-scans/portfolio-roadmap-customer-learning-discovery-board-v01.pdf",
+      "scan_sha256": "sha256:016ac5dbf0c3838efc9bf750845aa96a81a260ef33be94b89fac21809a1a421b",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-000776",
+      "image_path": "roadmap/quarterly/fy2026/portfolio-roadmap/roadmap-confidence/product-visuals/portfolio-roadmap-roadmap-confidence-adoption-visual-v01.png",
+      "image_sha256": "sha256:a0adc719286156cee2c66bf8b418dd32581f2807a75a311211c1391eeb674555",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:f234e17aa237bffd9a6503e35efe5944d247791ba8e9e0a49ff52e4fa477f552",
+      "rendered_pixel_sha256": "sha256:f234e17aa237bffd9a6503e35efe5944d247791ba8e9e0a49ff52e4fa477f552"
+    },
+    {
+      "scan_artifact_id": "p08-full-004526",
+      "scan_path": "roadmap/quarterly/fy2026/portfolio-roadmap/product-beta-q4/annotated-scans/portfolio-roadmap-product-beta-q4-review-sheet-v01.pdf",
+      "scan_sha256": "sha256:dce12252d8b2c7c73a1d395d6926171f241ca810229dd98dfcc120f4bc21d4d5",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-000985",
+      "image_path": "roadmap/quarterly/fy2026/portfolio-roadmap/roadmap-confidence/product-visuals/portfolio-roadmap-roadmap-confidence-adoption-visual-v02.png",
+      "image_sha256": "sha256:68cdce8d70ebf8ac171ad7313cf35e5f6d65727976fc37a406c5bbc7546b7116",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:9a389dfbdce939f93e062125ea208e122161b359db6fa5d1c7298e7d69827877",
+      "rendered_pixel_sha256": "sha256:9a389dfbdce939f93e062125ea208e122161b359db6fa5d1c7298e7d69827877"
+    },
+    {
+      "scan_artifact_id": "p08-full-004598",
+      "scan_path": "roadmap/quarterly/fy2026/portfolio-roadmap/fy2026-planning/annotated-scans/portfolio-roadmap-fy2026-planning-annotated-workshop-v01.pdf",
+      "scan_sha256": "sha256:61c1c43f5e3c4ac67da9727e2b9311b993bc93937f6dc0dfd8ec4b5f9d39839d",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-001040",
+      "image_path": "roadmap/quarterly/fy2026/portfolio-roadmap/launch-readiness/product-visuals/portfolio-roadmap-launch-readiness-customer-insight-v01.png",
+      "image_sha256": "sha256:122f744e134551e4146c18386ad8fe4fcb57d59b0a68f7522fe18c96f293a1e4",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:d088d3f0b1766eb40a645ddca1c55b91ba6e580605e00607cecd3f244c4473f5",
+      "rendered_pixel_sha256": "sha256:d088d3f0b1766eb40a645ddca1c55b91ba6e580605e00607cecd3f244c4473f5"
+    }
+  ]
+}

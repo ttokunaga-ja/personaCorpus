@@ -1,0 +1,99 @@
+{
+  "schema": "persona-corpus.full-batch-checkpoint/v2",
+  "kind": "checkpoint",
+  "persona": "p08",
+  "plan_digest": "sha256:f4e84efd49a98760733d628aaa44342dc7039cc845aced936e8a158eada95236",
+  "scope_id": "p08-secondary-08",
+  "batch_id": "p08-secondary-08-full-b004-scans",
+  "assignment_count": 4,
+  "accepted_additions": 4,
+  "m1_file_count": 200,
+  "m1_sha256_unchanged": true,
+  "acceptance_group": "p08-full-group-082",
+  "before_manifest": "progress/p08/full/manifests/p08-full-group-081.after.jsonl",
+  "after_manifest": "progress/p08/full/manifests/p08-full-group-082.after.jsonl",
+  "before_manifest_sha256": "e1cfe4644f564b8219ac7c4e3bce6c6578e5c3f82333b44ecc066a02fee36018",
+  "after_manifest_sha256": "9e37be2673d370ab36ead6a81e0535201dac908a338444ae86a697762b822d4f",
+  "family_counts": {
+    "pdf_scan": 4
+  },
+  "qa": {
+    "structure": true,
+    "family": true,
+    "content_spine": true,
+    "dependencies": true,
+    "skill_required": true,
+    "secrets_pii": true
+  },
+  "accepted_at": "2026-08-29T18:27:36Z",
+  "scan_provenance": [
+    {
+      "scan_artifact_id": "p08-full-001660",
+      "scan_path": "archive/closed/fy2026/juniper-works/dependency-review/annotated-scans/juniper-works-dependency-review-discovery-board-v01.pdf",
+      "scan_sha256": "sha256:3669f69da5cf52f9f596293709f54f2a1a43fa50984b0717fff21dbc7fd3f85e",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-001865",
+      "image_path": "archive/closed/fy2026/juniper-works/feedback-loop/product-visuals/juniper-works-feedback-loop-adoption-visual-v01.png",
+      "image_sha256": "sha256:c765b1963f6d83d431d312fe0f2c2fb5c4014d599e66c054286811fae633cff7",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:1761bfa75e4ae5c951c59270f1cca00dca2e8b54e7f0ce230eaf279c177f6db6",
+      "rendered_pixel_sha256": "sha256:1761bfa75e4ae5c951c59270f1cca00dca2e8b54e7f0ce230eaf279c177f6db6"
+    },
+    {
+      "scan_artifact_id": "p08-full-001998",
+      "scan_path": "archive/closed/fy2026/juniper-works/product-alpha-q3/annotated-scans/juniper-works-product-alpha-q3-review-sheet-v01.pdf",
+      "scan_sha256": "sha256:f1ab64129f77831c46d3bc57e26da0eb67a13b4a38f521338f4e7f5d73232a81",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-002476",
+      "image_path": "archive/closed/fy2026/juniper-works/product-beta-q4/product-visuals/juniper-works-product-beta-q4-adoption-visual-v01.png",
+      "image_sha256": "sha256:e43795f2950cfb6a3ecddb90fe48dc66fd25afbbfce79776103e5fbac9cbcb82",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:0d5ff0860da832ee43804f04e7fdb310c967c67c6b09ee402122412c15e90d87",
+      "rendered_pixel_sha256": "sha256:0d5ff0860da832ee43804f04e7fdb310c967c67c6b09ee402122412c15e90d87"
+    },
+    {
+      "scan_artifact_id": "p08-full-002824",
+      "scan_path": "archive/closed/fy2026/juniper-works/milestone-m27/annotated-scans/juniper-works-milestone-m27-review-sheet-v01.pdf",
+      "scan_sha256": "sha256:7aa64e4ab141f4613437bd7f80095dc27bcf36e909d7678b66c62fdff18cfe8b",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-002746",
+      "image_path": "archive/closed/fy2026/juniper-works/decision-quality/product-visuals/juniper-works-decision-quality-customer-insight-v01.png",
+      "image_sha256": "sha256:638a98cccd620d77d078e5bfd00f28dd31ae1abc8e8a6b2e9d436439c34e8400",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:2f0a8e7957c4dacf738e5311486d1eb8d30f4c8247157123561bd1c0d6be7a28",
+      "rendered_pixel_sha256": "sha256:2f0a8e7957c4dacf738e5311486d1eb8d30f4c8247157123561bd1c0d6be7a28"
+    },
+    {
+      "scan_artifact_id": "p08-full-003282",
+      "scan_path": "archive/closed/fy2026/juniper-works/adoption-18-4/annotated-scans/juniper-works-adoption-18-4-annotated-workshop-v01.pdf",
+      "scan_sha256": "sha256:3feb9787805ee6e0ea9d3f216791dc2929f8d8e0bee725f6ec0615f6eb086572",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-002958",
+      "image_path": "archive/closed/fy2026/juniper-works/dependency-review/product-visuals/juniper-works-dependency-review-customer-insight-v01.png",
+      "image_sha256": "sha256:b80803944ddc8075d740dedb4871eac767f32ecfe9f15db50de5988b9bcd9071",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:179b102500e2697db4b6ff90c0c5e9ceab9a1d0f9ead6fa2c020dde9d9bddbb0",
+      "rendered_pixel_sha256": "sha256:179b102500e2697db4b6ff90c0c5e9ceab9a1d0f9ead6fa2c020dde9d9bddbb0"
+    }
+  ]
+}

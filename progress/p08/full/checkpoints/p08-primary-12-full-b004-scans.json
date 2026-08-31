@@ -1,0 +1,82 @@
+{
+  "schema": "persona-corpus.full-batch-checkpoint/v2",
+  "kind": "checkpoint",
+  "persona": "p08",
+  "plan_digest": "sha256:f4e84efd49a98760733d628aaa44342dc7039cc845aced936e8a158eada95236",
+  "scope_id": "p08-primary-12",
+  "batch_id": "p08-primary-12-full-b004-scans",
+  "assignment_count": 3,
+  "accepted_additions": 3,
+  "m1_file_count": 200,
+  "m1_sha256_unchanged": true,
+  "acceptance_group": "p08-full-group-050",
+  "before_manifest": "progress/p08/full/manifests/p08-full-group-049.after.jsonl",
+  "after_manifest": "progress/p08/full/manifests/p08-full-group-050.after.jsonl",
+  "before_manifest_sha256": "22b887cd8c8b2786151478c7b152d6be87825a3653305b09bf2abeaa76fd7340",
+  "after_manifest_sha256": "6edd2250a53960f95361ef323c4693a56f626fc93b32717434c0d946cc8f16da",
+  "family_counts": {
+    "pdf_scan": 3
+  },
+  "qa": {
+    "structure": true,
+    "family": true,
+    "content_spine": true,
+    "dependencies": true,
+    "skill_required": true,
+    "secrets_pii": true
+  },
+  "accepted_at": "2026-08-29T03:33:26Z",
+  "scan_provenance": [
+    {
+      "scan_artifact_id": "p08-full-004926",
+      "scan_path": "research/market/fy2026/product-operations/decision-quality/annotated-scans/product-operations-decision-quality-annotated-workshop-v01.pdf",
+      "scan_sha256": "sha256:778717c50feace6e261053ac2d931844cffabfde82bd6a0e4559c30ed279c32b",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-000666",
+      "image_path": "research/market/fy2026/product-operations/adoption-18-4/product-visuals/product-operations-adoption-18-4-adoption-visual-v01.png",
+      "image_sha256": "sha256:448f0fc551a833e5a0e73c238b2e4108eac4d0c8f69ad281cc5c6f38e95d1640",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:d3bdf27e92d00a1be082a6a09026cde83ca1c4d3ced9df589665cda1b4159e0a",
+      "rendered_pixel_sha256": "sha256:d3bdf27e92d00a1be082a6a09026cde83ca1c4d3ced9df589665cda1b4159e0a"
+    },
+    {
+      "scan_artifact_id": "p08-full-007116",
+      "scan_path": "research/market/fy2026/product-operations/roadmap-confidence/annotated-scans/product-operations-roadmap-confidence-annotated-workshop-v01.pdf",
+      "scan_sha256": "sha256:597831584871681ec684857174a5e6094dba37bf803102b2ab08836a341208a0",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-000888",
+      "image_path": "research/market/fy2026/product-operations/customer-learning/product-visuals/product-operations-customer-learning-roadmap-visual-v01.png",
+      "image_sha256": "sha256:2d3d5a756dc9b030afa9112b02812a5f398a5fce1a1c17e8fec19a055cf6b2ce",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:59d254b893e18f0c81315d3894682f6aa295cd4808b4f6805dc362bee70bfff8",
+      "rendered_pixel_sha256": "sha256:59d254b893e18f0c81315d3894682f6aa295cd4808b4f6805dc362bee70bfff8"
+    },
+    {
+      "scan_artifact_id": "p08-full-007716",
+      "scan_path": "research/market/fy2026/product-operations/roadmap-confidence/annotated-scans/product-operations-roadmap-confidence-review-sheet-v01.pdf",
+      "scan_sha256": "sha256:38ad0112c6ec2ae9a529244f1afc8612818e0a64fd3d6e27e51c8fb6cbc38da6",
+      "source_kind": "dependency",
+      "dependency_artifact_id": "p08-full-002408",
+      "image_path": "research/market/fy2026/product-operations/fy2026-planning/product-visuals/product-operations-fy2026-planning-roadmap-visual-v01.png",
+      "image_sha256": "sha256:d11ddf4dfc264e911e551333343c6aec186df02ef0c2037172f9e990e7ff8970",
+      "pixel_qa": {
+        "passed": true,
+        "width": 1600,
+        "height": 1000,
+        "method": "normalized-rgb-sha256/v1"
+      },
+      "source_pixel_sha256": "sha256:7cd7496174e02e29b1ad27b6bfa2125b41c42e020ef0004b62c5b0c19a39f0ac",
+      "rendered_pixel_sha256": "sha256:7cd7496174e02e29b1ad27b6bfa2125b41c42e020ef0004b62c5b0c19a39f0ac"
+    }
+  ]
+}

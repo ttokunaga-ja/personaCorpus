@@ -1,0 +1,45 @@
+schema: "juniper-works.synthetic-evaluation-record/v1"
+artifact_id: "p08-full-004249"
+scope_id: "p08-primary-04"
+topic: "Product Specs"
+run:
+  id: "M-27"
+  date: "2026-07-13"
+  records: 2400
+dataset:
+  name: "Product Planning-S1/S2"
+  version: "3.2"
+  synthetic_only: true
+models:
+  - name: "Product Alpha"
+    precision: 0.881
+    recall: 0.865
+    f1: 0.873
+  - name: "Product Beta"
+    f1: 0.846
+slices:
+  - id: "slice-01"
+    records: 191
+    precision: 0.893
+    recall: 0.858
+    f1: 0.875
+  - id: "slice-02"
+    records: 165
+    precision: 0.875
+    recall: 0.871
+    f1: 0.873
+  - id: "slice-03"
+    records: 170
+    precision: 0.892
+    recall: 0.847
+    f1: 0.869
+  - id: "slice-04"
+    records: 191
+    precision: 0.874
+    recall: 0.860
+    f1: 0.867
+  - id: "slice-05"
+    records: 173
+    precision: 0.891
+    recall: 0.873
+    f1: 0.882

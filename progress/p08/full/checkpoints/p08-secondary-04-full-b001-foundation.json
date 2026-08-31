@@ -1,0 +1,37 @@
+{
+  "schema": "persona-corpus.full-batch-checkpoint/v2",
+  "kind": "checkpoint",
+  "persona": "p08",
+  "plan_digest": "sha256:f4e84efd49a98760733d628aaa44342dc7039cc845aced936e8a158eada95236",
+  "scope_id": "p08-secondary-04",
+  "batch_id": "p08-secondary-04-full-b001-foundation",
+  "assignment_count": 94,
+  "accepted_additions": 94,
+  "m1_file_count": 200,
+  "m1_sha256_unchanged": true,
+  "acceptance_group": "p08-full-group-063",
+  "before_manifest": "progress/p08/full/manifests/p08-full-group-062.after.jsonl",
+  "after_manifest": "progress/p08/full/manifests/p08-full-group-063.after.jsonl",
+  "before_manifest_sha256": "6bc8dc144ed09dd61f5e8ae2a303f66c34082f0f35c17e39ba0af63c649c3742",
+  "after_manifest_sha256": "52af152f972a18dfeac64c4c9ad9cde46c4b7f69ea9f76eea39d63f6358e5933",
+  "family_counts": {
+    "code": 1,
+    "csv_tsv": 17,
+    "domain_binary": 3,
+    "html_eml": 19,
+    "md": 25,
+    "media": 7,
+    "structured_text": 14,
+    "txt_log": 8
+  },
+  "qa": {
+    "structure": true,
+    "family": true,
+    "content_spine": true,
+    "dependencies": true,
+    "skill_required": true,
+    "secrets_pii": true
+  },
+  "accepted_at": "2026-08-29T08:00:14Z",
+  "scan_provenance": []
+}
