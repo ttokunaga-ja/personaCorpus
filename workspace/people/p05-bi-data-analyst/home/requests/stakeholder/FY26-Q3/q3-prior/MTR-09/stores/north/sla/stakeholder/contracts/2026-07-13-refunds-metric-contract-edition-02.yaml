@@ -1,0 +1,9 @@
+artifact_id: "p05-full-009587"
+organization: "Mosaic Retail Analytics"
+period: "FY26 Q3"
+metric: "MTR-09"
+gmv_jpy_m: 84.2
+plan_jpy_m: 80.0
+variance_pct: 5.25
+focus: "regional coverage"
+synthetic: true

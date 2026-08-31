@@ -1,0 +1,3 @@
+artifact_id,metric,channel,region,gmv_jpy_m,plan_jpy_m,variance_jpy_m,review_focus
+p05-full-008539,MTR-09,online,west,46.3,43.7,2.6,mix decomposition
+p05-full-008539,MTR-09,stores,west,37.9,36.3,1.6,review refund drivers

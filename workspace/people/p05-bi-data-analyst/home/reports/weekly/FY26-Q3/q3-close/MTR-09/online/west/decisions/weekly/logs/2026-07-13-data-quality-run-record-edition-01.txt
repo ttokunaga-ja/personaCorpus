@@ -1,0 +1,3 @@
+2026-07-14T06:00:00+09:00 INFO review artifact=p05-full-003840 scope=p05-primary-07 metric=MTR-09
+2026-07-14T06:00:01+09:00 INFO gmv_jpy_m=84.2 plan_jpy_m=80.0 variance_pct=5.25 focus=GMV_performance
+2026-07-14T06:00:02+09:00 INFO refresh_through=2026-07-13T23:59:00+09:00 quality=pass synthetic=true

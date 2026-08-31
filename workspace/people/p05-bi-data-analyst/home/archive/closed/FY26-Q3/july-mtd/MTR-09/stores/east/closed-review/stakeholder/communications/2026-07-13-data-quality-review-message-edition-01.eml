@@ -1,0 +1,31 @@
+From: analytics@mosaic.example
+To: review-queue@mosaic.example
+Subject: MTR-09 channel mix review
+Date: Tue, 14 Jul 2026 06:00:00 +0900
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="p05-p05-full-000423-boundary"
+
+--p05-p05-full-000423-boundary
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+Synthetic MTR-09 review: reported GMV ¥84.2M, plan variance +5.25%.
+
+--p05-p05-full-000423-boundary
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+<!doctype html><html><head><meta charset=3D"utf-8"><title>MTR-09 review</titl=
+e></head><body><main><h1>channel mix</h1><p><strong>Mosaic Retail Analytics</=
+strong> =C2=B7 FY26 Q3 =C2=B7 MTR-09</p><table><caption>Metric summary</capti=
+on><tr><th>GMV</th><th>Plan</th><th>Variance</th></tr><tr><td>=C2=A584.2M</td=
+><td>=C2=A580.0M</td><td>+=C2=A54.2M (+5.25%)</td></tr></table><p>Refresh thr=
+ough 2026-07-13 23:59 JST; quality review 2026-07-14 06:00 JST.</p><p>Artifac=
+t <code>p05-full-000423</code> covers stakeholder, stores, east, and closed-r=
+eview using definition audit. Decision: confirm source ownership. Home-relati=
+ve record: <code>archive/closed/FY26-Q3/july-mtd/MTR-09/stores/east/closed-re=
+view/stakeholder/communications/2026-07-13-data-quality-review-message-editio=
+n-01.eml</code>.</p></main></body></html>
+
+--p05-p05-full-000423-boundary--

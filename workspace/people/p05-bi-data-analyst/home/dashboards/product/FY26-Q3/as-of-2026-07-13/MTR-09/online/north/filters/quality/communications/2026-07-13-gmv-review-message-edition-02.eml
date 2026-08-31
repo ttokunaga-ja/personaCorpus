@@ -1,0 +1,31 @@
+From: analytics@mosaic.example
+To: review-queue@mosaic.example
+Subject: MTR-09 plan variance review
+Date: Tue, 14 Jul 2026 06:00:00 +0900
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="p05-p05-full-005474-boundary"
+
+--p05-p05-full-005474-boundary
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+Synthetic MTR-09 review: reported GMV ¥84.2M, plan variance +5.25%.
+
+--p05-p05-full-005474-boundary
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+<!doctype html><html><head><meta charset=3D"utf-8"><title>MTR-09 review</titl=
+e></head><body><main><h1>plan variance</h1><p><strong>Mosaic Retail Analytics=
+</strong> =C2=B7 FY26 Q3 =C2=B7 MTR-09</p><table><caption>Metric summary</cap=
+tion><tr><th>GMV</th><th>Plan</th><th>Variance</th></tr><tr><td>=C2=A584.2M</=
+td><td>=C2=A580.0M</td><td>+=C2=A54.2M (+5.25%)</td></tr></table><p>Refresh t=
+hrough 2026-07-13 23:59 JST; quality review 2026-07-14 06:00 JST.</p><p>Artif=
+act <code>p05-full-005474</code> covers quality, online, north, and filters u=
+sing trend reconciliation. Decision: retain plan baseline. Home-relative reco=
+rd: <code>dashboards/product/FY26-Q3/as-of-2026-07-13/MTR-09/online/north/fil=
+ters/quality/communications/2026-07-13-gmv-review-message-edition-02.eml</cod=
+e>.</p></main></body></html>
+
+--p05-p05-full-005474-boundary--

@@ -1,0 +1,11 @@
+{
+  "artifact_id": "p05-full-002380",
+  "focus": "refresh controls",
+  "gmv_jpy_m": 84.2,
+  "metric": "MTR-09",
+  "organization": "Mosaic Retail Analytics",
+  "period": "FY26 Q3",
+  "plan_jpy_m": 80.0,
+  "synthetic": true,
+  "variance_pct": 5.25
+}
