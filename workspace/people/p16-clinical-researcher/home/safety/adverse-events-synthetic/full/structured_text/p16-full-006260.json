@@ -1,0 +1,11 @@
+{
+  "artifact_id": "p16-full-006260",
+  "facts": [
+    "Sakura Clinical, a fictional research organization using a synthetic Windows clinical VDI",
+    "reference date 2026-09-02",
+    "fictional review threshold 2.5 mg (not a treatment recommendation)",
+    "synthetic defensive research-administration artifact only",
+    "no Kio indexing, history, search, chunks, or performance claim"
+  ],
+  "synthetic_only": true
+}

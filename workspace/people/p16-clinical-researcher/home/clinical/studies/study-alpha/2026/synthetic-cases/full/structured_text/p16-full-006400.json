@@ -1,0 +1,12 @@
+{
+  "artifact_id": "p16-full-006400",
+  "facts": [
+    "Sakura Clinical, a fictional research organization using a synthetic Windows clinical VDI",
+    "Study Alpha 2026 fictional synthetic-data protocol",
+    "reference date 2026-09-02",
+    "48 non-identifying synthetic records",
+    "synthetic defensive research-administration artifact only",
+    "no Kio indexing, history, search, chunks, or performance claim"
+  ],
+  "synthetic_only": true
+}

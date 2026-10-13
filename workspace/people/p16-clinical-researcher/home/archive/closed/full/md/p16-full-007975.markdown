@@ -1,0 +1,9 @@
+# Synthetic research administration note
+
+P16 SYNTHETIC RESEARCH ADMINISTRATION RECORD
+artifact=p16-full-007975 source=p16-src-007975 family=md
+* Sakura Clinical, a fictional research organization using a synthetic Windows clinical VDI
+* reference date 2026-09-02
+* synthetic defensive research-administration artifact only
+* no Kio indexing, history, search, chunks, or performance claim
+Purpose: fictional operational reference; not medical advice and not a real study record.
