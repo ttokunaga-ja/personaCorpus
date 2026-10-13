@@ -1,0 +1,24 @@
+From: records@northforge.invalid
+To: quality@orchid.invalid
+Subject: Synthetic quality evidence review p18-full-000551
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Northforge Quality Labs | Orchid QMS | p18-full-000551 | scope p18-primary-10=
+ | path suppliers/audits/operational/records/2026-07-20-orchid-qms-primary-re=
+cords-s000551.eml
+NCR-042 and CAPA-018 are synthetic quality records tied to ECO-009. Evidence =
+set 184 was reviewed during 2026-07-13 through 2026-07-20; fixed lot LOT-26-0=
+713-A has 48 inspected units, 47 accepted units and one contained discrepancy=
+. First-pass yield is 97.9% (47 / 48), CAPA target completion is 98.7%, and i=
+nspection cycle median is 184 ms. Record reference 3a55396d10146c5792f1489b. =
+Supplementary synthetic evidence, separate from fixed lot LOT-26-0713-A. Case=
+ MQ-80020 reviews 24 supplementary synthetic samples of anodized aluminum hou=
+sing; bore diameter nominal 8.40 mm, observed 8.34 mm. Disposition: Quality h=
+old pending documented dual quality review. Review reason: traceability cross=
+-check remains open. This record documents an evidence review only and does n=
+ot direct operation of equipment.
+Frozen content-spine IDs: capa.capa-2026-0713-018, evidence.set-184, ncr.ncr-=
+2026-0713-042, org.northforge-quality-labs, program.orchid-qms-2026, term.no-=
+kio-claim, term.synthetic-only
