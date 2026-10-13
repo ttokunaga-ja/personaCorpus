@@ -1,0 +1,24 @@
+From: Synthetic Support <support@heliodesk.example.invalid>
+To: Synthetic Review <review@heliodesk.example.invalid>
+Subject: Reply macro reference — p12-full-013738
+Date: Wed, 15 Jul 2026 00:00:00 +0000
+Message-ID: <p12-full-013738.p12-src-013738@heliodesk.example.invalid>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+
+Synthetic HelioDesk support record. The message date represents the assigned review date; it is not evidence of delivery.
+
+Artifact: p12-full-013738
+Source: p12-src-013738
+Assigned date: 2026-07-15 (date.2026-07-15)
+Scope: p12-primary-11 / macros/replies
+
+Suggested reply: This synthetic reference concerns case CS-260713-184 and its ticket TKT-18427. Please retain both identifiers with supporting material so the case context remains clear. This wording makes no response-time or resolution promise. Keep the assigned review date with any excerpt of this record.
+
+case.cs-260713-184: CS-260713-184 is the synthetic case family.
+org.heliodesk: HelioDesk is a fictional support-platform organisation.
+rel.case-to-ticket: Case CS-260713-184 contains ticket TKT-18427.
+term.no-kio-claim: This physical record makes no claim about Kio indexing, search, history, chunk counts, performance, or readiness.
+term.synthetic-only: This entire record is synthetic and is for defensive corpus testing.
+ticket.tkt-18427: TKT-18427 is the fictional priority-two ticket.
