@@ -1,3 +1,21 @@
+# 開発方針の適用範囲
+
+- このディレクトリ配下では、現在の合意済み仕様を正本にし、不要な旧実装・互換層・依存関係・設定・資料の削除までを開発の完了範囲とする。個人開発・リリース前と指定されたプロジェクトでは後方互換性と旧データ移行は不要とする。
+- KISS / YAGNIを優先し、変更行数より完成後の責務・分岐・依存関係の少なさを重視する。変更対象の仕様を先に揃え、振る舞いの変更は原則TDDで進め、正式なローカル検証を行う。
+- 未コミット変更、確定済み成果物、個人データ、秘密情報、共有・本番資源、現在も必要な回帰基準を保持する。旧実装削除をこれらの破棄権限と解釈しない。下位のリポジトリ固有の保護条件と担当権限を維持する。
+- 検証済みの論理的な単位で適切な粒度のコミットを作る。無関係な作業を含めない。
+- 公開GitHubリポジトリへの通常のPushは毎回の確認不要。PrivateでCI/CD等のActionsが設定されている場合は月間利用枠のためPush前にユーザーの許可を得て、それまではコミットのみ。PrivateでActionsがない場合はタスクのPush許可に従い、公開範囲やActionsの有無が不明ならコミットまでにとどめる。
+- Push前に送信対象コミット、差分、ワークフロー、hooks、ローカル検証を確認する。通常のPush許可はデプロイ・リリース・課金操作の許可を兼ねない。
+
+## コミットと Push の権限・費用方針
+
+- 実装を依頼された場合は、検証済みの論理的な変更単位で、適切な粒度のローカルコミットを作りながら進める。無関係な変更をまとめず、細かすぎるチェックポイントも量産しない。資料と直接関連するテストは対応する変更と一緒にコミットする。
+- GitHub の公開リポジトリへの通常の Push はユーザーの包括的な許可があるため、毎回の確認は不要。ただし、既存の未送信コミットも送られることを確認し、無関係なユーザー作業を勝手に送らない。
+- Private リポジトリに CI/CD 等の GitHub Actions が設定されている場合は、Actions の月間利用枠を守るため、対象リポジトリと送信する変更・起動するワークフローを示して、Push 前にユーザーの許可を得る。許可が得られるまではローカルコミットだけにとどめる。docs の変更、paths フィルタによるスキップ見込み、再 Push もこの条件から除外しない。
+- Private で Actions がない場合はタスクの明示的な Push 許可に従う。公開範囲や Actions の有無を確認できない場合は、許可済みと推測せずコミットまでにとどめる。
+- Push 前には GitHub の現在の公開範囲、ワークフロー、hooks、差分、送信対象コミット、ローカル検証結果を確認する。公開リポジトリへの Push 許可は、デプロイ・公開・リリース・課金資源の操作の許可を兼ねない。それらを自動実行する Push は対応する操作の許可を必要とする。
+- personaCorpus の成果物制作など、担当者の stage/commit/push を禁止する固有の権限分離は維持する。担当範囲の変更は権限を持つ調整担当が適切な単位でコミットする。
+
 # Persona corpus production instructions
 
 ## Purpose and authority
@@ -45,6 +63,34 @@ Runbooks and prompts are operational guidance only.
   `scratch/<persona-id>/<scope-id>/`, never inside the final workspace.
 
 ## Ownership and repository safety
+
+### Shared monitoring responsibility
+
+- The coordinator and central resource monitor own shared disk-capacity
+  decisions, the all-persona reservation ledger, cross-persona scheduling,
+  and whole-corpus stop/completion checks. Persona tasks must not independently
+  recalculate global free-space floors or add their own reservation a second
+  time to the all-persona aggregate.
+- The user-approved capacity policy (2026-10-13) is a shared pool with one
+  central free-space threshold of 30 GB (30,000,000,000 bytes, decimal). Do not add the former 48 GiB
+  reservation aggregate or fixed per-persona allocations to this threshold.
+  Fixed slot allocation and unused reservation amounts are not launch gates.
+  Roll this policy into reviewed immutable admission successors; until a
+  caller adopts the operational replacement, preserve its existing interface
+  and report its legacy threshold rather than claiming it has migrated.
+- Migrate existing pinned consumers through narrow immutable successors and
+  a reviewed central admission interface. Do not disable their capacity checks
+  before the central replacement is operational. A periodic monitoring report
+  alone is not synchronous launch admission.
+- A persona retains its own scope ownership, input/runtime identity,
+  protected-artifact checks, finite per-operation write bounds, actual I/O error handling,
+  process containment, durable exit recording, and artifact-quality checks.
+  Global Git cleanliness, unrelated persona changes, unrelated shared metadata
+  additions, and other personas' active leases are not local stop conditions.
+- Central admission holds affect new launches. They must not kill healthy
+  running children or prevent recording their actual exits and diagnostics.
+  Preserve unresolved reservations after a crash until actual ownership and
+  completion are reconciled; do not release them solely because time elapsed.
 
 - Persona parents own only their persona's `workspace/people/.../` subtree and
   `progress/<persona-id>/`. Folder workers own only the exact leaf folder given
