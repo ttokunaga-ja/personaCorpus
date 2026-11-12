@@ -130,3 +130,28 @@ For M1, the sole machine-readable allocation authority is
 the human `m1-assignments.md` is its derived display/narrative, never an
 independent allocation. Full reservations consume the frozen ledger directly;
 do not infer a family (especially `.sql`) from an extension.
+
+# エージェント運用（2026-11-12〜、個人デスクトップ WSL）
+
+この節は personaCorpus での Claude・Codex の役割、モデル指定、commit の粒度の正本であり、`~/.codex/AGENTS.md` の一般的なモデル規定と旧「中央調整チャット」の例外より優先する。下記の「調整担当（coordinator）」は、この節の統括（Opus）を指す。
+
+- **作業場所**：個人デスクトップ WSL の `~/dev/github.com/ttokunaga-ja/personaCorpus` を正とする。Mac では作業しない。
+- **セッション分離**：personaCorpus の Claude セッションは personaCorpus だけを扱う。kio のファイルは変更しない。kio の作業は kio のセッションが行う。
+- **役割とモデル**（effort はすべて medium）
+
+  | 役割 | 担当 |
+  |---|---|
+  | 制作方式・品質基準・運用規則の見直しと修正 | Claude Fable 5.2（`claude-fable-5-2`）のセッション |
+  | 制作の指示・受入検証・commit・push の統括（調整担当） | Claude Opus 5.5（`claude-opus-5-5`） |
+  | persona 制作（親タスクとその subagent） | Codex `gpt-6.1-terra` |
+  | 確立済みの検証コマンドの実行、読み取り専用の集計・探索 | Codex `gpt-6-luna` |
+  | 受入レビューの難しい判断、監査、Terra で品質が安定しない制作 | Codex `gpt-6.1-sol` |
+
+- **Terra から Sol への切替え**：制作はまず `gpt-6.1-terra` で行う。同じ batch で受入検査の不合格が 2 回続く、または同種の品質問題が繰り返す場合、統括がその persona・batch を `gpt-6.1-sol` に切り替え、切替えと理由を `progress/<persona>/` に記録する。
+- **委譲と監視**：Codex は `~/dev/github.com/ttokunaga-ja/agent-ops` の `codex-job start --repo personaCorpus ...` で起動する。統括は `agent-alert wait --repo personaCorpus` をバックグラウンドで待ち、通知を受けたときだけ処理する。LLM による定期監視（旧 Codex automation）は廃止した。
+- **停止の基準**：Codex が作業全体を止めてよいのは、取り返しのつかない操作、外部への公開、秘密情報、課金に関わる判断だけである。それ以外の不明点はその項目だけ保留として理由と選択肢を記録し、残りを進める。保留は統括が解決する。Codex は新しい停止規則・承認手続きを自分で作らず、repo の資料にも追加しない。規則の追加・変更は Fable のセッションで行う。
+- **commit の粒度**：
+  - 受入済みの成果物は、persona × batch（または phase）ごとに 1 commit とし、受入のたびに commit・push する。複数 persona や複数 batch をまとめた一括 commit、`git add -A`・`git add workspace/` のような広い stage はしない。
+  - 1 回の push で送る pack は 1 GiB 程度までに抑える（GitHub の 2 GiB 上限）。超えそうな batch は分割して commit する。
+  - 成果物の commit と、資料・規則・スクリプトの変更の commit は分ける。
+- **検証**：Codex の報告のうち、受入・一致・失敗原因などの重要な主張は、統括がコマンドで確認してから採用する。
