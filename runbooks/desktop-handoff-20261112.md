@@ -1,5 +1,7 @@
 # personaCorpus：個人デスクトップでの再開と見直し（2026-11-12）
 
+> **セッション開始時**：この repo で `git pull --ff-only` を実行して最新にしてから、この文書と `AGENTS.md` を読む。
+
 この文書は personaCorpus のセッション専用です。kio の作業は kio のセッションで行い、ここでは扱いません。役割・モデル・commit の粒度は `AGENTS.md` の「エージェント運用」に従います。
 
 - **Fable 5.2 のセッション**：「3. 見直し項目」を調べ、提案し、資料・規則・スクリプトの修正まで行う。
@@ -41,6 +43,19 @@
 - **待ち方**：`agent-alert wait --repo personaCorpus` を Bash の background で実行し、通知が来たときだけ処理する。待っている間はトークンを使わない。
 - **状態の確認**：`codex-job status --repo personaCorpus`。詳しい使い方は `../agent-ops/README.md`。
 - **commit**：AGENTS.md の「commit の粒度」に従い、persona × batch ごとに 1 commit とし、受入のたびに push する。
+
+## 2.5 Fable の見直しでの Codex の使い方
+
+Fable は判断、提案、制作方式・品質基準・規則の修正に集中する。量の多い調査と作業は Codex に任せ、結果のうち重要な主張は自分で確かめてから使う。Claude の利用枠を、調査の読み込みに使わない。
+
+| 任せる作業 | モデル（effort は medium） |
+|---|---|
+| `workspace/people` 全体の集計・パターン検査、ファイルの洗い出し、確立済みの検証コマンドの実行 | `gpt-6-luna` |
+| 目的に合っているかの監査、配布できる状態かの検証、規則・runbooks の読み込みと分析 | `gpt-6.1-sol` |
+| 修正作業（資料・規則・スクリプト・成果物の変更） | `gpt-6.1-terra` |
+
+- 起動方法は「2. 統括の手順」と同じ（`codex-job start --repo personaCorpus ...`、終了は `agent-alert wait --repo personaCorpus` で待つ）。調査は `--sandbox read-only` を使う。
+- Codex への指示書には、目的、対象範囲、読むべき資料、返してほしい形（表・件数・代表例のパス）を書く。66,000 ファイル規模の検査は、全件を Codex に読ませるより、集計スクリプトを書かせて実行させる。
 
 ## 3. 見直し項目（Fable が調べ、提案し、実行する）
 
