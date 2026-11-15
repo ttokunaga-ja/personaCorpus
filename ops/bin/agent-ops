@@ -73,22 +73,22 @@ def run_job(path):
 def repo_arg(parser): parser.add_argument('--repo', required=True, choices=REPOS)
 def main_job():
     parser=argparse.ArgumentParser(prog='codex-job'); sub=parser.add_subparsers(dest='action', required=True)
-    start=sub.add_parser('start'); repo_arg(start); start.add_argument('--name', required=True, type=valid); start.add_argument('--brief', required=True); start.add_argument('--model', default='gpt-6.1-terra'); start.add_argument('--effort', default='medium'); start.add_argument('--sandbox', default='workspace-write', choices=['read-only','workspace-write','danger-full-access']); start.add_argument('--add-dir', action='append', default=[]); start.add_argument('--test-command', help=argparse.SUPPRESS)
+    start=sub.add_parser('start'); repo_arg(start); start.add_argument('--name', required=True, type=valid); source=start.add_mutually_exclusive_group(required=True); source.add_argument('--brief'); source.add_argument('--command', help='shell command to run as a job'); start.add_argument('--model', default='gpt-6.1-terra'); start.add_argument('--effort', default='medium'); start.add_argument('--sandbox', default='workspace-write', choices=['read-only','workspace-write','danger-full-access']); start.add_argument('--add-dir', action='append', default=[])
     st=sub.add_parser('status'); st.add_argument('--repo', choices=REPOS)
     for action in ('tail','stop'):
         x=sub.add_parser(action); x.add_argument('repo', choices=REPOS); x.add_argument('job', type=valid)
     a=parser.parse_args(); ensure_watch()
     if a.action=='start':
-        p=BASE/'jobs'/a.repo/a.name; brief=Path(a.brief).resolve()
-        if not brief.is_file(): raise ValueError('brief does not exist')
+        p=BASE/'jobs'/a.repo/a.name; brief=Path(a.brief).resolve() if a.brief else None
+        if brief is not None and not brief.is_file(): raise ValueError('brief does not exist')
         p.parent.mkdir(parents=True, exist_ok=True)
         try: p.mkdir()
         except FileExistsError: raise ValueError('job already exists; choose a new name')
         cmd=['codex','exec','-m',a.model,'-c',f'model_reasoning_effort={json.dumps(a.effort)}','-s',a.sandbox,'-c','sandbox_workspace_write.network_access=true','-C',str(REPOS[a.repo]),'-o',str(p/'out.md')]
         for d in a.add_dir: cmd += ['--add-dir',str(Path(d).resolve())]
-        cmd += [brief.read_text()]
-        if a.test_command is not None: cmd=['bash','-c',a.test_command]
-        meta=dict(repo=a.repo,cwd=str(REPOS[a.repo]),model=a.model,effort=a.effort,brief=str(brief),started_at=now(),session=session(a.repo,a.name),command=cmd)
+        if brief is not None: cmd += [brief.read_text()]
+        else: cmd=['bash','-c',a.command]
+        meta=dict(repo=a.repo,cwd=str(REPOS[a.repo]),model=a.model,effort=a.effort,brief=str(brief) if brief else None,started_at=now(),session=session(a.repo,a.name),command=cmd)
         save(p/'meta.json',meta); (p/'log').touch()
         if not tmux('new-session','-d','-s',meta['session'],shlex.join([str(SCRIPT),'_run',str(p)])):
             save(p/'exit.json',{'code':127,'finished_at':now()}); (p/'.ready').touch(); raise ValueError('could not start tmux session')

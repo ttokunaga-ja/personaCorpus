@@ -1,0 +1,649 @@
+#!/usr/bin/env -S uv run python
+"""persona × batch の計画、制作、検査と統括の受入操作。"""
+import argparse
+from collections import Counter
+import contextlib
+import csv
+import datetime as dt
+import fcntl
+import hashlib
+import json
+import os
+from pathlib import Path, PurePosixPath
+import re
+import shlex
+import shutil
+import subprocess
+import sys
+import time
+from zoneinfo import ZoneInfo
+
+ROOT = Path(__file__).resolve().parents[1]
+COLUMNS = ('パス', '日付', '作り方', '内容', '関連')
+# bin/check の path / trace 契約。検査本体は各 round に bin/check で実行する。
+EXT = set('docx pdf xlsx csv tsv pptx txt md log eml html png jpg json xml wav mp3 m4a zip'.split())
+BAD_PATH = re.compile(r'foundation|visual|source-art|full|(?<![a-z0-9])m1(?![a-z0-9])|primary|secondary|pdf_scan|pdf_text|txt_log|csv_tsv|html_eml|structured_text|domain_binary|imagegen', re.I)
+TRACE = re.compile(r'(?<!\w)(?:kio(?:-eval)?|personacorpus|persona|corpus|fixture|content\s+spine|synthetic|fictional|not\s+a\s+real|artifact\s+id|source\s+id|batch|scope\s+(?=[\w-]*\d)[\w-]+|p\d{2}-[\w-]+|lorem\s+ipsum|placeholder)(?!\w)|/Users/|scratch/', re.I)
+IDENTIFIER = re.compile(r'(?<![a-z0-9])p\d{2}(?!\d)|-s\d{6}(?!\d)|(?<!\d)\d{5,}(?!\d)', re.I)
+
+
+def read(path):
+    return path.read_text(encoding='utf-8')
+
+
+def save(path, value):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temporary = path.with_name(path.name + '.tmp')
+    temporary.write_text(json.dumps(value, ensure_ascii=False, indent=2) + '\n')
+    temporary.replace(path)
+
+
+def config(path):
+    text = read(path)
+    if not text.startswith('---\n'):
+        return {}
+    return dict(tuple(x.strip() for x in line.split(':', 1))
+                for line in text.split('\n---', 1)[0][4:].splitlines() if ':' in line)
+
+
+def command(args, *, check=True):
+    result = subprocess.run(list(map(str, args)), cwd=ROOT, text=True,
+                            stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    if check and result.returncode:
+        raise ValueError(f'{args[0]} exit {result.returncode}: ' + '\n'.join(result.stdout.splitlines()[-20:]))
+    return result
+
+
+def git(*args):
+    return command(['git', *args]).stdout
+
+
+def persona_name(value):
+    names = [p.stem for p in (ROOT / 'personas').glob('p[0-9][0-9]-*.md')
+             if p.stem == value or re.fullmatch(r'p\d{2}', value) and p.stem.startswith(value + '-')]
+    if len(names) != 1:
+        raise ValueError('persona が見つからないか曖昧: ' + value)
+    return names[0]
+
+
+def safe_file(folder, relative):
+    p = PurePosixPath(relative)
+    if not relative or p.as_posix() != relative or p.is_absolute() or '..' in p.parts or '\\' in relative or any(x.startswith('.') for x in p.parts):
+        raise ValueError('安全でないパス: ' + relative)
+    target = folder / relative
+    if not target.resolve().is_relative_to(folder.resolve()) or any(x.is_symlink() for x in [target, *target.parents] if x.is_relative_to(folder)):
+        raise ValueError('リンクを含むパス: ' + relative)
+    return target
+
+
+@contextlib.contextmanager
+def persona_lock(persona, wait=False):
+    path = ROOT / 'scratch' / persona / '.lock'
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open('a') as handle:
+        try:
+            fcntl.flock(handle, fcntl.LOCK_EX | (0 if wait else fcntl.LOCK_NB))
+        except BlockingIOError:
+            raise ValueError('同じ persona の batch が進行中: ' + persona) from None
+        yield
+
+
+def plan_rows(path):
+    rows = []
+    indices = None
+    for index, line in enumerate(read(path).splitlines()):
+        if not line.strip().startswith('|'):
+            continue
+        cells = [c.strip().strip('`') for c in re.split(r'(?<!\\)\|', line.strip().strip('|'))]
+        if all(c in cells for c in COLUMNS):
+            indices = [cells.index(c) for c in COLUMNS]
+            continue
+        if indices is None or all(re.fullmatch(r':?-+:?', c) for c in cells):
+            continue
+        if len(cells) <= max(indices):
+            raise ValueError('計画の列が不足')
+        row = dict(zip(COLUMNS, (cells[i] for i in indices)))
+        row['_line'] = index
+        row['_content'] = indices[3]
+        rows.append(row)
+    if indices is None:
+        raise ValueError('計画に必要な列: ' + '・'.join(COLUMNS))
+    return rows
+
+
+def mark_discard(path, reasons):
+    rows = plan_rows(path)
+    lines = read(path).splitlines()
+    for row in rows:
+        if row['パス'] not in reasons:
+            continue
+        cells = re.split(r'(?<!\\)\|', lines[row['_line']])
+        # split retains leading empty cell for the opening pipe.
+        old = row['内容']
+        reason = re.sub(r'[\t\r\n|]', ' ', reasons[row['パス']])
+        if old.startswith(f'破棄：{reason}。'):
+            continue
+        if old.startswith('破棄：'):
+            old = old.partition('。')[2]
+        cells[row['_content'] + 1] = f' 破棄：{reason}。{old} '
+        lines[row['_line']] = '|'.join(cells)
+    path.write_text('\n'.join(lines) + '\n')
+
+
+class Batch:
+    def __init__(self, args):
+        self.a = args
+        self.persona = persona_name(args.persona)
+        if not re.fullmatch(r'b\d{3,}', args.batch):
+            raise ValueError('batch 名は b001 からの連番')
+        self.batch = args.batch
+        self.folder = ROOT / 'people' / self.persona
+        self.scratch = ROOT / 'scratch' / self.persona / self.batch
+        self.plan = ROOT / 'progress' / self.persona / (self.batch + '.md')
+        self.request = self.plan.with_name(self.batch + '.request.md')
+        self.result = self.plan.with_name(self.batch + '.result.md')
+        self.definition = ROOT / 'personas' / (self.persona + '.md')
+        self.templates = ROOT / 'templates' / self.persona / 'README.md'
+        self.state_path = self.scratch / 'state.json'
+        self.state = json.loads(read(self.state_path)) if self.state_path.exists() else {
+            'completed': {}, 'timings': {}, 'status': 'new', 'stage': 'new', 'rebuilds': 0}
+        self.cfg = config(self.definition)
+
+    def store(self):
+        save(self.state_path, self.state)
+
+    def scope(self):
+        match = re.search(r'範囲\s*[：:]\s*(.+)', read(self.request))
+        return match[1].strip() if match else read(self.request).splitlines()[0].lstrip('# ')
+
+    def step(self, key, action, count=0):
+        if key in self.state['completed']:
+            return self.state['completed'][key]
+        self.state.update(stage=key, status='running', reason='')
+        self.store()
+        print(f'{key} 開始 {count} 件', flush=True)
+        started = time.monotonic()
+        try:
+            value = action()
+        finally:
+            self.state['timings'][key] = self.state['timings'].get(key, 0) + time.monotonic() - started
+            self.store()
+        self.state['completed'][key] = value
+        self.store()
+        print(f'{key} 終了 {count} 件', flush=True)
+        return value
+
+    def codex(self, stage, rows=(), round_number=0, reasons=None, review_output=None):
+        logs = self.scratch / 'logs'
+        logs.mkdir(parents=True, exist_ok=True)
+        context = dict(stage=stage, persona=self.persona, batch=self.batch,
+                       scratch=str(self.scratch.relative_to(ROOT)), plan=str(self.plan.relative_to(ROOT)),
+                       rows=list(rows), round=round_number, reasons=reasons or {},
+                       review_output=str(review_output.relative_to(ROOT)) if review_output else '')
+        prompt = read(ROOT / 'prompts' / (stage + '.md'))
+        prompt += '\nBATCH_CONTEXT\n' + json.dumps(context, ensure_ascii=False) + '\nEND_BATCH_CONTEXT\n'
+        prompt += '\n## 依頼\n' + read(self.request) + '\n## persona の定義\n' + read(self.definition)
+        if self.templates.exists():
+            prompt += '\n## テンプレート一覧\n' + read(self.templates)
+        facts = self.plan.parent / 'facts.md'
+        if facts.exists():
+            prompt += '\n## 事実の台帳\n' + read(facts)
+        if self.plan.exists() and stage != 'review':
+            prompt += '\n## 計画全体（文脈）\n' + read(self.plan)
+        # Review gets file plans, never producer logs or explanations.
+        if stage == 'review':
+            prompt += '\n## 計画全体\n' + read(self.plan)
+        for _ in range(2):
+            if review_output is not None:
+                review_output.unlink(missing_ok=True)
+            number = 1
+            while (logs / f'{stage}-{number:03}.log').exists():
+                number += 1
+            base = logs / f'{stage}-{number:03}'
+            output = base.with_suffix('.out.md')
+            output.touch()
+            model = self.state.get('producer', 'gpt-6.1-terra') if stage == 'produce' else 'gpt-6.1-sol'
+            args = [os.environ.get('CODEX_BIN', 'codex'), 'exec', '-m', model,
+                    '-c', 'model_reasoning_effort="medium"', '-s', 'workspace-write',
+                    '-c', 'sandbox_workspace_write.network_access=true', '-C', str(ROOT), '-o', str(output), prompt]
+            with base.with_suffix('.log').open('w') as log, open(os.devnull) as null:
+                code = subprocess.run(args, cwd=ROOT, stdin=null, stdout=log, stderr=subprocess.STDOUT).returncode
+            if code == 0:
+                return read(output) if output.exists() else ''
+        tail = '\n'.join(read(base.with_suffix('.log')).splitlines()[-20:])
+        self.state['failure_tail'] = tail
+        raise ValueError('利用上限' if re.search(r'usage limit|rate limit', tail, re.I) else f'codex exit {code}\n{tail}')
+
+    def timestamp(self, row):
+        value = dt.datetime.fromisoformat(row['日付'].replace('Z', '+00:00'))
+        if 'T' not in row['日付'] and ' ' not in row['日付']:
+            value = value.replace(hour=12)
+        if value.tzinfo is None:
+            value = value.replace(tzinfo=ZoneInfo(self.cfg.get('timezone', 'UTC')))
+        return value
+
+    def validate_plan(self):
+        rows = plan_rows(self.plan)
+        errors = []
+        match = re.search(r'件数の目安\s*[：:]\s*(\d+)', read(self.request))
+        if not match:
+            raise ValueError('依頼に件数の目安がない')
+        target = int(match[1])
+        if target <= 0:
+            raise ValueError('件数の目安は正の整数')
+        if not .5 * target <= len(rows) <= min(1.2 * target, 60):
+            errors.append(f'件数 {len(rows)} は目安 {target} の 0.5〜1.2 倍かつ 60 件以下ではない')
+        start, end = (dt.date.fromisoformat(x) for x in self.cfg['period'].split('..'))
+        seen = set()
+        for row in rows:
+            rel = row['パス']
+            try:
+                path = safe_file(self.folder, rel)
+                if path.exists() or rel in seen:
+                    errors.append('既存または重複パス: ' + rel)
+                seen.add(rel)
+                ext = path.suffix.lower().lstrip('.')
+                if ext not in EXT:
+                    errors.append('対象外の拡張子: ' + rel)
+                if BAD_PATH.search(rel) or IDENTIFIER.search(path.name):
+                    errors.append('制作区分または ID: ' + rel)
+                allowed = [m.span() for term in self.cfg.get('allowed_terms', '').split(',') if len(term.split()) >= 2
+                           for m in re.finditer(r'(?<!\w)' + r'\s+'.join(re.escape(w) for w in term.split()) + r'(?!\w)', rel, re.I)]
+                if any(not any(a <= m.start() and m.end() <= b for a, b in allowed) for m in TRACE.finditer(rel)):
+                    errors.append('制作の痕跡: ' + rel)
+                value = self.timestamp(row)
+                if not start <= value.date() <= end:
+                    errors.append('期間外: ' + rel)
+                method = row['作り方']
+                template = None
+                if ext in ('docx', 'xlsx', 'pptx'):
+                    template = method
+                elif ext == 'pdf':
+                    if not method.startswith(('office:', 'tex:', 'scan:')):
+                        errors.append('PDF の作り方が不正: ' + rel)
+                    elif method.startswith(('office:', 'tex:')):
+                        template = method.split(':', 1)[1]
+                    elif method.startswith(('scan:office:', 'scan:tex:')):
+                        template = method.split(':', 2)[2]
+                elif ext in ('png', 'jpg') and method not in ('photo', 'screenshot', 'chart', 'diagram'):
+                    errors.append('画像の作り方が不正: ' + rel)
+                elif ext not in ('png', 'jpg') and method != 'text':
+                    errors.append('作り方は text: ' + rel)
+                if template is not None and (not template or not re.search(r'(?<![\w.-])' + re.escape(template) + r'(?![\w.-])', read(self.templates))):
+                    errors.append('一覧にないテンプレート: ' + str(template))
+                if not row['内容'] or row['内容'].startswith('破棄：'):
+                    errors.append('制作前の内容が空か破棄: ' + rel)
+            except (ValueError, OSError) as exc:
+                errors.append(f'{rel}: {exc}')
+        if errors:
+            raise ValueError('\n'.join(errors))
+        return rows
+
+    def make_plan(self):
+        reasons = {}
+        for attempt in range(2):
+            self.codex('plan', reasons=reasons)
+            try:
+                return self.validate_plan()
+            except (ValueError, OSError, KeyError) as exc:
+                reasons = {'計画': str(exc)}
+        raise ValueError('計画不合格: ' + reasons['計画'])
+
+    def hashes(self, rows):
+        result = {}
+        for row in rows:
+            path = safe_file(self.folder, row['パス'])
+            if not path.exists():
+                result[row['パス']] = None
+                continue
+            digest = hashlib.sha256()
+            with path.open('rb') as handle:
+                for block in iter(lambda: handle.read(1024 * 1024), b''):
+                    digest.update(block)
+            result[row['パス']] = digest.hexdigest()
+        return result
+
+    def check(self, round_number, rows):
+        report = self.scratch / f'check-r{round_number}.tsv'
+        report.unlink(missing_ok=True)
+        result = command([ROOT / 'bin/check', self.persona, '--batch', self.batch, '--report', report], check=False)
+        (self.scratch / 'logs' / f'check-r{round_number}.log').write_text(result.stdout)
+        if not report.exists():
+            raise ValueError('bin/check が報告を書かなかった: ' + result.stdout[-2000:])
+        failures = {}
+        for parts in csv.reader(read(report).splitlines(), delimiter='\t'):
+            if len(parts) != 4 or parts[0] != self.persona:
+                raise ValueError('bin/check の報告形式が不正')
+            failures[parts[1]] = failures.get(parts[1], '') + f'{parts[2]}: {parts[3]} '
+        known = {r['パス'] for r in rows}
+        if failures.keys() - known:
+            raise ValueError('batch 外の検査不合格: ' + repr(failures.keys() - known))
+        if result.returncode and not failures:
+            raise ValueError('bin/check 未完了（検査不能または OCR 未実行）: ' + result.stdout[-2000:])
+        return failures
+
+    def review(self, rows, all_rows, round_number, group):
+        output = self.scratch / f'review-r{round_number}-g{group}.tsv'
+        output.unlink(missing_ok=True)
+        before = self.hashes(all_rows)
+        try:
+            notes = self.codex('review', rows, round_number, review_output=output)
+        finally:
+            if before != self.hashes(all_rows):
+                raise ValueError('レビュー中に batch のファイルが変更された')
+        self.state.setdefault('review_notes', []).append(notes)
+        verdicts = {}
+        for parts in csv.reader(read(output).splitlines() if output.exists() else [], delimiter='\t'):
+            if len(parts) != 3 or parts[1] not in ('pass', 'reject'):
+                continue
+            rel, verdict, reason = parts
+            if rel in verdicts:
+                verdicts[rel] = ['reject', '判定が重複']
+            else:
+                verdicts[rel] = [verdict, reason or '理由なし']
+        return {r['パス']: verdicts.get(r['パス'], ['reject', '判定なし']) for r in rows}
+
+    def run(self):
+        if not self.request.is_file():
+            raise ValueError('依頼なし: ' + str(self.request))
+        if self.state['status'] == 'done' and not self.a.review_again:
+            print(f'done 終了 {self.state.get("count", 0)} 件', flush=True)
+            return
+        self.state['producer'] = self.a.producer or self.state.get('producer', 'gpt-6.1-terra')
+        self.scratch.mkdir(parents=True, exist_ok=True)
+        try:
+            if self.a.review_again:
+                self.state['completed'] = {k: v for k, v in self.state['completed'].items() if k in ('templates', 'plan') or k.startswith('produce-r0-')}
+                self.state['rebuilds'] = 0
+                self.state['review_notes'] = []
+            self.step('templates', lambda: self.codex('templates') if not self.templates.exists() else '')
+            rows = self.step('plan', self.make_plan)
+            # Re-read the plan, e.g. to respect coordinator drops, without rejecting our own produced files.
+            current = {r['パス']: r for r in plan_rows(self.plan)}
+            if set(current) != {r['パス'] for r in rows}:
+                raise ValueError('検査済み計画のパスが変更された')
+            for row in rows:
+                new = current[row['パス']]
+                if any(new[c] != row[c] for c in COLUMNS if c != '内容') or (
+                        new['内容'] != row['内容'] and not new['内容'].startswith('破棄：')):
+                    raise ValueError('検査済み計画が変更された: ' + row['パス'])
+            rows = [current[r['パス']] for r in rows]
+            if self.a.review_again:
+                rows = [r for r in rows if not r['内容'].startswith('破棄：')]
+            if self.a.plan_only:
+                self.state.update(status='planned', stage='plan', count=len(rows))
+                self.store()
+                return
+            failures = {}
+            targets = rows
+            for round_number in range(3):
+                if round_number:
+                    if not failures:
+                        break
+                    targets = [r for r in rows if r['パス'] in failures]
+                    self.state['rebuilds'] = round_number
+                    def remove():
+                        self.protected(targets)
+                        for r in targets:
+                            safe_file(self.folder, r['パス']).unlink(missing_ok=True)
+                    self.step(f'delete-r{round_number}', remove, len(targets))
+                for i in range(0, len(targets), 10):
+                    group = targets[i:i + 10]
+                    key = f'produce-r{round_number}-g{i // 10}'
+                    def produce(group=group, key=key):
+                        pending = [r for r in group if round_number or key in self.state.get('failed_produce', []) or not safe_file(self.folder, r['パス']).exists()]
+                        if pending:
+                            self.state.setdefault('failed_produce', []).append(key)
+                            self.store()
+                            self.codex('produce', pending, round_number, failures)
+                    self.step(key, produce, len(group))
+                def dates():
+                    for row in targets:
+                        path = safe_file(self.folder, row['パス'])
+                        if path.exists():
+                            stamp = self.timestamp(row).timestamp()
+                            os.utime(path, (stamp, stamp))
+                self.step(f'dates-r{round_number}', dates, len(targets))
+                automatic = self.step(f'check-r{round_number}', lambda: self.check(round_number, rows), len(targets))
+                failures = {k: v for k, v in automatic.items()}
+                review_rows = [r for r in targets if r['パス'] not in failures]
+                verdicts = {}
+                for i in range(0, len(review_rows), 10):
+                    group = review_rows[i:i + 10]
+                    verdicts.update(self.step(f'review-r{round_number}-g{i // 10}',
+                                             lambda group=group, i=i: self.review(group, rows, round_number, i // 10), len(group)))
+                report = self.scratch / f'review-r{round_number}.tsv'
+                with report.open('w') as handle:
+                    csv.writer(handle, delimiter='\t', lineterminator='\n').writerows([rel, *v] for rel, v in verdicts.items())
+                failures.update({rel: v[1] for rel, v in verdicts.items() if v[0] != 'pass'})
+                self.state.update(failures=failures, count=len(rows) - len(failures))
+                self.store()
+                if not failures:
+                    break
+            self.step('report', lambda: self.write_report(rows, failures), len(rows) - len(failures))
+            self.step('final-check', lambda: self.final_check(), len(rows) - len(failures))
+            self.write_report(rows, failures)
+            self.state.update(status='done', stage='done', reason='')
+            self.store()
+        except (ValueError, OSError, KeyError) as exc:
+            self.state.update(status='failed', reason=str(exc))
+            self.store()
+            raise
+
+    def final_check(self):
+        result = command([ROOT / 'bin/check', self.persona, '--batch', self.batch], check=False)
+        (self.scratch / 'logs/final-check.log').write_text(result.stdout)
+        if result.returncode:
+            raise ValueError('最終検査不合格: ' + result.stdout[-2000:])
+
+    def write_report(self, rows, failures):
+        self.protected([r for r in rows if r['パス'] in failures])
+        for rel in failures:
+            safe_file(self.folder, rel).unlink(missing_ok=True)
+        mark_discard(self.plan, failures)
+        discarded = {r['パス']: r['内容'].removeprefix('破棄：').partition('。')[0]
+                     for r in plan_rows(self.plan) if r['内容'].startswith('破棄：')}
+        discarded.update(failures)
+        counts = Counter(Path(r['パス']).suffix for r in rows if r['パス'] not in failures)
+        text = f'# {self.persona} {self.batch} の結果\n\n状態：結果待ち\n\n## 依頼との対応\n\n{read(self.request)}\n'
+        text += f'\n制作：{sum(counts.values())} 件\n\n' + '\n'.join(f'- {ext}: {n} 件' for ext, n in sorted(counts.items()))
+        text += '\n\n## 破棄した行と理由\n\n' + ('\n'.join(f'- {rel}: {why}' for rel, why in discarded.items()) or 'なし')
+        text += f'\n\n作り直し：{self.state["rebuilds"]} 回\n\n## レビュー役の batch 全体への所見\n\n'
+        text += '\n\n'.join(self.state.get('review_notes', [])) or '所見なし（レビュー対象なし）'
+        text += f'\n\nレンダリング：{self.scratch.relative_to(ROOT)}/render/\n\n## 各段階の所要時間\n\n'
+        text += '\n'.join(f'- {key}: {value:.2f} 秒' for key, value in self.state['timings'].items())
+        self.result.write_text(text + '\n')
+
+    def protected(self, rows):
+        head = command(['git', 'ls-tree', '-rz', '--name-only', 'HEAD'], check=False)
+        tracked = set(head.stdout.split('\0'))
+        for row in rows:
+            path = safe_file(self.folder, row['パス'])
+            if str(path.relative_to(ROOT)) in tracked:
+                raise ValueError('受入済みのファイルには操作しない: ' + row['パス'])
+
+    def finish(self, discard=False):
+        rows = plan_rows(self.plan)
+        self.protected(rows)
+        progress = [p for p in self.plan.parent.glob(self.batch + '.*') if p.is_file()]
+        paths = [str(p.relative_to(ROOT)) for p in progress]
+        active = [r for r in rows if not r['内容'].startswith('破棄：')]
+        if not discard:
+            if self.state.get('status') != 'done':
+                raise ValueError('制作とレビューが完了していない')
+            paths += [str(safe_file(self.folder, r['パス']).relative_to(ROOT)) for r in active]
+            paths += [f'manifests/{self.persona}.tsv', f'personas/{self.persona}.md', f'progress/{self.persona}/facts.md']
+            template_root = ROOT / 'templates' / self.persona
+            paths += [str(p.relative_to(ROOT)) for p in template_root.rglob('*') if p.is_file()]
+            paths += [p for p in git('ls-files', '-z', '--', f'templates/{self.persona}').split('\0') if p]
+        staged = set(filter(None, git('diff', '--cached', '--name-only', '-z').split('\0')))
+        if staged - set(paths):
+            raise ValueError('関係ないファイルが stage されている: ' + ', '.join(sorted(staged - set(paths))))
+        drops = {r['パス']: self.a.reason for r in rows} if discard else {
+            p: '統括の抜き取りで不合格' for p in self.a.drop}
+        if drops.keys() - {r['パス'] for r in rows}:
+            raise ValueError('--drop はこの batch の相対パスを指定する')
+        # All preconditions above precede any mutation, including drops.
+        for rel in drops:
+            safe_file(self.folder, rel).unlink(missing_ok=True)
+        mark_discard(self.plan, drops)
+        if not discard:
+            command([ROOT / 'bin/check', self.persona, '--batch', self.batch])
+            command([ROOT / 'bin/manifest', self.persona])
+        marker = '破棄' if discard else '受入済み'
+        if self.result.exists():
+            text = re.sub(r'^状態：.*$', '状態：' + marker, read(self.result), flags=re.M)
+            if '状態：' not in text:
+                text += '\n状態：' + marker + '\n'
+            if drops:
+                text += '\n統括の判断：\n' + '\n'.join(f'- {p}: {r}' for p, r in drops.items()) + '\n'
+            self.result.write_text(text)
+        else:
+            self.result.write_text(f'# {self.persona} {self.batch}\n\n状態：{marker}\n\n理由：{self.a.reason if discard else ""}\n')
+            paths.append(str(self.result.relative_to(ROOT)))
+        # Drop untracked paths that no longer exist, keep tracked deletions.
+        tracked = set(git('ls-files', '-z').split('\0'))
+        paths = sorted(set(p for p in paths if (ROOT / p).exists() or p in tracked))
+        git('add', '--', *paths)
+        if set(filter(None, git('diff', '--cached', '--name-only', '-z').split('\0'))) - set(paths):
+            raise ValueError('stage の範囲が変わった')
+        count = sum(safe_file(self.folder, r['パス']).is_file() for r in active)
+        message = (f'Discard {self.persona} {self.batch}: {self.a.reason}' if discard else
+                   f'Accept {self.persona} {self.batch}: {self.scope()} ({count} files)')
+        git('commit', '-m', message)
+        shutil.rmtree(self.scratch, ignore_errors=True)
+        print(f'{marker}: {self.persona} {self.batch} {count} 件')
+
+
+def job_tool():
+    return str(ROOT / 'ops/bin/codex-job')
+
+
+def launch(batch):
+    if not batch.request.is_file():
+        raise ValueError('依頼なし: ' + str(batch.request))
+    if shutil.disk_usage(ROOT).free < 30_000_000_000:
+        raise ValueError('空き容量が 30,000,000,000 バイト未満')
+    result = command([job_tool(), 'status', '--repo', 'personaCorpus'])
+    home = Path(os.environ.get('AGENT_OPS_HOME', ROOT / 'ops'))
+    names = {p.name for p in (home / 'jobs/personaCorpus').glob('*') if p.is_dir()}
+    prefix = batch.persona.split('-')[0] + '-'
+    for line in result.stdout.splitlines()[1:]:
+        parts = line.split('\t')
+        if len(parts) >= 3:
+            names.add(parts[1])
+            if parts[1].startswith(prefix) and parts[2] not in ('done', 'failed'):
+                raise ValueError('同じ persona の batch が進行中: ' + parts[1])
+    name = prefix + batch.batch
+    suffix = 1
+    original = name
+    while name in names:
+        suffix += 1
+        name = f'{original}-r{suffix}'
+    # The child can start before codex-job returns and this launcher's flock is released.
+    args = ['bin/batch', 'run', batch.persona, batch.batch, '--wait-lock']
+    for flag in ('plan_only', 'review_again'):
+        if getattr(batch.a, flag):
+            args.append('--' + flag.replace('_', '-'))
+    if batch.a.producer:
+        args += ['--producer', batch.a.producer]
+    result = command([job_tool(), 'start', '--repo', 'personaCorpus', '--name', name, '--command', shlex.join(args)])
+    print(result.stdout, end='')
+
+
+def show_status(persona=None, batch=None):
+    if batch:
+        if not re.fullmatch(r'b\d{3,}', batch):
+            raise ValueError('batch 名は b001 からの連番')
+        state = ROOT / 'scratch' / persona / batch / 'state.json'
+        if state.exists():
+            s = json.loads(read(state))
+            print(f'{persona} {batch}: {s["stage"]} / {s["status"]} / {s.get("count", 0)} 件 / {s.get("reason", "")}')
+        else:
+            path = ROOT / 'progress' / persona / (batch + '.result.md')
+            print(read(path) if path.exists() else '依頼あり（状態なし）')
+        return
+    names = [persona] if persona else sorted(p.stem for p in (ROOT / 'personas').glob('p[0-9][0-9]-*.md'))
+    print('persona\t受入済み件数')
+    for name in names:
+        manifest = ROOT / 'manifests' / (name + '.tsv')
+        entries = list(csv.reader(read(manifest).splitlines(), delimiter='\t')) if manifest.exists() else []
+        print(f'{name}\t{len(entries)}')
+        if not persona:
+            continue
+        counts = Counter(Path(r[0]).suffix.lstrip('.') for r in entries if r)
+        definition = read(ROOT / 'personas' / (name + '.md'))
+        section = re.search(r'(?ms)^##[^\n]*形式の目安[^\n]*\n(.*?)(?=^##|\Z)', definition)
+        targets = {}
+        if section:
+            for line in section[1].splitlines():
+                match = re.search(r'(.+?)(?:[：:]|\|)\s*(\d+(?:\.\d+)?)\s*%', line)
+                if not match:
+                    continue
+                extensions = tuple(sorted(set(re.findall(r'(?<![a-z])(?:' + '|'.join(sorted(EXT)) + r')(?![a-z])', match[1]))))
+                if extensions:
+                    # Manifest distinguishes extensions, not text/scanned PDFs. Combine their targets.
+                    targets[extensions] = targets.get(extensions, 0) + float(match[2])
+        covered = {ext for group in targets for ext in group}
+        for ext in counts.keys() - covered:
+            targets[(ext,)] = None
+        for extensions, target in sorted(targets.items()):
+            count = sum(counts[e] for e in extensions)
+            ratio = 100 * count / len(entries) if entries else 0
+            difference = f'{ratio - target:+.1f} pt' if target is not None else '目安なし'
+            print(f'  {"・".join(extensions)}: {count} 件 / {ratio:.1f}% / 差 {difference}')
+        for req in sorted((ROOT / 'progress' / name).glob('*.request.md')):
+            b = req.name.removesuffix('.request.md')
+            state = ROOT / 'scratch' / name / b / 'state.json'
+            result = req.with_name(b + '.result.md')
+            label = '依頼あり'
+            if result.exists():
+                m = re.search(r'^状態：(.*)', read(result), re.M)
+                label = m[1] if m else '結果待ち'
+            if state.exists():
+                s = json.loads(read(state))
+                label = '結果待ち' if s['status'] == 'done' else f'進行中 ({s["stage"]}, {s["status"]})'
+            print(f'  {b}: {label}')
+
+
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    sub = parser.add_subparsers(dest='action', required=True)
+    for action in ('start', 'run', 'resume', 'accept', 'discard'):
+        p = sub.add_parser(action)
+        p.add_argument('persona')
+        p.add_argument('batch')
+        if action in ('start', 'run', 'resume'):
+            p.add_argument('--plan-only', action='store_true')
+            p.add_argument('--producer')
+            p.add_argument('--review-again', action='store_true')
+        if action == 'run':
+            p.add_argument('--wait-lock', action='store_true', help=argparse.SUPPRESS)
+        if action == 'accept':
+            p.add_argument('--drop', nargs='+', action='extend', default=[])
+        if action == 'discard':
+            p.add_argument('--reason', required=True)
+    p = sub.add_parser('status')
+    p.add_argument('persona', nargs='?')
+    p.add_argument('batch', nargs='?')
+    a = parser.parse_args(argv)
+    if a.action == 'status':
+        show_status(persona_name(a.persona) if a.persona else None, a.batch)
+        return 0
+    b = Batch(a)
+    with persona_lock(b.persona, getattr(a, 'wait_lock', False)):
+        if a.action in ('start', 'resume'):
+            launch(b)
+        elif a.action == 'run':
+            b.run()
+        else:
+            b.finish(a.action == 'discard')
+    return 0
+
+
+if __name__ == '__main__':
+    try:
+        sys.exit(main())
+    except (ValueError, OSError, KeyError) as exc:
+        print(f'batch: {str(exc).splitlines()[0]}', file=sys.stderr)
+        sys.exit(1)

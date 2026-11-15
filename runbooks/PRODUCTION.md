@@ -61,7 +61,7 @@ agent-alert wait --repo personaCorpus      # Bash の background で実行し、
 | 段階 | 担当 | 内容 | 出力 |
 |---|---|---|---|
 | テンプレート | `gpt-6.1-sol` | `templates/<persona>/` が無いときだけ、その persona の文書の型を作る（下の「テンプレート」） | `templates/<persona>/` |
-| 計画 | `gpt-6.1-sol` | 依頼、persona の定義、これまでの計画、テンプレートの一覧を読み、ファイル計画を書く | `progress/<persona>/<batch>.md` |
+| 計画 | `gpt-6.1-sol` | 依頼、persona の定義、これまでの計画、テンプレートの一覧を読み、ファイル計画を書く。複数のファイルにまたがる事実（文書番号、金額の内訳、会議の日時、メールのスレッド）を事実の台帳に書き足す | `progress/<persona>/<batch>.md`、`progress/<persona>/facts.md` |
 | 計画の検査 | スクリプト | 列、拡張子、パスの重複、日付が期間内か、制作区分の名前がないか、件数。不合格なら理由を付けて計画をやり直させる（1 回） | |
 | 制作 | `gpt-6.1-terra` | 計画の行を 10 件ずつ、別々の Codex の実行で作る。既にあって検査に通っている行は飛ばす | `people/<persona>/…` |
 | 日付 | スクリプト | 各ファイルの更新時刻を計画の「日付」にする | |

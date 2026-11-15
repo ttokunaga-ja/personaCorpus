@@ -383,7 +383,11 @@ def main():
     p.add_argument('persona',nargs='?');p.add_argument('--all',action='store_true');p.add_argument('--batch');p.add_argument('--report',type=Path);p.add_argument('--self-test',action='store_true')
     a=p.parse_args()
     if a.self_test:
-        missing=[n for n in COMMANDS if not shutil.which(n)]
+        missing=[n for n in (*COMMANDS, 'lualatex', 'fc-list') if not shutil.which(n)]
+        if shutil.which('fc-list'):
+            try:
+                if not command(['fc-list', ':lang=ja']).strip():missing.append('日本語フォント')
+            except Exception:missing.append('日本語フォント')
         for n in LIBRARIES:
             try:importlib.import_module(n)
             except Exception:missing.append(n)

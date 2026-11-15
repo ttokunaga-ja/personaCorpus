@@ -6,22 +6,32 @@ export AGENT_OPS_HOME="$tmp" AGENT_WATCH_INTERVAL=0.2 AGENT_STALL_SECONDS=1 AGEN
 trap 'tmux -L "$AGENT_TMUX_SOCKET" kill-server 2>/dev/null || true; rm -rf "$tmp"' EXIT
 brief="$tmp/brief"; printf test > "$brief"
 job="$root/bin/codex-job"; alert="$root/bin/agent-alert"
+# Validate the public invocation contract before launching real tmux jobs.
+if "$job" start --repo personaCorpus --name missing > "$tmp/invalid" 2>&1; then
+  echo 'missing --brief/--command accepted' >&2; exit 1
+fi
+if "$job" start --repo personaCorpus --name both --brief "$brief" --command true > "$tmp/invalid" 2>&1; then
+  echo 'mutually exclusive inputs accepted' >&2; exit 1
+fi
+if "$job" start --repo personaCorpus --name retired --test-command true > "$tmp/invalid" 2>&1; then
+  echo 'retired --test-command accepted' >&2; exit 1
+fi
 "$alert" wait --repo personaCorpus > "$tmp/waited" &
 waiter=$!
 sleep 0.5
 kill -0 "$waiter"
-"$job" start --repo personaCorpus --name wake --brief "$brief" --test-command 'echo wake'
+"$job" start --repo personaCorpus --name wake --command 'echo wake'
 wait "$waiter"
 python3 - "$tmp/waited" <<'PYWAIT'
 import json,sys
 assert any(x["job"] == "wake" and x["event"] == "done" for x in map(json.loads, open(sys.argv[1])))
 PYWAIT
-"$job" start --repo kio --name success --brief "$brief" --test-command 'echo ok'
-"$job" start --repo kio --name failure --brief "$brief" --test-command 'exit 4'
-"$job" start --repo kio --name stalled --brief "$brief" --test-command 'sleep 15'
-"$job" start --repo kio --name limit --brief "$brief" --test-command 'echo "error: rate limit exceeded"; sleep 15'
-"$job" start --repo kio --name stdin --brief "$brief" --test-command 'echo "Reading additional input from stdin..."; sleep 15'
-"$job" start --repo kio --name vanished --brief "$brief" --test-command 'sleep 15'
+"$job" start --repo kio --name success --command 'echo ok'
+"$job" start --repo kio --name failure --command 'exit 4'
+"$job" start --repo kio --name stalled --command 'sleep 15'
+"$job" start --repo kio --name limit --command 'echo "error: rate limit exceeded"; sleep 15'
+"$job" start --repo kio --name stdin --command 'echo "Reading additional input from stdin..."; sleep 15'
+"$job" start --repo kio --name vanished --command 'sleep 15'
 tmux -L "$AGENT_TMUX_SOCKET" kill-session -t cj-kio-vanished
 sleep 3
 "$alert" wait --repo kio > "$tmp/seen"

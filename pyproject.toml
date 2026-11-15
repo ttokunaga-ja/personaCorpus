@@ -10,6 +10,7 @@ dependencies = [
   "reportlab",
   "pypdf",
   "pillow",
+  "matplotlib",
 ]
 
 [tool.uv]

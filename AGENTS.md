@@ -31,7 +31,7 @@ personaCorpus は Kio を含む他の repo に依存しない。他の repo の�
 | `people/<persona>/` | 配布物。その人の PC のユーザーフォルダそのもの | 受入済みだけを管理する |
 | `personas/<persona>.md` | persona の定義 | 管理する |
 | `templates/<persona>/` | その persona の世界の文書の型（Office、TeX）と見本の一覧 | 管理する |
-| `progress/<persona>/` | batch ごとの依頼、ファイル計画、結果の報告 | 管理する |
+| `progress/<persona>/` | batch ごとの依頼、ファイル計画、結果の報告と、事実の台帳（`facts.md`） | 管理する |
 | `manifests/<persona>.tsv` | 受入済みファイルの一覧 | 管理する |
 | `scratch/<persona>/<batch>/` | 下書き、レンダリング、検査、Codex の出力 | 管理しない |
 | `ops/` | Codex のジョブの起動と通知（`codex-job`、`agent-alert`） | 管理する（`jobs/`・`alerts/` を除く） |

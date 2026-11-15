@@ -1,0 +1,49 @@
+#!/usr/bin/env -S uv run python
+"""Export an Office document using an isolated LibreOffice profile."""
+import argparse
+from pathlib import Path
+import shutil
+import subprocess
+import sys
+import tempfile
+
+from pypdf import PdfReader, PdfWriter
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('file', type=Path)
+    parser.add_argument('output', type=Path)
+    args = parser.parse_args()
+    source, output = args.file.resolve(), args.output.resolve()
+    if not source.is_file() or source.suffix.lower() not in ('.docx', '.xlsx', '.pptx'):
+        parser.error('input must be an existing DOCX, XLSX or PPTX file')
+    if output.suffix.lower() != '.pdf' or source == output:
+        parser.error('output must be a separate .pdf file')
+    if not shutil.which('soffice'):
+        parser.error('soffice なし')
+    with tempfile.TemporaryDirectory(prefix='office-pdf-') as directory:
+        work = Path(directory)
+        result = subprocess.run([
+            'soffice', '-env:UserInstallation=' + (work / 'profile').as_uri(),
+            '--headless', '--convert-to', 'pdf', '--outdir', str(work), str(source),
+        ], capture_output=True, text=True, timeout=180)
+        pdf = work / (source.stem + '.pdf')
+        if result.returncode or not pdf.is_file():
+            raise ValueError('LibreOffice conversion failed:\n' + result.stdout + result.stderr)
+        writer = PdfWriter(clone_from=PdfReader(pdf))
+        # Drop both Info and XMP, including inherited author, dates and paths.
+        writer.metadata = None
+        writer.xmp_metadata = None
+        cleaned = work / 'clean.pdf'
+        writer.write(cleaned)
+        output.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(cleaned, output)
+
+
+if __name__ == '__main__':
+    try:
+        main()
+    except (OSError, ValueError, subprocess.SubprocessError) as exc:
+        print(f'office-pdf: {exc}', file=sys.stderr)
+        sys.exit(1)
