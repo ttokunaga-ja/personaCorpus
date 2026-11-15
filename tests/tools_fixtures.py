@@ -314,6 +314,50 @@ class Sources(Check):
         self.put('sibling.md',(self.home/'original.txt').read_text()+' \n');self.source('sibling.md','',derived='original.txt')
         _,rows=self.issues();self.assertEqual({r[1] for r in rows if r[2]=='duplicate'},{'copy.md','sibling.md'},rows)
 
+    def test_ocr_source_threshold_and_numeric_tolerance(self):
+        from unittest.mock import patch
+        loader=importlib.machinery.SourceFileLoader('ocr_check',str(BASE/'bin/check'))
+        spec=importlib.util.spec_from_loader(loader.name,loader)
+        module=importlib.util.module_from_spec(spec);loader.exec_module(module)
+        body='alpha bravo charlie delta echo foxtrot golf hotel india 9876'
+        self.assertIsNone(module.source_reason(body,body))
+        self.assertIn('0.85',module.source_reason(body,'alpha bravo charlie delta echo foxtrot golf 9876'))
+        self.assertIsNone(module.source_reason(body,'alpha bravo charlie delta echo foxtrot golf hotel 9876'))
+        cases=[('scan.pdf',True,True),('image.png',True,True),
+               ('image.jpg',True,True),('mixed.pdf',False,False),
+               ('text.txt',False,False)]
+        for rel,scan,passes in cases:
+            with self.subTest(rel=rel):
+                p=self.put(rel,'valid bytes');self.source(rel,body)
+                with patch.object(module,'extract',return_value=('alpha bravo charlie delta echo',scan,False)), patch.object(module,'metadata',return_value=None):
+                    result=module.inspect((p,self.home,{},'eng',self.base/'sources'/self.name))
+                self.assertEqual('source' not in result[1],passes,result)
+                with patch.object(module,'extract',return_value=('alpha bravo charlie delta',scan,False)), patch.object(module,'metadata',return_value=None):
+                    result=module.inspect((p,self.home,{},'eng',self.base/'sources'/self.name))
+                self.assertIn('source',result[1],result)
+                p.unlink()
+
+    def test_only_image_pdf_uses_ocr_tolerance(self):
+        from unittest.mock import patch
+        loader=importlib.machinery.SourceFileLoader('pdf_ocr_check',str(BASE/'bin/check'))
+        spec=importlib.util.spec_from_loader(loader.name,loader)
+        module=importlib.util.module_from_spec(spec);loader.exec_module(module)
+        for extracted,image_only in [(b'\f',True),(b'text page\f\f',False)]:
+            def fake_command(args):
+                return extracted if args[0]=='pdftotext' else b''
+            with patch.object(module,'command',side_effect=fake_command), patch.object(module,'ocr',return_value='OCR page'):
+                _,scan,missing=module.extract(self.base/'input.pdf','pdf','eng')
+            self.assertEqual(scan,image_only)
+            self.assertFalse(missing)
+
+    def test_plan_skips_pending_builds(self):
+        loader=importlib.machinery.SourceFileLoader('pending_check',str(BASE/'bin/check'))
+        spec=importlib.util.spec_from_loader(loader.name,loader)
+        module=importlib.util.module_from_spec(spec);loader.exec_module(module)
+        p=self.base/'plan.md'
+        p.write_text('| パス | 日付 | 内容 | 関連 |\n|---|---|---|---|\n| missing.pdf | 2026-01-01 | 成形待ち：失敗。内容 | |\n| removed.pdf | 2026-01-01 | 破棄：失敗。内容 | |\n| good.txt | 2026-01-01 | 内容 | |\n')
+        self.assertEqual(module.plan(p),{'good.txt':'2026-01-01'})
+
     def test_source_formats(self):
         from docx import Document
         from openpyxl import Workbook
@@ -337,7 +381,7 @@ class Sources(Check):
                 self.source(p.name,body)
                 _,rows=self.issues();self.assertFalse(any(r[1]==p.name and r[2]=='source' for r in rows),rows)
                 self.source(p.name,body.replace('1240','8900'))
-                _,rows=self.issues();self.assertTrue(any(r[1]==p.name and r[2]=='source' and '8900' in r[3] for r in rows),rows)
+                _,rows=self.issues();self.assertEqual(any(r[1]==p.name and r[2]=='source' and '8900' in r[3] for r in rows),ext!='scan.pdf',rows)
                 p.unlink()
 
     def test_source_all_batch_photo_and_broken_derived(self):

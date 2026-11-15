@@ -22,6 +22,7 @@ with (scratch/'argv.jsonl').open('a') as f: f.write(json.dumps(sys.argv[:-1])+'\
 counter=scratch/'calls.json'; calls=json.loads(counter.read_text()) if counter.exists() else {}
 calls[s]=calls.get(s,0)+1; counter.write_text(json.dumps(calls))
 mode=os.environ.get('FAKE_MODE','ok')
+with (scratch/'contexts.jsonl').open('a') as f: f.write(json.dumps(meta)+'\n')
 if mode=='fail' and s=='build':
  print('rate limit: retry tomorrow'); sys.exit(3)
 if s=='templates':
@@ -29,9 +30,10 @@ if s=='templates':
 if s=='plan':
  p=root/meta['plan']; p.parent.mkdir(parents=True,exist_ok=True)
  names=['Documents/記録.txt','Documents/連絡.txt']
+ if mode in ('dependency','parent-fail'): names.reverse()
  if mode=='badplan' and calls[s]==1: names[0]='Documents/不正.py'
  if mode=='badplan-always': names[0]='../外.txt'
- p.write_text('| パス | 日付 | 作り方 | 内容 | 関連 |\n|---|---|---|---|---|\n'+''.join('| '+n+' | 2026-03-06 | text | 案件の判断と相手への連絡。 | |\n' for n in names))
+ p.write_text('| パス | 日付 | 作り方 | 内容 | 関連 |\n|---|---|---|---|---|\n'+''.join('| '+n+' | 2026-03-06 | text | 案件の判断と相手への連絡。 | '+('Documents/記録.txt' if mode in ('dependency','parent-fail') and '連絡' in n else '')+' |\n' for n in names))
 if s=='draft':
  import random, string
  for i,row in enumerate(meta['rows']):
@@ -46,12 +48,16 @@ if s=='build':
   p=root/'people'/meta['persona']/row['パス']; p.parent.mkdir(parents=True,exist_ok=True); p.write_text(source.read_text().split('\n---\n',1)[1])
   if mode=='number-once' and meta['round']==0 and '記録' in row['パス']: p.write_text(p.read_text().replace('1240',''))
   if mode=='mutate-build': source.write_text(source.read_text()+'改変')
+if s=='templates-review':
+ output=root/meta['review_output']; output.parent.mkdir(parents=True,exist_ok=True)
+ reject=mode=='template-always' or mode=='template-once' and calls[s]==1
+ output.write_text('README.md\t'+('reject\tother\tフッタ欠落' if reject else 'pass\t\t説明と実物を確認')+'\n')
 if s in ('draft-review','build-review'):
  output=root/meta['review_output']; output.parent.mkdir(parents=True,exist_ok=True)
  lines=[]
  for i,row in enumerate(meta['rows']):
   draft=s=='draft-review'
-  reject=i==0 and ((mode in ('draft-reject-always','draft-final-fail') or mode=='draft-reject-once' and meta['round']==0) if draft else (mode in ('reject-always','build-final-fail') or mode=='reject-once' and meta['round']==0))
+  reject=i==0 and ((mode in ('draft-reject-always','draft-final-fail') or mode=='draft-reject-once' and meta['round']==0) if draft else (mode in ('reject-always','build-final-fail') or mode=='parent-fail' and '記録' in row['パス'] or mode=='reject-once' and meta['round']==0))
   if mode=='mutate' and not draft: (root/'people'/meta['persona']/row['パス']).write_text('改変')
   if mode=='mutate-build-review-source' and not draft: (root/'sources'/meta['persona']/(row['パス']+'.md')).write_text('改変')
   if mode=='mutate-draft' and draft: (root/'sources'/meta['persona']/(row['パス']+'.md')).write_text('改変')
@@ -93,6 +99,7 @@ class BatchTest(unittest.TestCase):
         for name in ('bin','prompts','personas','progress/p01-test','people/p01-test'):
             (self.root/name).mkdir(parents=True,exist_ok=True)
         shutil.copy2(SOURCE/'bin/batch',self.root/'bin/batch')
+        if (SOURCE/'bin/stamp').exists(): shutil.copy2(SOURCE/'bin/stamp',self.root/'bin/stamp')
         shutil.copytree(SOURCE/'prompts',self.root/'prompts',dirs_exist_ok=True)
         for name,body in [('fake-codex',FAKE),('bin/check',CHECK),('bin/manifest',MANIFEST)]:
             p=self.root/name; p.write_text(body); p.chmod(0o755)
@@ -113,12 +120,134 @@ class BatchTest(unittest.TestCase):
     def scratch(self): return self.root/'scratch/p01-test/b001'
     def state(self): return json.loads((self.scratch/'state.json').read_text())
     def run_batch(self,**kw): return self.cli('run','p01','b001',**kw)
+    def test_dependency_layers_and_blocked_child(self):
+        self.run_batch(mode='dependency')
+        contexts=[json.loads(line) for line in (self.scratch/'contexts.jsonl').read_text().splitlines()]
+        builds=[c for c in contexts if c['stage']=='build']
+        self.assertEqual([[r['パス'] for r in c['rows']] for c in builds],
+                         [['Documents/記録.txt'],['Documents/連絡.txt']])
+        first_review=next(i for i,c in enumerate(contexts) if c['stage']=='build-review')
+        child=next(i for i,c in enumerate(contexts) if c['stage']=='build' and '連絡' in c['rows'][0]['パス'])
+        self.assertLess(first_review,child)
+
+    def test_failed_parent_never_builds_child(self):
+        self.run_batch(mode='parent-fail')
+        contexts=[json.loads(line) for line in (self.scratch/'contexts.jsonl').read_text().splitlines()]
+        self.assertTrue(all('連絡' not in r['パス'] for c in contexts if c['stage']=='build' for r in c['rows']))
+        self.assertEqual(self.state()['pending'],2)
+        self.assertIn('元のファイル Documents/記録.txt が未完成。',(self.root/'progress/p01-test/b001.md').read_text())
+        self.assertEqual(len(list((self.root/'sources/p01-test').rglob('*.md'))),2)
+
+    def test_derived_duplicates_and_attachment_dependencies(self):
+        self.cli('run','p01','b001','--plan-only')
+        mod=self.load(); b=mod.Batch(type('Args',(),dict(persona='p01',batch='b001'))())
+        rows=b.state['completed']['plan']
+        base=b.source('Documents/元.txt'); base.parent.mkdir(parents=True,exist_ok=True)
+        base.write_text('---\npath: Documents/元.txt\nkind: text\nauthor: 花子\nderived_from:\n---\n元となる文書の中身')
+        for row in rows:
+            b.source(row['パス']).write_text('---\npath: '+row['パス']+'\nkind: text\nauthor: 花子\nderived_from: Documents/元.txt\n---\n違いなし')
+        self.assertEqual(b.draft_check(rows),{})
+        p=b.source(rows[0]['パス']); p.write_text(p.read_text()+'\n添付:\n- Documents/欠けた資料.pdf\n')
+        self.assertIn('Documents/欠けた資料.pdf', b.dependencies(rows)[rows[0]['パス']])
+        p.write_text(p.read_text().replace('Documents/欠けた資料.pdf','欠けた資料.pdf'))
+        self.assertIn('Documents/欠けた資料.pdf', b.dependencies(rows)[rows[0]['パス']])
+
+    def test_accepted_pending_rebuild(self):
+        self.run_batch(mode='reject-always')
+        self.cli('accept','p01','b001')
+        self.cli('run','p01','b001','--rebuild')
+        self.cli('accept','p01','b001')
+        self.assertTrue((self.root/'people/p01-test/Documents/記録.txt').exists())
+
+    def test_rebuild_final_failure_resumes(self):
+        self.run_batch(mode='reject-always')
+        p=self.root/'bin/check'
+        p.write_text(p.read_text().replace("print('passed')", "if '--report' not in args and os.environ.get('FAKE_MODE')=='final-fail': sys.exit(1)\nprint('passed')"))
+        self.cli('run','p01','b001','--rebuild',mode='final-fail',ok=False)
+        self.cli('run','p01','b001','--rebuild')
+        self.assertEqual(self.state()['status'],'done')
+        self.assertNotIn('成形待ち：',(self.root/'progress/p01-test/b001.md').read_text())
+
+    def test_stamp_failure_is_per_file(self):
+        p=self.root/'bin/stamp'
+        p.write_text('#!/usr/bin/env python3\nimport sys\nsys.exit(1)\n'); p.chmod(0o755)
+        self.run_batch()
+        self.assertEqual(self.state()['status'],'done')
+        self.assertEqual(self.state()['pending'],2)
+        self.assertEqual(len(list((self.root/'sources/p01-test').rglob('*.md'))),2)
+        self.assertIn('metadata',(self.root/'progress/findings.tsv').read_text())
+
+    def test_four_column_review_and_improvement_summary(self):
+        p=self.root/'fake-codex'
+        p.write_text(p.read_text().replace("+'\\t'+('数値不整合'", "+'\\t'+('D5' if draft else 'V1')+'\\t'+('数値不整合'"))
+        self.run_batch(mode='draft-reject-once')
+        import csv
+        records=list(csv.DictReader((self.root/'progress/findings.tsv').read_text().splitlines(),delimiter='\t'))
+        self.assertEqual(records[0]['criterion'],'D5')
+        review=list(csv.reader((self.scratch/'draft-review-r0.tsv').read_text().splitlines(),delimiter='\t'))
+        self.assertEqual(len(review[0]),4)
+        self.assertEqual(review[0][2],'D5')
+        (self.root/'progress/improvements.md').write_text('## 2020-01-01\n- D5: 合計検査\n')
+        summary=self.cli('findings').stdout
+        self.assertIn('2020-01-01\tD5\t0\t1',summary)
+        self.assertNotIn('draft-review',self.cli('findings','--since','2999-01-01').stdout)
+
+    def test_failed_accept_keeps_done_ledger(self):
+        self.run_batch()
+        p=self.root/'bin/check'; p.write_text('#!/usr/bin/env python3\nimport sys\nsys.exit(1)\n'); p.chmod(0o755)
+        self.cli('accept','p01','b001',ok=False)
+        self.assertNotIn('accepted',(self.root/'progress/batches.tsv').read_text())
+
+    def test_template_retry_and_fix(self):
+        self.run_batch(mode='template-once')
+        calls=json.loads((self.scratch/'calls.json').read_text())
+        self.assertEqual(calls['templates'],2)
+        self.assertEqual(calls['templates-review'],2)
+        self.assertIn('templates-review',(self.root/'progress/findings.tsv').read_text())
+        self.cli('templates','p01','--fix','フッタ欠落')
+        self.assertTrue((self.root/'templates/p01-test/README.md').exists())
+
+    def test_template_review_stops(self):
+        self.run_batch(mode='template-always',ok=False)
+        self.assertEqual(json.loads((self.scratch/'calls.json').read_text())['templates'],3)
+
+    def test_pending_rebuild(self):
+        self.run_batch(mode='reject-always')
+        source=self.root/'sources/p01-test/Documents/記録.txt.md'
+        self.assertTrue(source.exists())
+        before=source.read_bytes()
+        self.cli('run','p01','b001','--rebuild')
+        self.assertEqual(source.read_bytes(),before)
+        self.assertNotIn('成形待ち：',(self.root/'progress/p01-test/b001.md').read_text())
+        self.assertTrue((self.root/'people/p01-test/Documents/記録.txt').exists())
+
+    def test_findings_idempotence_and_summary(self):
+        self.run_batch(mode='draft-reject-once')
+        path=self.root/'progress/findings.tsv'
+        before=path.read_bytes()
+        self.run_batch()
+        self.assertEqual(before,path.read_bytes())
+        self.assertIn('other',path.read_text())
+        summary=self.cli('findings','--since','2020-01-01','--persona','p01').stdout
+        self.assertIn('draft-review',summary)
+        self.assertIn('b001',summary)
+        self.cli('accept','p01','b001','--drop','Documents/記録.txt')
+        self.assertIn('coordinator',path.read_text())
+        self.assertIn('accepted',(self.root/'progress/batches.tsv').read_text())
+
+    def test_pending_accept(self):
+        self.run_batch(mode='reject-always')
+        self.assertIn('成形待ち1',self.cli('status','p01','b001').stdout)
+        self.cli('accept','p01','b001')
+        self.assertIn('成形待ち 1 件',self.cli('status','p01','b001').stdout)
+        self.assertIn('sources/p01-test/Documents/記録.txt.md',self.git('show','--format=','--name-only','HEAD'))
+
     def test_happy(self):
         r=self.run_batch(); self.assertNotIn('固有の実務',r.stdout)
         self.assertEqual(self.state()['status'],'done')
         self.assertEqual(len(list((self.root/'people/p01-test').rglob('*.txt'))),2)
         self.assertTrue((self.root/'progress/p01-test/b001.result.md').exists())
-        self.assertEqual(json.loads((self.scratch/'calls.json').read_text()),{'templates':1,'plan':1,'draft':1,'draft-review':1,'build':1,'build-review':1})
+        self.assertEqual(json.loads((self.scratch/'calls.json').read_text()),{'templates':1,'templates-review':1,'plan':1,'draft':1,'draft-review':1,'build':1,'build-review':1})
         self.assertTrue((self.scratch/'review-r0.tsv').exists())
     def test_draft_machine_retry(self):
         self.run_batch(mode='machine-once')
@@ -197,7 +326,7 @@ class BatchTest(unittest.TestCase):
     def test_reject_discarded(self):
         self.run_batch(mode='reject-always'); self.assertEqual(self.state()['rebuilds'],2)
         self.assertEqual(len(list((self.root/'people/p01-test').rglob('*.txt'))),1)
-        self.assertIn('破棄：数値不整合。',(self.root/'progress/p01-test/b001.md').read_text())
+        self.assertIn('成形待ち：数値不整合。',(self.root/'progress/p01-test/b001.md').read_text())
     def test_resume(self):
         self.run_batch(mode='fail',ok=False); self.assertEqual(self.state()['reason'],'利用上限')
         self.run_batch(); calls=json.loads((self.scratch/'calls.json').read_text())
@@ -262,7 +391,7 @@ class BatchTest(unittest.TestCase):
                 self.run_batch()
                 self.assertEqual((self.scratch/'calls.json').read_text(),calls)
                 self.assertEqual(self.state()['count'],1)
-                self.assertFalse((self.root/'sources/p01-test/Documents/記録.txt.md').exists())
+                self.assertEqual((self.root/'sources/p01-test/Documents/記録.txt.md').exists(),mode=='build-final-fail')
                 shutil.rmtree(self.scratch)
                 for name in ('people/p01-test','sources/p01-test'):
                     shutil.rmtree(self.root/name,ignore_errors=True)
@@ -278,7 +407,7 @@ class BatchTest(unittest.TestCase):
         self.run_batch()
         args=list(map(json.loads,(self.scratch/'argv.jsonl').read_text().splitlines()))
         self.assertEqual([a[a.index('-m')+1] for a in args],
-                         ['gpt-6.1-sol','gpt-6.1-sol','gpt-6.1-terra','gpt-6.1-sol','gpt-6.1-terra','gpt-6.1-sol'])
+                         ['gpt-6.1-sol','gpt-6.1-sol','gpt-6.1-sol','gpt-6.1-terra','gpt-6.1-sol','gpt-6.1-terra','gpt-6.1-sol'])
     def test_status_and_separate_report(self):
         self.run_batch(mode='draft-reject-once')
         text=self.cli('status','p01','b001').stdout
@@ -351,7 +480,8 @@ class BatchTest(unittest.TestCase):
             args=json.loads((self.root/'job-args.json').read_text())
             self.assertEqual(args[args.index('--name')+1],'p01-b001-r3')
             self.assertIn('--plan-only',args[-1]); self.assertEqual(args[-2],'--command')
-            mod.main(['resume','p01','b001','--producer','gpt-6.1-sol'])
+            mod.main(['resume','p01','b001','--producer','gpt-6.1-sol','--rebuild'])
+            self.assertIn('--rebuild',json.loads((self.root/'job-args.json').read_text())[-1])
             self.assertIn('--producer gpt-6.1-sol',json.loads((self.root/'job-args.json').read_text())[-1])
     def test_launch_lock_handoff(self):
         p=self.root/'ops/bin/codex-job'; p.parent.mkdir(parents=True)
@@ -388,7 +518,7 @@ else:
         self.assertFalse((self.root/'sources/p01-test/Documents/記録.txt.md').exists())
         self.assertIn('連絡.txt',(self.root/'manifests/p01-test.tsv').read_text())
         self.assertIn('Accept p01-test b001: 月次報告 (1 files)',self.git('log','-1','--format=%s'))
-        self.assertEqual(set(self.git('show','--format=','--name-only','HEAD').splitlines()),{'people/p01-test/Documents/連絡.txt','progress/p01-test/b001.md','progress/p01-test/b001.result.md','manifests/p01-test.tsv','templates/p01-test/README.md','sources/p01-test/Documents/連絡.txt.md'})
+        self.assertEqual(set(self.git('show','--format=','--name-only','HEAD').splitlines()),{'people/p01-test/Documents/連絡.txt','progress/p01-test/b001.md','progress/p01-test/b001.result.md','manifests/p01-test.tsv','templates/p01-test/README.md','sources/p01-test/Documents/連絡.txt.md','progress/findings.tsv','progress/batches.tsv'})
         self.assertIn('受入済み',self.cli('status','p01').stdout)
     def test_unrelated_index_preserved(self):
         self.run_batch(); (self.root/'unrelated').write_text('keep'); self.git('add','unrelated')
@@ -400,7 +530,9 @@ else:
         self.assertFalse(self.scratch.exists()); self.assertFalse(list((self.root/'people/p01-test').rglob('*.txt')))
         self.assertFalse(list((self.root/'sources/p01-test').rglob('*.md')))
         self.assertIn('破棄：品質。',(self.root/'progress/p01-test/b001.md').read_text())
-        self.assertTrue(all(p.startswith('progress/p01-test/b001.') for p in self.git('show','--format=','--name-only','HEAD').splitlines()))
+        self.assertIn('coordinator',(self.root/'progress/findings.tsv').read_text())
+        self.assertIn('discarded',(self.root/'progress/batches.tsv').read_text())
+        self.assertTrue(all(p in ('progress/findings.tsv','progress/batches.tsv') or p.startswith('progress/p01-test/b001.') for p in self.git('show','--format=','--name-only','HEAD').splitlines()))
     def test_review_again_keeps_discard_history(self):
         self.run_batch(mode='reject-always')
         self.cli('run','p01','b001','--review-again')

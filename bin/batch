@@ -112,7 +112,7 @@ def plan_rows(path):
     return rows
 
 
-def mark_discard(path, reasons):
+def mark_discard(path, reasons, marker="破棄"):
     rows = plan_rows(path)
     lines = read(path).splitlines()
     for row in rows:
@@ -121,12 +121,12 @@ def mark_discard(path, reasons):
         cells = re.split(r'(?<!\\)\|', lines[row['_line']])
         # split retains leading empty cell for the opening pipe.
         old = row['内容']
-        reason = re.sub(r'[\t\r\n|]', ' ', reasons[row['パス']])
-        if old.startswith(f'破棄：{reason}。'):
+        reason = re.sub(r'[\t\r\n|]', ' ', reasons[row['パス']]).rstrip('。')
+        if old.startswith(f'{marker}：{reason}。'):
             continue
-        if old.startswith('破棄：'):
+        if old.startswith(('破棄：', '成形待ち：')):
             old = old.partition('。')[2]
-        cells[row['_content'] + 1] = f' 破棄：{reason}。{old} '
+        cells[row['_content'] + 1] = f' {marker}：{reason}。{old} '
         lines[row['_line']] = '|'.join(cells)
     path.write_text('\n'.join(lines) + '\n')
 
@@ -149,6 +149,13 @@ class Batch:
         self.state_path = self.scratch / 'state.json'
         self.state = json.loads(read(self.state_path)) if self.state_path.exists() else {
             'completed': {}, 'timings': {}, 'status': 'new', 'stage': 'new', 'rebuilds': 0}
+        if not self.state_path.exists():
+            ledger = ROOT / 'progress/batches.tsv'
+            if ledger.exists():
+                previous = next((r for r in csv.DictReader(read(ledger).splitlines(), delimiter='\t')
+                                 if r['persona'] == self.persona and r['batch'] == self.batch), None)
+                if previous:
+                    self.state['elapsed_base'] = float(previous['seconds'])
         self.cfg = config(self.definition)
 
     def store(self):
@@ -159,6 +166,7 @@ class Batch:
         return match[1].strip() if match else read(self.request).splitlines()[0].lstrip('# ')
 
     def step(self, key, action, count=0):
+        key = getattr(self, 'step_prefix', '') + key
         if key in self.state['completed']:
             return self.state['completed'][key]
         self.state.update(stage=key, status='running', reason='')
@@ -299,6 +307,222 @@ class Batch:
         return {str(p): hashlib.sha256(p.read_bytes()).hexdigest() if p.is_file() else None
                 for p in paths if not sources or p.is_file()}
 
+    def event(self, stage, round_number, criterion, rel, reason):
+        item = [dt.datetime.now(dt.timezone.utc).date().isoformat(), self.persona,
+                self.batch, stage, str(round_number), criterion or 'other', rel, re.sub(r'[\t\r\n]+', ' ', reason).strip()]
+        events = self.state.setdefault('events', [])
+        if not any(e[1:] == item[1:] for e in events):
+            events.append(item)
+        self.store()
+
+    def record_tables(self, status=None, coordinator=None, templates_only=False):
+        progress = ROOT / 'progress'
+        progress.mkdir(exist_ok=True)
+        # Lock the stable directory inode: replacing a TSV must not release its lock.
+        with contextlib.ExitStack() as stack:
+            fd = os.open(progress, os.O_RDONLY)
+            stack.callback(os.close, fd)
+            fcntl.flock(fd, fcntl.LOCK_EX)
+            def table(name, header):
+                path = progress / name
+                rows = list(csv.reader(read(path).splitlines(), delimiter='\t')) if path.exists() else []
+                if rows and rows[0] != header:
+                    raise ValueError('記録の列が不正: ' + name)
+                return path, rows[1:] if rows else []
+            def write(path, header, rows):
+                temp = path.with_suffix('.tmp')
+                with temp.open('w') as handle:
+                    writer = csv.writer(handle, delimiter='\t', lineterminator='\n')
+                    writer.writerow(header)
+                    writer.writerows(rows)
+                temp.replace(path)
+            header = ['date', 'persona', 'batch', 'stage', 'round', 'criterion', 'path', 'reason']
+            path, events = table('findings.tsv', header)
+            keys = {tuple(e[1:]) for e in events}
+            for item in self.state.get('events', []):
+                if tuple(item[1:]) not in keys:
+                    events.append(item)
+                    keys.add(tuple(item[1:]))
+            write(path, header, events)
+            if templates_only:
+                return
+            header = ['persona', 'batch', 'date', 'planned', 'draft_initial_rejects',
+                      'build_initial_rejects', 'final_rejects', 'coordinator_rejects', 'status', 'seconds']
+            path, batches = table('batches.tsv', header)
+            old = next((r for r in batches if r[:2] == [self.persona, self.batch]), None)
+            planned = len(plan_rows(self.plan)) if self.plan.exists() else 0
+            def initial(stage):
+                return len({e[6] for e in events if e[1:3] == [self.persona, self.batch]
+                            and e[3] in stage and e[4] == '0'})
+            row = [self.persona, self.batch, old[2] if old else dt.datetime.now(dt.timezone.utc).date().isoformat(),
+                   str(planned), old[4] if old and old[8] in ('done', 'accepted', 'discarded') else str(initial(('draft-check', 'draft-review'))),
+                   old[5] if old and old[8] in ('done', 'accepted', 'discarded') else str(initial(('check', 'build-review'))), str(sum(r['内容'].startswith(('破棄：', '成形待ち：')) for r in plan_rows(self.plan)) if self.plan.exists() else 0),
+                   str(coordinator if coordinator is not None else int(old[7]) if old else 0),
+                   status or ('failed' if self.state['status'] == 'failed' else 'done'),
+                   f'{self.state.get("elapsed_base", 0) + sum(v for k, v in self.state["timings"].items() if k not in ("draft-complete", "build-complete")):.2f}']
+            batches = [row if r[:2] == row[:2] else r for r in batches]
+            if old is None:
+                batches.append(row)
+            write(path, header, batches)
+
+    def review_templates(self, fix=None):
+        reasons = {'型': fix} if fix else {}
+        for attempt in range(3):
+            if reasons:
+                self.codex('templates', round_number=attempt, reasons=reasons)
+            output = self.scratch / f'templates-review-r{attempt}.tsv'
+            paths = list((ROOT / 'templates' / self.persona).rglob('*'))
+            before = {str(p): p.read_bytes() for p in paths if p.is_file()}
+            inventory = [{'パス': str(p.relative_to(ROOT / 'templates' / self.persona))} for p in paths if p.is_file()]
+            self.codex('templates-review', inventory, round_number=attempt, review_output=output)
+            after = {str(p): p.read_bytes() for p in (ROOT / 'templates' / self.persona).rglob('*') if p.is_file()}
+            if before != after:
+                raise ValueError('テンプレートのレビュー中に型が変更された')
+            reasons = {}
+            entries = list(csv.reader(read(output).splitlines(), delimiter='\t')) if output.exists() else []
+            expected = {str(p.relative_to(ROOT / 'templates' / self.persona)) for p in paths if p.is_file()}
+            seen = set()
+            for entry in entries:
+                if len(entry) not in (3, 4) or entry[1] not in ('pass', 'reject'):
+                    continue
+                rel, verdict = entry[:2]
+                if rel not in expected:
+                    continue
+                if rel in seen:
+                    reasons[rel] = '判定が重複'
+                seen.add(rel)
+                if verdict == 'reject':
+                    reasons[rel] = entry[-1] or '理由なし'
+            # README is an inventory, not a template. All other files need a verdict.
+            for rel in expected - seen - {'README.md'}:
+                reasons[rel] = '判定なし'
+            if not entries or not expected:
+                reasons['README.md'] = '判定なし、または型がない'
+            for rel, reason in reasons.items():
+                self.event('templates-review', attempt, 'other', rel, reason)
+            if not reasons:
+                return
+        self.record_tables(templates_only=True)
+        raise ValueError('テンプレートのレビュー不合格: ' + repr(reasons))
+
+    def dependencies(self, rows):
+        candidates = {r['パス'] for r in plan_rows(self.plan)}
+        result = {}
+        for row in rows:
+            rel = row['パス']
+            source = self.source(rel)
+            cfg = config(source) if source.exists() else {}
+            deps = {cfg['derived_from']} if cfg.get('derived_from') else set()
+            text = row['関連']
+            attachment_lines = []
+            if source.exists():
+                in_attachments = False
+                for line in read(source).splitlines():
+                    declaration = re.match(r'\s*(?:[-*]\s*)?(?:添付(?:ファイル)?|attachments?)\s*[:：](.*)', line, re.I)
+                    if declaration:
+                        in_attachments = True
+                        attachment_lines.append(declaration[1])
+                    elif in_attachments and re.match(r'\s*[-*]\s+', line):
+                        attachment_lines.append(line)
+                    elif line.strip():
+                        in_attachments = False
+            text += '\n' + '\n'.join(attachment_lines)
+            for candidate in candidates:
+                if candidate != rel and candidate in text:
+                    deps.add(candidate)
+            # Also detect absent/previous-batch attachments, not just current rows.
+            for line in attachment_lines:
+                for match in re.finditer(r'(?:[\w. -]+/)*[^/`\[\],;:：\n]+?\.(?:' + '|'.join(sorted(EXT)) + r')(?=$|[\s`\],;（(])', line):
+                    candidate = match[0].strip(' -\"\'')
+                    if '/' not in candidate:
+                        nearby = (PurePosixPath(rel).parent / candidate).as_posix()
+                        matches = [p for p in candidates if PurePosixPath(p).name == candidate]
+                        candidate = nearby if nearby in candidates or safe_file(self.folder, nearby).is_file() else matches[0] if len(matches) == 1 else nearby
+                    safe_file(self.folder, candidate)
+                    deps.add(candidate)
+            result[rel] = deps - {rel}
+        return result
+
+    def build_phase(self, rows, all_rows):
+        dependencies = self.dependencies(rows)
+        remaining = {r['パス']: r for r in rows}
+        failed, history = {}, []
+        wave = 0
+        base_prefix = getattr(self, 'step_prefix', '')
+        while remaining:
+            ready = [r for rel, r in remaining.items() if not dependencies[rel].intersection(remaining)]
+            if not ready:
+                failed.update({rel: '元のファイルの依存関係が循環している。' for rel in remaining})
+                for rel in remaining:
+                    self.event('check', 0, 'dependency', rel, failed[rel])
+                break
+            blocked = {}
+            targets = []
+            for row in ready:
+                missing = next((p for p in sorted(dependencies[row['パス']])
+                                if p in failed or not safe_file(self.folder, p).is_file()), None)
+                if missing:
+                    blocked[row['パス']] = f'元のファイル {missing} が未完成。'
+                    self.event('check', 0, 'dependency', row['パス'], blocked[row['パス']])
+                else:
+                    targets.append(row)
+            # Complete each dependency layer, including its retries and review,
+            # before producing anything that consumes it.
+            self.step_prefix = base_prefix + (f'build-wave{wave}/' if wave or len(ready) != len(rows) else '')
+            if targets:
+                failed.update(self.phase('build', targets, all_rows))
+                history.extend(self.state.get('build_history', []))
+                # Rejected parents must not be consumed in the next layer.
+                for row in targets:
+                    if row['パス'] in failed:
+                        safe_file(self.folder, row['パス']).unlink(missing_ok=True)
+            failed.update(blocked)
+            for row in ready:
+                del remaining[row['パス']]
+            wave += 1
+        self.step_prefix = base_prefix
+        self.state.update(build_failures=failed, build_history=history,
+                          build_pass=len(rows)-len(failed), build_reject=len(failed))
+        self.store()
+        return failed
+
+    def rebuild_pending(self):
+        rows = plan_rows(self.plan)
+        pending = [r for r in rows if r['内容'].startswith('成形待ち：')]
+        if not pending:
+            return
+        self.protected(pending, artifacts_only=True)
+        self.state['rebuild_paths'] = [r['パス'] for r in pending]
+        for row in pending:
+            if not self.source(row['パス']).is_file():
+                raise ValueError('成形待ちの原稿がない: ' + row['パス'])
+        generation = self.state.get('rebuild_generation', 0) + (self.state.get('status') == 'done')
+        generation = max(1, generation)
+        self.state['rebuild_generation'] = generation
+        self.step_prefix = f'rebuild{generation}/'
+        self.state.update(status='running', stage='rebuild')
+        self.store()
+        # Expose pending targets to bin/check while retaining their saved source.
+        lines = read(self.plan).splitlines()
+        for row in pending:
+            cells = re.split(r'(?<!\\)\|', lines[row['_line']])
+            cells[row['_content']+1] = ' ' + row['内容'].partition('。')[2] + ' '
+            lines[row['_line']] = '|'.join(cells)
+        self.plan.write_text('\n'.join(lines)+'\n')
+        try:
+            failures = self.build_phase(pending, rows)
+            previous = {p: reason for p, reason in self.state.get('failures', {}).items()
+                        if p not in {r['パス'] for r in pending}}
+            self.state['failures'] = {**previous, **failures}
+            self.state['count'] = sum(not r['内容'].startswith('破棄：') and r['パス'] not in self.state['failures'] for r in rows)
+            self.write_report(rows, self.state['failures'])
+            self.final_check()
+        except Exception:
+            mark_discard(self.plan, {r['パス']: '再成形が未完了' for r in pending}, '成形待ち')
+            raise
+        self.state.update(status='done', stage='done')
+        self.store()
+
     def draft_check(self, rows):
         failures, comparisons, derived = {}, [], {}
         expected = {self.source(r['パス']): r for r in rows}
@@ -327,7 +551,8 @@ class Batch:
                 text = re.sub(r'\d+', '0', body.casefold())
                 words = re.findall(r'[\u3040-\u30ff\u3400-\u9fff]|[^\W_\u3040-\u30ff\u3400-\u9fff]+', text)
                 grams = frozenset(int.from_bytes(hashlib.blake2b(' '.join(words[i:i+5]).encode(), digest_size=8).digest(), 'big') for i in range(len(words)-4))
-                comparisons.append((rel, hashlib.sha256(body.encode()).digest(), grams))
+                if not metadata.get('derived_from'):
+                    comparisons.append((rel, hashlib.sha256(body.encode()).digest(), grams))
             except (OSError, ValueError, UnicodeError) as exc:
                 if row:
                     failures[rel] = str(exc)
@@ -368,26 +593,31 @@ class Batch:
         return failures
 
     def check(self, round_number, rows):
-        report = self.scratch / f'check-r{round_number}.tsv'
+        report = self.scratch / (getattr(self, 'step_prefix', '').replace('/', '-') + f'check-r{round_number}.tsv')
         report.unlink(missing_ok=True)
         result = command([ROOT / 'bin/check', self.persona, '--batch', self.batch, '--report', report], check=False)
-        (self.scratch / 'logs' / f'check-r{round_number}.log').write_text(result.stdout)
+        (self.scratch / 'logs' / (getattr(self, 'step_prefix', '').replace('/', '-') + f'check-r{round_number}.log')).write_text(result.stdout)
         if not report.exists():
             raise ValueError('bin/check が報告を書かなかった: ' + result.stdout[-2000:])
         failures = {}
         for parts in csv.reader(read(report).splitlines(), delimiter='\t'):
             if len(parts) != 4 or parts[0] != self.persona:
                 raise ValueError('bin/check の報告形式が不正')
+            if parts[1] in {r['パス'] for r in rows}:
+                self.event('check', round_number, parts[2], parts[1], parts[3])
             failures[parts[1]] = failures.get(parts[1], '') + f'{parts[2]}: {parts[3]} '
         known = {r['パス'] for r in rows}
-        if failures.keys() - known:
-            raise ValueError('batch 外の検査不合格: ' + repr(failures.keys() - known))
-        if result.returncode and not failures:
+        outside = failures.keys() - known
+        planned = {r['パス'] for r in plan_rows(self.plan)}
+        if outside - planned:
+            raise ValueError('batch 外の検査不合格: ' + repr(outside - planned))
+        failures = {p: why for p, why in failures.items() if p in known}
+        if result.returncode and not failures and not outside:
             raise ValueError('bin/check 未完了（検査不能または OCR 未実行）: ' + result.stdout[-2000:])
         return failures
 
     def review(self, stage, rows, all_rows, round_number, group):
-        output = self.scratch / f'{stage}-r{round_number}-g{group}.tsv'
+        output = self.scratch / (getattr(self, 'step_prefix', '').replace('/', '-') + f'{stage}-r{round_number}-g{group}.tsv')
         output.unlink(missing_ok=True)
         sources, artifacts = self.hashes(sources=True), self.hashes(all_rows)
         try:
@@ -398,11 +628,18 @@ class Batch:
         self.state.setdefault(stage + '_notes', []).append(notes)
         verdicts = {}
         for parts in csv.reader(read(output).splitlines() if output.exists() else [], delimiter='\t'):
-            if len(parts) != 3 or parts[1] not in ('pass', 'reject'):
+            if len(parts) not in (3, 4) or parts[1] not in ('pass', 'reject'):
                 continue
-            rel, verdict, reason = parts
-            verdicts[rel] = ['reject', '判定が重複'] if rel in verdicts else [verdict, reason or '理由なし']
-        return {r['パス']: verdicts.get(r['パス'], ['reject', '判定なし']) for r in rows}
+            rel, verdict = parts[:2]
+            criterion, reason = (parts[2], parts[3]) if len(parts) == 4 else ('other', parts[2])
+            valid = {f'{"D" if stage == "draft-review" else "V"}{i}' for i in range(1, 11 if stage == 'draft-review' else 7)}
+            criterion = criterion if criterion in valid else 'other'
+            verdicts[rel] = ['reject', '判定が重複', 'other'] if rel in verdicts else [verdict, reason or '理由なし', criterion if verdict == 'reject' else '']
+        result = {r['パス']: verdicts.get(r['パス'], ['reject', '判定なし', 'other']) for r in rows}
+        for rel, (verdict, reason, criterion) in result.items():
+            if verdict == 'reject':
+                self.event(stage, round_number, criterion, rel, reason)
+        return result
 
     def phase(self, stage, rows, all_rows):
         failures, history = {}, []
@@ -412,7 +649,7 @@ class Batch:
                 break
             if round_number:
                 def remove():
-                    self.protected(targets)
+                    self.protected(targets, artifacts_only=stage == 'build')
                     for row in targets:
                         path = self.source(row['パス']) if stage == 'draft' else safe_file(self.folder, row['パス'])
                         path.unlink(missing_ok=True)
@@ -422,12 +659,15 @@ class Batch:
                 key = f'{stage}-r{round_number}-g{i//10}'
                 def produce(group=group, key=key):
                     attempted = self.state.setdefault('attempted', [])
+                    attempt_key = getattr(self, 'step_prefix', '') + key
                     pending = group
-                    if key in attempted:
+                    if attempt_key in attempted:
                         pending = [r for r in group if not (self.source(r['パス']) if stage == 'draft' else safe_file(self.folder, r['パス'])).is_file()]
                     else:
-                        attempted.append(key)
+                        attempted.append(attempt_key)
                         self.store()
+                    if stage == 'build' and round_number == 0 and (self.a.review_again or getattr(self.a, 'draft_review_again', False)):
+                        pending = [r for r in pending if not safe_file(self.folder, r['パス']).is_file()]
                     before = self.hashes(sources=True)
                     try:
                         if pending:
@@ -438,15 +678,34 @@ class Batch:
                 self.step(key, produce, len(group))
             if stage == 'build':
                 def dates():
+                    errors = {}
                     for row in targets:
                         path = safe_file(self.folder, row['パス'])
                         if path.exists():
+                            args = [ROOT / 'bin/stamp', path, '--author', config(self.source(row['パス'])).get('author', ''),
+                                    '--date', row['日付'], '--timezone', self.cfg.get('timezone', 'UTC')]
+                            if path.suffix.lower() == '.pdf' and row['作り方'].startswith('office:'):
+                                parent = config(self.source(row['パス'])).get('derived_from', '')
+                                app = {'.xlsx': 'Excel', '.pptx': 'PowerPoint'}.get(Path(parent or row['作り方']).suffix.lower(), 'Word')
+                                args += ['--producer', f'Microsoft® {app} for Microsoft 365']
+                            try:
+                                command(args)
+                            except (ValueError, OSError) as exc:
+                                errors[row['パス']] = 'metadata: ' + str(exc)
+                                self.event('check', round_number, 'metadata', row['パス'], str(exc))
+                                continue
                             stamp = self.timestamp(row).timestamp()
                             os.utime(path, (stamp, stamp))
-                self.step(f'dates-r{round_number}', dates, len(targets))
+                    return errors
+                stamp_failures = self.step(f'dates-r{round_number}', dates, len(targets)) or {}
             automatic = self.step(f'{stage}-check-r{round_number}',
                                   lambda: self.draft_check(rows) if stage == 'draft' else self.check(round_number, rows), len(targets))
+            if stage == 'draft':
+                for rel, reason in automatic.items():
+                    self.event('draft-check', round_number, 'duplicate' if reason.startswith('duplicate:') else 'frontmatter' if 'frontmatter' in reason else 'trace' if reason == '制作の痕跡' else 'derived_from' if reason.startswith('derived_from') else 'source', rel, reason)
             failures = dict(automatic)
+            if stage == 'build':
+                failures.update(stamp_failures)
             review_rows = [r for r in targets if r['パス'] not in failures]
             verdicts, review_stage = {}, stage + '-review'
             for i in range(0, len(review_rows), 10):
@@ -454,8 +713,8 @@ class Batch:
                 verdicts.update(self.step(f'{review_stage}-r{round_number}-g{i//10}',
                                          lambda group=group, i=i: self.review(review_stage, group, all_rows, round_number, i//10), len(group)))
             report_stage = 'review' if stage == 'build' else review_stage
-            with (self.scratch / f'{report_stage}-r{round_number}.tsv').open('w') as handle:
-                csv.writer(handle, delimiter='\t', lineterminator='\n').writerows([rel, *v] for rel, v in verdicts.items())
+            with (self.scratch / (getattr(self, 'step_prefix', '').replace('/', '-') + f'{report_stage}-r{round_number}.tsv')).open('w') as handle:
+                csv.writer(handle, delimiter='\t', lineterminator='\n').writerows([rel, v[0], v[2], v[1]] for rel, v in verdicts.items())
             failures.update({rel: v[1] for rel, v in verdicts.items() if v[0] != 'pass'})
             history.append({'round': round_number, 'failures': failures.copy()})
             self.state.update({stage + '_failures': failures, stage + '_history': history,
@@ -471,7 +730,8 @@ class Batch:
         if not self.request.is_file():
             raise ValueError('依頼なし: ' + str(self.request))
         again = self.a.review_again or getattr(self.a, 'draft_review_again', False)
-        if self.state['status'] == 'done' and not again:
+        rebuild = getattr(self.a, 'rebuild', False)
+        if self.state['status'] == 'done' and not again and not rebuild:
             print(f'done 終了 {self.state.get("count", 0)} 件', flush=True)
             return
         self.state['producer'] = self.a.producer or self.state.get('producer', 'gpt-6.1-terra')
@@ -480,26 +740,34 @@ class Batch:
         try:
             if again:
                 def keep(key):
-                    if key in ('templates', 'plan'):
+                    if key in ('templates', 'templates-reviewed', 'plan'):
                         return True
                     if getattr(self.a, 'draft_review_again', False):
                         return bool(re.fullmatch(r'draft-r0-g\d+', key))
-                    return key.startswith(('draft-', 'build-r0-', 'dates-r0'))
+                    leaf = key.rsplit('/', 1)[-1]
+                    return key.startswith('draft-') or leaf.startswith(('build-r0-', 'dates-r0'))
                 self.state['completed'] = {k: v for k, v in self.state['completed'].items() if keep(k)}
                 self.state['attempted'] = [k for k in self.state.get('attempted', []) if keep(k)]
                 for stage in ('draft-review', 'build-review') if getattr(self.a, 'draft_review_again', False) else ('build-review',):
                     self.state[stage + '_notes'] = []
                 self.store()
+            if rebuild:
+                self.rebuild_pending()
+                return
             self.step('templates', lambda: self.codex('templates') if not self.templates.exists() else '')
+            self.step('templates-reviewed', self.review_templates)
+            template_hashes = {str(p): hashlib.sha256(p.read_bytes()).hexdigest() for p in self.templates.parent.rglob('*') if p.is_file()}
             rows = self.step('plan', self.make_plan)
+            if template_hashes != {str(p): hashlib.sha256(p.read_bytes()).hexdigest() for p in self.templates.parent.rglob('*') if p.is_file()}:
+                self.step('plan-templates-reviewed', self.review_templates)
             current = {r['パス']: r for r in plan_rows(self.plan)}
             if set(current) != {r['パス'] for r in rows}:
                 raise ValueError('検査済み計画のパスが変更された')
             for row in rows:
                 new = current[row['パス']]
-                if any(new[c] != row[c] for c in COLUMNS if c != '内容') or (new['内容'] != row['内容'] and not new['内容'].startswith('破棄：')):
+                if any(new[c] != row[c] for c in COLUMNS if c != '内容') or (new['内容'] != row['内容'] and not new['内容'].startswith(('破棄：', '成形待ち：'))):
                     raise ValueError('検査済み計画が変更された: ' + row['パス'])
-            rows = [current[r['パス']] for r in rows if not again or not current[r['パス']]['内容'].startswith('破棄：')]
+            rows = [current[r['パス']] for r in rows if not again or not current[r['パス']]['内容'].startswith(('破棄：', '成形待ち：'))]
             if self.a.plan_only:
                 self.state.update(status='planned', stage='plan', count=len(rows))
                 self.store()
@@ -508,9 +776,11 @@ class Batch:
             draft_failures = {rel: reason for rel, reason in draft_failures.items() if rel in {r['パス'] for r in rows}}
             build_rows = [r for r in rows if r['パス'] not in draft_failures]
             self.step('draft-discard', lambda: self.discard_rows(draft_failures), len(draft_failures))
-            build_failures = self.step('build-complete', lambda: self.phase('build', build_rows, rows))
-            failures = {**draft_failures, **build_failures}
-            self.state.update(failures=failures, count=len(rows)-len(failures))
+            build_failures = self.step('build-complete', lambda: self.build_phase(build_rows, rows))
+            pending_before = {r['パス']: r['内容'].removeprefix('成形待ち：').partition('。')[0]
+                              for r in plan_rows(self.plan) if r['内容'].startswith('成形待ち：')}
+            failures = {**pending_before, **draft_failures, **build_failures}
+            self.state.update(failures=failures, count=sum(not r['内容'].startswith('破棄：') and r['パス'] not in failures for r in plan_rows(self.plan)))
             self.step('report', lambda: self.write_report(rows, failures), len(rows)-len(failures))
             self.step('final-check', self.final_check, len(rows)-len(failures))
             self.write_report(rows, failures)
@@ -519,6 +789,7 @@ class Batch:
         except (ValueError, OSError, KeyError) as exc:
             self.state.update(status='failed', reason=str(exc))
             self.store()
+            self.record_tables()
             raise
 
     def discard_rows(self, failures):
@@ -535,13 +806,22 @@ class Batch:
             raise ValueError('最終検査不合格: ' + result.stdout[-2000:])
 
     def write_report(self, rows, failures):
-        self.discard_rows(failures)
+        draft_failures = self.state.get('draft_failures', {})
+        self.discard_rows({p: why for p, why in failures.items() if p in draft_failures})
+        waiting = {p: why for p, why in failures.items() if p not in draft_failures}
+        self.protected([{'パス': p} for p in waiting], artifacts_only=True)
+        for rel in waiting:
+            safe_file(self.folder, rel).unlink(missing_ok=True)
+        mark_discard(self.plan, waiting, '成形待ち')
+        self.state['pending'] = len(waiting)
+        self.record_tables()
         discarded = {r['パス']: r['内容'].removeprefix('破棄：').partition('。')[0]
                      for r in plan_rows(self.plan) if r['内容'].startswith('破棄：')}
-        discarded.update(failures)
-        counts = Counter(Path(r['パス']).suffix for r in rows if r['パス'] not in failures)
+        discarded.update({p: why for p, why in failures.items() if p in draft_failures})
+        counts = Counter(Path(r['パス']).suffix for r in rows if r['パス'] not in failures and not r['内容'].startswith('破棄：'))
         text = f'# {self.persona} {self.batch} の結果\n\n状態：結果待ち\n\n## 依頼との対応\n\n{read(self.request)}\n'
         text += f'\n制作：{sum(counts.values())} 件\n\n' + '\n'.join(f'- {ext}: {n} 件' for ext, n in sorted(counts.items()))
+        text += '\n\n## 成形待ち\n\n' + ('\n'.join(f'- {p}: {why}' for p, why in waiting.items()) or 'なし')
         text += '\n\n## 破棄した行と理由\n\n' + ('\n'.join(f'- {rel}: {why}' for rel, why in discarded.items()) or 'なし')
         for stage, label in (('draft', '原稿'), ('build', '成形')):
             text += f'\n\n## {label}の検査とレビュー\n\n合格：{self.state.get(stage + "_pass", 0)} 件、不合格：{self.state.get(stage + "_reject", 0)} 件、作り直し：{self.state.get(stage + "_retries", 0)} 回\n'
@@ -551,28 +831,34 @@ class Batch:
                 text += f'\nround {entry["round"]}: 不合格 {len(entry["failures"])} 件\n'
                 text += '\n'.join(f'- {rel}: {reason}' for rel, reason in entry['failures'].items()) + '\n'
             text += '\nレビュー役の所見：\n\n' + ('\n\n'.join(self.state.get(stage + '-review_notes', [])) or '対象なし')
+        text += '\n\n## 型の欠陥\n\n' + ('\n\n'.join(self.state.get('build-review_notes', [])) or 'なし')
         text += f'\n\nレンダリング：{self.scratch.relative_to(ROOT)}/render/\n\n## 各段階の所要時間\n\n'
         text += '\n'.join(f'- {key}: {value:.2f} 秒' for key, value in self.state['timings'].items())
         self.result.write_text(text + '\n')
 
-    def protected(self, rows):
+    def protected(self, rows, artifacts_only=False):
         head = command(['git', 'ls-tree', '-rz', '--name-only', 'HEAD'], check=False)
         tracked = set(head.stdout.split('\0'))
         for row in rows:
-            paths = [safe_file(self.folder, row['パス']), self.source(row['パス'])]
+            paths = [safe_file(self.folder, row['パス'])]
+            if not artifacts_only:
+                paths.append(self.source(row['パス']))
             if any(str(path.relative_to(ROOT)) in tracked for path in paths):
                 raise ValueError('受入済みのファイルには操作しない: ' + row['パス'])
 
     def finish(self, discard=False):
         rows = plan_rows(self.plan)
-        self.protected(rows)
+        rebuilding = self.state.get('rebuild_paths')
+        self.protected([r for r in rows if not rebuilding or r['パス'] in rebuilding], artifacts_only=bool(rebuilding))
+        if rebuilding and discard:
+            raise ValueError('再成形済み batch の一括破棄は受入済みのファイルに影響する')
         progress = [p for p in self.plan.parent.glob(self.batch + '.*') if p.is_file()]
-        paths = [str(p.relative_to(ROOT)) for p in progress]
+        paths = [str(p.relative_to(ROOT)) for p in progress] + ['progress/findings.tsv', 'progress/batches.tsv']
         active = [r for r in rows if not r['内容'].startswith('破棄：')]
         if not discard:
             if self.state.get('status') != 'done':
                 raise ValueError('制作とレビューが完了していない')
-            paths += [str(safe_file(self.folder, r['パス']).relative_to(ROOT)) for r in active]
+            paths += [str(safe_file(self.folder, r['パス']).relative_to(ROOT)) for r in active if not r['内容'].startswith('成形待ち：')]
             paths += [str(self.source(r['パス']).relative_to(ROOT)) for r in active]
             paths += [f'manifests/{self.persona}.tsv', f'personas/{self.persona}.md', f'progress/{self.persona}/facts.md']
             template_root = ROOT / 'templates' / self.persona
@@ -583,16 +869,19 @@ class Batch:
             raise ValueError('関係ないファイルが stage されている: ' + ', '.join(sorted(staged - set(paths))))
         drops = {r['パス']: self.a.reason for r in rows} if discard else {
             p: '統括の抜き取りで不合格' for p in self.a.drop}
-        if drops.keys() - {r['パス'] for r in rows}:
+        if drops.keys() - (set(rebuilding) if rebuilding else {r['パス'] for r in rows}):
             raise ValueError('--drop はこの batch の相対パスを指定する')
         # All preconditions above precede any mutation, including drops.
         for rel in drops:
             safe_file(self.folder, rel).unlink(missing_ok=True)
             self.source(rel).unlink(missing_ok=True)
         mark_discard(self.plan, drops)
+        for rel, reason in drops.items():
+            self.event('coordinator', 0, 'other', rel, reason)
         if not discard:
             command([ROOT / 'bin/check', self.persona, '--batch', self.batch])
             command([ROOT / 'bin/manifest', self.persona])
+        self.record_tables('discarded' if discard else 'accepted', len(drops))
         marker = '破棄' if discard else '受入済み'
         if self.result.exists():
             text = re.sub(r'^状態：.*$', '状態：' + marker, read(self.result), flags=re.M)
@@ -645,13 +934,18 @@ def launch(batch):
         name = f'{original}-r{suffix}'
     # The child can start before codex-job returns and this launcher's flock is released.
     args = ['bin/batch', 'run', batch.persona, batch.batch, '--wait-lock']
-    for flag in ('plan_only', 'review_again', 'draft_review_again'):
-        if getattr(batch.a, flag):
+    for flag in ('plan_only', 'review_again', 'draft_review_again', 'rebuild'):
+        if getattr(batch.a, flag, False):
             args.append('--' + flag.replace('_', '-'))
     if batch.a.producer:
         args += ['--producer', batch.a.producer]
     result = command([job_tool(), 'start', '--repo', 'personaCorpus', '--name', name, '--command', shlex.join(args)])
     print(result.stdout, end='')
+
+
+def pending_count(persona, batch):
+    path = ROOT / 'progress' / persona / (batch + '.md')
+    return sum(r['内容'].startswith('成形待ち：') for r in plan_rows(path)) if path.exists() else 0
 
 
 def show_status(persona=None, batch=None):
@@ -661,10 +955,11 @@ def show_status(persona=None, batch=None):
         state = ROOT / 'scratch' / persona / batch / 'state.json'
         if state.exists():
             s = json.loads(read(state))
-            print(f'{persona} {batch}: {s["stage"]} / {s["status"]} / {s.get("count", 0)} 件 / 原稿 合格{s.get("draft_pass", 0)} 不合格{s.get("draft_reject", 0)} / 成形 合格{s.get("build_pass", 0)} 不合格{s.get("build_reject", 0)} / {s.get("reason", "")}')
+            print(f'{persona} {batch}: {s["stage"]} / {s["status"]} / {s.get("count", 0)} 件 / 原稿 合格{s.get("draft_pass", 0)} 不合格{s.get("draft_reject", 0)} / 成形 合格{s.get("build_pass", 0)} 不合格{s.get("build_reject", 0)} / 成形待ち{pending_count(persona, batch)} / {s.get("reason", "")}')
         else:
             path = ROOT / 'progress' / persona / (batch + '.result.md')
             print(read(path) if path.exists() else '依頼あり（状態なし）')
+            print(f'成形待ち {pending_count(persona, batch)} 件')
         return
     names = [persona] if persona else sorted(p.stem for p in (ROOT / 'personas').glob('p[0-9][0-9]-*.md'))
     print('persona\t受入済み件数')
@@ -706,7 +1001,48 @@ def show_status(persona=None, batch=None):
             if state.exists():
                 s = json.loads(read(state))
                 label = '結果待ち' if s['status'] == 'done' else f'進行中 ({s["stage"]}, {s["status"]})'
-            print(f'  {b}: {label}')
+            print(f'  {b}: {label} / 成形待ち {pending_count(name, b)} 件')
+
+
+def show_findings(since=None, persona=None):
+    if since:
+        dt.date.fromisoformat(since)
+    def rows(name):
+        path = ROOT / 'progress' / name
+        return list(csv.DictReader(read(path).splitlines(), delimiter='\t')) if path.exists() else []
+    events = [r for r in rows('findings.tsv') if (not since or r['date'] >= since)
+              and (not persona or r['persona'] == persona)]
+    groups = defaultdict(list)
+    for event in events:
+        groups[(event['stage'], event['criterion'])].append(event)
+    print('段階 × 観点（多い順）\t件数\t代表の理由（3件まで）')
+    for (stage, criterion), items in sorted(groups.items(), key=lambda x: (-len(x[1]), x[0])):
+        reasons = list(dict.fromkeys(r['reason'] for r in items))[:3]
+        print(f'{stage}\t{criterion}\t{len(items)}\t' + ' / '.join(reasons))
+    print('\nbatch ごとの初回の不合格率\npersona\tbatch\t日付\t原稿\t成形\t状態')
+    for row in sorted(rows('batches.tsv'), key=lambda r: (r['date'], r['persona'], r['batch'])):
+        if (since and row['date'] < since) or (persona and row['persona'] != persona):
+            continue
+        n = int(row['planned'])
+        rates = [f'{int(row[k])/n:.1%}' if n else '0.0%' for k in ('draft_initial_rejects', 'build_initial_rejects')]
+        print('\t'.join([row['persona'], row['batch'], row['date'], *rates, row['status']]))
+    improvements = ROOT / 'progress/improvements.md'
+    if improvements.exists():
+        print('\n改善の前後（記録日より前 / 記録日以降）')
+        # Accept prose, headings or Markdown table rows containing a date and criteria.
+        current_date = None
+        for line in read(improvements).splitlines():
+            match = re.search(r'\b(\d{4}-\d\d-\d\d)\b', line)
+            if match:
+                current_date = match[1]
+            if not current_date:
+                continue
+            criteria = set(re.findall(r'\b(?:D(?:10|[1-9])|V[1-6]|other)\b', line))
+            criteria.update(c for _, c in groups if c in line.split() or f'`{c}`' in line)
+            for criterion in sorted(criteria):
+                before = sum(r['criterion'] == criterion and r['date'] < current_date for r in events)
+                after = sum(r['criterion'] == criterion and r['date'] >= current_date for r in events)
+                print(f'{current_date}\t{criterion}\t{before}\t{after}')
 
 
 def main(argv=None):
@@ -721,6 +1057,7 @@ def main(argv=None):
             p.add_argument('--producer')
             p.add_argument('--review-again', action='store_true')
             p.add_argument('--draft-review-again', action='store_true')
+            p.add_argument('--rebuild', action='store_true')
         if action == 'run':
             p.add_argument('--wait-lock', action='store_true', help=argparse.SUPPRESS)
         if action == 'accept':
@@ -730,7 +1067,33 @@ def main(argv=None):
     p = sub.add_parser('status')
     p.add_argument('persona', nargs='?')
     p.add_argument('batch', nargs='?')
+    p = sub.add_parser('templates')
+    p.add_argument('persona')
+    p.add_argument('--fix', required=True)
+    p = sub.add_parser('findings')
+    p.add_argument('--since')
+    p.add_argument('--persona')
     a = parser.parse_args(argv)
+    if a.action == 'findings':
+        show_findings(a.since, persona_name(a.persona) if a.persona else None)
+        return 0
+    if a.action == 'templates':
+        # A maintenance run has its own scratch and never changes a production plan.
+        a.batch = 'b000'
+        b = Batch(a)
+        with persona_lock(b.persona):
+            b.batch = f'templates-{time.time_ns()}'
+            b.scratch = ROOT / 'scratch' / b.persona / b.batch
+            b.state_path = b.scratch / 'state.json'
+            b.state = {'completed': {}, 'timings': {}, 'status': 'new', 'stage': 'templates-review'}
+            b.scratch.mkdir(parents=True, exist_ok=True)
+            b.request = b.scratch / 'templates.request.md'
+            b.request.write_text('# 型の修正\n' + a.fix + '\n')
+            try:
+                b.review_templates(a.fix)
+            finally:
+                b.record_tables(templates_only=True)
+        return 0
     if a.action == 'status':
         show_status(persona_name(a.persona) if a.persona else None, a.batch)
         return 0

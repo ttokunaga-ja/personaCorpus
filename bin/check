@@ -108,7 +108,7 @@ def ocr(path,language):
 
 
 def extract(path,ext,language=None):
-    """Return body, scan flag, skipped OCR flag. Decode errors are opens failures."""
+    """Return body, image-only flag, skipped OCR flag. Decode errors are opens failures."""
     if ext in ('docx','xlsx','pptx'):
         main={'docx':'word/document.xml','xlsx':'xl/workbook.xml','pptx':'ppt/presentation.xml'}[ext]
         with zipfile.ZipFile(path) as z:
@@ -146,13 +146,14 @@ def extract(path,ext,language=None):
         if pages and not pages[-1].strip():pages.pop()
         blanks=[i+1 for i,p in enumerate(pages) if not p.strip()]
         if not blanks and not text.strip():blanks=[1]
+        image_only=bool(blanks) and not text.strip()
         if blanks and language:
             with tempfile.TemporaryDirectory(prefix='corpus-ocr-') as d:
                 for i in blanks:
                     prefix=Path(d)/f'page-{i}'
                     command(['pdftoppm','-f',i,'-l',i,'-singlefile','-r','150','-png',path,prefix])
                     text+='\n'+ocr(prefix.with_suffix('.png'),language)
-        return text,bool(blanks),bool(blanks and not language)
+        return text,image_only,bool(blanks and not language)
     if ext in ('png','jpg'):
         from PIL import Image
         with Image.open(path) as im:
@@ -238,16 +239,18 @@ def source_numbers(text):
     return found
 
 
-def source_reason(expected, actual):
+def source_reason(expected, actual, *, from_ocr=False):
     # The mechanical check catches dropped content; exact wording is the visual review's job.
     strip=lambda s:re.sub(r'(?<=\d),(?=\d{3})','',s)
     words=lambda s:Counter({k:v for k,v in body_tokens(strip(s)).items() if k not in ('年','月','日','円')})
     want=words(expected);have=words(actual)
     overlap=sum((want & have).values())/sum(want.values()) if want else 1
-    numbers=source_numbers(expected)
-    missing=sorted(numbers-source_numbers(actual))
-    if len(missing)>len(numbers)//20:return 'missing source values: '+', '.join(missing[:5])
-    if overlap<.85:return f'body token overlap {overlap:.3f} < 0.85'
+    if not from_ocr:
+        numbers=source_numbers(expected)
+        missing=sorted(numbers-source_numbers(actual))
+        if len(missing)>len(numbers)//20:return 'missing source values: '+', '.join(missing[:5])
+    threshold=.5 if from_ocr else .85
+    if overlap<threshold:return f'body token overlap {overlap:.3f} < {threshold}'
     return None
 
 
@@ -356,7 +359,7 @@ def inspect(item):
                     if not source_photo:
                         if missing:skipped.append('source(OCR)')
                         else:
-                            reason=source_reason(body,text)
+                            reason=source_reason(body,text,from_ocr=scan)
                             if reason:fail('source',reason)
                 except Exception as e:fail('source',f'{type(e).__name__}: {e}')
                 if missing:
@@ -429,7 +432,7 @@ def plan(path):
         if indices is None or all(re.fullmatch(r':?-+:?',c) for c in cells):continue
         if len(cells)<=max(indices):raise ValueError('malformed plan row')
         rel,date,content=[cells[i] for i in indices]
-        if content.startswith('破棄：'):continue
+        if content.startswith(('破棄：','成形待ち：')):continue
         if not rel or Path(rel).is_absolute() or '..' in Path(rel).parts:raise ValueError('unsafe plan path')
         if rel in result:raise ValueError('duplicate plan path: '+rel)
         result[rel]=date
