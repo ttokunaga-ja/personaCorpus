@@ -7,7 +7,7 @@
 ```
 統括：依頼を書く → bin/batch start
   └ bin/batch（Codex のジョブを順に動かす。統括は呼ばれない）
-      1. テンプレート（その persona で初回だけ）        Sol
+      1. テンプレート（その persona で初回だけ）と、その検査  Sol
       2. ファイル計画と事実の台帳                       Sol
       3. 原稿：中身を Markdown で書く（10 件ずつ）       Terra
       4. 原稿のレビュー（不合格は書き直し、2 回まで）    Sol
@@ -52,6 +52,7 @@
 bin/batch start <persona> <batch>          # 依頼を読み、最後まで自動で進める
 bin/batch start <persona> <batch> --plan-only   # 計画を書いたところで止める（統括が計画を見てから続けたいとき）
 bin/batch resume <persona> <batch>         # 止まったところから続ける
+bin/batch resume <persona> <batch> --rebuild     # 「成形待ち」の行を、残っている原稿から成形し直す
 agent-alert wait --repo personaCorpus      # Bash の background で実行し、通知を待つ
 ```
 
@@ -64,16 +65,17 @@ agent-alert wait --repo personaCorpus      # Bash の background で実行し、
 | 段階 | 担当 | 内容 | 出力 |
 |---|---|---|---|
 | テンプレート | `gpt-6.1-sol` | `templates/<persona>/` が無いときだけ、その persona の文書の型を作る（下の「テンプレート」） | `templates/<persona>/` |
+| テンプレートのレビュー | `gpt-6.1-sol` | 型を作ったのとは別の実行で、型を開いて画像にし、`README.md` の説明と実物が合っているか、崩れがないか、余計な空の行や仮の欄がないかを確かめる。不合格は理由を渡して作り直させる（2 回まで） | |
 | 計画 | `gpt-6.1-sol` | 依頼、persona の定義、これまでの計画、テンプレートの一覧を読み、ファイル計画を書く。複数のファイルにまたがる事実（文書番号、金額の内訳、会議の日時、メールのスレッド）を事実の台帳に書き足す | `progress/<persona>/<batch>.md`、`progress/<persona>/facts.md` |
 | 計画の検査 | スクリプト | 列、拡張子、パスの重複、日付が期間内か、制作区分の名前がないか、件数。不合格なら理由を付けて計画をやり直させる（1 回） | |
 | 原稿 | `gpt-6.1-terra` | 計画の行を 10 件ずつ、別々の Codex の実行で、中身を Markdown の原稿に書く（下の「原稿」） | `sources/<persona>/…​.md` |
 | 原稿の検査 | スクリプト | 全行に原稿があるか、制作の痕跡、同じ batch と既存の原稿との近似重複 | |
 | 原稿のレビュー | `gpt-6.1-sol` | `runbooks/REVIEW.md` の「原稿のレビュー」の観点で 1 件ずつ読み、合格か破棄かと理由を書く。不合格の原稿は消して書き直させる。2 回まで。まだ不合格の行は破棄し、成形しない | `scratch/…/draft-review-r<N>.tsv` |
 | 成形 | `gpt-6.1-terra` | 合格した原稿を、10 件ずつ別々の実行で、型に入れて DOCX・XLSX・PPTX・PDF・`eml`・画像にする。原稿の中身を変えない | `people/<persona>/…` |
-| 日付 | スクリプト | 各ファイルの更新時刻を計画の「日付」にする | |
+| 日付と内部の情報 | `bin/stamp` | 各ファイルの更新時刻を計画の「日付」にし、ファイルの内部の作成者・作成日時・更新日時・アプリ名を、原稿の `author` と計画の日付とその人が使うアプリにそろえる。制作の道具が残した情報を消す | |
 | 自動検査 | `bin/check` | `bin/check <persona> --batch <batch>`。成果物の本文が原稿と一致するか（`source`）、内部に制作時の情報が残っていないか（`metadata`）も見る | `scratch/…/check-r<N>.tsv` |
 | 見た目のレビュー | `gpt-6.1-sol` | `runbooks/REVIEW.md` の「見た目のレビュー」の観点で 1 件ずつ画像にして見る。不合格の成果物は消して成形し直させる（原稿は変えない）。2 回まで | `scratch/…/review-r<N>.tsv` |
-| 報告 | スクリプト | まだ不合格の行は原稿も成果物も消し、計画のその行に「破棄：理由」と書く。結果を報告にまとめる | `progress/<persona>/<batch>.result.md` |
+| 報告 | スクリプト | 原稿が不合格のままの行は原稿を消し、計画のその行に「破棄：理由」と書く。原稿は合格したのに成形が不合格のままの行は、成果物だけを消して原稿を残し、計画に「成形待ち：理由」と書く。結果と指摘の記録をまとめる | `progress/<persona>/<batch>.result.md`、`progress/findings.tsv`、`progress/batches.tsv` |
 
 ファイル計画（`progress/<persona>/<batch>.md`）は Markdown の表で、列は次のとおり。
 
@@ -127,6 +129,8 @@ Office の文書と PDF は、その persona の世界の「型」を使って�
   - `README.md`：型の一覧。型ごとに、名前、どの組織の誰が何に使うか、ファイル名、見た目の説明。
 - 型は persona ごとに別のデザインにする。20 persona が同じ見た目にならないようにする。
 - 型を足すのは、依頼の範囲に今の型で作れない文書があるときだけで、計画の段階で行う。
+- 型には、見出しと書式の決まりだけを持たせる。中身の入っていない書式つきの行、仮の合計欄を残さない。行数は文書ごとに違うので、明細の行と合計の行は成形のときに書式ごと作る。作り方は `README.md` に書く。
+- 見た目のレビューで型そのものの欠陥（説明と実物の食い違い、型の崩れ）が見つかったら、統括が `bin/batch templates <persona> --fix "<欠陥の内容>"` で型を直させる（型の作り直しとレビューが動く）。直した型は、まだ受入していない batch から使う。
 - 個人のメモ、作業中の表、古い資料など、型を使わない文書も実際にはある。全部を型どおりにしない。
 
 ## 5. 制作の道具
@@ -136,6 +140,7 @@ Office の文書と PDF は、その persona の世界の「型」を使って�
 | `bin/render <file> <outdir>` | DOCX・XLSX・PPTX・PDF をページごとの PNG にする。制作とレビューで、見た目を確かめるのに使う |
 | `bin/tex <file.tex> <out.pdf>` | `lualatex` で PDF にする。一時物は `scratch/` に置く |
 | `bin/scan <in.pdf または画像> <out.pdf>` | 紙をスキャンしたような PDF にする（傾き、濃淡、ノイズ、JPEG 圧縮。テキスト層なし） |
+| `bin/stamp <file> --author <名前> --date <日時> [--timezone <tz>]` | ファイルの内部の作成者・日時・アプリ名をそろえ、制作の道具の情報を消す。進行役が成形のあとに全ファイルにかけるので、成形の中で呼ぶ必要はない |
 | `bin/office-pdf <file> <out.pdf>` | DOCX・XLSX・PPTX を PDF にする（「PDF で保存した」文書用） |
 | `uv run python` | `python-docx`、`openpyxl`、`python-pptx`、`matplotlib`、`pillow` で、テンプレートを開いて中身を入れる |
 | Codex の `imagegen` skill | 写真、手書きのメモ、ホワイトボードなどの画像 |
@@ -171,7 +176,29 @@ bin/pack <出力先のフォルダ>
 
 `bin/check --all` と `manifests/` の照合に合格したときだけ、persona ごとに `<persona>.tar.gz` を作る。中身は `people/<persona>/` の下だけで、更新時刻は `manifests/<persona>.tsv` の値にする。あわせて `SHA256SUMS` と配布用の `README.md` を出力する。出力先は repo の外か `scratch/` にし、Git に入れない。
 
-## 8. 止まったとき
+## 8. 指摘から仕組みを直す
+
+レビューや検査でくり返し見つかる問題は、検査や指示に取り込んで、作る前に防ぐか機械的に落とす。
+
+- 記録：`bin/batch` が batch のたびに、不合格を `progress/findings.tsv` に、batch ごとの件数と率を `progress/batches.tsv` に追記する。対象は、原稿の検査、原稿のレビュー、自動検査、見た目のレビュー、統括の抜き取りでの破棄。レビューの指摘には観点の番号（原稿は `D1`〜`D10`、見た目は `V1`〜`V6`、当てはまらなければ `other`）が付く。
+- 集計：`bin/batch findings` が、段階 × 観点の件数、多い順の一覧、batch ごとの初回の不合格率の推移、改善の前後の件数を出す。
+- 改善の時期：受入済みの batch が 10 たまるか、同じ観点（または同じ検査名）の指摘が 5 件を超えたら、統括が改善のジョブを起動する。どの batch も動いていないときに行う。
+
+  ```sh
+  bin/batch findings > scratch/improve/findings.txt
+  codex-job start --repo personaCorpus --name improve-<日付> --brief "$PWD/prompts/improve.md" --model gpt-6.1-sol --effort medium
+  ```
+
+- 改善のジョブがしてよいこと：
+  1. 機械的に判定できる指摘を、`bin/check` か原稿の検査に、テストつきで足す。
+  2. 作る前に防げる指摘を、`prompts/` の指示に書き足す。
+  3. 型の作り方に原因がある指摘を、`prompts/templates.md` に書き足す。
+  4. 何を足したか、対象の観点、日付を `progress/improvements.md` に書く。
+- 改善のジョブがしてはいけないこと：既存の検査の条件を緩める、レビューの観点を削る・弱める、`SPEC.md`・`AGENTS.md`・`runbooks/` を変える、成果物と原稿を変える。必要だと判断したら、変更せずに理由を報告に書く。統括はそれをユーザーに伝え、変更は Fable のセッションで行う。
+- 統括の確認：テスト（`tests/run.sh`）が通ること、既存の検査が緩んでいないこと（差分を読む）、新しい検査を受入済みの全ファイルに当てて（`bin/check --all`）、落ちたものが見逃していた不良か検査の誤りかを確かめること。検査の誤りなら、その検査を入れない。確認できたら、資料・スクリプトの変更として、成果物とは別に commit する。
+- 目標は、不合格の件数を減らすことではない。同じ種類の不合格がくり返されないことと、統括の抜き取りでの不合格がゼロに近いことである。
+
+## 9. 止まったとき
 
 - `failed` の通知が来たら、`bin/batch status <persona> <batch>` で止まった段階と理由を見る。Codex の利用上限なら、上限が戻ってから `bin/batch resume` する。それ以外は、`scratch/<persona>/<batch>/logs/` の該当の出力を読んで原因を直してから `resume` する。
 - `resume` は、済んだ段階と、検査に通っているファイルをやり直さない。
