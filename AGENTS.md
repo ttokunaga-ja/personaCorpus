@@ -16,119 +16,46 @@
 - Push 前には GitHub の現在の公開範囲、ワークフロー、hooks、差分、送信対象コミット、ローカル検証結果を確認する。公開リポジトリへの Push 許可は、デプロイ・公開・リリース・課金資源の操作の許可を兼ねない。それらを自動実行する Push は対応する操作の許可を必要とする。
 - personaCorpus の成果物制作など、担当者の stage/commit/push を禁止する固有の権限分離は維持する。担当範囲の変更は権限を持つ調整担当が適切な単位でコミットする。
 
-# Persona corpus production instructions
+# personaCorpus の制作規則
 
-## Purpose and authority
+## 正本と独立
 
-この repo は、20 職種の人の PC のフォルダ環境を合成で再現する corpus を作る。corpus の内容（目的、独立、構成、ファイル形式、品質、受入と破棄、規模）の正本は `SPEC.md` である（2026-11-15 ユーザー決定）。
+この repo は、20 職種の人の PC のフォルダ環境を合成で再現する corpus を作る。corpus の内容（目的、独立、構成、ファイル形式、品質、受入と破棄、規模）の正本は `SPEC.md` である（2026-11-15 ユーザー決定）。persona ごとの設定の正本は `personas/<persona>.md`、制作と受入の手順は `runbooks/PRODUCTION.md` である。
 
-- personaCorpus は Kio を含む他の repo に依存しない。`kio-eval`、`canonical/persona-plan.json`、`workspace/persona-workspace-owner.json`、lease は正本でも制作の前提でもなくなった。
-- **制作は停止中である。** この節より下の「Mandatory session model」から「Production milestones」までは、Kio の計画を前提にした旧い手順で、`SPEC.md` に合わせた書き直しが済んでいない。`SPEC.md` と食い違う部分は無効である。書き直しが済むまで、新しい制作、受入、成果物の commit を行わない。
+personaCorpus は Kio を含む他の repo に依存しない。他の repo のコード、実行ファイル、計画、schema を使わない。評価する側の要望で `SPEC.md` を変えない。
 
-## Mandatory session model
+## 置き場所
 
-- Run every persona parent task in **Local / same-directory mode** against this
-  exact repository. Do not use a separate Git worktree for production.
-- One parent task owns exactly one persona (`p01` through `p20`).
-- A parent may run several subagents concurrently only when every subagent owns
-  a different plan-defined leaf scope. Never assign one scope twice at once.
-- Parent tasks for different personas may run concurrently. Another persona's
-  lease is expected shared-workspace state: do not inspect, recover, release,
-  or use it as a reason to stop. Global `active_leases=0` is a coordinator-only
-  batch-end check, not an individual persona completion condition.
-- Each subagent writes final artifacts only below its assigned
-  `workspace/people/<persona>-<role>/home/<scope-path>/` leaf folder.
-- The parent alone invokes `./bin/persona lease ...`, retains release tokens,
-  checks the output, and releases leases. Never put a release token in a
-  prompt, artifact, progress file, Git file, or subagent message.
-- A stopped folder worker should be continued through the same subagent when
-  practical. Recovery commands require explicit user/coordinator confirmation.
+| 場所 | 中身 | Git |
+|---|---|---|
+| `people/<persona>/` | 配布物。その人の PC のユーザーフォルダそのもの | 受入済みだけを管理する |
+| `personas/<persona>.md` | persona の定義 | 管理する |
+| `progress/<persona>/<batch>.md` | batch のファイル計画 | 管理する |
+| `scratch/<persona>/<batch>/` | 下書き、レンダリング、検査の一時物 | 管理しない |
 
-## Artifact production
+- `people/` の下には、その人が自分で置いたように見えるファイルだけを置く。制作の記録や一時物を置かない。
+- Codex の作業、出力、一時ファイルは、この repo の中か `$TMPDIR` に限る。repo の中の一時物は `scratch/` に置き、repo の直下やホーム、`~/Documents` などには作らない。指示書には出力先を必ず書く。
+- `scratch/<persona>/<batch>/` は、その batch を受入または破棄したら消す。
 
-- Read `README.md`, all common files named by the selected parent prompt, and
-  the matching `runbooks/personas/pXX-*.md` brief before producing anything.
-- Use Documents for DOCX, PDF for PDF, Spreadsheets for XLSX, Presentations for
-  PPTX, and ImageGen for images or scan source artwork whenever the brief calls
-  for those formats. Read each applicable `SKILL.md` before using it.
-- The user's priority is high-quality, realistic persona content. Do not design
-  a separate search or Kio QA suite. Skill-required rendering and visual/file
-  verification remain mandatory before an artifact is accepted.
-- Text, code, CSV/TSV, JSON/YAML, HTML/EML, notebooks, and similar files may be
-  created normally. Extensions must match real file contents.
-- Use synthetic names and facts only. Never include real PII, PHI, credentials,
-  secrets, private documents, customer data, or copyrighted source documents.
-- Put temporary inputs and render/inspection output under
-  `scratch/<persona-id>/<scope-id>/`, never inside the final workspace.
+## 制作の単位
 
-## Ownership and repository safety
+- 制作は persona × batch の単位で行う。1 つの batch は 50 ファイル程度までとし、「ファイル計画 → 制作 → 自動検査 → 抜き取り確認 → 受入または破棄 → commit・push」を batch ごとに終わらせる。受入を後回しにして未 commit の成果物を溜めない。
+- 1 つの persona を同時に扱う Codex ジョブは 1 つだけである。統括は、同じ persona のジョブが動いている間（`codex-job status --repo personaCorpus`）は次のジョブを起動しない。違う persona のジョブは並行してよい。
+- 制作するジョブが書いてよいのは、指示された persona の `people/<persona>/` と、その batch の `scratch/<persona>/<batch>/` だけである。
+- 統括は、ジョブを起動する前に空き容量を確かめ、30 GB（30,000,000,000 バイト）を下回るときは新しいジョブを起動しない。動いているジョブは止めない。
 
-### Shared monitoring responsibility
+## 作り方
 
-- The coordinator and central resource monitor own shared disk-capacity
-  decisions, the all-persona reservation ledger, cross-persona scheduling,
-  and whole-corpus stop/completion checks. Persona tasks must not independently
-  recalculate global free-space floors or add their own reservation a second
-  time to the all-persona aggregate.
-- The user-approved capacity policy (2026-10-13) is a shared pool with one
-  central free-space threshold of 30 GB (30,000,000,000 bytes, decimal). Do not add the former 48 GiB
-  reservation aggregate or fixed per-persona allocations to this threshold.
-  Fixed slot allocation and unused reservation amounts are not launch gates.
-  Roll this policy into reviewed immutable admission successors; until a
-  caller adopts the operational replacement, preserve its existing interface
-  and report its legacy threshold rather than claiming it has migrated.
-- Migrate existing pinned consumers through narrow immutable successors and
-  a reviewed central admission interface. Do not disable their capacity checks
-  before the central replacement is operational. A periodic monitoring report
-  alone is not synchronous launch admission.
-- A persona retains its own scope ownership, input/runtime identity,
-  protected-artifact checks, finite per-operation write bounds, actual I/O error handling,
-  process containment, durable exit recording, and artifact-quality checks.
-  Global Git cleanliness, unrelated persona changes, unrelated shared metadata
-  additions, and other personas' active leases are not local stop conditions.
-- Central admission holds affect new launches. They must not kill healthy
-  running children or prevent recording their actual exits and diagnostics.
-  Preserve unresolved reservations after a crash until actual ownership and
-  completion are reconciled; do not release them solely because time elapsed.
+- ファイルは 1 件ずつ、ファイル計画に書かれた固有の内容で作る。テンプレートに ID・日付・少数の値を差し込んで文書を量産するスクリプトを使わない。スクリプトを使ってよいのは、書いた内容を DOCX・XLSX・PPTX・PDF などの形式にする処理と、1 つの表の中の行データを作る処理だけである。
+- DOCX・XLSX・PPTX・PDF は、repo の Python 環境（`uv run`、`pyproject.toml`）のライブラリで作り、LibreOffice で PDF にレンダリングして画像にし、目視で確かめる。画像とスキャン原稿は Codex の `imagegen` skill で作り、使う前にその `SKILL.md` を読む。
+- 件数を満たすための制作をしない。ファイル計画にないファイルを足さない。計画どおりの内容を作れないファイルは作らず、理由を報告する。
 
-- Persona parents own only their persona's `workspace/people/.../` subtree and
-  `progress/<persona-id>/`. Folder workers own only the exact leaf folder given
-  to them by that parent.
-- Do not directly edit `canonical/`, the Rust plan/owner records, `_control/`,
-  runbooks, prompts, scripts, or another persona's files during production.
-  Only the pinned Rust lease commands may mutate `_control/`.
-- Accepted final artifacts below `workspace/people/**/home/**`, portable
-  canonical plan/schedule records, and allowlisted token-free progress records
-  are Git-managed. Production tasks leave their own accepted additions as
-  ordinary working-tree changes; they never stage or commit them.
-- Runtime binaries, workspace owner/lease topology, canonical render and
-  materialization receipts, scratch renders, local logs, and release tokens
-  remain ignored. Never force-add an ignored path.
-- Do not require a globally clean Git status while parallel persona tasks are
-  active: another persona's uncommitted artifacts are expected shared state.
-  The coordinating task alone verifies the corpus manifest, stages only an
-  accepted wave, and commits directly to `main`. Production tasks never push.
+## 受入と破棄
 
-## Production milestones
-
-The first launch targets the persona brief's named seed artifacts, then the
-first 200 final files for that persona in bounded folder batches. Freeze the
-machine-readable M1 assignment ledger before the first worker starts, then
-derive its human assignment display; Full production must never infer an
-accepted M1 family from extension alone. The full
-profile (195,000 files total) proceeds only through
-`runbooks/FULL_PRODUCTION_PROTOCOL.md` and a frozen, token-free Full addition
-assignment. Full work must preserve the first 200 files byte-for-byte, use
-bounded resumable batches, and never reinterpret the Rust plan. Do not claim
-Kio indexing, history, search, measured chunks, or performance from either
-milestone.
-
-For M1, the sole machine-readable allocation authority is
-`progress/<persona>/m1-assignment-ledger.jsonl` with schema
-`persona-corpus.m1-assignment/v1`. It is frozen before the first worker starts;
-the human `m1-assignments.md` is its derived display/narrative, never an
-independent allocation. Full reservations consume the frozen ledger directly;
-do not infer a family (especially `.sql`) from an extension.
+- 受入は統括が行う。`bin/check` の自動検査に合格し、統括の抜き取り確認（開いて読む）で `SPEC.md` の品質を満たした batch だけを受理する。件数、パス、ハッシュの一致だけでは受理しない。
+- 不合格のファイルは受理しない。直して残すのではなく破棄し、必要なら次の batch で作り直す。破棄した件数と理由は commit メッセージか次の batch のファイル計画に書く。
+- 制作するジョブは stage・commit・push をしない。統括が、受理した batch のファイルとそのファイル計画だけを stage して commit・push する。
+- 受入済みのファイルを後から変更・削除するのは、`SPEC.md` を満たさないと分かったときだけである。
 
 # エージェント運用（2026-11-12〜、個人デスクトップ WSL）
 
@@ -142,7 +69,7 @@ do not infer a family (especially `.sql`) from an extension.
   |---|---|
   | 制作方式・品質基準・運用規則の見直しと修正 | Claude Fable 5.2（`claude-fable-5-2`）のセッション |
   | 制作の指示・受入検証・commit・push の統括（調整担当） | Claude Opus 5.5（`claude-opus-5-5`） |
-  | persona 制作（親タスクとその subagent） | Codex `gpt-6.1-terra` |
+  | persona の batch 制作 | Codex `gpt-6.1-terra` |
   | 確立済みの検証コマンドの実行、読み取り専用の集計・探索 | Codex `gpt-6-luna` |
   | 受入レビューの難しい判断、監査、Terra で品質が安定しない制作 | Codex `gpt-6.1-sol` |
 
@@ -150,7 +77,7 @@ do not infer a family (especially `.sql`) from an extension.
 - **委譲と監視**：Codex は `~/dev/github.com/ttokunaga-ja/agent-ops` の `codex-job start --repo personaCorpus ...` で起動する。統括は `agent-alert wait --repo personaCorpus` をバックグラウンドで待ち、通知を受けたときだけ処理する。LLM による定期監視（旧 Codex automation）は廃止した。
 - **停止の基準**：Codex が作業全体を止めてよいのは、取り返しのつかない操作、外部への公開、秘密情報、課金に関わる判断だけである。それ以外の不明点はその項目だけ保留として理由と選択肢を記録し、残りを進める。保留は統括が解決する。Codex は新しい停止規則・承認手続きを自分で作らず、repo の資料にも追加しない。規則の追加・変更は Fable のセッションで行う。
 - **commit の粒度**：
-  - 受入済みの成果物は、persona × batch（または phase）ごとに 1 commit とし、受入のたびに commit・push する。複数 persona や複数 batch をまとめた一括 commit、`git add -A`・`git add workspace/` のような広い stage はしない。
+  - 受入済みの成果物は、persona × batch（または phase）ごとに 1 commit とし、受入のたびに commit・push する。複数 persona や複数 batch をまとめた一括 commit、`git add -A`・`git add people/` のような広い stage はしない。
   - 1 回の push で送る pack は 1 GiB 程度までに抑える（GitHub の 2 GiB 上限）。超えそうな batch は分割して commit する。
   - 成果物の commit と、資料・規則・スクリプトの変更の commit は分ける。
 - **検証**：Codex の報告のうち、受入・一致・失敗原因などの重要な主張は、統括がコマンドで確認してから採用する。
