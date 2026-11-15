@@ -8,6 +8,7 @@
 | `AGENTS.md` | 制作の規則と、Claude・Codex の役割 |
 | `personas/` | persona ごとの定義（人物、組織、仕事の流れ、フォルダ構成、形式の目安） |
 | `people/<persona>/` | 配布物。その人の PC のユーザーフォルダそのもの |
+| `sources/<persona>/` | 成果物ごとの原稿（中身を書いた Markdown） |
 | `templates/<persona>/` | その persona の世界の文書の型 |
 | `progress/<persona>/` | batch ごとの依頼、ファイル計画、結果の報告 |
 | `manifests/` | 受入済みファイルの一覧（パス、sha256、大きさ、更新時刻） |

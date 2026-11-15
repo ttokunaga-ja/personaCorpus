@@ -31,6 +31,7 @@ personaCorpus は Kio を含む他の repo に依存しない。他の repo の�
 | `people/<persona>/` | 配布物。その人の PC のユーザーフォルダそのもの | 受入済みだけを管理する |
 | `personas/<persona>.md` | persona の定義 | 管理する |
 | `templates/<persona>/` | その persona の世界の文書の型（Office、TeX）と見本の一覧 | 管理する |
+| `sources/<persona>/` | 成果物ごとの原稿（中身を書いた Markdown）。成果物と同じ相対パスに `.md` を付けた名前 | 管理する |
 | `progress/<persona>/` | batch ごとの依頼、ファイル計画、結果の報告と、事実の台帳（`facts.md`） | 管理する |
 | `manifests/<persona>.tsv` | 受入済みファイルの一覧 | 管理する |
 | `scratch/<persona>/<batch>/` | 下書き、レンダリング、検査、Codex の出力 | 管理しない |
@@ -42,9 +43,10 @@ personaCorpus は Kio を含む他の repo に依存しない。他の repo の�
 ## 制作の単位
 
 - 制作は persona × batch の単位で行う。1 つの batch は 50 ファイル程度までの「仕事のまとまり」で、手順は `runbooks/PRODUCTION.md` に従う。受入を後回しにして未 commit の成果物を溜めない。
-- 統括は依頼を書いて `bin/batch start` で起動する。`bin/batch` が、テンプレート、ファイル計画、制作、自動検査、レビュー、作り直し、結果の報告までを Codex に順にやらせる。統括は、終わりの通知を受けてから、抜き取りで確かめて受入か破棄を決める。
+- 統括は依頼を書いて `bin/batch start` で起動する。`bin/batch` が、テンプレート、ファイル計画、原稿、原稿のレビュー、成形、自動検査、見た目のレビュー、結果の報告までを Codex に順にやらせる。統括は、終わりの通知を受けてから、抜き取りで確かめて受入か破棄を決める。
+- 中身と形を分ける。中身は原稿（`sources/<persona>/`）に書いてレビューし、合格した原稿だけを形にする。成形は原稿の中身を変えない。
 - 1 つの persona を同時に扱う batch は 1 つだけである（`bin/batch` が排他する）。違う persona は並行してよい。
-- 制作の Codex が書いてよいのは、その persona の `people/<persona>/` と、その batch の `scratch/<persona>/<batch>/` だけである。計画の Codex はそれに加えて `progress/<persona>/`、`templates/<persona>/`、`personas/<persona>.md` の「仕事の流れ」への追記ができる。レビューの Codex は `scratch/<persona>/<batch>/` にだけ書く。
+- 書いてよい場所は段階ごとに決まっている。計画は `progress/<persona>/`・`templates/<persona>/` と `personas/<persona>.md` の「仕事の流れ」への追記、原稿は `sources/<persona>/`、成形は `people/<persona>/`、レビューはどこも変更しない。どの段階も、一時物はその batch の `scratch/<persona>/<batch>/` に置く。
 - 空き容量が 30 GB（30,000,000,000 バイト）を下回るときは、新しい batch を起動しない（`bin/batch` が確かめる）。動いている batch は止めない。
 
 ## 作り方
@@ -53,13 +55,14 @@ personaCorpus は Kio を含む他の repo に依存しない。他の repo の�
 - Office の文書は、`templates/<persona>/` の型を開いて中身を入れる。同じ組織の文書は同じ見た目にし、社外から届いた文書は相手の型にする。
 - Office を経ない PDF は TeX（`bin/tex`）で組む。スキャン PDF は、中身のある文書を `bin/scan` に通して作る。写真や手書きの画像は Codex の `imagegen` skill で作り、使う前にその `SKILL.md` を読む。
 - 作ったものは `bin/render` で画像にして、見た目を確かめる。
+- ファイルの内部の作成者と日時は、その文書を書いた人物と計画の日付にする。制作の道具の名前や制作した日時を残さない。
 - 件数を満たすための制作をしない。ファイル計画にないファイルを足さない。計画どおりの内容を作れないファイルは作らず、理由を報告する。
 
 ## 受入と破棄
 
-- 受入は統括が行う。`bin/check` の自動検査と Codex のレビュー（`runbooks/REVIEW.md`）に合格し、統括の抜き取り確認で `SPEC.md` の品質を満たした batch だけを受理する。件数、パス、ハッシュの一致だけでは受理しない。Codex のレビューの合格は、統括の受入の代わりにならない。
+- 受入は統括が行う。`bin/check` の自動検査と Codex の 2 回のレビュー（原稿と見た目。`runbooks/REVIEW.md`）に合格し、統括の抜き取り確認で `SPEC.md` の品質を満たした batch だけを受理する。件数、パス、ハッシュの一致だけでは受理しない。Codex のレビューの合格は、統括の受入の代わりにならない。
 - 不合格のファイルは受理しない。直して残すのではなく破棄し、必要なら作り直す。破棄した行と理由はファイル計画に残す。
-- Codex は stage・commit・push をしない。統括が `bin/batch accept` または `bin/batch discard` で、その batch のファイル・計画・報告だけを commit し、push する。
+- Codex は stage・commit・push をしない。統括が `bin/batch accept` または `bin/batch discard` で、その batch の成果物・原稿・計画・報告だけを commit し、push する。
 - 受入済みのファイルを後から変更・削除するのは、`SPEC.md` を満たさないと分かったときだけである。
 
 # エージェント運用（2026-11-12〜、個人デスクトップ WSL）

@@ -7,15 +7,18 @@
 ```
 統括：依頼を書く → bin/batch start
   └ bin/batch（Codex のジョブを順に動かす。統括は呼ばれない）
-      1. テンプレート（その persona で初回だけ）   Sol
-      2. ファイル計画                              Sol
-      3. 制作（10 件ずつ）                         Terra
-      4. 自動検査                                  bin/check
-      5. レビュー（10 件ずつ、作った本人とは別）    Sol
-      6. 不合格を破棄して作り直し（2 回まで）       Terra
-      7. 結果の報告
+      1. テンプレート（その persona で初回だけ）        Sol
+      2. ファイル計画と事実の台帳                       Sol
+      3. 原稿：中身を Markdown で書く（10 件ずつ）       Terra
+      4. 原稿のレビュー（不合格は書き直し、2 回まで）    Sol
+      5. 成形：合格した原稿を型に入れて形にする          Terra
+      6. 自動検査                                       bin/check
+      7. 見た目のレビュー（不合格は成形し直し、2 回まで） Sol
+      8. 結果の報告
 統括：通知を受ける → 報告を読む → 抜き取り → bin/batch accept または discard → push
 ```
+
+中身（何が書いてあるか）と形（どう見えるか）は、別の段階で作り、別の観点でレビューする。中身の不合格は、形にする前に原稿の段階で落とす。
 
 ## 0. 環境の準備（初回だけ）
 
@@ -63,12 +66,14 @@ agent-alert wait --repo personaCorpus      # Bash の background で実行し、
 | テンプレート | `gpt-6.1-sol` | `templates/<persona>/` が無いときだけ、その persona の文書の型を作る（下の「テンプレート」） | `templates/<persona>/` |
 | 計画 | `gpt-6.1-sol` | 依頼、persona の定義、これまでの計画、テンプレートの一覧を読み、ファイル計画を書く。複数のファイルにまたがる事実（文書番号、金額の内訳、会議の日時、メールのスレッド）を事実の台帳に書き足す | `progress/<persona>/<batch>.md`、`progress/<persona>/facts.md` |
 | 計画の検査 | スクリプト | 列、拡張子、パスの重複、日付が期間内か、制作区分の名前がないか、件数。不合格なら理由を付けて計画をやり直させる（1 回） | |
-| 制作 | `gpt-6.1-terra` | 計画の行を 10 件ずつ、別々の Codex の実行で作る。既にあって検査に通っている行は飛ばす | `people/<persona>/…` |
+| 原稿 | `gpt-6.1-terra` | 計画の行を 10 件ずつ、別々の Codex の実行で、中身を Markdown の原稿に書く（下の「原稿」） | `sources/<persona>/…​.md` |
+| 原稿の検査 | スクリプト | 全行に原稿があるか、制作の痕跡、同じ batch と既存の原稿との近似重複 | |
+| 原稿のレビュー | `gpt-6.1-sol` | `runbooks/REVIEW.md` の「原稿のレビュー」の観点で 1 件ずつ読み、合格か破棄かと理由を書く。不合格の原稿は消して書き直させる。2 回まで。まだ不合格の行は破棄し、成形しない | `scratch/…/draft-review-r<N>.tsv` |
+| 成形 | `gpt-6.1-terra` | 合格した原稿を、10 件ずつ別々の実行で、型に入れて DOCX・XLSX・PPTX・PDF・`eml`・画像にする。原稿の中身を変えない | `people/<persona>/…` |
 | 日付 | スクリプト | 各ファイルの更新時刻を計画の「日付」にする | |
-| 自動検査 | `bin/check` | `bin/check <persona> --batch <batch>` | `scratch/…/check-r<N>.tsv` |
-| レビュー | `gpt-6.1-sol` | `runbooks/REVIEW.md` の観点で 1 件ずつ開いて読み、合格か破棄かと理由を書く。10 件ずつ、制作とは別の実行で行う | `scratch/…/review-r<N>.tsv` |
-| 作り直し | `gpt-6.1-terra` | 自動検査かレビューで不合格のファイルを消し、理由を渡して同じ行を作り直す。2 回まで | |
-| 報告 | スクリプト | まだ不合格のファイルを消し、計画のその行に「破棄：理由」と書く。結果を報告にまとめる | `progress/<persona>/<batch>.result.md` |
+| 自動検査 | `bin/check` | `bin/check <persona> --batch <batch>`。成果物の本文が原稿と一致するか（`source`）、内部に制作時の情報が残っていないか（`metadata`）も見る | `scratch/…/check-r<N>.tsv` |
+| 見た目のレビュー | `gpt-6.1-sol` | `runbooks/REVIEW.md` の「見た目のレビュー」の観点で 1 件ずつ画像にして見る。不合格の成果物は消して成形し直させる（原稿は変えない）。2 回まで | `scratch/…/review-r<N>.tsv` |
+| 報告 | スクリプト | まだ不合格の行は原稿も成果物も消し、計画のその行に「破棄：理由」と書く。結果を報告にまとめる | `progress/<persona>/<batch>.result.md` |
 
 ファイル計画（`progress/<persona>/<batch>.md`）は Markdown の表で、列は次のとおり。
 
@@ -80,7 +85,35 @@ agent-alert wait --repo personaCorpus      # Bash の background で実行し、
 | 内容 | そのファイルにしかない中身。誰が、何について、どの案件・数値・結論で書いたか。2〜4 文 |
 | 関連 | 参照する、または参照される既存ファイル（あれば） |
 
-報告（`progress/<persona>/<batch>.result.md`）には、依頼との対応、作った件数と形式の内訳、破棄した行と理由、作り直しの回数、レビュー役の所見、抜き取りに使うレンダリングの場所（`scratch/<persona>/<batch>/render/`）を書く。
+報告（`progress/<persona>/<batch>.result.md`）には、依頼との対応、作った件数と形式の内訳、原稿の段階と成形の段階それぞれの不合格の件数・理由・やり直しの回数、破棄した行と理由、レビュー役の所見、抜き取りに使うレンダリングの場所（`scratch/<persona>/<batch>/render/`）を書く。
+
+### 原稿
+
+原稿は、1 つの成果物の中身を全部書いた Markdown である。成形は、原稿に書いてあることだけを形にする。
+
+- 置き場所は `sources/<persona>/<成果物と同じ相対パス>.md`（例：`sources/p14-finance-controller/Documents/月次/2026/2026-03/2026-03_現預金調整.xlsx.md`）。Git で管理し、配布物には含めない。あとの batch の計画と原稿は、過去の原稿を読んで事実を合わせる。
+- 先頭に設定を置く。
+
+  ```
+  ---
+  path: Documents/月次/2026/2026-03/2026-03_現預金調整.xlsx
+  kind: cedar-reconciliation.xlsx
+  author: 千田 真理子
+  derived_from:
+  ---
+  ```
+
+  - `kind`：計画の「作り方」。
+  - `author`：その文書を作った人物（ファイルの作成者として入る）。社外から届いた文書は、その相手。
+  - `derived_from`：別の成果物から作られたものだけに書く（Word から出した PDF、文書をスキャンした PDF、メールに添付した控え）。その場合、本文は書かず、元との違い（押印、手書きの書き込み、スキャンの傾きなど）だけを書く。
+- 本文に書くもの：
+  - **文書**（DOCX、PDF、テキスト）：見出しと本文の全文。表は Markdown の表。変更履歴やコメントがあるなら、誰がいつ何をどう直したか。
+  - **表**（XLSX、CSV）：シートごとに、見出し、全部の行、数式（合計や差異は値ではなく `=SUM(E7:E11)` の形）、注記。行が多いデータ（数十行以上の明細）は、列の定義、行の作り方、合計が合う条件、代表の 10 行を書く。
+  - **スライド**（PPTX）：1 枚ごとに、レイアウト、題、本文、表や図の中身、発表者のメモ。
+  - **メール**（`eml`）：From、To、Cc、Date、Subject、Message-ID、In-Reply-To、本文、引用、添付の名前。
+  - **グラフと図**：元の数値、軸、単位、凡例、題。
+  - **写真・手書き・スクリーンショット**：何がどう写っているか、読める文字は全部。
+- 書かないもの：書式の指定（フォント、色、余白）。それは型が決める。
 
 ## 4. テンプレート
 
@@ -116,18 +149,18 @@ Office の文書と PDF は、その persona の世界の「型」を使って�
 通知が来たら、`progress/<persona>/<batch>.result.md` を読み、自分で開いて確かめる。
 
 - 形式ごとに 1 件以上、合計で batch の 2 割以上（最低 8 件）。Office と PDF は `scratch/<persona>/<batch>/render/` の画像を見る。画像は画像そのものを見る。
-- 見る点は `runbooks/REVIEW.md` と同じ。レビュー役が合格にしたものを、同じ基準で確かめる。
-- 自分の抜き取りで不合格が 2 件以上出たら、レビューが甘いとみて batch 全体を破棄するか、`bin/batch resume <persona> <batch> --review-again` でレビューからやり直す。
+- 見る点は `runbooks/REVIEW.md` と同じ。成果物を開いて、中身（原稿のレビューの観点）と見た目（見た目のレビューの観点）の両方を、同じ基準で確かめる。中身は `sources/<persona>/` の原稿でも読める。
+- 自分の抜き取りで不合格が 2 件以上出たら、レビューが甘いとみて batch 全体を破棄するか、`bin/batch resume <persona> <batch> --draft-review-again`（中身）または `--review-again`（見た目）でレビューからやり直す。
 
 ```sh
-bin/batch accept <persona> <batch>            # 検査をもう一度通し、manifest を更新し、その batch のファイル・計画・報告だけを commit する
+bin/batch accept <persona> <batch>            # 検査をもう一度通し、manifest を更新し、その batch の成果物・原稿・計画・報告だけを commit する
 bin/batch accept <persona> <batch> --drop <パス>...   # 指定のファイルを破棄して、残りを受け入れる
 bin/batch discard <persona> <batch> --reason "<理由>" # batch のファイルをすべて消し、理由を計画に書いて commit する
 git push origin main
 ```
 
 - 受入または破棄が済むと、`scratch/<persona>/<batch>/` は消える。
-- 同じ batch で不合格が 2 回続いたら、`bin/batch start ... --producer gpt-6.1-sol` で制作を Sol に切り替え、切替えと理由を依頼の末尾に書く。
+- 同じ batch で不合格が 2 回続いたら、`bin/batch start ... --producer gpt-6.1-sol` で原稿と成形を Sol に切り替え、切替えと理由を依頼の末尾に書く。
 - 形式ごとに、特に出来のよい受入済みファイルを `templates/<persona>/README.md` の「見本」に書き足す。制作とレビューは見本を水準として使う。
 
 ## 7. 配布物を組み立てる
