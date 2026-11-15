@@ -1,6 +1,7 @@
 ---
 persona: p14-finance-controller
 period: 2024-04-01..2026-09-30
+timezone: Asia/Tokyo
 allowed_terms: batch payment, payment batch, batch number, scope of audit, audit scope, scope of work, synthetic lease
 photo_dirs: Pictures
 ---

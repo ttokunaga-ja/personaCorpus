@@ -1,6 +1,7 @@
 ---
 persona: p17-construction-project-manager
 period: 2024-04-01..2026-09-30
+timezone: Asia/Tokyo
 allowed_terms: scope of work, scope of change, batch delivery
 photo_dirs: Pictures
 ---

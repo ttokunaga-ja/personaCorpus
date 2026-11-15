@@ -1,6 +1,7 @@
 ---
 persona: p05-bi-data-analyst
 period: 2024-04-01..2026-09-30
+timezone: Asia/Tokyo
 allowed_terms: scope of analysis, batch refresh, reporting scope
 photo_dirs: Pictures
 ---

@@ -1,6 +1,7 @@
 ---
 persona: p16-clinical-researcher
 period: 2024-04-01..2026-09-30
+timezone: Asia/Tokyo
 allowed_terms: scope of the study, study scope, synthetic cohort
 photo_dirs: Pictures
 ---

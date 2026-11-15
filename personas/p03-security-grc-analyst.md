@@ -1,6 +1,7 @@
 ---
 persona: p03-security-grc-analyst
 period: 2024-04-01..2026-09-30
+timezone: Asia/Tokyo
 allowed_terms: audit scope, scope of audit, scope of assessment
 photo_dirs: Pictures
 ---

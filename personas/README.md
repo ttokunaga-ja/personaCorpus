@@ -10,12 +10,14 @@ persona ごとに 1 つの資料（`<persona>.md`）で、その人の PC の中
 ---
 persona: p14-finance-controller
 period: 2024-04-01..2026-09-30
+timezone: Asia/Tokyo
 allowed_terms: batch payment
 photo_dirs: Pictures
 ---
 ```
 
 - `period`：ファイルの更新時刻が入る期間。
+- `timezone`：その人がいる場所のタイムゾーン。ファイル計画の日付と、メールの時刻に使う。
 - `allowed_terms`：制作の痕跡の検査（`trace`）で通す、その職種の正しい用語。複数語の句で書く。
 - `photo_dirs`：文字のない写真を置いてよいフォルダ。
 

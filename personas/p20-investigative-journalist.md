@@ -1,6 +1,7 @@
 ---
 persona: p20-investigative-journalist
 period: 2024-04-01..2026-09-30
+timezone: America/New_York
 allowed_terms: FOIA batch, scope of request, scope of investigation
 photo_dirs: Pictures
 ---

@@ -1,6 +1,7 @@
 ---
 persona: p10-management-consultant
 period: 2024-04-01..2026-09-30
+timezone: Europe/London
 allowed_terms: scope of work, engagement scope, scope of analysis
 photo_dirs: Pictures
 ---

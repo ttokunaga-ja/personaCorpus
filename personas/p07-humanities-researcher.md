@@ -1,6 +1,7 @@
 ---
 persona: p07-humanities-researcher
 period: 2024-04-01..2026-09-30
+timezone: Europe/London
 allowed_terms: textual corpus, corpus analysis, scope of chapter
 photo_dirs: Pictures
 ---

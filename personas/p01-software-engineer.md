@@ -1,6 +1,7 @@
 ---
 persona: p01-software-engineer
 period: 2024-04-01..2026-09-30
+timezone: Asia/Tokyo
 allowed_terms: scope of change, batch processing, test fixture
 photo_dirs: Pictures
 ---

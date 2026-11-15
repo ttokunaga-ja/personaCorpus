@@ -1,6 +1,7 @@
 ---
 persona: p18-manufacturing-quality-engineer
 period: 2024-04-01..2026-09-30
+timezone: Asia/Tokyo
 allowed_terms: production batch, batch number, scope of inspection, inspection fixture
 photo_dirs: Pictures
 ---

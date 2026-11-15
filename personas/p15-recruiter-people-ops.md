@@ -1,6 +1,7 @@
 ---
 persona: p15-recruiter-people-ops
 period: 2024-04-01..2026-09-30
+timezone: Asia/Tokyo
 allowed_terms: scope of role, batch onboarding, scope of training
 photo_dirs: Pictures
 ---

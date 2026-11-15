@@ -1,6 +1,7 @@
 ---
 persona: p19-educator-instructional-designer
 period: 2024-04-01..2026-09-30
+timezone: America/Toronto
 allowed_terms: scope of course, scope of assessment, batch enrolment
 photo_dirs: My files/Pictures
 ---

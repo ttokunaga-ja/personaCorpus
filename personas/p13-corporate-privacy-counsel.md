@@ -1,6 +1,7 @@
 ---
 persona: p13-corporate-privacy-counsel
 period: 2024-04-01..2026-09-30
+timezone: Asia/Tokyo
 allowed_terms: scope of processing, scope of review, scope of legal hold
 photo_dirs: Pictures
 ---

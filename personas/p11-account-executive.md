@@ -1,6 +1,7 @@
 ---
 persona: p11-account-executive
 period: 2024-04-01..2026-09-30
+timezone: America/Denver
 allowed_terms: scope of proposal, scope of services, batch invoicing
 photo_dirs: Pictures
 ---

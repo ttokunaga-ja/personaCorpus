@@ -1,6 +1,7 @@
 ---
 persona: p12-support-success-lead
 period: 2024-04-01..2026-09-30
+timezone: Asia/Tokyo
 allowed_terms: scope of support, batch import, scope of incident
 photo_dirs: Pictures
 ---

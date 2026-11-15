@@ -1,6 +1,7 @@
 ---
 persona: p04-ml-research-engineer
 period: 2024-04-01..2026-09-30
+timezone: America/Los_Angeles
 allowed_terms: batch size, synthetic data, scope of experiment
 photo_dirs: Pictures
 ---

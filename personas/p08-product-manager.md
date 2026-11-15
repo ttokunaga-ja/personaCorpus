@@ -1,6 +1,7 @@
 ---
 persona: p08-product-manager
 period: 2024-04-01..2026-09-30
+timezone: Asia/Tokyo
 allowed_terms: scope of release, product scope, user persona
 photo_dirs: Pictures
 ---

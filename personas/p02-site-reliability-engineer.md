@@ -1,6 +1,7 @@
 ---
 persona: p02-site-reliability-engineer
 period: 2024-04-01..2026-09-30
+timezone: Europe/London
 allowed_terms: scope of incident, batch processing, batch window
 photo_dirs: Pictures
 ---

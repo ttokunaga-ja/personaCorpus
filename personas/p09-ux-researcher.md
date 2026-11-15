@@ -1,6 +1,7 @@
 ---
 persona: p09-ux-researcher
 period: 2024-04-01..2026-09-30
+timezone: America/Chicago
 allowed_terms: user persona, persona mapping, scope of research
 photo_dirs: Pictures
 ---

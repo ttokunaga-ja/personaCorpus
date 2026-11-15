@@ -1,6 +1,7 @@
 ---
 persona: p06-life-science-researcher
 period: 2024-04-01..2026-09-30
+timezone: America/New_York
 allowed_terms: assay batch, batch number, synthetic medium, scope of study
 photo_dirs: Pictures
 ---
