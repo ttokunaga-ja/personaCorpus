@@ -22,7 +22,7 @@ with (scratch/'argv.jsonl').open('a') as f: f.write(json.dumps(sys.argv[:-1])+'\
 counter=scratch/'calls.json'; calls=json.loads(counter.read_text()) if counter.exists() else {}
 calls[s]=calls.get(s,0)+1; counter.write_text(json.dumps(calls))
 mode=os.environ.get('FAKE_MODE','ok')
-if mode=='fail' and s=='produce':
+if mode=='fail' and s=='build':
  print('rate limit: retry tomorrow'); sys.exit(3)
 if s=='templates':
  p=root/'templates'/meta['persona']/'README.md'; p.parent.mkdir(parents=True,exist_ok=True); p.write_text('型の一覧\n')
@@ -32,16 +32,30 @@ if s=='plan':
  if mode=='badplan' and calls[s]==1: names[0]='Documents/不正.py'
  if mode=='badplan-always': names[0]='../外.txt'
  p.write_text('| パス | 日付 | 作り方 | 内容 | 関連 |\n|---|---|---|---|---|\n'+''.join('| '+n+' | 2026-03-06 | text | 案件の判断と相手への連絡。 | |\n' for n in names))
-if s=='produce':
+if s=='draft':
+ import random, string
+ for i,row in enumerate(meta['rows']):
+  p=root/'sources'/meta['persona']/(row['パス']+'.md'); p.parent.mkdir(parents=True,exist_ok=True)
+  rng=random.Random(row['パス'])
+  body=('月次の資金繰りについて山田が承認。前月比の差額1240円は入金遅延で説明がついた。' if '記録' in row['パス'] else '研修担当の木下へ参加日程の変更を通知した。火曜日から水曜日へ移すことで回答を得た。') if len(meta['rows'])<3 else ' '.join(''.join(rng.choices(string.ascii_lowercase,k=9)) for _ in range(40))
+  if i==0 and mode=='machine-once' and meta['round']==0: body='placeholder'
+  p.write_text('---\npath: '+row['パス']+'\nkind: '+row['作り方']+'\nauthor: 山田 花子\nderived_from:\n---\n'+body+'\n')
+if s=='build':
  for row in meta['rows']:
-  p=root/'people'/meta['persona']/row['パス']; p.parent.mkdir(parents=True,exist_ok=True); p.write_text('固有の実務記録 '+row['パス'])
-if s=='review':
+  source=root/'sources'/meta['persona']/(row['パス']+'.md')
+  p=root/'people'/meta['persona']/row['パス']; p.parent.mkdir(parents=True,exist_ok=True); p.write_text(source.read_text().split('\n---\n',1)[1])
+  if mode=='number-once' and meta['round']==0 and '記録' in row['パス']: p.write_text(p.read_text().replace('1240',''))
+  if mode=='mutate-build': source.write_text(source.read_text()+'改変')
+if s in ('draft-review','build-review'):
  output=root/meta['review_output']; output.parent.mkdir(parents=True,exist_ok=True)
  lines=[]
  for i,row in enumerate(meta['rows']):
-  reject=i==0 and (mode=='reject-always' or mode=='reject-once' and meta['round']==0)
-  if mode=='mutate': (root/'people'/meta['persona']/row['パス']).write_text('改変')
-  if mode=='missing-review' and i==0: continue
+  draft=s=='draft-review'
+  reject=i==0 and ((mode in ('draft-reject-always','draft-final-fail') or mode=='draft-reject-once' and meta['round']==0) if draft else (mode in ('reject-always','build-final-fail') or mode=='reject-once' and meta['round']==0))
+  if mode=='mutate' and not draft: (root/'people'/meta['persona']/row['パス']).write_text('改変')
+  if mode=='mutate-build-review-source' and not draft: (root/'sources'/meta['persona']/(row['パス']+'.md')).write_text('改変')
+  if mode=='mutate-draft' and draft: (root/'sources'/meta['persona']/(row['パス']+'.md')).write_text('改変')
+  if mode=='missing-review' and i==0 and not draft: continue
   lines.append(row['パス']+'\t'+('reject' if reject else 'pass')+'\t'+('数値不整合' if reject else '本文と計画を確認'))
  output.write_text('\n'.join(lines)+'\n')
 pathlib.Path(sys.argv[sys.argv.index('-o')+1]).write_text('全体所見：途中のメモも含め自然。')
@@ -104,8 +118,75 @@ class BatchTest(unittest.TestCase):
         self.assertEqual(self.state()['status'],'done')
         self.assertEqual(len(list((self.root/'people/p01-test').rglob('*.txt'))),2)
         self.assertTrue((self.root/'progress/p01-test/b001.result.md').exists())
-        self.assertEqual(json.loads((self.scratch/'calls.json').read_text()),dict(templates=1,plan=1,produce=1,review=1))
+        self.assertEqual(json.loads((self.scratch/'calls.json').read_text()),{'templates':1,'plan':1,'draft':1,'draft-review':1,'build':1,'build-review':1})
         self.assertTrue((self.scratch/'review-r0.tsv').exists())
+    def test_draft_machine_retry(self):
+        self.run_batch(mode='machine-once')
+        calls=json.loads((self.scratch/'calls.json').read_text())
+        self.assertEqual(calls['draft'],2)
+        self.assertEqual(calls['build'],1)
+    def test_draft_review_retry(self):
+        self.run_batch(mode='draft-reject-once')
+        calls=json.loads((self.scratch/'calls.json').read_text())
+        self.assertEqual(calls['draft'],2)
+        self.assertEqual(calls['draft-review'],2)
+        self.assertEqual(calls['build'],1)
+        self.assertTrue((self.scratch/'draft-review-r0.tsv').exists())
+    def test_draft_reject_never_built(self):
+        self.run_batch(mode='draft-reject-always')
+        calls=json.loads((self.scratch/'calls.json').read_text())
+        self.assertEqual(calls['draft'],3)
+        self.assertFalse((self.root/'people/p01-test/Documents/記録.txt').exists())
+        self.assertFalse((self.root/'sources/p01-test/Documents/記録.txt.md').exists())
+        self.assertTrue((self.root/'people/p01-test/Documents/連絡.txt').exists())
+    def test_draft_hash_guards(self):
+        for mode in ('mutate-draft','mutate-build','mutate-build-review-source'):
+            with self.subTest(mode=mode):
+                self.run_batch(mode=mode,ok=False)
+                self.assertIn('変更',self.state()['reason'])
+                shutil.rmtree(self.scratch)
+                for name in ('people/p01-test','sources/p01-test'):
+                    shutil.rmtree(self.root/name,ignore_errors=True)
+    def test_draft_review_again(self):
+        self.run_batch()
+        self.cli('run','p01','b001','--draft-review-again')
+        calls=json.loads((self.scratch/'calls.json').read_text())
+        self.assertEqual(calls['draft'],1)
+        self.assertEqual(calls['draft-review'],2)
+    def test_build_review_keeps_source(self):
+        self.run_batch()
+        before={p:p.read_bytes() for p in (self.root/'sources/p01-test').rglob('*.md')}
+        self.cli('run','p01','b001','--review-again',mode='reject-once')
+        self.assertEqual(before,{p:p.read_bytes() for p in before})
+
+    def test_draft_machine_contract(self):
+        self.cli('run','p01','b001','--plan-only')
+        mod=self.load(); b=mod.Batch(type('Args',(),dict(persona='p01',batch='b001'))())
+        rows=b.state['completed']['plan']
+        def manuscript(row, body, **metadata):
+            values=dict(path=row['パス'],kind=row['作り方'],author='山田 花子',derived_from='')
+            values.update(metadata)
+            p=b.source(row['パス']); p.parent.mkdir(parents=True,exist_ok=True)
+            p.write_text('---\n'+''.join(k+': '+v+'\n' for k,v in values.items())+'---\n'+body)
+        first,second=rows
+        body='資金調達の条件について経理部長が確認し、銀行への返済期限を変更する方針を決めた。'
+        manuscript(first,body)
+        manuscript(second,'研修の会場を東館へ変更するため、参加者へ新しい入館経路を通知した。')
+        self.assertEqual(b.draft_check(rows),{})
+        for text,meta in [('',{}),('placeholder',{}),(body,{'kind':'other'}),(body,{'path':'wrong.txt'})]:
+            with self.subTest(text=text,meta=meta):
+                manuscript(first,text,**meta)
+                self.assertIn(first['パス'],b.draft_check(rows))
+        manuscript(first,body)
+        b.source(second['パス']).unlink()
+        self.assertIn(second['パス'],b.draft_check(rows))
+        manuscript(second,body)
+        self.assertEqual(set(b.draft_check(rows)),{r['パス'] for r in rows})
+        manuscript(second,'研修の日程は参加希望者の回答を踏まえて、水曜日から木曜日へ動かす。')
+        previous=dict(first,パス='Documents/過去.txt')
+        manuscript(previous,body)
+        self.assertIn(first['パス'],b.draft_check(rows))
+
     def test_plan_retry(self):
         self.run_batch(mode='badplan'); self.assertEqual(json.loads((self.scratch/'calls.json').read_text())['plan'],2)
     def test_bad_plan_stops(self):
@@ -120,7 +201,8 @@ class BatchTest(unittest.TestCase):
     def test_resume(self):
         self.run_batch(mode='fail',ok=False); self.assertEqual(self.state()['reason'],'利用上限')
         self.run_batch(); calls=json.loads((self.scratch/'calls.json').read_text())
-        self.assertEqual(calls['plan'],1); self.assertEqual(calls['produce'],3)
+        self.assertEqual(calls['plan'],1); self.assertEqual(calls['build'],3)
+        self.assertEqual(calls['draft'],1); self.assertEqual(calls['draft-review'],1)
     def test_review_mutation(self):
         self.run_batch(mode='mutate',ok=False); self.assertIn('変更',self.state()['reason'])
     def test_missing_review_rejected(self):
@@ -140,14 +222,21 @@ class BatchTest(unittest.TestCase):
     def test_real_check_and_manifest_contract(self):
         shutil.copy2(SOURCE/'bin/check',self.root/'bin/check')
         shutil.copy2(SOURCE/'bin/manifest',self.root/'bin/manifest')
-        p=self.root/'fake-codex'
-        p.write_text(p.read_text().replace("'固有の実務記録 '+row['パス']", "('月次の資金繰りについて山田が承認。前月比の差額は入金遅延で説明がついた。' if '記録' in row['パス'] else '研修担当の木下へ参加日程の変更を通知した。火曜日から水曜日へ移すことで回答を得た。')"))
         self.run_batch()
         self.assertEqual(self.state()['count'],2)
         self.cli('accept','p01','b001')
         rows=(self.root/'manifests/p01-test.tsv').read_text().splitlines()
         self.assertEqual(len(rows),2)
         self.assertEqual(len(rows[0].split('\t')),4)
+    def test_real_source_failure_rebuilds(self):
+        shutil.copy2(SOURCE/'bin/check',self.root/'bin/check')
+        self.run_batch(mode='number-once')
+        self.assertEqual(self.state()['count'],2)
+        calls=json.loads((self.scratch/'calls.json').read_text())
+        self.assertEqual(calls['draft'],1)
+        self.assertEqual(calls['build'],2)
+        self.assertIn('1240',(self.root/'people/p01-test/Documents/記録.txt').read_text())
+
     def test_finished_resume_is_idempotent(self):
         self.run_batch(mode='reject-always')
         before=(self.root/'progress/p01-test/b001.result.md').read_text()
@@ -161,14 +250,48 @@ class BatchTest(unittest.TestCase):
         self.run_batch(mode='final-fail',ok=False)
         self.assertEqual(self.state()['stage'],'final-check')
         self.run_batch()
-        self.assertEqual(json.loads((self.scratch/'calls.json').read_text())['produce'],1)
+        self.assertEqual(json.loads((self.scratch/'calls.json').read_text())["build"],1)
+    def test_resume_final_failure_preserves_discards(self):
+        check=self.root/'bin/check'
+        check.write_text(check.read_text().replace("print('passed')", "if '--report' not in args and os.environ.get('FAKE_MODE','').endswith('final-fail'): sys.exit(1)\nprint('passed')"))
+        for mode in ('draft-final-fail','build-final-fail'):
+            with self.subTest(mode=mode):
+                self.run_batch(mode=mode,ok=False)
+                self.assertEqual(self.state()['stage'],'final-check')
+                calls=(self.scratch/'calls.json').read_text()
+                self.run_batch()
+                self.assertEqual((self.scratch/'calls.json').read_text(),calls)
+                self.assertEqual(self.state()['count'],1)
+                self.assertFalse((self.root/'sources/p01-test/Documents/記録.txt.md').exists())
+                shutil.rmtree(self.scratch)
+                for name in ('people/p01-test','sources/p01-test'):
+                    shutil.rmtree(self.root/name,ignore_errors=True)
+
     def test_failures_are_only_in_private_logs(self):
         r=self.run_batch(mode='fail',ok=False)
         self.assertNotIn('retry tomorrow',r.stdout+r.stderr)
         self.assertIn('retry tomorrow',self.state()['failure_tail'])
     def test_automatic_reject(self):
         self.run_batch(mode='auto-reject'); self.assertEqual(self.state()['rebuilds'],1)
-        calls=json.loads((self.scratch/'calls.json').read_text()); self.assertEqual(calls['produce'],2)
+        calls=json.loads((self.scratch/'calls.json').read_text()); self.assertEqual(calls['build'],2)
+    def test_default_models(self):
+        self.run_batch()
+        args=list(map(json.loads,(self.scratch/'argv.jsonl').read_text().splitlines()))
+        self.assertEqual([a[a.index('-m')+1] for a in args],
+                         ['gpt-6.1-sol','gpt-6.1-sol','gpt-6.1-terra','gpt-6.1-sol','gpt-6.1-terra','gpt-6.1-sol'])
+    def test_status_and_separate_report(self):
+        self.run_batch(mode='draft-reject-once')
+        text=self.cli('status','p01','b001').stdout
+        self.assertIn('原稿',text)
+        self.assertIn('成形',text)
+        self.assertIn('合格',text)
+        report=(self.root/'progress/p01-test/b001.result.md').read_text()
+        self.assertIn('原稿',report)
+        self.assertIn('成形',report)
+        self.assertIn('数値不整合',report)
+        self.assertIn('原稿の所要時間：',report)
+        self.assertIn('成形の所要時間：',report)
+
     def test_model_flags_and_dates(self):
         self.cli('run','p01','b001','--producer','gpt-6.1-sol')
         for args in map(json.loads,(self.scratch/'argv.jsonl').read_text().splitlines()):
@@ -187,7 +310,8 @@ class BatchTest(unittest.TestCase):
         b.plan.write_text('| パス | 日付 | 作り方 | 内容 | 関連 |\n|---|---|---|---|---|\n'+''.join('| '+' | '.join(r[c] for c in mod.COLUMNS)+' |\n' for r in rows))
         b.state['completed']['plan']=rows; b.store()
         self.run_batch(); calls=json.loads((self.scratch/'calls.json').read_text())
-        self.assertEqual(calls['produce'],3); self.assertEqual(calls['review'],3)
+        self.assertEqual(calls['build'],3); self.assertEqual(calls['build-review'],3)
+        self.assertEqual(calls['draft'],3); self.assertEqual(calls['draft-review'],3)
     def test_naming_contract_matches_checker(self):
         import runpy
         checker=runpy.run_path(str(SOURCE/'bin/check'),run_name='checker_contract')
@@ -261,9 +385,10 @@ else:
     def test_accept_drop(self):
         self.run_batch(); self.cli('accept','p01','b001','--drop','Documents/記録.txt')
         self.assertFalse(self.scratch.exists()); self.assertFalse((self.root/'people/p01-test/Documents/記録.txt').exists())
+        self.assertFalse((self.root/'sources/p01-test/Documents/記録.txt.md').exists())
         self.assertIn('連絡.txt',(self.root/'manifests/p01-test.tsv').read_text())
         self.assertIn('Accept p01-test b001: 月次報告 (1 files)',self.git('log','-1','--format=%s'))
-        self.assertEqual(set(self.git('show','--format=','--name-only','HEAD').splitlines()),{'people/p01-test/Documents/連絡.txt','progress/p01-test/b001.md','progress/p01-test/b001.result.md','manifests/p01-test.tsv','templates/p01-test/README.md'})
+        self.assertEqual(set(self.git('show','--format=','--name-only','HEAD').splitlines()),{'people/p01-test/Documents/連絡.txt','progress/p01-test/b001.md','progress/p01-test/b001.result.md','manifests/p01-test.tsv','templates/p01-test/README.md','sources/p01-test/Documents/連絡.txt.md'})
         self.assertIn('受入済み',self.cli('status','p01').stdout)
     def test_unrelated_index_preserved(self):
         self.run_batch(); (self.root/'unrelated').write_text('keep'); self.git('add','unrelated')
@@ -273,6 +398,7 @@ else:
     def test_discard(self):
         self.run_batch(); self.cli('discard','p01','b001','--reason','品質')
         self.assertFalse(self.scratch.exists()); self.assertFalse(list((self.root/'people/p01-test').rglob('*.txt')))
+        self.assertFalse(list((self.root/'sources/p01-test').rglob('*.md')))
         self.assertIn('破棄：品質。',(self.root/'progress/p01-test/b001.md').read_text())
         self.assertTrue(all(p.startswith('progress/p01-test/b001.') for p in self.git('show','--format=','--name-only','HEAD').splitlines()))
     def test_review_again_keeps_discard_history(self):
@@ -282,6 +408,6 @@ else:
         self.assertEqual(self.state()['count'],1)
     def test_review_again(self):
         self.run_batch(); self.cli('run','p01','b001','--review-again')
-        calls=json.loads((self.scratch/'calls.json').read_text()); self.assertEqual(calls['produce'],1); self.assertEqual(calls['review'],2)
+        calls=json.loads((self.scratch/'calls.json').read_text()); self.assertEqual(calls['build'],1); self.assertEqual(calls['build-review'],2)
 
 if __name__=='__main__': unittest.main()

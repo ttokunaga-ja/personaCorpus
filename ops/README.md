@@ -21,7 +21,7 @@ Claude 側ではジョブ起動後、`agent-alert wait --repo personaCorpus` を
 
 状態は `running`（tmux セッションが存在）、`done`（終了コード 0）、`failed`（非 0 または終了情報なしでセッション消失）、`stalled`（ログが既定20分更新されない）、`limit`（末尾に利用上限の兆候）、`stdin-wait`（末尾に stdin 待ちの文言があり、既定20分ログ更新なし）。終了情報を最優先し、その次にセッション消失、limit、stdin-wait、stalled の順に判定する。状態が継続する間は重複通知せず、回復後に再発すれば再通知する。セッションの存在だけでは内部プロセスの進行を保証しない。
 
-上限検出は直近16 KiB に対する大文字小文字を無視した `usage limit|rate limit|\b429\b|\bquota\b`。`codex exec --help` はエラー文言を列挙しないため、手順書に挙がった語を兆候として採用した。実際のエラーログで網羅性は未検証で、誤検出もあり得る。stdin 文言は手順書に示された `Reading additional input from stdin` を使う。
+上限検出は log の末尾 2 KiB に対する大文字小文字を無視した `usage limit|rate limit|\b429\b|\bquota\b`。`codex exec --help` はエラー文言を列挙しないため、手順書に挙がった語を兆候として採用した。実際のエラーログで網羅性は未検証で、誤検出もあり得る。stdin 文言は手順書に示された `Reading additional input from stdin` を使う。
 
 `tests/run.sh` は独立した一時ディレクトリと tmux サーバーでダミージョブを検証する。監視間隔などの `AGENT_*` 環境変数はテストで調整する。`--command` は任意のシェルコマンドを実行する正式な起動方法。
 

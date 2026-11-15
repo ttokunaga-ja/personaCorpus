@@ -21,8 +21,10 @@ import subprocess
 import sys
 import tempfile
 import time
+import unicodedata
 import xml.etree.ElementTree as ET
 import zipfile
+from zoneinfo import ZoneInfo
 
 BASE = Path(__file__).resolve().parents[1]
 EXT = set('docx pdf xlsx csv tsv pptx txt md log eml html png jpg json xml wav mp3 m4a zip'.split())
@@ -34,7 +36,7 @@ LIBRARIES = ('docx','openpyxl','pptx','reportlab','pypdf','PIL')
 
 
 def options(parser):
-    for name in ('root','personas','progress','manifests'):
+    for name in ('root','personas','progress','manifests','sources'):
         parser.add_argument('--'+name,type=Path,default=BASE/('people' if name=='root' else name))
 
 
@@ -201,8 +203,121 @@ def shingles(text):
     return frozenset(int.from_bytes(hashlib.blake2b(' '.join(words[i:i+5]).encode(),digest_size=8).digest(),'big') for i in range(len(words)-4))
 
 
+def source_document(root, rel, chain=()):
+    """Resolve delta-only derived manuscripts without duplicating the base body."""
+    if Path(rel).is_absolute() or '..' in Path(rel).parts:raise ValueError('unsafe derived_from path')
+    if rel in chain:raise ValueError('derived_from cycle: '+rel)
+    root=root.absolute();path=root/(rel+'.md')
+    if not path.resolve().is_relative_to(root.resolve()) or any(p.is_symlink() for p in (path,*path.parents) if p==root or p.is_relative_to(root)):
+        raise ValueError('source path escapes root or contains symbolic link')
+    text=path.read_text(encoding='utf-8-sig');cfg={}
+    if not text.startswith('---\n'):raise ValueError('source front matter missing')
+    head,sep,text=text[4:].partition('\n---\n')
+    if not sep:raise ValueError('unclosed source front matter')
+    for line in head.splitlines():
+        if ':' in line:
+            k,v=line.split(':',1);cfg[k.strip()]=v.strip().strip("\"'")
+    parent=cfg.get('derived_from','')
+    if parent:text=source_document(root,parent,chain+(rel,))[1]+'\n'+text
+    if not text.strip() and cfg.get('kind')!='photo':raise ValueError('empty source body')
+    return cfg,text
+
+
+def body_tokens(text):
+    return Counter(re.findall(r'[\u3040-\u30ff\u3400-\u9fff]|[^\W_\u3040-\u30ff\u3400-\u9fff]+',unicodedata.normalize('NFKC',text).casefold()))
+
+
+def source_reason(expected, actual):
+    # Markdown punctuation is not content. Keep digits, including identifiers.
+    want=body_tokens(expected);have=body_tokens(actual)
+    overlap=sum((want & have).values())/sum(want.values()) if want else 1
+    normalize=lambda s:re.sub(r'(?<=\d),(?=\d)','',unicodedata.normalize('NFKC',s))
+    currency=r'[¥￥$€£]|USD|EUR|GBP|JPY|dollars?|euros?|pounds?|円|ドル'
+    numeric=re.compile(r'\d{4}[-/年]\d{1,2}[-/月]\d{1,2}日?|\d{1,2}月\d{1,2}日|[+-]?(?:(?:[¥￥$€£]|USD|EUR|GBP|JPY)\s*)?\d[\d,]*(?:\.\d+)?(?:億|万|千)?(?:円|ドル|万円|\s*(?:dollars?|euros?|pounds?|USD|EUR|GBP|JPY)\b)?',re.I)
+    missing=[];actual=normalize(actual)
+    for m in numeric.finditer(unicodedata.normalize('NFKC',expected)):
+        value=m.group()
+        if len(re.sub(r'\D','',value))<3 and not re.search(currency+r'|[年月日]',value,re.I):continue
+        clean=normalize(value)
+        if not re.search(r'(?<![\d.+\-])'+re.escape(clean)+r'(?!\d|\.\d)',actual) and value not in missing:missing.append(value)
+    if missing:return 'missing source values: '+', '.join(missing[:5])
+    if overlap<.85:return f'body token overlap {overlap:.3f} < 0.85'
+    return None
+
+
+def metadata(path, ext, cfg, mtime):
+    """Inspect internal properties only; filesystem times remain the mtime check."""
+    entries=[]
+    def xml_entries(raw,label):
+        def walk(node,parent):
+            key=parent+':'+node.tag.rsplit('}',1)[-1]
+            if node.text and node.text.strip():entries.append((key,node.text.strip()))
+            entries.extend((key+':'+k.rsplit('}',1)[-1],v) for k,v in node.attrib.items())
+            for child in node:walk(child,key)
+        walk(ET.fromstring(raw),label)
+    if ext in ('docx','xlsx','pptx'):
+        with zipfile.ZipFile(path) as z:
+            for name in z.namelist():
+                if name.startswith('docProps/') and name.endswith('.xml'):xml_entries(z.read(name),name)
+                elif name.endswith('.xml') and name.startswith(('word/','xl/','ppt/')):
+                    root=ET.fromstring(z.read(name))
+                    for node in root.iter():
+                        # Comment/revision author and dates occur as XML attributes.
+                        local=node.tag.rsplit('}',1)[-1]
+                        if local=='author' and node.text:entries.append((name+':author',node.text))
+                        for k,v in node.attrib.items():
+                            key=k.rsplit('}',1)[-1]
+                            if key in ('author','date','initials') or 'commentAuthor' in local and key=='name':entries.append((name+':'+('author' if key=='name' else key),v))
+    elif ext=='pdf':
+        from pypdf import PdfReader
+        reader=PdfReader(path)
+        entries.extend((str(k).lstrip('/'),str(v)) for k,v in (reader.metadata or {}).items())
+        xmp=reader.trailer['/Root'].get('/Metadata')
+        if xmp:xml_entries(xmp.get_object().get_data(),'XMP')
+    elif ext in ('png','jpg'):
+        from PIL import Image, ExifTags
+        with Image.open(path) as im:
+            for k,v in im.info.items():
+                if 'xmp' in k.casefold() and isinstance(v,(str,bytes)):xml_entries(v,'XMP')
+                elif isinstance(v,(str,int,float)):entries.append((str(k),str(v)))
+            exif=im.getexif()
+            for k,v in exif.items():entries.append((ExifTags.TAGS.get(k,str(k)),str(v)))
+            for tag in (34665,34853):
+                if tag in exif:
+                    for k,v in exif.get_ifd(tag).items():entries.append((ExifTags.TAGS.get(k,str(k)),str(v)))
+    tool=re.compile(r'python[- ]?(?:docx|pptx)?|openpyxl|reportlab|pypdf|pillow|matplotlib|codex|chatgpt|openai|imagegen|(?:lua|pdf|xe)?latex|(?:lua|pdf|xe)tex|tesseract|ghostscript|libreoffice',re.I)
+    user=os.environ.get('USER','')
+    trace=re.compile(r'/Users/|/home/|/tmp/|(?:[A-Z]:[\\/](?:Users|Temp)[\\/])|scratch/|'+re.escape(str(BASE)),re.I)
+    local_zone=ZoneInfo(cfg.get('timezone','UTC'))
+    offsets={k:v for k,v in entries if k in ('OffsetTime','OffsetTimeOriginal','OffsetTimeDigitized')}
+    for key,value in entries:
+        identity=ext in ('png','jpg') or bool(re.search(r'author|creator|lastModifiedBy|Application|producer|company|manager|initials',key,re.I))
+        if identity and (tool.search(value) or trace.search(value) or user and len(user)>2 and re.search(r'(?<!\w)'+re.escape(user)+r'(?!\w)',value,re.I)):
+            return f'production metadata {key}: {value[:180]}'
+        if re.search(r'date|created|modified|creation|lastprinted|datetime',key,re.I):
+            stamp=None
+            pdf=re.match(r'(?:D:)?(\d{4})(\d{2})(\d{2})(\d{2})?(\d{2})?(\d{2})?',value)
+            try:
+                if pdf:
+                    nums=[int(v or 0) for v in pdf.groups()];stamp=dt.datetime(*nums,tzinfo=dt.timezone.utc if value.endswith('Z') else local_zone)
+                    zone=re.search(r"([+-])(\d{2})'?(\d{2})'?",value[pdf.end():])
+                    if zone:stamp=stamp.replace(tzinfo=dt.timezone(dt.timedelta(minutes=(1 if zone[1]=='+' else -1)*(int(zone[2])*60+int(zone[3])))))
+                else:
+                    val=re.sub(r'^(\d{4}):(\d{2}):(\d{2})',r'\1-\2-\3',value)
+                    offset=offsets.get({'DateTime':'OffsetTime','DateTimeOriginal':'OffsetTimeOriginal','DateTimeDigitized':'OffsetTimeDigitized'}.get(key,''),'')
+                    if offset:val+=offset
+                    stamp=dt.datetime.fromisoformat(val.replace('Z','+00:00'))
+                    if stamp.tzinfo is None:stamp=stamp.replace(tzinfo=local_zone)
+            except ValueError:continue
+            if cfg.get('period'):
+                start,end=cfg['period'].split('..')
+                if not dt.date.fromisoformat(start)<=stamp.astimezone(dt.timezone.utc).date()<=dt.date.fromisoformat(end):return f'{key}: outside persona period: {value}'
+            if stamp.timestamp()>mtime:return f'{key}: later than file mtime: {value}'
+    return None
+
+
 def inspect(item):
-    path,folder,cfg,language=item
+    path,folder,cfg,language,source_root=item
     rel=path.relative_to(folder).as_posix();issues={};skipped=[];text='';digest=None
     def fail(kind,reason):issues.setdefault(kind,str(reason).replace('\n',' ')[:400])
     ext=path.suffix.lower().lstrip('.')
@@ -225,6 +340,19 @@ def inspect(item):
             try:
                 text,scan,missing=extract(path,ext,language)
                 photo=any(rel.startswith(x.strip().rstrip('/')+'/') for x in cfg.get('photo_dirs','').split(',') if x.strip())
+                try:
+                    reason=metadata(path,ext,cfg,st.st_mtime)
+                    if reason:fail('metadata',reason)
+                except Exception as e:fail('metadata',f'{type(e).__name__}: {e}')
+                try:
+                    scfg,body=source_document(source_root,rel)
+                    source_photo=ext in ('png','jpg') and scfg.get('kind')=='photo'
+                    if not source_photo:
+                        if missing:skipped.append('source(OCR)')
+                        else:
+                            reason=source_reason(body,text)
+                            if reason:fail('source',reason)
+                except Exception as e:fail('source',f'{type(e).__name__}: {e}')
                 if missing:
                     if not photo:skipped.append('empty-scan')
                     skipped.extend(('trace(OCR)','secret(OCR)','duplicate(OCR)'))
@@ -245,12 +373,21 @@ def inspect(item):
     return rel,issues,digest,shingles(text),skipped
 
 
-def duplicates(results):
+def duplicates(results, derived=None):
     """Exact Jaccard prefix join at .8; rarest shingles first, identical sets collapsed.
 
     A qualifying pair must share a prefix token. Size filtering and intersection
     verification avoid all-pairs comparisons. No MinHash false negatives.
     """
+    derived=derived or {}
+    def related(i,j):
+        a,b=results[i][0],results[j][0]
+        return derived.get(a)==b or derived.get(b)==a
+    def mark_pair(left,right,reason):
+        for group,other in ((left,right),(right,left)):
+            for i in group:
+                if 'duplicate' in results[i][1]:continue
+                if any(i!=j and not related(i,j) for j in other):mark((i,),reason)
     hashes=defaultdict(list);groups=defaultdict(list)
     for i,(_,_,digest,grams,_) in enumerate(results):
         if digest is not None:hashes[digest].append(i)
@@ -260,7 +397,7 @@ def duplicates(results):
     for indices in hashes.values():
         if len(indices)>1:mark(indices,'identical bytes: '+results[indices[0]][0])
     for indices in groups.values():
-        if len(indices)>1:mark(indices,'identical normalized shingles: '+results[indices[0]][0])
+        if len(indices)>1:mark_pair(indices,indices,'identical normalized shingles: '+results[indices[0]][0])
     frequency=Counter(g for grams in groups for g in grams)
     index=defaultdict(list)
     for grams,indices in sorted(groups.items(),key=lambda x:len(x[0])):
@@ -272,8 +409,7 @@ def duplicates(results):
         for other in candidates:
             intersection=len(grams & other)
             if 5*intersection>=4*(n+len(other)-intersection):
-                mark(indices,'normalized 5-word Jaccard >= 0.8: '+results[groups[other][0]][0])
-                mark(groups[other],'normalized 5-word Jaccard >= 0.8: '+results[indices[0]][0])
+                mark_pair(indices,groups[other],'normalized 5-word Jaccard >= 0.8: '+results[groups[other][0]][0])
         for g in prefix:index[g].append(grams)
 
 
@@ -346,12 +482,18 @@ def run(a):
         with concurrent.futures.ThreadPoolExecutor(max_workers=min(16,os.cpu_count() or 1)) as pool:
             # Bounded submissions: do not allocate 150,000 Future objects.
             for offset in range(0,len(paths),256):
-                items=((p,folder,cfg,language) for p in paths[offset:offset+256])
+                items=((p,folder,cfg,language,a.sources/name) for p in paths[offset:offset+256])
                 results.extend(pool.map(inspect,items))
                 if time.monotonic()-last>=5 or len(results)==len(paths):
                     print(f'{name}: {len(results)}/{len(paths)} files, {time.monotonic()-started:.1f}s',file=sys.stderr,flush=True);last=time.monotonic()
         print(f'{name}: duplicate comparison',file=sys.stderr,flush=True)
-        duplicates(results)
+        derived={}
+        for rel,_,_,_,_ in results:
+            try:
+                scfg,_=source_document(a.sources/name,rel)
+                if scfg.get('derived_from'):derived[rel]=scfg['derived_from']
+            except (OSError,ValueError):pass
+        duplicates(results,derived)
         for rel,issues,_,_,skipped in results:
             if target is not None and rel not in target:continue
             skips.update(skipped)

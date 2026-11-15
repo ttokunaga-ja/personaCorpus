@@ -37,7 +37,7 @@ def status(p):
         return ('done' if e['code'] == 0 else 'failed', 'exit code '+str(e['code']))
     if not alive(meta['session']): return 'failed', 'session disappeared without exit.json'
     log = p/'log'
-    tail = log.read_bytes()[-16384:].decode('utf-8', 'replace') if log.exists() else ''
+    tail = log.read_bytes()[-2048:].decode('utf-8', 'replace') if log.exists() else ''
     if LIMIT.search(tail): return 'limit', 'limit indication in recent log'
     if STDIN.search(tail) and time.time() - log.stat().st_mtime >= float(os.environ.get('AGENT_STALL_SECONDS', '1200')): return 'stdin-wait', 'stdin prompt with no subsequent log activity'
     if time.time() - (log.stat().st_mtime if log.exists() else p.stat().st_mtime) >= float(os.environ.get('AGENT_STALL_SECONDS', '1200')): return 'stalled', 'log has not grown within threshold'

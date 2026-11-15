@@ -28,7 +28,7 @@ class Fixture(unittest.TestCase):
         self.root = self.base / 'people'
         self.home = self.root / self.name
         self.home.mkdir(parents=True)
-        for d in ('personas', 'progress', 'manifests'):
+        for d in ('personas', 'progress', 'manifests', 'sources'):
             (self.base / d).mkdir()
         self.cfg('period: 2025-01-01..2026-12-31\nallowed_terms: batch payment, synthetic lease\nphoto_dirs: photos')
         self.args = sum(([f'--{n}', str(self.root if n == 'root' else self.base/n)] for n in ('root','personas','progress','manifests')), [])
@@ -41,10 +41,18 @@ class Fixture(unittest.TestCase):
         p.parent.mkdir(parents=True, exist_ok=True)
         p.write_bytes(content.encode() if isinstance(content,str) else content)
         os.utime(p, (1767225600,1767225600))
+        if isinstance(content,str):self.source(rel,content)
+        elif p.suffix in ('.txt','.md'):self.source(rel,content.decode())
+        return p
+
+    def source(self,rel,body,derived=''):
+        p=self.base/'sources'/self.name/(rel+'.md');p.parent.mkdir(parents=True,exist_ok=True)
+        p.write_text(f'---\npath: {rel}\nauthor: Eleanor\nderived_from: {derived}\n---\n'+body)
         return p
 
     def cli(self, tool, *args):
-        return subprocess.run([str(BASE/'bin'/tool), *map(str,args), *self.args], capture_output=True, text=True)
+        extra=['--sources',str(self.base/'sources')] if tool in ('check','pack') else []
+        return subprocess.run([str(BASE/'bin'/tool), *map(str,args), *self.args, *extra], capture_output=True, text=True)
 
     def issues(self, *args):
         report=self.base/'report.tsv'
@@ -250,6 +258,150 @@ class Check(Fixture):
         for n in missing:self.assertIn(n,r.stdout+r.stderr)
         self.assertEqual(r.returncode,0,'未実行／依存不足：'+', '.join(missing)+'\n'+r.stdout)
 
+class Sources(Check):
+    def test_source_required_and_fidelity(self):
+        self.put('a.txt','銀行残高との差異は1,240万円。2026-01-01に確認した。')
+        r,rows=self.issues();self.assertEqual(r.returncode,0,rows)
+        self.source('a.txt','銀行残高との差異は2,400万円。2026-01-02に確認した。')
+        _,rows=self.issues();self.assertTrue(any(r[2]=='source' and '2,400' in r[3] for r in rows),rows)
+        (self.base/'sources'/self.name/'a.txt.md').unlink()
+        _,rows=self.issues();self.assertTrue(any(r[2]=='source' for r in rows),rows)
+
+    def test_signed_amount_and_metadata_comments_xmp(self):
+        self.put('loss.txt','The adjustment is 100円 after review.')
+        self.source('loss.txt','The adjustment is -100円 after review.')
+        _,rows=self.issues();self.assertTrue(any(r[2]=='source' and '-100円' in r[3] for r in rows),rows)
+        from docx import Document
+        p=self.home/'comments.docx';d=Document();cp=d.core_properties;cp.author='Eleanor';cp.last_modified_by='Eleanor';cp.created=cp.modified=dt.datetime(2025,1,1);d.save(p)
+        original=p.read_bytes()
+        def patched(part,xml):
+            with zipfile.ZipFile(io.BytesIO(original)) as z:parts={n:z.read(n) for n in z.namelist()}
+            parts[part]=xml
+            with zipfile.ZipFile(p,'w') as z:
+                for n,raw in parts.items():z.writestr(n,raw)
+            os.utime(p,(1767225600,1767225600))
+        for part,xml in [('word/comments.xml','<comments><comment author="Codex" date="2025-01-01T00:00:00Z"/></comments>'),('word/revisions.xml','<document><ins author="Eleanor" date="2026-11-16T00:00:00Z"/></document>')]:
+            patched(part,xml);_,rows=self.issues();self.assertTrue(any(r[1]==p.name and r[2]=='metadata' for r in rows),rows)
+        p.unlink()
+        from pypdf import PdfWriter
+        from pypdf.generic import DecodedStreamObject,NameObject
+        p=self.home/'xmp.pdf';w=PdfWriter();w.add_blank_page(100,100);w.add_metadata({'/Producer':'Office scanner'})
+        stream=DecodedStreamObject();stream.set_data(b'<metadata><CreateDate>2026-11-16T00:00:00Z</CreateDate></metadata>');stream[NameObject('/Type')]=NameObject('/Metadata');stream[NameObject('/Subtype')]=NameObject('/XML');w._root_object[NameObject('/Metadata')]=w._add_object(stream);w.write(p);os.utime(p,(1767225600,1767225600))
+        _,rows=self.issues();self.assertTrue(any(r[1]==p.name and r[2]=='metadata' for r in rows),rows)
+        stream.set_data(b'<metadata><creator><Seq><li>Codex</li></Seq></creator></metadata>');w.write(p);os.utime(p,(1767225600,1767225600))
+        _,rows=self.issues();self.assertTrue(any(r[1]==p.name and r[2]=='metadata' and 'Codex' in r[3] for r in rows),rows)
+
+    def test_source_numeric_decimal_boundaries(self):
+        self.put('budget.txt','Budget 1240.5 after approval')
+        self.source('budget.txt','Budget 1240 after approval')
+        _,rows=self.issues();self.assertTrue(any(r[2]=='source' and '1240' in r[3] for r in rows),rows)
+        self.put('budget.txt','Budget 1240.50 after approval')
+        self.source('budget.txt','Budget 240.50 after approval')
+        _,rows=self.issues();self.assertTrue(any(r[2]=='source' and '240.50' in r[3] for r in rows),rows)
+
+    def test_derived_duplicates(self):
+        self.put('original.txt','The committee approved the river crossing after reviewing the detailed safety inspection and maintenance budget.')
+        self.put('copy.md',(self.home/'original.txt').read_text()+'\n')
+        self.source('copy.md','',derived='original.txt')
+        _,rows=self.issues();self.assertFalse(any(r[2] in ('source','duplicate') for r in rows),rows)
+        self.put('copy.md',(self.home/'original.txt').read_bytes())
+        _,rows=self.issues();self.assertTrue(any(r[2]=='duplicate' and 'bytes' in r[3] for r in rows),rows)
+        self.put('copy.md',(self.home/'original.txt').read_text()+'\n');self.source('copy.md','',derived='original.txt')
+        self.put('sibling.md',(self.home/'original.txt').read_text()+' \n');self.source('sibling.md','',derived='original.txt')
+        _,rows=self.issues();self.assertEqual({r[1] for r in rows if r[2]=='duplicate'},{'copy.md','sibling.md'},rows)
+
+    def test_source_small_money(self):
+        for currency in ('$12','£12','USD 12','12 dollars'):
+            body='The finance committee approved the supplier invoice for '+currency+' after reviewing the revised delivery schedule and inspection record.'
+            self.put('invoice.txt',body.replace('12','21'))
+            self.source('invoice.txt',body)
+            _,rows=self.issues()
+            self.assertTrue(any(r[2]=='source' for r in rows),(currency,rows))
+
+    def test_source_formats(self):
+        from docx import Document
+        from openpyxl import Workbook
+        from reportlab.pdfgen.canvas import Canvas
+        from PIL import Image
+        body='The finance committee approved payment of 1240 dollars on 2026-01-01 after reviewing the supplier invoice and delivery inspection.'
+        for ext in ('docx','xlsx','pdf','eml','scan.pdf'):
+            with self.subTest(ext=ext):
+                p=self.home/('report.'+ext)
+                if ext=='docx':
+                    d=Document();d.add_paragraph(body);d.save(p)
+                elif ext=='xlsx':
+                    w=Workbook();w.active.append([body]);w.save(p)
+                elif ext=='eml':p.write_text('From: a@example.test\nTo: b@example.test\nSubject: Payment\n\n'+body)
+                else:
+                    original=self.base/'original.pdf';c=Canvas(str(original));c.drawString(20,700,body);c.save()
+                    if ext=='pdf':shutil.copyfile(original,p)
+                    else:
+                        subprocess.run(['pdftoppm','-singlefile','-r','180','-png',str(original),str(self.base/'scan')],check=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+                        with Image.open(self.base/'scan.png') as im:im.convert('RGB').save(p,'PDF',resolution=180)
+                self.source(p.name,body)
+                _,rows=self.issues();self.assertFalse(any(r[1]==p.name and r[2]=='source' for r in rows),rows)
+                self.source(p.name,body.replace('1240','8900'))
+                _,rows=self.issues();self.assertTrue(any(r[1]==p.name and r[2]=='source' and '8900' in r[3] for r in rows),rows)
+                p.unlink()
+
+    def test_source_all_batch_photo_and_broken_derived(self):
+        self.put('a.txt','The board approved the quarterly delivery schedule.')
+        self.make_plan([('a.txt','2026-01-01','Decision')])
+        src=self.base/'sources'/self.name/'a.txt.md';src.unlink()
+        for flags in ((),('--batch','b001')):
+            _,rows=self.issues(*flags);self.assertTrue(any(r[2]=='source' for r in rows),rows)
+        r=self.cli('check','--all');self.assertIn('source',r.stdout)
+        self.source('a.txt','',derived='missing.txt')
+        _,rows=self.issues();self.assertTrue(any(r[2]=='source' for r in rows),rows)
+        self.source('a.txt','',derived='a.txt')
+        _,rows=self.issues();self.assertTrue(any(r[2]=='source' and 'cycle' in r[3] for r in rows),rows)
+        src.unlink();src.symlink_to(self.home/'a.txt')
+        _,rows=self.issues();self.assertTrue(any(r[2]=='source' and 'symbolic' in r[3] for r in rows),rows)
+        from PIL import Image
+        (self.home/'photos').mkdir();Image.new('RGB',(100,100),'white').save(self.home/'photos'/'wall.jpg')
+        _,rows=self.issues();self.assertTrue(any(r[1]=='photos/wall.jpg' and r[2]=='source' for r in rows),rows)
+        self.source('photos/wall.jpg','A blank office wall').write_text('---\nkind: photo\n---\nA blank office wall')
+        _,rows=self.issues();self.assertFalse(any(r[1]=='photos/wall.jpg' and r[2]=='source' for r in rows),rows)
+
+    def test_metadata_pdf_and_images(self):
+        from pypdf import PdfWriter
+        from PIL import Image, PngImagePlugin
+        p=self.home/'paper.pdf'
+        def pdf(meta):
+            w=PdfWriter();w.add_blank_page(100,100);w.add_metadata(meta);w.write(p);os.utime(p,(1767225600,1767225600))
+        pdf({'/Author':'Eleanor','/Producer':'Finance scanner','/CreationDate':"D:20250101100000+09'00'"})
+        _,rows=self.issues();self.assertFalse(any(r[2]=='metadata' for r in rows),rows)
+        for bad in ({'/Author':'ReportLab'},{'/CreationDate':'D:20261116120000Z'},{'/CreationDate':'D:20240101120000Z'},{'/Creator':'/home/alice/work/make.py'}):
+            pdf({'/Producer':'Finance scanner',**bad});_,rows=self.issues();self.assertTrue(any(r[2]=='metadata' for r in rows),rows)
+        p.unlink()
+        for ext in ('png','jpg'):
+            p=self.home/('photo.'+ext)
+            for bad in (False,True):
+                im=Image.new('RGB',(100,100),'white')
+                if ext=='png':
+                    info=PngImagePlugin.PngInfo();info.add_text('Author','Eleanor');info.add_text('Creation Time','2026-11-16T10:00:00Z' if bad else '2025-01-01T10:00:00Z');im.save(p,pnginfo=info)
+                else:
+                    exif=Image.Exif();exif[315]='Eleanor';exif[306]='2026:11:16 10:00:00' if bad else '2025:01:01 10:00:00';im.save(p,exif=exif)
+                os.utime(p,(1767225600,1767225600))
+                _,rows=self.issues();self.assertEqual(any(r[1]==p.name and r[2]=='metadata' for r in rows),bad,rows)
+            p.unlink()
+
+    def test_metadata_naive_exif_uses_persona_timezone(self):
+        from PIL import Image
+        self.cfg('period: 2025-01-01..2026-12-31\ntimezone: Asia/Tokyo')
+        p=self.home/'portrait.jpg';im=Image.new('RGB',(100,100),'white');exif=Image.Exif();exif[306]='2026:03:06 12:00:00';im.save(p,exif=exif)
+        stamp=dt.datetime(2026,3,6,3,tzinfo=dt.timezone.utc).timestamp();os.utime(p,(stamp,stamp))
+        _,rows=self.issues();self.assertFalse(any(r[2]=='metadata' for r in rows),rows)
+
+    def test_metadata_office(self):
+        from docx import Document
+        p=self.home/'meeting.docx';d=Document();d.add_paragraph('Meeting approved after the inspection')
+        cp=d.core_properties;cp.comments='';cp.author='Eleanor';cp.last_modified_by='Eleanor';cp.created=dt.datetime(2025,1,1);cp.modified=dt.datetime(2025,1,2);d.save(p)
+        os.utime(p,(1767225600,1767225600));self.source(p.name,'Meeting approved after the inspection')
+        _,rows=self.issues();self.assertFalse(any(r[2]=='metadata' for r in rows),rows)
+        cp.author='python-docx';cp.modified=dt.datetime(2026,11,16);d.save(p);os.utime(p,(1767225600,1767225600))
+        _,rows=self.issues();self.assertTrue(any(r[2]=='metadata' for r in rows),rows)
+
 class Manifest(Fixture):
     def test_inventory_and_verify(self):
         self.put('b.txt');self.put('.hidden','hidden');self.put('a.py','code')
@@ -307,10 +459,11 @@ class Pack(Fixture):
         other=self.root/'p02-editor';other.mkdir();(other/'a.txt').write_text('placeholder')
         r=self.cli('pack',self.base/'out','--persona','p01');self.assertEqual(r.returncode,1)
         (other/'a.txt').write_text('The editor chose a new title after the review.')
+        dest=self.base/'sources'/'p02-editor'/'a.txt.md';dest.parent.mkdir(parents=True);dest.write_text('---\nkind: text\n---\n'+(other/'a.txt').read_text())
         self.cli('manifest','p02')
         r=self.cli('pack',self.base/'out','--persona','p01');self.assertEqual(r.returncode,0,(r.stdout,r.stderr))
         self.assertEqual(len(list((self.base/'out').glob('*.tar.gz'))),1)
 
 if __name__=='__main__':
-    suite=unittest.defaultTestLoader.loadTestsFromTestCase({'check':Check,'manifest':Manifest,'pack':Pack}[sys.argv[1]])
+    suite=unittest.defaultTestLoader.loadTestsFromTestCase({'check':Sources,'manifest':Manifest,'pack':Pack}[sys.argv[1]])
     sys.exit(not unittest.TextTestRunner(verbosity=2).run(suite).wasSuccessful())
