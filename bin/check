@@ -1,0 +1,397 @@
+#!/usr/bin/env -S uv run python
+"""Read-only corpus checks. Reports contain failures only, never skipped checks."""
+import argparse
+from collections import Counter, defaultdict
+import concurrent.futures
+import csv
+import datetime as dt
+import email
+import email.policy
+import hashlib
+import html.parser
+import importlib
+import io
+import math
+import os
+from pathlib import Path
+import re
+import shutil
+import struct
+import subprocess
+import sys
+import tempfile
+import time
+import xml.etree.ElementTree as ET
+import zipfile
+
+BASE = Path(__file__).resolve().parents[1]
+EXT = set('docx pdf xlsx csv tsv pptx txt md log eml html png jpg json xml wav mp3 m4a zip'.split())
+BAD_PATH = re.compile(r'foundation|visual|source-art|full|(?<![a-z0-9])m1(?![a-z0-9])|primary|secondary|pdf_scan|pdf_text|txt_log|csv_tsv|html_eml|structured_text|domain_binary|imagegen', re.I)
+TRACE = re.compile(r'(?<!\w)(?:kio(?:-eval)?|personacorpus|persona|corpus|fixture|content\s+spine|synthetic|fictional|not\s+a\s+real|artifact\s+id|source\s+id|batch|scope\s+(?=[\w-]*\d)[\w-]+|p\d{2}-[\w-]+|lorem\s+ipsum|placeholder)(?!\w)|/Users/|scratch/', re.I)
+SECRET = re.compile(rb'(?:AKIA|ASIA)[0-9A-Z]{16}|(?:ghp|gho|ghu|ghs|ghr)_[A-Za-z0-9]{36,}|github_pat_[A-Za-z0-9_]{20,}|(?:xox[baprs]|xapp)-[A-Za-z0-9-]{10,}|(?:hvs\.|hvb\.|s\.)[A-Za-z0-9_-]{20,}|-----BEGIN (?:RSA |EC |DSA |OPENSSH |ENCRYPTED |PGP )?PRIVATE KEY(?: BLOCK)?-----|sk-[A-Za-z0-9_-]{20,}|eyJ[A-Za-z0-9_-]+\.eyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+|/ASCII85Decode')
+COMMANDS = ('pdftotext','pdfinfo','pdftoppm','tesseract','soffice','ffprobe')
+LIBRARIES = ('docx','openpyxl','pptx','reportlab','pypdf','PIL')
+
+
+def options(parser):
+    for name in ('root','personas','progress','manifests'):
+        parser.add_argument('--'+name,type=Path,default=BASE/('people' if name=='root' else name))
+
+
+def personas(root):
+    if not root.is_dir():
+        raise ValueError(f'root not found: {root}')
+    names=sorted(p.name for p in root.iterdir() if p.is_dir() and not p.is_symlink() and re.fullmatch(r'p\d{2}-.+',p.name))
+    if not names:
+        raise ValueError('no personas')
+    return names
+
+
+def resolve(root,name):
+    names=[n for n in personas(root) if n==name or re.fullmatch(r'p\d{2}',name) and n.startswith(name+'-')]
+    if len(names)!=1:
+        raise ValueError(f'persona not found or ambiguous: {name}')
+    return names[0]
+
+
+def files(folder):
+    """All leaf files, including hidden/unsupported files; never follow links."""
+    found=[]
+    for parent,dirs,names in os.walk(folder,followlinks=False):
+        for name in list(dirs):
+            p=Path(parent)/name
+            if p.is_symlink():
+                found.append(p);dirs.remove(name)
+        found.extend(Path(parent)/n for n in names)
+    return sorted(found)
+
+
+def config(path):
+    if not path.exists():
+        print(f'定義なし：{path}（期間検査・許可語なし）',file=sys.stderr)
+        return {}
+    text=path.read_text(encoding='utf-8-sig')
+    cfg={}
+    if text.startswith('---\n'):
+        for line in text.split('\n---',1)[0][4:].splitlines():
+            if ':' in line:
+                key,value=line.split(':',1);cfg[key.strip()]=value.strip()
+    return cfg
+
+
+def command(args):
+    result=subprocess.run(list(map(str,args)),stdout=subprocess.PIPE,stderr=subprocess.PIPE,timeout=120)
+    if result.returncode:
+        raise ValueError(f'{args[0]} exit {result.returncode}: '+result.stderr.decode(errors='replace')[:240])
+    return result.stdout
+
+
+class TextHTML(html.parser.HTMLParser):
+    def __init__(self):
+        super().__init__(convert_charrefs=True);self.parts=[];self.hidden=0
+    def handle_starttag(self,tag,attrs):
+        if tag in ('script','style'):self.hidden+=1
+    def handle_endtag(self,tag):
+        if tag in ('script','style'):self.hidden=max(0,self.hidden-1)
+    def handle_data(self,data):
+        if not self.hidden:self.parts.append(data)
+
+
+def html_text(text):
+    parser=TextHTML();parser.feed(text);return ' '.join(parser.parts)
+
+
+def ocr(path,language):
+    return command(['tesseract',path,'stdout','-l',language]).decode('utf-8',errors='replace')
+
+
+def extract(path,ext,language=None):
+    """Return body, scan flag, skipped OCR flag. Decode errors are opens failures."""
+    if ext in ('docx','xlsx','pptx'):
+        main={'docx':'word/document.xml','xlsx':'xl/workbook.xml','pptx':'ppt/presentation.xml'}[ext]
+        with zipfile.ZipFile(path) as z:
+            names=set(z.namelist())
+            required={'[Content_Types].xml','_rels/.rels',main}
+            if not required<=names or z.testzip():raise ValueError('missing or corrupt Office parts')
+            texts=[]
+            for n in sorted(names):
+                if n.endswith('.xml') or n.endswith('.rels'):
+                    root=ET.fromstring(z.read(n))
+                    if n==main and root.tag.rsplit('}',1)[-1]!={'docx':'document','xlsx':'workbook','pptx':'presentation'}[ext]:
+                        raise ValueError('incorrect Office root element')
+                    # Relationships must resolve, including worksheets/slides referenced by main.
+                    if n.endswith('.rels'):
+                        import posixpath
+                        base=posixpath.dirname(posixpath.dirname(n))
+                        for rel in root:
+                            target=rel.get('Target','')
+                            if rel.get('TargetMode')!='External' and target:
+                                dest=posixpath.normpath(posixpath.join(base,target)) if not target.startswith('/') else target[1:]
+                                if dest not in names:raise ValueError('missing Office relationship target: '+dest)
+                    if n.startswith(('word/','ppt/','xl/')):
+                        # Runs inside a paragraph/cell are contiguous on screen.
+                        # Separate logical units, rather than inserting spaces between runs.
+                        units=[x for x in root.iter() if x.tag.rsplit('}',1)[-1] in ('p','si','c')]
+                        if units:
+                            texts.extend(''.join((x.text or '') if x.tag.rsplit('}',1)[-1] in ('t','v','f') else '\n' if x.tag.rsplit('}',1)[-1]=='br' else '\t' if x.tag.rsplit('}',1)[-1]=='tab' else '' for x in unit.iter()) for unit in units)
+                        else:
+                            texts.extend(x.text for x in root.iter() if x.text and x.tag.rsplit('}',1)[-1] in ('t','v','f'))
+            return ' '.join(texts),False,False
+    if ext=='pdf':
+        command(['pdfinfo',path])
+        text=command(['pdftotext',path,'-']).decode('utf-8',errors='strict')
+        pages=text.split('\f')
+        if pages and not pages[-1].strip():pages.pop()
+        blanks=[i+1 for i,p in enumerate(pages) if not p.strip()]
+        if not blanks and not text.strip():blanks=[1]
+        if blanks and language:
+            with tempfile.TemporaryDirectory(prefix='corpus-ocr-') as d:
+                for i in blanks:
+                    prefix=Path(d)/f'page-{i}'
+                    command(['pdftoppm','-f',i,'-l',i,'-singlefile','-r','150','-png',path,prefix])
+                    text+='\n'+ocr(prefix.with_suffix('.png'),language)
+        return text,bool(blanks),bool(blanks and not language)
+    if ext in ('png','jpg'):
+        from PIL import Image
+        with Image.open(path) as im:
+            if im.format!={'png':'PNG','jpg':'JPEG'}[ext]:raise ValueError('image format mismatch')
+            im.verify()
+        with Image.open(path) as im:im.load()
+        return ocr(path,language) if language else '',True,not language
+    if ext in ('wav','mp3','m4a'):
+        info=__import__('json').loads(command(['ffprobe','-v','error','-show_format','-show_streams','-show_frames','-of','json',path]))
+        fmt=info.get('format',{}).get('format_name','').split(',')
+        expected={'wav':{'wav'},'mp3':{'mp3'},'m4a':{'mov','mp4','m4a'}}[ext]
+        if not expected.intersection(fmt) or not any(s.get('codec_type')=='audio' for s in info.get('streams',[])) or not info.get('frames'):
+            raise ValueError('audio header or frame decoding failed')
+        return '',False,False
+    if ext=='zip':
+        with zipfile.ZipFile(path) as z:
+            if z.testzip():raise ValueError('corrupt ZIP member')
+        return '',False,False
+    raw=path.read_bytes()
+    if ext=='eml':
+        msg=email.message_from_bytes(raw,policy=email.policy.default)
+        if not all(msg.get(k) for k in ('From','To','Subject')) or msg.defects or any(h.defects for h in msg.values() if hasattr(h,'defects')):
+            raise ValueError('invalid email headers')
+        parts=[f'{k}: {v}' for k,v in msg.items()]
+        for part in msg.walk():
+            if part.get_content_maintype()=='text' and not part.is_multipart():
+                content=part.get_content();parts.append(html_text(content) if part.get_content_subtype()=='html' else content)
+        return '\n'.join(parts),False,False
+    text=raw.decode('utf-8-sig')
+    if ext=='json':__import__('json').loads(text)
+    elif ext=='xml':ET.fromstring(text)
+    elif ext in ('csv','tsv'):
+        rows=csv.reader(io.StringIO(text),delimiter=',' if ext=='csv' else '\t',strict=True)
+        width=None
+        for row in rows:
+            if width is None:width=len(row)
+            if not row or len(row)!=width:raise ValueError('inconsistent column count')
+    elif ext=='html':text=html_text(text)
+    if '\x00' in text:raise ValueError('NUL in text')
+    return text,False,False
+
+
+def shingles(text):
+    # Dates and numeric identifiers carry no distinguishing information.
+    text=re.sub(r'\d+','0',text.casefold())
+    # CJK text has no spaces, so each CJK character counts as a word.
+    words=re.findall(r'[\u3040-\u30ff\u3400-\u9fff]|[^\W_\u3040-\u30ff\u3400-\u9fff]+',text)
+    return frozenset(int.from_bytes(hashlib.blake2b(' '.join(words[i:i+5]).encode(),digest_size=8).digest(),'big') for i in range(len(words)-4))
+
+
+def inspect(item):
+    path,folder,cfg,language=item
+    rel=path.relative_to(folder).as_posix();issues={};skipped=[];text='';digest=None
+    def fail(kind,reason):issues.setdefault(kind,str(reason).replace('\n',' ')[:400])
+    ext=path.suffix.lower().lstrip('.')
+    try:
+        if path.is_symlink():
+            fail('format','symbolic link');return rel,issues,None,frozenset(),skipped
+        st=path.stat()
+        if ext not in EXT or any(p.startswith('.') for p in Path(rel).parts) or st.st_size==0:
+            fail('format','unsupported extension, hidden path, or zero bytes')
+        if BAD_PATH.search(rel) or re.search(r'(?<![a-z0-9])p\d{2}(?!\d)|-s\d{6}(?!\d)|(?<!\d)\d{5,}(?!\d)',path.name,re.I):
+            fail('path','production category or identifier in path')
+        h=hashlib.sha256();tail=b''
+        with path.open('rb') as f:
+            for block in iter(lambda:f.read(1024*1024),b''):
+                h.update(block)
+                if SECRET.search(tail+block):fail('secret','secret-like bytes or PDF ASCII85 filter')
+                tail=block[-4096:]
+        digest=h.digest()
+        if ext in EXT and st.st_size:
+            try:
+                text,scan,missing=extract(path,ext,language)
+                photo=any(rel.startswith(x.strip().rstrip('/')+'/') for x in cfg.get('photo_dirs','').split(',') if x.strip())
+                if missing:
+                    if not photo:skipped.append('empty-scan')
+                    skipped.extend(('trace(OCR)','secret(OCR)','duplicate(OCR)'))
+                if scan and not missing and not photo and len(re.sub(r'\s','',text))<20:
+                    fail('empty-scan','OCR contains fewer than 20 non-whitespace characters')
+                if SECRET.search(text.encode()):fail('secret','secret-like extracted text')
+                traced=rel+'\n'+text
+                allowed=[m.span() for term in cfg.get('allowed_terms','').split(',') if len(term.split())>=2 for m in re.finditer(r'(?<!\w)'+r'\s+'.join(re.escape(w) for w in term.split())+r'(?!\w)',traced,re.I)]
+                for m in TRACE.finditer(traced):
+                    if not any(a<=m.start() and m.end()<=b for a,b in allowed):
+                        fail('trace','production trace: '+m.group());break
+            except Exception as e:fail('opens',f'{type(e).__name__}: {e}')
+        if cfg.get('period'):
+            start,end=cfg['period'].split('..')
+            day=dt.datetime.fromtimestamp(st.st_mtime,dt.timezone.utc).date()
+            if not dt.date.fromisoformat(start)<=day<=dt.date.fromisoformat(end):fail('mtime','outside persona period (UTC)')
+    except Exception as e:fail('opens',f'{type(e).__name__}: {e}')
+    return rel,issues,digest,shingles(text),skipped
+
+
+def duplicates(results):
+    """Exact Jaccard prefix join at .8; rarest shingles first, identical sets collapsed.
+
+    A qualifying pair must share a prefix token. Size filtering and intersection
+    verification avoid all-pairs comparisons. No MinHash false negatives.
+    """
+    hashes=defaultdict(list);groups=defaultdict(list)
+    for i,(_,_,digest,grams,_) in enumerate(results):
+        if digest is not None:hashes[digest].append(i)
+        if grams:groups[grams].append(i)
+    def mark(indices,reason):
+        for i in indices:results[i][1].setdefault('duplicate',reason)
+    for indices in hashes.values():
+        if len(indices)>1:mark(indices,'identical bytes: '+results[indices[0]][0])
+    for indices in groups.values():
+        if len(indices)>1:mark(indices,'identical normalized shingles: '+results[indices[0]][0])
+    frequency=Counter(g for grams in groups for g in grams)
+    index=defaultdict(list)
+    for grams,indices in sorted(groups.items(),key=lambda x:len(x[0])):
+        n=len(grams);prefix=sorted(grams,key=lambda g:(frequency[g],g))[:n-math.ceil(.8*n)+1]
+        candidates=set()
+        for g in prefix:
+            for other in index[g]:
+                if 5*len(other)>=4*n:candidates.add(other)
+        for other in candidates:
+            intersection=len(grams & other)
+            if 5*intersection>=4*(n+len(other)-intersection):
+                mark(indices,'normalized 5-word Jaccard >= 0.8: '+results[groups[other][0]][0])
+                mark(groups[other],'normalized 5-word Jaccard >= 0.8: '+results[indices[0]][0])
+        for g in prefix:index[g].append(grams)
+
+
+def plan(path):
+    lines=path.read_text(encoding='utf-8').splitlines();result={};indices=None
+    for line in lines:
+        if not line.strip().startswith('|'):continue
+        cells=[c.strip().strip('`') for c in re.split(r'(?<!\\)\|',line.strip().strip('|'))]
+        if all(c in cells for c in ('パス','日付','内容','関連')):
+            indices=[cells.index(c) for c in ('パス','日付','内容')];continue
+        if indices is None or all(re.fullmatch(r':?-+:?',c) for c in cells):continue
+        if len(cells)<=max(indices):raise ValueError('malformed plan row')
+        rel,date,content=[cells[i] for i in indices]
+        if content.startswith('破棄：'):continue
+        if not rel or Path(rel).is_absolute() or '..' in Path(rel).parts:raise ValueError('unsafe plan path')
+        if rel in result:raise ValueError('duplicate plan path: '+rel)
+        result[rel]=date
+    if indices is None:raise ValueError('plan table not found')
+    return result
+
+
+def tracked(folder):
+    """Read Git index v2/3/4 without adding Git as a runtime command dependency."""
+    root=folder.resolve()
+    while not (root/'.git').exists():
+        if root==root.parent:return set()
+        root=root.parent
+    gitdir=root/'.git'
+    if gitdir.is_file():gitdir=(root/gitdir.read_text().strip().removeprefix('gitdir: ')).resolve()
+    path=gitdir/'index'
+    if not path.exists():return set()
+    raw=path.read_bytes();signature,version,count=struct.unpack_from('>4sII',raw)
+    if signature!=b'DIRC' or version not in (2,3,4):raise ValueError('unsupported Git index')
+    pos=12;previous=b'';paths=set()
+    for _ in range(count):
+        start=pos;flags=struct.unpack_from('>H',raw,pos+60)[0];pos+=62
+        if flags&0x4000:pos+=2
+        if version==4:
+            byte=raw[pos];pos+=1;remove=byte&0x7f
+            while byte&0x80:
+                byte=raw[pos];pos+=1;remove=((remove+1)<<7)+(byte&0x7f)
+            end=raw.index(b'\0',pos);name=previous[:len(previous)-remove]+raw[pos:end];pos=end+1
+        else:
+            end=raw.index(b'\0',pos);name=raw[pos:end];pos=start+((end+1-start+7)//8)*8
+        previous=name
+        p=root/os.fsdecode(name)
+        if p.is_relative_to(folder.resolve()):paths.add(p.relative_to(folder.resolve()).as_posix())
+    while pos+8<=len(raw)-20:
+        kind=raw[pos:pos+4];size=struct.unpack_from('>I',raw,pos+4)[0];pos+=8+size
+        if kind==b'link':raise ValueError('split Git index unsupported; cannot certify untracked files')
+    return paths
+
+
+def run(a):
+    names=personas(a.root) if a.all else [resolve(a.root,a.persona)]
+    started=time.monotonic();failures=[];passed=0;pending=0;failed_files=set();skips=Counter()
+    language=None
+    if shutil.which('tesseract'):
+        langs=command(['tesseract','--list-langs']).decode(errors='replace').splitlines()
+        language='eng+jpn' if 'jpn' in langs else 'eng'
+    for name in names:
+        folder=a.root/name;cfg=config(a.personas/(name+'.md'));paths=files(folder)
+        target=plan(a.progress/name/(a.batch+'.md')) if a.batch else None
+        local=[]
+        if target is not None:
+            existing={p.relative_to(folder).as_posix() for p in paths}
+            for rel in target.keys()-existing:local.append((rel,'plan','planned file missing'))
+            for rel in existing-target.keys()-tracked(folder):local.append((rel,'plan','untracked file outside batch plan'))
+        results=[];last=time.monotonic()
+        with concurrent.futures.ThreadPoolExecutor(max_workers=min(16,os.cpu_count() or 1)) as pool:
+            # Bounded submissions: do not allocate 150,000 Future objects.
+            for offset in range(0,len(paths),256):
+                items=((p,folder,cfg,language) for p in paths[offset:offset+256])
+                results.extend(pool.map(inspect,items))
+                if time.monotonic()-last>=5 or len(results)==len(paths):
+                    print(f'{name}: {len(results)}/{len(paths)} files, {time.monotonic()-started:.1f}s',file=sys.stderr,flush=True);last=time.monotonic()
+        print(f'{name}: duplicate comparison',file=sys.stderr,flush=True)
+        duplicates(results)
+        for rel,issues,_,_,skipped in results:
+            if target is not None and rel not in target:continue
+            skips.update(skipped)
+            if target is not None:
+                try:
+                    expected=dt.datetime.fromisoformat(target[rel].replace('Z','+00:00'))
+                    if expected.tzinfo is None:expected=expected.replace(tzinfo=dt.timezone.utc)
+                    if abs((folder/rel).stat().st_mtime-expected.timestamp())>=86400:issues['mtime']='differs from plan by at least one day'
+                except ValueError:issues['mtime']='invalid plan timestamp'
+            local.extend((rel,k,v) for k,v in sorted(issues.items()))
+            if not issues:
+                if skipped:pending+=1
+                else:passed+=1
+        for rel,kind,reason in sorted(local):
+            row=(name,rel,kind,reason);failures.append(row);failed_files.add((name,rel))
+            print('\t'.join(row))
+    if a.report:
+        a.report.parent.mkdir(parents=True,exist_ok=True)
+        with a.report.open('w',encoding='utf-8',newline='') as f:
+            csv.writer(f,delimiter='\t',lineterminator='\n').writerows(failures)
+    for kind,count in sorted(skips.items()):
+        print(f'未実行：{kind}: {count} files（tesseract なし）',file=sys.stderr)
+    print(f'passed: {passed}, failed: {len(failed_files)}, pending: {pending}, findings: {len(failures)}, skipped OCR files: {skips.get("trace(OCR)",0)}, elapsed: {time.monotonic()-started:.2f}s')
+    return int(bool(failures or skips))
+
+
+def main():
+    p=argparse.ArgumentParser(description=__doc__);options(p)
+    p.add_argument('persona',nargs='?');p.add_argument('--all',action='store_true');p.add_argument('--batch');p.add_argument('--report',type=Path);p.add_argument('--self-test',action='store_true')
+    a=p.parse_args()
+    if a.self_test:
+        missing=[n for n in COMMANDS if not shutil.which(n)]
+        for n in LIBRARIES:
+            try:importlib.import_module(n)
+            except Exception:missing.append(n)
+        print('missing: '+', '.join(missing) if missing else 'dependencies available')
+        return int(bool(missing))
+    if bool(a.persona)==bool(a.all) or a.all and a.batch:p.error('choose persona or --all; --batch requires persona')
+    try:return run(a)
+    except Exception as e:
+        print(f'check: {type(e).__name__}: {e}',file=sys.stderr);return 1
+
+if __name__=='__main__':sys.exit(main())

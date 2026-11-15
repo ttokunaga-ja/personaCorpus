@@ -1,0 +1,58 @@
+#!/usr/bin/env -S uv run python
+"""Inventory every current check target, independent of Git tracking."""
+import argparse
+import csv
+import datetime as dt
+import hashlib
+import importlib.machinery
+import importlib.util
+import os
+from pathlib import Path
+import sys
+import tempfile
+sys.dont_write_bytecode = True
+
+loader=importlib.machinery.SourceFileLoader('corpus_check',str(Path(__file__).with_name('check')))
+spec=importlib.util.spec_from_loader(loader.name,loader)
+check=importlib.util.module_from_spec(spec)
+loader.exec_module(check)
+
+
+def entries(folder):
+    for path in check.files(folder):
+        if path.is_symlink():raise ValueError(f'symlink cannot be manifested: {path}')
+        h=hashlib.sha256()
+        with path.open('rb') as f:
+            for block in iter(lambda:f.read(1024*1024),b''):h.update(block)
+        st=path.stat()
+        yield [path.relative_to(folder).as_posix(),h.hexdigest(),str(st.st_size),dt.datetime.fromtimestamp(st.st_mtime,dt.timezone.utc).isoformat(timespec='seconds').replace('+00:00','Z')]
+
+
+def verify(folder,path):
+    with path.open(encoding='utf-8',newline='') as f:existing=list(csv.reader(f,delimiter='\t'))
+    actual=list(entries(folder))
+    if existing!=actual:raise ValueError(f'manifest mismatch (paths, sha256, size or UTC mtime): {path}')
+    return existing
+
+
+def main():
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('persona');p.add_argument('--verify',action='store_true');check.options(p);a=p.parse_args()
+    try:
+        name=check.resolve(a.root,a.persona);output=a.manifests/(name+'.tsv')
+        if a.verify:
+            rows=verify(a.root/name,output)
+            print(f'verified {name}: {len(rows)} files')
+        else:
+            rows=list(entries(a.root/name));a.manifests.mkdir(parents=True,exist_ok=True)
+            with tempfile.NamedTemporaryFile(mode='w',encoding='utf-8',newline='',dir=a.manifests,delete=False) as f:
+                temporary=Path(f.name)
+                try:
+                    csv.writer(f,delimiter='\t',lineterminator='\n').writerows(rows)
+                    f.flush();os.replace(temporary,output)
+                finally:temporary.unlink(missing_ok=True)
+            print(f'wrote {output}: {len(rows)} files')
+        return 0
+    except (OSError,ValueError,csv.Error) as e:
+        print(e,file=sys.stderr);return 1
+
+if __name__=='__main__':sys.exit(main())

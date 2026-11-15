@@ -1,0 +1,69 @@
+#!/usr/bin/env -S uv run python
+"""Validate all personas, then build deterministic gzip archives for the selection."""
+import argparse
+import datetime as dt
+import gzip
+import hashlib
+import importlib.machinery
+import importlib.util
+from pathlib import Path
+import sys
+import tarfile
+import tempfile
+sys.dont_write_bytecode = True
+
+
+def load(name):
+    loader=importlib.machinery.SourceFileLoader('corpus_'+name,str(Path(__file__).with_name(name)))
+    spec=importlib.util.spec_from_loader(loader.name,loader)
+    module=importlib.util.module_from_spec(spec);loader.exec_module(module);return module
+
+
+check=load('check')
+manifest=load('manifest')
+
+
+def main():
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('out',type=Path);p.add_argument('--persona',action='append');check.options(p);a=p.parse_args()
+    try:
+        names=check.personas(a.root)
+        selected=sorted(set(check.resolve(a.root,n) for n in a.persona)) if a.persona else names
+        out=a.out.resolve()
+        if out.is_relative_to(check.BASE) and not out.is_relative_to(check.BASE/'scratch'):
+            raise ValueError('output must be outside repository or under scratch/')
+        if out.is_relative_to(a.root.resolve()) or a.root.resolve().is_relative_to(out):
+            raise ValueError('output must not overlap corpus root')
+        if out.exists() and any(out.iterdir()):raise ValueError('output directory must be empty')
+        args=argparse.Namespace(**vars(a));args.all=True;args.persona=None;args.batch=None;args.report=None
+        if check.run(args):raise ValueError('check --all failed or OCR incomplete')
+        inventories={n:manifest.verify(a.root/n,a.manifests/(n+'.tsv')) for n in names}
+        with tempfile.TemporaryDirectory(prefix='corpus-pack-') as temporary:
+            staging=Path(temporary);sums=[];summary=[]
+            for name in selected:
+                rows=inventories[name];dest=staging/(name+'.tar.gz');extensions=set()
+                with dest.open('wb') as raw:
+                    with gzip.GzipFile(filename='',mode='wb',fileobj=raw,mtime=0,compresslevel=9) as zipped:
+                        with tarfile.open(fileobj=zipped,mode='w|',format=tarfile.PAX_FORMAT) as archive:
+                            for rel,sha,size,stamp in rows:
+                                path=a.root/name/rel
+                                info=tarfile.TarInfo(name+'/'+rel)
+                                info.size=int(size);info.mode=0o644;info.uid=info.gid=0;info.uname=info.gname=''
+                                info.mtime=int(dt.datetime.fromisoformat(stamp.replace('Z','+00:00')).timestamp())
+                                with path.open('rb') as f:archive.addfile(info,f)
+                                extensions.add(path.suffix.lower().lstrip('.'))
+                h=hashlib.sha256()
+                with dest.open('rb') as f:
+                    for block in iter(lambda:f.read(1024*1024),b''):h.update(block)
+                sums.append(f'{h.hexdigest()}  {dest.name}\n')
+                summary.append(f'- {name}: {len(rows)} files; formats: {", ".join(sorted(extensions)) or "none"}\n')
+            (staging/'SHA256SUMS').write_text(''.join(sums),encoding='utf-8')
+            (staging/'README.md').write_text('# Persona corpus\n\nThis distribution consists entirely of synthetic data representing personal and work folders. It does not describe real people or customer records.\n\nEach .tar.gz archive contains one persona folder. Files retain the UTC modification times recorded in the verified manifests. Verify archive hashes using SHA256SUMS.\n\n'+''.join(summary),encoding='utf-8')
+            for name in names:manifest.verify(a.root/name,a.manifests/(name+'.tsv'))
+            out.mkdir(parents=True,exist_ok=True)
+            import shutil
+            for path in sorted(staging.iterdir()):shutil.copyfile(path,out/path.name)
+        return 0
+    except Exception as e:
+        print(f'pack: {e}',file=sys.stderr);return 1
+
+if __name__=='__main__':sys.exit(main())
