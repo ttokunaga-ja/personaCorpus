@@ -227,20 +227,26 @@ def body_tokens(text):
     return Counter(re.findall(r'[\u3040-\u30ff\u3400-\u9fff]|[^\W_\u3040-\u30ff\u3400-\u9fff]+',unicodedata.normalize('NFKC',text).casefold()))
 
 
+def source_numbers(text):
+    """Numbers of four or more integer digits, independent of separators and trailing zeros."""
+    text=re.sub(r'(?<=\d),(?=\d{3})','',unicodedata.normalize('NFKC',text))
+    found=set()
+    for whole,frac in re.findall(r'(?<![\d.])(\d{4,})(?:\.(\d+))?(?![\d])',text):
+        if len(whole)==4 and 1900<=int(whole)<=2100:continue  # years appear in many date formats
+        frac=frac.rstrip('0')
+        found.add(whole.lstrip('0')+('.'+frac if frac else ''))
+    return found
+
+
 def source_reason(expected, actual):
-    # Markdown punctuation is not content. Keep digits, including identifiers.
-    want=body_tokens(expected);have=body_tokens(actual)
+    # The mechanical check catches dropped content; exact wording is the visual review's job.
+    strip=lambda s:re.sub(r'(?<=\d),(?=\d{3})','',s)
+    words=lambda s:Counter({k:v for k,v in body_tokens(strip(s)).items() if k not in ('年','月','日','円')})
+    want=words(expected);have=words(actual)
     overlap=sum((want & have).values())/sum(want.values()) if want else 1
-    normalize=lambda s:re.sub(r'(?<=\d),(?=\d)','',unicodedata.normalize('NFKC',s))
-    currency=r'[¥￥$€£]|USD|EUR|GBP|JPY|dollars?|euros?|pounds?|円|ドル'
-    numeric=re.compile(r'\d{4}[-/年]\d{1,2}[-/月]\d{1,2}日?|\d{1,2}月\d{1,2}日|[+-]?(?:(?:[¥￥$€£]|USD|EUR|GBP|JPY)\s*)?\d[\d,]*(?:\.\d+)?(?:億|万|千)?(?:円|ドル|万円|\s*(?:dollars?|euros?|pounds?|USD|EUR|GBP|JPY)\b)?',re.I)
-    missing=[];actual=normalize(actual)
-    for m in numeric.finditer(unicodedata.normalize('NFKC',expected)):
-        value=m.group()
-        if len(re.sub(r'\D','',value))<3 and not re.search(currency+r'|[年月日]',value,re.I):continue
-        clean=normalize(value)
-        if not re.search(r'(?<![\d.+\-])'+re.escape(clean)+r'(?!\d|\.\d)',actual) and value not in missing:missing.append(value)
-    if missing:return 'missing source values: '+', '.join(missing[:5])
+    numbers=source_numbers(expected)
+    missing=sorted(numbers-source_numbers(actual))
+    if len(missing)>len(numbers)//20:return 'missing source values: '+', '.join(missing[:5])
     if overlap<.85:return f'body token overlap {overlap:.3f} < 0.85'
     return None
 

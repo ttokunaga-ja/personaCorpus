@@ -321,6 +321,8 @@ class Batch:
                 if any(not any(a <= m.start() and m.end() <= b for a, b in allowed) for m in TRACE.finditer(body)):
                     raise ValueError('制作の痕跡')
                 if metadata.get('derived_from'):
+                    if not (self.sources / (metadata['derived_from'] + '.md')).is_file():
+                        raise ValueError('derived_from の元の原稿がない（元が成果物でないなら derived_from を空にして本文に全文を書く）: ' + metadata['derived_from'])
                     derived[rel] = metadata['derived_from']
                 text = re.sub(r'\d+', '0', body.casefold())
                 words = re.findall(r'[\u3040-\u30ff\u3400-\u9fff]|[^\W_\u3040-\u30ff\u3400-\u9fff]+', text)
