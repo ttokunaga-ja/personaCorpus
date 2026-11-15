@@ -20,11 +20,10 @@
 
 ## Purpose and authority
 
-This repository coordinates production of a fully synthetic, twenty-persona
-filesystem corpus. The accepted Rust plan at `canonical/persona-plan.json`
-and the Rust workspace owner record at `workspace/persona-workspace-owner.json`
-are authoritative for persona IDs, scope IDs, paths, formats, and counts.
-Runbooks and prompts are operational guidance only.
+この repo は、20 職種の人の PC のフォルダ環境を合成で再現する corpus を作る。corpus の内容（目的、独立、構成、ファイル形式、品質、受入と破棄、規模）の正本は `SPEC.md` である（2026-11-15 ユーザー決定）。
+
+- personaCorpus は Kio を含む他の repo に依存しない。`kio-eval`、`canonical/persona-plan.json`、`workspace/persona-workspace-owner.json`、lease は正本でも制作の前提でもなくなった。
+- **制作は停止中である。** この節より下の「Mandatory session model」から「Production milestones」までは、Kio の計画を前提にした旧い手順で、`SPEC.md` に合わせた書き直しが済んでいない。`SPEC.md` と食い違う部分は無効である。書き直しが済むまで、新しい制作、受入、成果物の commit を行わない。
 
 ## Mandatory session model
 
