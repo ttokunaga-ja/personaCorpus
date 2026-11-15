@@ -19,3 +19,7 @@ scratch/
 /.claude/settings.local.json
 /.claude/worktrees/
 /.claude/.cc-writes/
+
+# 監視ツールの実行時の記録
+/ops/jobs/
+/ops/alerts/

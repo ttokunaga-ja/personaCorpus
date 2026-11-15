@@ -8,10 +8,12 @@
 | `AGENTS.md` | 制作の規則と、Claude・Codex の役割 |
 | `personas/` | persona ごとの定義（人物、組織、仕事の流れ、フォルダ構成、形式の目安） |
 | `people/<persona>/` | 配布物。その人の PC のユーザーフォルダそのもの |
-| `progress/<persona>/` | batch ごとのファイル計画 |
+| `templates/<persona>/` | その persona の世界の文書の型 |
+| `progress/<persona>/` | batch ごとの依頼、ファイル計画、結果の報告 |
 | `manifests/` | 受入済みファイルの一覧（パス、sha256、大きさ、更新時刻） |
-| `runbooks/PRODUCTION.md` | 制作と受入の手順 |
-| `bin/check`、`bin/manifest`、`bin/pack` | 自動検査、一覧の更新、配布物の梱包 |
+| `runbooks/PRODUCTION.md`、`runbooks/REVIEW.md` | 制作と受入の手順、レビューの基準 |
+| `bin/` | batch の進行（`batch`）、自動検査（`check`）、制作の道具（`render`・`tex`・`scan`・`office-pdf`）、一覧と梱包（`manifest`・`pack`） |
+| `ops/` | Codex のジョブの起動と通知 |
 
 すべて合成データで、実在の人物、組織、顧客、文書を含まない。
 

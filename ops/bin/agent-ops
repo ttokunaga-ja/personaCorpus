@@ -1,0 +1,134 @@
+#!/usr/bin/env python3
+import argparse, datetime, fcntl, json, os, re, shlex, subprocess, sys, time
+from pathlib import Path
+
+BASE = Path(os.environ.get('AGENT_OPS_HOME', Path(__file__).resolve().parent.parent)).resolve()
+SCRIPT = Path(__file__).resolve()
+REPOS = {'kio': Path.home()/'dev/github.com/ttokunaga-ja/kio', 'personaCorpus': Path.home()/'dev/github.com/ttokunaga-ja/personaCorpus'}
+NAME = re.compile(r'^[A-Za-z0-9][A-Za-z0-9_-]*$')
+LIMIT = re.compile(r'(?i)(usage limit|rate limit|\b429\b|\bquota\b)')
+STDIN = re.compile(r'Reading additional input from stdin', re.I)
+
+def now(): return datetime.datetime.now(datetime.timezone.utc).isoformat()
+def tmux(*args):
+    sock = os.environ.get('AGENT_TMUX_SOCKET')
+    return subprocess.run(['tmux'] + (['-L', sock] if sock else []) + list(args), stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL).returncode == 0
+def alive(session): return tmux('has-session', '-t', '='+session)
+def session(repo, job): return 'cj-'+repo+'-'+job
+def valid(value):
+    if not NAME.fullmatch(value): raise ValueError('invalid job name: '+value)
+    return value
+def save(path, data):
+    tmp = path.with_name(path.name+'.tmp.'+str(os.getpid()))
+    tmp.write_text(json.dumps(data, ensure_ascii=False)+'\n')
+    os.replace(tmp, path)
+def read(path): return json.loads(path.read_text())
+def ensure_watch():
+    if not alive('agent-watchd'):
+        tmux('new-session', '-d', '-s', 'agent-watchd', shlex.join([str(SCRIPT), '_watch']))
+def jobs(repo=None):
+    root = BASE/'jobs'
+    if not root.exists(): return []
+    return sorted(p for p in root.glob('*/*') if p.is_dir() and (repo is None or p.parent.name == repo) and (p/'meta.json').exists() and (p/'.ready').exists())
+def status(p):
+    meta = read(p/'meta.json')
+    if (p/'exit.json').exists():
+        e = read(p/'exit.json')
+        return ('done' if e['code'] == 0 else 'failed', 'exit code '+str(e['code']))
+    if not alive(meta['session']): return 'failed', 'session disappeared without exit.json'
+    log = p/'log'
+    tail = log.read_bytes()[-16384:].decode('utf-8', 'replace') if log.exists() else ''
+    if LIMIT.search(tail): return 'limit', 'limit indication in recent log'
+    if STDIN.search(tail) and time.time() - log.stat().st_mtime >= float(os.environ.get('AGENT_STALL_SECONDS', '1200')): return 'stdin-wait', 'stdin prompt with no subsequent log activity'
+    if time.time() - (log.stat().st_mtime if log.exists() else p.stat().st_mtime) >= float(os.environ.get('AGENT_STALL_SECONDS', '1200')): return 'stalled', 'log has not grown within threshold'
+    return 'running', 'session active'
+def scan():
+    (BASE/'alerts').mkdir(parents=True, exist_ok=True)
+    for p in jobs():
+        try:
+            state, detail = status(p)
+            previous = (p/'.watch-state').read_text().strip() if (p/'.watch-state').exists() else 'running'
+            if state != previous:
+                if state != 'running':
+                    log = (p/'log').read_bytes()[-8192:].decode('utf-8', 'replace').splitlines()[-8:] if (p/'log').exists() else []
+                    record = dict(ts=now(), repo=p.parent.name, job=p.name, event=state, detail=detail, log=log)
+                    with (BASE/'alerts'/f'{p.parent.name}.jsonl').open('a') as f: f.write(json.dumps(record, ensure_ascii=False)+'\n')
+                (p/'.watch-state').write_text(state)
+        except (OSError, ValueError, KeyError, json.JSONDecodeError) as e: print(f'watch: {p}: {e}', file=sys.stderr)
+def watch():
+    (BASE/'alerts').mkdir(parents=True, exist_ok=True)
+    with (BASE/'alerts'/'.watch.lock').open('w') as lock:
+        try: fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except BlockingIOError: return
+        while True:
+            scan()
+            time.sleep(float(os.environ.get('AGENT_WATCH_INTERVAL', '60')))
+def run_job(path):
+    p = Path(path); meta = read(p/'meta.json')
+    with (p/'log').open('ab', buffering=0) as log, open(os.devnull, 'rb') as null:
+        try: code = subprocess.run(meta['command'], cwd=meta['cwd'], stdin=null, stdout=log, stderr=subprocess.STDOUT).returncode
+        except OSError as e:
+            log.write((str(e)+'\n').encode()); code = 127
+    save(p/'exit.json', {'code': code, 'finished_at': now()})
+def repo_arg(parser): parser.add_argument('--repo', required=True, choices=REPOS)
+def main_job():
+    parser=argparse.ArgumentParser(prog='codex-job'); sub=parser.add_subparsers(dest='action', required=True)
+    start=sub.add_parser('start'); repo_arg(start); start.add_argument('--name', required=True, type=valid); start.add_argument('--brief', required=True); start.add_argument('--model', default='gpt-6.1-terra'); start.add_argument('--effort', default='medium'); start.add_argument('--sandbox', default='workspace-write', choices=['read-only','workspace-write','danger-full-access']); start.add_argument('--add-dir', action='append', default=[]); start.add_argument('--test-command', help=argparse.SUPPRESS)
+    st=sub.add_parser('status'); st.add_argument('--repo', choices=REPOS)
+    for action in ('tail','stop'):
+        x=sub.add_parser(action); x.add_argument('repo', choices=REPOS); x.add_argument('job', type=valid)
+    a=parser.parse_args(); ensure_watch()
+    if a.action=='start':
+        p=BASE/'jobs'/a.repo/a.name; brief=Path(a.brief).resolve()
+        if not brief.is_file(): raise ValueError('brief does not exist')
+        p.parent.mkdir(parents=True, exist_ok=True)
+        try: p.mkdir()
+        except FileExistsError: raise ValueError('job already exists; choose a new name')
+        cmd=['codex','exec','-m',a.model,'-c',f'model_reasoning_effort={json.dumps(a.effort)}','-s',a.sandbox,'-c','sandbox_workspace_write.network_access=true','-C',str(REPOS[a.repo]),'-o',str(p/'out.md')]
+        for d in a.add_dir: cmd += ['--add-dir',str(Path(d).resolve())]
+        cmd += [brief.read_text()]
+        if a.test_command is not None: cmd=['bash','-c',a.test_command]
+        meta=dict(repo=a.repo,cwd=str(REPOS[a.repo]),model=a.model,effort=a.effort,brief=str(brief),started_at=now(),session=session(a.repo,a.name),command=cmd)
+        save(p/'meta.json',meta); (p/'log').touch()
+        if not tmux('new-session','-d','-s',meta['session'],shlex.join([str(SCRIPT),'_run',str(p)])):
+            save(p/'exit.json',{'code':127,'finished_at':now()}); (p/'.ready').touch(); raise ValueError('could not start tmux session')
+        (p/'.ready').touch()
+        print(meta['session'])
+    elif a.action=='status':
+        print('REPO\tJOB\tSTATE\tDETAIL')
+        for p in jobs(a.repo):
+            state, detail=status(p); print(f'{p.parent.name}\t{p.name}\t{state}\t{detail}')
+    else:
+        p=BASE/'jobs'/a.repo/a.job
+        if not (p/'meta.json').exists(): raise ValueError('job not found')
+        if a.action=='tail': subprocess.run(['tail','-n','40','-f',str(p/'log')])
+        elif not tmux('kill-session','-t','='+session(a.repo,a.job)): raise ValueError('session not running')
+def main_alert():
+    parser=argparse.ArgumentParser(prog='agent-alert'); sub=parser.add_subparsers(dest='action', required=True)
+    for action in ('wait','list'):
+        p=sub.add_parser(action); repo_arg(p)
+        if action=='list': p.add_argument('--all',action='store_true')
+    a=parser.parse_args(); ensure_watch(); folder=BASE/'alerts'; folder.mkdir(parents=True,exist_ok=True)
+    with (folder/(a.repo+'.lock')).open('w') as lock:
+        fcntl.flock(lock,fcntl.LOCK_EX)
+        cursor=folder/(a.repo+'.cursor'); path=folder/(a.repo+'.jsonl')
+        while True:
+            offset=int(cursor.read_text()) if cursor.exists() else 0
+            data=path.read_bytes() if path.exists() else b''
+            if offset > len(data): raise ValueError('alert cursor exceeds file size')
+            chunk=data[0 if getattr(a,'all',False) else offset:]
+            end=chunk.rfind(b'\n')+1
+            if end:
+                sys.stdout.buffer.write(chunk[:end]); sys.stdout.buffer.flush()
+                if a.action=='wait': cursor.write_text(str(offset+end))
+                return
+            if a.action=='list': return
+            time.sleep(float(os.environ.get('AGENT_ALERT_INTERVAL','1')))
+if __name__=='__main__':
+    try:
+        if len(sys.argv)>1 and sys.argv[1]=='_watch': watch()
+        elif len(sys.argv)>2 and sys.argv[1]=='_run': run_job(sys.argv[2])
+        elif Path(sys.argv[0]).name=='agent-alert': main_alert()
+        elif Path(sys.argv[0]).name=='agent-watchd': watch()
+        else: main_job()
+    except (ValueError, OSError) as e: print(str(e), file=sys.stderr); sys.exit(1)

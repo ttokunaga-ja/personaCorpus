@@ -30,31 +30,36 @@ personaCorpus は Kio を含む他の repo に依存しない。他の repo の�
 |---|---|---|
 | `people/<persona>/` | 配布物。その人の PC のユーザーフォルダそのもの | 受入済みだけを管理する |
 | `personas/<persona>.md` | persona の定義 | 管理する |
-| `progress/<persona>/<batch>.md` | batch のファイル計画 | 管理する |
-| `scratch/<persona>/<batch>/` | 下書き、レンダリング、検査の一時物 | 管理しない |
+| `templates/<persona>/` | その persona の世界の文書の型（Office、TeX）と見本の一覧 | 管理する |
+| `progress/<persona>/` | batch ごとの依頼、ファイル計画、結果の報告 | 管理する |
+| `manifests/<persona>.tsv` | 受入済みファイルの一覧 | 管理する |
+| `scratch/<persona>/<batch>/` | 下書き、レンダリング、検査、Codex の出力 | 管理しない |
+| `ops/` | Codex のジョブの起動と通知（`codex-job`、`agent-alert`） | 管理する（`jobs/`・`alerts/` を除く） |
 
 - `people/` の下には、その人が自分で置いたように見えるファイルだけを置く。制作の記録や一時物を置かない。
 - Codex の作業、出力、一時ファイルは、この repo の中か `$TMPDIR` に限る。repo の中の一時物は `scratch/` に置き、repo の直下やホーム、`~/Documents` などには作らない。指示書には出力先を必ず書く。
-- `scratch/<persona>/<batch>/` は、その batch を受入または破棄したら消す。
 
 ## 制作の単位
 
-- 制作は persona × batch の単位で行う。1 つの batch は 50 ファイル程度までとし、「ファイル計画 → 制作 → 自動検査 → 抜き取り確認 → 受入または破棄 → commit・push」を batch ごとに終わらせる。受入を後回しにして未 commit の成果物を溜めない。
-- 1 つの persona を同時に扱う Codex ジョブは 1 つだけである。統括は、同じ persona のジョブが動いている間（`codex-job status --repo personaCorpus`）は次のジョブを起動しない。違う persona のジョブは並行してよい。
-- 制作するジョブが書いてよいのは、指示された persona の `people/<persona>/` と、その batch の `scratch/<persona>/<batch>/` だけである。
-- 統括は、ジョブを起動する前に空き容量を確かめ、30 GB（30,000,000,000 バイト）を下回るときは新しいジョブを起動しない。動いているジョブは止めない。
+- 制作は persona × batch の単位で行う。1 つの batch は 50 ファイル程度までの「仕事のまとまり」で、手順は `runbooks/PRODUCTION.md` に従う。受入を後回しにして未 commit の成果物を溜めない。
+- 統括は依頼を書いて `bin/batch start` で起動する。`bin/batch` が、テンプレート、ファイル計画、制作、自動検査、レビュー、作り直し、結果の報告までを Codex に順にやらせる。統括は、終わりの通知を受けてから、抜き取りで確かめて受入か破棄を決める。
+- 1 つの persona を同時に扱う batch は 1 つだけである（`bin/batch` が排他する）。違う persona は並行してよい。
+- 制作の Codex が書いてよいのは、その persona の `people/<persona>/` と、その batch の `scratch/<persona>/<batch>/` だけである。計画の Codex はそれに加えて `progress/<persona>/`、`templates/<persona>/`、`personas/<persona>.md` の「仕事の流れ」への追記ができる。レビューの Codex は `scratch/<persona>/<batch>/` にだけ書く。
+- 空き容量が 30 GB（30,000,000,000 バイト）を下回るときは、新しい batch を起動しない（`bin/batch` が確かめる）。動いている batch は止めない。
 
 ## 作り方
 
 - ファイルは 1 件ずつ、ファイル計画に書かれた固有の内容で作る。テンプレートに ID・日付・少数の値を差し込んで文書を量産するスクリプトを使わない。スクリプトを使ってよいのは、書いた内容を DOCX・XLSX・PPTX・PDF などの形式にする処理と、1 つの表の中の行データを作る処理だけである。
-- DOCX・XLSX・PPTX・PDF は、repo の Python 環境（`uv run`、`pyproject.toml`）のライブラリで作り、LibreOffice で PDF にレンダリングして画像にし、目視で確かめる。画像とスキャン原稿は Codex の `imagegen` skill で作り、使う前にその `SKILL.md` を読む。
+- Office の文書は、`templates/<persona>/` の型を開いて中身を入れる。同じ組織の文書は同じ見た目にし、社外から届いた文書は相手の型にする。
+- Office を経ない PDF は TeX（`bin/tex`）で組む。スキャン PDF は、中身のある文書を `bin/scan` に通して作る。写真や手書きの画像は Codex の `imagegen` skill で作り、使う前にその `SKILL.md` を読む。
+- 作ったものは `bin/render` で画像にして、見た目を確かめる。
 - 件数を満たすための制作をしない。ファイル計画にないファイルを足さない。計画どおりの内容を作れないファイルは作らず、理由を報告する。
 
 ## 受入と破棄
 
-- 受入は統括が行う。`bin/check` の自動検査に合格し、統括の抜き取り確認（開いて読む）で `SPEC.md` の品質を満たした batch だけを受理する。件数、パス、ハッシュの一致だけでは受理しない。
-- 不合格のファイルは受理しない。直して残すのではなく破棄し、必要なら次の batch で作り直す。破棄した件数と理由は commit メッセージか次の batch のファイル計画に書く。
-- 制作するジョブは stage・commit・push をしない。統括が、受理した batch のファイルとそのファイル計画だけを stage して commit・push する。
+- 受入は統括が行う。`bin/check` の自動検査と Codex のレビュー（`runbooks/REVIEW.md`）に合格し、統括の抜き取り確認で `SPEC.md` の品質を満たした batch だけを受理する。件数、パス、ハッシュの一致だけでは受理しない。Codex のレビューの合格は、統括の受入の代わりにならない。
+- 不合格のファイルは受理しない。直して残すのではなく破棄し、必要なら作り直す。破棄した行と理由はファイル計画に残す。
+- Codex は stage・commit・push をしない。統括が `bin/batch accept` または `bin/batch discard` で、その batch のファイル・計画・報告だけを commit し、push する。
 - 受入済みのファイルを後から変更・削除するのは、`SPEC.md` を満たさないと分かったときだけである。
 
 # エージェント運用（2026-11-12〜、個人デスクトップ WSL）
@@ -74,7 +79,7 @@ personaCorpus は Kio を含む他の repo に依存しない。他の repo の�
   | 受入レビューの難しい判断、監査、Terra で品質が安定しない制作 | Codex `gpt-6.1-sol` |
 
 - **Terra から Sol への切替え**：制作はまず `gpt-6.1-terra` で行う。同じ batch で受入検査の不合格が 2 回続く、または同種の品質問題が繰り返す場合、統括がその persona・batch を `gpt-6.1-sol` に切り替え、切替えと理由を `progress/<persona>/` に記録する。
-- **委譲と監視**：Codex は `~/dev/github.com/ttokunaga-ja/agent-ops` の `codex-job start --repo personaCorpus ...` で起動する。統括は `agent-alert wait --repo personaCorpus` をバックグラウンドで待ち、通知を受けたときだけ処理する。LLM による定期監視（旧 Codex automation）は廃止した。
+- **委譲と監視**：Codex は `ops/` の `codex-job`（`ops/README.md`）で起動する。制作の batch は `bin/batch start` が `codex-job` を呼ぶ。統括は `agent-alert wait --repo personaCorpus` をバックグラウンドで待ち、通知を受けたときだけ処理する。LLM による定期監視（旧 Codex automation）は廃止した。
 - **停止の基準**：Codex が作業全体を止めてよいのは、取り返しのつかない操作、外部への公開、秘密情報、課金に関わる判断だけである。それ以外の不明点はその項目だけ保留として理由と選択肢を記録し、残りを進める。保留は統括が解決する。Codex は新しい停止規則・承認手続きを自分で作らず、repo の資料にも追加しない。規則の追加・変更は Fable のセッションで行う。
 - **commit の粒度**：
   - 受入済みの成果物は、persona × batch（または phase）ごとに 1 commit とし、受入のたびに commit・push する。複数 persona や複数 batch をまとめた一括 commit、`git add -A`・`git add people/` のような広い stage はしない。
