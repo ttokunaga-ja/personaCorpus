@@ -1,7 +1,2 @@
-# Corpus and authority bytes are identity-sensitive. Never rewrite line endings
-# on checkout, including for text-shaped synthetic artifacts.
-workspace/people/** -text -diff
-canonical/*.json -text
-progress/**/*.json -text
-progress/**/*.jsonl -text
-manifests/**/*.jsonl -text
+people/** -text -diff
+manifests/*.tsv -text

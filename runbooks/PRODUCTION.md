@@ -5,7 +5,7 @@
 ## 0. 環境の準備（初回だけ）
 
 - `uv sync` で Python 環境を作る（`pyproject.toml`）。
-- `bin/check --self-test` が通ることを確かめる。LibreOffice（`soffice`）、`pdftotext`、`pdftoppm`、`tesseract` が要る。足りないものは検査が名前を挙げて失敗する。
+- `bin/check --self-test` が通ることを確かめる。LibreOffice（`soffice`）、`pdftotext`、`pdftoppm`、`tesseract`、`ffprobe` が要る。足りないものは検査が名前を挙げて失敗する。
 
 ## 1. ファイル計画を書く（統括）
 
@@ -112,7 +112,7 @@ bin/check --all                       # 全 persona を検査する
 bin/pack <出力先のフォルダ>
 ```
 
-`bin/check --all` と `manifests/` の照合に合格したときだけ、persona ごとに `<persona>.tar.zst` を作る。中身は `people/<persona>/` の下だけで、更新時刻は `manifests/<persona>.tsv` の値にする。あわせて `SHA256SUMS` と配布用の `README.md` を出力する。出力先は repo の外か `scratch/` にし、Git に入れない。
+`bin/check --all` と `manifests/` の照合に合格したときだけ、persona ごとに `<persona>.tar.gz` を作る。中身は `people/<persona>/` の下だけで、更新時刻は `manifests/<persona>.tsv` の値にする。あわせて `SHA256SUMS` と配布用の `README.md` を出力する。出力先は repo の外か `scratch/` にし、Git に入れない。
 
 ## 7. ジョブが止まったとき
 
