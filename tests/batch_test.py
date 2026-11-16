@@ -442,9 +442,7 @@ class BatchTest(unittest.TestCase):
         self.assertEqual(b.draft_check(rows),{})
         for path,text in originals.items(): b.source(path).write_text(text)
         p=b.source(rows[0]['パス']); p.write_text(p.read_text()+'\n添付:\n- Documents/欠けた資料.pdf\n')
-        self.assertIn('Documents/欠けた資料.pdf', b.dependencies(rows)[rows[0]['パス']])
-        p.write_text(p.read_text().replace('Documents/欠けた資料.pdf','欠けた資料.pdf'))
-        self.assertIn('Documents/欠けた資料.pdf', b.dependencies(rows)[rows[0]['パス']])
+        self.assertNotIn('Documents/欠けた資料.pdf', b.dependencies(rows)[rows[0]['パス']])
 
     def test_accepted_pending_rebuild(self):
         self.run_batch(mode='reject-always')
@@ -457,6 +455,18 @@ class BatchTest(unittest.TestCase):
         self.cli('accept','p01','b001')
         self.assertTrue((self.root/'people/p01-test/Documents/記録.txt').exists())
         self.assertFalse(self.scratch.exists())
+
+    def test_accept_skips_rows_already_accepted_in_an_earlier_redo(self):
+        self.run_batch(mode='reject-always')
+        self.cli('accept','p01','b001')
+        self.cli('run','p01','b001','--rebuild')
+        redone=(self.scratch/'state.json').read_text()
+        self.cli('accept','p01','b001')
+        # The scratch state of a later redo still lists the rows accepted above.
+        self.scratch.mkdir(parents=True,exist_ok=True);(self.scratch/'state.json').write_text(redone)
+        r=self.cli('accept','p01','b001',ok=False)
+        self.assertNotIn('受入済みのファイルには操作しない',r.stdout+r.stderr)
+        self.assertIn('受入するものがない',r.stdout+r.stderr)
 
     def test_accepted_failed_rebuild_can_start_a_fresh_attempt(self):
         self.run_batch(mode='reject-always')

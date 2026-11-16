@@ -801,16 +801,18 @@ class Batch:
             for candidate in candidates:
                 if candidate != rel and candidate in text:
                     deps.add(candidate)
-            # Also detect absent/previous-batch attachments, not just current rows.
-            for line in attachment_lines:
+            # Attachments from earlier batches count too. Only emails carry attachments.
+            for line in (attachment_lines if rel.lower().endswith('.eml') else []):
                 for match in re.finditer(r'(?:[\w. -]+/)*[^/`\[\],;:：\n]+?\.(?:' + '|'.join(sorted(EXT)) + r')(?=$|[\s`\],;（(])', line):
                     candidate = match[0].strip(' -\"\'')
                     if '/' not in candidate:
                         nearby = (PurePosixPath(rel).parent / candidate).as_posix()
                         matches = [p for p in candidates if PurePosixPath(p).name == candidate]
                         candidate = nearby if nearby in candidates or safe_file(self.folder, nearby).is_file() else matches[0] if len(matches) == 1 else nearby
-                    safe_file(self.folder, candidate)
-                    deps.add(candidate)
+                    # A name that is neither planned nor on disk is not a corpus file (for example a file
+                    # shown in a screenshot, or an attachment the person never saved); it cannot be waited for.
+                    if candidate in candidates or safe_file(self.folder, candidate).is_file():
+                        deps.add(candidate)
             result[rel] = deps - {rel}
         return result
 
@@ -1401,6 +1403,16 @@ class Batch:
     def _finish(self, discard=False):
         rows = plan_rows(self.plan)
         rebuilding = self.state.get('rebuild_paths')
+        if rebuilding:
+            # Rows rebuilt or redrafted earlier and already accepted stay in the list; they are done, not in the way.
+            head = set(command(['git', 'ls-tree', '-rz', '--name-only', 'HEAD'], check=False).stdout.split('\0'))
+            changed = set(filter(None, git('status', '--porcelain', '-z', '--', f'people/{self.persona}').split('\0')))
+            def accepted(rel):
+                path = str(safe_file(self.folder, rel).relative_to(ROOT))
+                return path in head and not any(entry[3:] == path for entry in changed)
+            rebuilding = [p for p in rebuilding if not accepted(p)] or None
+            if rebuilding is None:
+                raise ValueError('受入するものがない（やり直した行はすべて受入済み）')
         self.protected([r for r in rows if not rebuilding or r['パス'] in rebuilding], artifacts_only=bool(rebuilding))
         if rebuilding and discard:
             raise ValueError('再成形済み batch の一括破棄は受入済みのファイルに影響する')
