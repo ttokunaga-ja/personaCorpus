@@ -181,6 +181,119 @@ def limit(key, env):
     return int(raw)
 
 
+BUILD_WEIGHTS = {'pptx': 3, 'xlsx': 2, 'photo': 2, 'handwriting': 2,
+                 'chart': 2, 'diagram': 2, 'screenshot': 2, 'scan': 2,
+                 'tex': 1.5, 'docx': 1.5, 'other': 1}
+
+
+def build_limits():
+    path = ROOT / 'config/limits.json'
+    cfg = json.loads(read(path)) if path.exists() else {}
+    weights = BUILD_WEIGHTS | cfg.get('build_weights', {})
+    maximum = cfg.get('max_build_weight', 6)
+    for key, value in {'max_build_weight': maximum, **weights}.items():
+        if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value) or value <= 0:
+            raise ValueError(f'{key}（config/limits.json）は正の有限数')
+    return weights, maximum
+
+
+def build_weight(row, weights=None):
+    weights = build_limits()[0] if weights is None else weights
+    method = row['作り方'].split(':', 1)[0]
+    ext = PurePosixPath(row['パス']).suffix.lower().lstrip('.')
+    key = method if method in ('photo', 'handwriting', 'chart', 'diagram', 'screenshot', 'scan') else (
+        ext if ext in ('pptx', 'xlsx', 'docx') else 'tex' if ext == 'pdf' and method == 'tex' else 'other')
+    return weights[key]
+
+
+def build_groups(rows):
+    weights, maximum = build_limits()
+    groups, group, total = [], [], 0
+    for row in rows:
+        weight = build_weight(row, weights)
+        if group and total + weight > maximum:
+            groups.append(group)
+            group, total = [], 0
+        group.append(row)
+        total += weight
+    if group:
+        groups.append(group)
+    return groups
+
+
+ROOT_PLACES = set('people sources progress templates personas manifests config ops bin prompts runbooks tests .git'.split())
+
+
+def root_untracked():
+    """Only movable, untracked and nonignored depth-one entries."""
+    tracked = {p.split('/')[0] for p in git('ls-files', '-z').split('\0') if p}
+    files = [p for p in git('ls-files', '--others', '--exclude-standard', '-z').split('\0') if p]
+    candidates = {p.split('/')[0] for p in files}
+    # Git does not list empty directories.
+    candidates.update(p.name for p in ROOT.iterdir() if p.is_dir() and not p.is_symlink() and not any(p.iterdir()))
+    return {name for name in candidates - tracked - ROOT_PLACES
+            if command(['git', 'check-ignore', '-q', '--', name], check=False).returncode != 0}
+
+
+@contextlib.contextmanager
+def root_watch(work, stage, execution):
+    """Serialize snapshots/moves; remember every overlapping execution across batches."""
+    folder = ROOT / 'scratch'
+    folder.mkdir(parents=True, exist_ok=True)
+    registry = folder / '.root-watch.json'
+    identity = str(work.relative_to(ROOT)) + f'/a{execution}'
+    label = f'{stage}、{identity}'
+    records = []
+
+    @contextlib.contextmanager
+    def locked():
+        with (folder / '.root-watch.lock').open('a') as lock:
+            fcntl.flock(lock, fcntl.LOCK_EX)
+            active = json.loads(read(registry)) if registry.exists() else {}
+            for key, value in list(active.items()):
+                try:
+                    os.kill(value['pid'], 0)
+                except ProcessLookupError:
+                    del active[key]
+            yield active
+            save(registry, active)
+
+    with locked() as active:
+        before = root_untracked()
+        peers = [value['label'] for value in active.values()]
+        for value in active.values():
+            value['candidates'].append(label)
+        active[identity] = dict(pid=os.getpid(), label=label, candidates=peers + [label])
+    try:
+        yield records
+    finally:
+        with locked() as active:
+            candidates = active.pop(identity)['candidates']
+            for name in sorted(root_untracked() - before):
+                source, destination = ROOT / name, work / 'stray' / name
+                # Preserve ignored descendants even in an otherwise untracked directory.
+                ignored = git('ls-files', '--others', '--ignored', '--exclude-standard', '-z', '--', name).strip('\0')
+                try:
+                    destination.parent.mkdir(parents=True, exist_ok=True)
+                    if source.is_dir() and not source.is_symlink() and ignored:
+                        for rel in git('ls-files', '--others', '--exclude-standard', '-z', '--', name).split('\0'):
+                            if rel:
+                                target = work / 'stray' / rel
+                                target.parent.mkdir(parents=True, exist_ok=True)
+                                shutil.move(str(ROOT / rel), str(target))
+                    else:
+                        source.rename(destination)
+                except FileNotFoundError:
+                    continue  # A peer already moved it.
+                records.append(dict(name=name, stage=stage, execution=identity,
+                                    candidates=candidates, destination=str(destination.relative_to(ROOT))))
+
+
+def stray_message(record):
+    return (f'repo の直下に作られたファイル：{record["name"]}（{record["stage"]}、{record["execution"]}）'
+            + '。候補の実行：' + ' / '.join(record['candidates']) + '。移動先：' + record['destination'])
+
+
 def slot_limit():
     return limit('max_codex', 'CORPUS_MAX_CODEX')
 
@@ -362,21 +475,21 @@ class Batch:
         paths = list(self.templates.parent.rglob('*')) + [self.definition, self.plan.parent / 'facts.md']
         return {str(p): hashlib.sha256(p.read_bytes()).hexdigest() for p in paths if p.is_file()}
 
-    def codex(self, stage, rows=(), round_number=0, reasons=None, review_output=None):
+    def codex(self, stage, rows=(), round_number=0, reasons=None, review_output=None, continuation=0, continuation_output=None):
         if self.planning:
-            return self._codex(stage, rows, round_number, reasons, review_output)
+            return self._codex(stage, rows, round_number, reasons, review_output, continuation, continuation_output)
         path = ROOT / 'scratch' / self.persona / '.lock'
         path.parent.mkdir(parents=True, exist_ok=True)
         with path.open('a') as handle:
             fcntl.flock(handle, fcntl.LOCK_SH)
             before = self.shared_hashes()
             try:
-                return self._codex(stage, rows, round_number, reasons, review_output)
+                return self._codex(stage, rows, round_number, reasons, review_output, continuation, continuation_output)
             finally:
                 if before != self.shared_hashes():
                     raise ValueError('計画の段階のあとに型・台帳・persona が変更された')
 
-    def _codex(self, stage, rows=(), round_number=0, reasons=None, review_output=None):
+    def _codex(self, stage, rows=(), round_number=0, reasons=None, review_output=None, continuation=0, continuation_output=None):
         logs = self.scratch / 'logs'
         logs.mkdir(parents=True, exist_ok=True)
         with self.mutex:
@@ -388,6 +501,7 @@ class Batch:
         context = dict(work=str(work.relative_to(ROOT)), render=str((work / 'render').relative_to(ROOT)), stage=stage, persona=self.persona, batch=self.batch,
                        scratch=str(self.scratch.relative_to(ROOT)), plan=str(self.plan.relative_to(ROOT)),
                        rows=list(rows), round=round_number, reasons=reasons or {},
+                       continuation=continuation, continuation_output=continuation_output or {},
                        review_output=str(review_output.relative_to(ROOT)) if review_output else '')
         if stage == 'draft':
             context['missing_prerequisites'] = {r['パス']: self.state.get('draft_missing_prerequisites', {}).get(r['パス'], []) for r in rows}
@@ -437,7 +551,18 @@ class Batch:
                     '-c', 'model_reasoning_effort="medium"', '-s', 'workspace-write',
                     '-c', 'sandbox_workspace_write.network_access=true', '-C', str(ROOT), '-o', str(output), '-']
             with codex_slot() as slot_fd, base.with_suffix('.log').open('w') as log:
-                code = subprocess.run(args, cwd=ROOT, input=prompt, stdout=log, stderr=subprocess.STDOUT, pass_fds=(slot_fd,)).returncode
+                execution_work = ROOT / context['work']
+                strays = []
+                try:
+                    with root_watch(execution_work, stage, attempt) as strays:
+                        code = subprocess.run(args, cwd=ROOT, input=prompt, stdout=log, stderr=subprocess.STDOUT, pass_fds=(slot_fd,)).returncode
+                finally:
+                    with self.mutex:
+                        self.state.setdefault('strays', []).extend(strays)
+                        self.store()
+                    for record in strays:
+                        log.write(stray_message(record) + '\n')
+                        print(stray_message(record), flush=True)
             if code == 0:
                 return read(output) if output.exists() else ''
         tail = '\n'.join(read(base.with_suffix('.log')).splitlines()[-20:])
@@ -1012,9 +1137,13 @@ class Batch:
                         path.unlink(missing_ok=True)
                 self.step(f'{stage}-delete-r{round_number}', remove, len(targets))
             production_tasks = []
-            for i in range(0, len(targets), 10):
-                group = targets[i:i+10]
-                key = f'{stage}-r{round_number}-g{i//10}'
+            groups = build_groups(targets) if stage == 'build' else [targets[i:i+10] for i in range(0, len(targets), 10)]
+            for i, group in enumerate(groups):
+                key = f'{stage}-r{round_number}-g{i}'
+                if stage == 'build':
+                    with self.mutex:
+                        self.state.setdefault('build_groups', {})[getattr(self, 'step_prefix', '') + key] = [r['パス'] for r in group]
+                        self.store()
                 def produce(group=group, key=key):
                     attempted = self.state.setdefault('attempted', [])
                     attempt_key = getattr(self, 'step_prefix', '') + key
@@ -1028,14 +1157,32 @@ class Batch:
                         pending = [r for r in pending if not safe_file(self.folder, r['パス']).is_file()]
                     before = self.hashes(sources=True)
                     try:
-                        if pending:
-                            output = self.codex(stage, pending, round_number, failures)
-                            if stage == 'build':
+                        if stage == 'draft':
+                            if pending:
+                                self.codex(stage, pending, round_number, failures)
+                        else:
+                            # Persist successful invocations so resume cannot replenish the continuation budget.
+                            with self.mutex:
+                                run = self.state.setdefault('build_runs', {}).setdefault(attempt_key, {'completed': 0, 'output': {}})
+                            for execution in range(run['completed'], 3):
+                                if not pending:
+                                    break
+                                if execution:
+                                    with self.mutex:
+                                        for row in pending:
+                                            used = self.state.setdefault('build_continuations', {}).setdefault(row['パス'], [])
+                                            marker = f'{attempt_key}/continue{execution}'
+                                            if marker not in used:
+                                                used.append(marker)
+                                        self.store()
+                                options = dict(continuation=execution, continuation_output={r['パス']: run['output'].get(r['パス'], '') for r in pending}) if execution else {}
+                                output = self.codex(stage, pending, round_number, failures, **options)
+                                pending = [r for r in pending if not safe_file(self.folder, r['パス']).is_file()]
                                 with self.mutex:
-                                    for row in pending:
-                                        if not safe_file(self.folder, row['パス']).is_file():
-                                            self.state.setdefault('build_missing_output', {})[row['パス']] = missing_explanation(output, row['パス'], group)
-                                self.store()
+                                    run['completed'] = execution + 1
+                                    run['output'] = {r['パス']: missing_explanation(output, r['パス'], group) for r in pending}
+                                    self.state.setdefault('build_missing_output', {}).update(run['output'])
+                                    self.store()
                     finally:
                         if stage == 'build' and before != self.hashes(sources=True):
                             raise ValueError('成形中に原稿が変更された')
@@ -1221,6 +1368,8 @@ class Batch:
         text = f'# {self.persona} {self.batch} の結果\n\n状態：結果待ち\n\n## 依頼との対応\n\n{read(self.request)}\n'
         text += f'\n制作：{sum(counts.values())} 件\n\n' + '\n'.join(f'- {ext}: {n} 件' for ext, n in sorted(counts.items()))
         text += '\n\n## 成形待ち\n\n' + ('\n'.join(f'- {p}: {why}' for p, why in waiting.items()) or 'なし')
+        text += '\n\n## 続きを使った行\n\n' + ('\n'.join(f'- {rel}: ' + ', '.join(runs) for rel, runs in sorted(self.state.get('build_continuations', {}).items())) or 'なし')
+        text += '\n\n## repo の直下に作られたファイル\n\n' + ('\n'.join('- ' + stray_message(record) for record in self.state.get('strays', [])) or 'なし')
         text += '\n\n## 破棄した行と理由\n\n' + ('\n'.join(f'- {rel}: {why}' for rel, why in discarded.items()) or 'なし')
         text += '\n\n## 先に要る原稿が欠けたまま書いた行\n\n' + ('\n'.join(f'- {rel}: ' + ', '.join(missing) for rel, missing in sorted(self.state.get('draft_missing_prerequisites', {}).items()) if missing) or 'なし')
         for stage, label in (('draft', '原稿'), ('build', '成形')):
@@ -1378,6 +1527,7 @@ def show_status(persona=None, batch=None):
         if state.exists():
             s = json.loads(read(state))
             print(state_label(persona, batch, s))
+            print(f'成形の組 {len(s.get("build_groups", {}))} / 続きを使った行 {len(s.get("build_continuations", {}))} 件')
             for group, details in sorted(s.get('active', {}).items()):
                 if re.search(r'-g\d+$', group):
                     print(f'  組 {group}: {details}')

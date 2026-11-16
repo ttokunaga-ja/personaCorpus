@@ -23,7 +23,7 @@ class ParallelTest(unittest.TestCase):
         rows=[dict(first, パス=f'Documents/連絡-{i}.txt') for i in range(23)]
         b.plan.write_text('| '+' | '.join(mod.COLUMNS)+' |\n|---|---|---|---|---|---|\n'+''.join('| '+' | '.join(r[c] for c in mod.COLUMNS)+' |\n' for r in rows))
         fake=fixtures.FAKE.replace("s=meta['stage'];", """import time, atexit
-log=root/'events.jsonl'
+log=root/meta['scratch']/'events.jsonl'
 def event(kind):
  with log.open('a') as handle: handle.write(json.dumps([kind,time.monotonic(),os.getpid(),meta['stage'],[r['パス'] for r in meta['rows']]])+'\\n')
 event('start'); atexit.register(event,'end'); time.sleep(.15)
@@ -35,7 +35,7 @@ s=meta['stage'];""")
         return mod,b,rows
 
     def events(self):
-        return [json.loads(line) for line in (self.root/'events.jsonl').read_text().splitlines()]
+        return [json.loads(line) for line in (self.scratch/'events.jsonl').read_text().splitlines()]
 
     def test_real_fake_review_parallel_and_global_limit(self):
         mod,b,rows=self.prepare_parallel()

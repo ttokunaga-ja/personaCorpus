@@ -778,7 +778,7 @@ class BatchTest(unittest.TestCase):
         from datetime import datetime, timezone
         expected=datetime(2026,3,6,3,tzinfo=timezone.utc).timestamp()
         self.assertEqual((self.root/'people/p01-test/Documents/記録.txt').stat().st_mtime,expected)
-    def test_ten_file_groups(self):
+    def test_weighted_build_and_ten_file_draft_review_groups(self):
         self.cli('run','p01','b001','--plan-only')
         mod=self.load()
         args=type('Args',(),dict(persona='p01',batch='b001',producer=None,review_again=False,plan_only=False))()
@@ -787,7 +787,7 @@ class BatchTest(unittest.TestCase):
         b.plan.write_text('| パス | 日付 | 作り方 | 内容 | 関連 |\n|---|---|---|---|---|\n'+''.join('| '+' | '.join(r[c] for c in mod.COLUMNS)+' |\n' for r in rows))
         b.state['completed']['plan']=rows; b.store()
         self.run_batch(); calls=json.loads((self.scratch/'calls.json').read_text())
-        self.assertEqual(calls['build'],3); self.assertEqual(calls['build-review'],3)
+        self.assertEqual(calls['build'],4); self.assertEqual(calls['build-review'],3)
         self.assertEqual(calls['draft'],3); self.assertEqual(calls['draft-review'],3)
     def test_naming_contract_matches_checker(self):
         import runpy
