@@ -356,7 +356,7 @@ class Sources(Check):
                 with patch.object(module,'extract',return_value=('alpha bravo charlie delta echo',scan,False)), patch.object(module,'metadata',return_value=None):
                     result=module.inspect((p,self.home,{},'eng',self.base/'sources'/self.name))
                 self.assertEqual('source' not in result[1],passes,result)
-                with patch.object(module,'extract',return_value=('alpha bravo charlie delta',scan,False)), patch.object(module,'metadata',return_value=None):
+                with patch.object(module,'extract',return_value=('alpha bravo',scan,False)), patch.object(module,'metadata',return_value=None):
                     result=module.inspect((p,self.home,{},'eng',self.base/'sources'/self.name))
                 self.assertIn('source',result[1],result)
                 p.unlink()

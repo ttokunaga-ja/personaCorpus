@@ -50,8 +50,8 @@ class Hardening(unittest.TestCase):
             with self.subTest(ext=ext):
                 self.assertIsNone(check.source_reason(body, ' '.join(body.split()[:minimum]), ext=ext))
                 self.assertIsNotNone(check.source_reason(body, ' '.join(body.split()[:minimum-1]), ext=ext))
-        self.assertIsNone(check.source_reason(body, ' '.join(body.split()[:5]), from_ocr=True))
-        self.assertIsNotNone(check.source_reason(body, ' '.join(body.split()[:4]), from_ocr=True))
+        self.assertIsNone(check.source_reason(body, ' '.join(body.split()[:3]), from_ocr=True))
+        self.assertIsNotNone(check.source_reason(body, ' '.join(body.split()[:2]), from_ocr=True))
 
     def test_notes_extracted(self):
         p = self.work/'deck.pptx'

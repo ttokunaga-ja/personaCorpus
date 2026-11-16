@@ -130,6 +130,56 @@ class Stamp(unittest.TestCase):
                 self.assertEqual(im.tobytes(),pixels)
                 self.assertEqual(im.getexif()[274],6)
 
+    def test_jpeg_adds_capture_dates_without_existing_exif(self):
+        for ext in ('jpg', 'jpeg'):
+            with self.subTest(ext=ext):
+                path = self.work / ('capture.' + ext)
+                Image.new('RGB', (12,12), 'blue').save(path)
+                self.deterministic(path)
+                with Image.open(path) as image:
+                    exif = image.getexif()
+                    self.assertEqual(exif[306], '2026:03:06 18:42:10')
+                    capture = exif.get_ifd(34665)
+                    self.assertEqual(capture[36867], exif[306])
+                    self.assertEqual(capture[36868], exif[306])
+                    self.assertNotIn(271, exif)
+                    self.assertNotIn(272, exif)
+                    self.assertNotIn(34853, exif)
+
+    def test_jpeg_replaces_capture_metadata_and_removes_gps(self):
+        path = self.work / 'capture.jpg'
+        exif = Image.Exif()
+        exif[274] = 6
+        exif[271] = 'Old make'; exif[272] = 'Old model'; exif[305] = 'Pillow'
+        exif[306] = '2026:11:16 12:00:00'
+        exif[34665] = {36867:'2026:11:16 12:00:00', 36868:'2026:11:16 12:00:00',
+                       37510:b'Codex', 36881:'+00:00'}
+        exif[34853] = {1:'N', 2:(35.0, 0.0, 0.0)}
+        Image.new('RGB', (12,12), 'red').save(path, exif=exif)
+        original = path.read_bytes()
+        self.assertIsNotNone(check.metadata(path, 'jpg', {'timezone':'Asia/Tokyo'}, EPOCH))
+        for device in (None, 'Canon EOS R6'):
+            with self.subTest(device=device):
+                path.write_bytes(original)
+                self.deterministic(path, *(['--device', device] if device else []))
+                with Image.open(path) as image:
+                    clean = image.getexif()
+                    self.assertEqual(clean[274], 6)
+                    self.assertEqual(clean[306], '2026:03:06 18:42:10')
+                    self.assertEqual(clean.get_ifd(34665), {36867:clean[306], 36868:clean[306]})
+                    self.assertNotIn(305, clean)
+                    self.assertNotIn(34853, clean)
+                    for tag in (271,272):
+                        if device: self.assertEqual(clean[tag], device)
+                        else: self.assertNotIn(tag, clean)
+
+    def test_png_does_not_add_capture_dates_or_device(self):
+        path = self.work / 'capture.png'
+        Image.new('RGB', (12,12), 'blue').save(path)
+        self.deterministic(path, '--device', 'Canon EOS R6')
+        with Image.open(path) as image:
+            self.assertEqual(dict(image.getexif()), {})
+
     def test_revision_dates_and_timezone(self):
         path = self.work/'history.docx'
         doc = Document(); doc.add_paragraph('Monthly report'); doc.save(path)

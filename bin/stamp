@@ -178,7 +178,26 @@ def clean_exif(raw):
     return exif.tobytes()
 
 
-def image_bytes(raw, ext):
+def jpeg_exif(raw, date, device):
+    from PIL import Image
+    exif = Image.Exif()
+    if raw: exif.load(clean_exif(raw))
+    # Device identity is supplied explicitly; never retain the source GPS location.
+    for tag in (271,272,34853):
+        if tag in exif: del exif[tag]
+    if device:
+        exif[271] = device
+        exif[272] = device
+    stamp = date.strftime('%Y:%m:%d %H:%M:%S')
+    exif[306] = stamp
+    capture = exif.get_ifd(34665) if 34665 in exif else {}
+    capture.update({36867:stamp, 36868:stamp})
+    exif[34665] = capture
+    data = exif.tobytes()
+    return b'\xff\xe1' + struct.pack('>H', len(data)+2) + data
+
+
+def image_bytes(raw, ext, date, device=None):
     if ext == 'png':
         result = bytearray(raw[:8]); pos=8
         while pos < len(raw):
@@ -190,19 +209,22 @@ def image_bytes(raw, ext):
             pos += size+12
         return bytes(result)
     # Copy JPEG compressed scan data verbatim; Pillow saving would recompress it.
-    result=bytearray(raw[:2]); pos=2
+    result=bytearray(raw[:2]); pos=2; stamped=False
     while pos < len(raw):
         start=pos
         if raw[pos] != 255: raise ValueError('invalid JPEG marker')
         while raw[pos] == 255: pos+=1
         marker=raw[pos]; pos+=1
-        if marker in (0xda,0xd9): result.extend(raw[start:]); break
+        if marker in (0xda,0xd9):
+            if not stamped: result.extend(jpeg_exif(None,date,device))
+            result.extend(raw[start:]); break
         if marker == 1 or 0xd0 <= marker <= 0xd7: result.extend(raw[start:pos]); continue
         size=int.from_bytes(raw[pos:pos+2],'big'); data=raw[pos+2:pos+size]; pos+=size
         if marker == 0xfe: continue
         if marker == 0xe1:
-            if data.startswith(b'Exif\0\0'): data=clean_exif(data)
-            else: continue  # XMP, including extended packets, is production metadata.
+            if data.startswith(b'Exif\0\0') and not stamped:
+                result.extend(jpeg_exif(data,date,device)); stamped=True
+            continue  # Discard duplicate EXIF and XMP, including extended packets.
         result.extend(bytes((255,marker))+struct.pack('>H',len(data)+2)+data)
     return bytes(result)
 
@@ -216,6 +238,7 @@ def main():
     parser.add_argument('--created')
     parser.add_argument('--timezone',default='UTC')
     parser.add_argument('--producer')
+    parser.add_argument('--device', help='JPEG EXIF Make and Model; omitted by default')
     args=parser.parse_args()
     def timestamp(value):
         result=dt.datetime.fromisoformat(value.replace('Z','+00:00'))
@@ -229,7 +252,7 @@ def main():
     raw=args.file.read_bytes(); ext=args.file.suffix.lower()[1:]
     if ext in ('docx','xlsx','pptx','zip'): result=archive_bytes(raw,args.author,date,ext,args.modified_by,created)
     elif ext == 'pdf': result=pdf_bytes(raw,args.author,date,args.producer,created)
-    elif ext in ('png','jpg','jpeg'): result=image_bytes(raw,ext)
+    elif ext in ('png','jpg','jpeg'): result=image_bytes(raw,ext,date,args.device)
     else: result=raw
     with tempfile.NamedTemporaryFile(prefix='.'+args.file.name+'.', suffix='.tmp', dir=args.file.parent, delete=False) as output:
         temporary=Path(output.name)

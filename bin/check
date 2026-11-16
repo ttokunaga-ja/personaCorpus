@@ -135,9 +135,9 @@ def extract(path,ext,language=None):
                         # Separate logical units, rather than inserting spaces between runs.
                         units=[x for x in root.iter() if x.tag.rsplit('}',1)[-1] in ('p','si','c')]
                         if units:
-                            texts.extend(''.join((x.text or '') if x.tag.rsplit('}',1)[-1] in ('t','v') else '\n' if x.tag.rsplit('}',1)[-1]=='br' else '\t' if x.tag.rsplit('}',1)[-1]=='tab' else '' for x in unit.iter()) for unit in units)
+                            texts.extend(''.join((x.text or '') if x.tag.rsplit('}',1)[-1] in ('t','v','delText') else '\n' if x.tag.rsplit('}',1)[-1]=='br' else '\t' if x.tag.rsplit('}',1)[-1]=='tab' else '' for x in unit.iter()) for unit in units)
                         else:
-                            texts.extend(x.text for x in root.iter() if x.text and x.tag.rsplit('}',1)[-1] in ('t','v'))
+                            texts.extend(x.text for x in root.iter() if x.text and x.tag.rsplit('}',1)[-1] in ('t','v','delText'))
             return ' '.join(texts),False,False
     if ext=='pdf':
         command(['pdfinfo',path])
@@ -278,20 +278,31 @@ def formula_reason(path):
     return None
 
 
-def source_reason(expected, actual, *, from_ocr=False, ext="txt"):
+def source_reason(expected, actual, *, from_ocr=False, ext="txt", reviewed=False, derived=False):
     # The mechanical check catches dropped content; exact wording is the visual review's job.
     strip=lambda s:re.sub(r'(?<=\d),(?=\d{3})','',s)
     words=lambda s:Counter({k:v for k,v in body_tokens(strip(s)).items() if k not in ('年','月','日','円')})
     expected=source_body(expected)
     want=words(expected);have=words(actual)
     overlap=sum((want & have).values())/sum(want.values()) if want else 1
-    if not from_ocr:
+    if not (from_ocr or derived):
         numbers=source_numbers(expected)
         missing=sorted(numbers-source_numbers(actual))
         if len(missing)>len(numbers)//20:return 'missing source values: '+', '.join(missing[:5])
-    threshold=.5 if from_ocr else .6 if ext in ('xlsx','csv','tsv') else .7 if ext=='pptx' else .8
+    threshold=.3 if from_ocr else .6 if reviewed else .5 if derived else .6 if ext in ('xlsx','csv','tsv') else .7 if ext=='pptx' else .8
     if overlap<threshold:return f'body token overlap {overlap:.3f} < {threshold}'
     return None
+
+
+def docx_reviewed(path):
+    """Revision or comment markup changes the manuscript coverage denominator."""
+    with zipfile.ZipFile(path) as archive:
+        for name in archive.namelist():
+            if name.startswith('word/') and name.endswith('.xml'):
+                root=ET.fromstring(archive.read(name))
+                if any(node.tag.rsplit('}',1)[-1] in ('ins','del','moveFrom','moveTo','comment','commentRangeStart','commentReference') for node in root.iter()):
+                    return True
+    return False
 
 
 def metadata(path, ext, cfg, mtime):
@@ -398,11 +409,11 @@ def inspect(item):
                 except Exception as e:fail('metadata',f'{type(e).__name__}: {e}')
                 try:
                     scfg,body=source_document(source_root,rel)
-                    source_photo=ext in ('png','jpg') and scfg.get('kind')=='photo'
-                    if not source_photo:
+                    visual_source=bool({'photo','handwriting'} & set(scfg.get('kind','').split(':')))
+                    if not visual_source:
                         if missing:skipped.append('source(OCR)')
                         else:
-                            reason=source_reason(body,text,from_ocr=scan or bool(scfg.get('derived_from')),ext=ext)
+                            reason=source_reason(body,text,from_ocr=scan,ext=ext,reviewed=ext=='docx' and docx_reviewed(path),derived=bool(scfg.get('derived_from')))
                             if reason:fail('source',reason)
                 except Exception as e:fail('source',f'{type(e).__name__}: {e}')
                 if missing:
@@ -434,22 +445,24 @@ def duplicates(results, derived=None):
     derived=derived or {}
     def related(i,j):
         a,b=results[i][0],results[j][0]
-        return derived.get(a)==b or derived.get(b)==a
-    def mark_pair(left,right,reason):
+        left,right=derived.get(a,()),derived.get(b,())
+        if isinstance(left,str):left=(left,)
+        if isinstance(right,str):right=(right,)
+        return b in left or a in right
+    def mark_pair(left,right,reason,exact=False):
         for group,other in ((left,right),(right,left)):
             for i in group:
                 if 'duplicate' in results[i][1]:continue
-                if any(i!=j and not related(i,j) for j in other):mark((i,),reason)
+                match=next((j for j in other if i!=j and results[i][0]!=results[j][0] and (exact or not related(i,j))),None)
+                if match is not None:results[i][1]['duplicate']=reason+': '+results[match][0]
     hashes=defaultdict(list);groups=defaultdict(list)
     for i,(_,_,digest,grams,_) in enumerate(results):
         if digest is not None:hashes[digest].append(i)
         if grams:groups[grams].append(i)
-    def mark(indices,reason):
-        for i in indices:results[i][1].setdefault('duplicate',reason)
     for indices in hashes.values():
-        if len(indices)>1:mark(indices,'identical bytes: '+results[indices[0]][0])
+        if len(indices)>1:mark_pair(indices,indices,'identical bytes',exact=True)
     for indices in groups.values():
-        if len(indices)>1:mark_pair(indices,indices,'identical normalized shingles: '+results[indices[0]][0])
+        if len(indices)>1:mark_pair(indices,indices,'identical normalized shingles')
     frequency=Counter(g for grams in groups for g in grams)
     index=defaultdict(list)
     for grams,indices in sorted(groups.items(),key=lambda x:len(x[0])):
@@ -461,26 +474,42 @@ def duplicates(results, derived=None):
         for other in candidates:
             intersection=len(grams & other)
             if 5*intersection>=4*(n+len(other)-intersection):
-                mark_pair(indices,groups[other],'normalized 5-word Jaccard >= 0.8: '+results[groups[other][0]][0])
+                mark_pair(indices,groups[other],'normalized 5-word Jaccard >= 0.8')
         for g in prefix:index[g].append(grams)
 
 
-def plan(path):
+def plan(path, relations=None):
     lines=path.read_text(encoding='utf-8').splitlines();result={};indices=None
     for line in lines:
         if not line.strip().startswith('|'):continue
         cells=[c.strip().strip('`') for c in re.split(r'(?<!\\)\|',line.strip().strip('|'))]
         if all(c in cells for c in ('パス','日付','内容','関連')):
-            indices=[cells.index(c) for c in ('パス','日付','内容')];continue
+            indices=[cells.index(c) for c in ('パス','日付','内容')]
+            links=[cells.index(c) for c in ('関連','先に要るもの') if c in cells]
+            continue
         if indices is None or all(re.fullmatch(r':?-+:?',c) for c in cells):continue
         if len(cells)<=max(indices):raise ValueError('malformed plan row')
         rel,date,content=[cells[i] for i in indices]
+        if relations is not None:
+            for index in links:
+                if index<len(cells):
+                    relations[rel].update(value.strip().strip('`') for value in re.split(r'[,、;；\n]+',cells[index]) if value.strip().strip('`'))
         if content.startswith(('破棄：','成形待ち：')):continue
         if not rel or Path(rel).is_absolute() or '..' in Path(rel).parts:raise ValueError('unsafe plan path')
         if rel in result:raise ValueError('duplicate plan path: '+rel)
         result[rel]=date
     if indices is None:raise ValueError('plan table not found')
     return result
+
+
+def plan_relations(folder):
+    """Read direct content relationships across every batch plan for this persona."""
+    relations=defaultdict(set)
+    for path in sorted(folder.glob('*.md')):
+        if path.name.endswith(('.request.md','.result.md')) or path.stem=='facts':continue
+        try:plan(path,relations)
+        except ValueError:continue
+    return relations
 
 
 def tracked(folder):
@@ -546,11 +575,11 @@ def run(a):
                 if time.monotonic()-last>=5 or len(results)==len(paths):
                     print(f'{name}: {len(results)}/{len(paths)} files, {time.monotonic()-started:.1f}s',file=sys.stderr,flush=True);last=time.monotonic()
         print(f'{name}: duplicate comparison',file=sys.stderr,flush=True)
-        derived={}
+        derived=plan_relations(a.progress/name)
         for rel,_,_,_,_ in results:
             try:
                 scfg,_=source_document(a.sources/name,rel)
-                if scfg.get('derived_from'):derived[rel]=scfg['derived_from']
+                if scfg.get('derived_from'):derived[rel].add(scfg['derived_from'])
             except (OSError,ValueError):pass
         duplicates(results,derived)
         for rel,issues,_,_,skipped in results:

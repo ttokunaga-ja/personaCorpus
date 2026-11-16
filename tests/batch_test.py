@@ -45,9 +45,10 @@ if s=='draft':
   body=('月次の資金繰りについて山田が承認。前月比の差額1240円は入金遅延で説明がついた。' if '記録' in row['パス'] else '研修担当の木下へ参加日程の変更を通知した。火曜日から水曜日へ移すことで回答を得た。') if len(meta['rows'])<3 else ' '.join(''.join(rng.choices(string.ascii_lowercase,k=9)) for _ in range(40))
   if i==0 and mode=='machine-once' and meta['round']==0: body='placeholder'
   if mode in ('dependency','parent-fail') and '連絡' in row['パス']: body+='\n\n添付: Documents/記録.txt'
-  p.write_text('---\npath: '+row['パス']+'\nkind: '+row['作り方']+'\nauthor: 山田 花子\nderived_from:\n---\n'+body+'\n')
+  p.write_text('---\npath: '+row['パス']+'\nkind: '+row['作り方']+'\nauthor: 山田 花子\n'+('device: Office Scanner 42\n' if mode=='device' else '')+'derived_from:\n---\n'+body+'\n')
 if s=='build':
  for row in meta['rows']:
+  if '記録' in row['パス'] and (mode=='skip-build-always' or mode=='skip-build-once' and meta['round']==0): continue
   source=root/'sources'/meta['persona']/(row['パス']+'.md')
   p=root/'people'/meta['persona']/row['パス']; p.parent.mkdir(parents=True,exist_ok=True); p.write_text(source.read_text().split('\n---\n',1)[1])
   if mode=='number-once' and meta['round']==0 and '記録' in row['パス']: p.write_text(p.read_text().replace('1240',''))
@@ -68,14 +69,18 @@ if s in ('draft-review','build-review'):
   if mode=='missing-review' and i==0 and not draft: continue
   lines.append(row['パス']+'\t'+('reject' if reject else 'pass')+'\t'+('数値不整合' if reject else '本文と計画を確認'))
  output.write_text('\n'.join(lines)+'\n')
-pathlib.Path(sys.argv[sys.argv.index('-o')+1]).write_text('全体所見：途中のメモも含め自然。')
+pathlib.Path(sys.argv[sys.argv.index('-o')+1]).write_text('Documents/記録.txt: 写真生成ができなかった' if s=='build' and mode.startswith('skip-build') else '全体所見：途中のメモも含め自然。')
 '''
 CHECK = r'''#!/usr/bin/env python3
 import os,pathlib,sys
 args=sys.argv
 if '--report' in args:
  p=pathlib.Path(args[args.index('--report')+1])
- fail=os.environ.get('FAKE_MODE')=='auto-reject' and p.name=='check-r0.tsv'
+ mode=os.environ.get('FAKE_MODE','')
+ missing=mode.startswith('skip-build') and not pathlib.Path('people/p01-test/Documents/記録.txt').is_file()
+ if missing:
+  p.write_text('p01-test\tDocuments/記録.txt\tplan\tplanned file missing\n'); sys.exit(1)
+ fail=mode=='auto-reject' and p.name=='check-r0.tsv'
  p.write_text('p01-test\tDocuments/記録.txt\topens\t壊れた文書\n' if fail else '')
  if fail: sys.exit(1)
 print('passed')
@@ -124,6 +129,89 @@ class BatchTest(unittest.TestCase):
     def scratch(self): return self.root/'scratch/p01-test/b001'
     def state(self): return json.loads((self.scratch/'state.json').read_text())
     def run_batch(self,**kw): return self.cli('run','p01','b001',**kw)
+    def test_missing_explanation_selects_the_row_section(self):
+        mod=self.load()
+        rows=[{'パス':'Pictures/未作成.jpg'},{'パス':'Documents/完了.txt'}]
+        output='## 作れなかった行\n- Pictures/未作成.jpg\n  画像生成が利用できない。\n- Documents/完了.txt: 完了\n別の所見'
+        reason=mod.missing_explanation(output,'Pictures/未作成.jpg',rows)
+        self.assertIn('画像生成が利用できない',reason)
+        self.assertNotIn('完了.txt',reason)
+        self.assertNotIn('別の所見',reason)
+        self.assertEqual(mod.missing_explanation('全体が利用上限','Pictures/未作成.jpg',rows),'全体が利用上限')
+
+    def test_device_is_forwarded_to_stamp(self):
+        stamp=self.root/'bin/stamp'
+        stamp.write_text('#!/usr/bin/env python3\nimport json,sys\nwith open("stamp-args.jsonl","a") as f: f.write(json.dumps(sys.argv[1:])+"\\n")\n')
+        stamp.chmod(0o755)
+        self.run_batch(mode='device')
+        calls=[json.loads(line) for line in (self.root/'stamp-args.jsonl').read_text().splitlines()]
+        self.assertEqual(len(calls),2)
+        self.assertTrue(all(args[args.index('--device')+1]=='Office Scanner 42' for args in calls))
+
+    def test_draft_retry_receives_previous_rejection(self):
+        self.run_batch(mode='draft-reject-once')
+        contexts=[json.loads(line) for line in (self.scratch/'contexts.jsonl').read_text().splitlines()]
+        c=next(c for c in contexts if c['stage']=='draft-review' and c['round']==1)
+        self.assertEqual(c['previous_verdicts']['Documents/記録.txt'][:2],['reject','数値不整合'])
+        self.assertEqual(c['reasons']['Documents/記録.txt'],'数値不整合')
+
+    def test_re_review_receives_previous_pass(self):
+        self.run_batch()
+        self.cli('run','p01','b001','--review-again')
+        contexts=[json.loads(line) for line in (self.scratch/'contexts.jsonl').read_text().splitlines()]
+        c=[c for c in contexts if c['stage']=='build-review'][-1]
+        self.assertEqual(len(c['previous_verdicts']),2)
+        self.assertTrue(all(v[0]=='pass' for v in c['previous_verdicts'].values()))
+        self.assertEqual(c['reasons'],{})
+
+    def test_missing_only_final_reason_is_recorded(self):
+        self.run_batch(mode='skip-build-once')
+        self.assertNotIn('planned file missing',(self.root/'progress/findings.tsv').read_text())
+        self.assertEqual(self.state()['pending'],0)
+
+    def test_missing_rebuild_restores_original_plan_content(self):
+        self.run_batch(mode='skip-build-always')
+        self.cli('accept','p01','b001')
+        self.cli('run','p01','b001','--rebuild')
+        rows=self.load().plan_rows(self.root/'progress/p01-test/b001.md')
+        self.assertTrue(all(row['内容']=='案件の判断と相手への連絡。' for row in rows),rows)
+        self.assertEqual(self.state()['pending'],0)
+
+    def test_missing_final_includes_producer_output(self):
+        self.run_batch(mode='skip-build-always')
+        events=[e for e in self.state()['events'] if e[5]=='plan']
+        self.assertEqual(len(events),1)
+        self.assertIn('写真生成ができなかった',events[0][-1])
+        self.assertIn('写真生成ができなかった',(self.root/'progress/p01-test/b001.md').read_text())
+        self.assertIn('写真生成ができなかった',(self.root/'progress/p01-test/b001.result.md').read_text())
+
+    def test_review_previous_verdicts_and_notes_once(self):
+        self.run_batch(mode='reject-once')
+        contexts=[json.loads(line) for line in (self.scratch/'contexts.jsonl').read_text().splitlines()]
+        c=next(c for c in contexts if c['stage']=='build-review' and c['round']==1)
+        self.assertEqual(c['previous_verdicts']['Documents/記録.txt'][0],'reject')
+        self.assertEqual(c['reasons']['Documents/記録.txt'],'数値不整合')
+        report=(self.root/'progress/p01-test/b001.result.md').read_text()
+        self.assertEqual(report.count('全体所見：途中のメモも含め自然。'),3)
+
+    def test_draft_related_versions_not_self_duplicates(self):
+        self.cli('run','p01','b001','--plan-only')
+        mod=self.load(); b=mod.Batch(type('Args',(),dict(persona='p01',batch='b001'))())
+        rows=b.state['completed']['plan']; a,z=rows
+        for row,n in [(a,'100'),(z,'200')]:
+            p=b.source(row['パス']); p.parent.mkdir(parents=True,exist_ok=True)
+            p.write_text('---\npath: '+row['パス']+'\nkind: text\nauthor: 花子\nderived_from:\n---\n入金予定の確認結果を記録。銀行照会と取引先回答を照合して入金額'+n+'円を翌営業日に計上する。')
+        self.assertEqual(set(b.draft_check(rows)),{a['パス'],z['パス']})
+        for rel, reason in b.draft_check(rows).items():
+            self.assertNotEqual(reason.rsplit(': ',1)[-1],rel)
+        plan=b.plan.read_text().replace('| '+z['パス']+' | 2026-03-06 | text | 案件の判断と相手への連絡。 |  |', '| '+z['パス']+' | 2026-03-06 | text | 案件の判断と相手への連絡。 | '+a['パス']+' |')
+        b.plan.write_text(plan)
+        self.assertEqual(b.draft_check(rows),{})
+        p=b.source(z['パス']); p.write_text(p.read_text().replace('200','100'))
+        self.assertEqual(set(b.draft_check(rows)),{a['パス'],z['パス']})
+        for rel, reason in b.draft_check(rows).items():
+            self.assertNotEqual(reason.rsplit(': ',1)[-1],rel)
+
     def test_dependency_layers_and_blocked_child(self):
         self.run_batch(mode='dependency')
         contexts=[json.loads(line) for line in (self.scratch/'contexts.jsonl').read_text().splitlines()]
@@ -150,7 +238,7 @@ class BatchTest(unittest.TestCase):
         base=b.source('Documents/元.txt'); base.parent.mkdir(parents=True,exist_ok=True)
         base.write_text('---\npath: Documents/元.txt\nkind: text\nauthor: 花子\nderived_from:\n---\n元となる文書の中身')
         for row in rows:
-            b.source(row['パス']).write_text('---\npath: '+row['パス']+'\nkind: text\nauthor: 花子\nderived_from: Documents/元.txt\n---\n違いなし')
+            b.source(row['パス']).write_text('---\npath: '+row['パス']+'\nkind: text\nauthor: 花子\nderived_from: Documents/元.txt\n---\n'+('部長の承認印を右下へ追加する。' if '記録' in row['パス'] else '研修担当の確認署名を末尾へ追加する。'))
         self.assertEqual(b.draft_check(rows),{})
         p=b.source(rows[0]['パス']); p.write_text(p.read_text()+'\n添付:\n- Documents/欠けた資料.pdf\n')
         self.assertIn('Documents/欠けた資料.pdf', b.dependencies(rows)[rows[0]['パス']])
@@ -160,9 +248,23 @@ class BatchTest(unittest.TestCase):
     def test_accepted_pending_rebuild(self):
         self.run_batch(mode='reject-always')
         self.cli('accept','p01','b001')
+        self.assertTrue(self.scratch.exists())
+        accepted=self.state()
+        self.cli('run','p01','b001')
+        self.assertEqual(self.state(),accepted)
         self.cli('run','p01','b001','--rebuild')
         self.cli('accept','p01','b001')
         self.assertTrue((self.root/'people/p01-test/Documents/記録.txt').exists())
+        self.assertFalse(self.scratch.exists())
+
+    def test_accepted_failed_rebuild_can_start_a_fresh_attempt(self):
+        self.run_batch(mode='reject-always')
+        self.cli('accept','p01','b001')
+        self.cli('run','p01','b001','--rebuild',mode='reject-always')
+        self.cli('accept','p01','b001')
+        self.cli('run','p01','b001','--rebuild')
+        self.assertEqual(self.state()['pending'],0)
+        self.assertTrue((self.root/'people/p01-test/Documents/記録.txt').is_file())
 
     def test_rebuild_final_failure_resumes(self):
         self.run_batch(mode='reject-always')
@@ -244,7 +346,8 @@ class BatchTest(unittest.TestCase):
         self.run_batch(mode='reject-always')
         self.assertIn('成形待ち1',self.cli('status','p01','b001').stdout)
         self.cli('accept','p01','b001')
-        self.assertIn('成形待ち 1 件',self.cli('status','p01','b001').stdout)
+        self.assertIn('成形待ち1',self.cli('status','p01','b001').stdout)
+        self.assertIn('受入済み',self.cli('status','p01','b001').stdout)
         self.assertIn('sources/p01-test/Documents/記録.txt.md',self.git('show','--format=','--name-only','HEAD'))
 
     def test_happy(self):
