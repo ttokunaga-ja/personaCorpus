@@ -233,9 +233,17 @@ def body_tokens(text):
     return Counter(re.findall(r'[\u3040-\u30ff\u3400-\u9fff]|[^\W_\u3040-\u30ff\u3400-\u9fff]+',unicodedata.normalize('NFKC',text).casefold()))
 
 
+GROUPED=re.compile(r'(?<![\d,.])\d{1,3}(?:,\d{3})+(?![\d,])')
+
+
+def ungroup(text):
+    """Remove thousands separators only from properly grouped numbers, so adjacent CSV cells stay apart."""
+    return GROUPED.sub(lambda m:m.group().replace(',',''),text)
+
+
 def source_numbers(text):
     """Numbers of four or more integer digits, independent of separators and trailing zeros."""
-    text=re.sub(r'(?<=\d),(?=\d{3})','',unicodedata.normalize('NFKC',text))
+    text=ungroup(unicodedata.normalize('NFKC',text))
     found=set()
     for whole,frac in re.findall(r'(?<![\d.])(\d{4,})(?:\.(\d+))?(?![\d])',text):
         if len(whole)==4 and 1900<=int(whole)<=2100:continue  # years appear in many date formats
@@ -302,7 +310,7 @@ def formula_reason(path):
 
 def source_reason(expected, actual, *, from_ocr=False, ext="txt", reviewed=False, derived=False):
     # The mechanical check catches dropped content; exact wording is the visual review's job.
-    strip=lambda s:re.sub(r'(?<=\d),(?=\d{3})','',s)
+    strip=ungroup
     words=lambda s:Counter({k:v for k,v in body_tokens(strip(s)).items() if k not in ('年','月','日','円')})
     expected=source_body(expected)
     want=words(expected);have=words(actual)

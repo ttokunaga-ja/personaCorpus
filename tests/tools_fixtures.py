@@ -326,6 +326,12 @@ class Sources(Check):
         self.source('fail.eml',body+'\n\n添付: 問合せ取込_0710.csv')
         _,rows=self.issues();self.assertFalse(any(r[2]=='source' for r in rows),rows)
 
+    def test_source_numbers_in_adjacent_csv_cells(self):
+        rows='申請番号,金額,承認日\nEX-2512-041,12400,2025-12-18\nEX-2512-042,11600,2025-12-19\nEX-2512-043,10400,2025-12-22\n'
+        self.put('claims.csv',rows)
+        self.source('claims.csv','| 申請番号 | 金額 | 承認日 |\n|---|---:|---|\n| EX-2512-041 | 12,400 | 2025-12-18 |\n| EX-2512-042 | 11,600 | 2025-12-19 |\n| EX-2512-043 | 10,400 | 2025-12-22 |')
+        _,rows=self.issues();self.assertFalse(any(r[2]=='source' for r in rows),rows)
+
     def test_source_numbers_missing(self):
         prose='The March reconciliation was confirmed by the controller after the bank certificate arrived and the receivable entry was reversed. '
         self.put('recon.txt',prose+'Bank 486200000 and ledger 498600000 with items 1111111 and 2222222.')
