@@ -10,7 +10,7 @@ photo_dirs: Pictures
 
 ## 人物
 
-- **Rachel Pennelgrove**、Northstar Cloud Bellwisp 社のアカウント営業。入社 5 年目、大口顧客担当は 2 年目。
+- **Michelle Whitaker**、Bellwisp Communications Incのアカウント営業。入社 5 年目、大口顧客担当は 2 年目。
 - PC は Windows 11 の出張営業ノート。OS は en-US、使用言語は英語。見積通貨は米ドル。
 - 訪問前に前回の約束を読み、訪問後は当日中に依頼、担当、期限をメールで確認する。口頭の値引きを確約しない。
 - 更新と新規提案を別々に管理する。顧客が言った予算と自社の予測金額を分けて書く。
@@ -18,52 +18,86 @@ photo_dirs: Pictures
 
 ## 組織と関係者
 
-- **Northstar Cloud Bellwisp Inc**：米国の法人向け拠点連絡サービス会社、従業員 190 人。年間契約でアカウント数と支援時間を販売する。サービス名は Bellwisp Relay。
-- 社内：
-  - **Dennis Woldmere**：営業部長。価格例外と売上予測を承認。
-  - **Asha Lindervale**：導入設計担当。移行条件と工数を評価。
-  - **Cole Harrowfen**：契約管理担当。条項と署名の確認。
+- **Bellwisp Communications Inc**：米国の法人向け拠点連絡サービス会社、従業員 190 人。年間契約でアカウント数と支援時間を販売する。サービス名は Bellwisp Relay。
+- 本社・本人の勤務都市：デンバー。
+- 社内（本人を除く）：
+  - **Donald Ramirez**：上司。営業部長。価格例外と売上予測を承認。
+  - **Divya Rao**：同僚。導入設計担当。移行条件と工数を評価。
+  - **Jonathan Salgado**：他部署の協働相手。契約管理担当。条項と署名の確認。
+  - **Bradley Nguyen**：インサイド営業、同僚。見込み顧客を引継ぎ。
+  - **Denise Walker**：営業企画、他部署。予測の根拠を点検。
+  - **Darren Vasquez**：支援責任者、他部署。定着の課題を共有。
+  - **Allison Kim**：製品担当、他部署。未対応機能を確認。
+  - **Marisol Torres**：法務、他部署。責任条項を審査。
+  - **Tyler Jenkins**：営業担当、後輩。提案レビューを指導。
+  - **Karen Salazar**：経理、他部署。入金見通しを確認。
 - 社外：
-  - **Mossquay Routeworks Inc**（Account Alpha）の **Lydia Cairnwell**：購買責任者。
-  - **Briarcombe Service Group**（Account Beta）の **Omar Thistwick**：事業企画責任者。
-- メールは `rachel@bellwisp-cloud.example`、Alpha は `lydia@mossquay-routeworks.example`。価格表の有効期限を送信時に確認する。
+  - **Mossquay Routeworks Inc**の **Janet Morales**：顧客。購買責任者。
+  - **Briarcombe Service Group**の **Ahmed Farouk**：顧客。事業企画責任者。
+  - **Vintleford Medical Supply Inc** の **Lawrence Sutton**：IT部長、顧客。導入審査を担当。
+  - **Cragmere Facilities LLC** の **Rebecca Cruz**：購買部長、顧客。比較見積を依頼。
+  - **Penlowe Storage Inc** の **Tracy Moreno**：運営責任者、顧客。小規模導入を承認。
+  - **Hollingden Foods LLC** の **Reza Moradi**：業務部長、顧客。増席を検討。
+  - **Trindleway Repair Inc** の **Nasrin Rahman**：経営企画、顧客。更新条件を確認。
+  - **Wembleshaw Freight LLC** の **Albert Hensley**：情報担当、顧客。提案対象外条件を確認。
+- メールは `michelle@bellwisp-comms.example`、Mossquay は `janet@mossquay-routeworks.example`。価格表の有効期限を送信時に確認する。
 
 ## 仕事の流れ
 
-- **2024-04**：Lydia と利用 420 席の契約を点検。稼働 318 席だったため、増席提案を取り下げ定着支援を先にした。
-- **2024-07**：Asha と Alpha の利用改善会を実施。対象 4 部門で担当者を決め、2 か月後の利用率 80% を確認目標にした。
-- **2024-10**：Omar から Beta の提案依頼 56 項目を受領。必須条件の 6 項目が未対応で、条件付き回答にすると Dennis が承認した。
-- **2025-01**：Cole と Beta の契約案を検討。責任上限なしの条項 1 件を受け入れず、年間契約額を上限とする再提案を送った。
-- **2025-04**：Lydia と Alpha を更新。USD 232,000、利用 480 席とし、未利用席の一括増加は行わなかった。
-- **2025-07**：Dennis が出張提案を審査。訪問費 USD 6,400 に対して 2 社同日訪問案を採り、単独訪問案を中止した。
-- **2025-10**：Omar が Beta の予算凍結を連絡。USD 180,000 の案件を当期予測から外し、失注とは区別して保留扱いにした。
-- **2026-01**：Asha と Alpha の拡張工数を試算。移行 9 週が必要で、顧客希望の 4 週は約束しないと決めた。
-- **2026-04**：Lydia が更新上限 USD 250,000 を提示。値引きより支援範囲の整理を選び、3 案の比較表を作成した。
-- **2026-07-17**：Lydia と Account Alpha の年次更新を合意。USD 248,000、520 席、支援年 60 時間で、Cole が署名条件を確認した。
-- **2026-08**：Omar と Beta の再提案を協議。初期 200 席、USD 96,000 の小規模案に変え、予測は確度 40% と報告した。
-- **2026-09**：Dennis と四半期予測を確定。Alpha 更新は実績、Beta は未契約として分け、上振れ見込 USD 96,000 を基本計画に含めなかった。
+- 担当範囲：担当顧客はMossquay、Briarcombe、Vintleford、Cragmere、Penlowe、Hollingden、Trindleway、Wembleshawの8社。受注・保留・失注・予備商談を分け、他の営業担当の顧客を足さない。
+- **2024-04-22**：JanetとMossquayの420席契約を点検した。稼働318席にとどまるため増席の提案を取り下げ、利用定着を先に支援することにした。
+- **2024-07-12**：DivyaとMossquayの改善会を実施した。4部門の担当者を決め、2か月後に利用率80%を確かめる計画で合意した。
+- **2024-08-12**：LawrenceへVintleford Medical Supplyの導入案を提示。180席USD 82,000で試行30席を条件とし、全社即時導入は約束しなかった。
+- **2024-10-23**：Ahmedの提案依頼56項目を精査した。Briarcombeの必須条件6項目が未対応で、Donaldの承認を得て条件付き回答にした。
+- **2025-01-13**：JonathanとBriarcombeの契約案を検討した。責任上限なしの1条項を拒み、年間契約額を上限とする案を返した。
+- **2025-02-17**：RebeccaとCragmere Facilitiesの比較商談。USD 124,000の提案は必要な保管条件を満たさず失注し、Allisonへ不足条件を戻した。
+- **2025-03-18**：LawrenceからVintlefordの試行結果を受領。30席中24席が週次利用し、180席USD 82,000の導入契約をJonathanの確認後に締結した。
+- **2025-04-18**：JanetとMossquayを1年間更新した。5月開始でUSD 232,000・480席とし、未利用席の一括追加をせず運用支援を契約へ含めた。
+- **2025-05-05**：TracyとPenlowe Storageの契約を締結。120席USD 54,000、導入6週とし、Divyaが負荷を確認した。
+- **2025-07-24**：Donaldに出張費USD 6,400の計画を提出した。2社同日訪問で同意を得て、単独訪問だけの旧計画は中止した。
+- **2025-08-12**：RezaへHollingden Foodsの増席案を提出。現契約220席から300席へ増やす案は予算不足で、次年度見直しへ移した。
+- **2025-10-14**：Ahmedから予算凍結の連絡を受けた。BriarcombeのUSD 180,000を当期予測から除き、失注とは区別して保留とした。
+- **2025-11-21**：NasrinとTrindleway Repairの更新交渉。支援年40時間とUSD 72,000で合意し、無償追加10時間はDonaldが認めなかった。
+- **2026-01-15**：DivyaとMossquay拡張を見積もった。移行9週が必要であり、顧客希望の4週をそのまま納期にしないと決めた。
+- **2026-02-17**：AlbertとWembleshaw Freightの予備商談。必要な専用接続を提供できずUSD 150,000の見込みを予測から外した。
+- **2026-04-17**：Janetの更新上限USD 250,000を基に3案を比較した。条件調整のため既存480席を7月末まで3か月延長し、延長料USD 58,000を別契約とした。
+- **2026-05-04**：Bradley・Deniseと月次予測会議。8社のうち未署名3社を実績から外し、Tylerに予測の書き方を指導した。
+- **2026-06-11**：TracyとPenloweの年次更新を実施。120席USD 54,000を据え置き、利用率74%のため増席は提案しなかった。
+- **2026-07-17**：Janetと次の1年間更新を合意した。8月開始でUSD 248,000・520席・年60時間支援とし、Jonathanが署名条件を確認した。
+- **2026-08-19**：AhmedとBriarcombeを再協議した。200席・USD 96,000の案に縮めたが未契約で、予測確度は40%としてDonaldへ報告した。
+- **2026-08-27**：RezaとHollingdenの予算を再確認。300席案は継続保留、既存220席のままとし、更新案件と増席見込を分けた。
+- **2026-09-14**：Donaldと四半期予測を確定した。Mossquay更新は実績、Briarcombeは未契約とし、USD 96,000を基本計画へ含めなかった。
+- **2026-09-17**：Donaldと評価面談、Karenと経費照合。更新率目標90%に対し実績88%を確認し、出張費USD 410の未添付1件は申請を保留した。
 - 顧客別に提案、回答、価格承認、契約、訪問メモをつなげる。不採用の価格案にも有効期限と見送り理由を残す。
 
 ## フォルダ構成
 
 ```text
-Desktop/                       今週の訪問説明、送信前の見積
+Desktop/                                    今週の訪問説明、送信前の見積
 Documents/
-  Accounts/Mossquay/Renewals/ 更新提案、価格比較、署名済み契約
-  Accounts/Mossquay/Adoption/ 利用状況、支援計画、顧客会議
-  Accounts/Briarcombe/RFP/    質問、条件付き回答、適合表
-  Accounts/Briarcombe/Restart/ 保留後の小規模提案
-  Forecast/<年>/<四半期>/      予測、確度の理由、部長への説明
-  Pricing-approvals/          価格例外、却下案、有効期限
-  Travel/<年>/                訪問予定、旅費申請、訪問メモ
-Downloads/                     顧客の依頼書、署名済み添付
+  Accounts/Vintleford/                      試行、導入審査、提案と採否
+  Accounts/Cragmere/                        比較見積、失注理由、社内報告
+  Accounts/Penlowe/                         契約、導入計画、利用確認
+  Accounts/Hollingden/                      増席案、予算確認、保留連絡
+  Accounts/Trindleway/                      更新条件、支援時間の合意
+  Accounts/Wembleshaw/                      予備商談、提供不可条件の回答
+  Team-notes/                               後輩指導、評価、経費の訂正
+  Accounts/Mossquay/Renewals/               更新提案、価格比較、署名済み契約
+  Accounts/Mossquay/Adoption/               利用状況、支援計画、顧客会議
+  Accounts/Briarcombe/RFP/                  質問、条件付き回答、適合表
+  Accounts/Briarcombe/Restart/              保留後の小規模提案
+  Forecast/<年>/<四半期>/                   予測、確度の理由、部長への説明
+  Pricing-approvals/                        価格例外、却下案、有効期限
+  Travel/<年>/                              訪問予定、旅費申請、訪問メモ
+Downloads/                                  顧客の依頼書、署名済み添付
 OneDrive - Bellwisp/
-  Sales-materials/            サービス説明と利用例の控え
-  My-meeting-packs/           出張用の資料
-Pictures/Visits/               許可された会議室と掲示物の写真
-Pictures/Proposal-diagrams/    利用構成図、説明画面
-Documents/Mail/                取引先ごとの約束と価格承認
+  Sales-materials/                          サービス説明と利用例の控え
+  My-meeting-packs/                         出張用の資料
+Pictures/Visits/                            許可された会議室と掲示物の写真
+Pictures/Proposal-diagrams/                 利用構成図、説明画面
+Documents/Mail/                             取引先ごとの約束と価格承認
 ```
+
 
 ## 形式の目安
 
@@ -85,7 +119,7 @@ csv は商談や利用状況の表出力、写真は顧客の個人を写さな�
 
 ## 規模の目安
 
-全体で 2,000 件。最初の区切りは 300 件で、Alpha の USD 248,000 更新と Beta の保留・再提案を中心にする。
+全体で 2,000 件。最初の区切りは 300 件で、Mossquay の USD 248,000 更新と Briarcombe の保留・再提案を中心にする。
 受信メールと添付は役割が異なる場合にだけ両方を残す。
 
 ## 書かないもの

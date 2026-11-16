@@ -10,61 +10,88 @@ photo_dirs: Pictures
 
 ## 人物
 
-- **Miriam Thornequay**、Civic Ledger Fernwake の調査報道記者。入社 9 年目、公共調達と行政記録の取材を担当。
+- **Leslie Crawford**、Fernwake Newsroom Cooperative の調査報道記者。入社 9 年目、公共調達と行政記録の取材を担当。
 - PC はストレージ暗号化された macOS ノート。OS は en-US、使用言語は英語。取材メモ、照会、記事も英語で書く。
 - 朝に資料請求と回答期限を点検し、午後に面談、夕方に事実と未確認情報を分けて整理する。
-- Story Alpha は道路補修契約、Story Beta は公共図書室の設備調達。疑念から結論を決めず、反証と取材先の回答も検討する。
+- 路面補修の契約を追うは道路補修契約、図書室設備の選び方は公共図書室の設備調達。疑念から結論を決めず、反証と取材先の回答も検討する。
 - Documents は記事別、録音は Music、写真は Pictures。Desktop に確認待ちの段落が残り、編集者に落とされた構成案も保管する。
 
 ## 組織と関係者
 
-- **Civic Ledger Fernwake Cooperative**：米国の地域調査報道編集部、職員 23 人。取材対象の自治体は **Fenmarsh Borough**、契約先は **Rookelmere Paving Inc**。いずれも独自の設定。
-- 社内：
-  - **Cora Windermere**：編集長。掲載と訂正を承認。
-  - **Simonette Ashenquill**：ファクトチェック担当。出典と引用を照合。
-  - **Hector Larkvale**：データ担当。金額と契約日を集計。
+- **Fernwake Newsroom Cooperative**：米国の地域調査報道編集部、職員 23 人。取材対象の自治体は **Fenmarsh Borough**、契約先は **Rookelmere Paving Inc**。いずれも独自の設定。
+- 本社・本人の勤務都市：ピッツバーグ。
+- 社内（本人を除く）：
+  - **Richard Espinoza**：上司。編集長。掲載と訂正を承認。
+  - **Veronica Huang**：同僚。ファクトチェック担当。出典と引用を照合。
+  - **Miguel Valenzuela**：他部署の協働相手。データ担当。金額と契約日を集計。
+  - **Francesca Johnson**：写真編集、他部署。取材写真を選定。
+  - **Keith Sandoval**：担当記者、同僚。公開請求を分担。
+  - **Alicia Dawson**：音声編集、他部署。引用位置を照合。
+  - **Marianne Davis**：読者担当、他部署。訂正要望を引継ぎ。
+  - **Wayne Fletcher**：事務担当、他部署。旅費と助成費を確認。
 - 社外：
-  - **Fenmarsh Borough** の **Edith Pellmoss**：公文書公開の担当。
-  - **Rookelmere Paving Inc** の **Graham Norrick**：工事契約について回答する広報担当。
-  - **Fenmarsh Borough** の **Lena Orrowell**：元調達担当。記名面談に同意した情報源。
-- メールは `miriam@fernwake-ledger.example`、公開請求は `edith@fenmarsh-borough.example`。私用連絡先や匿名者の特定情報は作らない。
+  - **Fenmarsh Borough** の **Dorothy Hensley**：行政の取材先。公文書公開の担当。
+  - **Rookelmere Paving Inc** の **Raymond Salazar**：企業の取材先。工事契約について回答する広報担当。
+  - **Fenmarsh Borough** の **Suzanne Wheeler**：取材協力者。元調達担当。記名面談に同意した情報源。
+  - **Fenmarsh Borough** の **Gerald Scott**：図書室責任者、取材先。設備選定に回答。
+  - **Tarnwick Tenants Association** の **Theresa Coleman**：代表、取材先。住宅修繕の遅延を説明。
+  - **Colverden Water District** の **Russell Thompson**：広報、取材先。漏水記録を提出。
+  - **Osterfell Legal Review LLC** の **Danielle Romero**：弁護士、外部助言者。記事の法務を点検。
+- メールは `leslie@fernwake-newsroom.example`、公開請求は `dorothy@fenmarsh-borough.example`。私用連絡先や匿名者の特定情報は作らない。
 
 ## 仕事の流れ
 
-- **2024-04**：Cora と Alpha の企画を検討。道路補修 18 契約の増額を調べるが、不正を前提にしないと取材方針を決めた。
-- **2024-07**：Edith に契約と変更記録 6 種を請求。範囲が広すぎると回答され、対象年度と道路区画を絞って再請求した。
-- **2024-10**：Hector と受領 124 ページを整理。契約額の差 USD 310,000 は税の扱いによると判明し、当初の増額仮説を撤回した。
-- **2025-01**：Lena に 55 分の面談。承認日と作業開始日の逆転 4 件を聞き取り、発言だけで確定せず公文書で確認するとした。
-- **2025-04**：Simonette が草稿の出典 43 件を点検。裏付けが一つしかない主張 7 件を保留し、掲載予定を 2 週間延期した。
-- **2025-07**：Graham に 12 問を送付。追加工事 3 件の必要性に回答があり、説明の引用と記録上の確認を分けて記事に入れた。
-- **2025-10**：Cora と Beta の図書室設備調達を企画。見積 9 件の比較に絞り、Alpha の工事費と合算しない方針を確認した。
-- **2026-01**：Edith から Beta の資料 76 ページを受領。欠落する議事録 2 回分を再請求し、推測の会議要旨は作らなかった。
-- **2026-04**：Hector と Alpha の変更契約を再計算。増額率は当初案 22% ではなく 16.4% となり、図と本文の両方を直した。
-- **2026-08-19**：Simonette が Alpha の主要事実 28 件を確認。25 件を確認済み、3 件を留保とし、公開判断の資料にした。
-- **2026-08-22**：Edith から Story Alpha 2026 の FOIA batch 17 を受領。追加 93 ページを既存資料と照合し、留保 3 件中 2 件を解消した。
-- **2026-09**：Cora が Alpha の掲載稿 3,200 語を承認。残る 1 件は本文から外し、Graham の回答と確認日を併記。Beta は取材継続とした。
+- 担当範囲：主題は路面補修の契約を追う、図書室設備の選び方、住宅修繕の待ち時間、漏水記録と更新費、議事録はいつ届くかの5企画。公開済み記事、取材継続、企画のみを区別する。
+- **2024-04-09**：Richardと「路面補修の契約を追う」を企画した。18契約の増額を対象にし、不正の有無を先に決めず変更根拠から確認するとした。
+- **2024-07-25**：Dorothyへ契約関係6種を請求した。範囲が広いとの回答を受け、年度と道路区画を絞って再請求した。
+- **2024-08-06**：Theresaと「住宅修繕の待ち時間」の記名面談を実施。Tarnwick Tenants Associationの要望22件中完了日不明8件は確認済み件数に入れなかった。
+- **2024-10-16**：Miguelと受領124ページを整理した。差額USD 310,000は税の扱いによると分かり、当初の増額仮説を取り下げた。
+- **2025-01-27**：Suzanneに55分の記名面談を行った。承認日と着工日の逆転4件は発言だけで確定せず、公文書を追加確認する方針にした。
+- **2025-02-11**：Russellへ「漏水記録と更新費」の資料を請求。Colverden Water Districtの管路更新12件を対象とし、個別住民の住所は請求対象から除いた。
+- **2025-04-17**：Veronicaが草稿の出典43件を点検した。裏付けが1件しかない主張7件を保留し、掲載を2週間遅らせた。
+- **2025-05-20**：Geraldに図書室設備の見積差USD 18,600を照会。保守費を含む差と分かり、単純な割高との見出し案を撤回した。
+- **2025-07-09**：Raymondへ12問を送った。追加工事3件の必要性について回答を受け、企業の説明と記録上の確認結果を分けて原稿へ入れた。
+- **2025-08-06**：Keithと「議事録はいつ届くか」を企画。公開請求14件の回答日数中央値26日を確認し、遅延と違法の断定を分けた。
+- **2025-10-20**：Richardと「図書室設備の選び方」を企画した。見積9件の比較に絞り、道路工事費と合算した増額論は採らなかった。
+- **2025-11-17**：Danielle・Aliciaと取材引用の研修。録音10箇所中文脈が欠けた2箇所を記事案から外し、逐語録へ戻って確認した。
+- **2026-01-12**：Dorothyから設備調達76ページを受領した。議事録2回分がなく再請求し、推測で会議要旨を埋めないとした。
+- **2026-02-11**：Francesca・Marianneと週次編集会議。写真18枚中位置が分かりすぎる3枚を不採用とし、住宅記事の説明写真を撮り直した。
+- **2026-03-24**：Theresa・Veronicaと住宅修繕記録を突き合わせた。完了日不明8件中5件が解消したが残り3件は裏付けがなく、住宅記事の掲載判断は保留した。
+- **2026-04-28**：Miguelと道路の変更契約を再計算した。増額率22%の旧案を16.4%へ訂正し、本文と説明図を同時に直した。
+- **2026-05-20**：Wayneと取材経費USD 370を照合。別企画の複写費USD 42を分離し、助成費の月次報告を確定した。
+- **2026-06-16**：Russellへ漏水記事の追加質問6問を送った。更新12件のうち3件は会計年度が異なり、総額比較をやり直して取材継続とした。
+- **2026-08-19**：Veronicaが道路記事の主要事実28件を照合した。25件確認、3件留保とし、Richardへ留保の理由を提出した。
+- **2026-08-22**：Dorothyの追加公開FOIA batch 17、93ページを既存資料と照合した。留保3件中2件は解消したが、残る1件の断定は見送った。
+- **2026-09-08**：Richardが道路記事3,200語の掲載稿を承認した。未確認1件を本文から外し、Raymondの回答と確認日を併記、設備記事は取材継続とした。
+- **2026-09-21**：Keith・Richardと議事録企画を審査。再請求2件が回答待ちで、26日の中央値だけでは制度評価が難しく、企画案のまま次月へ回した。
+- **2026-09-28**：Richardとの評価面談で請求却下4件への対応を検討。再請求2件と打切り2件を区別し、記事本数だけの目標を改めた。
 - 記事草稿、取材ノート、逐語録、請求のやり直し、落とした段落も残す。録音と引用は対応する箇所を確認できるようにする。
 
 ## フォルダ構成
 
 ```text
-Desktop/                       確認待ちの段落、次の面談の質問
+Desktop/                                    確認待ちの段落、次の面談の質問
 Documents/
-  Stories/Road-contracts/Requests/ 公開請求、範囲の修正、回答
-  Stories/Road-contracts/Records/ 受領文書、ページごとの読書メモ
-  Stories/Road-contracts/Checks/ 出典表、計算、確認の留保
-  Stories/Road-contracts/Drafts/ 草稿、編集、掲載稿
-  Stories/Library-purchases/   Beta の請求、比較、取材メモ
-  Interviews/                 面談質問、逐語録、引用の確認
-  Pitches/                    企画案、却下案、編集会議
-  Desk-notes/                 自分の作業メモ、研修
-Downloads/                     公開担当から届いた文書の受領控え
-Music/Interviews/              記名面談の音声
-Pictures/Reporting/            工事箇所や掲示物の取材写真
-Pictures/Charts/               金額の図、文書照合の画面
-Documents/Editorial-share/     編集部共有資料のオフライン控え
-Documents/Mail/                請求、質問、回答、編集承認
+  Stories/Housing-repairs/                  住宅修繕の待ち時間の面談、留保
+  Stories/Water-renewal/                    漏水記録と更新費の請求、集計
+  Stories/Minutes-access/                   議事録はいつ届くかの請求と企画案
+  Staff-and-grants/                         半期面談、旅費、助成費の月報
+  Stories/Road-contracts/Requests/          公開請求、範囲の修正、回答
+  Stories/Road-contracts/Records/           受領文書、ページごとの読書メモ
+  Stories/Road-contracts/Checks/            出典表、計算、確認の留保
+  Stories/Road-contracts/Drafts/            草稿、編集、掲載稿
+  Stories/Library-purchases/                図書室設備の選び方の請求、比較、取材メモ
+  Interviews/                               面談質問、逐語録、引用の確認
+  Pitches/                                  企画案、却下案、編集会議
+  Desk-notes/                               自分の作業メモ、研修
+Downloads/                                  公開担当から届いた文書の受領控え
+Music/Interviews/                           記名面談の音声
+Pictures/Reporting/                         工事箇所や掲示物の取材写真
+Pictures/Charts/                            金額の図、文書照合の画面
+Documents/Editorial-share/                  編集部共有資料のオフライン控え
+Documents/Mail/                             請求、質問、回答、編集承認
 ```
+
 
 ## 形式の目安
 
@@ -86,7 +113,7 @@ Documents/Mail/                請求、質問、回答、編集承認
 
 ## 規模の目安
 
-全体で 2,000 件。最初の区切りは 300 件で、Alpha の FOIA batch 17 と事実確認、掲載稿、Beta の請求を中心にする。
+全体で 2,000 件。最初の区切りは 300 件で、路面補修の契約を追うの FOIA batch 17 と事実確認、掲載稿、図書室設備の選び方の請求を中心にする。
 同じ公開資料のページを理由なく独立したファイルへ切り分けない。
 
 ## 書かないもの

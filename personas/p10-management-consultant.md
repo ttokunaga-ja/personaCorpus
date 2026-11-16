@@ -10,7 +10,7 @@ photo_dirs: Pictures
 
 ## 人物
 
-- **Julian Castermere**、Summit Vale Orielspan Advisory のマネージャー。入社 8 年目、財務業務改革の案件責任者は 3 年目。
+- **Nicholas Hargreaves**、Orielspan Advisory Ltd のマネージャー。入社 8 年目、財務業務改革の案件責任者は 3 年目。
 - PC は Windows 11 の会社支給ノート。VDI から持ち出しを認められた文書をローカルで読む。OS は en-US、使用言語は英語。
 - 月曜に顧客と進捗を確認し、水曜にチームの分析をレビュー、金曜に意思決定用の資料へまとめる。
 - 面談の発言と分析上の推定を分け、費用削減額は実現時期と一時費用を併記する。
@@ -18,52 +18,80 @@ photo_dirs: Pictures
 
 ## 組織と関係者
 
-- **Summit Vale Orielspan Advisory Ltd**：英国の業務改革助言会社、従業員 74 人。Client Alpha と Client Beta の財務・調達改革を担当する。
-- 社内：
-  - **Vivian Mosselwick**：パートナー。契約と最終提言を承認。
-  - **Ethan Quillborne**：アナリスト。原価と処理時間の分析。
-  - **Sonia Reedcroft**：業務設計担当。面談と改善案の検討。
+- **Orielspan Advisory Ltd**：英国の業務改革助言会社、従業員 74 人。Alderfenna Components Ltd と Brackensail Distribution Inc の財務・調達改革を担当する。
+- 本社・本人の勤務都市：マンチェスター。
+- 社内（本人を除く）：
+  - **Elizabeth Hargreaves**：上司。パートナー。契約と最終提言を承認。
+  - **Connor Atkinson**：同僚。アナリスト。原価と処理時間の分析。
+  - **Neha Patel**：他部署の協働相手。業務設計担当。面談と改善案の検討。
+  - **Siobhan Barrett**：シニアコンサルタント、同僚。実行計画を設計。
+  - **Oliver Hewitt**：コンサルタント、部下。面談票を指導。
+  - **Deepa Desai**：分析担当、部下。効果試算を確認。
+  - **Joanne Hill**：契約担当、他部署。変更範囲を確認。
+  - **Paul Entwistle**：人材配置担当、他部署。稼働を調整。
+  - **Teresa Green**：経理担当、他部署。請求と経費を照合。
 - 社外：
-  - **Alderfenna Components Ltd**（Client Alpha）の **Gareth Holmwick**：CFO、改革の依頼主。
-  - **Brackensail Distribution Inc**（Client Beta）の **Mina Solmere**：調達部長。
-- メールは `julian@orielspan-advisory.example`、Alpha は `gareth@alderfenna-components.example`。Alpha の案件予算は顧客の日本事業分として円で管理する。
+  - **Alderfenna Components Ltd**の **Kenneth Townsend**：顧客。CFO、改革の依頼主。
+  - **Brackensail Distribution Inc**の **Meera Kulkarni**：顧客。調達部長。
+  - **Dovenshaw Packaging Ltd** の **Caroline Wood**：生産部長、顧客。原価診断を依頼。
+  - **Kestlewick Care Cooperative** の **Colin Houghton**：事務長、顧客。購買業務の改善依頼主。
+  - **Sedgeholt Foods Ltd** の **Angela Wilkins**：財務部長、顧客。締め改善を依頼。
+  - **Trelmington Training Ltd** の **Geoffrey Porter**：講師、委託先。改善研修を担当。
+- メールは `nicholas@orielspan-advisory.example`、Alderfenna は `kenneth@alderfenna-components.example`。Alderfenna の案件予算は顧客の日本事業分として円で管理する。
 
 ## 仕事の流れ
 
-- **2024-04**：Gareth と Alpha の予備調査を開始。支払業務 14 工程を確認し、システム更新より承認待ちの短縮を優先した。
-- **2024-07**：Sonia が 18 人に面談。入力の遅さという経営仮説に対し、滞留時間の 61% が承認待ちと分かり、論点を変えた。
-- **2024-10**：Ethan と費用効果を試算。年 2,600 万円の削減見込から二重計上 400 万円を除き、2,200 万円へ訂正した。
-- **2025-01**：Vivian が提案を審査。実現まで 9 か月、初期費用 1,800 万円と明記し、初年度効果の過大表現を削った。
-- **2025-04**：Mina と Beta の調達診断を開始。仕入先 42 社のうち取引額上位 12 社を対象にし、全社再交渉案を見送った。
-- **2025-07**：Sonia と Beta の例外申請 93 件を分類。緊急発注 37 件の多くは計画遅れであり、価格より需要共有を先に提案した。
-- **2025-10**：Gareth に Alpha 試行の結果を報告。承認日数は平均 6.2 日から 3.8 日へ短縮し、対象を 2 部門から 5 部門に広げた。
-- **2026-01**：Mina と Beta の削減効果を確認。見込 8.1% に対し実績 5.6% で、数量条件未達の影響を別表で説明した。
-- **2026-04**：Vivian と Alpha の次期契約を審査。日本事業の Finance 領域に限定し、販売業務を除外すると合意した。
-- **2026-07-13**：Gareth と Client Alpha Phase 1 の計画を確定。Finance 領域の予算 4,280 万円、期間 12 週として、体制と成果物の承認を得た。
-- **2026-08**：Ethan が Alpha の追加要求 7 件を見積もり。追加 620 万円が必要なため、2 件だけを既存範囲に含め、5 件は保留した。
-- **2026-09**：Mina に Beta 最終報告を提出。削減実績 6.0%、発注遅延率 9% から 5% を示し、月次点検を顧客側へ引き継いだ。
+- 担当範囲：2年半で主担当となるのはAlderfenna支払承認改革、Brackensail調達診断、Dovenshaw原価診断、Kestlewick購買改善、Sedgeholt締め改善の5件。顧客間の資料は共有しない。
+- **2024-04-08**：Kennethと「Alderfenna支払承認改革」の予備調査を始めた。支払14工程を確認し、システム更新より承認待ち短縮を優先した。
+- **2024-07-17**：Nehaの18人への面談を整理した。滞留時間61%が承認待ちであり、入力速度が主因という経営側の仮説を改めた。
+- **2024-08-05**：CarolineとDovenshaw Packagingの原価診断を開始。4工場のうち2工場を8週で調べ、原材料高と歩留まり差を別の論点にした。
+- **2024-10-07**：SiobhanとDovenshawの診断を完了。工場の面談調整で予定8週から1週遅れた。歩留まり改善余地2.4ポイントに対し設備更新案の回収が6年を超え、作業標準の統一を先行提言した。
+- **2024-10-15**：Connorと削減効果を再計算した。年2,600万円の見込に400万円の重複があり、顧客向け提言を2,200万円へ訂正した。
+- **2025-01-20**：Elizabethが実行案を審査した。初期費用1,800万円・実現まで9か月を明示し、初年度に全額削減できるとの表現を削った。
+- **2025-04-07**：Meeraと「Brackensail調達診断」を開始した。仕入先42社中取引上位12社に絞り、全社再交渉という旧案を見送った。
+- **2025-05-19**：ColinとKestlewick Careの購買業務改善を契約。期間10週、GBP 68,000で対象3施設とし、診療業務は範囲外と明記した。
+- **2025-07-16**：Nehaと例外申請93件を分類した。緊急37件の多くが計画遅れで、単価より需要共有の改善を先行提言した。
+- **2025-07-21**：Oliverと週次進捗会議。購買面談12件中3件が未実施で、最終提言日を1週後ろへ変更した。
+- **2025-08-04**：ColinへKestlewick購買改善を報告。3施設の承認日数中央値5.0日から3.2日を確認し、最終提出が1週遅れた理由とともに月次点検を引き継いだ。
+- **2025-10-09**：Kennethへ支払試行を報告した。平均承認6.2日から3.8日に短縮し、対象を2部門から5部門へ広げる承認を得た。
+- **2025-11-14**：AngelaとSedgeholt Foodsの締め改善診断を開始。月次締め9営業日を6日にする目標を置き、診断8週GBP 49,000と、その後の顧客側試行を分けた計画で合意した。
+- **2026-01-21**：Meeraと削減実績を確認した。見込8.1%に対し5.6%で、数量条件の未達分を分離して説明した。
+- **2026-02-10**：Teresaと請求・経費を照合。Sedgeholt出張費GBP 1,340のうち別顧客分GBP 220を分離し、正しい請求先へ振り分けた。
+- **2026-03-16**：AngelaとSedgeholt締め改善の試行を検証。9営業日から7日へ短縮したが目標6日は未達で、残る照合待ち2工程を顧客側で継続する計画とした。
+- **2026-04-13**：ElizabethとAlderfennaの次契約を審査した。対象候補2領域から日本事業のFinance1領域に限定し、販売業務を含めないと合意した。
+- **2026-05-19**：Geoffreyと顧客の改善担当者14人に研修。演習で滞留と作業時間を混同した4人へ再説明し、点検表を顧客へ渡した。
+- **2026-06-09**：CarolineがDovenshawの導入後追加点検を依頼。対象2工場で歩留まり1.7ポイント改善を確認し、見込2.4ポイントと実績を分けて報告した。
+- **2026-07-20**：Kennethと次契約のPhase 1を確定した。予算4,280万円・12週の体制を承認され、依頼資料と合意版を分けて保存した。
+- **2026-08-25**：Connorの追加要求7件の見積りを審査した。追加620万円となるため2件だけ既存範囲に含め、残る5件は承認待ちにした。
+- **2026-09-18**：Meeraへ調達診断の最終報告を提出した。削減実績6.0%、発注遅延率9%から5%を確認し、月次点検を顧客へ引き継いだ。
+- **2026-09-28**：Elizabeth・Paulと半期面談。稼働率87%に対し部下育成時間が月3時間と少なく、翌期は月6時間を確保するとした。
 - 面談録、作業仮説、顧客の指摘、提言の改訂理由を保存する。削減見込と実現額は同じ列に混ぜない。
 
 ## フォルダ構成
 
 ```text
-Desktop/                       次回の運営会議、直前の修正
+Desktop/                                    次回の運営会議、直前の修正
 Documents/
-  Clients/Alderfenna/Diagnosis/ 面談、工程整理、仮説の見直し
-  Clients/Alderfenna/Finance/  予算、工程、試行結果、提言
-  Clients/Alderfenna/Meetings/ 顧客会議と承認の記録
-  Clients/Brackensail/Buying/  調達分析、交渉条件、改善案
-  Clients/Brackensail/Handover/ 最終報告、顧客側の点検手順
-  Proposals/                  提案原稿、採用しなかった案
-  Practice-notes/             自分の方法メモ、発表資料
-  Internal-review/            Vivian の指摘と回答
-Downloads/                     顧客提供資料と VDI の許可済み文書
+  Clients/Dovenshaw/                        原価診断の仮説、工場比較、提言
+  Clients/Kestlewick/                       購買改善の契約、面談、引継ぎ
+  Clients/Sedgeholt/                        締め改善の診断、試行、実績
+  Team-development/                         配置相談、部下の指導、評価面談
+  Clients/Alderfenna/Diagnosis/             面談、工程整理、仮説の見直し
+  Clients/Alderfenna/Finance/               予算、工程、試行結果、提言
+  Clients/Alderfenna/Meetings/              顧客会議と承認の記録
+  Clients/Brackensail/Buying/               調達分析、交渉条件、改善案
+  Clients/Brackensail/Handover/             最終報告、顧客側の点検手順
+  Proposals/                                提案原稿、採用しなかった案
+  Practice-notes/                           自分の方法メモ、発表資料
+  Internal-review/                          Elizabeth の指摘と回答
+Downloads/                                  顧客提供資料と VDI の許可済み文書
 OneDrive - Orielspan/
-  Team-room/                  共有進捗表、内部会議
-  Travel-reading/             移動中に読む資料の控え
-Pictures/                      工程図、会議画面、ワークショップ写真
-Documents/Mail/                顧客別に保存した合意メール
+  Team-room/                                共有進捗表、内部会議
+  Travel-reading/                           移動中に読む資料の控え
+Pictures/                                   工程図、会議画面、ワークショップ写真
+Documents/Mail/                             顧客別に保存した合意メール
 ```
+
 
 ## 形式の目安
 
@@ -85,7 +113,7 @@ Documents/Mail/                顧客別に保存した合意メール
 
 ## 規模の目安
 
-全体で 2,000 件。最初の区切りは 300 件で、Alpha Phase 1 の計画と診断、Beta の実績確認を中心にする。
+全体で 2,000 件。最初の区切りは 300 件で、Alderfenna Phase 1 の計画と診断、Brackensail の実績確認を中心にする。
 同じ提言の PDF は顧客へ送付した版など実際の用途がある場合だけ残す。
 
 ## 書かないもの

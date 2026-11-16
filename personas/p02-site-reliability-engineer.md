@@ -10,60 +10,82 @@ photo_dirs: Pictures
 
 ## 人物
 
-- **Owen Brackenholt**、Northstar Transit Cloud Wayglass 社の SRE。入社 6 年目、当番調整役は 3 年目。
+- **Daniel Jennings**、Wayglass Transit Ltdの SRE。入社 6 年目、当番調整役は 3 年目。
 - PC は Ubuntu 24.04 の会社支給ワークステーション。OS は en-US、文書・会議・個人メモの言語は英語。
-- 運用対象は Checkout と Identity。朝に前夜の引継ぎを読み、障害対応後は翌営業日までに判断経緯を文章にする。
+- 運用対象は Wayglass Faregate と Wayglass Riderpass。朝に前夜の引継ぎを読み、障害対応後は翌営業日までに判断経緯を文章にする。
 - 報告は UTC、勤務表は英国現地時刻で書き、時間帯を省かない。
 - Documents はサービス別より障害日別を好む。Desktop に調査途中の図が残り、週末に結論が出た分だけ移す。
 
 ## 組織と関係者
 
-- **Northstar Transit Cloud Wayglass Ltd**：英国の交通事業者向け予約基盤会社、従業員 135 人。Checkout は決済受付、Identity は乗客の認証機能。月間可用性目標は 99.9%。
-- 社内：
-  - **Priya Fenwicke**：運用部長。信頼性向上の予算と変更延期を承認。
-  - **Miles Corrow**：Checkout 責任者。障害後の設計改善を担当。
-  - **Tessa Wrenholt**：Identity 責任者。権限と当番教育を担当。
+- **Wayglass Transit Ltd**：英国の交通事業者向け予約基盤会社、従業員 135 人。Wayglass Faregate は決済受付、Wayglass Riderpass は乗客の認証機能。月間可用性目標は 99.9%。
+- 本社・本人の勤務都市：ブリストル。
+- 社内（本人を除く）：
+  - **Anjali Shah**：上司。運用部長。信頼性向上の予算と変更延期を承認。
+  - **Matthew Pickering**：同僚。Wayglass Faregate 責任者。障害後の設計改善を担当。
+  - **Emma Wilkinson**：他部署の協働相手。Wayglass Riderpass 責任者。権限と当番教育を担当。
+  - **Andrew Cartwright**：運用担当、同僚。休日当番を交代。
+  - **Carys Morgan**：SRE、後輩。復旧訓練を指導。
+  - **Richard Fenner**：財務担当、他部署。容量費用を照合。
+  - **Claire Hutchinson**：支援責任者、他部署。顧客通知を調整。
+  - **Sanjay Mehta**：データ保管担当、同僚。復旧点を確認。
 - 社外：
-  - **Merewick Coach Cooperative** の **Jonas Pellcroft**：運行システム窓口。
-  - **Emberquay Capacity Services** の **Ruth Ashcombe**：処理能力の調査担当。
-- メールは `owen@wayglass-transit.example`、運行側は `jonas@merewick-coach.example`。サービス実機の接続情報は記録しない。
+  - **Merewick Coach Cooperative** の **Stephen Cartledge**：顧客。運行システム窓口。
+  - **Emberquay Capacity Services** の **Louise Turner**：委託先。処理能力の調査担当。
+  - **Brambletarn Ticketing Ltd** の **Hannah Cartwright**：運行責任者、顧客。窓口復旧を確認。
+  - **Durncombe Storage Ltd** の **Patrick Sutcliffe**：保管担当、委託先。復旧点検に立会い。
+- メールは `daniel@wayglass-transit.example`、運行側は `stephen@merewick-coach.example`。サービス実機の接続情報は記録しない。
 
 ## 仕事の流れ
 
-- **2024-04**：Priya と当番 8 人の負担を調査。夜間呼出し月 46 回のうち重複通知 18 回を整理し、引継ぎ票を統一した。
-- **2024-07**：Jonas から朝の予約遅延の相談。Miles と 3 日分の集計表を比較し、ピークの開始時刻を 30 分前倒しして準備する運用を合意。
-- **2024-10**：Tessa と Identity の復旧訓練。目標 20 分に対し 34 分だったため、承認待ち 12 分を分離し、代行責任者を定めた。
-- **2025-01**：Priya に四半期の可用性 99.94% を報告。Checkout の 2 件の障害が停止時間の 81% を占め、改善対象を絞った。
-- **2025-04**：Ruth の容量試算で繁忙期需要が平時の 2.3 倍と判明。上限 2 倍の旧案を却下し、余裕を含む 2.8 倍案を採用した。
-- **2025-07**：Miles と変更後障害を振り返り。確認 14 項目中 3 項目が口頭のみだったため、実施結果の報告書を必須にした。
-- **2025-10**：Jonas と返金遅延 62 件を照合。予約そのものの欠損は 0 件と確認し、返金処理の説明を利用者窓口へ渡した。
-- **2026-01**：Tessa と当番訓練を再実施。復旧 18 分を達成し、旧 34 分の報告書を改善前の記録として残した。
-- **2026-04**：Priya と SVC-17 の変更審査。残りのエラーバジェットが少なく、機能変更 4 件を 6 月まで延期した。
-- **2026-07-13**：Miles と Checkout SVC-17 の障害 INC-260713 を評価。月間エラーバジェット残率 2.4% のため、復旧後も通常変更を凍結した。
-- **2026-08**：Ruth と再発防止の容量確認を実施。ピーク時余裕 28% を確認し、Priya が限定した変更再開を承認した。
-- **2026-09**：Jonas へ改善報告。Checkout の問い合わせが週 17 件から 6 件へ減り、次四半期は Identity の訓練を優先する結論となった。
+- 担当範囲：担当はWayglass FaregateとWayglass Riderpass。乗車券保管復旧・窓口発券継続は運用改善の独立した仕事として扱う。
+- **2024-04-09**：Anjaliと当番8人への聞取りをまとめた。夜間呼出し月46回のうち18回は重複通知で、引継ぎ票の整理を先に行うと決めた。
+- **2024-07-22**：Stephenの予約遅延の相談を受け、Matthewと3日分の時間帯集計を比較した。繁忙開始の30分前から準備する運用へ改めた。
+- **2024-08-19**：Sanjayと「乗車券保管復旧」の文書を点検。Patrick立会いの復旧点は目標15分前に対し22分前だったため、保管間隔の再検討を依頼した。
+- **2024-10-16**：EmmaとWayglass Riderpassの復旧演習を実施した。20分目標に対し34分かかり、承認待ち12分を短縮するため代行者を置いた。
+- **2025-01-14**：Anjaliへ前四半期の可用性99.94%を報告した。停止時間の81%がFaregateの障害2件に集中し、この2件の対策を優先した。
+- **2025-02-24**：Claireと「窓口発券継続」を計画。Hannahの有人窓口12か所で切替連絡が7分遅れ、連絡役を1人に集約した。
+- **2025-04-28**：Louiseの繁忙予測2.3倍を検討した。上限2倍の旧案では足りず、余裕込み2.8倍案をAnjaliへ上申し承認を得た。
+- **2025-05-09**：Andrewと週次当番会議。当番8人中2人に夜間対応が偏ったため、翌月の担当を2回ずつ入れ替えた。
+- **2025-07-09**：Matthewと変更起因の障害を振り返った。確認14項目中3項目に実施記録がなく、口頭の了解だけでは変更完了としないと決めた。
+- **2025-08-18**：Richardへ月次費用GBP 18,400を報告。予算超過GBP 1,200は予備容量と説明し、単純な削減は見送った。
+- **2025-09-15**：Hannah・Claireと窓口発券継続を再演習。12窓口への連絡が2分で届き、目標3分以内を満たしたため連絡票を確定した。
+- **2025-10-21**：Stephenと返金遅延62件を照合した。予約欠損は0件であり、予約の再入力を案内せず返金の見通しを通知することにした。
+- **2025-11-04**：Carysを含む新任3人に引継ぎ研修。通知先誤り2件を模擬演習で確認し、再受講後に当番へ入れた。
+- **2026-01-20**：Emmaの再演習に立ち会った。復旧18分で20分目標を満たし、34分だった旧記録は改善前の資料として残した。
+- **2026-02-23**：Anjaliと評価面談。事後報告の期限内提出率82%を確認し、翌半期95%を目標にした。
+- **2026-04-07**：AnjaliとSVC-17の変更計画を審査した。エラーバジェットの不足を踏まえ、機能変更4件を6月まで延期した。
+- **2026-05-11**：Sanjayと乗車券保管復旧を再試験。復旧点が9分前となり15分目標内を確認し、顧客説明書を更新した。
+- **2026-07-13**：MatthewとFaregateの障害INC-260713を整理した。復旧後の月間エラーバジェット残率は2.4%で、通常変更の凍結継続を顧客へ説明した。
+- **2026-08-18**：Louiseの容量確認で繁忙時の余裕28%を確認した。Anjaliは全変更の解禁ではなく、影響範囲を限定した再開を認めた。
+- **2026-09-15**：Stephenへ改善後の状況を伝えた。問い合わせ週17件から6件への減少を確認し、翌四半期はRiderpassの訓練へ時間を振り向けるとした。
+- **2026-09-23**：Richardと出張経費GBP 760を照合。宿泊1泊の重複を取下げ、月末の経費報告を確定した。
 - 障害報告には発生・検知・復旧時刻、影響範囲、推定と確定の区別を記す。時系列の追記と訂正理由も残す。
 
 ## フォルダ構成
 
 ```text
-Desktop/                       進行中の障害メモ、今日の引継ぎ
+Desktop/                                    進行中の障害メモ、今日の引継ぎ
 Documents/
-  Incidents/<年>/<発生日>/      影響整理、時系列、事後報告
-  Service-reviews/Checkout/    可用性報告、SVC-17 の判断
-  Service-reviews/Identity/    訓練報告、権限点検の結果
-  On-call/                    当番表、教育資料、引継ぎ文書
-  Capacity/                   需要予測、費用比較、承認
-  Change-decisions/           変更の採否と凍結通知
-  Customer-updates/           Merewick 向けの状況説明
-  Reading-notes/              文献メモ、自分用の整理
-Downloads/                     監視画面から出した集計表、受信添付
+  Recovery-evidence/                        乗車券保管復旧の計画、復旧点の表
+  Ticket-office-continuity/                 窓口発券継続の連絡順と演習結果
+  Personal-admin/                           評価面談、研修、旅費の控え
+  Incidents/<年>/<発生日>/                  影響整理、時系列、事後報告
+  Service-reviews/Wayglass Faregate/        可用性報告、SVC-17 の判断
+  Service-reviews/Wayglass Riderpass/       訓練報告、権限点検の結果
+  On-call/                                  当番表、教育資料、引継ぎ文書
+  Capacity/                                 需要予測、費用比較、承認
+  Change-decisions/                         変更の採否と凍結通知
+  Customer-updates/                         Merewick 向けの状況説明
+  Reading-notes/                            文献メモ、自分用の整理
+Downloads/                                  監視画面から出した集計表、受信添付
 Pictures/
-  Reliability-charts/         傾向図、画面のスクリーンショット
-  Workshop-boards/            改善会議のボード写真
-Documents/Mail/                障害連絡と承認メール
-Documents/Shared-drive/        部内共有文書のオフライン控え
+  Reliability-charts/                       傾向図、画面のスクリーンショット
+  Workshop-boards/                          改善会議のボード写真
+Documents/Mail/                             障害連絡と承認メール
+Documents/Shared-drive/                     部内共有文書のオフライン控え
 ```
+
 
 ## 形式の目安
 
