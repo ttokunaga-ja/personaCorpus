@@ -1,2 +1,3 @@
 persona	batch	date	planned	draft_initial_rejects	build_initial_rejects	final_rejects	coordinator_rejects	status	seconds
 p14-finance-controller	b004	2026-11-16	33	0	32	2	2	accepted	5426.57
+p14-finance-controller	b005	2026-11-16	35	2	15	15	0	accepted	5514.32

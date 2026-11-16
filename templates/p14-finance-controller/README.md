@@ -1,6 +1,6 @@
 # 千田真理子の文書の型
 
-2026年3月の月次締め用。型の本文は空で、見出し・本文・表の書式と組織の識別だけを持つ。Officeの型は通常のDOCX・XLSX・PPTXなので、開いて別名保存する。受入済み成果物は変更しない。
+月次締め共通の型。2025年11月の静岡工場の実地棚卸・棚卸差異調査・月末支払にも使用する。型の本文は空で、見出し・本文・表の書式と組織の識別だけを持つ。Officeの型は通常のDOCX・XLSX・PPTXなので、開いて別名保存する。受入済み成果物は変更しない。
 
 ## 型の一覧
 
@@ -15,8 +15,11 @@
 | CFO締め報告 | Cedar Works経理、千田から大庭へ。5〜8枚の報告 | `cedar-close-report.pptx` | 16:9、白地、左上の木材ロゴ、深緑の題、下部の部門表記。マスター1種と実レイアウト5種（表紙、見出しと本文、2段、表、図）。型にはスライドなし |
 | 残高証明書 | みなと中央銀行横浜支店、小田切。月次照合用の証明原紙 | `minato-balance.cls` | A4縦、Noto Serif CJK JPとLiberation Serif。えんじ色の円と山形のロゴ、細い罫線、広い余白、右下の発行者。Cedarの緑は使わない |
 | Ledgerline帳票 | Cedar Works経理のLedgerline出力。補助元帳、照会、集約試算表 | `ledgerline-report.cls` | A4縦、Cedarの木材ロゴと深緑。右上にシステム名、横罫線中心の密度の高い表、基準日・出力日時を区別 |
+| 実地棚卸票の印刷原紙 | Cedar Works静岡工場、三枝。区画別の手書き棚卸票の原紙 | `cedar-count-sheet.cls` | A4縦、木材ロゴと深緑、Noto Sans CJK JP。品番・品名と工程・実数・単位・備考の囲み表、数えた人と確認した人の署名欄。本文幅170mm |
+| 北斗合板の請求書 | 北斗合板の請求管理。紙で届く当初・訂正請求書の原紙 | `hokuto-invoice.cls` | A4縦、茶 `654B35` と墨、Noto Serif CJK JP／Liberation Serif。合板の積層を表す長方形ロゴ、中央の明朝タイトル、右寄せ管理項目、枠付き請求額、細い横罫線 |
+| 遠州金物の請求書 | 遠州金物の営業管理。紙で届く当初・訂正請求書の原紙 | `enshu-invoice.cls` | A4縦、鋼青 `384D6A` と墨、Noto Sans CJK JP／Liberation Sans。六角ナットの図形ロゴ、左寄せの大きな題と太線、白抜き請求額帯、横罫線明細 |
 
-銀行以外の社外文書は今回の範囲にない。Aoba StayとのメールはEML、画面保存はPNGであり、Officeの型は作らない。監査法人の型は今回追加しない。個人メモ、CSV、メールやERP画面を会社の報告書風に統一しない。
+既存の親会社と銀行の型は維持するが、b005では使用予定なし。Aoba StayとのメールはEML、画面保存はPNGであり、Officeの型は作らない。監査法人の型は追加しない。個人メモ、CSV、メールやERP画面を会社の報告書風に統一しない。
 
 ## Cedar Worksの共通書式
 
@@ -48,9 +51,36 @@
 - 銀行：`\documentclass{minato-balance}`、`\CertificateHeading{番号}{発行日}{宛先}{基準日}`、`BalanceTable`環境内に実際の預金種類・下4桁・金額の行、`\BankSignature{担当者}`。表の最後の行には改行記号を重ねない。
 - Ledgerline：`\documentclass{ledgerline-report}`、`\ReportHeading{題}{帳票番号}{基準日}{出力日時}`、`\ReportNote{注記}`、`\begin{LedgerTable}{列指定}`。先頭行に見出しを入れ、`\endhead`で継続ページに繰り返す。数値列はr、文章はpを使い、本文幅174mmの内側に収める。表には実在する明細だけを入れる。
 
+## 棚卸票と仕入先請求書
+
+- 棚卸集計初版・再集計、在庫調整、支払予定は `cedar-reconciliation.xlsx` を開き、原稿に従って列名・幅・式を変える。区画、品番、棚卸票参照、帳簿、実地、差異、追記照合など必要な列だけを設ける。締め工程は既存チェックリスト、CFO向け報告は既存PowerPointを使う。
+- 棚卸票：`\documentclass{cedar-count-sheet}`、`\CountHeading{管理番号}{実施日}{区画}{票番号}`、`CountTable`環境、`\CountSignatures{数えた人}{確認した人}`、`\CountNote{注記}`。管理番号体系は `CW-SZ-YYYYMM-COUNT-連番`。実際の番号は計画で確定する。表の明細は原稿にある行だけを成形時に追加し、行間の罫線は `\\\hline`、最終行は末尾の改行なしとする。型に空の明細・署名・仮の品番を埋め込まない。
+- `cedar-count-sheet.cls` は用紙の印刷書式であり、手書きそのものを作る型ではない。原稿が指定する筆記・署名・品番追記はimagegen skillで作る。読める文字はすべて原稿に記す。活字の検査見本を手書きの成果物として使わない。手書き画像を `bin/scan` に通して画像のみのPDFとする。
+- 請求書：それぞれ `\documentclass{hokuto-invoice}` または `\documentclass{enshu-invoice}`。`\InvoiceHeading{請求書番号}{発行日}{宛先}{対象期間}{支払期日}`、`\InvoiceTotal{税込請求額}`、`InvoiceTable`環境、`\InvoiceSummary{税抜小計}{税率}{消費税}{税込合計}`、`\InvoiceNote{注記}`。明細は品名・数量・単価・金額の4列。追加行の間は `\\`、最終行は末尾改行なし。数量の単位・税区分・端数処理・改定後単価の適用根拠・当初と訂正後の関係は原稿で指定する。未確定の税額を型で推算しない。
+- 北斗の番号は `HK-YYMM-連番`、遠州は `ES-YYMM-連番`、訂正再発行は同じstemに `-R1` などの版を付す方針。実際の値は計画・事実台帳で定め、自社の文書番号を付けない。組織名はpersonaどおりとし、所在地・登録番号・口座番号・押印を型で捏造しない。
+- 2社のクラスとも明細は空で、合計欄も呼出し時だけ生成する。表幅は本文170mm以内。フッタは相手の会社と部署・ページ番号。原稿の実明細がある原紙PDFを `bin/scan` へ渡す。当初・訂正後は同じ相手の型で作り、金額・注記・発行日を原稿どおりに区別する。
+- 写真・ホワイトボード・個人メモのための会社文書型は作らない。写真はimagegen skillで制作し、写る文字は全文を原稿に書く。
+
 ## 見本と確認
 
-受入済み成果物の見本はまだない。今回の検査用見本は配布物ではなく、`scratch/p14-finance-controller/b004/templates-work/examples/` に置く。各Office型と同名の見本、およびTeX型名と同じstemの `.tex`・`.pdf` がある。画像は `scratch/p14-finance-controller/b004/templates-work/render/<型名>/`。PowerPointは全5レイアウトを確認する。これらの見本は型の検証用であり、ファイル計画や事実台帳を増やすものではない。
+b005の検査用見本は `scratch/p14-finance-controller/b005/templates-work/examples/`、画像は `scratch/p14-finance-controller/b005/templates-work/render/` に置く。以下は型に仮内容を入れた組版検査用であり、受入済み成果物や事実台帳の根拠ではない。請求額・品番・番号等も検査用で、制作時へ転記しない。b004の削除済みscratchへの参照は置換した。
+
+| 型 | 見本（上記examplesからの相対パス） | 画像（上記renderからの相対パス） |
+|---|---|---|
+| cedar-review.docx | `cedar-review.docx` | `cedar-review/` |
+| cedar-minutes.docx | `cedar-minutes.docx` | `cedar-minutes/` |
+| cedar-notice.docx | `cedar-notice.docx` | `cedar-notice/` |
+| holdings-monthly.docx | `holdings-monthly.docx` | `holdings-monthly/` |
+| cedar-reconciliation.xlsx | `cedar-reconciliation-3.xlsx`、`cedar-reconciliation-36.xlsx` | `cedar-reconciliation-3/`、`cedar-reconciliation-36/` |
+| cedar-close-checklist.xlsx | `cedar-close-checklist-3.xlsx`、`cedar-close-checklist-36.xlsx` | `cedar-close-checklist-3/`、`cedar-close-checklist-36/` |
+| cedar-close-report.pptx | `cedar-close-report.pptx`（全5レイアウト） | `cedar-close-report/` |
+| minato-balance.cls | `minato-balance.tex`、`minato-balance.pdf` | `minato-balance/` |
+| ledgerline-report.cls | `ledgerline-report.tex`、`ledgerline-report.pdf` | `ledgerline-report/` |
+| cedar-count-sheet.cls | `cedar-count-sheet.tex`、`cedar-count-sheet.pdf`（活字の配置確認用） | `cedar-count-sheet/` |
+| hokuto-invoice.cls | `hokuto-invoice.tex`、`hokuto-invoice.pdf` | `hokuto-invoice/` |
+| enshu-invoice.cls | `enshu-invoice.tex`、`enshu-invoice.pdf` | `enshu-invoice/` |
+
+実行記録は同scratchの `render.log` と `render-results.json`。PowerPointは全5レイアウト、Excelは少数行と複数ページの見本で確認する。scratchは受入・破棄時に削除されるため、上記は今回のレビュー中の参照である。削除後の再検証では、使用する型に仮内容を入れて当該batchのscratchへ組版・レンダリングする。受入済み成果物の見本はこの一覧に登録していない。
 
 他personaの型は作業時点で `templates/` に存在せず、比較対象なし。
 
