@@ -10,7 +10,7 @@ photo_dirs: Pictures
 
 ## 人物
 
-- **Jennifer Salazar**、Lumenreed Research LLC のシニア UX リサーチャー。入社 5 年目、日米の業務利用者調査を担当。
+- **Jennifer Salazar**、Carver Workplace Research LLC のシニア UX リサーチャー。入社 5 年目、日米の業務利用者調査を担当。
 - PC は macOS のフィールド調査ノート。OS は en-US、使用言語は英語と日本語。
 - 計画と分析は英語、日本側の面談と参加案内は日本語。発言を英訳した箇所は原文と訳を対応させる。
 - 面談後の 30 分を観察メモに使い、発言と調査者の解釈を分ける。印象的な一言だけで結論を出さない。
@@ -18,7 +18,7 @@ photo_dirs: Pictures
 
 ## 組織と関係者
 
-- **Lumenreed Research LLC**：米国の業務体験調査会社、従業員 27 人。配車の見通し調査は配送計画画面、交代申し送り調査は交代引継ぎ画面の調査。参加者の設定と発言はすべて独自に作る。
+- **Carver Workplace Research LLC**：米国の業務体験調査会社、従業員 27 人。配車の見通し調査は配送計画画面、交代申し送り調査は交代引継ぎ画面の調査。参加者の設定と発言はすべて独自に作る。
 - 本社・本人の勤務都市：シカゴ。
 - 社内（本人を除く）：
   - **Patrick Delgado**：上司。調査部長。計画と顧客報告を承認。
@@ -28,24 +28,24 @@ photo_dirs: Pictures
   - **Jeremy Sutton**：デザイン担当、他部署。観察を画面案へ反映。
   - **Ayesha Siddiqui**：調査助手、部下。同意と保存期限を指導。
 - 社外：
-  - **Pellmere Dispatch Cooperative** の **Christine Wright**：顧客。調査依頼側の設計責任者。
-  - **Pellmere Dispatch Cooperative** の **Adam Morales**：調査参加者。面談参加者、配送計画担当。
-  - **水緒便配株式会社** の **和田 典枝**：調査参加者。日本側の面談参加者、交代管理担当。
-  - **Dappleford Warehousing Inc** の **Ronald Perez**：現場責任者、顧客。夜勤調査を依頼。
-  - **瀬織作業支援株式会社** の **中山 美沙子**：教育担当、顧客。研修画面を評価。
-  - **Rillhaven Access Lab LLC** の **Amanda Shah**：調査員、委託先。読み上げ利用を観察。
-- メールは `jennifer@lumenreed-research.example`、依頼側は `christine@pellmere-dispatch.example`。参加案内にも私用連絡先は載せない。
+  - **Oakridge Dispatch Cooperative** の **Christine Wright**：顧客。調査依頼側の設計責任者。
+  - **Oakridge Dispatch Cooperative** の **Adam Morales**：調査参加者。面談参加者、配送計画担当。
+  - **丸西配送サービス株式会社** の **和田 典枝**：調査参加者。日本側の面談参加者、交代管理担当。
+  - **Kenton Contract Warehousing Inc** の **Ronald Perez**：現場責任者、顧客。夜勤調査を依頼。
+  - **つばさ業務支援株式会社** の **中山 美沙子**：教育担当、顧客。研修画面を評価。
+  - **Fuller Accessibility Lab LLC** の **Amanda Shah**：調査員、委託先。読み上げ利用を観察。
+- メールは `jennifer@carver-workplace.example`、依頼側は `christine@oakridge-dispatch.example`。参加案内にも私用連絡先は載せない。
 
 ## 仕事の流れ
 
 - 担当範囲：配車の見通し調査、交代申し送り調査、夜勤棚卸観察、研修画面理解調査、読み上げ配車点検の5件。共同利用の発見は残すが、調査ごとの同意と母数を維持する。
 - **2024-04-16**：Christineと「配車の見通し調査」を企画した。操作時間より引継ぎ失敗4場面を重視し、困り事を観察する計画で合意した。
 - **2024-07-10**：金子と日英の質問18問を試行した。誘導的な5問を除き、面談時間45分を共通条件とすることにした。
-- **2024-08-21**：Ronaldと「夜勤棚卸観察」を受託。Dappleford Warehousingの夜勤6人を観察し、日勤の手順をそのまま適用する案を退けた。
+- **2024-08-21**：Ronaldと「夜勤棚卸観察」を受託。Kenton Contract Warehousingの夜勤6人を観察し、日勤の手順をそのまま適用する案を退けた。
 - **2024-09-26**：Ronaldへ夜勤棚卸観察を報告。観察6人全員に照合の中断があったが、夜勤全体の発生率とはせず、中断後の再開表示だけを提言した。
 - **2024-10-28**：Adamの試行で同じ画面へ6回戻る行動を記録した。操作忘れとは決めず情報照合の可能性を採り、観察項目を追加した。
 - **2025-01-22**：Brianと12面談を分析した。熟練者4人にも同じ問題があり、初心者特有という分類は撤回した。
-- **2025-02-03**：中山と「研修画面理解調査」を設計。瀬織作業支援の新人8人中5人が完了表示を誤解し、文言変更を提案した。
+- **2025-02-03**：中山と「研修画面理解調査」を設計。つばさ業務支援の新人8人中5人が完了表示を誤解し、文言変更を提案した。
 - **2025-04-10**：Patrickへuser personaの3案を示した。職位より交代頻度が説明力を持ち、頻度別2案へ整理し直した。
 - **2025-05-12**：Amandaと「読み上げ配車点検」を実施。重要項目14件中4件が読み上げ順から漏れ、Jeremyへ修正観点を渡した。
 - **2025-07-23**：和田と「交代申し送り調査」を試行した。引継ぎ9事項中3事項が見落とされ、警告を増やす案より未確認一覧を採った。
@@ -85,7 +85,7 @@ Music/Research-interviews/                  面談音声。日付と面談番号
 Pictures/Field-visits/                      作業机と掲示物の写真
 Pictures/Analysis/                          付箋整理、画面案、図
 Documents/Client-mail/                      Christine への説明と承認メール
-Library/CloudStorage/Lumenreed/共有報告書の手元の写し
+Library/CloudStorage/Carver/共有報告書の手元の写し
 ```
 
 

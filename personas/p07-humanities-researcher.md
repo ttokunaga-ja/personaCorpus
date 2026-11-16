@@ -10,7 +10,7 @@ photo_dirs: Pictures
 
 ## 人物
 
-- **Judith Morris**、Brumeleaf Historical Trust の研究員。参加 5 年目、都市間の書簡と読書会の比較史を研究する。
+- **Judith Morris**、Langley Historical Trust の研究員。参加 5 年目、都市間の書簡と読書会の比較史を研究する。
 - PC は macOS の研究用ノート。OS は en-GB。使用言語は英語、フランス語、ドイツ語、日本語。
 - 執筆と日常連絡は英語、史料読解は主にフランス語とドイツ語、日本語は比較研究の読書メモと共同研究者への連絡に使う。
 - 午前に転記と読解、午後に章の執筆。読めない字は推定と確定を分け、翻訳で意味を補わない。
@@ -18,7 +18,7 @@ photo_dirs: Pictures
 
 ## 組織と関係者
 
-- **Brumeleaf Historical Trust**：英国の独立研究組織、常勤 11 人。計画内で設定した 19 世紀の地方読書会史料を研究する。資料の管理と助成事務も同組織が担う。
+- **Langley Historical Trust**：英国の独立研究組織、常勤 11 人。計画内で設定した 19 世紀の地方読書会史料を研究する。資料の管理と助成事務も同組織が担う。
 - 本社・本人の勤務都市：ヨーク。
 - 社内（本人を除く）：
   - **Roger Hewitt**：上司。研究代表。章構成と助成報告を確認。
@@ -28,24 +28,24 @@ photo_dirs: Pictures
   - **Florian Schulte**：研究補助員、後輩。引用確認を指導。
   - **Frances Dixon**：事務責任者、他部署。助成費と出張を確認。
 - 社外：
-  - **Archives de Valbrume** の **Camille Laurent**：史料所蔵機関。史料閲覧と複写の担当。
-  - **星汀比較文化研究室** の **阿部 由紀子**：共同研究者。日本語の比較研究会窓口。
-  - **Westhurn Scholarly Press** の **Edward Fairclough**：編集者、出版先。章の査読を調整。
-  - **Calderstow Humanities Fund** の **Margaret Houghton**：助成担当、資金提供者。中間報告を受領。
-  - **Vieuxpré Reading Archive** の **Isabelle Chevalier**：学芸員、共同研究者。貸本台帳を照合。
-- メールは `judith@brumeleaf-history.example`、閲覧窓口は `camille@valbrume-archives.example`。ここで定義した史料群と関係者だけを用いる。
+  - **Archives de Saint-Aubin-sur-Rive** の **Camille Laurent**：史料所蔵機関。史料閲覧と複写の担当。
+  - **あおぞら比較文化研究室** の **阿部 由紀子**：共同研究者。日本語の比較研究会窓口。
+  - **Ainsworth Scholarly Press** の **Edward Fairclough**：編集者、出版先。章の査読を調整。
+  - **Henderson Humanities Fund** の **Margaret Houghton**：助成担当、資金提供者。中間報告を受領。
+  - **Montclair Reading Archive** の **Isabelle Chevalier**：学芸員、共同研究者。貸本台帳を照合。
+- メールは `judith@langley-history.example`、閲覧窓口は `camille@saint-aubin-sur-rive-archives.example`。ここで定義した史料群と関係者だけを用いる。
 
 ## 仕事の流れ
 
 - 担当範囲：地方読書会の運営比較と貸本台帳の回覧経路の2課題を持つ。史料の論点が違うため、同じ会員名らしく見えても索引は直ちに統合しない。
 - **2024-04-25**：Rogerと「地方読書会の運営比較」の6章構成を議論した。出版史中心の旧案を改め、会費と参加の比較を第2章の主題にした。
 - **2024-07-09**：Camilleに箱12〜14の閲覧を申請した。複写可能216葉と欠落19葉を確認し、欠落を索引に明記して読解を進めた。
-- **2024-08-07**：Isabelleと第2課題「貸本台帳の回覧経路」を計画。Vieuxpré Reading Archiveの台帳9冊を対象に、書簡研究と同じ人物と断定しない方針にした。
+- **2024-08-07**：Isabelleと第2課題「貸本台帳の回覧経路」を計画。Montclair Reading Archiveの台帳9冊を対象に、書簡研究と同じ人物と断定しない方針にした。
 - **2024-10-24**：Julieと書簡32通を転記した。会費と寄付を混同した7箇所を修正し、旧訳の誤りが考察へ及ぶ箇所も記録した。
 - **2025-01-15**：Stefanと地名の異綴り46件を照合した。同定不能8件は索引へ統合せず、未確定の項目として残した。
-- **2025-02-12**：EdwardにWesthurn Scholarly Press向け章案8,000語を提出。査読の指摘11件のうち2件は史料不足で対応不能と回答した。
+- **2025-02-12**：EdwardにAinsworth Scholarly Press向け章案8,000語を提出。査読の指摘11件のうち2件は史料不足で対応不能と回答した。
 - **2025-04-29**：阿部の研究会で草稿28ページを報告した。直接影響を示す根拠は不足しており、日本の読書会との比較可能性に表現を絞った。
-- **2025-05-21**：MargaretへCalderstow Humanities Fundの助成申請GBP 24,000を提出。複写費GBP 3,200は採択されたが追加渡航費は認められず、日程を縮めた。
+- **2025-05-21**：MargaretへHenderson Humanities Fundの助成申請GBP 24,000を提出。複写費GBP 3,200は採択されたが追加渡航費は認められず、日程を縮めた。
 - **2025-07-10**：Rogerが第1章の典拠63件を点検した。二次引用しかない9件を本文から外し、追加調査の課題へ移した。
 - **2025-08-07**：Susanとの週次読解会で台帳54行を確認。同姓の利用者3組を別人として残し、推定による名寄せを見送った。
 - **2025-10-23**：Camilleと箱14の再撮影を調整した。判読不能12葉中8葉を複写できたが、残る4葉の翻刻は保留した。

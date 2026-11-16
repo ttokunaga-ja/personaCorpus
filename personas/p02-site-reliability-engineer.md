@@ -10,39 +10,39 @@ photo_dirs: Pictures
 
 ## 人物
 
-- **Daniel Jennings**、Wayglass Transit Ltdの SRE。入社 6 年目、当番調整役は 3 年目。
+- **Daniel Jennings**、BRT Booking Systems Ltdの SRE。入社 6 年目、当番調整役は 3 年目。
 - PC は Ubuntu 24.04 の会社支給ワークステーション。OS は en-US、文書・会議・個人メモの言語は英語。
-- 運用対象は Wayglass Faregate と Wayglass Riderpass。朝に前夜の引継ぎを読み、障害対応後は翌営業日までに判断経緯を文章にする。
+- 運用対象は BRT Fare Payments と BRT Passenger Identity。朝に前夜の引継ぎを読み、障害対応後は翌営業日までに判断経緯を文章にする。
 - 報告は UTC、勤務表は英国現地時刻で書き、時間帯を省かない。
 - Documents はサービス別より障害日別を好む。Desktop に調査途中の図が残り、週末に結論が出た分だけ移す。
 
 ## 組織と関係者
 
-- **Wayglass Transit Ltd**：英国の交通事業者向け予約基盤会社、従業員 135 人。Wayglass Faregate は決済受付、Wayglass Riderpass は乗客の認証機能。月間可用性目標は 99.9%。
+- **BRT Booking Systems Ltd**：英国の交通事業者向け予約基盤会社、従業員 135 人。BRT Fare Payments は決済受付、BRT Passenger Identity は乗客の認証機能。月間可用性目標は 99.9%。
 - 本社・本人の勤務都市：ブリストル。
 - 社内（本人を除く）：
   - **Anjali Shah**：上司。運用部長。信頼性向上の予算と変更延期を承認。
-  - **Matthew Pickering**：同僚。Wayglass Faregate 責任者。障害後の設計改善を担当。
-  - **Emma Wilkinson**：他部署の協働相手。Wayglass Riderpass 責任者。権限と当番教育を担当。
+  - **Matthew Pickering**：同僚。BRT Fare Payments 責任者。障害後の設計改善を担当。
+  - **Emma Wilkinson**：他部署の協働相手。BRT Passenger Identity 責任者。権限と当番教育を担当。
   - **Andrew Cartwright**：運用担当、同僚。休日当番を交代。
   - **Carys Morgan**：SRE、後輩。復旧訓練を指導。
   - **Richard Fenner**：財務担当、他部署。容量費用を照合。
   - **Claire Hutchinson**：支援責任者、他部署。顧客通知を調整。
   - **Sanjay Mehta**：データ保管担当、同僚。復旧点を確認。
 - 社外：
-  - **Merewick Coach Cooperative** の **Stephen Cartledge**：顧客。運行システム窓口。
-  - **Emberquay Capacity Services** の **Louise Turner**：委託先。処理能力の調査担当。
-  - **Brambletarn Ticketing Ltd** の **Hannah Cartwright**：運行責任者、顧客。窓口復旧を確認。
-  - **Durncombe Storage Ltd** の **Patrick Sutcliffe**：保管担当、委託先。復旧点検に立会い。
-- メールは `daniel@wayglass-transit.example`、運行側は `stephen@merewick-coach.example`。サービス実機の接続情報は記録しない。
+  - **Westbury Coach Cooperative** の **Stephen Cartledge**：顧客。運行システム窓口。
+  - **Palmer Capacity Services** の **Louise Turner**：委託先。処理能力の調査担当。
+  - **Fairfield Ticket Services Ltd** の **Hannah Cartwright**：運行責任者、顧客。窓口復旧を確認。
+  - **RJS Data Storage Ltd** の **Patrick Sutcliffe**：保管担当、委託先。復旧点検に立会い。
+- メールは `daniel@brt-booking.example`、運行側は `stephen@westbury-coach.example`。サービス実機の接続情報は記録しない。
 
 ## 仕事の流れ
 
-- 担当範囲：担当はWayglass FaregateとWayglass Riderpass。乗車券保管復旧・窓口発券継続は運用改善の独立した仕事として扱う。
+- 担当範囲：担当はBRT Fare PaymentsとBRT Passenger Identity。乗車券保管復旧・窓口発券継続は運用改善の独立した仕事として扱う。
 - **2024-04-09**：Anjaliと当番8人への聞取りをまとめた。夜間呼出し月46回のうち18回は重複通知で、引継ぎ票の整理を先に行うと決めた。
 - **2024-07-22**：Stephenの予約遅延の相談を受け、Matthewと3日分の時間帯集計を比較した。繁忙開始の30分前から準備する運用へ改めた。
 - **2024-08-19**：Sanjayと「乗車券保管復旧」の文書を点検。Patrick立会いの復旧点は目標15分前に対し22分前だったため、保管間隔の再検討を依頼した。
-- **2024-10-16**：EmmaとWayglass Riderpassの復旧演習を実施した。20分目標に対し34分かかり、承認待ち12分を短縮するため代行者を置いた。
+- **2024-10-16**：EmmaとBRT Passenger Identityの復旧演習を実施した。20分目標に対し34分かかり、承認待ち12分を短縮するため代行者を置いた。
 - **2025-01-14**：Anjaliへ前四半期の可用性99.94%を報告した。停止時間の81%がFaregateの障害2件に集中し、この2件の対策を優先した。
 - **2025-02-24**：Claireと「窓口発券継続」を計画。Hannahの有人窓口12か所で切替連絡が7分遅れ、連絡役を1人に集約した。
 - **2025-04-28**：Louiseの繁忙予測2.3倍を検討した。上限2倍の旧案では足りず、余裕込み2.8倍案をAnjaliへ上申し承認を得た。
@@ -71,12 +71,12 @@ Documents/
   Ticket-office-continuity/                 窓口発券継続の連絡順と演習結果
   Personal-admin/                           評価面談、研修、旅費の控え
   Incidents/<年>/<発生日>/                  影響整理、時系列、事後報告
-  Service-reviews/Wayglass Faregate/        可用性報告、SVC-17 の判断
-  Service-reviews/Wayglass Riderpass/       訓練報告、権限点検の結果
+  Service-reviews/BRT Fare Payments/        可用性報告、SVC-17 の判断
+  Service-reviews/BRT Passenger Identity/       訓練報告、権限点検の結果
   On-call/                                  当番表、教育資料、引継ぎ文書
   Capacity/                                 需要予測、費用比較、承認
   Change-decisions/                         変更の採否と凍結通知
-  Customer-updates/                         Merewick 向けの状況説明
+  Customer-updates/                         Westbury 向けの状況説明
   Reading-notes/                            文献メモ、自分用の整理
 Downloads/                                  監視画面から出した集計表、受信添付
 Pictures/

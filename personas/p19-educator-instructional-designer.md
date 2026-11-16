@@ -10,7 +10,7 @@ photo_dirs: My files/Pictures
 
 ## 人物
 
-- **Heather Callahan**、Sprigwell Learning Cooperative の教材設計者兼講師。入職 6 年目、成人向け職業研修を担当。
+- **Heather Callahan**、Elmwood Adult Learning Cooperative の教材設計者兼講師。入職 6 年目、成人向け職業研修を担当。
 - PC は ChromeOS の会社支給端末。OS は en-US、使用言語は英語。クラウド文書はオフライン利用のため許可された形式で保存する。
 - 条件を読む仕事術は業務文書の読み方、根拠から組む提案は根拠を示した提案の作り方。授業後に誤解された問いをメモして次の教材改訂へ回す。
 - 採点前に基準を確認し、正解語句の一致だけで理解を判定しない。受講者の振り返りと提出物を別々に読む。
@@ -18,7 +18,7 @@ photo_dirs: My files/Pictures
 
 ## 組織と関係者
 
-- **Sprigwell Learning Cooperative**：カナダの成人職業研修組織、職員 41 人。1 期 12 週で企業内研修と一般講座を運営する。2026年夏期は7〜9月の12週。
+- **Elmwood Adult Learning Cooperative**：カナダの成人職業研修組織、職員 41 人。1 期 12 週で企業内研修と一般講座を運営する。2026年夏期は7〜9月の12週。
 - 本社・本人の勤務都市：トロント。
 - 社内（本人を除く）：
   - **David Ashcroft**：上司。教育責任者。到達目標と講座改訂を承認。
@@ -29,24 +29,24 @@ photo_dirs: My files/Pictures
   - **Linda Lau**：事務担当、他部署。企業研修の見積を作成。
   - **Tristan McLeod**：講師、後輩。授業観察の講評を担当。
 - 社外：
-  - **Wickelmere Service Cooperative** の **Janice Mitchell**：顧客。企業研修の依頼主。
-  - **Wickelmere Service Cooperative** の **Alexandre Pelletier**：受講者。説明の構成に課題がある設定。
-  - **Wickelmere Service Cooperative** の **Grace Lim**：受講者。根拠の比較を得意とする設定。
-  - **Avenscombe Housing Cooperative** の **Glenn Fletcher**：人材担当、顧客。職場会議研修を依頼。
-  - **Bellstow Employment Centre** の **Bernadette McLean**：相談員、連携先。学び直し講座を紹介。
-  - **Pryndale Course Review Ltd** の **Sean Desjardins**：査読担当、外部評価者。教材の到達目標を点検。
-- メールは `heather@sprigwell-learning.example`、依頼主は `janice@wickelmere-service.example`。他の受講者は匿名の集計で扱い、新しい氏名を足さない。
+  - **Brookdale Service Cooperative** の **Janice Mitchell**：顧客。企業研修の依頼主。
+  - **Brookdale Service Cooperative** の **Alexandre Pelletier**：受講者。説明の構成に課題がある設定。
+  - **Brookdale Service Cooperative** の **Grace Lim**：受講者。根拠の比較を得意とする設定。
+  - **Rosedale Workers Housing Cooperative** の **Glenn Fletcher**：人材担当、顧客。職場会議研修を依頼。
+  - **Ashford Community Employment Centre** の **Bernadette McLean**：相談員、連携先。学び直し講座を紹介。
+  - **Fletcher Course Review Ltd** の **Sean Desjardins**：査読担当、外部評価者。教材の到達目標を点検。
+- メールは `heather@elmwood-learning.example`、依頼主は `janice@brookdale-service.example`。他の受講者は匿名の集計で扱い、新しい氏名を足さない。
 
 ## 仕事の流れ
 
 - 担当範囲：条件を読む仕事術・根拠から組む提案の継続講座と、職場会議の伝え方・学び直し文書入門の受託講座を担当する。4講座の到達目標と成果を別々に記録する。
 - **2024-04-18**：Davidと「条件を読む仕事術」の到達目標5件を確認した。速読中心の旧案を改め、条件と例外を読む講座として設計した。
 - **2024-07-16**：Erinと課題12問を試した。正答率92%の設問は理解の差が見えず、根拠を説明する4問へ置き換えた。
-- **2024-08-22**：Glennと「職場会議の伝え方」を設計。Avenscombe Housingの24人へ6回研修とし、接遇研修とは到達目標を分けた。
+- **2024-08-22**：Glennと「職場会議の伝え方」を設計。Rosedale Housingの24人へ6回研修とし、接遇研修とは到達目標を分けた。
 - **2024-10-21**：Arjunと28人の欠席対応を点検した。6人への追補が遅れ、資料は翌日までに渡す運用を決めた。
 - **2024-12-02**：Glennへ職場会議の伝え方の報告を提出。24人中演習提出22人、条件付き提案を組めた17人で、接遇能力まで改善したとは書かなかった。
 - **2025-01-15**：Janiceへ企業研修の結果を報告した。受講32人・完了29人で、未完3人を集計から外さず理由を注記した。
-- **2025-02-04**：Bernadetteと「学び直し文書入門」を計画。Bellstow Employment Centreの紹介18人に全8回、欠席者へ紙教材を郵送する方針にした。
+- **2025-02-04**：Bernadetteと「学び直し文書入門」を計画。Ashford Community Employment Centreの紹介18人に全8回、欠席者へ紙教材を郵送する方針にした。
 - **2025-04-22**：Erinと「根拠から組む提案」の採点を比較した。答案18件中7件で3点以上ずれ、評価基準へ具体例を加えた。
 - **2025-05-13**：Seanと教材査読を実施。課題16問中4問は目標との対応が弱く、暗記問題を条件比較の問いへ置換した。
 - **2025-06-23**：Bernadette・Kathleenと学び直し文書入門を振り返り。18人中15人が8回を修了し、未修了3人は支援機関との相談継続とした。
@@ -84,8 +84,8 @@ Google Drive/My Drive/
   Learner-support/                          追補案内、つまずきの集計
   My-reflections/                           授業直後の自分用メモ
 Google Drive/Shared drives/
-  Sprigwell/Planning/                       到達目標、配布計画、運営会議
-  Sprigwell/Corporate-courses/              Janice 向けの報告と合意
+  Elmwood/Planning/                       到達目標、配布計画、運営会議
+  Elmwood/Corporate-courses/              Janice 向けの報告と合意
 My files/Mail/                              保存した講座連絡の eml
 ```
 

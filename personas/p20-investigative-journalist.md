@@ -10,7 +10,7 @@ photo_dirs: Pictures
 
 ## 人物
 
-- **Leslie Crawford**、Fernwake Newsroom Cooperative の調査報道記者。入社 9 年目、公共調達と行政記録の取材を担当。
+- **Leslie Crawford**、Allegheny Civic News Cooperative の調査報道記者。入社 9 年目、公共調達と行政記録の取材を担当。
 - PC はストレージ暗号化された macOS ノート。OS は en-US、使用言語は英語。取材メモ、照会、記事も英語で書く。
 - 朝に資料請求と回答期限を点検し、午後に面談、夕方に事実と未確認情報を分けて整理する。
 - 路面補修の契約を追うは道路補修契約、図書室設備の選び方は公共図書室の設備調達。疑念から結論を決めず、反証と取材先の回答も検討する。
@@ -18,7 +18,7 @@ photo_dirs: Pictures
 
 ## 組織と関係者
 
-- **Fernwake Newsroom Cooperative**：米国の地域調査報道編集部、職員 23 人。取材対象の自治体は **Fenmarsh Borough**、契約先は **Rookelmere Paving Inc**。いずれも独自の設定。
+- **Allegheny Civic News Cooperative**：米国の地域調査報道編集部、職員 23 人。取材対象の自治体は **Mapleton Falls Borough**、契約先は **Keller Municipal Paving Inc**。いずれも独自の設定。
 - 本社・本人の勤務都市：ピッツバーグ。
 - 社内（本人を除く）：
   - **Richard Espinoza**：上司。編集長。掲載と訂正を承認。
@@ -30,24 +30,24 @@ photo_dirs: Pictures
   - **Marianne Davis**：読者担当、他部署。訂正要望を引継ぎ。
   - **Wayne Fletcher**：事務担当、他部署。旅費と助成費を確認。
 - 社外：
-  - **Fenmarsh Borough** の **Dorothy Hensley**：行政の取材先。公文書公開の担当。
-  - **Rookelmere Paving Inc** の **Raymond Salazar**：企業の取材先。工事契約について回答する広報担当。
-  - **Fenmarsh Borough** の **Suzanne Wheeler**：取材協力者。元調達担当。記名面談に同意した情報源。
-  - **Fenmarsh Borough** の **Gerald Scott**：図書室責任者、取材先。設備選定に回答。
-  - **Tarnwick Tenants Association** の **Theresa Coleman**：代表、取材先。住宅修繕の遅延を説明。
-  - **Colverden Water District** の **Russell Thompson**：広報、取材先。漏水記録を提出。
-  - **Osterfell Legal Review LLC** の **Danielle Romero**：弁護士、外部助言者。記事の法務を点検。
-- メールは `leslie@fernwake-newsroom.example`、公開請求は `dorothy@fenmarsh-borough.example`。私用連絡先や匿名者の特定情報は作らない。
+  - **Mapleton Falls Borough** の **Dorothy Hensley**：行政の取材先。公文書公開の担当。
+  - **Keller Municipal Paving Inc** の **Raymond Salazar**：企業の取材先。工事契約について回答する広報担当。
+  - **Mapleton Falls Borough** の **Suzanne Wheeler**：取材協力者。元調達担当。記名面談に同意した情報源。
+  - **Mapleton Falls Borough** の **Gerald Scott**：図書室責任者、取材先。設備選定に回答。
+  - **Parkview Court Tenants Association** の **Theresa Coleman**：代表、取材先。住宅修繕の遅延を説明。
+  - **Eastbrook Water District** の **Russell Thompson**：広報、取材先。漏水記録を提出。
+  - **Reed & Nolan Media Law LLC** の **Danielle Romero**：弁護士、外部助言者。記事の法務を点検。
+- メールは `leslie@allegheny-civic.example`、公開請求は `dorothy@mapleton-falls.example`。私用連絡先や匿名者の特定情報は作らない。
 
 ## 仕事の流れ
 
 - 担当範囲：主題は路面補修の契約を追う、図書室設備の選び方、住宅修繕の待ち時間、漏水記録と更新費、議事録はいつ届くかの5企画。公開済み記事、取材継続、企画のみを区別する。
 - **2024-04-09**：Richardと「路面補修の契約を追う」を企画した。18契約の増額を対象にし、不正の有無を先に決めず変更根拠から確認するとした。
 - **2024-07-25**：Dorothyへ契約関係6種を請求した。範囲が広いとの回答を受け、年度と道路区画を絞って再請求した。
-- **2024-08-06**：Theresaと「住宅修繕の待ち時間」の記名面談を実施。Tarnwick Tenants Associationの要望22件中完了日不明8件は確認済み件数に入れなかった。
+- **2024-08-06**：Theresaと「住宅修繕の待ち時間」の記名面談を実施。Parkview Court Tenants Associationの要望22件中完了日不明8件は確認済み件数に入れなかった。
 - **2024-10-16**：Miguelと受領124ページを整理した。差額USD 310,000は税の扱いによると分かり、当初の増額仮説を取り下げた。
 - **2025-01-27**：Suzanneに55分の記名面談を行った。承認日と着工日の逆転4件は発言だけで確定せず、公文書を追加確認する方針にした。
-- **2025-02-11**：Russellへ「漏水記録と更新費」の資料を請求。Colverden Water Districtの管路更新12件を対象とし、個別住民の住所は請求対象から除いた。
+- **2025-02-11**：Russellへ「漏水記録と更新費」の資料を請求。Eastbrook Water Districtの管路更新12件を対象とし、個別住民の住所は請求対象から除いた。
 - **2025-04-17**：Veronicaが草稿の出典43件を点検した。裏付けが1件しかない主張7件を保留し、掲載を2週間遅らせた。
 - **2025-05-20**：Geraldに図書室設備の見積差USD 18,600を照会。保守費を含む差と分かり、単純な割高との見出し案を撤回した。
 - **2025-07-09**：Raymondへ12問を送った。追加工事3件の必要性について回答を受け、企業の説明と記録上の確認結果を分けて原稿へ入れた。

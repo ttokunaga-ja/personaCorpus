@@ -10,7 +10,7 @@ photo_dirs: Pictures
 
 ## 人物
 
-- **Melissa Watkins**、Thistrel Cellworks Incの細胞評価研究員。入社 7 年目、試験計画の責任者は 2 年目。
+- **Melissa Watkins**、Bennett Cell Evaluation Incの細胞評価研究員。入社 7 年目、試験計画の責任者は 2 年目。
 - PC は Windows 11 の実験室ワークステーション。OS は en-US、使用言語は英語。実験記録、共同検討、申請原稿も英語。
 - 上清測定再現性試験は培養上清の測定再現性、上清保存時間試験は保存時間の影響を調べる。人を対象とする研究は行わない。
 - 実験前に計画と採否基準を確認し、測定後は外れ値を消す前に原因を記録する。紙の作業票を週末に読み直す。
@@ -18,7 +18,7 @@ photo_dirs: Pictures
 
 ## 組織と関係者
 
-- **Thistrel Cellworks Inc**：米国の培養評価受託会社、従業員 58 人。研究室内の非臨床細胞材料を使い、測定方法と培地条件を検討する。
+- **Bennett Cell Evaluation Inc**：米国の培養評価受託会社、従業員 58 人。研究室内の非臨床細胞材料を使い、測定方法と培地条件を検討する。
 - 本社・本人の勤務都市：フィラデルフィア。
 - 社内（本人を除く）：
   - **Robert Nguyen**：上司。研究室長。試験計画と追加費用を承認。
@@ -29,12 +29,12 @@ photo_dirs: Pictures
   - **Katherine Choi**：安全担当、他部署。保管点検を依頼。
   - **Joseph Fernandes**：研究事務、他部署。費用と申請期限を確認。
 - 社外：
-  - **Brindlequay Assay Services** の **Angela Price**：共同研究者。測定法の相互比較担当。
-  - **Nettleford Instrument Care** の **Christopher Medina**：保守委託先。装置の点検と校正窓口。
-  - **Varncombe Culture Materials Inc** の **Deborah Sanders**：品質担当、供給者。培地の証明書を提出。
-  - **Elderspeth Research Forum** の **Justin Serrano**：事務局、学会窓口。発表要旨を受領。
-  - **Havercroft Science Fund** の **Monica Robinson**：助成担当、資金提供者。費目を審査。
-- メールは `melissa@thistrel-cellworks.example`、点検は `christopher@nettleford-care.example`。試料識別はこの組織内の業務番号だけを使う。
+  - **Caldwell Assay Services** の **Angela Price**：共同研究者。測定法の相互比較担当。
+  - **Mason Laboratory Maintenance** の **Christopher Medina**：保守委託先。装置の点検と校正窓口。
+  - **Fairmont Culture Materials Inc** の **Deborah Sanders**：品質担当、供給者。培地の証明書を提出。
+  - **Cell Measurement Research Forum** の **Justin Serrano**：事務局、学会窓口。発表要旨を受領。
+  - **Whitmore Science Fund** の **Monica Robinson**：助成担当、資金提供者。費目を審査。
+- メールは `melissa@bennett-cell.example`、点検は `christopher@mason-laboratory.example`。試料識別はこの組織内の業務番号だけを使う。
 
 ## 仕事の流れ
 
@@ -44,14 +44,14 @@ photo_dirs: Pictures
 - **2024-08-23**：Patriciaと第3課題「培地交換間隔試験」を計画。交換24・48・72時間の3条件各10試料とし、上清保存時間とは独立に記録した。
 - **2024-10-22**：Christopherの校正で偏差+0.12ng/mLが分かった。Anthonyと影響する6日分の結果を保留し、校正前後を区別することにした。
 - **2025-01-16**：Angelaとの相互比較18試料をまとめた。施設間差8.2%は基準10%以内で、Robertは現条件での試験継続を認めた。
-- **2025-02-05**：DeborahとVarncombe Culture Materialsの培地証明書4通を照合。調製日の違う1通を差戻し、試験への使用を保留した。
+- **2025-02-05**：DeborahとFairmont Culture Materialsの培地証明書4通を照合。調製日の違う1通を差戻し、試験への使用を保留した。
 - **2025-04-08**：Laurenと「上清保存時間試験」を開始した。0・24・48時間の各12試料で比較し、培地条件の課題とは別の計画票にした。
-- **2025-05-14**：JustinへElderspeth Research Forumの要旨420語を提出。Anthonyの確認で母数の注記2件を補い、口頭発表枠を受諾した。
+- **2025-05-14**：JustinへCell Measurement Research Forumの要旨420語を提出。Anthonyの確認で母数の注記2件を補い、口頭発表枠を受諾した。
 - **2025-06-17**：Patriciaと培地交換間隔試験30試料の初回を確認。72時間群の変動係数21%は基準15%を超え、廃止を決める前に調製日をそろえて再試験した。
 - **2025-07-21**：Anthonyが保存時間試験のラベル誤記2件を発見した。値を推定修正せず対象を解析から除き、除外理由を逸脱報告に記載した。
 - **2025-08-25**：Benjaminと週次実験会議。受渡し票18枚中署名漏れ3枚を発見し、次回から引渡し時点で双方が確認するとした。
 - **2025-10-16**：Robertへ保存試験を報告した。48時間群が基準比18%低下し、業務上の上限を24時間とする提案が採用された。
-- **2025-11-10**：MonicaとHavercroft Science Fundの申請を相談。USD 56,000のうち共同測定費をUSD 18,000に限定して再提出した。
+- **2025-11-10**：MonicaとWhitmore Science Fundの申請を相談。USD 56,000のうち共同測定費をUSD 18,000に限定して再提出した。
 - **2026-01-27**：Christopherと点検周期を協議した。直近4回の校正は範囲内だが使用時間22%増のため、年1回へ延ばさず半年周期を維持した。
 - **2026-02-05**：Katherineと研修対象9人の保管点検を実施。開封日未記入2容器を研究用から外し、再教育を行った。
 - **2026-04-14**：Angelaと再現性試験の改訂法30試料を比較した。平均差0.3ng/mLの内訳を見て、低濃度域だけ追加確認することにした。
