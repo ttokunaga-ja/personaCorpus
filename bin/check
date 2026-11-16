@@ -402,7 +402,7 @@ def inspect(item):
                     if not source_photo:
                         if missing:skipped.append('source(OCR)')
                         else:
-                            reason=source_reason(body,text,from_ocr=scan,ext=ext)
+                            reason=source_reason(body,text,from_ocr=scan or bool(scfg.get('derived_from')),ext=ext)
                             if reason:fail('source',reason)
                 except Exception as e:fail('source',f'{type(e).__name__}: {e}')
                 if missing:

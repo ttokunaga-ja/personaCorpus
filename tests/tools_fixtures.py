@@ -303,6 +303,14 @@ class Sources(Check):
         self.source('recon.txt',prose+'Bank 486,200,000 and ledger 498,600,000 with items 7,200,000 and 3,100,000 and 1,300,000.')
         _,rows=self.issues();self.assertTrue(any(r[2]=='source' and '7200000' in r[3] for r in rows),rows)
 
+    def test_derived_copy_may_omit_parts_of_the_original(self):
+        base='The quarterly review listed revenue of 800000000 and the controller explained the receivable correction to the finance director. '
+        self.put('deck.txt',base+'Speaker note: accruals 2000000 and freight 900000 stay open.')
+        self.source('deck.txt',base+'Speaker note: accruals 2000000 and freight 900000 stay open.')
+        self.put('deck-handout.md',base)
+        self.source('deck-handout.md','No differences.',derived='deck.txt')
+        _,rows=self.issues();self.assertFalse(any(r[2]=='source' for r in rows),rows)
+
     def test_derived_duplicates(self):
         self.put('original.txt','The committee approved the river crossing after reviewing the detailed safety inspection and maintenance budget.')
         self.put('copy.md',(self.home/'original.txt').read_text()+'\n')
