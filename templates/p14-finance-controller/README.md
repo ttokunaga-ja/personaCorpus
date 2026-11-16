@@ -1,6 +1,6 @@
 # 千田真理子の文書の型
 
-月次締め共通の型。2025年11月の静岡工場の実地棚卸・棚卸差異調査・月末支払にも使用する。型の本文は空で、見出し・本文・表の書式と組織の識別だけを持つ。Officeの型は通常のDOCX・XLSX・PPTXなので、開いて別名保存する。受入済み成果物は変更しない。
+月次締め共通の型。2026年1月の締めと経費精算の二重計上調査、および2025年11月の静岡工場の実地棚卸・棚卸差異調査・月末支払にも使用する。型の本文は空で、見出し・本文・表の書式と組織の識別だけを持つ。Officeの型は通常のDOCX・XLSX・PPTXなので、開いて別名保存する。受入済み成果物は変更しない。
 
 ## 型の一覧
 
@@ -19,7 +19,7 @@
 | 北斗合板の請求書 | 北斗合板の請求管理。紙で届く当初・訂正請求書の原紙 | `hokuto-invoice.cls` | A4縦、茶 `654B35` と墨、Noto Serif CJK JP／Liberation Serif。合板の積層を表す長方形ロゴ、中央の明朝タイトル、右寄せ管理項目、枠付き請求額、細い横罫線 |
 | 遠州金物の請求書 | 遠州金物の営業管理。紙で届く当初・訂正請求書の原紙 | `enshu-invoice.cls` | A4縦、鋼青 `384D6A` と墨、Noto Sans CJK JP／Liberation Sans。六角ナットの図形ロゴ、左寄せの大きな題と太線、白抜き請求額帯、横罫線明細 |
 
-既存の親会社と銀行の型は維持するが、b005では使用予定なし。Aoba StayとのメールはEML、画面保存はPNGであり、Officeの型は作らない。監査法人の型は追加しない。個人メモ、CSV、メールやERP画面を会社の報告書風に統一しない。
+既存の親会社・銀行・棚卸票・仕入先請求書の型は維持する。b006では経費精算の確認記録に `cedar-review.docx`、精算ポータルの稼働案内・設定修正の連絡に `cedar-notice.docx`、突合表・部門別経費集計・取消仕訳の確認・振込履歴の照合に `cedar-reconciliation.xlsx` を使用する。列名・幅は各原稿に合わせる。締め工程は `cedar-close-checklist.xlsx`、CFO報告と配布PDFは `cedar-close-report.pptx` を使い、PDFは完成したPPTXから直接変換する。LedgerlineのPDF帳票には `ledgerline-report.cls` を使う。精算ポータルのCSV・画面出力、千田の個人メモは会社の報告書の型を経由しない。b006に新しい社外組織の型は追加しない。Aoba StayとのメールはEML、画面保存はPNGであり、Officeの型は作らない。監査法人の型は追加しない。個人メモ、CSV、メールやERP画面を会社の報告書風に統一しない。
 
 ## Cedar Worksの共通書式
 
@@ -63,7 +63,7 @@
 
 ## 見本と確認
 
-b005の検査用見本は `scratch/p14-finance-controller/b005/templates-work/examples/`、画像は `scratch/p14-finance-controller/b005/templates-work/render/` に置く。以下は型に仮内容を入れた組版検査用であり、受入済み成果物や事実台帳の根拠ではない。請求額・品番・番号等も検査用で、制作時へ転記しない。b004の削除済みscratchへの参照は置換した。
+b006の今回の検査用見本は `scratch/p14-finance-controller/b006/work/templates-0002/examples/`、画像は `scratch/p14-finance-controller/b006/work/templates-0002/render/` に置く。以下は型に仮内容を入れた組版検査用であり、受入済み成果物や事実台帳の根拠ではない。請求額・品番・番号等も検査用で、制作時へ転記しない。削除済みのb005の見本参照を今回の実在する見本へ置換した。
 
 | 型 | 見本（上記examplesからの相対パス） | 画像（上記renderからの相対パス） |
 |---|---|---|
@@ -80,15 +80,16 @@ b005の検査用見本は `scratch/p14-finance-controller/b005/templates-work/ex
 | hokuto-invoice.cls | `hokuto-invoice.tex`、`hokuto-invoice.pdf` | `hokuto-invoice/` |
 | enshu-invoice.cls | `enshu-invoice.tex`、`enshu-invoice.pdf` | `enshu-invoice/` |
 
-実行記録は同scratchの `render.log` と `render-results.json`。PowerPointは全5レイアウト、Excelは少数行と複数ページの見本で確認する。scratchは受入・破棄時に削除されるため、上記は今回のレビュー中の参照である。削除後の再検証では、使用する型に仮内容を入れて当該batchのscratchへ組版・レンダリングする。受入済み成果物の見本はこの一覧に登録していない。
+実行記録は `scratch/p14-finance-controller/b006/work/templates-0002/` の `render.log` と `render-results.json`、型別の `*.execution.json`。型本体の構造確認は `structure.json`、変更前ハッシュは `input-sha256.json` に記録する。PowerPointは全5レイアウト、Excelは少数行と複数ページの見本で確認する。scratchは受入・破棄時に削除されるため、上記は今回のレビュー中の参照である。削除後の再検証では、使用する型に仮内容を入れて当該batchのscratchへ組版・レンダリングする。受入済み成果物の見本はこの一覧に登録していない。
 
-他personaの型は作業時点で `templates/` に存在せず、比較対象なし。
+今回も `templates/` 内を確認したが、他personaの型は存在せず、比較対象なし。
 
 ## 型なしの記録
 
 | 対象 | 作り方 | 扱い |
 |---|---|---|
 | 千田の手元メモ（TXT） | `text` | 自分への短い確認メモ。ロゴ・文書番号・報告書のヘッダを付けない |
+| 精算ポータル・旧精算照会からのCSV | `text` | 移行済と旧承認済の申請を装飾せず表データとして保存する。列・64行の新旧対応・金額・取得時刻はfacts.mdに従う |
 | LedgerlineからのCSV | `text` | facts.mdで指定した列と行を直接出力し、帳票番号は列の値にする。説明の前置きや会社書式の装飾を付けない |
 | Outlookの保存メール（EML） | `text` | 送受信ヘッダ、本文、引用、必要な実添付を保持する。Officeの型を経由しない |
-| Ledgerline画面の保存（PNG） | `screenshot` | 検索欄・結果表・状態を含む業務画面として構成し、報告書の用紙にはしない |
+| Ledgerline・精算ポータル画面の保存（PNG） | `screenshot` | 検索欄・結果表・状態を含む業務画面として構成し、報告書の用紙にはしない |
