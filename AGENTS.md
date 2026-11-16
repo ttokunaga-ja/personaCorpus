@@ -83,6 +83,7 @@ personaCorpus は Kio を含む他の repo に依存しない。他の repo の�
   | 受入レビューの難しい判断、監査、Terra で品質が安定しない制作 | Codex `gpt-6.1-sol` |
 
 - **Terra から Sol への切替え**：原稿と成形はまず `gpt-6.1-terra` で行う。同じ batch で受入検査の不合格が 2 回続く、または同種の品質問題が繰り返す場合、統括がその persona・batch を `gpt-6.1-sol` に切り替え、切替えと理由を `progress/<persona>/` に記録する。
+- **ユーザーの確認が要ること**：成果物の大量の削除、force push と履歴の改変、秘密情報・外部サービス・課金に関わること、`SPEC.md` の変更、この節のモデルと権限の変更。Fable のセッションも統括も、事前にユーザーの確認を取る。
 - **委譲と監視**：Codex は `ops/` の `codex-job`（`ops/README.md`）で起動する。制作の batch は `bin/batch start` が `codex-job` を呼ぶ。統括は `agent-alert wait --repo personaCorpus` をバックグラウンドで待ち、通知を受けたときだけ処理する。LLM による定期監視（旧 Codex automation）は廃止した。
 - **停止の基準**：Codex が作業全体を止めてよいのは、取り返しのつかない操作、外部への公開、秘密情報、課金に関わる判断だけである。それ以外の不明点はその項目だけ保留として理由と選択肢を記録し、残りを進める。保留は統括が解決する。Codex は新しい停止規則・承認手続きを自分で作らず、repo の資料にも追加しない。規則の追加・変更は Fable のセッションで行う。
 - **commit の粒度**：
