@@ -77,11 +77,12 @@ personaCorpus は Kio を含む他の repo に依存しない。他の repo の�
   |---|---|
   | 制作方式・品質基準・運用規則の見直しと修正 | Claude Fable 5.2（`claude-fable-5-2`）のセッション |
   | 制作の指示・受入検証・commit・push の統括（調整担当） | Claude Opus 5.5（`claude-opus-5-5`） |
-  | persona の batch 制作 | Codex `gpt-6.1-terra` |
+  | batch の原稿と成形 | Codex `gpt-6.1-terra` |
+  | batch のテンプレート、ファイル計画、原稿のレビュー、見た目のレビュー、仕組みの改善のジョブ | Codex `gpt-6.1-sol` |
   | 確立済みの検証コマンドの実行、読み取り専用の集計・探索 | Codex `gpt-6-luna` |
   | 受入レビューの難しい判断、監査、Terra で品質が安定しない制作 | Codex `gpt-6.1-sol` |
 
-- **Terra から Sol への切替え**：制作はまず `gpt-6.1-terra` で行う。同じ batch で受入検査の不合格が 2 回続く、または同種の品質問題が繰り返す場合、統括がその persona・batch を `gpt-6.1-sol` に切り替え、切替えと理由を `progress/<persona>/` に記録する。
+- **Terra から Sol への切替え**：原稿と成形はまず `gpt-6.1-terra` で行う。同じ batch で受入検査の不合格が 2 回続く、または同種の品質問題が繰り返す場合、統括がその persona・batch を `gpt-6.1-sol` に切り替え、切替えと理由を `progress/<persona>/` に記録する。
 - **委譲と監視**：Codex は `ops/` の `codex-job`（`ops/README.md`）で起動する。制作の batch は `bin/batch start` が `codex-job` を呼ぶ。統括は `agent-alert wait --repo personaCorpus` をバックグラウンドで待ち、通知を受けたときだけ処理する。LLM による定期監視（旧 Codex automation）は廃止した。
 - **停止の基準**：Codex が作業全体を止めてよいのは、取り返しのつかない操作、外部への公開、秘密情報、課金に関わる判断だけである。それ以外の不明点はその項目だけ保留として理由と選択肢を記録し、残りを進める。保留は統括が解決する。Codex は新しい停止規則・承認手続きを自分で作らず、repo の資料にも追加しない。規則の追加・変更は Fable のセッションで行う。
 - **commit の粒度**：

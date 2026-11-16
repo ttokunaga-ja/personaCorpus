@@ -168,6 +168,7 @@ bin/batch discard <persona> <batch> --reason "<理由>" # batch のファイル�
 git push origin main
 ```
 
+- 「成形待ち」の行が残っていても受入できる（原稿だけが commit される）。あとで `bin/batch resume <persona> <batch> --rebuild` で成形し直し、抜き取りで確かめてから、もう一度 `bin/batch accept` する。原稿に原因があって成形できない行は、`--drop` で破棄する。
 - 受入または破棄が済むと、`scratch/<persona>/<batch>/` は消える。
 - 同じ batch で不合格が 2 回続いたら、`bin/batch start ... --producer gpt-6.1-sol` で原稿と成形を Sol に切り替え、切替えと理由を依頼の末尾に書く。
 - 形式ごとに、特に出来のよい受入済みファイルを `templates/<persona>/README.md` の「見本」に書き足す。制作とレビューは見本を水準として使う。
