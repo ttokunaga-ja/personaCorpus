@@ -71,6 +71,36 @@ class Stamp(unittest.TestCase):
                     self.assertIn(application, archive.read('docProps/app.xml').decode())
                     self.assertTrue(all(i.date_time == (2026,3,6,18,42,10) for i in archive.infolist()))
 
+    def test_separate_creator_and_dates(self):
+        path = self.work / 'revision.docx'; doc = Document(); doc.add_paragraph('改訂版'); doc.save(path)
+        self.stamp(path, '--modified-by', '千田', '--created', '2026-02-01')
+        props = Document(path).core_properties
+        self.assertEqual(props.author, '山田 花子')
+        self.assertEqual(props.last_modified_by, '千田')
+        self.assertEqual(props.created.isoformat(), '2026-02-01T12:00:00+00:00')
+        self.assertEqual(props.modified.isoformat(), '2026-03-06T09:42:10+00:00')
+        for ext in ('xlsx','pptx'):
+            other=self.work/('revision.'+ext)
+            if ext=='xlsx':Workbook().save(other)
+            else:Presentation().save(other)
+            self.stamp(other, '--modified-by', '千田', '--created', '2026-02-01', '--timezone', 'Asia/Tokyo')
+            with zipfile.ZipFile(other) as archive:
+                xml=archive.read('docProps/core.xml').decode()
+                self.assertIn('千田',xml)
+                self.assertIn('2026-02-01T03:00:00Z',xml)
+                self.assertIn('2026-03-06T09:42:10Z',xml)
+        pdf = self.work / 'revision.pdf'; c = Canvas(str(pdf)); c.drawString(72,720,'Revision'); c.save()
+        self.stamp(pdf, '--modified-by', '千田', '--created', '2026-02-01')
+        reader = PdfReader(pdf)
+        self.assertEqual(reader.metadata['/CreationDate'], 'D:20260201120000Z')
+        self.assertEqual(reader.metadata['/ModDate'], 'D:20260306094210Z')
+        self.assertEqual(reader.xmp_metadata.xmp_create_date.isoformat(), '2026-02-01T12:00:00')
+        before = path.read_bytes()
+        result = subprocess.run([str(ROOT/'bin/stamp'), str(path), '--author', '山田', '--date', DATE,
+                                 '--created', '2027-01-01'], capture_output=True)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertEqual(path.read_bytes(), before)
+
     def test_pdf(self):
         path = self.work / 'report.pdf'
         c = Canvas(str(path)); c.drawString(72,720,'Monthly sales 12345'); c.save()

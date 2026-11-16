@@ -321,7 +321,7 @@ class Sources(Check):
         module=importlib.util.module_from_spec(spec);loader.exec_module(module)
         body='alpha bravo charlie delta echo foxtrot golf hotel india 9876'
         self.assertIsNone(module.source_reason(body,body))
-        self.assertIn('0.85',module.source_reason(body,'alpha bravo charlie delta echo foxtrot golf 9876'))
+        self.assertIn('0.8',module.source_reason(body,'alpha bravo charlie delta echo foxtrot 9876'))
         self.assertIsNone(module.source_reason(body,'alpha bravo charlie delta echo foxtrot golf hotel 9876'))
         cases=[('scan.pdf',True,True),('image.png',True,True),
                ('image.jpg',True,True),('mixed.pdf',False,False),

@@ -135,9 +135,9 @@ def extract(path,ext,language=None):
                         # Separate logical units, rather than inserting spaces between runs.
                         units=[x for x in root.iter() if x.tag.rsplit('}',1)[-1] in ('p','si','c')]
                         if units:
-                            texts.extend(''.join((x.text or '') if x.tag.rsplit('}',1)[-1] in ('t','v','f') else '\n' if x.tag.rsplit('}',1)[-1]=='br' else '\t' if x.tag.rsplit('}',1)[-1]=='tab' else '' for x in unit.iter()) for unit in units)
+                            texts.extend(''.join((x.text or '') if x.tag.rsplit('}',1)[-1] in ('t','v') else '\n' if x.tag.rsplit('}',1)[-1]=='br' else '\t' if x.tag.rsplit('}',1)[-1]=='tab' else '' for x in unit.iter()) for unit in units)
                         else:
-                            texts.extend(x.text for x in root.iter() if x.text and x.tag.rsplit('}',1)[-1] in ('t','v','f'))
+                            texts.extend(x.text for x in root.iter() if x.text and x.tag.rsplit('}',1)[-1] in ('t','v'))
             return ' '.join(texts),False,False
     if ext=='pdf':
         command(['pdfinfo',path])
@@ -239,17 +239,57 @@ def source_numbers(text):
     return found
 
 
-def source_reason(expected, actual, *, from_ocr=False):
+def source_body(text):
+    """Drop manuscript-only formulas and numeric Markdown row labels."""
+    text = re.sub(r'`+\s*=[^`\n]*`+', '', text)
+    lines = text.splitlines(); result = []; i = 0
+    def cells(line):
+        return [c.strip() for c in re.split(r'(?<!\\)\|', line.strip().strip('|'))]
+    while i < len(lines):
+        if '|' in lines[i] and i+1 < len(lines) and all(re.fullmatch(r':?-+:?', c) for c in cells(lines[i+1])):
+            header = cells(lines[i]); rows = []; j = i+2
+            while j < len(lines) and '|' in lines[j] and lines[j].strip():
+                rows.append(cells(lines[j])); j += 1
+            remove = {k for k,c in enumerate(header) if c.strip('` ') in ('行','#','No.')
+                      and rows and all(len(row)==len(header) and re.fullmatch(r'`?\d+`?', row[k]) for row in rows)}
+            for row in [header, *rows]:
+                result.append(' | '.join('' if c.lstrip('` ').startswith('=') else c for k,c in enumerate(row) if k not in remove))
+            i = j
+        else:
+            if not all(re.fullmatch(r':?-+:?', c) for c in cells(lines[i])):
+                result.append('' if lines[i].strip().startswith('=') else lines[i])
+            i += 1
+    return '\n'.join(result)
+
+
+def formula_reason(path):
+    ns = '{http://schemas.openxmlformats.org/spreadsheetml/2006/main}'
+    with zipfile.ZipFile(path) as archive:
+        for name in archive.namelist():
+            if not name.startswith('xl/worksheets/') or not name.endswith('.xml'):continue
+            for cell in ET.fromstring(archive.read(name)).iter(ns+'c'):
+                if cell.find(ns+'f') is None:continue
+                value = cell.find(ns+'v'); kind = cell.get('t')
+                label = name + ':' + cell.get('r','?')
+                if value is None or (value.text is None and kind != 'str'):
+                    return label + ': formula cached result missing'
+                if kind == 'e' or value.text in ('#REF!','#DIV/0!','#VALUE!','#NAME?','#N/A'):
+                    return label + ': formula error ' + (value.text or '')
+    return None
+
+
+def source_reason(expected, actual, *, from_ocr=False, ext="txt"):
     # The mechanical check catches dropped content; exact wording is the visual review's job.
     strip=lambda s:re.sub(r'(?<=\d),(?=\d{3})','',s)
     words=lambda s:Counter({k:v for k,v in body_tokens(strip(s)).items() if k not in ('年','月','日','円')})
+    expected=source_body(expected)
     want=words(expected);have=words(actual)
     overlap=sum((want & have).values())/sum(want.values()) if want else 1
     if not from_ocr:
         numbers=source_numbers(expected)
         missing=sorted(numbers-source_numbers(actual))
         if len(missing)>len(numbers)//20:return 'missing source values: '+', '.join(missing[:5])
-    threshold=.5 if from_ocr else .85
+    threshold=.5 if from_ocr else .6 if ext in ('xlsx','csv','tsv') else .7 if ext=='pptx' else .8
     if overlap<threshold:return f'body token overlap {overlap:.3f} < {threshold}'
     return None
 
@@ -348,6 +388,9 @@ def inspect(item):
         if ext in EXT and st.st_size:
             try:
                 text,scan,missing=extract(path,ext,language)
+                if ext=='xlsx':
+                    reason=formula_reason(path)
+                    if reason:fail('formula',reason)
                 photo=any(rel.startswith(x.strip().rstrip('/')+'/') for x in cfg.get('photo_dirs','').split(',') if x.strip())
                 try:
                     reason=metadata(path,ext,cfg,st.st_mtime)
@@ -359,7 +402,7 @@ def inspect(item):
                     if not source_photo:
                         if missing:skipped.append('source(OCR)')
                         else:
-                            reason=source_reason(body,text,from_ocr=scan)
+                            reason=source_reason(body,text,from_ocr=scan,ext=ext)
                             if reason:fail('source',reason)
                 except Exception as e:fail('source',f'{type(e).__name__}: {e}')
                 if missing:

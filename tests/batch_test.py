@@ -135,6 +135,7 @@ class BatchTest(unittest.TestCase):
         self.run_batch(mode='parent-fail')
         contexts=[json.loads(line) for line in (self.scratch/'contexts.jsonl').read_text().splitlines()]
         self.assertTrue(all('連絡' not in r['パス'] for c in contexts if c['stage']=='build' for r in c['rows']))
+        self.assertNotIn('\tdependency\t', (self.root/'progress/findings.tsv').read_text())
         self.assertEqual(self.state()['pending'],2)
         self.assertIn('元のファイル Documents/記録.txt が未完成。',(self.root/'progress/p01-test/b001.md').read_text())
         self.assertEqual(len(list((self.root/'sources/p01-test').rglob('*.md'))),2)
@@ -421,6 +422,45 @@ class BatchTest(unittest.TestCase):
         self.assertIn('数値不整合',report)
         self.assertIn('原稿の所要時間：',report)
         self.assertIn('成形の所要時間：',report)
+
+    def test_recalc_then_stamp_and_frontmatter(self):
+        self.cli('run','p01','b001','--plan-only')
+        mod=self.load(); b=mod.Batch(type('Args',(),dict(persona='p01',batch='b001',review_again=False))())
+        row=dict(b.state['completed']['plan'][0], パス='Documents/計算.xlsx')
+        source=b.source(row['パス']); source.parent.mkdir(parents=True,exist_ok=True)
+        source.write_text('---\npath: '+row['パス']+'\nkind: office:xlsx\nauthor: 堀口\nmodified_by: 千田\ncreated: 2026-02-01\n---\n本文')
+        from openpyxl import Workbook
+        path=b.folder/row['パス']; path.parent.mkdir(parents=True,exist_ok=True)
+        def produce(*args,**kwargs):
+            book=Workbook(); book.active['A1']='=1+1'; book.save(path)
+        calls=[]
+        def command(args, **kwargs):
+            calls.append(list(map(str,args)))
+            return subprocess.CompletedProcess(args,0,'')
+        with patch.object(b,'codex',side_effect=produce), patch.object(mod,'command',side_effect=command), patch.object(b,'check',return_value={}), patch.object(b,'review',return_value={row['パス']:('pass','確認','')}):
+            self.assertEqual(b.phase('build',[row],[row]),{})
+        self.assertEqual([Path(c[0]).name for c in calls], ['recalc','stamp'])
+        self.assertEqual(calls[1][calls[1].index('--modified-by')+1], '千田')
+        self.assertEqual(calls[1][calls[1].index('--created')+1], '2026-02-01')
+        # Value-only XLSX bypasses Calc; optional metadata uses stamp defaults.
+        source.write_text('---\npath: '+row['パス']+'\nkind: office:xlsx\nauthor: 堀口\n---\n本文')
+        def value_only(*args,**kwargs):
+            book=Workbook(); book.active['A1']=2; book.save(path)
+        b.state['completed']={}; b.state['attempted']=[]; calls.clear()
+        with patch.object(b,'codex',side_effect=value_only), patch.object(mod,'command',side_effect=command), patch.object(b,'check',return_value={}), patch.object(b,'review',return_value={row['パス']:('pass','確認','')}):
+            self.assertEqual(b.phase('build',[row],[row]),{})
+        self.assertEqual([Path(c[0]).name for c in calls], ['stamp'])
+        self.assertNotIn('--modified-by',calls[0]); self.assertNotIn('--created',calls[0])
+        # Recalculation failures must be isolated and prevent stamping/review.
+        real_command=mod.command
+        def fail(args,**kwargs):
+            if Path(args[0]).name=='recalc':raise ValueError('conversion failed')
+            if Path(args[0]).name=='stamp':self.fail('stamp called after failed recalc')
+            return real_command(args,**kwargs)
+        b.state['completed']={}; b.state['attempted']=[]
+        with patch.object(b,'codex',side_effect=produce), patch.object(mod,'command',side_effect=fail), patch.object(b,'check',return_value={}), patch.object(b,'review',return_value={}):
+            failures=b.phase('build',[row],[row])
+        self.assertIn('conversion failed',failures[row['パス']])
 
     def test_model_flags_and_dates(self):
         self.cli('run','p01','b001','--producer','gpt-6.1-sol')

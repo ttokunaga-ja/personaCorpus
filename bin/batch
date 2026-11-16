@@ -17,6 +17,8 @@ import shutil
 import subprocess
 import sys
 import time
+import xml.etree.ElementTree as ET
+import zipfile
 from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -340,6 +342,7 @@ class Batch:
             path, events = table('findings.tsv', header)
             keys = {tuple(e[1:]) for e in events}
             for item in self.state.get('events', []):
+                if item[3] == 'check' and item[5] == 'dependency':continue
                 if tuple(item[1:]) not in keys:
                     events.append(item)
                     keys.add(tuple(item[1:]))
@@ -464,7 +467,6 @@ class Batch:
                                 if p in failed or not safe_file(self.folder, p).is_file()), None)
                 if missing:
                     blocked[row['パス']] = f'元のファイル {missing} が未完成。'
-                    self.event('check', 0, 'dependency', row['パス'], blocked[row['パス']])
                 else:
                     targets.append(row)
             # Complete each dependency layer, including its retries and review,
@@ -683,17 +685,29 @@ class Batch:
                     for row in targets:
                         path = safe_file(self.folder, row['パス'])
                         if path.exists():
-                            args = [ROOT / 'bin/stamp', path, '--author', config(self.source(row['パス'])).get('author', ''),
+                            source_config = config(self.source(row['パス']))
+                            args = [ROOT / 'bin/stamp', path, '--author', source_config.get('author', ''),
                                     '--date', row['日付'], '--timezone', self.cfg.get('timezone', 'UTC')]
+                            for key, flag in [('modified_by', '--modified-by'), ('created', '--created')]:
+                                if source_config.get(key):args += [flag, source_config[key].strip("\"'")]
                             if path.suffix.lower() == '.pdf' and row['作り方'].startswith('office:'):
                                 parent = config(self.source(row['パス'])).get('derived_from', '')
                                 app = {'.xlsx': 'Excel', '.pptx': 'PowerPoint'}.get(Path(parent or row['作り方']).suffix.lower(), 'Word')
                                 args += ['--producer', f'Microsoft® {app} for Microsoft 365']
+                            criterion = 'metadata'
                             try:
+                                if path.suffix.lower() == '.xlsx':
+                                    with zipfile.ZipFile(path) as archive:
+                                        has_formula = any(any(n.tag.rsplit('}', 1)[-1] == 'f' for n in ET.fromstring(archive.read(name)).iter())
+                                                          for name in archive.namelist() if name.startswith('xl/worksheets/') and name.endswith('.xml'))
+                                    if has_formula:
+                                        criterion = 'formula'
+                                        command([ROOT / 'bin/recalc', path])
+                                criterion = 'metadata'
                                 command(args)
-                            except (ValueError, OSError) as exc:
-                                errors[row['パス']] = 'metadata: ' + str(exc)
-                                self.event('check', round_number, 'metadata', row['パス'], str(exc))
+                            except (ValueError, OSError, zipfile.BadZipFile, ET.ParseError) as exc:
+                                errors[row['パス']] = criterion + ': ' + str(exc)
+                                self.event('check', round_number, criterion, row['パス'], str(exc))
                                 continue
                             stamp = self.timestamp(row).timestamp()
                             os.utime(path, (stamp, stamp))

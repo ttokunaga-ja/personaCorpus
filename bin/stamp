@@ -37,13 +37,13 @@ def xml_property(document, namespace, name, value, prefix=''):
     return node
 
 
-def office_xml(raw, name, author, date, ext):
+def office_xml(raw, name, author, date, ext, modified_by=None, created=None):
     doc = minidom.parseString(raw)
     if name == 'docProps/core.xml':
         root = doc.documentElement
         for prefix, namespace in [('dc',DC),('cp',CP),('dcterms',DCT),('xsi','http://www.w3.org/2001/XMLSchema-instance')]:
             root.setAttribute('xmlns:'+prefix, namespace)
-        for namespace, local, value, prefix in [(DC,'creator',author,'dc'),(CP,'lastModifiedBy',author,'cp'),(DCT,'created',iso(date),'dcterms'),(DCT,'modified',iso(date),'dcterms')]:
+        for namespace, local, value, prefix in [(DC,'creator',author,'dc'),(CP,'lastModifiedBy',modified_by or author,'cp'),(DCT,'created',iso(created or date),'dcterms'),(DCT,'modified',iso(date),'dcterms')]:
             node = xml_property(doc,namespace,local,value,prefix)
             if local in ('created','modified'): node.setAttribute('xsi:type','dcterms:W3CDTF')
         # Properties may contain library names in free-text fields too.
@@ -81,7 +81,7 @@ def office_xml(raw, name, author, date, ext):
     return doc.toxml(encoding='UTF-8')
 
 
-def archive_bytes(raw, author, date, ext):
+def archive_bytes(raw, author, date, ext, modified_by=None, created=None):
     out = io.BytesIO()
     # ZIP stores local wall time at two-second resolution, restricted to 1980–2107.
     if not 1980 <= date.year <= 2107: raise ValueError('ZIP date must be in 1980..2107')
@@ -90,7 +90,7 @@ def archive_bytes(raw, author, date, ext):
         for old in source.infolist():
             data = source.read(old)
             if ext in ('docx','xlsx','pptx') and old.filename.endswith('.xml') and old.filename.startswith(('docProps/','word/','xl/','ppt/')):
-                data = office_xml(data,old.filename,author,date,ext)
+                data = office_xml(data,old.filename,author,date,ext,modified_by,created)
             entry = zipfile.ZipInfo(old.filename, stamp)
             entry.compress_type = old.compress_type
             entry.external_attr = old.external_attr
@@ -101,7 +101,7 @@ def archive_bytes(raw, author, date, ext):
     return out.getvalue()
 
 
-def pdf_bytes(raw, author, date, producer):
+def pdf_bytes(raw, author, date, producer, created=None):
     from pypdf import PdfReader, PdfWriter
     reader = PdfReader(io.BytesIO(raw))
     if not producer:
@@ -115,14 +115,14 @@ def pdf_bytes(raw, author, date, producer):
     metadata = {str(k):str(v) for k,v in (reader.metadata or {}).items()
                 if not TOOL.search(str(v)) and not re.search(r'date|author|creator|producer', str(k), re.I)}
     pdfdate = date.astimezone(dt.timezone.utc).strftime('D:%Y%m%d%H%M%SZ')
-    metadata.update({'/Author':author,'/CreationDate':pdfdate,'/ModDate':pdfdate,'/Producer':producer,'/Creator':producer})
+    metadata.update({'/Author':author,'/CreationDate':(created or date).astimezone(dt.timezone.utc).strftime('D:%Y%m%d%H%M%SZ'),'/ModDate':pdfdate,'/Producer':producer,'/Creator':producer})
     writer.metadata = metadata
-    writer.xmp_metadata = xmp_bytes(reader, author, date, producer)
+    writer.xmp_metadata = xmp_bytes(reader, author, date, producer, created)
     out=io.BytesIO(); writer.write(out)
     return out.getvalue()
 
 
-def xmp_bytes(reader, author, date, producer):
+def xmp_bytes(reader, author, date, producer, created=None):
     namespaces = {'x':'adobe:ns:meta/','rdf':'http://www.w3.org/1999/02/22-rdf-syntax-ns#','dc':DC,
                   'xmp':'http://ns.adobe.com/xap/1.0/','pdf':'http://ns.adobe.com/pdf/1.3/'}
     existing = reader.trailer['/Root'].get('/Metadata')
@@ -151,7 +151,7 @@ def xmp_bytes(reader, author, date, producer):
                 description.removeChild(node)
     description=doc.createElementNS(namespaces['rdf'],'rdf:Description')
     description.setAttribute('rdf:about',''); rdf.appendChild(description)
-    for prefix,local,value in [('dc','creator',author),('xmp','CreateDate',iso(date)),
+    for prefix,local,value in [('dc','creator',author),('xmp','CreateDate',iso(created or date)),
                                ('xmp','ModifyDate',iso(date)),('xmp','MetadataDate',iso(date)),
                                ('xmp','CreatorTool',producer),('pdf','Producer',producer)]:
         node=doc.createElementNS(namespaces[prefix],prefix+':'+local)
@@ -212,16 +212,23 @@ def main():
     parser.add_argument('file',type=Path)
     parser.add_argument('--author',required=True)
     parser.add_argument('--date',required=True)
+    parser.add_argument('--modified-by')
+    parser.add_argument('--created')
     parser.add_argument('--timezone',default='UTC')
     parser.add_argument('--producer')
     args=parser.parse_args()
-    date=dt.datetime.fromisoformat(args.date.replace('Z','+00:00'))
-    if 'T' not in args.date and ' ' not in args.date: date=date.replace(hour=12)
-    if date.tzinfo is None: date=date.replace(tzinfo=ZoneInfo(args.timezone))
+    def timestamp(value):
+        result=dt.datetime.fromisoformat(value.replace('Z','+00:00'))
+        if 'T' not in value and ' ' not in value:result=result.replace(hour=12)
+        if result.tzinfo is None:result=result.replace(tzinfo=ZoneInfo(args.timezone))
+        return result
+    date=timestamp(args.date)
+    created=timestamp(args.created) if args.created else date
+    if created > date:parser.error('created must not be later than date')
     if not args.file.is_file(): parser.error('file does not exist')
     raw=args.file.read_bytes(); ext=args.file.suffix.lower()[1:]
-    if ext in ('docx','xlsx','pptx','zip'): result=archive_bytes(raw,args.author,date,ext)
-    elif ext == 'pdf': result=pdf_bytes(raw,args.author,date,args.producer)
+    if ext in ('docx','xlsx','pptx','zip'): result=archive_bytes(raw,args.author,date,ext,args.modified_by,created)
+    elif ext == 'pdf': result=pdf_bytes(raw,args.author,date,args.producer,created)
     elif ext in ('png','jpg','jpeg'): result=image_bytes(raw,ext)
     else: result=raw
     with tempfile.NamedTemporaryFile(prefix='.'+args.file.name+'.', suffix='.tmp', dir=args.file.parent, delete=False) as output:

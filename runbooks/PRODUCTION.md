@@ -72,8 +72,9 @@ agent-alert wait --repo personaCorpus      # Bash の background で実行し、
 | 原稿の検査 | スクリプト | 全行に原稿があるか、制作の痕跡、同じ batch と既存の原稿との近似重複 | |
 | 原稿のレビュー | `gpt-6.1-sol` | `runbooks/REVIEW.md` の「原稿のレビュー」の観点で 1 件ずつ読み、合格か破棄かと理由を書く。不合格の原稿は消して書き直させる。2 回まで。まだ不合格の行は破棄し、成形しない | `scratch/…/draft-review-r<N>.tsv` |
 | 成形 | `gpt-6.1-terra` | 合格した原稿を、10 件ずつ別々の実行で、型に入れて DOCX・XLSX・PPTX・PDF・`eml`・画像にする。原稿の中身を変えない | `people/<persona>/…` |
+| 数式の計算 | `bin/recalc` | 数式を含む XLSX を再計算し、計算結果を各セルに保存する（数式と書式は変えない） | |
 | 日付と内部の情報 | `bin/stamp` | 各ファイルの更新時刻を計画の「日付」にし、ファイルの内部の作成者・作成日時・更新日時・アプリ名を、原稿の `author` と計画の日付とその人が使うアプリにそろえる。制作の道具が残した情報を消す | |
-| 自動検査 | `bin/check` | `bin/check <persona> --batch <batch>`。成果物の本文が原稿と一致するか（`source`）、内部に制作時の情報が残っていないか（`metadata`）も見る | `scratch/…/check-r<N>.tsv` |
+| 自動検査 | `bin/check` | `bin/check <persona> --batch <batch>`。成果物の本文が原稿と一致するか（`source`）、数式の計算結果が保存されているか（`formula`）、内部に制作時の情報が残っていないか（`metadata`）も見る | `scratch/…/check-r<N>.tsv` |
 | 見た目のレビュー | `gpt-6.1-sol` | `runbooks/REVIEW.md` の「見た目のレビュー」の観点で 1 件ずつ画像にして見る。不合格の成果物は消して成形し直させる（原稿は変えない）。2 回まで | `scratch/…/review-r<N>.tsv` |
 | 報告 | スクリプト | 原稿が不合格のままの行は原稿を消し、計画のその行に「破棄：理由」と書く。原稿は合格したのに成形が不合格のままの行は、成果物だけを消して原稿を残し、計画に「成形待ち：理由」と書く。結果と指摘の記録をまとめる | `progress/<persona>/<batch>.result.md`、`progress/findings.tsv`、`progress/batches.tsv` |
 
@@ -107,6 +108,7 @@ agent-alert wait --repo personaCorpus      # Bash の background で実行し、
 
   - `kind`：計画の「作り方」。
   - `author`：その文書を作った人物（ファイルの作成者として入る）。社外から届いた文書は、その相手。
+  - `modified_by`・`created`（任意）：別の人が直した版や、前の版を上書き保存した文書に書く。最終更新者と、最初に作った日時。書かなければ、最終更新者は `author`、作成日時は計画の日付になる。
   - `derived_from`：**元が成果物として `people/<persona>/` にある**ものだけに、その相対パスを書く（Word から出した PDF、手元の文書を印刷してスキャンした PDF、メールに添付した控え）。その場合、本文には元との違い（押印、手書きの書き込み、スキャンの傾きなど。違いが無ければ「違いなし」）だけを書く。元が成果物でないもの（社外から紙で届いた文書のスキャンなど）は空にして、本文に全文を書き、紙やスキャンの様子を末尾に書く。
 - 本文に書くもの：
   - **文書**（DOCX、PDF、テキスト）：見出しと本文の全文。表は Markdown の表。変更履歴やコメントがあるなら、誰がいつ何をどう直したか。
@@ -141,6 +143,7 @@ Office の文書と PDF は、その persona の世界の「型」を使って�
 | `bin/tex <file.tex> <out.pdf>` | `lualatex` で PDF にする。一時物は `scratch/` に置く |
 | `bin/scan <in.pdf または画像> <out.pdf>` | 紙をスキャンしたような PDF にする（傾き、濃淡、ノイズ、JPEG 圧縮。テキスト層なし） |
 | `bin/stamp <file> --author <名前> --date <日時> [--timezone <tz>]` | ファイルの内部の作成者・日時・アプリ名をそろえ、制作の道具の情報を消す。進行役が成形のあとに全ファイルにかけるので、成形の中で呼ぶ必要はない |
+| `bin/recalc <file.xlsx>` | 数式を再計算して計算結果を保存する。進行役が成形のあとにかける。成形の中で結果を確かめるのに使ってもよい |
 | `bin/office-pdf <file> <out.pdf>` | DOCX・XLSX・PPTX を PDF にする（「PDF で保存した」文書用） |
 | `uv run python` | `python-docx`、`openpyxl`、`python-pptx`、`matplotlib`、`pillow` で、テンプレートを開いて中身を入れる |
 | Codex の `imagegen` skill | 写真、手書きのメモ、ホワイトボードなどの画像 |
@@ -180,6 +183,7 @@ bin/pack <出力先のフォルダ>
 
 レビューや検査でくり返し見つかる問題は、検査や指示に取り込んで、作る前に防ぐか機械的に落とす。
 
+- 記録の対象外：作る順序の都合で成形を見送った行（元のファイルが未完成）は、報告には載せるが、指摘の記録には入れない。
 - 記録：`bin/batch` が batch のたびに、不合格を `progress/findings.tsv` に、batch ごとの件数と率を `progress/batches.tsv` に追記する。対象は、原稿の検査、原稿のレビュー、自動検査、見た目のレビュー、統括の抜き取りでの破棄。レビューの指摘には観点の番号（原稿は `D1`〜`D10`、見た目は `V1`〜`V6`、当てはまらなければ `other`）が付く。
 - 集計：`bin/batch findings` が、段階 × 観点の件数、多い順の一覧、batch ごとの初回の不合格率の推移、改善の前後の件数を出す。
 - 改善の時期：受入済みの batch が 10 たまるか、同じ観点（または同じ検査名）の指摘が 5 件を超えたら、統括が改善のジョブを起動する。どの batch も動いていないときに行う。
