@@ -23,6 +23,7 @@
 ## 0. 環境の準備（初回だけ）
 
 - `uv sync` で Python 環境を作る（`pyproject.toml`）。
+- clone した直後は、受入済みファイルの更新時刻が clone した時刻になっている（Git は更新時刻を保存しない）。persona ごとに `bin/manifest <persona> --restore` を実行して、`manifests/` に記録した時刻に戻す。戻さないと `bin/check` の `mtime` が不合格になる。
 - `bin/check --self-test` が通ることを確かめる。LibreOffice（`soffice`）、`pdftotext`、`pdftoppm`、`tesseract`、`ffprobe`、`lualatex`、日本語のフォントが要る。足りないものは名前を挙げて失敗する。
 - `tests/run.sh` と `ops/tests/run.sh` が通ることを確かめる。
 

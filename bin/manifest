@@ -35,10 +35,25 @@ def verify(folder,path):
     return existing
 
 
+def restore(folder,path):
+    """Git checkouts lose modification times; put back the recorded ones for unchanged files."""
+    with path.open(encoding='utf-8',newline='') as f:recorded=list(csv.reader(f,delimiter='\t'))
+    for rel,digest,_size,stamp in recorded:
+        target=folder/rel
+        if not target.is_file() or hashlib.sha256(target.read_bytes()).hexdigest()!=digest:
+            raise ValueError(f'cannot restore time, content differs from manifest: {rel}')
+        when=dt.datetime.fromisoformat(stamp.replace('Z','+00:00')).timestamp()
+        os.utime(target,(when,when))
+
+
 def main():
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('persona');p.add_argument('--verify',action='store_true');check.options(p);a=p.parse_args()
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('persona');p.add_argument('--verify',action='store_true')
+    p.add_argument('--restore',action='store_true',help='set file times from the manifest (Git does not keep them)');check.options(p);a=p.parse_args()
     try:
         name=check.resolve(a.root,a.persona);output=a.manifests/(name+'.tsv')
+        if a.restore:
+            restore(a.root/name,output);rows=verify(a.root/name,output)
+            print(f'restored {name}: {len(rows)} files');return 0
         if a.verify:
             rows=verify(a.root/name,output)
             print(f'verified {name}: {len(rows)} files')

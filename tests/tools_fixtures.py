@@ -451,6 +451,16 @@ class Sources(Check):
         _,rows=self.issues();self.assertTrue(any(r[2]=='metadata' for r in rows),rows)
 
 class Manifest(Fixture):
+    def test_restore_times_after_checkout(self):
+        self.put('b.txt');self.put('c.txt','Second note about the supplier inspection.')
+        self.assertEqual(self.cli('manifest','p01').returncode,0)
+        for name in ('b.txt','c.txt'):os.utime(self.home/name,(1900000000,1900000000))
+        self.assertEqual(self.cli('manifest','p01','--verify').returncode,1)
+        r=self.cli('manifest','p01','--restore');self.assertEqual(r.returncode,0,r.stderr)
+        self.assertEqual(self.cli('manifest','p01','--verify').returncode,0)
+        self.put('c.txt','Changed content');os.utime(self.home/'c.txt',(1900000000,1900000000))
+        self.assertEqual(self.cli('manifest','p01','--restore').returncode,1)
+
     def test_inventory_and_verify(self):
         self.put('b.txt');self.put('.hidden','hidden');self.put('a.py','code')
         r=self.cli('manifest','p01');self.assertEqual(r.returncode,0,r.stderr)
