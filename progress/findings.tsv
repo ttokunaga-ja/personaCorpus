@@ -225,3 +225,5 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-16	p01-software-engineer	b001	check	0	source	Pictures/操作確認/0709_R7添付差替え_確認画面.png	body token overlap 0.249 < 0.3
 2026-11-16	p01-software-engineer	b001	check	1	source	Pictures/操作確認/0709_R7添付差替え_確認画面.png	body token overlap 0.249 < 0.3
 2026-11-16	p01-software-engineer	b001	check	2	source	Pictures/操作確認/0709_R7添付差替え_確認画面.png	body token overlap 0.254 < 0.3
+2026-11-16	p14-finance-controller	b006	check	1	source	Documents/月次/2026/2026-01/2026-01_CFO締め報告.pptx	missing source values: 2480000, 2600000, 3412300, 3500000, 500000
+2026-11-16	p14-finance-controller	b006	check	2	source	Documents/月次/2026/2026-01/2026-01_CFO締め報告.pptx	missing source values: 2480000, 2600000, 3412300, 3500000, 500000
