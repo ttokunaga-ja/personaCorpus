@@ -1,0 +1,40 @@
+date	persona	batch	stage	round	criterion	path	reason
+2026-11-15	p14-finance-controller	b004	templates-review	0	other	README.md	一覧の全9型と見本参照先の実在、明細・合計を成形時に作る手順は確認したが、共通書式のExcel全言語Noto Sans指定に対し2ブックの管理欄はCalibri、親会社本文Liberation Sans指定に対し表段落はNoto Sans、銀行の墨色292929はクラス本文へ未適用で説明と実物が一致しない。
+2026-11-15	p14-finance-controller	b004	templates-review	0	other	cedar-close-checklist.xlsx	4行と38行の見本全3ページでA4横、見出し再表示、固定位置C6、ロゴ・ページ番号と未配置の工程行を確認したが、A2/C2/E2/A3/C3/E3の管理ラベルおよび入力先B2/D2/F2/B3/D3に継承されるNormalフォントがCalibriでREADMEの日本語・英語Noto Sans CJK JP統一指定と不一致。
+2026-11-15	p14-finance-controller	b004	templates-review	0	other	minato-balance.cls	bin/texとbin/renderによる見本1ページでA4縦、えんじの円・山形ロゴ、明朝フォント、証明番号・下4桁口座・右寄せ発行者を確認したが、definecolorで定義した墨色292929を本文に適用する指定がなく、本文と罫線が既定の黒でREADMEの銀行配色指定と不一致。
+2026-11-15	p14-finance-controller	b004	templates-review	0	other	cedar-reconciliation.xlsx	4行と38行の見本全3ページで負数赤括弧、薄緑と二重下罫線の合計、数式計算、継続見出し、6行目以降に空の書式行がないことを確認したが、A2/C2/E2/A3/C3/E3および入力先のNormalフォントがCalibriでREADMEのNoto Sans CJK JP統一指定と不一致。
+2026-11-15	p14-finance-controller	b004	templates-review	0	other	holdings-monthly.docx	見本1ページで菱形・横棒ロゴ、紺の見出し・表、英語ヘッダとINTERNALフッタ、ページ番号を確認したが、Finance Table HeaderとFinance Table BodyおよびFinance Tableの欧文フォントがNoto Sans CJK JPで、親会社本文のLiberation Sans指定と不一致。
+2026-11-16	p14-finance-controller	b004	check	0	plan	Desktop/2026-03_支払差異の説明_千田修正.docx	planned file missing
+2026-11-16	p14-finance-controller	b004	check	0	source	Desktop/2026-03_現預金調整_確認用.xlsx	missing source values: 12400000
+2026-11-16	p14-finance-controller	b004	check	0	source	Desktop/2026-03_締めチェック_開始時.xlsx	body token overlap 0.698 < 0.85
+2026-11-16	p14-finance-controller	b004	check	0	source	Documents/支払/2026/2026-03/2026-03_月末支払予定.xlsx	body token overlap 0.839 < 0.85
+2026-11-16	p14-finance-controller	b004	check	0	plan	Documents/月次/2026/2026-03/2026-03_CFO締め報告.pptx	planned file missing
+2026-11-16	p14-finance-controller	b004	check	0	plan	Documents/月次/2026/2026-03/2026-03_未払費用確認.xlsx	planned file missing
+2026-11-16	p14-finance-controller	b004	check	0	source	Documents/月次/2026/2026-03/2026-03_締めチェック.xlsx	body token overlap 0.690 < 0.85
+2026-11-16	p14-finance-controller	b004	check	0	source	Documents/月次/2026/2026-03/2026-03_試算表_確定.csv	missing source values: 1844400000, 2100000, 35900000, 38000000
+2026-11-16	p14-finance-controller	b004	check	1	plan	Desktop/2026-03_支払差異の説明_千田修正.docx	planned file missing
+2026-11-16	p14-finance-controller	b004	check	1	source	Desktop/2026-03_現預金調整_確認用.xlsx	missing source values: 12400000
+2026-11-16	p14-finance-controller	b004	check	1	source	Desktop/2026-03_締めチェック_開始時.xlsx	body token overlap 0.591 < 0.85
+2026-11-16	p14-finance-controller	b004	check	1	source	Documents/支払/2026/2026-03/2026-03_月末支払予定.xlsx	body token overlap 0.761 < 0.85
+2026-11-16	p14-finance-controller	b004	check	1	plan	Documents/月次/2026/2026-03/2026-03_CFO締め報告.pptx	planned file missing
+2026-11-16	p14-finance-controller	b004	check	1	source	Documents/月次/2026/2026-03/2026-03_未払費用確認.xlsx	body token overlap 0.711 < 0.85
+2026-11-16	p14-finance-controller	b004	check	1	source	Documents/月次/2026/2026-03/2026-03_締めチェック.xlsx	body token overlap 0.690 < 0.85
+2026-11-16	p14-finance-controller	b004	check	1	source	Documents/月次/2026/2026-03/2026-03_試算表_確定.csv	missing source values: 1844400000, 2100000, 35900000, 38000000
+2026-11-16	p14-finance-controller	b004	check	2	source	Desktop/2026-03_現預金調整_確認用.xlsx	missing source values: 12400000
+2026-11-16	p14-finance-controller	b004	check	2	source	Desktop/2026-03_締めチェック_開始時.xlsx	body token overlap 0.591 < 0.85
+2026-11-16	p14-finance-controller	b004	check	2	source	Documents/支払/2026/2026-03/2026-03_月末支払予定.xlsx	body token overlap 0.761 < 0.85
+2026-11-16	p14-finance-controller	b004	check	2	plan	Documents/月次/2026/2026-03/2026-03_CFO締め報告.pptx	planned file missing
+2026-11-16	p14-finance-controller	b004	check	2	source	Documents/月次/2026/2026-03/2026-03_未払費用確認.xlsx	body token overlap 0.711 < 0.85
+2026-11-16	p14-finance-controller	b004	check	2	source	Documents/月次/2026/2026-03/2026-03_締めチェック.xlsx	body token overlap 0.690 < 0.85
+2026-11-16	p14-finance-controller	b004	check	2	plan	Documents/月次/2026/2026-03/2026-03_試算表_確定.csv	planned file missing
+2026-11-16	p14-finance-controller	b004	build-review	2	V6	Desktop/2026-03_支払差異の説明_千田修正.docx	docProps/core.xmlのlastModifiedByが千田真理子ではなく堀口颯太で、createdも初稿の2026-04-02 16:10 JSTではなく2026-04-03 14:35 JSTになっており、原稿・計画が指定する初稿の作成情報と千田の修正情報の区別を再現していない。
+2026-11-16	p14-finance-controller	b004	check	0	plan	Desktop/2026-03_現預金調整_確認用.xlsx	planned file missing
+2026-11-16	p14-finance-controller	b004	check	0	plan	Desktop/2026-03_締めチェック_開始時.xlsx	planned file missing
+2026-11-16	p14-finance-controller	b004	check	0	plan	Documents/支払/2026/2026-03/2026-03_月末支払予定.xlsx	planned file missing
+2026-11-16	p14-finance-controller	b004	check	0	plan	Documents/月次/2026/2026-03/2026-03_締めチェック.xlsx	planned file missing
+2026-11-16	p14-finance-controller	b004	check	1	plan	Documents/月次/2026/2026-03/2026-03_試算表_確定.csv	planned file missing
+2026-11-16	p14-finance-controller	b004	check	2	source	Documents/月次/2026/2026-03/2026-03_試算表_確定.csv	missing source values: 1844400000, 2100000, 35900000, 38000000
+2026-11-16	p14-finance-controller	b004	build-review	2	V6	Desktop/2026-03_支払差異の説明_千田修正.docx	docProps/core.xmlのcreatedが2026-04-03T05:35:00Z（4月3日14:35 JST）で、本文・計画指定の初稿作成4月2日16:10 JSTを保持しておらず、lastModifiedByも修正者の千田 真理子ではなく堀口 颯太になっている。
+2026-11-16	p14-finance-controller	b004	check	0	source	Documents/月次/2026/2026-03/2026-03_CFO締め報告_配布用.pdf	missing source values: 2000000, 900000
+2026-11-16	p14-finance-controller	b004	check	1	plan	Documents/月次/2026/2026-03/2026-03_CFO締め報告_配布用.pdf	planned file missing
+2026-11-16	p14-finance-controller	b004	check	2	source	Documents/月次/2026/2026-03/2026-03_CFO締め報告_配布用.pdf	missing source values: 2000000, 900000

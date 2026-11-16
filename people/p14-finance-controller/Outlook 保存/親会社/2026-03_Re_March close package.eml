@@ -1,0 +1,76 @@
+From: Mariko Senda <mariko.senda@cedarworks.example>
+To: Dana Whitlock <dana.whitlock@cedarholdings.example>
+Cc: Kenji Oba <kenji.oba@cedarworks.example>
+Date: Fri, 10 Apr 2026 10:20:00 +0900
+Subject: Re: March 2026 Japan close package
+Message-ID: <march-clarified-260410@cedarworks.example>
+In-Reply-To: <march-received-260410@cedarholdings.example>
+References: <march-close-260409@cedarworks.example>
+ <march-received-260410@cedarholdings.example>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Hi Dana,
+
+Yes, the JPY 7.2m is April cash, not a March shortfall. We reversed the early=
+ March clearing with LL-260331-AJ01 and recorded the actual April 1 receipt a=
+t 09:15 under LL-260401-AR03 with an April 1 accounting date. The corrected M=
+arch 31 cash balance of JPY 486,200,000 therefore excludes the JPY 7,200,000.
+
+On the follow-up, Horiguchi confirmed to me at 09:30 today that the procedure=
+ now separates the bank debit date, interface import date and accounting date=
+, and directs month-end debits imported the following month to the month-end =
+accounting period. Shinkawa is also not to clear receipts before matching the=
+ bank statement.
+
+Thank you for confirming receipt.
+
+Best,
+Mariko
+
+On April 10, 2026 at 07:10 JST, Dana Whitlock wrote:
+
+> From: Dana Whitlock <dana.whitlock@cedarholdings.example>
+> To: Mariko Senda <mariko.senda@cedarworks.example>
+> Cc: Kenji Oba <kenji.oba@cedarworks.example>
+> Date: Fri, 10 Apr 2026 07:10:00 +0900
+> Subject: Re: March 2026 Japan close package
+> Message-ID: <march-received-260410@cedarholdings.example>
+> In-Reply-To: <march-close-260409@cedarworks.example>
+> References: <march-close-260409@cedarworks.example>
+>
+> Hi Mariko,
+>
+> Received, thank you. Just to confirm: 7.2m is April cash, not a March short=
+fall?
+>
+> Best,
+> Dana
+>
+> On April 9, 2026 at 09:35 JST, Mariko Senda wrote:
+>
+> > From: Mariko Senda <mariko.senda@cedarworks.example>
+> > To: Dana Whitlock <dana.whitlock@cedarholdings.example>
+> > Cc: Kenji Oba <kenji.oba@cedarworks.example>
+> > Date: Thu, 09 Apr 2026 09:35:00 +0900
+> > Subject: March 2026 Japan close package
+> > Message-ID: <march-close-260409@cedarworks.example>
+> > Attachment: 2026-03_Monthly Financial Review.pdf
+> >
+> > Hi Dana,
+> >
+> > Please find attached the March financial review for Japan. Kenji approved=
+ the close on April 7. Corrected cash at March 31 is JPY 486.2m, and the JPY =
+12.4m difference between the original book balance and the bank balance has b=
+een fully resolved. The impact on March profit is JPY 2.1m from bank charges =
+and the FX settlement loss.
+> >
+> > The USD 82,666.67 shown for the cash bridge is a presentation translation=
+ at the closing rate, not the P&L impact. The report also sets out the cut-of=
+f corrections and the follow-up procedure due April 10.
+> >
+> > Could you please confirm receipt by the end of April 10?
+> >
+> > Best,
+> > Mariko
