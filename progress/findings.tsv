@@ -38,3 +38,7 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-16	p14-finance-controller	b004	check	0	source	Documents/月次/2026/2026-03/2026-03_CFO締め報告_配布用.pdf	missing source values: 2000000, 900000
 2026-11-16	p14-finance-controller	b004	check	1	plan	Documents/月次/2026/2026-03/2026-03_CFO締め報告_配布用.pdf	planned file missing
 2026-11-16	p14-finance-controller	b004	check	2	source	Documents/月次/2026/2026-03/2026-03_CFO締め報告_配布用.pdf	missing source values: 2000000, 900000
+2026-11-16	p14-finance-controller	b004	check	0	plan	Documents/月次/2026/2026-03/2026-03_CFO締め報告_配布用.pdf	planned file missing
+2026-11-16	p14-finance-controller	b004	check	0	plan	Documents/月次/2026/2026-03/2026-03_試算表_確定.csv	planned file missing
+2026-11-16	p14-finance-controller	b004	coordinator	0	other	Documents/月次/2026/2026-03/2026-03_試算表_確定.csv	統括の抜き取りで不合格
+2026-11-16	p14-finance-controller	b004	coordinator	0	other	Desktop/2026-03_支払差異の説明_千田修正.docx	統括の抜き取りで不合格
