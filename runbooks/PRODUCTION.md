@@ -57,9 +57,38 @@ bin/batch resume <persona> <batch> --rebuild     # 「成形待ち」の行を�
 agent-alert wait --repo personaCorpus      # Bash の background で実行し、通知を待つ
 ```
 
-- `bin/batch start` は、空き容量が 30 GB 以上あること、同じ persona の batch が動いていないことを確かめてから、`codex-job` のジョブ `<persona>-<batch>` として自分を起動する。同じ persona の 2 つ目は起動できない。違う persona は並行してよい。
+- `bin/batch start` は、空き容量が 30 GB 以上あることと、下の「並列」の条件を確かめてから、`codex-job` のジョブ `<persona>-<batch>` として自分を起動する。
 - 途中の段階ごとの通知は出ない。通知が来るのは、batch が終わったとき（`done`）か、進められなくなったとき（`failed`）だけである。
 - 進み具合は `bin/batch status <persona> <batch>` で見る。各段階の Codex の出力は `scratch/<persona>/<batch>/logs/` にある。
+
+### 並列
+
+並列には 3 つの層がある。上の層ほど互いに関係がなく、安全に広げられる。統括は、この順に広げる。
+
+| 層 | 何を並べるか | 条件 |
+|---|---|---|
+| 1. persona の間 | 違う persona の batch | 条件なし。persona どうしは、ファイルも設定も共有しない |
+| 2. batch の中 | 同じ batch の中の組（10 件ずつ） | `bin/batch` が自動で行う。レビューはすべての組を同時に動かす。原稿と成形は、計画の「先に要るもの」と、派生・添付の関係で順序を決め、同じ段に並んだ組だけを同時に動かす |
+| 3. 同じ persona の batch | 同じ persona の 2 つ目、3 つ目の batch | 下の条件をすべて満たすときだけ |
+
+同じ persona で複数の batch を同時に動かす条件：
+
+- その persona に受入済みの batch が 1 つ以上ある（型と事実の台帳ができている）。
+- 依頼の範囲が、動いている batch と重ならない。違う時期か、違う案件にする。互いの文書を引用・添付・参照する必要がある範囲は、同時に動かさない（後の batch を、前の batch の受入のあとに起動する）。
+- 同時に動かすのは persona あたり 3 つまで（`CORPUS_MAX_BATCHES_PER_PERSONA`、既定 3）。
+
+`bin/batch` は、同じ persona の batch について次を守る。統括が気にする必要はない。
+
+- 計画の段階（型の追加、ファイル計画、事実の台帳と persona の定義への追記）は、persona ごとに 1 つずつ行う。後から計画する batch は、先に計画した batch の依頼・計画・台帳を読み、パスと内容が重ならないようにする。
+- 計画が済んだあとの原稿・レビュー・成形は、batch どうしで同時に進む。型・台帳・persona の定義は、計画の段階のあとは変更しない。
+- 自動検査は、ほかの batch が作りかけているファイルを「計画にないファイル」と見なさない。受入のときの一覧（`manifests/`）には、受入済みのファイルと、その batch のファイルだけを入れる。
+- 受入と破棄（commit）、指摘の記録への追記は、repo 全体で 1 つずつ行う。
+
+全体の上限：
+
+- 同時に動く Codex の実行は、repo 全体で `CORPUS_MAX_CODEX`（既定 12）までである。上限に達している間、後の組は空くのを待つ。`bin/batch status` が使用中の数を出す。
+- Codex の利用上限に当たった batch は、`failed`（利用上限）で止まる。上限が戻ってから `bin/batch resume` する。利用上限に当たることが続くなら、`CORPUS_MAX_CODEX` を下げる。
+- 並列を広げるほど、統括の抜き取りと受入が詰まる。結果待ちの batch が 5 つを超えたら、新しい batch を起動する前に受入を進める。
 
 ## 3. `bin/batch` がすること
 
@@ -69,7 +98,7 @@ agent-alert wait --repo personaCorpus      # Bash の background で実行し、
 | テンプレートのレビュー | `gpt-6.1-sol` | 型を作ったのとは別の実行で、型を開いて画像にし、`README.md` の説明と実物が合っているか、崩れがないか、余計な空の行や仮の欄がないかを確かめる。不合格は理由を渡して作り直させる（2 回まで） | |
 | 計画 | `gpt-6.1-sol` | 依頼、persona の定義、これまでの計画、テンプレートの一覧を読み、ファイル計画を書く。複数のファイルにまたがる事実（文書番号、金額の内訳、会議の日時、メールのスレッド）を事実の台帳に書き足す | `progress/<persona>/<batch>.md`、`progress/<persona>/facts.md` |
 | 計画の検査 | スクリプト | 列、拡張子、パスの重複、日付が期間内か、制作区分の名前がないか、件数。不合格なら理由を付けて計画をやり直させる（1 回） | |
-| 原稿 | `gpt-6.1-terra` | 計画の行を 10 件ずつ、別々の Codex の実行で、中身を Markdown の原稿に書く（下の「原稿」） | `sources/<persona>/…​.md` |
+| 原稿 | `gpt-6.1-terra` | 計画の行を 10 件ずつ、別々の Codex の実行で、中身を Markdown の原稿に書く（下の「原稿」）。「先に要るもの」が済んだ行から書き、同じ段の組は同時に動かす | `sources/<persona>/…​.md` |
 | 原稿の検査 | スクリプト | 全行に原稿があるか、制作の痕跡、同じ batch と既存の原稿との近似重複 | |
 | 原稿のレビュー | `gpt-6.1-sol` | `runbooks/REVIEW.md` の「原稿のレビュー」の観点で 1 件ずつ読み、合格か破棄かと理由を書く。不合格の原稿は消して書き直させる。2 回まで。まだ不合格の行は破棄し、成形しない | `scratch/…/draft-review-r<N>.tsv` |
 | 成形 | `gpt-6.1-terra` | 合格した原稿を、10 件ずつ別々の実行で、型に入れて DOCX・XLSX・PPTX・PDF・`eml`・画像にする。原稿の中身を変えない | `people/<persona>/…` |
@@ -88,6 +117,7 @@ agent-alert wait --repo personaCorpus      # Bash の background で実行し、
 | 作り方 | `docx`・`xlsx`・`pptx` はテンプレート名、PDF は元にするもの（`office:<テンプレート名>`、`tex:<テンプレート名>`、`scan:<元のファイルまたは tex/office>`）、画像は `photo`・`screenshot`・`chart`・`diagram`、その他は `text` |
 | 内容 | そのファイルにしかない中身。誰が、何について、どの案件・数値・結論で書いたか。2〜4 文 |
 | 関連 | 参照する、または参照される既存ファイル（あれば） |
+| 先に要るもの | この行の原稿を書く前に、原稿ができていなければならない同じ batch の行のパス（返信するメールの元のメール、直す前の版、要約する元の文書など）。無ければ空。循環させない |
 
 報告（`progress/<persona>/<batch>.result.md`）には、依頼との対応、作った件数と形式の内訳、原稿の段階と成形の段階それぞれの不合格の件数・理由・やり直しの回数、破棄した行と理由、レビュー役の所見、抜き取りに使うレンダリングの場所（`scratch/<persona>/<batch>/render/`）を書く。
 

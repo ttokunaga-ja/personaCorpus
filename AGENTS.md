@@ -45,7 +45,7 @@ personaCorpus は Kio を含む他の repo に依存しない。他の repo の�
 - 制作は persona × batch の単位で行う。1 つの batch は 50 ファイル程度までの「仕事のまとまり」で、手順は `runbooks/PRODUCTION.md` に従う。受入を後回しにして未 commit の成果物を溜めない。
 - 統括は依頼を書いて `bin/batch start` で起動する。`bin/batch` が、テンプレート、ファイル計画、原稿、原稿のレビュー、成形、自動検査、見た目のレビュー、結果の報告までを Codex に順にやらせる。統括は、終わりの通知を受けてから、抜き取りで確かめて受入か破棄を決める。
 - 中身と形を分ける。中身は原稿（`sources/<persona>/`）に書いてレビューし、合格した原稿だけを形にする。成形は原稿の中身を変えない。
-- 1 つの persona を同時に扱う batch は 1 つだけである（`bin/batch` が排他する）。違う persona は並行してよい。
+- 並列は、違う persona の間、batch の中の組、同じ persona の複数の batch、の順に広げる。同じ persona の複数の batch は、受入済みの batch があり、依頼の範囲が重ならないときだけ、3 つまで同時に動かせる。条件と上限は `runbooks/PRODUCTION.md` の「並列」に従う。計画の段階の排他、同時に動く Codex の数の上限、commit の排他は `bin/batch` が行う。
 - 書いてよい場所は段階ごとに決まっている。計画は `progress/<persona>/`・`templates/<persona>/` と `personas/<persona>.md` の「仕事の流れ」への追記、原稿は `sources/<persona>/`、成形は `people/<persona>/`、レビューはどこも変更しない。どの段階も、一時物はその batch の `scratch/<persona>/<batch>/` に置く。
 - 空き容量が 30 GB（30,000,000,000 バイト）を下回るときは、新しい batch を起動しない（`bin/batch` が確かめる）。動いている batch は止めない。
 
