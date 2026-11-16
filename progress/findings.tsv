@@ -222,3 +222,6 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-16	p01-software-engineer	b001	build-review	1	V2	Documents/申請デスク/R7公開/0713_公開判定.xlsx	指摘と再審査F3:G3に「再審査日」「状態・再審査の結論」、公開判定E3:G3に「確認者」「判定日」「判断」の未使用見出しが残り、明細が空の列が非表示にもされていない（印刷範囲外）。
 2026-11-16	p03-security-grc-analyst	b001	coordinator	0	other	OneDrive - 中京文書/管理会議/2026-08-19_AC-27完了承認の確認事項.pptx	統括の抜き取りで不合格
 2026-11-16	p17-construction-project-manager	b001	coordinator	0	other	Documents/メール/汐葛食品/0926_和田さんから_引渡し書類受領.eml	統括の抜き取りで不合格
+2026-11-16	p01-software-engineer	b001	check	0	source	Pictures/操作確認/0709_R7添付差替え_確認画面.png	body token overlap 0.249 < 0.3
+2026-11-16	p01-software-engineer	b001	check	1	source	Pictures/操作確認/0709_R7添付差替え_確認画面.png	body token overlap 0.249 < 0.3
+2026-11-16	p01-software-engineer	b001	check	2	source	Pictures/操作確認/0709_R7添付差替え_確認画面.png	body token overlap 0.254 < 0.3
