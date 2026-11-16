@@ -221,13 +221,17 @@ bin/pack <出力先のフォルダ>
 - 記録の対象外：作る順序の都合で成形を見送った行（元のファイルが未完成）は、報告には載せるが、指摘の記録には入れない。
 - 記録：`bin/batch` が batch のたびに、不合格を `progress/findings.tsv` に、batch ごとの件数と率を `progress/batches.tsv` に追記する。対象は、原稿の検査、原稿のレビュー、自動検査、見た目のレビュー、統括の抜き取りでの破棄。レビューの指摘には観点の番号（原稿は `D1`〜`D10`、見た目は `V1`〜`V6`、当てはまらなければ `other`）が付く。
 - 集計：`bin/batch findings` が、段階 × 観点の件数、多い順の一覧、batch ごとの初回の不合格率の推移、改善の前後の件数を出す。
-- 改善の時期：受入済みの batch が 10 たまるか、同じ観点（または同じ検査名）の指摘が 5 件を超えたら、統括が改善のジョブを起動する。どの batch も動いていないときに行う。
+- 改善の時期：受入済みの batch が 10 たまるか、同じ観点（または同じ検査名）の指摘が 5 件を超えたら、統括が改善のジョブを起動する。batch が動いていても起動してよい。
+- 改善のジョブは、本体の作業フォルダを直接変えず、git の worktree の中で作業する。動いている batch は、指示のひな形と検査を段階ごとに読むので、作りかけの変更を読ませないためである。
 
   ```sh
-  bin/batch findings > scratch/improve/findings.txt
+  git worktree add -B improve scratch/wt-improve main     # 既にあれば: git -C scratch/wt-improve merge --ff-only main
+  bin/batch findings > scratch/wt-improve/scratch/findings.txt
   codex-job start --repo personaCorpus --name improve-<日付> --brief "$PWD/prompts/improve.md" --model gpt-6.1-sol --effort medium
   ```
 
+- 取り込み：統括が、下の「統括の確認」を worktree の中で済ませてから、worktree で commit し、`git -C scratch/wt-improve rebase main`、`git merge --ff-only improve`、`git push origin main` の順に取り込む。取り込んだ指示のひな形と `bin/check` は、動いている batch にも次の段階から効く。`bin/batch` の変更は、取り込みのあとに起動した実行（`resume` を含む）から効く。
+- 計画・原稿・台帳・状態の書式を変える変更と、段階の順序を変える変更は、動いている batch と食い違うので、改善のジョブではなく Fable のセッションで行う。
 - 改善のジョブがしてよいこと：
   1. 機械的に判定できる指摘を、`bin/check` か原稿の検査に、テストつきで足す。
   2. 作る前に防げる指摘を、`prompts/` の指示に書き足す。
