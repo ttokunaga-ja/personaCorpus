@@ -14,6 +14,7 @@
 | `manifests/` | 受入済みファイルの一覧（パス、sha256、大きさ、更新時刻） |
 | `runbooks/PRODUCTION.md`、`runbooks/REVIEW.md` | 制作と受入の手順、レビューの基準 |
 | `bin/` | batch の進行（`batch`）、自動検査（`check`）、制作の道具（`render`・`tex`・`scan`・`office-pdf`）、一覧と梱包（`manifest`・`pack`） |
+| `config/limits.json` | 同時に動く Codex の数と、persona あたりの同時 batch 数の上限 |
 | `ops/` | Codex のジョブの起動と通知 |
 
 すべて合成データで、実在の人物、組織、顧客、文書を含まない。

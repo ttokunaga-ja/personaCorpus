@@ -516,7 +516,7 @@ def tracked(folder):
 
 
 def run(a):
-    names=personas(a.root) if a.all else [resolve(a.root,a.persona)]
+    names=getattr(a,'accepted_personas',None) or (personas(a.root) if a.all else [resolve(a.root,a.persona)])
     started=time.monotonic();failures=[];passed=0;pending=0;failed_files=set();skips=Counter()
     language=None
     if shutil.which('tesseract'):
@@ -524,12 +524,19 @@ def run(a):
         language='eng+jpn' if 'jpn' in langs else 'eng'
     for name in names:
         folder=a.root/name;cfg=config(a.personas/(name+'.md'));paths=files(folder)
+        if getattr(a,'accepted_paths',None) is not None:
+            paths=[folder/rel for rel in sorted(a.accepted_paths[name])]
         target=plan(a.progress/name/(a.batch+'.md')) if a.batch else None
         local=[]
         if target is not None:
             existing={p.relative_to(folder).as_posix() for p in paths}
             for rel in target.keys()-existing:local.append((rel,'plan','planned file missing'))
-            for rel in existing-target.keys()-tracked(folder):local.append((rel,'plan','untracked file outside batch plan'))
+            planned=set(target)
+            for other in sorted((a.progress/name).glob('*.md')):
+                if other.name.endswith(('.request.md','.result.md')) or other.stem in ('facts',a.batch):continue
+                try:planned.update(plan(other))
+                except ValueError:continue
+            for rel in existing-planned-tracked(folder):local.append((rel,'plan','untracked file outside batch plan'))
         results=[];last=time.monotonic()
         with concurrent.futures.ThreadPoolExecutor(max_workers=min(16,os.cpu_count() or 1)) as pool:
             # Bounded submissions: do not allocate 150,000 Future objects.

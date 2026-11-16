@@ -33,6 +33,11 @@ class Fixture(unittest.TestCase):
         self.cfg('period: 2025-01-01..2026-12-31\nallowed_terms: batch payment, synthetic lease\nphoto_dirs: photos')
         self.args = sum(([f'--{n}', str(self.root if n == 'root' else self.base/n)] for n in ('root','personas','progress','manifests')), [])
 
+    def accept_files(self):
+        subprocess.run(["git", "init", "-q", str(self.base)], check=True)
+        subprocess.run(["git", "-C", str(self.base), "add", "people"], check=True)
+        subprocess.run(["git", "-C", str(self.base), "-c", "user.name=Fixture", "-c", "user.email=fixture@example.invalid", "commit", "--allow-empty", "-qm", "Accepted files"], check=True)
+
     def cfg(self, text):
         (self.base/'personas'/f'{self.name}.md').write_text('---\n'+text+'\n---\n')
 
@@ -195,6 +200,17 @@ class Check(Fixture):
         self.put('extra.txt','Extra notes')
         (self.home/'a.txt').unlink()
         _,rows=self.issues('--batch','b001');self.assertEqual({r[1] for r in rows if r[2]=='plan'},{'a.txt','extra.txt'})
+
+    def test_concurrent_batch_plan_membership_keeps_duplicate_checks(self):
+        self.put('a.txt');self.put('other.txt','Other report: revised warehouse allocation approved by management.')
+        self.make_plan([('a.txt','2026-01-01','Decision')])
+        directory=self.base/'progress'/self.name
+        (directory/'b002.md').write_text('| パス | 日付 | 内容 | 関連 |\n|---|---|---|---|\n| other.txt | 2026-01-01 | Report | |\n')
+        r,rows=self.issues('--batch','b001');self.assertEqual(r.returncode,0,(r.stdout,r.stderr))
+        self.put('other.txt',(self.home/'a.txt').read_bytes())
+        _,rows=self.issues('--batch','b001')
+        self.assertTrue(any(r[2]=='duplicate' and r[1]=='a.txt' for r in rows),rows)
+        self.assertFalse(any(r[2]=='plan' for r in rows),rows)
 
     def test_batch_dates_and_duplicates(self):
         p=self.put('a.txt');self.put('existing.txt',p.read_bytes())
@@ -451,8 +467,18 @@ class Sources(Check):
         _,rows=self.issues();self.assertTrue(any(r[2]=='metadata' for r in rows),rows)
 
 class Manifest(Fixture):
+    def test_acceptance_excludes_other_batch_and_index_only_files(self):
+        self.put('accepted.txt');self.accept_files()
+        self.put('current.txt', 'Current approved report');self.put('other.txt', 'Other work in progress')
+        subprocess.run(['git','-C',str(self.base),'add','people'],check=True)
+        r=self.cli('manifest','p01','--include','current.txt');self.assertEqual(r.returncode,0,r.stderr)
+        rows=list(csv.reader((self.base/'manifests'/f'{self.name}.tsv').open(),delimiter='\t'))
+        self.assertEqual([r[0] for r in rows],['accepted.txt','current.txt'])
+        self.assertEqual(self.cli('manifest','p01','--verify').returncode,1)
+
+
     def test_restore_times_after_checkout(self):
-        self.put('b.txt');self.put('c.txt','Second note about the supplier inspection.')
+        self.put('b.txt');self.put('c.txt','Second note about the supplier inspection.');self.accept_files()
         self.assertEqual(self.cli('manifest','p01').returncode,0)
         for name in ('b.txt','c.txt'):os.utime(self.home/name,(1900000000,1900000000))
         self.assertEqual(self.cli('manifest','p01','--verify').returncode,1)
@@ -462,13 +488,13 @@ class Manifest(Fixture):
         self.assertEqual(self.cli('manifest','p01','--restore').returncode,1)
 
     def test_inventory_and_verify(self):
-        self.put('b.txt');self.put('.hidden','hidden');self.put('a.py','code')
+        self.put('b.txt');self.put('.hidden','hidden');self.put('a.py','code');self.accept_files()
         r=self.cli('manifest','p01');self.assertEqual(r.returncode,0,r.stderr)
         path=self.base/'manifests'/f'{self.name}.tsv'
         rows=list(csv.reader(path.open(),delimiter='\t'));self.assertEqual([r[0] for r in rows],['.hidden','a.py','b.txt'])
         self.assertEqual(rows[2][3],'2026-01-01T00:00:00Z')
         self.assertEqual(self.cli('manifest','p01','--verify').returncode,0)
-        for change in ('content','mtime','extra','missing','size'):
+        for change in ('content','mtime','missing','size'):
             original=(self.home/'b.txt').read_bytes()
             if change=='content':self.put('b.txt','Changed')
             elif change=='mtime':os.utime(self.home/'b.txt',(1767225700,1767225700))
@@ -482,7 +508,7 @@ class Manifest(Fixture):
 
 class Pack(Fixture):
     def test_reproducible_and_gates(self):
-        self.put('notes/a.txt')
+        self.put('notes/a.txt');self.accept_files()
         self.assertEqual(self.cli('manifest','p01').returncode,0)
         out=self.base/'out';out2=self.base/'out2'
         for dest in (out,out2):
@@ -495,14 +521,16 @@ class Pack(Fixture):
             info=t.getmembers()[0];self.assertEqual((info.uid,info.gid,info.mtime),(0,0,1767225600))
         self.assertIn(hashlib.sha256(archive.read_bytes()).hexdigest(),(out/'SHA256SUMS').read_text())
         self.assertIn('synthetic',(out/'README.md').read_text())
+        unaccepted=self.root/'p03-new';unaccepted.mkdir();(unaccepted/'unfinished.py').write_text('work in progress')
         self.put('bad.txt','placeholder')
-        r=self.cli('pack',self.base/'bad');self.assertEqual(r.returncode,1);self.assertFalse((self.base/'bad').exists())
+        r=self.cli('pack',self.base/'bad');self.assertEqual(r.returncode,0,r.stderr)
+        with tarfile.open(self.base/'bad'/f'{self.name}.tar.gz') as archive:self.assertEqual(archive.getnames(),[f'{self.name}/notes/a.txt'])
         (self.home/'bad.txt').unlink();self.put('notes/a.txt','A changed decision')
         r=self.cli('pack',self.base/'mismatch');self.assertEqual(r.returncode,1)
         self.assertFalse((self.base/'mismatch').exists())
 
     def test_output_location_and_manifest_gates(self):
-        self.put('a.txt')
+        self.put('a.txt');self.accept_files()
         # No manifest must prevent packaging, including an otherwise clean persona.
         r=self.cli('pack',self.base/'missing');self.assertEqual(r.returncode,1)
         self.assertFalse((self.base/'missing').exists())
@@ -513,12 +541,12 @@ class Pack(Fixture):
         self.assertFalse((BASE/'bad-distribution').exists())
 
     def test_subset_still_checks_all(self):
-        self.put('a.txt');self.cli('manifest','p01')
-        other=self.root/'p02-editor';other.mkdir();(other/'a.txt').write_text('placeholder')
+        self.put('a.txt');self.accept_files();self.cli('manifest','p01')
+        other=self.root/'p02-editor';other.mkdir();(other/'a.txt').write_text('placeholder');self.accept_files()
         r=self.cli('pack',self.base/'out','--persona','p01');self.assertEqual(r.returncode,1)
         (other/'a.txt').write_text('The editor chose a new title after the review.')
         dest=self.base/'sources'/'p02-editor'/'a.txt.md';dest.parent.mkdir(parents=True);dest.write_text('---\nkind: text\n---\n'+(other/'a.txt').read_text())
-        self.cli('manifest','p02')
+        self.accept_files();self.cli('manifest','p02')
         r=self.cli('pack',self.base/'out','--persona','p01');self.assertEqual(r.returncode,0,(r.stdout,r.stderr))
         self.assertEqual(len(list((self.base/'out').glob('*.tar.gz'))),1)
 

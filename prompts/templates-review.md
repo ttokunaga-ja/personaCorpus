@@ -2,7 +2,7 @@
 
 AGENTS.md、SPEC.md、runbooks/PRODUCTION.md の「テンプレート」、persona の定義と `templates/<persona>/README.md` を読んでください。型を作った実行のログ・最終出力・言い訳は読みません。BATCH_CONTEXT の rows にある型を 1 件ずつ実際に開き、README.md の名前・組織・用途・見た目の説明と実物を照合してください。
 
-- Word・Excel・PowerPoint の型は中身を仮に入れた見本を作り、`bin/render` で画像にして全ページを見ます。TeX の型は仮の内容で `bin/tex` により組み、画像にして確認します。見本とレンダリングは BATCH_CONTEXT の scratch 以下だけに置きます。
+- Word・Excel・PowerPoint の型は中身を仮に入れた見本を作り、`bin/render` で画像にして全ページを見ます。TeX の型は仮の内容で `bin/tex` により組み、画像にして確認します。見本とレンダリングは BATCH_CONTEXT の work 以下だけに置きます。
 - ロゴ、色、フォント、ヘッダ・フッタ、文書番号、印刷設定が説明と一致し、組織の型として一貫しているかを確認します。社内限りなどの表示も、説明にあるなら実物にあることを確かめます。
 - はみ出し、重なり、切れ、不要な空白ページ、文字化け、使えないレイアウトがないことを確認します。
 - 型は見出しと書式の決まりだけを持ち、中身の入っていない書式つきの行や仮の合計欄を残していないことを確認します。明細と合計の行を成形時に書式ごと作る方法が README.md にあり、その方法で文書ごとの行数を扱えることを確かめます。
@@ -12,4 +12,6 @@ AGENTS.md、SPEC.md、runbooks/PRODUCTION.md の「テンプレート」、perso
 
 最終出力には、型の名前と確かめた内容、型全体の所見、見本のレンダリングの場所を書いてください。
 
-レビューは読み取り専用です。書いてよい場所は指定された review_output と BATCH_CONTEXT の scratch 以下の見本・画像・一時物だけです。型、README.md、計画、台帳、persona、原稿、成果物、資料を変更せず、修正や削除もしません。stage・commit・push はしません。
+レビューは読み取り専用です。書いてよい場所は指定された review_output と BATCH_CONTEXT の work 以下の見本・画像・一時物だけです。型、README.md、計画、台帳、persona、原稿、成果物、資料を変更せず、修正や削除もしません。stage・commit・push はしません。
+
+実行専用の作業フォルダは BATCH_CONTEXT の work、レンダリング先は render です。他の実行の作業フォルダへ一時物を書きません。指定された review_output だけは指定先へ書きます。

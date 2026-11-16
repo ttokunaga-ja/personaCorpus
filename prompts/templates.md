@@ -16,3 +16,5 @@ AGENTS.md、SPEC.md、runbooks/PRODUCTION.md のテンプレート節、personas
 - 他の persona の templates/ を見て、似た見た目にならないようにする。
 
 BATCH_CONTEXT の reasons に欠陥の指摘があれば、実際の型と README.md を開き、指摘された欠陥を解消してください。型を直しても受入済み成果物は変更しません。修正後は別の実行の templates-review が検査します。
+
+実行専用の作業フォルダは BATCH_CONTEXT の work、レンダリング先は render です。他の実行の作業フォルダへ一時物を書きません。指定された review_output だけは指定先へ書きます。

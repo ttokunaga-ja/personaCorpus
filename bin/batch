@@ -3,6 +3,8 @@
 import argparse
 from collections import Counter, defaultdict
 import contextlib
+from concurrent.futures import ThreadPoolExecutor
+import threading
 import csv
 import datetime as dt
 import fcntl
@@ -17,12 +19,13 @@ import shutil
 import subprocess
 import sys
 import time
+import threading
 import xml.etree.ElementTree as ET
 import zipfile
 from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[1]
-COLUMNS = ('パス', '日付', '作り方', '内容', '関連')
+COLUMNS = ('パス', '日付', '作り方', '内容', '関連', '先に要るもの')
 # bin/check の path / trace 契約。検査本体は各 round に bin/check で実行する。
 EXT = set('docx pdf xlsx csv tsv pptx txt md log eml html png jpg json xml wav mp3 m4a zip'.split())
 BAD_PATH = re.compile(r'foundation|visual|source-art|full|(?<![a-z0-9])m1(?![a-z0-9])|primary|secondary|pdf_scan|pdf_text|txt_log|csv_tsv|html_eml|structured_text|domain_binary|imagegen', re.I)
@@ -80,15 +83,143 @@ def safe_file(folder, relative):
 
 
 @contextlib.contextmanager
-def persona_lock(persona, wait=False):
+def persona_lock(persona, wait=False, shared=False):
     path = ROOT / 'scratch' / persona / '.lock'
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open('a') as handle:
+        try:
+            fcntl.flock(handle, (fcntl.LOCK_SH if shared else fcntl.LOCK_EX) | (0 if wait else fcntl.LOCK_NB))
+        except BlockingIOError:
+            raise ValueError('同じ persona の batch が進行中: ' + persona) from None
+        yield
+
+
+_repository_locks = threading.local()
+
+
+@contextlib.contextmanager
+def repository_lock(name='records'):
+    """Serialize repository records and Git operations; permit nested records writes."""
+    held = getattr(_repository_locks, 'held', {})
+    if name in held:
+        yield
+        return
+    path = ROOT / 'scratch' / '.locks' / (name + '.lock')
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open('a') as handle:
+        fcntl.flock(handle, fcntl.LOCK_EX)
+        _repository_locks.held = {**held, name: handle}
+        try:
+            yield
+        finally:
+            _repository_locks.held = held
+
+
+@contextlib.contextmanager
+def batch_lock(persona, batch, wait=False):
+    # Keep the lock outside scratch/<persona>/<batch>, which finish removes.
+    path = ROOT / 'scratch' / persona / '.runtime-locks' / (batch + '.lock')
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open('a') as handle:
         try:
             fcntl.flock(handle, fcntl.LOCK_EX | (0 if wait else fcntl.LOCK_NB))
         except BlockingIOError:
-            raise ValueError('同じ persona の batch が進行中: ' + persona) from None
+            raise ValueError('同じ batch が進行中: ' + persona + ' ' + batch) from None
         yield
+
+
+def runtime_batches(persona):
+    active = set()
+    for path in (ROOT / 'scratch' / persona / '.runtime-locks').glob('b*.lock'):
+        with path.open('a') as handle:
+            try:
+                fcntl.flock(handle, fcntl.LOCK_EX | fcntl.LOCK_NB)
+            except BlockingIOError:
+                active.add(path.stem)
+    return active
+
+
+def job_batches(persona, output):
+    prefix = persona.split('-')[0] + '-'
+    active = set()
+    for line in output.splitlines():
+        parts = line.split('\t')
+        if len(parts) >= 3 and parts[2] in ('running', 'limit', 'stdin-wait', 'stalled'):
+            match = re.fullmatch(re.escape(prefix) + r'(b\d{3,})(?:-r\d+)?', parts[1])
+            if match:
+                active.add(match[1])
+    return active
+
+
+def admit_batch(batch, jobs='', allow_current=False):
+    active = runtime_batches(batch.persona) | job_batches(batch.persona, jobs)
+    if batch.batch in active and not allow_current:
+        raise ValueError('同じ batch が進行中: ' + batch.batch)
+    active.discard(batch.batch)
+    maximum = limit('max_batches_per_persona', 'CORPUS_MAX_BATCHES_PER_PERSONA')
+    if len(active) >= maximum:
+        raise ValueError(f'同じ persona の batch 上限: {maximum}')
+    if active:
+        ledger = command(['git', 'show', 'HEAD:progress/batches.tsv'], check=False)
+        accepted = ledger.returncode == 0 and any(r['persona'] == batch.persona and r['status'] == 'accepted'
+                    for r in csv.DictReader(ledger.stdout.splitlines(), delimiter='\t'))
+        if not accepted:
+            raise ValueError('同じ persona の batch が進行中。並列には受入済み batch が必要')
+
+
+DEFAULT_LIMITS = {'max_codex': 32, 'max_batches_per_persona': 3}
+
+
+def limit(key, env):
+    """Concurrency limits live in config/limits.json; the environment overrides them for tests."""
+    raw = os.environ.get(env)
+    if raw is None:
+        path = ROOT / 'config' / 'limits.json'
+        raw = (json.loads(read(path)) if path.exists() else {}).get(key, DEFAULT_LIMITS[key])
+    if not str(raw).isdigit() or int(raw) < 1:
+        raise ValueError(f'{key}（config/limits.json）は正の整数')
+    return int(raw)
+
+
+def slot_limit():
+    return limit('max_codex', 'CORPUS_MAX_CODEX')
+
+
+@contextlib.contextmanager
+def codex_slot():
+    folder = ROOT / 'scratch/.slots'
+    folder.mkdir(parents=True, exist_ok=True)
+    handles = [(folder / str(i)).open('a') for i in range(slot_limit())]
+    try:
+        while True:
+            for handle in handles:
+                try:
+                    fcntl.flock(handle, fcntl.LOCK_EX | fcntl.LOCK_NB)
+                except BlockingIOError:
+                    continue
+                yield handle.fileno()
+                return
+            time.sleep(.05)
+    finally:
+        for handle in handles:
+            handle.close()
+
+
+def slot_usage():
+    folder = ROOT / 'scratch/.slots'
+    folder.mkdir(parents=True, exist_ok=True)
+    used = 0
+    for i in range(slot_limit()):
+        with (folder / str(i)).open('a') as handle:
+            try:
+                fcntl.flock(handle, fcntl.LOCK_EX | fcntl.LOCK_NB)
+            except BlockingIOError:
+                used += 1
+    return used
+
+
+def prerequisites(row):
+    return set(filter(None, (x.strip().strip('`') for x in re.split(r'[,、;\n]+', row.get('先に要るもの', '')))))
 
 
 def plan_rows(path):
@@ -98,14 +229,14 @@ def plan_rows(path):
         if not line.strip().startswith('|'):
             continue
         cells = [c.strip().strip('`') for c in re.split(r'(?<!\\)\|', line.strip().strip('|'))]
-        if all(c in cells for c in COLUMNS):
-            indices = [cells.index(c) for c in COLUMNS]
+        if all(c in cells for c in COLUMNS[:-1]):
+            indices = [cells.index(c) if c in cells else None for c in COLUMNS]
             continue
         if indices is None or all(re.fullmatch(r':?-+:?', c) for c in cells):
             continue
-        if len(cells) <= max(indices):
+        if len(cells) <= max(i for i in indices if i is not None):
             raise ValueError('計画の列が不足')
-        row = dict(zip(COLUMNS, (cells[i] for i in indices)))
+        row = dict(zip(COLUMNS, (cells[i] if i is not None else '' for i in indices)))
         row['_line'] = index
         row['_content'] = indices[3]
         rows.append(row)
@@ -135,6 +266,8 @@ def mark_discard(path, reasons, marker="破棄"):
 
 class Batch:
     def __init__(self, args):
+        self.mutex = threading.RLock()
+        self.planning = False
         self.a = args
         self.persona = persona_name(args.persona)
         if not re.fullmatch(r'b\d{3,}', args.batch):
@@ -161,7 +294,8 @@ class Batch:
         self.cfg = config(self.definition)
 
     def store(self):
-        save(self.state_path, self.state)
+        with self.mutex:
+            save(self.state_path, self.state)
 
     def scope(self):
         match = re.search(r'範囲\s*[：:]\s*(.+)', read(self.request))
@@ -169,26 +303,70 @@ class Batch:
 
     def step(self, key, action, count=0):
         key = getattr(self, 'step_prefix', '') + key
-        if key in self.state['completed']:
-            return self.state['completed'][key]
-        self.state.update(stage=key, status='running', reason='')
-        self.store()
+        with self.mutex:
+            if key in self.state['completed']:
+                return self.state['completed'][key]
+            self.state.update(stage=key, status='running', reason='')
+            self.state.setdefault('active', {})[key] = count
+            self.store()
         print(f'{key} 開始 {count} 件', flush=True)
         started = time.monotonic()
         try:
             value = action()
+            with self.mutex:
+                self.state['completed'][key] = value
+            print(f'{key} 終了 {count} 件', flush=True)
+            return value
         finally:
-            self.state['timings'][key] = self.state['timings'].get(key, 0) + time.monotonic() - started
-            self.store()
-        self.state['completed'][key] = value
-        self.store()
-        print(f'{key} 終了 {count} 件', flush=True)
-        return value
+            with self.mutex:
+                self.state['timings'][key] = self.state['timings'].get(key, 0) + time.monotonic() - started
+                self.state['active'].pop(key, None)
+                self.store()
+
+    def parallel_steps(self, tasks):
+        if not tasks:
+            return []
+        with ThreadPoolExecutor(max_workers=len(tasks)) as pool:
+            futures = [pool.submit(self.step, key, action, count) for key, action, count in tasks]
+            # The executor joins every peer even when a future raises.
+            results, errors = [], []
+            for future in futures:
+                try:
+                    results.append(future.result())
+                except Exception as exc:
+                    errors.append(exc)
+            if errors:
+                raise errors[0]
+            return results
+
+    def shared_hashes(self):
+        paths = list(self.templates.parent.rglob('*')) + [self.definition, self.plan.parent / 'facts.md']
+        return {str(p): hashlib.sha256(p.read_bytes()).hexdigest() for p in paths if p.is_file()}
 
     def codex(self, stage, rows=(), round_number=0, reasons=None, review_output=None):
+        if self.planning:
+            return self._codex(stage, rows, round_number, reasons, review_output)
+        path = ROOT / 'scratch' / self.persona / '.lock'
+        path.parent.mkdir(parents=True, exist_ok=True)
+        with path.open('a') as handle:
+            fcntl.flock(handle, fcntl.LOCK_SH)
+            before = self.shared_hashes()
+            try:
+                return self._codex(stage, rows, round_number, reasons, review_output)
+            finally:
+                if before != self.shared_hashes():
+                    raise ValueError('計画の段階のあとに型・台帳・persona が変更された')
+
+    def _codex(self, stage, rows=(), round_number=0, reasons=None, review_output=None):
         logs = self.scratch / 'logs'
         logs.mkdir(parents=True, exist_ok=True)
-        context = dict(stage=stage, persona=self.persona, batch=self.batch,
+        with self.mutex:
+            number = self.state.get('execution_sequence', 0) + 1
+            self.state['execution_sequence'] = number
+            self.store()
+        work = self.scratch / 'work' / f'{stage}-{number:04}'
+        work.mkdir(parents=True, exist_ok=True)
+        context = dict(work=str(work.relative_to(ROOT)), render=str((work / 'render').relative_to(ROOT)), stage=stage, persona=self.persona, batch=self.batch,
                        scratch=str(self.scratch.relative_to(ROOT)), plan=str(self.plan.relative_to(ROOT)),
                        rows=list(rows), round=round_number, reasons=reasons or {},
                        review_output=str(review_output.relative_to(ROOT)) if review_output else '')
@@ -205,21 +383,31 @@ class Batch:
         # Review gets file plans, never producer logs or explanations.
         if stage in ('draft-review', 'build-review'):
             prompt += '\n## 計画全体\n' + read(self.plan)
-        for _ in range(2):
+        if stage == 'plan':
+            for other in sorted(self.plan.parent.glob('b*.request.md')):
+                other_plan = other.with_name(other.name.replace('.request.md', '.md'))
+                if other != self.request and (ROOT / 'scratch' / self.persona / other_plan.stem / 'state.json').exists():
+                    prompt += '\n## 同じ persona の進行中の依頼\n' + read(other)
+                    if other_plan.exists():
+                        prompt += '\n## 進行中の計画\n' + read(other_plan)
+        for attempt in range(2):
+            if attempt:
+                retry_work = work.with_name(work.name + f'-retry{attempt}')
+                retry_work.mkdir(parents=True, exist_ok=True)
+                previous_context = json.dumps(context, ensure_ascii=False)
+                context.update(work=str(retry_work.relative_to(ROOT)), render=str((retry_work / 'render').relative_to(ROOT)))
+                prompt = prompt.replace(previous_context, json.dumps(context, ensure_ascii=False), 1)
             if review_output is not None:
                 review_output.unlink(missing_ok=True)
-            number = 1
-            while (logs / f'{stage}-{number:03}.log').exists():
-                number += 1
-            base = logs / f'{stage}-{number:03}'
+            base = logs / f'{stage}-{number:04}-a{attempt}'
             output = base.with_suffix('.out.md')
             output.touch()
             model = self.state.get('producer', 'gpt-6.1-terra') if stage in ('draft', 'build') else 'gpt-6.1-sol'
             args = [os.environ.get('CODEX_BIN', 'codex'), 'exec', '-m', model,
                     '-c', 'model_reasoning_effort="medium"', '-s', 'workspace-write',
                     '-c', 'sandbox_workspace_write.network_access=true', '-C', str(ROOT), '-o', str(output), prompt]
-            with base.with_suffix('.log').open('w') as log, open(os.devnull) as null:
-                code = subprocess.run(args, cwd=ROOT, stdin=null, stdout=log, stderr=subprocess.STDOUT).returncode
+            with codex_slot() as slot_fd, base.with_suffix('.log').open('w') as log, open(os.devnull) as null:
+                code = subprocess.run(args, cwd=ROOT, stdin=null, stdout=log, stderr=subprocess.STDOUT, pass_fds=(slot_fd,)).returncode
             if code == 0:
                 return read(output) if output.exists() else ''
         tail = '\n'.join(read(base.with_suffix('.log')).splitlines()[-20:])
@@ -287,6 +475,25 @@ class Batch:
                     errors.append('制作前の内容が空か破棄: ' + rel)
             except (ValueError, OSError) as exc:
                 errors.append(f'{rel}: {exc}')
+        graph = {r['パス']: prerequisites(r) for r in rows}
+        for rel, deps in graph.items():
+            if deps - graph.keys():
+                errors.append('先に要るものは同じ batch の行: ' + rel)
+        remaining = dict(graph)
+        while remaining:
+            ready = {rel for rel, deps in remaining.items() if not deps.intersection(remaining)}
+            if not ready:
+                errors.append('先に要るものが循環している')
+                break
+            remaining = {rel: deps for rel, deps in remaining.items() if rel not in ready}
+        for other in self.plan.parent.glob('b*.md'):
+            if other == self.plan or not re.fullmatch(r'b\d+\.md', other.name):
+                continue
+            state = ROOT / 'scratch' / self.persona / other.stem / 'state.json'
+            if state.exists():
+                overlap = graph.keys() & {r['パス'] for r in plan_rows(other)}
+                if overlap:
+                    errors.append('進行中の batch と重複パス: ' + ', '.join(sorted(overlap)))
         if errors:
             raise ValueError('\n'.join(errors))
         return rows
@@ -305,19 +512,24 @@ class Batch:
         return safe_file(self.sources, relative + '.md')
 
     def hashes(self, rows=(), sources=False):
-        paths = list(self.sources.rglob('*')) if sources else [safe_file(self.folder, r['パス']) for r in rows]
+        paths = [self.source(r['パス']) for r in plan_rows(self.plan)] if sources else [safe_file(self.folder, r['パス']) for r in rows]
         return {str(p): hashlib.sha256(p.read_bytes()).hexdigest() if p.is_file() else None
                 for p in paths if not sources or p.is_file()}
 
     def event(self, stage, round_number, criterion, rel, reason):
         item = [dt.datetime.now(dt.timezone.utc).date().isoformat(), self.persona,
                 self.batch, stage, str(round_number), criterion or 'other', rel, re.sub(r'[\t\r\n]+', ' ', reason).strip()]
-        events = self.state.setdefault('events', [])
-        if not any(e[1:] == item[1:] for e in events):
-            events.append(item)
-        self.store()
+        with self.mutex:
+            events = self.state.setdefault('events', [])
+            if not any(e[1:] == item[1:] for e in events):
+                events.append(item)
+            self.store()
 
     def record_tables(self, status=None, coordinator=None, templates_only=False):
+        with repository_lock():
+            return self._record_tables(status, coordinator, templates_only)
+
+    def _record_tables(self, status=None, coordinator=None, templates_only=False):
         progress = ROOT / 'progress'
         progress.mkdir(exist_ok=True)
         # Lock the stable directory inode: replacing a TSV must not release its lock.
@@ -446,6 +658,34 @@ class Batch:
                     deps.add(candidate)
             result[rel] = deps - {rel}
         return result
+
+    def draft_phase(self, rows, all_rows):
+        remaining = {r['パス']: r for r in rows}
+        failed, history = {}, []
+        prefix = getattr(self, 'step_prefix', '')
+        wave = 0
+        while remaining:
+            ready = [r for r in remaining.values() if not prerequisites(r).intersection(remaining)]
+            if not ready:
+                raise ValueError('先に要るものが循環している')
+            targets = []
+            for row in ready:
+                if prerequisites(row).intersection(failed):
+                    failed[row['パス']] = '先に要る原稿が不合格'
+                else:
+                    targets.append(row)
+            self.step_prefix = prefix + (f'draft-wave{wave}/' if wave or len(ready) != len(rows) else '')
+            if targets:
+                failed.update(self.phase('draft', targets, all_rows))
+                history.extend(self.state.get('draft_history', []))
+            for row in ready:
+                del remaining[row['パス']]
+            wave += 1
+        self.step_prefix = prefix
+        self.state.update(draft_failures=failed, draft_history=history,
+                          draft_pass=len(rows)-len(failed), draft_reject=len(failed))
+        self.store()
+        return failed
 
     def build_phase(self, rows, all_rows):
         dependencies = self.dependencies(rows)
@@ -628,7 +868,8 @@ class Batch:
         finally:
             if sources != self.hashes(sources=True) or artifacts != self.hashes(all_rows):
                 raise ValueError('レビュー中に原稿または成果物が変更された')
-        self.state.setdefault(stage + '_notes', []).append(notes)
+        with self.mutex:
+            self.state.setdefault(stage + '_notes', []).append(notes)
         verdicts = {}
         for parts in csv.reader(read(output).splitlines() if output.exists() else [], delimiter='\t'):
             if len(parts) not in (3, 4) or parts[1] not in ('pass', 'reject'):
@@ -657,6 +898,7 @@ class Batch:
                         path = self.source(row['パス']) if stage == 'draft' else safe_file(self.folder, row['パス'])
                         path.unlink(missing_ok=True)
                 self.step(f'{stage}-delete-r{round_number}', remove, len(targets))
+            production_tasks = []
             for i in range(0, len(targets), 10):
                 group = targets[i:i+10]
                 key = f'{stage}-r{round_number}-g{i//10}'
@@ -678,7 +920,8 @@ class Batch:
                     finally:
                         if stage == 'build' and before != self.hashes(sources=True):
                             raise ValueError('成形中に原稿が変更された')
-                self.step(key, produce, len(group))
+                production_tasks.append((key, produce, len(group)))
+            self.parallel_steps(production_tasks)
             if stage == 'build':
                 def dates():
                     errors = {}
@@ -723,10 +966,13 @@ class Batch:
                 failures.update(stamp_failures)
             review_rows = [r for r in targets if r['パス'] not in failures]
             verdicts, review_stage = {}, stage + '-review'
+            review_tasks = []
             for i in range(0, len(review_rows), 10):
                 group = review_rows[i:i+10]
-                verdicts.update(self.step(f'{review_stage}-r{round_number}-g{i//10}',
-                                         lambda group=group, i=i: self.review(review_stage, group, all_rows, round_number, i//10), len(group)))
+                review_tasks.append((f'{review_stage}-r{round_number}-g{i//10}',
+                                     lambda group=group, i=i: self.review(review_stage, group, all_rows, round_number, i//10), len(group)))
+            for result in self.parallel_steps(review_tasks):
+                verdicts.update(result)
             report_stage = 'review' if stage == 'build' else review_stage
             with (self.scratch / (getattr(self, 'step_prefix', '').replace('/', '-') + f'{report_stage}-r{round_number}.tsv')).open('w') as handle:
                 csv.writer(handle, delimiter='\t', lineterminator='\n').writerows([rel, v[0], v[2], v[1]] for rel, v in verdicts.items())
@@ -749,6 +995,7 @@ class Batch:
         if self.state['status'] == 'done' and not again and not rebuild:
             print(f'done 終了 {self.state.get("count", 0)} 件', flush=True)
             return
+        self.state['active'] = {}
         self.state['producer'] = self.a.producer or self.state.get('producer', 'gpt-6.1-terra')
         self.scratch.mkdir(parents=True, exist_ok=True)
         (self.scratch / 'logs').mkdir(exist_ok=True)
@@ -758,7 +1005,7 @@ class Batch:
                     if key in ('templates', 'templates-reviewed', 'plan'):
                         return True
                     if getattr(self.a, 'draft_review_again', False):
-                        return bool(re.fullmatch(r'draft-r0-g\d+', key))
+                        return bool(re.fullmatch(r'draft-r0-g\d+', key.rsplit('/', 1)[-1]))
                     leaf = key.rsplit('/', 1)[-1]
                     return key.startswith('draft-') or leaf.startswith(('build-r0-', 'dates-r0'))
                 self.state['completed'] = {k: v for k, v in self.state['completed'].items() if keep(k)}
@@ -769,25 +1016,30 @@ class Batch:
             if rebuild:
                 self.rebuild_pending()
                 return
-            self.step('templates', lambda: self.codex('templates') if not self.templates.exists() else '')
-            self.step('templates-reviewed', self.review_templates)
-            template_hashes = {str(p): hashlib.sha256(p.read_bytes()).hexdigest() for p in self.templates.parent.rglob('*') if p.is_file()}
-            rows = self.step('plan', self.make_plan)
-            if template_hashes != {str(p): hashlib.sha256(p.read_bytes()).hexdigest() for p in self.templates.parent.rglob('*') if p.is_file()}:
-                self.step('plan-templates-reviewed', self.review_templates)
+            with persona_lock(self.persona, wait=True):
+                self.planning = True
+                try:
+                    self.step('templates', lambda: self.codex('templates') if not self.templates.exists() else '')
+                    self.step('templates-reviewed', self.review_templates)
+                    template_hashes = {str(p): hashlib.sha256(p.read_bytes()).hexdigest() for p in self.templates.parent.rglob('*') if p.is_file()}
+                    rows = self.step('plan', self.make_plan)
+                    if template_hashes != {str(p): hashlib.sha256(p.read_bytes()).hexdigest() for p in self.templates.parent.rglob('*') if p.is_file()}:
+                        self.step('plan-templates-reviewed', self.review_templates)
+                finally:
+                    self.planning = False
             current = {r['パス']: r for r in plan_rows(self.plan)}
             if set(current) != {r['パス'] for r in rows}:
                 raise ValueError('検査済み計画のパスが変更された')
             for row in rows:
                 new = current[row['パス']]
-                if any(new[c] != row[c] for c in COLUMNS if c != '内容') or (new['内容'] != row['内容'] and not new['内容'].startswith(('破棄：', '成形待ち：'))):
+                if any(new.get(c, '') != row.get(c, '') for c in COLUMNS if c != '内容') or (new['内容'] != row['内容'] and not new['内容'].startswith(('破棄：', '成形待ち：'))):
                     raise ValueError('検査済み計画が変更された: ' + row['パス'])
             rows = [current[r['パス']] for r in rows if not again or not current[r['パス']]['内容'].startswith(('破棄：', '成形待ち：'))]
             if self.a.plan_only:
                 self.state.update(status='planned', stage='plan', count=len(rows))
                 self.store()
                 return
-            draft_failures = self.step('draft-complete', lambda: self.phase('draft', rows, rows))
+            draft_failures = self.step('draft-complete', lambda: self.draft_phase(rows, rows))
             draft_failures = {rel: reason for rel, reason in draft_failures.items() if rel in {r['パス'] for r in rows}}
             build_rows = [r for r in rows if r['パス'] not in draft_failures]
             self.step('draft-discard', lambda: self.discard_rows(draft_failures), len(draft_failures))
@@ -847,7 +1099,7 @@ class Batch:
                 text += '\n'.join(f'- {rel}: {reason}' for rel, reason in entry['failures'].items()) + '\n'
             text += '\nレビュー役の所見：\n\n' + ('\n\n'.join(self.state.get(stage + '-review_notes', [])) or '対象なし')
         text += '\n\n## 型の欠陥\n\n' + ('\n\n'.join(self.state.get('build-review_notes', [])) or 'なし')
-        text += f'\n\nレンダリング：{self.scratch.relative_to(ROOT)}/render/\n\n## 各段階の所要時間\n\n'
+        text += f'\n\nレンダリング：{self.scratch.relative_to(ROOT)}/work/*/render/\n\n## 各段階の所要時間\n\n'
         text += '\n'.join(f'- {key}: {value:.2f} 秒' for key, value in self.state['timings'].items())
         self.result.write_text(text + '\n')
 
@@ -862,6 +1114,10 @@ class Batch:
                 raise ValueError('受入済みのファイルには操作しない: ' + row['パス'])
 
     def finish(self, discard=False):
+        with batch_lock(self.persona, self.batch), persona_lock(self.persona, wait=True, shared=True), repository_lock():
+            return self._finish(discard)
+
+    def _finish(self, discard=False):
         rows = plan_rows(self.plan)
         rebuilding = self.state.get('rebuild_paths')
         self.protected([r for r in rows if not rebuilding or r['パス'] in rebuilding], artifacts_only=bool(rebuilding))
@@ -895,7 +1151,10 @@ class Batch:
             self.event('coordinator', 0, 'other', rel, reason)
         if not discard:
             command([ROOT / 'bin/check', self.persona, '--batch', self.batch])
-            command([ROOT / 'bin/manifest', self.persona])
+            includes = [r['パス'] for r in plan_rows(self.plan)
+                        if not r['内容'].startswith(('破棄：', '成形待ち：'))]
+            command([ROOT / 'bin/manifest', self.persona,
+                     *[arg for rel in includes for arg in ('--include', rel)]])
         self.record_tables('discarded' if discard else 'accepted', len(drops))
         marker = '破棄' if discard else '受入済み'
         if self.result.exists():
@@ -927,11 +1186,17 @@ def job_tool():
 
 
 def launch(batch):
+    with repository_lock('admission'):
+        return _launch(batch)
+
+
+def _launch(batch):
     if not batch.request.is_file():
         raise ValueError('依頼なし: ' + str(batch.request))
     if shutil.disk_usage(ROOT).free < 30_000_000_000:
         raise ValueError('空き容量が 30,000,000,000 バイト未満')
     result = command([job_tool(), 'status', '--repo', 'personaCorpus'])
+    admit_batch(batch, result.stdout)
     home = Path(os.environ.get('AGENT_OPS_HOME', ROOT / 'ops'))
     names = {p.name for p in (home / 'jobs/personaCorpus').glob('*') if p.is_dir()}
     prefix = batch.persona.split('-')[0] + '-'
@@ -939,15 +1204,13 @@ def launch(batch):
         parts = line.split('\t')
         if len(parts) >= 3:
             names.add(parts[1])
-            if parts[1].startswith(prefix) and parts[2] not in ('done', 'failed'):
-                raise ValueError('同じ persona の batch が進行中: ' + parts[1])
     name = prefix + batch.batch
     suffix = 1
     original = name
     while name in names:
         suffix += 1
         name = f'{original}-r{suffix}'
-    # The child can start before codex-job returns and this launcher's flock is released.
+    # The child waits for the short admission transaction, not the planning lock.
     args = ['bin/batch', 'run', batch.persona, batch.batch, '--wait-lock']
     for flag in ('plan_only', 'review_again', 'draft_review_again', 'rebuild'):
         if getattr(batch.a, flag, False):
@@ -964,12 +1227,25 @@ def pending_count(persona, batch):
 
 
 def show_status(persona=None, batch=None):
+    print(f'Codex 使用中 {slot_usage()} / 上限 {slot_limit()}')
+    def state_label(name, number, state):
+        status = state.get('status', 'new')
+        if status == 'done':
+            return '結果待ち'
+        if status == 'running' and number not in runtime_batches(name):
+            return f'中断 ({state.get("stage", "")}, 状態記録のみ)'
+        labels = {'failed': '失敗', 'planned': '計画済み', 'new': '未開始', 'running': '進行中'}
+        return f'{labels.get(status, status)} ({state.get("stage", "")}, {status})'
     if batch:
         if not re.fullmatch(r'b\d{3,}', batch):
             raise ValueError('batch 名は b001 からの連番')
         state = ROOT / 'scratch' / persona / batch / 'state.json'
         if state.exists():
             s = json.loads(read(state))
+            print(state_label(persona, batch, s))
+            for group, details in sorted(s.get('active', {}).items()):
+                if re.search(r'-g\d+$', group):
+                    print(f'  組 {group}: {details}')
             print(f'{persona} {batch}: {s["stage"]} / {s["status"]} / {s.get("count", 0)} 件 / 原稿 合格{s.get("draft_pass", 0)} 不合格{s.get("draft_reject", 0)} / 成形 合格{s.get("build_pass", 0)} 不合格{s.get("build_reject", 0)} / 成形待ち{pending_count(persona, batch)} / {s.get("reason", "")}')
         else:
             path = ROOT / 'progress' / persona / (batch + '.result.md')
@@ -1015,8 +1291,13 @@ def show_status(persona=None, batch=None):
                 label = m[1] if m else '結果待ち'
             if state.exists():
                 s = json.loads(read(state))
-                label = '結果待ち' if s['status'] == 'done' else f'進行中 ({s["stage"]}, {s["status"]})'
-            print(f'  {b}: {label} / 成形待ち {pending_count(name, b)} 件')
+                label = state_label(name, b, s)
+            groups = sum(bool(re.search(r'-g\d+$', key)) for key in s.get('active', {})) if state.exists() and b in runtime_batches(name) else 0
+            print(f'  {b}: {label} / 同時実行 {groups} 組 / 成形待ち {pending_count(name, b)} 件')
+            if state.exists():
+                for group, details in sorted(s.get('active', {}).items()):
+                    if re.search(r'-g\d+$', group):
+                        print(f'    組 {group}: {details}')
 
 
 def show_findings(since=None, persona=None):
@@ -1104,22 +1385,28 @@ def main(argv=None):
             b.scratch.mkdir(parents=True, exist_ok=True)
             b.request = b.scratch / 'templates.request.md'
             b.request.write_text('# 型の修正\n' + a.fix + '\n')
+            b.planning = True
             try:
                 b.review_templates(a.fix)
             finally:
+                b.planning = False
                 b.record_tables(templates_only=True)
         return 0
     if a.action == 'status':
         show_status(persona_name(a.persona) if a.persona else None, a.batch)
         return 0
     b = Batch(a)
-    with persona_lock(b.persona, getattr(a, 'wait_lock', False)):
-        if a.action in ('start', 'resume'):
-            launch(b)
-        elif a.action == 'run':
+    if a.action in ('start', 'resume'):
+        launch(b)
+    elif a.action == 'run':
+        with contextlib.ExitStack() as stack:
+            with repository_lock('admission'):
+                jobs = command([job_tool(), 'status', '--repo', 'personaCorpus']).stdout if Path(job_tool()).exists() else ''
+                admit_batch(b, jobs, allow_current=getattr(a, 'wait_lock', False))
+                stack.enter_context(batch_lock(b.persona, b.batch))
             b.run()
-        else:
-            b.finish(a.action == 'discard')
+    else:
+        b.finish(a.action == 'discard')
     return 0
 
 

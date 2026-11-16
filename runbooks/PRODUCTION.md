@@ -75,7 +75,7 @@ agent-alert wait --repo personaCorpus      # Bash の background で実行し、
 
 - その persona に受入済みの batch が 1 つ以上ある（型と事実の台帳ができている）。
 - 依頼の範囲が、動いている batch と重ならない。違う時期か、違う案件にする。互いの文書を引用・添付・参照する必要がある範囲は、同時に動かさない（後の batch を、前の batch の受入のあとに起動する）。
-- 同時に動かすのは persona あたり 3 つまで（`CORPUS_MAX_BATCHES_PER_PERSONA`、既定 3）。
+- 同時に動かすのは persona あたり 3 つまで（`config/limits.json` の `max_batches_per_persona`）。
 
 `bin/batch` は、同じ persona の batch について次を守る。統括が気にする必要はない。
 
@@ -86,8 +86,9 @@ agent-alert wait --repo personaCorpus      # Bash の background で実行し、
 
 全体の上限：
 
-- 同時に動く Codex の実行は、repo 全体で `CORPUS_MAX_CODEX`（既定 12）までである。上限に達している間、後の組は空くのを待つ。`bin/batch status` が使用中の数を出す。
-- Codex の利用上限に当たった batch は、`failed`（利用上限）で止まる。上限が戻ってから `bin/batch resume` する。利用上限に当たることが続くなら、`CORPUS_MAX_CODEX` を下げる。
+- 同時に動く Codex の実行は、repo 全体で `config/limits.json` の `max_codex`（32）までである。上限に達している間、後の組は空くのを待つ。`bin/batch status` が使用中の数を出す。
+- 上限は統括が変えてよい。`config/limits.json` を書き換えて、資料・スクリプトの変更として commit する。次に起動する batch から効く。メモリは上限の理由にならない（Codex の実行 1 つは約 240 MB）。目安：Codex の利用上限のエラーが続くなら下げる。利用上限に当たらず、負荷平均（`uptime`）がコア数（`nproc`）を下回っているなら上げてよい。
+- Codex の利用上限に当たった batch は、`failed`（利用上限）で止まる。上限が戻ってから `bin/batch resume` する。
 - 並列を広げるほど、統括の抜き取りと受入が詰まる。結果待ちの batch が 5 つを超えたら、新しい batch を起動する前に受入を進める。
 
 ## 3. `bin/batch` がすること
@@ -119,7 +120,7 @@ agent-alert wait --repo personaCorpus      # Bash の background で実行し、
 | 関連 | 参照する、または参照される既存ファイル（あれば） |
 | 先に要るもの | この行の原稿を書く前に、原稿ができていなければならない同じ batch の行のパス（返信するメールの元のメール、直す前の版、要約する元の文書など）。無ければ空。循環させない |
 
-報告（`progress/<persona>/<batch>.result.md`）には、依頼との対応、作った件数と形式の内訳、原稿の段階と成形の段階それぞれの不合格の件数・理由・やり直しの回数、破棄した行と理由、レビュー役の所見、抜き取りに使うレンダリングの場所（`scratch/<persona>/<batch>/render/`）を書く。
+報告（`progress/<persona>/<batch>.result.md`）には、依頼との対応、作った件数と形式の内訳、原稿の段階と成形の段階それぞれの不合格の件数・理由・やり直しの回数、破棄した行と理由、レビュー役の所見、抜き取りに使うレンダリングの場所（`scratch/<persona>/<batch>/work/` の下の各 `render/`）を書く。
 
 ### 原稿
 
@@ -187,7 +188,7 @@ Office の文書と PDF は、その persona の世界の「型」を使って�
 
 通知が来たら、`progress/<persona>/<batch>.result.md` を読み、自分で開いて確かめる。
 
-- 形式ごとに 1 件以上、合計で batch の 2 割以上（最低 8 件）。Office と PDF は `scratch/<persona>/<batch>/render/` の画像を見る。画像は画像そのものを見る。
+- 形式ごとに 1 件以上、合計で batch の 2 割以上（最低 8 件）。Office と PDF は `scratch/<persona>/<batch>/work/` の下の各 `render/` の画像を見る（報告に場所が書いてある）。画像は画像そのものを見る。
 - 見る点は `runbooks/REVIEW.md` と同じ。成果物を開いて、中身（原稿のレビューの観点）と見た目（見た目のレビューの観点）の両方を、同じ基準で確かめる。中身は `sources/<persona>/` の原稿でも読める。
 - 自分の抜き取りで不合格が 2 件以上出たら、レビューが甘いとみて batch 全体を破棄するか、`bin/batch resume <persona> <batch> --draft-review-again`（中身）または `--review-again`（見た目）でレビューからやり直す。
 

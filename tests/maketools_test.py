@@ -183,6 +183,22 @@ class MakeTools(unittest.TestCase):
         for profile in profiles:
             self.assertIn('file://', profile)
 
+    def test_parallel_recalc_stamp_and_render_same_basename(self):
+        self.require('soffice','pdftoppm')
+        from openpyxl import Workbook, load_workbook
+        def produce(number):
+            directory=self.work/str(number);directory.mkdir()
+            path=directory/'report.xlsx'
+            workbook=Workbook();workbook.active['A1']=number+10;workbook.active['A2']='=A1*3';workbook.save(path)
+            self.run_tool('recalc',path)
+            self.assertEqual(load_workbook(path,data_only=True).active['A2'].value,(number+10)*3)
+            self.run_tool('stamp',path,'--author','Eleanor','--date','2026-01-01T12:00:00Z')
+            self.assertEqual(load_workbook(path).properties.creator,'Eleanor')
+            self.run_tool('render',path,directory/'render')
+            self.assertTrue(list((directory/'render').glob('report-*.png')))
+        with concurrent.futures.ThreadPoolExecutor(max_workers=3) as pool:
+            list(pool.map(produce,range(3)))
+
     def test_office(self):
         self.require('soffice', 'pdftoppm')
         from docx import Document

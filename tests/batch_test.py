@@ -13,14 +13,17 @@ from unittest.mock import patch
 
 SOURCE = Path(__file__).resolve().parents[1]
 FAKE = r'''#!/usr/bin/env python3
-import json, os, pathlib, sys
+import json, os, pathlib, sys, fcntl
 root=pathlib.Path.cwd()
 prompt=sys.argv[-1]
 meta=json.loads(prompt.split('BATCH_CONTEXT\n',1)[1].split('\nEND_BATCH_CONTEXT',1)[0])
 s=meta['stage']; scratch=root/meta['scratch']; scratch.mkdir(parents=True,exist_ok=True)
 with (scratch/'argv.jsonl').open('a') as f: f.write(json.dumps(sys.argv[:-1])+'\n')
-counter=scratch/'calls.json'; calls=json.loads(counter.read_text()) if counter.exists() else {}
-calls[s]=calls.get(s,0)+1; counter.write_text(json.dumps(calls))
+counter=scratch/'calls.json'
+with (scratch/'calls.lock').open('a') as lock:
+ fcntl.flock(lock,fcntl.LOCK_EX)
+ calls=json.loads(counter.read_text()) if counter.exists() else {}
+ calls[s]=calls.get(s,0)+1; counter.write_text(json.dumps(calls))
 mode=os.environ.get('FAKE_MODE','ok')
 with (scratch/'contexts.jsonl').open('a') as f: f.write(json.dumps(meta)+'\n')
 if mode=='fail' and s=='build':
@@ -342,7 +345,7 @@ class BatchTest(unittest.TestCase):
         self.cli('run','p01','b001','--plan-only'); self.assertFalse(list((self.root/'people/p01-test').rglob('*.txt')))
         self.run_batch(); self.assertEqual(json.loads((self.scratch/'calls.json').read_text())['plan'],1)
     def test_lock(self):
-        p=self.root/'scratch/p01-test/.lock'; p.parent.mkdir(parents=True)
+        p=self.root/'scratch/p01-test/.runtime-locks/b001.lock'; p.parent.mkdir(parents=True)
         with p.open('w') as f:
             fcntl.flock(f,fcntl.LOCK_EX|fcntl.LOCK_NB)
             self.run_batch(ok=False)

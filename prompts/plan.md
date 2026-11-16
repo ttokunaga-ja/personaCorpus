@@ -1,7 +1,7 @@
 # 依頼からファイル計画を書く
 
 AGENTS.md、SPEC.md、runbooks/PRODUCTION.md、runbooks/REVIEW.md、personas/README.md を読み、依頼と persona 定義、過去の progress/<persona>/*.md を確認してください。
-BATCH_CONTEXT の plan に Markdown 表を作ってください。列は「パス・日付・作り方・内容・関連」。パスは people/<persona>/ からの相対パスです。
+BATCH_CONTEXT の plan に Markdown 表を作ってください。列は「パス・日付・作り方・内容・関連・先に要るもの」。パスは people/<persona>/ からの相対パスです。
 
 計画の質が、この batch の成果物の質を決めます。次を守ってください。
 
@@ -22,5 +22,9 @@ BATCH_CONTEXT の plan に Markdown 表を作ってください。列は「パ�
 persona 定義の「仕事の流れ」に無い出来事が要るときは、時期・相手・数値・結論を付けて追記してください。既にある設定と受入済みのファイルに矛盾する変更はしません。
 
 不合格理由が BATCH_CONTEXT の reasons にある場合、その理由を解決して計画全体を書き直してください。
-書いてよい場所は progress/<persona>/、templates/<persona>/、指定された scratch、persona 定義の「仕事の流れ」への追記だけです。成果物はまだ作りません。
-一時物は BATCH_CONTEXT の scratch 以下。資料と他 persona を変更せず、stage・commit・push はしないでください。
+書いてよい場所は progress/<persona>/、templates/<persona>/、指定された work、persona 定義の「仕事の流れ」への追記だけです。成果物はまだ作りません。
+一時物は BATCH_CONTEXT の work 以下。資料と他 persona を変更せず、stage・commit・push はしないでください。
+
+実行専用の作業フォルダは BATCH_CONTEXT の work、レンダリング先は render です。他の実行の作業フォルダへ一時物を書きません。指定された review_output だけは指定先へ書きます。
+
+「先に要るもの」は同じ batch 内の前提となる行のパスをカンマ区切りで書き、無ければ空にします。循環させません。「関連」は参照関係で、原稿の実行順序には使いません。渡された進行中の batch の依頼と計画を読み、パスと内容を重ねず、他 batch の計画・依頼は変更しません。

@@ -26,8 +26,10 @@ manifest=load('manifest')
 def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('out',type=Path);p.add_argument('--persona',action='append');check.options(p);a=p.parse_args()
     try:
-        names=check.personas(a.root)
+        names=sorted({rel.split('/')[0] for rel in manifest.accepted(a.root)})
+        if not names:raise ValueError('no accepted personas')
         selected=sorted(set(check.resolve(a.root,n) for n in a.persona)) if a.persona else names
+        if set(selected)-set(names):raise ValueError('selected persona has no accepted files')
         out=a.out.resolve()
         if out.is_relative_to(check.BASE) and not out.is_relative_to(check.BASE/'scratch'):
             raise ValueError('output must be outside repository or under scratch/')
@@ -35,6 +37,8 @@ def main():
             raise ValueError('output must not overlap corpus root')
         if out.exists() and any(out.iterdir()):raise ValueError('output directory must be empty')
         args=argparse.Namespace(**vars(a));args.all=True;args.persona=None;args.batch=None;args.report=None
+        args.accepted_paths={n:manifest.accepted(a.root/n) for n in names}
+        args.accepted_personas=names
         if check.run(args):raise ValueError('check --all failed or OCR incomplete')
         inventories={n:manifest.verify(a.root/n,a.manifests/(n+'.tsv')) for n in names}
         with tempfile.TemporaryDirectory(prefix='corpus-pack-') as temporary:
