@@ -267,6 +267,23 @@ def source_body(text):
     return '\n'.join(result)
 
 
+def email_source_reason(expected, path):
+    """Compare explicit manuscript identifiers with MIME headers, never body quotes."""
+    header = expected.strip().split('\n\n', 1)[0]
+    source = email.message_from_string(header, policy=email.policy.default)
+    actual = email.message_from_bytes(path.read_bytes(), policy=email.policy.default)
+    for field in ('Message-ID', 'In-Reply-To', 'References'):
+        value = str(source.get(field, '')).strip()
+        # Prose/Markdown and notes such as "none" are not explicit header values.
+        if not re.fullmatch(r'<[^<>\s]+>(?:\s+<[^<>\s]+>)*', value):
+            continue
+        want = value.split()
+        have = str(actual.get(field, '')).split()
+        if want != have:
+            return f'{field}: manuscript {" ".join(want)} != email {" ".join(have) or "(missing)"}'
+    return None
+
+
 def formula_reason(path):
     ns = '{http://schemas.openxmlformats.org/spreadsheetml/2006/main}'
     with zipfile.ZipFile(path) as archive:
@@ -414,6 +431,9 @@ def inspect(item):
                 except Exception as e:fail('metadata',f'{type(e).__name__}: {e}')
                 try:
                     scfg,body=source_document(source_root,rel)
+                    if ext=='eml':
+                        reason=email_source_reason(body,path)
+                        if reason:fail('email-headers',reason)
                     visual_source=bool({'photo','handwriting','chart','diagram'} & set(scfg.get('kind','').split(':')))
                     if not visual_source:
                         if missing:skipped.append('source(OCR)')

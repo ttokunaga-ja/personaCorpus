@@ -89,6 +89,50 @@ class Coverage(unittest.TestCase):
             self.assertIn('source', check.inspect((path, self.home, {}, 'eng', self.sources))[1])
 
 
+class EmailHeaders(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        self.home = Path(self.tmp.name)/'people'; self.home.mkdir()
+        self.sources = Path(self.tmp.name)/'sources'; self.sources.mkdir()
+
+    def email(self, headers, body='案件の判断を確認しました。'):
+        path = self.home/'message.eml'
+        path.write_text('From: sender@example.test\nTo: recipient@example.test\nSubject: 確認\nMIME-Version: 1.0\nContent-Type: text/plain; charset=utf-8\nContent-Transfer-Encoding: 8bit\n'+headers+'\n\n'+body)
+        return path
+
+    def test_identifiers_must_match_headers_even_when_present_in_body(self):
+        for field in ('Message-ID', 'In-Reply-To', 'References'):
+            with self.subTest(field=field):
+                expected = 'From: sender@example.test\n'+field+': <fixed@example.test>\n\n案件の判断を確認しました。'
+                path = self.email(field+': <changed@example.test>', expected)
+                (self.sources/'message.eml.md').write_text('---\nkind: text\n---\n'+expected)
+                issues = check.inspect((path, self.home, {}, None, self.sources))[1]
+                self.assertIn('email-headers', issues)
+                self.assertIn(field, issues['email-headers'])
+
+    def test_missing_identifier_is_rejected(self):
+        path = self.email('Message-ID: <own@example.test>')
+        reason = check.email_source_reason('From: sender@example.test\nIn-Reply-To: <parent@example.test>\n\n本文', path)
+        self.assertIn('In-Reply-To', reason)
+
+    def test_folded_references_and_fixed_ids_are_preserved(self):
+        path = self.email('Message-ID: <study-postpone-260127@example.test>\nReferences: <first@example.test>\n <second@example.test>')
+        expected = 'From: sender@example.test  \nMessage-ID: <study-postpone-260127@example.test>  \nReferences: <first@example.test> <second@example.test>\n\n本文'
+        self.assertIsNone(check.email_source_reason(expected, path))
+
+    def test_references_order_is_significant(self):
+        path = self.email('References: <second@example.test> <first@example.test>')
+        self.assertIn('References', check.email_source_reason('References: <first@example.test> <second@example.test>\n\n本文', path))
+
+    def test_body_quotes_and_absent_reference_notes_are_not_headers(self):
+        path = self.email('Message-ID: <own@example.test>')
+        for expected in ('From: sender@example.test\nCc: なし\nIn-Reply-To: なし\nReferences: なし\n\nMessage-ID: <quoted@example.test>',
+                         '本文の説明\n\nMessage-ID: <quoted@example.test>'):
+            with self.subTest(expected=expected):
+                self.assertIsNone(check.email_source_reason(expected, path))
+
+
 class Duplicate(unittest.TestCase):
     def result(self, path, grams, digest=None):
         return (path, {}, digest, frozenset(grams), [])
