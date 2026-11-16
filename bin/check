@@ -182,6 +182,8 @@ def extract(path,ext,language=None):
             raise ValueError('invalid email headers')
         parts=[f'{k}: {v}' for k,v in msg.items()]
         for part in msg.walk():
+            # Attachment names live in MIME headers, not in any body part.
+            if part.get_filename():parts.append(part.get_filename())
             if part.get_content_maintype()=='text' and not part.is_multipart():
                 content=part.get_content();parts.append(html_text(content) if part.get_content_subtype()=='html' else content)
         return '\n'.join(parts),False,False

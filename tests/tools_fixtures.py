@@ -315,6 +315,17 @@ class Sources(Check):
         self.source('recon.txt',prose+'Bank 486,200,000円 on 2026年4月6日, invoice AS-2603-041, converted 240,939.60 and ledger 498,600,000円.')
         _,rows=self.issues();self.assertFalse(any(r[2]=='source' for r in rows),rows)
 
+    def test_source_sees_email_attachment_names(self):
+        import email.message
+        m=email.message.EmailMessage()
+        m['From']='a@x.example';m['To']='b@x.example';m['Subject']='Import failure';m['Message-ID']='<4f2a9c1e7b3d@x.example>'
+        body='The import of customer inquiries failed for the equipment dealer and the support lead asked the vendor to review the attached file today.'
+        m.set_content(body)
+        m.add_attachment(b'id,name\n1,a\n',maintype='text',subtype='csv',filename='問合せ取込_0710.csv')
+        self.put('fail.eml',m.as_bytes())
+        self.source('fail.eml',body+'\n\n添付: 問合せ取込_0710.csv')
+        _,rows=self.issues();self.assertFalse(any(r[2]=='source' for r in rows),rows)
+
     def test_source_numbers_missing(self):
         prose='The March reconciliation was confirmed by the controller after the bank certificate arrived and the receivable entry was reversed. '
         self.put('recon.txt',prose+'Bank 486200000 and ledger 498600000 with items 1111111 and 2222222.')
