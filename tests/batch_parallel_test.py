@@ -88,7 +88,7 @@ s=meta['stage'];""")
             b.run()
         self.assertEqual(len([e for e in self.events() if e[0]=='start' and e[3]=='draft']),2)
 
-    def test_real_fake_rejected_parent_skips_descendants(self):
+    def test_real_fake_rejected_parent_does_not_skip_descendants(self):
         mod,b,rows=self.prepare_parallel()
         rows=rows[:3]
         rows[1]['先に要るもの']=rows[0]['パス']
@@ -96,8 +96,8 @@ s=meta['stage'];""")
         b.plan.write_text('| '+' | '.join(mod.COLUMNS)+' |\n|---|---|---|---|---|---|\n'+''.join('| '+' | '.join(r[c] for c in mod.COLUMNS)+' |\n' for r in rows))
         with patch.dict(os.environ,self.env | {'FAKE_MODE':'draft-reject-always'}):
             failures=b.draft_phase(rows,rows)
-        self.assertEqual(failures[rows[2]['パス']], '先に要る原稿が不合格')
-        self.assertTrue(all(e[4]==[rows[0]['パス']] for e in self.events() if e[0]=='start' and e[3]=='draft'))
+        self.assertTrue(all(reason != '先に要る原稿が不合格' for reason in failures.values()))
+        self.assertEqual({e[4][0] for e in self.events() if e[0]=='start' and e[3]=='draft'}, {r['パス'] for r in rows})
 
     def test_overlapping_in_progress_plan_rejected(self):
         self.cli('run','p01','b001','--plan-only')
@@ -183,8 +183,8 @@ with m['codex_slot']():
             calls.append([r['パス'] for r in targets]); return {'a.txt':'bad'}
         b.phase=phase
         failed=b.draft_phase(rows,rows)
-        self.assertEqual(calls,[['a.txt']])
-        self.assertEqual(failed['c.txt'],'先に要る原稿が不合格')
+        self.assertEqual(calls,[['a.txt'],['b.txt'],['c.txt']])
+        self.assertEqual(failed,{'a.txt':'bad'})
 
 if __name__=='__main__':
     import unittest

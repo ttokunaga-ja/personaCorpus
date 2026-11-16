@@ -65,7 +65,7 @@ if s in ('draft-review','build-review'):
  lines=[]
  for i,row in enumerate(meta['rows']):
   draft=s=='draft-review'
-  reject=i==0 and ((mode in ('draft-reject-always','draft-final-fail') or mode=='draft-reject-once' and meta['round']==0) if draft else (mode in ('reject-always','build-final-fail') or mode=='parent-fail' and '記録' in row['パス'] or mode=='reject-once' and meta['round']==0))
+  reject=i==0 and ((mode in ('draft-reject-always','draft-final-fail') or mode=='draft-parent-fail' and '記録' in row['パス'] or mode=='draft-reject-once' and meta['round']==0) if draft else (mode in ('reject-always','build-final-fail') or mode=='parent-fail' and '記録' in row['パス'] or mode=='reject-once' and meta['round']==0))
   if mode=='mutate' and not draft: (root/'people'/meta['persona']/row['パス']).write_text('改変')
   if mode=='mutate-build-review-source' and not draft: (root/'sources'/meta['persona']/(row['パス']+'.md')).write_text('改変')
   if mode=='mutate-draft' and draft: (root/'sources'/meta['persona']/(row['パス']+'.md')).write_text('改変')
@@ -135,6 +135,130 @@ class BatchTest(unittest.TestCase):
     def prompt_batch(self):
         mod=self.load()
         return mod.Batch(type('Args',(),dict(persona='p01',batch='b001'))())
+
+    def test_redraft_only_draft_discards_and_failed_batch(self):
+        self.run_batch()
+        mod=self.load(); b=self.prompt_batch(); rows=mod.plan_rows(b.plan)
+        b.state['draft_failures']={rows[0]['パス']:'原稿不合格'}
+        b.discard_rows(b.state['draft_failures'])
+        kept=b.source(rows[1]['パス']).read_bytes()
+        artifact=(b.folder/rows[1]['パス']).read_bytes()
+        b.state['status']='failed'; b.store()
+        self.cli('run','p01','b001','--redraft')
+        self.assertEqual(self.state()['status'],'done')
+        self.assertEqual(self.state()['redraft_paths'],[rows[0]['パス']])
+        self.assertEqual(b.source(rows[1]['パス']).read_bytes(),kept)
+        self.assertEqual((b.folder/rows[1]['パス']).read_bytes(),artifact)
+        self.assertNotIn('破棄：',b.plan.read_text())
+
+    def test_redraft_preserves_coordinator_drop_and_unknown(self):
+        self.run_batch(mode='draft-reject-always')
+        mod=self.load(); b=self.prompt_batch(); rows=mod.plan_rows(b.plan)
+        mod.mark_discard(b.plan,{rows[0]['パス']:'統括の抜き取りで不合格',rows[1]['パス']:'理由不明'})
+        before=b.plan.read_bytes()
+        result=self.cli('run','p01','b001','--redraft')
+        self.assertEqual(b.plan.read_bytes(),before)
+        self.assertIn(rows[1]['パス'],result.stdout)
+        self.assertNotIn('redraft_paths',self.state())
+
+    def test_draft_parent_failure_still_writes_child(self):
+        self.cli('run','p01','b001','--plan-only')
+        mod=self.load(); b=self.prompt_batch(); rows=mod.plan_rows(b.plan)
+        rows[1]['先に要るもの']=rows[0]['パス']
+        b.plan.write_text('| '+' | '.join(mod.COLUMNS)+' |\n|---|---|---|---|---|---|\n'+''.join('| '+' | '.join(r[c] for c in mod.COLUMNS)+' |\n' for r in rows))
+        b.state['completed']['plan']=rows; b.store()
+        self.cli('run','p01','b001',mode='draft-parent-fail')
+        state=self.state()
+        self.assertEqual(set(state['draft_failures']),{rows[0]['パス']})
+        contexts=[json.loads(x) for x in (self.scratch/'contexts.jsonl').read_text().splitlines()]
+        child=next(c for c in contexts if c['stage']=='draft' and c['rows'][0]['パス']==rows[1]['パス'])
+        self.assertEqual(child['missing_prerequisites'],{rows[1]['パス']:[rows[0]['パス']]})
+        self.assertIn(rows[1]['パス'],(b.result).read_text().split('## 先に要る原稿が欠けたまま書いた行')[1])
+
+    def test_redraft_accepted_batch_and_findings_only(self):
+        self.run_batch(mode='draft-parent-fail')
+        mod=self.load(); b=self.prompt_batch(); rows=mod.plan_rows(b.plan)
+        self.cli('accept','p01','b001')
+        # Acceptance removes scratch/state; reconstruct from the persisted ledger.
+        self.assertFalse((self.scratch/'state.json').exists())
+        self.cli('run','p01','b001','--redraft')
+        self.assertEqual(self.state()['redraft_paths'],[rows[0]['パス']])
+        self.assertEqual(self.state()['status'],'done')
+        self.cli('accept','p01','b001')
+
+    def test_redraft_resumes_after_build_failure(self):
+        self.run_batch(mode='draft-parent-fail')
+        self.cli('run','p01','b001','--redraft',mode='fail',ok=False)
+        self.assertTrue(self.state()['redraft_active'])
+        self.cli('run','p01','b001','--redraft')
+        self.assertEqual(self.state()['status'],'done')
+        self.assertFalse(self.state()['redraft_active'])
+        self.assertEqual(self.state()['redraft_generation'],1)
+
+    def test_real_check_empty_persona_and_final_check(self):
+        self.run_batch(mode='draft-reject-always')
+        shutil.copy2(SOURCE/'bin/check',self.root/'bin/check')
+        mod=self.load(); b=self.prompt_batch()
+        # Explicitly discard the other row too, leaving no artifacts to inspect.
+        mod.mark_discard(b.plan,{r['パス']:'原稿不合格' for r in mod.plan_rows(b.plan)})
+        shutil.rmtree(b.folder)
+        b.final_check()
+        b.folder.mkdir(parents=True)
+        b.final_check()
+        result=subprocess.run(['python3',str(self.root/'bin/check'),'p99', '--batch','b001'],cwd=self.root,text=True,capture_output=True)
+        self.assertNotEqual(result.returncode,0)
+        self.assertIn('persona not found',result.stdout+result.stderr)
+        b.folder.rmdir()
+        b.folder.symlink_to(self.root/'progress',target_is_directory=True)
+        with self.assertRaisesRegex(ValueError,'symlink'):
+            b.final_check()
+
+    def test_redraft_does_not_touch_other_build_pending_rows(self):
+        self.run_batch(mode='draft-parent-fail')
+        mod=self.load(); b=self.prompt_batch(); rows=mod.plan_rows(b.plan)
+        rel=rows[1]['パス']
+        mod.mark_discard(b.plan,{rel:'既存の成形待ち'},'成形待ち')
+        b.state['failures'][rel]='既存の成形待ち'; b.store()
+        artifact=(b.folder/rel).read_bytes()
+        source=b.source(rel).read_bytes()
+        self.cli('run','p01','b001','--redraft')
+        self.assertEqual((b.folder/rel).read_bytes(),artifact)
+        self.assertEqual(b.source(rel).read_bytes(),source)
+        self.assertIn('成形待ち：既存の成形待ち。',b.plan.read_text())
+
+    def test_missing_derived_original_waits_for_build(self):
+        self.cli('run','p01','b001','--plan-only')
+        mod=self.load(); b=self.prompt_batch(); rows=mod.plan_rows(b.plan)
+        rows[1]['先に要るもの']=rows[0]['パス']
+        b.plan.write_text('| '+' | '.join(mod.COLUMNS)+' |\n|---|---|---|---|---|---|\n'+''.join('| '+' | '.join(r[c] for c in mod.COLUMNS)+' |\n' for r in rows))
+        mod.mark_discard(b.plan,{rows[0]['パス']:'原稿不合格'})
+        # Set metadata directly after fake production, so validation sees a planned,
+        # absent original while the child still proceeds through the draft review.
+        original=b.codex
+        def codex(stage,targets=(),*args,**kwargs):
+            output=original(stage,targets,*args,**kwargs)
+            if stage=='draft':
+                path=b.source(rows[1]['パス'])
+                path.write_text(path.read_text().replace('derived_from:', 'derived_from: '+rows[0]['パス']))
+            return output
+        with patch.dict(os.environ,self.env),patch.object(b,'codex',codex):
+            self.assertEqual(b.draft_phase([rows[1]],rows),{})
+            failures=b.build_phase([rows[1]],rows)
+        self.assertIn('が未完成',failures[rows[1]['パス']])
+
+    def test_zero_build_full_pipeline_with_real_check(self):
+        self.cli('run','p01','b001','--plan-only')
+        mod=self.load(); b=self.prompt_batch()
+        rows=mod.plan_rows(b.plan)[:1]
+        b.plan.write_text('| '+' | '.join(mod.COLUMNS)+' |\n|---|---|---|---|---|---|\n'+''.join('| '+' | '.join(r[c] for c in mod.COLUMNS)+' |\n' for r in rows))
+        b.state['completed']['plan']=rows; b.store()
+        shutil.copy2(SOURCE/'bin/check',self.root/'bin/check')
+        shutil.rmtree(b.folder)
+        self.cli('run','p01','b001',mode='draft-reject-always')
+        self.assertEqual(self.state()['status'],'done')
+        self.assertEqual(self.state()['count'],0)
+        self.assertFalse(b.folder.exists())
+        self.assertIn('passed: 0, failed: 0',(self.scratch/'logs/final-check.log').read_text())
 
     def test_prompt_uses_stdin_and_file_references(self):
         b=self.prompt_batch()
@@ -702,6 +826,8 @@ class BatchTest(unittest.TestCase):
             mod.main(['resume','p01','b001','--producer','gpt-6.1-sol','--rebuild'])
             self.assertIn('--rebuild',json.loads((self.root/'job-args.json').read_text())[-1])
             self.assertIn('--producer gpt-6.1-sol',json.loads((self.root/'job-args.json').read_text())[-1])
+            mod.main(['resume','p01','b001','--redraft'])
+            self.assertIn('--redraft',json.loads((self.root/'job-args.json').read_text())[-1])
     def test_launch_lock_handoff(self):
         p=self.root/'ops/bin/codex-job'; p.parent.mkdir(parents=True)
         p.write_text("""#!/usr/bin/env python3

@@ -54,6 +54,7 @@ bin/batch start <persona> <batch>          # 依頼を読み、最後まで自�
 bin/batch start <persona> <batch> --plan-only   # 計画を書いたところで止める（統括が計画を見てから続けたいとき）
 bin/batch resume <persona> <batch>         # 止まったところから続ける
 bin/batch resume <persona> <batch> --rebuild     # 「成形待ち」の行を、残っている原稿から成形し直す
+bin/batch resume <persona> <batch> --redraft     # 原稿の段階で破棄になった行の印を外し、原稿からやり直す
 agent-alert wait --repo personaCorpus      # Bash の background で実行し、通知を待つ
 ```
 
@@ -99,7 +100,7 @@ agent-alert wait --repo personaCorpus      # Bash の background で実行し、
 | テンプレートのレビュー | `gpt-6.1-sol` | 型を作ったのとは別の実行で、型を開いて画像にし、`README.md` の説明と実物が合っているか、崩れがないか、余計な空の行や仮の欄がないかを確かめる。不合格は理由を渡して作り直させる（2 回まで） | |
 | 計画 | `gpt-6.1-sol` | 依頼、persona の定義、これまでの計画、テンプレートの一覧を読み、ファイル計画を書く。複数のファイルにまたがる事実（文書番号、金額の内訳、会議の日時、メールのスレッド）を事実の台帳に書き足す | `progress/<persona>/<batch>.md`、`progress/<persona>/facts.md` |
 | 計画の検査 | スクリプト | 列、拡張子、パスの重複、日付が期間内か、制作区分の名前がないか、件数。不合格なら理由を付けて計画をやり直させる（1 回） | |
-| 原稿 | `gpt-6.1-terra` | 計画の行を 10 件ずつ、別々の Codex の実行で、中身を Markdown の原稿に書く（下の「原稿」）。「先に要るもの」が済んだ行から書き、同じ段の組は同時に動かす | `sources/<persona>/…​.md` |
+| 原稿 | `gpt-6.1-terra` | 計画の行を 10 件ずつ、別々の Codex の実行で、中身を Markdown の原稿に書く（下の「原稿」）。「先に要るもの」が済んだ行から書き、同じ段の組は同時に動かす。先に要る原稿が不合格のまま破棄されても、後の行は計画と台帳をもとに書き、報告に一覧で出す | `sources/<persona>/…​.md` |
 | 原稿の検査 | スクリプト | 全行に原稿があるか、制作の痕跡、同じ batch と既存の原稿との近似重複。計画の「関連」「先に要るもの」か原稿の `derived_from` で関係が書かれた版どうしは、近似重複にしない（中身が同じかどうかはレビューが見る） | |
 | 原稿のレビュー | `gpt-6.1-sol` | `runbooks/REVIEW.md` の「原稿のレビュー」の観点で 1 件ずつ読み、合格か破棄かと理由を書く。不合格の原稿は消して書き直させる。2 回まで。まだ不合格の行は破棄し、成形しない | `scratch/…/draft-review-r<N>.tsv` |
 | 成形 | `gpt-6.1-terra` | 合格した原稿を、10 件ずつ別々の実行で、型に入れて DOCX・XLSX・PPTX・PDF・`eml`・画像にする。原稿の中身を変えない | `people/<persona>/…` |
@@ -118,7 +119,7 @@ agent-alert wait --repo personaCorpus      # Bash の background で実行し、
 | 作り方 | `docx`・`xlsx`・`pptx` はテンプレート名、PDF は元にするもの（`office:<テンプレート名>`、`tex:<テンプレート名>`、`scan:<元のファイルまたは tex/office>`）、画像は `photo`・`screenshot`・`chart`・`diagram`、その他は `text` |
 | 内容 | そのファイルにしかない中身。誰が、何について、どの案件・数値・結論で書いたか。2〜4 文 |
 | 関連 | 参照する、または参照される既存ファイル（あれば） |
-| 先に要るもの | この行の原稿を書く前に、原稿ができていなければならない同じ batch の行のパス（返信するメールの元のメール、直す前の版、要約する元の文書など）。無ければ空。循環させない |
+| 先に要るもの | この行の原稿を書く前に、原稿ができていなければならない同じ batch の行のパス。後の文書が前の文書の文面そのものを使うときだけ書く（引用して返信するメールの元のメール、直す前の版、要約する元の文書、添付する文書）。出来事の前後関係だけなら書かない。無ければ空。循環させない |
 
 報告（`progress/<persona>/<batch>.result.md`）には、依頼との対応、作った件数と形式の内訳、原稿の段階と成形の段階それぞれの不合格の件数・理由・やり直しの回数、破棄した行と理由、レビュー役の所見、抜き取りに使うレンダリングの場所（`scratch/<persona>/<batch>/work/` の下の各 `render/`）を書く。
 
@@ -200,7 +201,7 @@ bin/batch discard <persona> <batch> --reason "<理由>" # batch のファイル�
 git push origin main
 ```
 
-- 「成形待ち」の行が残っていても受入できる（原稿だけが commit される）。あとで `bin/batch resume <persona> <batch> --rebuild` で成形し直し、抜き取りで確かめてから、もう一度 `bin/batch accept` する。原稿に原因があって成形できない行は、`--drop` で破棄する。
+- 「成形待ち」の行が残っていても受入できる（原稿だけが commit される）。あとで `bin/batch resume <persona> <batch> --rebuild` で成形し直し、抜き取りで確かめてから、もう一度 `bin/batch accept` する。原稿に原因があって成形できない行は、`--drop` で破棄する。原稿の段階で破棄になった行が、仕組みや指示の不備によるものだったときは、`bin/batch resume <persona> <batch> --redraft` で原稿からやり直せる（統括が `--drop` で破棄した行と、合格済みの行には触れない）。
 - 受入または破棄が済むと、`scratch/<persona>/<batch>/` は消える。ただし「成形待ち」の行が残っている間は、原因を調べられるように残す。
 - 同じ batch で不合格が 2 回続いたら、`bin/batch start ... --producer gpt-6.1-sol` で原稿と成形を Sol に切り替え、切替えと理由を依頼の末尾に書く。
 - 形式ごとに、特に出来のよい受入済みファイルを `templates/<persona>/README.md` の「見本」に書き足す。制作とレビューは見本を水準として使う。

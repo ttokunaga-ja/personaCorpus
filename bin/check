@@ -49,10 +49,13 @@ def personas(root):
     return names
 
 
-def resolve(root,name):
-    names=[n for n in personas(root) if n==name or re.fullmatch(r'p\d{2}',name) and n.startswith(name+'-')]
+def resolve(root,name,definitions=None):
+    candidates = [p.stem for p in definitions.glob('p[0-9][0-9]-*.md')] if definitions is not None else personas(root)
+    names=[n for n in candidates if n==name or re.fullmatch(r'p\d{2}',name) and n.startswith(name+'-')]
     if len(names)!=1:
         raise ValueError(f'persona not found or ambiguous: {name}')
+    if (root/names[0]).is_symlink():
+        raise ValueError('persona folder is a symlink: ' + names[0])
     return names[0]
 
 
@@ -545,7 +548,7 @@ def tracked(folder):
 
 
 def run(a):
-    names=getattr(a,'accepted_personas',None) or (personas(a.root) if a.all else [resolve(a.root,a.persona)])
+    names=getattr(a,'accepted_personas',None) or (personas(a.root) if a.all else [resolve(a.root,a.persona,a.personas)])
     started=time.monotonic();failures=[];passed=0;pending=0;failed_files=set();skips=Counter()
     language=None
     if shutil.which('tesseract'):

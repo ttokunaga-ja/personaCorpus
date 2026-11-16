@@ -187,7 +187,9 @@ class Check(Fixture):
     def test_mtime(self):
         self.pair('mtime',lambda:self.put('a.txt'),lambda:os.utime(self.home/'a.txt',(0,0)))
         (self.base/'personas'/f'{self.name}.md').unlink()
-        r,rows=self.issues();self.assertFalse(any(x[2]=='mtime' for x in rows));self.assertIn('定義なし',r.stderr)
+        r=self.cli('check','p01')
+        self.assertEqual(r.returncode,1)
+        self.assertIn('persona not found',r.stderr)
 
     def make_plan(self,rows):
         d=self.base/'progress'/self.name;d.mkdir(exist_ok=True)
