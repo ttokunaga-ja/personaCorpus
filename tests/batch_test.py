@@ -15,10 +15,13 @@ SOURCE = Path(__file__).resolve().parents[1]
 FAKE = r'''#!/usr/bin/env python3
 import json, os, pathlib, sys, fcntl
 root=pathlib.Path.cwd()
-prompt=sys.argv[-1]
+prompt=sys.stdin.read()
+assert sys.argv[-1]=='-'
+assert all('BATCH_CONTEXT' not in arg for arg in sys.argv)
 meta=json.loads(prompt.split('BATCH_CONTEXT\n',1)[1].split('\nEND_BATCH_CONTEXT',1)[0])
 s=meta['stage']; scratch=root/meta['scratch']; scratch.mkdir(parents=True,exist_ok=True)
-with (scratch/'argv.jsonl').open('a') as f: f.write(json.dumps(sys.argv[:-1])+'\n')
+with (scratch/'argv.jsonl').open('a') as f: f.write(json.dumps(sys.argv)+'\n')
+with (scratch/'prompts.jsonl').open('a') as f: f.write(json.dumps(prompt)+'\n')
 counter=scratch/'calls.json'
 with (scratch/'calls.lock').open('a') as lock:
  fcntl.flock(lock,fcntl.LOCK_EX)
@@ -129,6 +132,75 @@ class BatchTest(unittest.TestCase):
     def scratch(self): return self.root/'scratch/p01-test/b001'
     def state(self): return json.loads((self.scratch/'state.json').read_text())
     def run_batch(self,**kw): return self.cli('run','p01','b001',**kw)
+    def prompt_batch(self):
+        mod=self.load()
+        return mod.Batch(type('Args',(),dict(persona='p01',batch='b001'))())
+
+    def test_prompt_uses_stdin_and_file_references(self):
+        b=self.prompt_batch()
+        documents=[b.definition,b.templates,b.plan,b.plan.parent/'facts.md']
+        for i,p in enumerate(documents):
+            p.parent.mkdir(parents=True,exist_ok=True)
+            p.write_text(f'PRIVATE_DOCUMENT_BODY_{i}')
+        other=b.plan.with_name('b002.request.md'); other.write_text('OTHER_REQUEST_BODY')
+        other_plan=other.with_name('b002.md'); other_plan.write_text('OTHER_PLAN_BODY')
+        state=self.root/'scratch/p01-test/b002/state.json'
+        state.parent.mkdir(parents=True); state.write_text('{}')
+        with patch.dict(os.environ,self.env): b._codex('plan')
+        prompt=json.loads((self.scratch/'prompts.jsonl').read_text().splitlines()[0])
+        args=json.loads((self.scratch/'argv.jsonl').read_text().splitlines()[0])
+        self.assertEqual(args[-1],'-')
+        self.assertFalse(any('BATCH_CONTEXT' in arg for arg in args))
+        for i,p in enumerate(documents):
+            self.assertNotIn(f'PRIVATE_DOCUMENT_BODY_{i}',prompt)
+            self.assertIn(str(p.relative_to(self.root)),prompt)
+        for p,body in [(other,'OTHER_REQUEST_BODY'),(other_plan,'OTHER_PLAN_BODY')]:
+            self.assertIn(str(p.relative_to(self.root)),prompt)
+            self.assertNotIn(body,prompt)
+        self.assertIn(str(b.request.relative_to(self.root)),prompt)
+        self.assertIn('範囲：月次報告',prompt)
+
+    def test_large_facts_do_not_enlarge_prompt(self):
+        b=self.prompt_batch()
+        (b.plan.parent/'facts.md').write_text('F'*200_000)
+        with patch.dict(os.environ,self.env): b._codex('templates')
+        prompt=json.loads((self.scratch/'prompts.jsonl').read_text().splitlines()[0])
+        self.assertLess(len(prompt.encode('utf-8')),60*1024)
+        self.assertNotIn('F'*100,prompt)
+
+    def test_oversized_prompt_fails_before_codex(self):
+        b=self.prompt_batch()
+        b.request.write_text('依'*21000)
+        with patch.dict(os.environ,self.env):
+            with self.assertRaisesRegex(ValueError,r'60 KiB.*依頼本文=.*BATCH_CONTEXT='):
+                b._codex('templates')
+        self.assertFalse((self.scratch/'calls.json').exists())
+
+    def test_prompt_size_checks_template_and_context(self):
+        b=self.prompt_batch()
+        template=self.root/'prompts/templates.md'
+        template.write_text('T'*61441)
+        with patch.dict(os.environ,self.env):
+            with self.assertRaisesRegex(ValueError,'ひな形=61441 bytes'):
+                b._codex('templates')
+        template.write_text('short')
+        with patch.dict(os.environ,self.env):
+            with self.assertRaisesRegex(ValueError,'BATCH_CONTEXT='):
+                b._codex('templates',reasons={'reason':'大'*21000})
+        self.assertFalse((self.scratch/'calls.json').exists())
+
+    def test_review_never_receives_producer_output(self):
+        b=self.prompt_batch(); b.plan.write_text('PLAN_BODY')
+        self.scratch.mkdir(parents=True,exist_ok=True)
+        (self.scratch/'producer.log').write_text('PRODUCER_SECRET')
+        with patch.dict(os.environ,self.env):
+            b._codex('draft-review',reasons={'producer':'PRODUCER_SECRET'},
+                     review_output=self.scratch/'review.tsv')
+        prompt=json.loads((self.scratch/'prompts.jsonl').read_text().splitlines()[0])
+        self.assertNotIn('PRODUCER_SECRET',prompt)
+        self.assertNotIn('PLAN_BODY',prompt)
+        self.assertIn(str(b.plan.relative_to(self.root)),prompt)
+
     def test_missing_explanation_selects_the_row_section(self):
         mod=self.load()
         rows=[{'パス':'Pictures/未作成.jpg'},{'パス':'Documents/完了.txt'}]

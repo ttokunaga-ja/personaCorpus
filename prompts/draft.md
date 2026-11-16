@@ -1,5 +1,6 @@
 # 対象の計画行の原稿を1件ずつ書く
 
+指示の「読むファイル」に示されたパスを用途に従って開いてください。資料の本文は指示に埋め込まれていません。事実の台帳は、対象の行（計画前は依頼）に関係する案件・出来事の見出しを検索し、該当する部分を読んでください。
 AGENTS.md、SPEC.md、runbooks/PRODUCTION.md の「原稿」、runbooks/REVIEW.md の「原稿のレビュー」、persona 定義、事実の台帳、テンプレート一覧を読んでください。BATCH_CONTEXT の rows だけを対象に、中身を全部書いた Markdown の原稿を作ります。全体計画は文脈として使います。成果物の成形はしません。
 
 原稿の置き場所は `sources/<persona>/<計画のパス>.md` です。例えば計画のパスが `Documents/月次/調整.xlsx` なら `sources/<persona>/Documents/月次/調整.xlsx.md` です。先頭に次の設定を置きます。

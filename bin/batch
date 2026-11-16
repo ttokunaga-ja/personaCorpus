@@ -393,33 +393,38 @@ class Batch:
         context['previous_verdicts'] = {r['パス']: previous[r['パス']] for r in rows if r['パス'] in previous}
         if stage in ('draft-review', 'build-review'):
             context['reasons'] = {p: v[1] for p, v in context['previous_verdicts'].items() if v[0] == 'reject'}
-        prompt = read(ROOT / 'prompts' / (stage + '.md'))
-        prompt += '\nBATCH_CONTEXT\n' + json.dumps(context, ensure_ascii=False) + '\nEND_BATCH_CONTEXT\n'
-        prompt += '\n## 依頼\n' + read(self.request) + '\n## persona の定義\n' + read(self.definition)
-        if self.templates.exists():
-            prompt += '\n## テンプレート一覧\n' + read(self.templates)
-        facts = self.plan.parent / 'facts.md'
-        if facts.exists():
-            prompt += '\n## 事実の台帳\n' + read(facts)
-        if self.plan.exists() and stage not in ('draft-review', 'build-review'):
-            prompt += '\n## 計画全体（文脈）\n' + read(self.plan)
-        # Review gets file plans, never producer logs or explanations.
-        if stage in ('draft-review', 'build-review'):
-            prompt += '\n## 計画全体\n' + read(self.plan)
+        references = [
+            (self.request, '依頼の範囲と受入条件を確認する'),
+            (self.definition, '人物・組織・仕事の流れ・言語と日時の設定を確認する'),
+            (self.templates, '使う型・見本と用途を確認する'),
+            (self.plan.parent / 'facts.md', '対象の行や依頼に関係する案件・出来事の見出しを検索して読み、共通の事実を照合する'),
+            (self.plan, '計画全体の文脈・関連と依存関係を確認する'),
+        ]
         if stage == 'plan':
             for other in sorted(self.plan.parent.glob('b*.request.md')):
                 other_plan = other.with_name(other.name.replace('.request.md', '.md'))
                 if other != self.request and (ROOT / 'scratch' / self.persona / other_plan.stem / 'state.json').exists():
-                    prompt += '\n## 同じ persona の進行中の依頼\n' + read(other)
-                    if other_plan.exists():
-                        prompt += '\n## 進行中の計画\n' + read(other_plan)
+                    references += [(other, '同じ persona の進行中の依頼と範囲を重ねない'),
+                                   (other_plan, '同じ persona の進行中の計画とパス・内容を重ねない')]
+        # Review reads plans and originals, never producer logs or explanations.
+        files = '\n## 読むファイル（パスはリポジトリ直下からの相対パス）\n'
+        files += '\n'.join(f'- `{p.relative_to(ROOT)}`：{purpose}。' +
+                           ('' if p.exists() else '未作成なら読む必要はありません。')
+                           for p, purpose in references) + '\n'
+        parts = {'ひな形': read(ROOT / 'prompts' / (stage + '.md')),
+                 '参照ファイル': files, '依頼本文': '\n## 依頼\n' + read(self.request)}
         for attempt in range(2):
             if attempt:
                 retry_work = work.with_name(work.name + f'-retry{attempt}')
                 retry_work.mkdir(parents=True, exist_ok=True)
-                previous_context = json.dumps(context, ensure_ascii=False)
                 context.update(work=str(retry_work.relative_to(ROOT)), render=str((retry_work / 'render').relative_to(ROOT)))
-                prompt = prompt.replace(previous_context, json.dumps(context, ensure_ascii=False), 1)
+            parts['BATCH_CONTEXT'] = '\nBATCH_CONTEXT\n' + json.dumps(context, ensure_ascii=False) + '\nEND_BATCH_CONTEXT\n'
+            sizes = {name: len(value.encode('utf-8')) for name, value in parts.items()}
+            total = sum(sizes.values())
+            if total > 60 * 1024:
+                detail = ', '.join(f'{name}={size} bytes' for name, size in sizes.items())
+                raise ValueError(f'指示が 60 KiB を超えています: 合計={total} bytes ({detail})')
+            prompt = ''.join(parts.values()).encode('utf-8')
             if review_output is not None:
                 review_output.unlink(missing_ok=True)
             base = logs / f'{stage}-{number:04}-a{attempt}'
@@ -428,9 +433,9 @@ class Batch:
             model = self.state.get('producer', 'gpt-6.1-terra') if stage in ('draft', 'build') else 'gpt-6.1-sol'
             args = [os.environ.get('CODEX_BIN', 'codex'), 'exec', '-m', model,
                     '-c', 'model_reasoning_effort="medium"', '-s', 'workspace-write',
-                    '-c', 'sandbox_workspace_write.network_access=true', '-C', str(ROOT), '-o', str(output), prompt]
-            with codex_slot() as slot_fd, base.with_suffix('.log').open('w') as log, open(os.devnull) as null:
-                code = subprocess.run(args, cwd=ROOT, stdin=null, stdout=log, stderr=subprocess.STDOUT, pass_fds=(slot_fd,)).returncode
+                    '-c', 'sandbox_workspace_write.network_access=true', '-C', str(ROOT), '-o', str(output), '-']
+            with codex_slot() as slot_fd, base.with_suffix('.log').open('w') as log:
+                code = subprocess.run(args, cwd=ROOT, input=prompt, stdout=log, stderr=subprocess.STDOUT, pass_fds=(slot_fd,)).returncode
             if code == 0:
                 return read(output) if output.exists() else ''
         tail = '\n'.join(read(base.with_suffix('.log')).splitlines()[-20:])

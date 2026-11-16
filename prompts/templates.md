@@ -1,6 +1,7 @@
 # persona の文書の型を作る
 
-AGENTS.md、SPEC.md、runbooks/PRODUCTION.md のテンプレート節、personas/README.md を読み、下の persona と依頼に必要な型を作ってください。
+指示の「読むファイル」に示されたパスを用途に従って開いてください。資料の本文は指示に埋め込まれていません。事実の台帳は、対象の行（計画前は依頼）に関係する案件・出来事の見出しを検索し、該当する部分を読んでください。
+AGENTS.md、SPEC.md、runbooks/PRODUCTION.md のテンプレート節、personas/README.md を読み、「読むファイル」に指定された persona 定義と依頼に必要な型を作ってください。
 テンプレート・計画のモデルは Sol です。型は templates/<persona>/ に置き、README.md に名前・組織と用途・実際のファイル名・見た目を列挙してください。
 自社・社外の型を分け、Office の型と必要な TeX の型を作り、既存の型があれば開いて維持してください。
 書いてよい場所は templates/<persona>/、progress/<persona>/、指定された scratch のみです。personas/<persona>.md は「仕事の流れ」への追記だけが可能です。
