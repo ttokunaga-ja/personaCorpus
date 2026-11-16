@@ -436,6 +436,11 @@ class BatchTest(unittest.TestCase):
         for row in rows:
             b.source(row['パス']).write_text('---\npath: '+row['パス']+'\nkind: text\nauthor: 花子\nderived_from: Documents/元.txt\n---\n'+('部長の承認印を右下へ追加する。' if '記録' in row['パス'] else '研修担当の確認署名を末尾へ追加する。'))
         self.assertEqual(b.draft_check(rows),{})
+        originals={row['パス']:b.source(row['パス']).read_text() for row in rows}
+        for row in rows:
+            b.source(row['パス']).write_text('---\npath: '+row['パス']+'\nkind: text\nauthor: 花子\nderived_from: Documents/元.txt\n---\n違いなし')
+        self.assertEqual(b.draft_check(rows),{})
+        for path,text in originals.items(): b.source(path).write_text(text)
         p=b.source(rows[0]['パス']); p.write_text(p.read_text()+'\n添付:\n- Documents/欠けた資料.pdf\n')
         self.assertIn('Documents/欠けた資料.pdf', b.dependencies(rows)[rows[0]['パス']])
         p.write_text(p.read_text().replace('Documents/欠けた資料.pdf','欠けた資料.pdf'))

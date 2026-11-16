@@ -412,7 +412,7 @@ def inspect(item):
                 except Exception as e:fail('metadata',f'{type(e).__name__}: {e}')
                 try:
                     scfg,body=source_document(source_root,rel)
-                    visual_source=bool({'photo','handwriting'} & set(scfg.get('kind','').split(':')))
+                    visual_source=bool({'photo','handwriting','chart','diagram'} & set(scfg.get('kind','').split(':')))
                     if not visual_source:
                         if missing:skipped.append('source(OCR)')
                         else:

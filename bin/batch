@@ -903,7 +903,9 @@ class Batch:
                 text = re.sub(r'\d+', '0', body.casefold())
                 words = re.findall(r'[\u3040-\u30ff\u3400-\u9fff]|[^\W_\u3040-\u30ff\u3400-\u9fff]+', text)
                 grams = frozenset(int.from_bytes(hashlib.blake2b(' '.join(words[i:i+5]).encode(), digest_size=8).digest(), 'big') for i in range(len(words)-4))
-                comparisons.append((rel, hashlib.sha256(body.encode()).digest(), grams))
+                # A derived draft holds only its differences (often just "none"), so its body says nothing about duplication.
+                if not metadata.get('derived_from'):
+                    comparisons.append((rel, hashlib.sha256(body.encode()).digest(), grams))
             except (OSError, ValueError, UnicodeError) as exc:
                 if row:
                     failures[rel] = str(exc)
