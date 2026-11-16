@@ -41,6 +41,7 @@ if s=='draft':
   rng=random.Random(row['パス'])
   body=('月次の資金繰りについて山田が承認。前月比の差額1240円は入金遅延で説明がついた。' if '記録' in row['パス'] else '研修担当の木下へ参加日程の変更を通知した。火曜日から水曜日へ移すことで回答を得た。') if len(meta['rows'])<3 else ' '.join(''.join(rng.choices(string.ascii_lowercase,k=9)) for _ in range(40))
   if i==0 and mode=='machine-once' and meta['round']==0: body='placeholder'
+  if mode in ('dependency','parent-fail') and '連絡' in row['パス']: body+='\n\n添付: Documents/記録.txt'
   p.write_text('---\npath: '+row['パス']+'\nkind: '+row['作り方']+'\nauthor: 山田 花子\nderived_from:\n---\n'+body+'\n')
 if s=='build':
  for row in meta['rows']:

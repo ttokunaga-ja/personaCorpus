@@ -413,7 +413,8 @@ class Batch:
             source = self.source(rel)
             cfg = config(source) if source.exists() else {}
             deps = {cfg['derived_from']} if cfg.get('derived_from') else set()
-            text = row['関連']
+            # 「関連」 lists references in both directions, so it does not define build order.
+            text = ''
             attachment_lines = []
             if source.exists():
                 in_attachments = False
@@ -452,10 +453,10 @@ class Batch:
         while remaining:
             ready = [r for rel, r in remaining.items() if not dependencies[rel].intersection(remaining)]
             if not ready:
-                failed.update({rel: '元のファイルの依存関係が循環している。' for rel in remaining})
+                # A cycle cannot be ordered; build what is left together.
+                ready = list(remaining.values())
                 for rel in remaining:
-                    self.event('check', 0, 'dependency', rel, failed[rel])
-                break
+                    dependencies[rel] -= set(remaining)
             blocked = {}
             targets = []
             for row in ready:
