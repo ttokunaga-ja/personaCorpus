@@ -318,7 +318,9 @@ def source_reason(expected, actual, *, from_ocr=False, ext="txt", reviewed=False
     if not (from_ocr or derived):
         numbers=source_numbers(expected)
         missing=sorted(numbers-source_numbers(actual))
-        if len(missing)>len(numbers)//20:return 'missing source values: '+', '.join(missing[:5])
+        # A table's manuscript may add a note (a total, an approval) that a CSV cannot carry.
+        allowed=max(len(numbers)//10,1 if len(numbers)>=5 else 0) if ext in ('xlsx','csv','tsv') else len(numbers)//20
+        if len(missing)>allowed:return 'missing source values: '+', '.join(missing[:5])
     threshold=.3 if from_ocr else .6 if reviewed else .5 if derived else .6 if ext in ('xlsx','csv','tsv') else .7 if ext=='pptx' else .8
     if overlap<threshold:return f'body token overlap {overlap:.3f} < {threshold}'
     return None
