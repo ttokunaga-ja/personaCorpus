@@ -88,6 +88,7 @@ agent-alert wait --repo personaCorpus      # Bash の background で実行し、
 全体の上限：
 
 - 同時に動く Codex の実行は、repo 全体で `config/limits.json` の `max_codex`（32）までである。上限に達している間、後の組は空くのを待つ。`bin/batch status` が使用中の数を出す。
+- repo の直下に、Codex の実行が置いたファイルが見つかったら、`bin/batch` がその実行の作業フォルダ（`work/<段階>-<連番>/stray/`）へ移し、報告に載せる。くり返すものは、改善のジョブで指示に足す。
 - 上限は統括が変えてよい。`config/limits.json` を書き換えて、資料・スクリプトの変更として commit する。次に起動する batch から効く。メモリは上限の理由にならない（Codex の実行 1 つは約 240 MB）。目安：Codex の利用上限のエラーが続くなら下げる。利用上限に当たらず、負荷平均（`uptime`）がコア数（`nproc`）を下回っているなら上げてよい。
 - Codex の利用上限に当たった batch は、`failed`（利用上限）で止まる。上限が戻ってから `bin/batch resume` する。
 - 並列を広げるほど、統括の抜き取りと受入が詰まる。結果待ちの batch が 5 つを超えたら、新しい batch を起動する前に受入を進める。
@@ -103,7 +104,7 @@ agent-alert wait --repo personaCorpus      # Bash の background で実行し、
 | 原稿 | `gpt-6.1-terra` | 計画の行を 10 件ずつ、別々の Codex の実行で、中身を Markdown の原稿に書く（下の「原稿」）。「先に要るもの」が済んだ行から書き、同じ段の組は同時に動かす。先に要る原稿が不合格のまま破棄されても、後の行は計画と台帳をもとに書き、報告に一覧で出す | `sources/<persona>/…​.md` |
 | 原稿の検査 | スクリプト | 全行に原稿があるか、制作の痕跡、同じ batch と既存の原稿との近似重複。計画の「関連」「先に要るもの」か原稿の `derived_from` で関係が書かれた版どうしは、近似重複にしない（中身が同じかどうかはレビューが見る） | |
 | 原稿のレビュー | `gpt-6.1-sol` | `runbooks/REVIEW.md` の「原稿のレビュー」の観点で 1 件ずつ読み、合格か破棄かと理由を書く。不合格の原稿は消して書き直させる。2 回まで。まだ不合格の行は破棄し、成形しない | `scratch/…/draft-review-r<N>.tsv` |
-| 成形 | `gpt-6.1-terra` | 合格した原稿を、10 件ずつ別々の実行で、型に入れて DOCX・XLSX・PPTX・PDF・`eml`・画像にする。原稿の中身を変えない | `people/<persona>/…` |
+| 成形 | `gpt-6.1-terra` | 合格した原稿を、形式の重さで分けた組ごとに別々の実行で、型に入れて DOCX・XLSX・PPTX・PDF・`eml`・画像にする。原稿の中身を変えない。1 組は重さの合計 6 まで（PPTX 3、XLSX・画像・スキャン 2、DOCX と TeX の PDF 1.5、そのほか 1。`config/limits.json` の `build_weights`・`max_build_weight` で変えられる）。実行が正常に終わったのに作られていない行は、不合格の回に数えず、同じ回の中でその行だけをもう一度渡す（2 回まで） | `people/<persona>/…` |
 | 数式の計算 | `bin/recalc` | 数式を含む XLSX を再計算し、計算結果を各セルに保存する（数式と書式は変えない） | |
 | 日付と内部の情報 | `bin/stamp` | 各ファイルの更新時刻を計画の「日付」にし、ファイルの内部の作成者・作成日時・更新日時・アプリ名を、原稿の `author` と計画の日付とその人が使うアプリにそろえる。制作の道具が残した情報を消す | |
 | 自動検査 | `bin/check` | `bin/check <persona> --batch <batch>`。成果物の本文が原稿と一致するか（`source`）、数式の計算結果が保存されているか（`formula`）、内部に制作時の情報が残っていないか（`metadata`）も見る | `scratch/…/check-r<N>.tsv` |
