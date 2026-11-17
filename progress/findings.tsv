@@ -256,3 +256,9 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-16	p15-recruiter-people-ops	b001	build-review	1	V2	Documents/採用/研修設計リード採用/選考記録/9月18日_追加確認後の評価.xlsx	井上さんシートの全2ページ（レンダリング3・4ページ）で、型mirai-evaluation.xlsxにある会社・人事表示とページ番号のフッタが欠落している。実シートのoddFooterも空で、READMEのフッタ維持指定と一致しない。
 2026-11-16	p13-corporate-privacy-counsel	b001	templates-review	0	other	toto-legal-brief.pptx	全5実レイアウトは正常に描画されたが、ppt/slideLayouts/slideLayout6.xml〜slideLayout11.xmlとマスターのrId6〜rId11が残り、英語の編集用仮文と固定日付1/27/13を含み、別名保存した見本にも残存する。
 2026-11-16	p13-corporate-privacy-counsel	b001	build-review	0	V3	Documents/Matters/文書保全期限見直し/保全/7月10日_延長申出と判断の比較.xlsx	全6頁の上部B1の社名先頭「東」にロゴが重なり文字が隠れている（型・見本では重ならず、成果物はA列幅を13から5へ縮小）。
+2026-11-17	p08-product-manager	b001	build-review	0	V1	Documents/オルタ巡回チェック/M-27/7月22日締め_採用率集計.xlsx	集計シートF7:F11は見出しが「目標差（ポイント）」なのに表示形式が0.0%で、F11が原稿の−3.6ポイントではなく−3.6%と表示される（月別の差も同様に単位が異なる）。
+2026-11-17	p18-manufacturing-quality-engineer	b001	check	0	source	Documents/不適合/NCR-026/8月18日_選別確認票_原さん控え.pdf	body token overlap 0.229 < 0.3
+2026-11-17	p18-manufacturing-quality-engineer	b001	check	1	source	Documents/不適合/NCR-026/8月18日_選別確認票_原さん控え.pdf	body token overlap 0.262 < 0.3
+2026-11-17	p05-bi-data-analyst	b001	check	0	source	Documents/通販/返品と取消/2025-10-28_受領表と週報入力の差.xlsx	missing source values: 1334, 1335, 4000000
+2026-11-17	p05-bi-data-analyst	b001	build-review	2	V3	Documents/通販/返品と取消/2025-10-28_受領表と週報入力の差.xlsx	シート「修正案」D4の「石井美智（確認依頼）」がE4「単位・期間」と重なり末尾を読めない（レンダリング80〜133ページの繰返し見出し）。受領全1,328行・取消128件、全行の数式と計算結果および合計45,100,000円／42,000,000円は原稿と一致。
+2026-11-17	p13-corporate-privacy-counsel	b001	coordinator	0	other	Desktop/7月10日_再審査判断資料_河野赤字.docx	統括の抜き取りで不合格
