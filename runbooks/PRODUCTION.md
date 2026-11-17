@@ -2,7 +2,7 @@
 
 内容の基準は `SPEC.md`、規則は `AGENTS.md`、persona の設定は `personas/<persona>.md`、レビューの基準は `runbooks/REVIEW.md` にある。
 
-制作は batch の単位で進める。「何を作るか」の依頼から、`bin/batch` が Codex に計画・制作・検査・レビュー・作り直しを最後までやらせる。終わった batch は、独立した監査を経て受入か破棄になる。ふだんは自動運転（`bin/autopilot`。10 節）が、依頼・起動・やり直し・監査・受入を回す。統括（Claude Opus か Codex `gpt-6-astra` のセッション）は、自動運転が保留にした batch の処理、抜き取りの確認、仕組みの修正を行う。1〜6 節は、batch を手で動かすときの手順であり、自動運転が内部で行っていることでもある。
+制作は batch の単位で進める。「何を作るか」の依頼から、`bin/batch` が Codex に計画・制作・検査・レビュー・作り直しを最後までやらせる。終わった batch は、独立した監査を経て受入か破棄になる。ふだんは自動運転（`bin/autopilot`。10 節）が、依頼・起動・やり直し・監査・受入を回す。統括（Claude Opus か Codex `gpt-6.2-astra` のセッション）は、自動運転が保留にした batch の処理、抜き取りの確認、仕組みの修正を行う。1〜6 節は、batch を手で動かすときの手順であり、自動運転が内部で行っていることでもある。
 
 ```
 統括：依頼を書く → bin/batch start
@@ -98,18 +98,18 @@ agent-alert wait --repo personaCorpus      # Bash の background で実行し、
 
 | 段階 | 担当 | 内容 | 出力 |
 |---|---|---|---|
-| テンプレート | `gpt-6.1-sol` | `templates/<persona>/` が無いときだけ、その persona の文書の型を作る（下の「テンプレート」） | `templates/<persona>/` |
-| テンプレートのレビュー | `gpt-6.1-sol` | 型を作ったのとは別の実行で、型を開いて画像にし、`README.md` の説明と実物が合っているか、崩れがないか、余計な空の行や仮の欄がないかを確かめる。不合格は理由を渡して作り直させる（2 回まで） | |
-| 計画 | `gpt-6.1-sol` | 依頼、persona の定義、これまでの計画、テンプレートの一覧を読み、ファイル計画を書く。複数のファイルにまたがる事実（文書番号、金額の内訳、会議の日時、メールのスレッド）を事実の台帳に書き足す | `progress/<persona>/<batch>.md`、`progress/<persona>/facts.md` |
+| テンプレート | `gpt-6.2-sol` | `templates/<persona>/` が無いときだけ、その persona の文書の型を作る（下の「テンプレート」） | `templates/<persona>/` |
+| テンプレートのレビュー | `gpt-6.2-sol` | 型を作ったのとは別の実行で、型を開いて画像にし、`README.md` の説明と実物が合っているか、崩れがないか、余計な空の行や仮の欄がないかを確かめる。不合格は理由を渡して作り直させる（2 回まで） | |
+| 計画 | `gpt-6.2-sol` | 依頼、persona の定義、これまでの計画、テンプレートの一覧を読み、ファイル計画を書く。複数のファイルにまたがる事実（文書番号、金額の内訳、会議の日時、メールのスレッド）を事実の台帳に書き足す | `progress/<persona>/<batch>.md`、`progress/<persona>/facts.md` |
 | 計画の検査 | スクリプト | 列、拡張子、パスの重複、日付が期間内か、制作区分の名前がないか、件数。不合格なら理由を付けて計画をやり直させる（1 回） | |
 | 原稿 | `gpt-6.1-terra` | 計画の行を 10 件ずつ、別々の Codex の実行で、中身を Markdown の原稿に書く（下の「原稿」）。「先に要るもの」が済んだ行から書き、同じ段の組は同時に動かす。先に要る原稿が不合格のまま破棄されても、後の行は計画と台帳をもとに書き、報告に一覧で出す | `sources/<persona>/…​.md` |
 | 原稿の検査 | スクリプト | 全行に原稿があるか、制作の痕跡、同じ batch と既存の原稿との近似重複。計画の「関連」「先に要るもの」か原稿の `derived_from` で関係が書かれた版どうしは、近似重複にしない（中身が同じかどうかはレビューが見る） | |
-| 原稿のレビュー | `gpt-6.1-sol` | `runbooks/REVIEW.md` の「原稿のレビュー」の観点で 1 件ずつ読み、合格か破棄かと理由を書く。不合格の原稿は消して書き直させる。2 回まで。まだ不合格の行は破棄し、成形しない | `scratch/…/draft-review-r<N>.tsv` |
+| 原稿のレビュー | `gpt-6.2-sol` | `runbooks/REVIEW.md` の「原稿のレビュー」の観点で 1 件ずつ読み、合格か破棄かと理由を書く。不合格の原稿は消して書き直させる。2 回まで。まだ不合格の行は破棄し、成形しない | `scratch/…/draft-review-r<N>.tsv` |
 | 成形 | `gpt-6.1-terra` | 合格した原稿を、形式の重さで分けた組ごとに別々の実行で、型に入れて DOCX・XLSX・PPTX・PDF・`eml`・画像にする。原稿の中身を変えない。1 組は重さの合計 6 まで（PPTX 3、XLSX・画像・スキャン 2、DOCX と TeX の PDF 1.5、そのほか 1。`config/limits.json` の `build_weights`・`max_build_weight` で変えられる）。実行が正常に終わったのに作られていない行は、不合格の回に数えず、同じ回の中でその行だけをもう一度渡す（2 回まで） | `people/<persona>/…` |
 | 数式の計算 | `bin/recalc` | 数式を含む XLSX を再計算し、計算結果を各セルに保存する（数式と書式は変えない） | |
 | 日付と内部の情報 | `bin/stamp` | 各ファイルの更新時刻を計画の「日付」にし、ファイルの内部の作成者・作成日時・更新日時・アプリ名を、原稿の `author` と計画の日付とその人が使うアプリにそろえる。制作の道具が残した情報を消す | |
 | 自動検査 | `bin/check` | `bin/check <persona> --batch <batch>`。成果物の本文が原稿と一致するか（`source`）、数式の計算結果が保存されているか（`formula`）、内部に制作時の情報が残っていないか（`metadata`）も見る | `scratch/…/check-r<N>.tsv` |
-| 見た目のレビュー | `gpt-6.1-sol` | `runbooks/REVIEW.md` の「見た目のレビュー」の観点で 1 件ずつ画像にして見る。不合格の成果物は消して成形し直させる（原稿は変えない）。2 回まで | `scratch/…/review-r<N>.tsv` |
+| 見た目のレビュー | `gpt-6.2-sol` | `runbooks/REVIEW.md` の「見た目のレビュー」の観点で 1 件ずつ画像にして見る。不合格の成果物は消して成形し直させる（原稿は変えない）。2 回まで | `scratch/…/review-r<N>.tsv` |
 | 報告 | スクリプト | 原稿が不合格のままの行は原稿を消し、計画のその行に「破棄：理由」と書く。原稿は合格したのに成形が不合格のままの行は、成果物だけを消して原稿を残し、計画に「成形待ち：理由」と書く。結果と指摘の記録をまとめる | `progress/<persona>/<batch>.result.md`、`progress/findings.tsv`、`progress/batches.tsv` |
 
 ファイル計画（`progress/<persona>/<batch>.md`）は Markdown の表で、列は次のとおり。
@@ -205,7 +205,7 @@ git push origin main
 
 - 「成形待ち」の行が残っていても受入できる（原稿だけが commit される）。あとで `bin/batch resume <persona> <batch> --rebuild` で成形し直し、抜き取りで確かめてから、もう一度 `bin/batch accept` する。原稿に原因があって成形できない行は、`--drop` で破棄する。原稿の段階で破棄になった行が、仕組みや指示の不備によるものだったときは、`bin/batch resume <persona> <batch> --redraft` で原稿からやり直せる（統括が `--drop` で破棄した行と、合格済みの行には触れない）。
 - 受入または破棄が済むと、`scratch/<persona>/<batch>/` は消える。ただし「成形待ち」の行が残っている間は、原因を調べられるように残す。
-- 同じ batch で不合格が 2 回続いたら、`bin/batch start ... --producer gpt-6.1-sol` で原稿と成形を Sol に切り替え、切替えと理由を依頼の末尾に書く。
+- 同じ batch で不合格が 2 回続いたら、`bin/batch start ... --producer gpt-6.2-sol` で原稿と成形を Sol に切り替え、切替えと理由を依頼の末尾に書く。
 - 形式ごとに、特に出来のよい受入済みファイルを `templates/<persona>/README.md` の「見本」に書き足す。制作とレビューは見本を水準として使う。
 
 ## 7. 配布物を組み立てる
@@ -229,11 +229,11 @@ bin/pack <出力先のフォルダ>
   ```sh
   git worktree add -B improve scratch/wt-improve main     # 既にあれば: git -C scratch/wt-improve merge --ff-only main
   bin/batch findings > scratch/wt-improve/scratch/findings.txt
-  codex-job start --repo personaCorpus --name improve-<日付> --brief "$PWD/prompts/improve.md" --model gpt-6.1-sol --effort medium
+  codex-job start --repo personaCorpus --name improve-<日付> --brief "$PWD/prompts/improve.md" --model gpt-6.2-sol --effort medium
   ```
 
 - 取り込み：統括が、下の「統括の確認」を worktree の中で済ませてから、worktree で commit し、`git -C scratch/wt-improve rebase main`、`git merge --ff-only improve`、`git push origin main` の順に取り込む。取り込んだ指示のひな形と `bin/check` は、動いている batch にも次の段階から効く。`bin/batch` の変更は、取り込みのあとに起動した実行（`resume` を含む）から効く。
-- 計画・原稿・台帳・状態の書式を変える変更と、段階の順序を変える変更は、動いている batch と食い違うので、改善のジョブには任せない。統括が、どの batch も動いていないとき（`bin/autopilot stop` のあと、動いている batch が終わってから）に、自分で、または Codex（`gpt-6.1-sol`）に指示書を書いて行う。旧い計画と状態が読めることを、テストで確かめる。
+- 計画・原稿・台帳・状態の書式を変える変更と、段階の順序を変える変更は、動いている batch と食い違うので、改善のジョブには任せない。統括が、どの batch も動いていないとき（`bin/autopilot stop` のあと、動いている batch が終わってから）に、自分で、または Codex（`gpt-6.2-sol`）に指示書を書いて行う。旧い計画と状態が読めることを、テストで確かめる。
 - 改善のジョブがしてよいこと：
   1. 機械的に判定できる指摘を、`bin/check` か原稿の検査に、テストつきで足す。
   2. 作る前に防げる指摘を、`prompts/` の指示に書き足す。
@@ -265,7 +265,7 @@ bin/autopilot stop --now                                       # 自動運転の
 ### 制作の道筋（roadmap）
 
 - `progress/<persona>/roadmap.md` に、その persona で作る batch を順に並べる。列は、batch、範囲、件数の目安、重点、含めたいもの、避けるもの、状態。
-- roadmap が無い persona は、自動運転が最初に Codex（`gpt-6-astra`、`prompts/roadmap.md`）に作らせる。persona の定義の「仕事の流れ」「フォルダ構成」「形式の目安」「規模の目安」と、これまでの計画を読み、最初の区切り（300 件）までの batch を、範囲が重ならないように並べる。最初の batch は、その persona の中心になる仕事にする。
+- roadmap が無い persona は、自動運転が最初に Codex（`gpt-6.2-astra`、`prompts/roadmap.md`）に作らせる。persona の定義の「仕事の流れ」「フォルダ構成」「形式の目安」「規模の目安」と、これまでの計画を読み、最初の区切り（300 件）までの batch を、範囲が重ならないように並べる。最初の batch は、その persona の中心になる仕事にする。
 - 統括は roadmap を直してよい（順番、範囲、重点）。自動運転は、状態が空の行を上から順に使う。
 
 ### 自動運転が 1 回りで行うこと（60 秒ごと。`AUTOPILOT_INTERVAL_SECONDS` で変えられる）
@@ -281,7 +281,7 @@ bin/autopilot stop --now                                       # 自動運転の
 
 ### 受入の監査
 
-- 担当は Codex `gpt-6-astra`（`prompts/audit.md`）。制作（Terra）ともレビュー（Sol）とも違うモデルが、できあがった成果物だけを見る。統括の抜き取りの代わりである。
+- 担当は Codex `gpt-6.2-astra`（`prompts/audit.md`）。制作（Terra）ともレビュー（Sol）とも違うモデルが、できあがった成果物だけを見る。統括の抜き取りの代わりである。
 - 見る範囲：形式ごとに 1 件以上、合計で batch の 2 割以上（最低 8 件）。報告に「先に要るものが欠けたまま書いた行」「続きを使った行」があれば、それを優先する。成果物を開き、Office と PDF は `bin/render` で画像にして見る。観点は `runbooks/REVIEW.md` の両方（中身と見た目）。原稿・計画・台帳・persona の定義と照らす。
 - 出力：`progress/<persona>/<batch>.audit.md`。先頭の 2 行が `verdict: accept`（または `verdict: hold`）と `drop: ["<パス>", …]`（JSON の配列。無ければ `[]`）。続けて、見たファイルの表（パス、判定、理由）と、batch の全体の所見。成果物が 8 件未満の batch は、全件を見る。
 - 判定の決まり：見たうちの不合格が 1 件以下なら `accept`（その 1 件は `drop` に入れる）。2 件以上、または同じ原因が batch の全体に及ぶと見たら `hold`。迷ったら `hold`。
@@ -294,7 +294,7 @@ bin/autopilot stop --now                                       # 自動運転の
 
 ### 統括がすること
 
-統括は、Claude Opus のセッションでも、Codex `gpt-6-astra` のセッションでもよい（`prompts/coordinator.md` を最初に渡す）。自動運転が動いていれば、統括がいない間も制作は進む。
+統括は、Claude Opus のセッションでも、Codex `gpt-6.2-astra` のセッションでもよい（`prompts/coordinator.md` を最初に渡す）。自動運転が動いていれば、統括がいない間も制作は進む。
 
 - `bin/autopilot status` と `progress/holds.md` を見て、保留の batch を処理する：監査の報告を読み、自分で開いて確かめ、受入（`--drop` つき）か、やり直しか、破棄かを決める。原因が仕組みにあれば、仕組みを直す。
 - 受入済みの batch 10 につき 1 つを選び、自分で開いて確かめる（監査の甘さの確認）。不合格が見つかったら、自動運転を止め、監査の指示を直し、同じ時期に受入された batch を見直す。

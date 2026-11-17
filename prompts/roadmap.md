@@ -1,6 +1,6 @@
 # persona ごとの制作の道筋
 
-Codex `gpt-6-astra` として、末尾 AUTOPILOT_CONTEXT の persona の roadmap を作ります。
+Codex `gpt-6.2-astra` として、末尾 AUTOPILOT_CONTEXT の persona の roadmap を作ります。
 AGENTS.md、SPEC.md、runbooks/PRODUCTION.md（特に1節・並列・10節）、persona の定義を読みます。
 「仕事の流れ」「フォルダ構成」「形式の目安」「規模の目安」、これまでの依頼・計画・事実の台帳、manifests と受入済みの範囲を確認します。
 最初の区切り（既定300件、context.target）までの batch を、時期と案件の範囲が重ならないように並べます。

@@ -683,7 +683,7 @@ impl Pilot {
             "--name",
             &name,
             "--model",
-            "gpt-6-astra",
+            "gpt-6.2-astra",
             "--effort",
             "medium",
             "--command",

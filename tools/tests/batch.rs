@@ -35,13 +35,13 @@ fn happy_models_dates_and_complete_report() {
     assert_eq!(
         models,
         json!([
-            "gpt-6.1-sol",
-            "gpt-6.1-sol",
-            "gpt-6.1-sol",
+            "gpt-6.2-sol",
+            "gpt-6.2-sol",
+            "gpt-6.2-sol",
             "gpt-6.1-terra",
-            "gpt-6.1-sol",
+            "gpt-6.2-sol",
             "gpt-6.1-terra",
-            "gpt-6.1-sol"
+            "gpt-6.2-sol"
         ])
         .as_array()
         .unwrap()
@@ -61,7 +61,7 @@ fn happy_models_dates_and_complete_report() {
 fn producer_override_and_medium_workspace_flags() {
     let f = Fixture::new();
     f.cli(
-        &["run", "p01", "b001", "--producer", "gpt-6.1-sol"],
+        &["run", "p01", "b001", "--producer", "gpt-6.2-sol"],
         "ok",
         true,
     );
@@ -69,7 +69,7 @@ fn producer_override_and_medium_workspace_flags() {
         let a = args.as_array().unwrap();
         assert_eq!(
             a[a.iter().position(|v| v == "-m").unwrap() + 1],
-            "gpt-6.1-sol"
+            "gpt-6.2-sol"
         );
         assert!(a.contains(&json!("model_reasoning_effort=\"medium\"")));
         assert!(a.contains(&json!("workspace-write")));

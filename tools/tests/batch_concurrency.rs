@@ -368,7 +368,7 @@ fn auxiliary_waits_for_slot_and_preserves_astra_cwd_prompt() {
             .position(|v| v == s)
             .map(|i| args[i + 1].as_str().unwrap())
     };
-    assert_eq!(flag("-m"), Some("gpt-6-astra"));
+    assert_eq!(flag("-m"), Some("gpt-6.2-astra"));
     assert_eq!(flag("-C"), f.root.to_str());
     assert_eq!(data["prompt"], "audit instruction");
     assert_eq!(read(&actual_cwd).trim(), f.root.to_str().unwrap());

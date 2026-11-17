@@ -1175,7 +1175,7 @@ impl Batch {
             let model = if ["draft", "build"].contains(&stage) {
                 s["producer"].as_str().unwrap_or("gpt-6.1-terra")
             } else {
-                "gpt-6.1-sol"
+                "gpt-6.2-sol"
             };
             let slot = slot(&self.root)?;
             let watcher = Watch::begin(&self.root, &execution_work, stage, attempt)?;
@@ -4174,7 +4174,7 @@ fn main_inner(args: &[String]) -> Result<i32> {
             .args([
                 "exec",
                 "-m",
-                "gpt-6-astra",
+                "gpt-6.2-astra",
                 "-c",
                 "model_reasoning_effort=\"medium\"",
                 "-s",
