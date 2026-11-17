@@ -1435,6 +1435,10 @@ class Batch:
             template_root = ROOT / 'templates' / self.persona
             paths += [str(p.relative_to(ROOT)) for p in template_root.rglob('*') if p.is_file()]
             paths += [p for p in git('ls-files', '-z', '--', f'templates/{self.persona}').split('\0') if p]
+        # Autopilot updates the roadmap before acceptance, so it travels with the batch.
+        roadmap = f'progress/{self.persona}/roadmap.md'
+        if (ROOT / roadmap).exists():
+            paths.append(roadmap)
         staged = set(filter(None, git('diff', '--cached', '--name-only', '-z').split('\0')))
         if staged - set(paths):
             raise ValueError('関係ないファイルが stage されている: ' + ', '.join(sorted(staged - set(paths))))
@@ -1665,6 +1669,9 @@ def main(argv=None):
             p.add_argument('--drop', nargs='+', action='extend', default=[])
         if action == 'discard':
             p.add_argument('--reason', required=True)
+    p = sub.add_parser('codex-once', help=argparse.SUPPRESS)
+    p.add_argument('--brief', required=True, type=Path)
+    p.add_argument('--output', required=True, type=Path)
     p = sub.add_parser('status')
     p.add_argument('persona', nargs='?')
     p.add_argument('batch', nargs='?')
@@ -1675,6 +1682,20 @@ def main(argv=None):
     p.add_argument('--since')
     p.add_argument('--persona')
     a = parser.parse_args(argv)
+    if a.action == 'codex-once':
+        # Auxiliary audit/roadmap jobs share the production Codex semaphore.
+        brief, output = a.brief.resolve(), a.output.resolve()
+        work = output.parent
+        if not brief.is_relative_to(ROOT / 'scratch') or not output.is_relative_to(ROOT / 'scratch'):
+            raise ValueError('補助ジョブの入出力は scratch 内に限る')
+        work.mkdir(parents=True, exist_ok=True)
+        with codex_slot() as slot_fd, root_watch(work, 'auxiliary', 0):
+            result = subprocess.run([os.environ.get('CODEX_BIN', 'codex'), 'exec',
+                '-m', 'gpt-6-astra', '-c', 'model_reasoning_effort="medium"',
+                '-s', 'workspace-write', '-c', 'sandbox_workspace_write.network_access=true',
+                '-C', str(ROOT), '-o', str(output), '-'], cwd=ROOT,
+                input=brief.read_bytes(), pass_fds=(slot_fd,))
+        return result.returncode
     if a.action == 'findings':
         show_findings(a.since, persona_name(a.persona) if a.persona else None)
         return 0

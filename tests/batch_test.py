@@ -136,6 +136,16 @@ class BatchTest(unittest.TestCase):
         mod=self.load()
         return mod.Batch(type('Args',(),dict(persona='p01',batch='b001'))())
 
+    def test_accept_includes_persona_roadmap_but_not_unrelated_records(self):
+        self.run_batch()
+        roadmap = self.root / 'progress/p01-test/roadmap.md'
+        roadmap.write_text('受入済み b001\n')
+        unrelated = self.root / 'progress/holds.md'
+        unrelated.write_text('無関係な保留\n')
+        self.cli('accept', 'p01', 'b001')
+        self.assertEqual(self.git('show', 'HEAD:progress/p01-test/roadmap.md'), '受入済み b001\n')
+        self.assertNotIn('progress/holds.md', self.git('show', '--format=', '--name-only', 'HEAD').splitlines())
+
     def test_redraft_only_draft_discards_and_failed_batch(self):
         self.run_batch()
         mod=self.load(); b=self.prompt_batch(); rows=mod.plan_rows(b.plan)

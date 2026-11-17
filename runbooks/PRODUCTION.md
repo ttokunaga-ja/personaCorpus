@@ -256,7 +256,8 @@ Claude の利用上限で制作が止まらないように、依頼の作成か�
 ```sh
 bin/autopilot start [--personas p01,p05,...] [--target 300]   # tmux の中で動き続ける（codex-job のジョブ autopilot）
 bin/autopilot status                                           # persona ごとの受入済み・進行中・保留、Codex の使用中の数
-bin/autopilot stop                                             # 新しい起動をやめる。動いている batch は最後まで進み、受入まで行う
+bin/autopilot stop                                             # 新しい batch と roadmap の起動をやめる。動いている batch は最後まで進み、やり直し・監査・受入まで行う
+bin/autopilot once                                             # 1 回りだけ実行して終わる（手で確かめるとき）
 bin/autopilot stop --now                                       # 自動運転のループだけをすぐ止める（動いている batch は止めない）
 ```
 
@@ -266,7 +267,7 @@ bin/autopilot stop --now                                       # 自動運転の
 - roadmap が無い persona は、自動運転が最初に Codex（`gpt-6-astra`、`prompts/roadmap.md`）に作らせる。persona の定義の「仕事の流れ」「フォルダ構成」「形式の目安」「規模の目安」と、これまでの計画を読み、最初の区切り（300 件）までの batch を、範囲が重ならないように並べる。最初の batch は、その persona の中心になる仕事にする。
 - 統括は roadmap を直してよい（順番、範囲、重点）。自動運転は、状態が空の行を上から順に使う。
 
-### 自動運転が 1 回りで行うこと（60 秒ごと）
+### 自動運転が 1 回りで行うこと（60 秒ごと。`AUTOPILOT_INTERVAL_SECONDS` で変えられる）
 
 1. **止める条件を見る**：`bin/autopilot stop` が呼ばれている、空き容量が 30 GB 未満、保留の batch が 5 つ以上、のどれかなら、新しい起動をしない。
 2. **終わった batch を進める**（persona ごとに）：
@@ -281,9 +282,14 @@ bin/autopilot stop --now                                       # 自動運転の
 
 - 担当は Codex `gpt-6-astra`（`prompts/audit.md`）。制作（Terra）ともレビュー（Sol）とも違うモデルが、できあがった成果物だけを見る。統括の抜き取りの代わりである。
 - 見る範囲：形式ごとに 1 件以上、合計で batch の 2 割以上（最低 8 件）。報告に「先に要るものが欠けたまま書いた行」「続きを使った行」があれば、それを優先する。成果物を開き、Office と PDF は `bin/render` で画像にして見る。観点は `runbooks/REVIEW.md` の両方（中身と見た目）。原稿・計画・台帳・persona の定義と照らす。
-- 出力：`progress/<persona>/<batch>.audit.md`。先頭に判定（`verdict: accept` か `verdict: hold`）、見たファイルの一覧と 1 件ごとの判定と理由、破棄すべき行（`drop:` の一覧）、batch の全体の所見。
+- 出力：`progress/<persona>/<batch>.audit.md`。先頭の 2 行が `verdict: accept`（または `verdict: hold`）と `drop: ["<パス>", …]`（JSON の配列。無ければ `[]`）。続けて、見たファイルの表（パス、判定、理由）と、batch の全体の所見。成果物が 8 件未満の batch は、全件を見る。
 - 判定の決まり：見たうちの不合格が 1 件以下なら `accept`（その 1 件は `drop` に入れる）。2 件以上、または同じ原因が batch の全体に及ぶと見たら `hold`。迷ったら `hold`。
 - 監査はファイルを変更しない。自動運転が、監査の前後で成果物と原稿の sha256 が変わっていないことを確かめる。
+
+### 初めて動かす前に
+
+- `codex-job status --repo personaCorpus` でジョブが起動できること、`git push origin main` ができること、空き容量を確かめる。
+- 最初の数 batch は、自動運転が受入したものを統括が全部開いて、監査の判定が妥当かを確かめる。妥当なら、10 batch に 1 つの確認に移る。
 
 ### 統括がすること
 

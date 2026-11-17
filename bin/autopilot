@@ -1,0 +1,641 @@
+#!/usr/bin/env -S uv run python
+"""依頼・制作・独立監査・受入を進める、再起動可能な自動運転。"""
+import argparse
+import contextlib
+import csv
+import datetime as dt
+import fcntl
+import hashlib
+import json
+import os
+from pathlib import Path, PurePosixPath
+import re
+import shlex
+import shutil
+import subprocess
+import sys
+import time
+
+ROOT = Path(__file__).resolve().parents[1]
+ACTIVE = {'running', 'stalled', 'stdin-wait', 'limit'}
+ROAD = ('batch', '範囲', '件数の目安', '重点', '含めたいもの', '避けるもの', '状態')
+
+
+def read(path):
+    return path.read_text(encoding='utf-8')
+
+
+def save(path, value):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = path.with_name(path.name + '.tmp')
+    tmp.write_text(json.dumps(value, ensure_ascii=False, indent=2) + '\n')
+    tmp.replace(path)
+
+
+def run(*args, check=True):
+    result = subprocess.run(list(map(str, args)), cwd=ROOT, text=True,
+                            stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    if check and result.returncode:
+        raise ValueError(shlex.join(list(map(str, args))) + ': ' + result.stdout[-4000:])
+    return result
+
+
+@contextlib.contextmanager
+def lock(name, blocking=True):
+    p = ROOT / 'scratch/.locks' / (name + '.lock')
+    p.parent.mkdir(parents=True, exist_ok=True)
+    with p.open('a') as f:
+        fcntl.flock(f, fcntl.LOCK_EX | (0 if blocking else fcntl.LOCK_NB))
+        yield
+
+
+def loop_running():
+    try:
+        with lock('autopilot-loop', blocking=False):
+            return False
+    except BlockingIOError:
+        return True
+
+
+def table(path, columns):
+    rows, header = [], None
+    if not path.exists():
+        raise ValueError('ファイルなし: ' + str(path.relative_to(ROOT)))
+    for i, line in enumerate(read(path).splitlines()):
+        if not line.strip().startswith('|'):
+            continue
+        cells = [c.strip().strip('`') for c in re.split(r'(?<!\\)\|', line.strip().strip('|'))]
+        if all(c in cells for c in columns):
+            header = cells
+            continue
+        if header is None or all(re.fullmatch(r':?-+:?', c) for c in cells):
+            continue
+        if len(cells) != len(header):
+            raise ValueError('表の列数が不正: ' + str(path))
+        rows.append(dict(zip(header, cells), _line=i))
+    if header is None:
+        raise ValueError('表の列が不足: ' + '、'.join(columns))
+    return rows
+
+
+def replace_cell(path, row, column, value):
+    lines = read(path).splitlines()
+    # Locate the header again so additional columns and escaped pipes survive.
+    header = next([c.strip().strip('`') for c in re.split(r'(?<!\\)\|', l.strip().strip('|'))]
+                  for l in lines if l.strip().startswith('|') and column in l and 'batch' in l)
+    cells = re.split(r'(?<!\\)\|', lines[row['_line']])
+    cells[header.index(column) + 1] = ' ' + value + ' '
+    lines[row['_line']] = '|'.join(cells)
+    path.write_text('\n'.join(lines) + '\n')
+
+
+def ledger():
+    p = ROOT / 'progress/batches.tsv'
+    return list(csv.DictReader(read(p).splitlines(), delimiter='\t')) if p.exists() else []
+
+
+class Pilot:
+    def __init__(self, args):
+        self.a = args
+        self.home = ROOT / 'scratch/autopilot'
+        self.path = self.home / 'state.json'
+        self.s = json.loads(read(self.path)) if self.path.exists() else {}
+        self.s.setdefault('batches', {})
+        self.s.setdefault('roadmaps', {})
+        self.s.setdefault('push_failures', 0)
+        self.jobs = {}
+
+    def store(self):
+        save(self.path, self.s)
+
+    def log(self, action, persona='', batch='', detail=''):
+        self.home.mkdir(parents=True, exist_ok=True)
+        with (self.home / 'log.tsv').open('a') as f:
+            csv.writer(f, delimiter='\t', lineterminator='\n').writerow(
+                [dt.datetime.now(dt.timezone.utc).isoformat(), action, persona, batch, str(detail)])
+
+    def job(self, *args):
+        return run(ROOT / 'ops/bin/codex-job', *args)
+
+    def refresh(self):
+        output = self.job('status', '--repo', 'personaCorpus').stdout
+        self.jobs = {v[1]: v[2] for l in output.splitlines() if len(v := l.split('\t')) >= 3 and v[0] == 'personaCorpus'}
+
+    def names(self):
+        home = Path(os.environ.get('AGENT_OPS_HOME', ROOT / 'ops'))
+        return set(self.jobs) | {p.name for p in (home / 'jobs/personaCorpus').glob('*')}
+
+    def unique(self, base):
+        names = self.names()
+        n, i = base, 1
+        while n in names:
+            i += 1
+            n = f'{base}-r{i}'
+        return n
+
+    def personas(self):
+        names = sorted(p.stem for p in (ROOT / 'personas').glob('p[0-9][0-9]-*.md'))
+        if self.a.personas:
+            requested = self.a.personas.split(',')
+            selected = [p for p in names if p in requested or p.split('-')[0] in requested]
+            if any(not any(p == q or p.split('-')[0] == q for p in selected) for q in requested):
+                raise ValueError('未知の persona: ' + self.a.personas)
+            return selected
+        return names
+
+    def holds(self):
+        p = ROOT / 'progress/holds.md'
+        return table(p, ('persona', 'batch', '理由', '日時')) if p.exists() else []
+
+    def hold(self, persona, batch, reason):
+        with lock('records'):
+            rows = self.holds()
+            old = next((r for r in rows if r['persona'] == persona and r['batch'] == batch), None)
+            if old and old['理由'] == reason:
+                return
+            now = dt.datetime.now(dt.timezone.utc).isoformat()
+            if old:
+                old.update(理由=reason, 日時=now)
+            else:
+                rows.append(dict(persona=persona, batch=batch, 理由=reason, 日時=now))
+            p = ROOT / 'progress/holds.md'
+            p.parent.mkdir(parents=True, exist_ok=True)
+            p.write_text('# 保留\n\n| persona | batch | 理由 | 日時 |\n|---|---|---|---|\n' + ''.join(
+                '| ' + ' | '.join(re.sub(r'[|\r\n\t]', ' ', r[k]) for k in ('persona','batch','理由','日時')) + ' |\n' for r in rows))
+        self.log('hold', persona, batch, reason)
+
+    def held(self, p, b):
+        return any(r['persona'] == p and r['batch'] == b for r in self.holds())
+
+    def stops(self):
+        reasons = []
+        if (self.home / 'stop').exists():
+            reasons.append('stop')
+        if shutil.disk_usage(ROOT).free < int(os.environ.get('AUTOPILOT_MIN_FREE_BYTES', '30000000000')):
+            reasons.append('空き容量30GB未満')
+        if sum(r['batch'].startswith('b') for r in self.holds()) >= 5:
+            reasons.append('保留5件以上')
+        if self.s['push_failures'] >= 3:
+            reasons.append('push連続失敗')
+        return reasons
+
+    def count(self, persona):
+        p = ROOT / 'manifests' / (persona + '.tsv')
+        return sum(bool(l.strip()) for l in read(p).splitlines()) if p.exists() else 0
+
+    def roadmap(self, p):
+        rows = table(ROOT / 'progress' / p / 'roadmap.md', ROAD)
+        if not rows or any(not r['範囲'] or not r['件数の目安'].isdigit() or not 30 <= int(r['件数の目安']) <= 40 for r in rows):
+            raise ValueError('roadmap: 範囲が空または件数が30〜40でない')
+        if sum(int(r['件数の目安']) for r in rows) < self.a.target:
+            raise ValueError('roadmap: 件数の合計が目標未満')
+        return rows
+
+    def launch_aux(self, p, b, kind, record):
+        name = self.unique(p.split('-')[0] + (f'-{b}' if b else '') + '-' + kind)
+        work = self.home / 'jobs' / name
+        work.mkdir(parents=True, exist_ok=True)
+        context = dict(persona=p, batch=b, target=self.a.target,
+                       scratch=str(work.relative_to(ROOT)),
+                       output=f'progress/{p}/{b + ".audit" if b else "roadmap"}.md')
+        brief = work / 'brief.md'
+        brief.write_text(read(ROOT / 'prompts' / (kind + '.md')) + '\n\nAUTOPILOT_CONTEXT\n' + json.dumps(context, ensure_ascii=False) + '\n')
+        output = ROOT / context['output']
+        # A successful prior attempt must never be mistaken for this attempt's output.
+        if output.exists():
+            shutil.copy(output, work / 'previous.md')
+            output.unlink()
+        record.update(job=name, attempts=record.get('attempts', 0) + 1)
+        if kind == 'audit':
+            record['hashes'] = self.hashes(p, b)
+        self.store()
+        cmd = shlex.join([str(ROOT / 'bin/batch'), 'codex-once', '--brief', str(brief), '--output', str(work / 'out.md')])
+        self.job('start', '--repo', 'personaCorpus', '--name', name,
+                 '--model', 'gpt-6-astra', '--effort', 'medium',
+                 '--command', 'cd ' + shlex.quote(str(ROOT)) + ' && ' + cmd)
+        self.jobs[name] = 'running'
+        self.log(kind, p, b, name)
+
+    def ensure_roadmap(self, p):
+        rec = self.s['roadmaps'].setdefault(p, {})
+        name = rec.get('job')
+        if name and self.jobs.get(name) in ACTIVE:
+            return None
+        try:
+            if name and self.jobs.get(name) != 'done':
+                raise ValueError('roadmap ジョブが正常終了していない')
+            rows = self.roadmap(p)
+            rec['valid'] = True
+            return rows
+        except ValueError as e:
+            if self.held(p, 'roadmap'):
+                return None
+            if rec.get('attempts', 0) >= 2:
+                self.hold(p, 'roadmap', str(e))
+            else:
+                self.launch_aux(p, '', 'roadmap', rec)
+            return None
+
+    def rows(self, p, b):
+        return table(ROOT / 'progress' / p / (b + '.md'), ('パス','内容'))
+
+    def hashes(self, p, b):
+        hashes = {}
+        for row in self.rows(p, b):
+            rel = row['パス']
+            path = PurePosixPath(rel)
+            if path.is_absolute() or '..' in path.parts or '\\' in rel or not rel:
+                raise ValueError('計画のパスが不正')
+            for folder, suffix in (('people', ''), ('sources', '.md')):
+                file = ROOT / folder / p / (rel + suffix)
+                if not file.resolve().is_relative_to((ROOT / folder / p).resolve()) or file.is_symlink():
+                    raise ValueError('計画のパスがリンク')
+                hashes[str(file.relative_to(ROOT))] = hashlib.sha256(file.read_bytes()).hexdigest() if file.exists() else None
+        return hashes
+
+    def latest_job(self, p, b):
+        base = p.split('-')[0] + '-' + b
+        found = [(int(m[1] or 1), n) for n in self.jobs if (m := re.fullmatch(re.escape(base) + r'(?:-r(\d+))?', n))]
+        return max(found)[1] if found else None
+
+    def batch_command(self, action, p, b, *flags):
+        run(ROOT / 'bin/batch', action, p, b, *flags)
+        self.log(action, p, b, ' '.join(flags))
+        try:
+            self.refresh()
+        except (ValueError, OSError) as e:
+            # The operation succeeded; a later status failure must not undo it.
+            self.log('status-error', p, b, e)
+
+    def audit_result(self, p, b):
+        text = read(ROOT / 'progress' / p / (b + '.audit.md'))
+        lines = text.splitlines()
+        if len(lines) < 2 or lines[0] not in ('verdict: accept', 'verdict: hold') or not lines[1].startswith('drop: '):
+            raise ValueError('監査の先頭の書式が不正')
+        drops = json.loads(lines[1][6:])
+        if not isinstance(drops, list) or any(not isinstance(x, str) for x in drops) or len(set(drops)) != len(drops):
+            raise ValueError('監査のdropが不正')
+        paths = {r['パス'] for r in self.rows(p, b)}
+        if set(drops) - paths or lines[0] == 'verdict: accept' and len(drops) > 1:
+            raise ValueError('監査のdropが計画外またはacceptで2件以上')
+        inspected = table(ROOT / 'progress' / p / (b + '.audit.md'), ('パス','判定','理由'))
+        seen = [r['パス'] for r in inspected]
+        available = {r['パス'] for r in self.rows(p,b) if not r['内容'].startswith(('破棄：','成形待ち：'))}
+        if not inspected or len(set(seen)) != len(seen) or set(seen) - available:
+            raise ValueError('監査の見たファイル一覧が不正')
+        if any(r['判定'] not in ('合格','破棄') or not r['理由'] for r in inspected):
+            raise ValueError('監査の判定・理由が不正')
+        minimum = min(len(available), max(8, (len(self.rows(p,b)) + 4) // 5))
+        if len(seen) < minimum or {PurePosixPath(x).suffix.lower() for x in available} - {PurePosixPath(x).suffix.lower() for x in seen}:
+            raise ValueError('監査の件数・形式が不足')
+        rejects = {r['パス'] for r in inspected if r['判定'] == '破棄'}
+        if lines[0] == 'verdict: accept' and (len(rejects) > 1 or rejects != set(drops)):
+            raise ValueError('監査の判定とdropが不一致')
+        return lines[0][9:], drops
+
+    def update_roadmap(self, p, b, status):
+        path = ROOT / 'progress' / p / 'roadmap.md'
+        if not path.exists():
+            return
+        for row in table(path, ROAD):
+            if re.search(r'(?<!\w)' + re.escape(b) + r'(?!\w)', row['状態']):
+                replace_cell(path, row, '状態', status + ' ' + b)
+                return
+
+    def process_batch(self, p, b, state):
+        rec = self.s['batches'].setdefault(p + '/' + b, {})
+        if self.held(p, b):
+            return
+        if any(r['persona'] == p and r['batch'] == b and r['status'] in ('accepted','discarded') for r in ledger()):
+            return
+        job = self.latest_job(p, b)
+        job_state = self.jobs.get(job)
+        runtime_lock = ROOT / 'scratch' / p / '.runtime-locks' / (b + '.lock')
+        if runtime_lock.exists():
+            with runtime_lock.open('a') as handle:
+                try:
+                    fcntl.flock(handle, fcntl.LOCK_EX | fcntl.LOCK_NB)
+                except BlockingIOError:
+                    return
+        if job_state in ACTIVE:
+            return  # Never terminate a stalled or limit-signalling live process.
+        status = state.get('status')
+        if job_state == 'failed' or status == 'failed' or status == 'running':
+            reason = state.get('reason', '') + ' ' + state.get('failure_tail', '')
+            limited = bool(re.search(r'利用上限|usage limit|rate limit|\b429\b|\bquota\b', reason, re.I))
+            if limited:
+                since = rec.setdefault('limit_since', time.time())
+                if time.time() - since < 1800:
+                    return
+            elif rec.get('resumes', 0) >= 1:
+                self.hold(p, b, 'resume 後に再失敗: ' + reason)
+                return
+            self.batch_command('resume', p, b)
+            if limited:
+                rec['limit_since'] = time.time()
+            else:
+                rec['resumes'] = rec.get('resumes', 0) + 1
+            self.store()
+            return
+        if status != 'done':
+            return
+        rows = self.rows(p, b)
+        discarded = [r for r in rows if r['内容'].startswith('破棄：') and (r['パス'] in state.get('draft_failures', {}) or r['内容'].startswith('破棄：先に要る原稿が不合格'))]
+        # Match batch's own redraft eligibility, including persisted findings.
+        findings = ROOT / 'progress/findings.tsv'
+        if findings.exists():
+            events = list(csv.DictReader(read(findings).splitlines(), delimiter='\t'))
+            paths = {e['path'] for e in events if e['persona'] == p and e['batch'] == b and e['stage'] in ('draft-check','draft-review')}
+            discarded = [r for r in rows if r['内容'].startswith('破棄：') and (r['パス'] in paths or r in discarded)]
+        flag, key, maximum = '', '', 0
+        if len(discarded) >= 3 and rec.get('redrafts', 0) < 1:
+            flag, key, maximum = '--redraft', 'redrafts', 1
+        elif any(r['内容'].startswith('成形待ち：') for r in rows) and rec.get('rebuilds', 0) < 2:
+            flag, key, maximum = '--rebuild', 'rebuilds', 2
+        if flag:
+            self.batch_command('resume', p, b, flag)
+            rec[key] = min(maximum, rec.get(key, 0) + 1)
+            rec.pop('audit', None)
+            self.store()
+            return
+        audit = rec.setdefault('audit', {})
+        name = audit.get('job')
+        if name and self.jobs.get(name) in ACTIVE:
+            return
+        if name:
+            if audit.get('hashes') != self.hashes(p, b):
+                self.hold(p, b, '監査前後の sha256 が不一致')
+                return
+            try:
+                if self.jobs.get(name) != 'done':
+                    raise ValueError('監査ジョブが正常終了していない')
+                verdict, drops = self.audit_result(p, b)
+            except (ValueError, OSError) as e:
+                if audit.get('attempts', 0) >= 2:
+                    self.hold(p, b, '監査の書式・実行エラー: ' + str(e))
+                else:
+                    self.launch_aux(p, b, 'audit', audit)
+                return
+            if verdict == 'hold':
+                self.hold(p, b, '監査 hold: ' + f'progress/{p}/{b}.audit.md')
+                return
+            if self.s['push_failures'] >= 3:
+                return
+            # Batch includes this roadmap update in the acceptance commit.
+            self.s['push_pending'] = True
+            self.store()
+            self.update_roadmap(p, b, '受入済み')
+            try:
+                self.batch_command('accept', p, b, *(['--drop', *drops] if drops else []))
+            except Exception:
+                self.update_roadmap(p, b, '進行中')
+                raise
+            rec['accepted'] = True
+            self.s['push_pending'] = True
+            self.store()
+            self.push()
+        else:
+            self.launch_aux(p, b, 'audit', audit)
+
+    def push(self):
+        if not self.s.get('push_pending') or getattr(self, 'push_attempted', False):
+            return
+        self.push_attempted = True
+        with lock('records'):
+            result = run('git', 'push', 'origin', 'main', check=False)
+        if result.returncode:
+            self.s['push_failures'] += 1
+            self.log('push-failed', detail=result.stdout[-2000:])
+            if self.s['push_failures'] >= 3:
+                self.hold('全体', 'push', 'push が3回連続で失敗。新しい受入を停止。統括がリモートと未送信commitを確認する')
+        else:
+            self.s.update(push_failures=0, push_pending=False)
+            # Remove only our own resolved push hold.
+            if self.held('全体', 'push'):
+                with lock('records'):
+                    path = ROOT / 'progress/holds.md'
+                    path.write_text('\n'.join(l for l in read(path).splitlines() if not re.match(r'\| 全体 \| push \|', l)) + '\n')
+            self.log('push')
+        self.store()
+
+    def commit_holds(self):
+        path = 'progress/holds.md'
+        if not (ROOT / path).exists():
+            return
+        with lock('records'):
+            staged = run('git','diff','--cached','--name-only').stdout.splitlines()
+            if any(p != path for p in staged):
+                self.log('holds-uncommitted', detail='無関係なstageがある')
+                return
+            changed = run('git','status','--porcelain','--',path).stdout
+            if not changed:
+                return
+            self.s['push_pending'] = True
+            self.store()
+            run('git','add','--',path)
+            run('git','commit','-m','Update autopilot holds','--',path)
+        self.push()
+
+    def new_batch(self, p, rows):
+        if self.count(p) >= self.a.target or self.held(p, 'roadmap'):
+            return
+        active = [b for b in self.s['batches'] if b.startswith(p + '/') and not self.s['batches'][b].get('accepted')]
+        active += [str(x.parent.name) for x in (ROOT / 'scratch' / p).glob('b*/state.json')
+                   if json.loads(read(x)).get('status') not in ('accepted','discarded')]
+        completed = {(r['persona'],r['batch']) for r in ledger() if r['status'] in ('accepted','discarded')}
+        active = {b.split('/')[-1] for b in active if (p,b.split('/')[-1]) not in completed}
+        active |= {m[1] for n,s in self.jobs.items() if s in ACTIVE and (m := re.fullmatch(re.escape(p.split('-')[0]) + r'-(b\d+)(?:-r\d+)?', n))}
+        row = next((r for r in rows if not r['状態']), None)
+        if not row or active and not any('並行可' in str(v) for v in row.values()):
+            return
+        # Held batches also reserve their scope; allow parallelism only explicitly.
+        if active:
+            cfg = ROOT / 'config/limits.json'
+            maximum = int(os.environ.get('CORPUS_MAX_BATCHES_PER_PERSONA', (json.loads(read(cfg)) if cfg.exists() else {}).get('max_batches_per_persona',3)))
+            if len(active) >= maximum or not any(r['persona'] == p and r['status'] == 'accepted' for r in ledger()):
+                return
+        folder = ROOT / 'progress' / p
+        numbers = [int(m[1]) for x in folder.glob('b*') if (m := re.match(r'b(\d+)(?:\.|$)', x.name))]
+        numbers += [int(b[1:]) for b in active]
+        b = f'b{max(numbers, default=0)+1:03}'
+        request = folder / (b + '.request.md')
+        request.write_text(f'# {p} {b} の依頼\n\n' + ''.join('- ' + k + '：' + row[k] + '\n' for k in ROAD[1:6]))
+        rec = self.s['batches'].setdefault(p + '/' + b, {})
+        rec['launch_pending'] = True
+        replace_cell(folder / 'roadmap.md', row, '状態', '進行中 ' + b)
+        self.store()
+        self.batch_command('start', p, b)
+        rec.pop('launch_pending', None)
+        self.store()
+
+    def once(self):
+        if run('git', 'branch', '--show-current').stdout.strip() != 'main':
+            raise ValueError('自動運転は main で実行する')
+        self.s['configuration'] = dict(target=self.a.target, personas=self.a.personas)
+        self.store()
+        self.push_attempted = False
+        self.push()
+        for p in self.personas():
+            if (self.home / 'stop-now').exists():
+                return
+            try:
+                paths = {path.parent.name: path for path in (ROOT / 'scratch' / p).glob('b*/state.json')}
+                batches = set(paths) | {k.split('/')[1] for k in self.s['batches'] if k.startswith(p + '/')}
+                for name in self.jobs:
+                    match = re.fullmatch(re.escape(p.split('-')[0]) + r'-(b\d+)(?:-r\d+)?', name)
+                    if match:
+                        batches.add(match[1])
+                for b in sorted(batches):
+                    if (self.home / 'stop-now').exists():
+                        return
+                    try:
+                        state = json.loads(read(paths[b])) if b in paths else {'status': 'running'}
+                        if self.s['batches'].get(p + '/' + b, {}).get('launch_pending') and not self.latest_job(p,b):
+                            continue
+                        # Stopping admission must still drain existing batches through audit.
+                        self.process_batch(p, b, state)
+                    except Exception as e:
+                        self.log('error', p, b, e)
+                    self.store()
+                # Recover an interrupted start without allocating another roadmap row.
+                for key, rec in list(self.s['batches'].items()):
+                    if key.startswith(p + '/') and rec.get('launch_pending') and not self.stops():
+                        b = key.split('/')[1]
+                        if not self.latest_job(p,b):
+                            self.batch_command('start', p,b)
+                        rec.pop('launch_pending',None)
+                        self.store()
+                if (self.home / 'stop-now').exists():
+                    return
+                if not self.stops() and self.count(p) < self.a.target:
+                    rows = self.ensure_roadmap(p)
+                    if rows is not None:
+                        self.new_batch(p, rows)
+            except Exception as e:
+                self.log('error', p, detail=e)
+            finally:
+                self.store()
+        self.commit_holds()
+
+    def status(self):
+        print('persona\t受入済み/目標\t進行中 batch:段階\t成形待ち\t破棄\t保留\troadmap残り')
+        for p in self.personas():
+            running, pending, dropped = [], 0, 0
+            for path in sorted((ROOT / 'scratch' / p).glob('b*/state.json')):
+                try:
+                    s = json.loads(read(path))
+                    if s.get('status') not in ('accepted','discarded'):
+                        running.append(path.parent.name + ':' + s.get('stage','?') + '(' + s.get('status','?') + ')')
+                except (ValueError,OSError) as e:
+                    running.append(path.parent.name + ':error ' + str(e))
+            reported = {x.split(':')[0] for x in running}
+            for name, state in self.jobs.items():
+                match = re.fullmatch(re.escape(p.split('-')[0]) + r'-(b\d+)(?:-r\d+)?', name)
+                if match and state in ACTIVE and match[1] not in reported:
+                    running.append(match[1] + ':起動待ち(' + state + ')')
+                    reported.add(match[1])
+            for plan in (ROOT / 'progress' / p).glob('b*.md'):
+                if not re.fullmatch(r'b\d+\.md',plan.name):
+                    continue
+                try:
+                    rows = self.rows(p,plan.stem)
+                    pending += sum(r['内容'].startswith('成形待ち：') for r in rows)
+                    dropped += sum(r['内容'].startswith('破棄：') for r in rows)
+                except ValueError:
+                    pass
+            try:
+                remaining = str(sum(not r['状態'] for r in self.roadmap(p)))
+            except ValueError:
+                remaining = '未作成/不正'
+            print('\t'.join(map(str,[p,f'{self.count(p)}/{self.a.target}',','.join(running) or '-',pending,dropped,
+                      '; '.join(r['batch'] + ': ' + r['理由'] for r in self.holds() if r['persona'] in (p,'全体')) or '-',remaining])))
+        used = 0
+        folder = ROOT / 'scratch/.slots'
+        for path in folder.glob('*'):
+            with path.open('a') as f:
+                try:
+                    fcntl.flock(f,fcntl.LOCK_EX | fcntl.LOCK_NB)
+                except BlockingIOError:
+                    used += 1
+        print(f'Codex 使用中: {used} / 自動運転: ' + ('稼働中' if loop_running() or any(re.fullmatch(r'autopilot(?:-r\d+)?',n) and s in ACTIVE for n,s in self.jobs.items()) else '停止'))
+        print('止める条件: ' + ('、'.join(self.stops()) or 'なし'))
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    sub = parser.add_subparsers(dest='action',required=True)
+    for name in ('start','run','once','status','stop'):
+        p = sub.add_parser(name)
+        if name == 'stop':
+            p.add_argument('--now',action='store_true')
+        else:
+            p.add_argument('--personas')
+            p.add_argument('--target',type=int)
+    a = parser.parse_args()
+    if not hasattr(a,'personas'):
+        a.personas, a.target = None, 300
+    pilot = Pilot(a)
+    if a.action == 'status':
+        cfg = pilot.s.get('configuration', {})
+        if a.personas is None:
+            a.personas = cfg.get('personas')
+        if a.target is None:
+            a.target = cfg.get('target', 300)
+    if a.target is None:
+        a.target = 300
+    if a.target < 1:
+        parser.error('--target は正の整数')
+    if a.action in ('start', 'run', 'once') and run('git','branch','--show-current').stdout.strip() != 'main':
+        raise ValueError('自動運転は main で実行する')
+    if a.action == 'status':
+        pilot.refresh()
+        pilot.status()
+    elif a.action == 'stop':
+        pilot.refresh()
+        pilot.home.mkdir(parents=True,exist_ok=True)
+        (pilot.home / 'stop').touch()
+        if a.now:
+            (pilot.home / 'stop-now').touch()
+            for n,s in pilot.jobs.items():
+                if re.fullmatch(r'autopilot(?:-r\d+)?',n) and s in ACTIVE:
+                    pilot.job('stop','personaCorpus',n)
+    elif a.action == 'start':
+        with lock('autopilot-start'):
+            pilot.refresh()
+            if loop_running() or any(re.fullmatch(r'autopilot(?:-r\d+)?',n) and s in ACTIVE for n,s in pilot.jobs.items()):
+                print('自動運転は起動済み')
+                return
+            for f in ('stop','stop-now'):
+                (pilot.home / f).unlink(missing_ok=True)
+            cmd = [str(ROOT/'bin/autopilot'),'run','--target',str(a.target)]
+            if a.personas:
+                cmd += ['--personas',a.personas]
+            pilot.job('start','--repo','personaCorpus','--name',pilot.unique('autopilot'),
+                      '--command','cd '+shlex.quote(str(ROOT))+' && '+shlex.join(cmd))
+    else:
+        try:
+            with lock('autopilot-loop',blocking=False):
+                while not (pilot.home / 'stop-now').exists():
+                    try:
+                        pilot.refresh()
+                        pilot.once()
+                    except Exception as e:
+                        pilot.log('error',detail=e)
+                    if a.action == 'once':
+                        break
+                    # Short sleeps make stop --now responsive even without a job supervisor.
+                    end = time.monotonic() + float(os.environ.get('AUTOPILOT_INTERVAL_SECONDS','60'))
+                    while time.monotonic() < end and not (pilot.home / 'stop-now').exists():
+                        time.sleep(min(1,max(0,end-time.monotonic())))
+        except BlockingIOError:
+            print('別の自動運転が実行中',file=sys.stderr)
+            return 1
+    return 0
+
+
+if __name__ == '__main__':
+    try:
+        sys.exit(main())
+    except (ValueError,OSError) as e:
+        print('autopilot: '+str(e),file=sys.stderr)
+        sys.exit(1)
