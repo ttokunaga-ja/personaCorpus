@@ -227,3 +227,32 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-16	p01-software-engineer	b001	check	2	source	Pictures/操作確認/0709_R7添付差替え_確認画面.png	body token overlap 0.254 < 0.3
 2026-11-16	p14-finance-controller	b006	check	1	source	Documents/月次/2026/2026-01/2026-01_CFO締め報告.pptx	missing source values: 2480000, 2600000, 3412300, 3500000, 500000
 2026-11-16	p14-finance-controller	b006	check	2	source	Documents/月次/2026/2026-01/2026-01_CFO締め報告.pptx	missing source values: 2480000, 2600000, 3412300, 3500000, 500000
+2026-11-16	p18-manufacturing-quality-engineer	b001	check	0	source	Documents/不適合/NCR-026/8月18日_選別確認票_原さん控え.pdf	body token overlap 0.240 < 0.3
+2026-11-16	p18-manufacturing-quality-engineer	b001	check	0	source	Documents/不適合/NCR-026/8月19日_選別確認票_追記あり.pdf	body token overlap 0.241 < 0.3
+2026-11-16	p18-manufacturing-quality-engineer	b001	check	0	source	Downloads/BR-2410_2026-08-20_全数選別.csv	body token overlap 0.560 < 0.6
+2026-11-16	p18-manufacturing-quality-engineer	b001	check	1	source	Documents/不適合/NCR-026/8月18日_選別確認票_原さん控え.pdf	body token overlap 0.215 < 0.3
+2026-11-16	p18-manufacturing-quality-engineer	b001	check	1	source	Documents/不適合/NCR-026/8月19日_選別確認票_追記あり.pdf	body token overlap 0.116 < 0.3
+2026-11-16	p18-manufacturing-quality-engineer	b001	check	1	source	Downloads/BR-2410_2026-08-20_全数選別.csv	body token overlap 0.560 < 0.6
+2026-11-16	p18-manufacturing-quality-engineer	b001	check	2	source	Documents/不適合/NCR-026/8月18日_選別確認票_原さん控え.pdf	body token overlap 0.290 < 0.3
+2026-11-16	p18-manufacturing-quality-engineer	b001	check	2	source	Documents/不適合/NCR-026/8月19日_選別確認票_追記あり.pdf	body token overlap 0.266 < 0.3
+2026-11-16	p18-manufacturing-quality-engineer	b001	check	2	source	Downloads/BR-2410_2026-08-20_全数選別.csv	body token overlap 0.560 < 0.6
+2026-11-16	p05-bi-data-analyst	b001	check	0	source	Documents/通販/返品と取消/2025-10-28_再注文先のある取消候補.csv	missing source values: 1200, 3100000, 350000, 400000, 430000
+2026-11-16	p05-bi-data-analyst	b001	check	0	source	Documents/通販/返品と取消/2025-10-28_受領表と週報入力の差.xlsx	missing source values: 1328, 1334, 1335, 3100000, 4000000
+2026-11-16	p05-bi-data-analyst	b001	check	1	source	Documents/通販/返品と取消/2025-10-28_再注文先のある取消候補.csv	missing source values: 1200, 3100000, 350000, 400000, 430000
+2026-11-16	p05-bi-data-analyst	b001	check	1	source	Documents/通販/返品と取消/2025-10-28_受領表と週報入力の差.xlsx	missing source values: 1328, 1334, 1335, 3100000, 4000000
+2026-11-16	p05-bi-data-analyst	b001	check	2	source	Documents/通販/返品と取消/2025-10-28_再注文先のある取消候補.csv	missing source values: 1200, 3100000, 350000, 400000, 430000
+2026-11-16	p05-bi-data-analyst	b001	check	2	source	Documents/通販/返品と取消/2025-10-28_受領表と週報入力の差.xlsx	missing source values: 1328, 1334, 1335, 3100000, 4000000
+2026-11-16	p08-product-manager	b001	draft-review	0	D4	Pictures/Flows/8月17日_若松の依頼受付一覧.png	一覧上部の「再利用して依頼」は、7月30日の関連原稿「再利用の入口案_岡本さんと検討」2枚目の現状「一覧からは再利用の入口が見えず、詳細を開く必要がある」と矛盾する。一覧入口追加は同原稿3枚目の案で、8月18日の比較でも保留なのに、8月17日の現行画面で実装済みとしている。計画にも一覧の入口表示が指定されており、計画と関連原稿の整合が必要。
+2026-11-16	p08-product-manager	b001	check	0	source	Documents/オルタ巡回チェック/M-27/7月22日締め_採用率集計.xlsx	body token overlap 0.513 < 0.6
+2026-11-16	p08-product-manager	b001	check	0	source	Downloads/巡回チェック_7月22日締め_拠点別採用.csv	body token overlap 0.478 < 0.6
+2026-11-16	p08-product-manager	b001	check	1	source	Documents/オルタ巡回チェック/M-27/7月22日締め_採用率集計.xlsx	body token overlap 0.513 < 0.6
+2026-11-16	p08-product-manager	b001	check	1	source	Downloads/巡回チェック_7月22日締め_拠点別採用.csv	body token overlap 0.478 < 0.6
+2026-11-16	p08-product-manager	b001	check	2	source	Documents/オルタ巡回チェック/M-27/7月22日締め_採用率集計.xlsx	body token overlap 0.513 < 0.6
+2026-11-16	p08-product-manager	b001	check	2	source	Downloads/巡回チェック_7月22日締め_拠点別採用.csv	body token overlap 0.478 < 0.6
+2026-11-16	p15-recruiter-people-ops	b001	draft-review	0	D3	Documents/採用/研修設計リード採用/選考記録/松本さん_9月8日の評価.xlsx	「関係者との合意形成」行は観察事実が「関係者へ内容を説明した」のみなのに「必要水準の根拠あり」「不足根拠なし」と判定している。判断基準表が必要とする「関係者への説明・調整と合意に至る理由」のうち調整・合意と理由が、同表にも参照先9月3日面接記録にもなく、この判定を裏付けられない。
+2026-11-16	p15-recruiter-people-ops	b001	draft-check	1	source	Documents/採用/研修設計リード採用/選考記録/松本さん_9月8日の評価.xlsx	[Errno 2] No such file or directory: '/home/ttokunaga-ja/dev/github.com/ttokunaga-ja/personaCorpus/sources/p15-recruiter-people-ops/Documents/採用/研修設計リード採用/選考記録/松本さん_9月8日の評価.xlsx.md'
+2026-11-16	p15-recruiter-people-ops	b001	draft-review	2	D3	Documents/採用/研修設計リード採用/選考記録/松本さん_9月8日の評価.xlsx	前回の不合格理由は未解消。「関係者との合意形成」行の事実は「関係者へ内容を説明した」のみで、参照先9月3日面接記録にも調整・合意とその理由がなく、判断基準表が求める「関係者への説明・調整と合意に至る理由」を満たす根拠なしに「必要水準の根拠あり」、不足根拠「—」としている。
+2026-11-16	p15-recruiter-people-ops	b001	draft-review	0	D4	Documents/採用/研修設計リード採用/要件と承認/研修設計リード_高橋さん確認.docx	「高橋のコメント」で「候補者に応じて柔軟に相談」という一文の削除を求めているが、関連する8月12日の採用申請たたき台全文にその一文がなく、元案に対する指摘として整合しない。
+2026-11-16	p15-recruiter-people-ops	b001	build-review	1	V2	Documents/採用/研修設計リード採用/選考記録/9月18日_追加確認後の評価.xlsx	井上さんシートの全2ページ（レンダリング3・4ページ）で、型mirai-evaluation.xlsxにある会社・人事表示とページ番号のフッタが欠落している。実シートのoddFooterも空で、READMEのフッタ維持指定と一致しない。
+2026-11-16	p13-corporate-privacy-counsel	b001	templates-review	0	other	toto-legal-brief.pptx	全5実レイアウトは正常に描画されたが、ppt/slideLayouts/slideLayout6.xml〜slideLayout11.xmlとマスターのrId6〜rId11が残り、英語の編集用仮文と固定日付1/27/13を含み、別名保存した見本にも残存する。
+2026-11-16	p13-corporate-privacy-counsel	b001	build-review	0	V3	Documents/Matters/文書保全期限見直し/保全/7月10日_延長申出と判断の比較.xlsx	全6頁の上部B1の社名先頭「東」にロゴが重なり文字が隠れている（型・見本では重ならず、成果物はA列幅を13から5へ縮小）。
