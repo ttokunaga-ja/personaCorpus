@@ -418,6 +418,19 @@ class BatchTest(unittest.TestCase):
         for rel, reason in b.draft_check(rows).items():
             self.assertNotEqual(reason.rsplit(': ',1)[-1],rel)
 
+    def test_draft_japanese_production_notes(self):
+        self.cli('run','p01','b001','--plan-only')
+        mod=self.load(); b=mod.Batch(type('Args',(),dict(persona='p01',batch='b001'))())
+        rows=b.state['completed']['plan']; a,z=rows
+        texts={a['パス']:'【重要】申請書の保存先：共有フォルダ。部長の赤字を反映して版を上げた。',
+               z['パス']:'終了区分の扱いを直した。\n【河野隆之、2026年7月10日 11:40、削除・取り消し線】期限到来で削除完了。'}
+        for row in rows:
+            p=b.source(row['パス']); p.parent.mkdir(parents=True,exist_ok=True)
+            p.write_text('---\npath: '+row['パス']+'\nkind: text\nauthor: 花子\nderived_from:\n---\n'+texts[row['パス']])
+        self.assertEqual(set(b.draft_check(rows)),{z['パス']})
+        b.source(z['パス']).write_text('---\npath: '+z['パス']+'\nkind: text\nauthor: 花子\nderived_from:\n---\n添付：受領控え.pdf（保存先：Documents/引渡し。本文への埋め込みなし）')
+        self.assertEqual(set(b.draft_check(rows)),{z['パス']})
+
     def test_dependency_layers_and_blocked_child(self):
         self.run_batch(mode='dependency')
         contexts=[json.loads(line) for line in (self.scratch/'contexts.jsonl').read_text().splitlines()]

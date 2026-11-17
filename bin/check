@@ -30,6 +30,8 @@ BASE = Path(__file__).resolve().parents[1]
 EXT = set('docx pdf xlsx csv tsv pptx txt md log eml html png jpg json xml wav mp3 m4a zip'.split())
 BAD_PATH = re.compile(r'foundation|visual|source-art|full|(?<![a-z0-9])m1(?![a-z0-9])|primary|secondary|pdf_scan|pdf_text|txt_log|csv_tsv|html_eml|structured_text|domain_binary|imagegen', re.I)
 TRACE = re.compile(r'(?<!\w)(?:kio(?:-eval)?|personacorpus|persona|corpus|fixture|content\s+spine|synthetic|fictional|not\s+a\s+real|artifact\s+id|source\s+id|batch|scope\s+(?=[\w-]*\d)[\w-]+|p\d{2}-[\w-]+|lorem\s+ipsum|placeholder)(?!\w)|/Users/|scratch/', re.I)
+# Japanese production notes have no word boundaries; keep the patterns to wordings real documents do not use.
+TRACE_JA = re.compile(r'本文への埋め込み|【[^】\n]{0,60}(?:削除・取り消し線|赤字の挿入|赤字追記)[^】\n]{0,20}】')
 SECRET = re.compile(rb'(?:AKIA|ASIA)[0-9A-Z]{16}|(?:ghp|gho|ghu|ghs|ghr)_[A-Za-z0-9]{36,}|github_pat_[A-Za-z0-9_]{20,}|(?:xox[baprs]|xapp)-[A-Za-z0-9-]{10,}|(?:hvs\.|hvb\.|s\.)[A-Za-z0-9_-]{20,}|-----BEGIN (?:RSA |EC |DSA |OPENSSH |ENCRYPTED |PGP )?PRIVATE KEY(?: BLOCK)?-----|sk-[A-Za-z0-9_-]{20,}|eyJ[A-Za-z0-9_-]+\.eyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+|/ASCII85Decode')
 COMMANDS = ('pdftotext','pdfinfo','pdftoppm','tesseract','soffice','ffprobe')
 LIBRARIES = ('docx','openpyxl','pptx','reportlab','pypdf','PIL')
@@ -292,6 +294,35 @@ def email_source_reason(expected, path):
     return None
 
 
+def email_attachment_reason(expected, path):
+    """Require MIME payloads for explicit, unquoted manuscript attachment lists."""
+    declared = set(); listing = False
+    for line in expected.splitlines():
+        declaration = re.fullmatch(r'\s*(?:[-*]\s*)?(?:添付(?:ファイル)?(?:（実ファイル）)?|attachments?)\s*[:：](.*)', line, re.I)
+        if declaration:
+            value = declaration[1].strip()
+            listing = not value
+        elif listing and re.match(r'\s*[-*]\s+', line):
+            value = re.sub(r'^\s*[-*]\s+', '', line).strip()
+        else:
+            listing = False
+            continue
+        for item in value.split('、'):
+            item = item.strip().strip('`')
+            # Interpret only complete filenames/paths, not prose or absence notes.
+            # Comma-separated prose is ambiguous with a comma inside a filename.
+            if re.fullmatch(r'[^<>,\n]+\.(?:'+ '|'.join(sorted(EXT)) +r')', item, re.I):
+                declared.add(Path(item).name)
+    if not declared:return None
+    message = email.message_from_bytes(path.read_bytes(), policy=email.policy.default)
+    available = {part.get_filename() for part in message.iter_attachments()
+                 if (part.get_payload() if part.get_content_type()=='message/rfc822'
+                     else part.get_payload(decode=True))}
+    missing = sorted(declared - available)
+    if missing:return 'missing or empty MIME attachments: ' + ', '.join(missing)
+    return None
+
+
 def formula_reason(path):
     ns = '{http://schemas.openxmlformats.org/spreadsheetml/2006/main}'
     with zipfile.ZipFile(path) as archive:
@@ -308,6 +339,15 @@ def formula_reason(path):
     return None
 
 
+def csv_data_lines(text):
+    """A CSV/TSV manuscript's data rows are its fenced block and table rows; prose totals and rules are not cells."""
+    lines=[];fenced=False
+    for line in text.splitlines():
+        if line.strip().startswith('```'):fenced=not fenced;continue
+        if fenced or line.lstrip().startswith('|'):lines.append(line)
+    return '\n'.join(lines) if lines else text
+
+
 def source_reason(expected, actual, *, from_ocr=False, ext="txt", reviewed=False, derived=False):
     # The mechanical check catches dropped content; exact wording is the visual review's job.
     strip=ungroup
@@ -320,7 +360,7 @@ def source_reason(expected, actual, *, from_ocr=False, ext="txt", reviewed=False
     want=words(expected);have=words(actual)
     overlap=sum((want & have).values())/sum(want.values()) if want else 1
     if not (from_ocr or derived):
-        numbers=source_numbers(expected)
+        numbers=source_numbers(csv_data_lines(expected) if ext in ('csv','tsv') else expected)
         missing=sorted(numbers-source_numbers(actual))
         # A table's manuscript may add a note (a total, an approval) that a CSV cannot carry.
         allowed=max(len(numbers)//10,1 if len(numbers)>=5 else 0) if table else len(numbers)//20
@@ -450,6 +490,8 @@ def inspect(item):
                     if ext=='eml':
                         reason=email_source_reason(body,path)
                         if reason:fail('email-headers',reason)
+                        reason=email_attachment_reason(body,path)
+                        if reason:fail('email-attachments',reason)
                     # Pictures are judged by eye in the visual review; OCR of screens, charts and handwriting is unreliable.
                     visual_source=ext in ('png','jpg') or bool({'photo','handwriting','chart','diagram'} & set(scfg.get('kind','').split(':')))
                     if not visual_source:
@@ -469,6 +511,9 @@ def inspect(item):
                 for m in TRACE.finditer(traced):
                     if not any(a<=m.start() and m.end()<=b for a,b in allowed):
                         fail('trace','production trace: '+m.group());break
+                else:
+                    m=TRACE_JA.search(traced)
+                    if m:fail('trace','production trace: '+m.group())
             except Exception as e:fail('opens',f'{type(e).__name__}: {e}')
         if cfg.get('period'):
             start,end=cfg['period'].split('..')

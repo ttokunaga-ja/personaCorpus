@@ -1,6 +1,7 @@
 """Disposable source coverage and duplicate-check regressions (no corpus writes)."""
 import importlib.machinery
 import importlib.util
+from email.message import EmailMessage
 from pathlib import Path
 import tempfile
 import unittest
@@ -37,6 +38,17 @@ class Coverage(unittest.TestCase):
         self.assertIsNone(check.source_reason(expected, 'alpha beta gamma', from_ocr=True))
         self.assertIn('< 0.3', check.source_reason(expected, 'alpha beta', from_ocr=True))
         self.assertIsNotNone(check.source_reason(expected, 'alpha beta gamma'))
+
+    def test_csv_numbers_come_from_data_rows_not_prose_totals(self):
+        manuscript = ('列は受注番号,金額。行の作り方：1 日 214 行、合計 7,520,000 円、有効 7,000,000 円、取消 520,000 円。\n\n'
+                      '```csv\n受注番号,金額\nOR-1001,33000\nOR-1002,35000\nOR-1003,40000\nOR-1004,41000\nOR-1005,42000\n```\n')
+        built = '受注番号,金額\nOR-1001,33000\nOR-1002,35000\nOR-1003,40000\nOR-1004,41000\nOR-1005,42000\nOR-1006,50000\n'
+        self.assertIsNone(check.source_reason(manuscript, built, ext='csv'))
+        dropped = built.replace('OR-1002,35000\n', '').replace('OR-1003,40000\n', '')
+        self.assertIn('missing source values', check.source_reason(manuscript, dropped, ext='csv'))
+        table = '| 受注番号 | 金額 |\n|---|---:|\n| OR-1001 | 33000 |\n| OR-1002 | 35000 |\n| OR-1003 | 40000 |\n| OR-1004 | 41000 |\n| OR-1005 | 42000 |\n\n合計 7,520,000 円'
+        self.assertIsNone(check.source_reason(table, built, ext='tsv'))
+        self.assertIn('missing source values', check.source_reason('合計 7,520,000 円、有効 7,000,000 円', built, ext='csv'))
 
     def test_non_ocr_derived_retains_half_coverage_and_numeric_tolerance(self):
         expected = 'alpha beta gamma delta epsilon zeta eta theta iota 9876'
@@ -131,6 +143,72 @@ class EmailHeaders(unittest.TestCase):
                          '本文の説明\n\nMessage-ID: <quoted@example.test>'):
             with self.subTest(expected=expected):
                 self.assertIsNone(check.email_source_reason(expected, path))
+
+
+class EmailAttachments(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        self.home = Path(self.tmp.name)/'people'; self.home.mkdir()
+        self.sources = Path(self.tmp.name)/'sources'; self.sources.mkdir()
+
+    def issues(self, manuscript, attachments=(), forwarded=False, attached_email=False):
+        message = EmailMessage()
+        message['From'] = 'sender@example.test'
+        message['To'] = 'recipient@example.test'
+        message['Subject'] = '資料の送付'
+        message.set_content(manuscript)
+        for filename, payload in attachments:
+            message.add_attachment(payload, maintype='application', subtype='octet-stream', filename=filename)
+        if forwarded:
+            nested = EmailMessage()
+            nested.set_content('前のメール')
+            nested.add_attachment(b'old report', maintype='application', subtype='pdf', filename='report.pdf')
+            if attached_email:
+                message.add_attachment(nested, filename='forwarded.eml')
+            else:
+                message.add_attachment(nested)
+        path = self.home/'message.eml'; path.write_bytes(message.as_bytes())
+        (self.sources/'message.eml.md').write_text('---\nkind: text\n---\n'+manuscript)
+        return check.inspect((path, self.home, {}, None, self.sources))[1]
+
+    def test_filename_in_body_cannot_substitute_for_attachment(self):
+        issues = self.issues('資料を送ります。\n添付: report.pdf')
+        self.assertNotIn('source', issues)
+        self.assertIn('email-attachments', issues)
+        self.assertIn('report.pdf', issues['email-attachments'])
+
+    def test_each_declared_attachment_is_required(self):
+        issues = self.issues('添付：report.pdf、明細.xlsx', [('report.pdf', b'PDF')])
+        self.assertIn('明細.xlsx', issues['email-attachments'])
+
+    def test_empty_or_wrong_name_is_rejected(self):
+        for attachments in ([('report.pdf', b'')], [('other.pdf', b'PDF')]):
+            with self.subTest(attachments=attachments):
+                self.assertIn('email-attachments', self.issues('添付: report.pdf', attachments))
+
+    def test_paths_multiline_and_names_with_spaces(self):
+        for manuscript in ('添付: Documents/報告.pdf', '添付（実ファイル）：\n- Documents/報告.pdf',
+                           'Attachments:\n- `Monthly Financial Review.pdf`'):
+            filename = 'Monthly Financial Review.pdf' if 'Monthly' in manuscript else '報告.pdf'
+            with self.subTest(manuscript=manuscript):
+                self.assertNotIn('email-attachments', self.issues(manuscript, [(filename, b'contents')]))
+                self.assertIn('email-attachments', self.issues(manuscript))
+
+    def test_quoted_and_prose_mentions_are_not_declarations(self):
+        for manuscript in ('添付: なし\n> 添付: report.pdf', 'Attachment: none\n> Attachment: report.pdf',
+                           'report.pdf を共有フォルダで参照してください。',
+                           '添付: なし\n\n- report.pdf',
+                           'Attachments: first.pdf, second.pdf',
+                           '添付: report.pdf は前便で送付済みです。'):
+            with self.subTest(manuscript=manuscript):
+                self.assertNotIn('email-attachments', self.issues(manuscript))
+
+    def test_forwarded_email_attachment_does_not_satisfy_current_message(self):
+        self.assertIn('email-attachments', self.issues('添付: report.pdf', forwarded=True))
+
+    def test_attached_email_itself_is_a_valid_attachment(self):
+        self.assertNotIn('email-attachments', self.issues('添付: forwarded.eml', forwarded=True, attached_email=True))
 
 
 class Duplicate(unittest.TestCase):

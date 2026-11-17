@@ -30,6 +30,8 @@ COLUMNS = ('パス', '日付', '作り方', '内容', '関連', '先に要るも
 EXT = set('docx pdf xlsx csv tsv pptx txt md log eml html png jpg json xml wav mp3 m4a zip'.split())
 BAD_PATH = re.compile(r'foundation|visual|source-art|full|(?<![a-z0-9])m1(?![a-z0-9])|primary|secondary|pdf_scan|pdf_text|txt_log|csv_tsv|html_eml|structured_text|domain_binary|imagegen', re.I)
 TRACE = re.compile(r'(?<!\w)(?:kio(?:-eval)?|personacorpus|persona|corpus|fixture|content\s+spine|synthetic|fictional|not\s+a\s+real|artifact\s+id|source\s+id|batch|scope\s+(?=[\w-]*\d)[\w-]+|p\d{2}-[\w-]+|lorem\s+ipsum|placeholder)(?!\w)|/Users/|scratch/', re.I)
+# Japanese production notes have no word boundaries; keep the patterns to wordings real documents do not use.
+TRACE_JA = re.compile(r'本文への埋め込み|【[^】\n]{0,60}(?:削除・取り消し線|赤字の挿入|赤字追記)[^】\n]{0,20}】')
 IDENTIFIER = re.compile(r'(?<![a-z0-9])p\d{2}(?!\d)|-s\d{6}(?!\d)|(?<!\d)\d{5,}(?!\d)', re.I)
 
 
@@ -1029,6 +1031,9 @@ class Batch:
                            for m in re.finditer(r'(?<!\w)' + r'\s+'.join(re.escape(w) for w in term.split()) + r'(?!\w)', body, re.I)]
                 if any(not any(a <= m.start() and m.end() <= b for a, b in allowed) for m in TRACE.finditer(body)):
                     raise ValueError('制作の痕跡')
+                note = TRACE_JA.search(body)
+                if note:
+                    raise ValueError('制作の痕跡（変更履歴・添付の扱いを本文に説明で書いている）: ' + note.group())
                 if metadata.get('derived_from'):
                     missing = self.state.get('draft_missing_prerequisites', {}).get(rel, [])
                     if not (self.sources / (metadata['derived_from'] + '.md')).is_file() and metadata['derived_from'] not in missing:

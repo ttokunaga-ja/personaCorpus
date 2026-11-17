@@ -137,6 +137,13 @@ class Check(Fixture):
         _,rows=self.issues()
         for i in range(len(terms)):self.assertTrue(any(r[1]==f'term-{i}.txt' and r[2]=='trace' for r in rows),terms[i])
 
+    def test_trace_japanese_production_notes(self):
+        self.pair('trace',lambda:self.put('a.txt','【重要】申請書の保存先：共有フォルダ。河野さんの赤字を反映した。'),lambda:self.put('b.txt','添付：受領控え.pdf（保存先：Documents/引渡し。本文への埋め込みなし）'))
+        notes=['【河野隆之、2026年7月10日 11:40、削除・取り消し線】終了','【同時刻、赤字の挿入】判断案','【河野隆之、2026年7月10日 11:40、H-18への赤字追記】出典']
+        for i,note in enumerate(notes):self.put(f'note-{i}.txt',note)
+        _,rows=self.issues()
+        for i in range(len(notes)):self.assertTrue(any(r[1]==f'note-{i}.txt' and r[2]=='trace' for r in rows),notes[i])
+
     def test_trace_in_path_and_email_headers(self):
         eml=lambda extra:'From: a@x.example\nTo: b@x.example\nSubject: Delivery schedule\n'+extra+'\nThe supplier confirmed the revised delivery date for the oak panels.\n'
         self.pair('trace',lambda:self.put('mail/schedule.eml',eml('')),lambda:self.put('mail/tagged.eml',eml('X-Synthetic-Corpus: yes\n')))

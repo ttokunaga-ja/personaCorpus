@@ -11,3 +11,21 @@
 | check `opens`、`email-headers` | `prompts/build.md`「メールの符号化」 | p17 b001 等で繰り返された invalid email headers を受け、アドレスの符号化と保存後のヘッダ確認を具体化した。既存の `opens` 検査を維持する。 |
 
 根拠は `progress/findings.tsv`・`progress/batches.tsv` と現行コード。集計は再試行を含む延べ件数であり、過去の指摘が現行実装でも再現するとは限らない。検証結果、対象ファイル、保留事項は作業報告 `scratch/result.md` に記載する。検査の条件、レビュー基準、制作段階や各種書式は変更していない。
+
+## 2026-11-17（UTC）
+
+| 対象の段階・観点／検査名 | 変更箇所 | 変更の理由と参照先 |
+|---|---|---|
+| coordinator other（p17 b001 の結果報告では D9）、build-review V1 → `email-attachments` | `bin/check` の `email_attachment_reason`、`tests/check_regression_test.py` の `EmailAttachments` | p17 b001 の受領メールは保存先の制作注記だけを残して実添付がなく、既存の `source` は本文中の添付名だけでも通ることを失敗テストで確認した。明示された添付一覧と当該メールの MIME パートを照合する。仕様はコードとテストに置き、引用・転送メール内の添付と今回の添付を区別する。経緯の根拠は `progress/p17-construction-project-manager/b001.result.md` の統括の確認。 |
+| coordinator other（同報告 D9）、build-review V1 | `prompts/plan.md`「メールの添付を計画する」、`prompts/draft.md`「メールの添付と本文の区別」、`prompts/build.md`「保存後の添付確認」 | p17 b001 の計画に添付本体を省く指定があり、原稿と成形だけに指示しても原因を防げない。計画から成形までの既存の添付要件を具体化し、制作メモの本文流入と添付名だけの代用を防ぐ。 |
+| draft-review D3、D10 | `prompts/draft.md`「判断の根拠」「型が要求する本文の項目」 | p15 b001 の合意形成の評価は2回とも参照記録の根拠が不足。p05 b001 の表紙は型が要求する番号・版を原稿で欠落。成形時に事実や内容を補完せずに済むよう、執筆時の照合を具体化する。 |
+| draft-review D4 | `prompts/plan.md`「時点と参照先を照合する」 | p08 b001 の8月17日の画面に、過去の原稿で検討中・保留の入口が実装済みとして計画されていた。原稿執筆前に、計画の時点と過去の原稿を照合する。 |
+| build-review V1、V2、V3 | `prompts/build.md`「型の不要な欄と配置」 | p01 b001 の3ブックと p05 b001 に、印刷範囲外の未使用見出しが残存。p13 b001 では列幅縮小でロゴが社名へ重なった。印刷結果だけでなくセルの残存値と列幅変更の影響を確認する。 |
+| templates-review（記録上の観点は other） | `prompts/templates.md` の見本参照先の確認 | p14 b005・b006 で README が前の batch の存在しない見本・画像を参照した。今回の作業先で見本を作る既存手順と、一覧の参照先の実在確認をつなぐ。 |
+
+## 2026-11-18 統括の追加（改善のジョブ improve-20261117b の取り込み時）
+
+- 制作の痕跡（trace、原稿の検査と `bin/check`）：日本語の制作の注記「本文への埋め込み」と、変更履歴を本文に説明で書いた「【…削除・取り消し線】」「【…赤字の挿入】」「【…赤字追記】」を落とす（`TRACE_JA`、テストつき）。対象：p17 b001 のメール（統括が破棄）、p13 b001 の DOCX（統括が破棄）。
+- 画面と変更履歴を説明の文字で代用しない：`prompts/build.md`、`prompts/build-review.md` の 4、`prompts/audit.md`、`prompts/draft.md`（変更履歴は「## 変更履歴」の節に列挙）。対象：p12 b001 の HTML（受入の監査の試行で破棄）、p13 b001 の DOCX。
+- XLSX の列の配置：`prompts/templates.md` と `prompts/templates-review.md` に、数値の列と文字の列が接しないこと、長い番号で見本を作ることを足した。対象：p12・p14・p15・p17 の表（統括の所見）。
+- 検査を緩めた変更：CSV・TSV の数値の照合を、原稿のコードブロックと表の行に限る（`csv_data_lines`）。散文に書いた行の作り方や合計値は、生のデータの CSV のセルには無いため。データの行が無い原稿は従来どおり全文を照らす。対象：p05 b001 の CSV 4 件、p14 b004 の試算表 CSV（改善のジョブが実データの合計が原稿と一致することを確認済み）。
