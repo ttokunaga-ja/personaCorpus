@@ -30,10 +30,10 @@
 
 ## Excelの行・式・印刷
 
-1. `load_workbook(型)`で開く。1行目は社名、2行目は表題。B3=文書番号、D3=版、F3=基準日、B4=作成者、D4=確認者、F4=単位・対象期間。日付や期間が長い場合は行高を増やし折り返す。単位は必ず明記する。
+1. `load_workbook(型)`で開く。1行目は社名、2行目は表題。管理欄は3〜5行目、各24pt高。B3:D3=文書番号、F3=版、B4:D4=作成者、F4=基準日、B5:D5=確認者、F5=単位・対象期間。B:Dは各行で結合済みで、入力は左上セルB3・B4・B5へ行う。ラベルはA列・E列。入力先の空セルにもNoto Sans CJK JP・9pt・墨・左寄せ・縦中央・左インデント1を設定済み。文書番号の全文（例 `ORI-BI-202510-週報-01`）と `石井美智（確認依頼）`、隣接する版・日付・単位期間を埋めて1行で印刷する。基準日は実日付に `yyyy-mm-dd`、単位期間は例えば `円／2025-10-20〜2025-10-26`。文字の縮小は使わない。幅を変えるときも結合入力先の実幅を確保し、全管理欄の1行表示を印刷確認する。長い説明は本文の注記へ移し、単位は必ず明記する。
 2. 6行目が列見出し。表題、列名と幅は原稿に合わせて変える。必要列を増減したら社名・表題の結合、印刷範囲、見出し色を同じ幅に揃える。型の最終セル行は6。7行目以降に書式だけの行、仮の合計、未確認値は置いていない。
-3. 原稿の実明細のみ7行目から追加する。NamedStyleの `OR Text`（10pt、左寄せ）、`OR Amount`（10pt、右寄せ）、`OR Note`（9pt、左寄せ）を各セルに指定する。すべて上揃え・折返し。金額は `#,##0;[Red](#,##0);"—"`、率は原稿どおり `0.0%` 等、日付は実値に `yyyy-mm-dd`。番号は文字列として保持する。空欄や未確認値を0にしない。
-4. 合計が意味を持つ場合だけ最終明細の次に行を追加し、ラベルと計算セルへ `OR Total`（淡藍、太字、上細線・下二重線）を指定する。ラベルは左寄せへ変更し、数値は右寄せ。原稿の `SUM` や差額式を実セルの範囲へ入れる。週報の異なる指標を単純加算しない。訂正後は原稿の式で算出し、計算結果は `bin/recalc` で確認する。
+3. 原稿の実明細のみ7行目から追加する。NamedStyleの `OR Text`（10pt、左寄せ）、`OR Amount`（10pt、右寄せ）、`OR Note`（9pt、左寄せ）を各セルに指定する。文字用の `OR Text` と `OR Note` は左インデント1（1文字分）を型に持つ。列を追加・並べ替えするときも、右寄せ数値の右隣の文字列には必ずこのインデントを維持する。先頭の番号列の右隣も同様にし、「34,338 有効」や番号と氏名が一続きに見えないか画像で確認する。列見出しも左インデント1。すべて上揃え・折返し。金額は `#,##0;[Red](#,##0);"—"`、率は原稿どおり `0.0%` 等、日付は実値に `yyyy-mm-dd`。番号は文字列として保持する。空欄や未確認値を0にしない。
+4. 合計が意味を持つ場合だけ最終明細の次に行を追加し、ラベルと計算セルへ `OR Total`（淡藍、太字、上細線・下二重線）を指定する。ラベルは左寄せ・左インデント1へ変更し、数値は右寄せ。原稿の `SUM` や差額式を実セルの範囲へ入れる。週報の異なる指標を単純加算しない。訂正後は原稿の式で算出し、計算結果は `bin/recalc` で確認する。
 5. 注記も原稿にある場合だけ最終行の下へ追加する。折返しに応じた行高と実最終行までの印刷範囲を設定。A4横、幅1ページ・高さ自動、1〜6行を繰返し、C7で固定。数字や根拠が縮みすぎる場合は表やシートを分ける。受領時点のCSVをこの型で装飾・上書きしない。
 
 ## PowerPoint
@@ -56,28 +56,17 @@ b001の依頼には社外が発行するOffice文書・PDFがなく、社外の�
 
 CSV・TSV、EML、吉田の作業中のTXT・Markdownメモにはロゴや文書番号を付けない。計算条件の正式な記録にはWord、手元の検討には無装飾のメモを使い分ける。グラフPNGは元データ・軸・単位・凡例を原稿に従って描き、会社の用紙画像にしない。
 
-## 初回作成時の見本と確認先
+## Excel列配置の修正と今回の見本
 
-見本は `scratch/p05-bi-data-analyst/b001/work/templates-0001/examples/`、レンダリング画像は同じworkの `render/`。すべて組版確認用の仮内容であり、成果物や事実の根拠ではない。
+今回修正した型は `oriba-weekly.xlsx` と `oriba-matching.xlsx`。管理入力欄を未書式の単独列から結合欄へ変更し、番号と長い確認者名の幅を確保した。文字・注記の名前付きスタイルと列見出しに左インデント1を設定した。明細列幅、ロゴ、配色、印刷ヘッダ・フッタ、Word・PowerPoint・TeXの型は維持している。受入済み成果物は変更していない。
 
-| 型 | examples内の見本 | render内の画像フォルダ |
+今回の作業先は `scratch/p05-bi-data-analyst/templates-1794934877112849799/work/templates-0001/`。見本の仮明細は組版専用であり、業務事実として転記しない。見本の管理欄は全文の社内番号、版、基準日、作成者、`石井美智（確認依頼）`、単位と対象期間を全て入力する。本文の数値34338と右隣の「有効」で列の間隔を確認する。
+
+| 型 | work以下の見本 | work以下の画像フォルダ |
 |---|---|---|
-| oriba-analysis.docx | `oriba-analysis.docx` | `oriba-analysis-docx/` |
-| oriba-condition.docx | `oriba-condition.docx` | `oriba-condition-docx/` |
-| oriba-notice.docx | `oriba-notice.docx` | `oriba-notice-docx/` |
-| oriba-weekly.xlsx | `oriba-weekly-3.xlsx`、`oriba-weekly-48.xlsx` | `oriba-weekly-3-xlsx/`、`oriba-weekly-48-xlsx/` |
-| oriba-matching.xlsx | `oriba-matching-3.xlsx`、`oriba-matching-48.xlsx` | `oriba-matching-3-xlsx/`、`oriba-matching-48-xlsx/` |
-| oriba-weekly.pptx | `oriba-weekly.pptx`（5レイアウト各1枚） | `oriba-weekly-pptx/` |
-| oriba-analysis.cls | `oriba-analysis.tex`、`oriba-analysis.pdf` | `oriba-analysis-pdf/` |
+| oriba-weekly.xlsx | `examples/oriba-weekly-3.xlsx`、`examples/oriba-weekly-48.xlsx` | `render/oriba-weekly-3/`、`render/oriba-weekly-48/` |
+| oriba-matching.xlsx | `examples/oriba-matching-3.xlsx`、`examples/oriba-matching-48.xlsx` | `render/oriba-matching-3/`、`render/oriba-matching-48/` |
 
-実行結果は同じworkの `render-results.json`、実行ログは型別の `.log` と `tex.log`。scratch削除後は次のbatchのscratchへ仮内容を入れて再レンダリングする。受入済み成果物は変更していない。
+修正前後の構造確認は同workの `structure.json`。型は6行までで、7行目以降に空の書式行や仮の合計はない。今回の変更は書式の修正のため、構造確認と短表・複数ページ表のレンダリングで検証する。`bin/render` は4見本すべて成功（3明細は各1ページ、48明細は各5ページ、計12ページ）。全ページの画像を確認し、管理欄の1行表示、数値と文字の余白、管理欄と列見出しの繰返し、最終行までの印刷を確認した。コマンド・終了結果・ページ数は同workの `render-results.json`。上記の見本は再読込し、画像は全件開けることを確認済み。別実行のtemplates-reviewは未実施。
 
-初回作成時のレンダリングは9見本・計21ページで成功し、全ページの画像を確認した。Wordのテーマフォント指定を除去して再確認済み。構造確認は同じworkの `structure.json` に記録した。Officeの型は作者・更新者を吉田美佐、型の日付を2025-10-01に設定している。成形した成果物には、各原稿の日付と人物を改めて設定する。別実行のtemplates-reviewと統括の受入はこれから行う。
-
-## 題名下罫線の修正と今回の確認先（templates-0003）
-
-別実行のレビューで、Word 3型のTitle下罫線とテーマaccent1がOffice既定の青 `4F81BD` のままで、上記の共通配色と一致しないと判明した。`oriba-analysis.docx`、`oriba-condition.docx`、`oriba-notice.docx` の下罫線を藍 `304E67` の直接指定に修正し、その罫線のthemeColor指定を除いた。テーマaccent1も `304E67` に修正した。本文・表は空のまま、ヘッダ・フッタ・段落書式など他の構成は維持した。Excel・PowerPoint・TeXの型は変更していない。
-
-今回の見本は `scratch/p05-bi-data-analyst/b001/work/templates-0003/examples/`、画像は同workの `render/` に置く。修正した各Word型と同名のDOCX見本を作り、画像は `render/oriba-analysis/`、`render/oriba-condition/`、`render/oriba-notice/` に保存する。分析報告は長い表を含む複数ページ、確認記録と訂正連絡は各1ページで、題名下罫線・繰返し表見出し・ヘッダ／フッタを確認する。仮内容は型には含めない。
-
-構造検査は同workの `structure.json`、レンダリング結果は `render-results.json`、実行ログは各型名の `.log`。初回の「崩れなし」の確認では罫線の配色不一致を見落としていたため、この修正の根拠としない。今回の画像確認結果は `progress/p05-bi-data-analyst/b001.templates.md` に記録する。受入済み成果物は変更せず、別実行のtemplates-reviewは修正後に行う。
+Officeの型の既定作者・更新者は吉田美佐、型の日付は2025-10-01。成形した成果物には各原稿の日付と人物を改めて設定する。WordのTitle下罫線とテーマaccent1は既存の藍 `304E67` の指定を維持する。

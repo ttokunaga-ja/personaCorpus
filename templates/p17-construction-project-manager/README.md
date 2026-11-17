@@ -36,14 +36,15 @@
 - 写真は幅168mm以内、縦横比を維持して配置し、Captionに通り芯・撮影日・是正前後・写真参照を原稿どおり記す。大きい写真は改ページし、キャプションとの分離を避ける。写真自体はPicturesの原本と対応させる。
 - 仮使用条件では使用範囲、立入を分ける箇所、残る是正、担当・期限、施主確認を混同しない。型は条件の内容や11件の内訳を決めない。引渡し書類は太田の照合記録と対応させ、受領側の記録は施主の型で作る。
 
-## Excelの明細と合計を作る方法
+## Excel の行を作る方法
 
-型には1行目のロゴ・社名、2〜3行目の管理ラベル、4行目の列見出しだけがある。明細行、合計行、仮の式、空の罫線行はない。スタイルはブックのNamedStyleとして保持する。既定セル書式とNamedStyleのNormalはともにNoto Sans CJK JP・10ptで、テーマフォントに依存しない。管理項目の入力先B2・G2・B3・E3・G3もこの書体・サイズを継承し、文書番号のE2のみ9ptとする。
+両型には1行目のロゴ・社名、2〜3行目の管理ラベル、4行目の列見出しだけがある。明細行、合計行、仮の式、空の罫線行はない。書式はブックのNamedStyleとして保持する。既定セル書式とNamedStyleのNormalはいずれもNoto Sans CJK JP・10pt、墨 `30383C`、左寄せ・左インデント1で、テーマフォントに依存しない。管理項目の空の入力先にも同フォントを実際に指定してある。
 
-1. `load_workbook(型)` で開き、B2に工事名、E2に文書番号、G2に版、B3に基準日、E3に作成者、G3に確認者を入れる。日付は文字列ではなく実日付を入れる。B3には `MB Date` を指定する。E2は型に設定したNoto Sans CJK JP・9pt、左寄せ・上下中央・折返しあり、2行目の高さ32ptを維持する。`MB-SK-2025-PL-001`／`MB-SK-2025-DX-001` は2行に折り返して全文を表示する。E2へ明細用スタイルを上書きしない。番号体系を変えてさらに長くする場合は、実文量に合わせて2行目の高さを増やし、繰返し印刷される全ページで末尾を確認する。
-2. 原稿の実明細を5行目以降に作る。文字は `MB Text`、整数・件数は `MB Number`、日付は `MB Date`、注記は `MB Note`。Noto Sans CJK JP、本文10pt・注記9pt、上揃え・折返し。文章は左、数値は右、日付は中央。整数は `#,##0;[Red](#,##0);"—"`、日付は `yyyy-mm-dd`。未是正・未確認をゼロや架空の日付で埋めず、状態と期限を区別する。
-3. 集計が原稿に必要な場合だけ、最終明細の次に合計・件数行を作る。ラベルと実数式のセルへ `MB Total` を適用する（青灰の太字、淡灰背景、二重下罫線）。ラベルは左寄せへ変更し、数式は右寄せ。指摘番号がすべて入っている場合の件数は `COUNTA(A5:A最終明細行)`、完了数は実際の状態列の値を参照する。書類照合表に意味のない合計は追加しない。数式は成形後に `bin/recalc` で結果を確認する。
-4. 行高は実文量に応じて設定する。短い明細の目安は30〜42pt、長い文章にはさらに高さを確保する。列を変える場合は見出し・幅・印刷範囲も実内容に合わせる。用意した7列ではC5で固定し、A4横、幅1ページ・高さ自動、1〜4行を各ページに繰り返す。印刷範囲を `A1:G最終内容行`、オートフィルタを4行目から最終明細行まで設定する。合計行はフィルタ対象に含めない。印刷倍率で文字が小さくなる場合は内容を分ける。
+1. `load_workbook(型)` で開く。管理欄はA2=文書番号、B2:C2=番号入力先、D2=版、E2=版入力先、F2=基準日、G2=日付入力先。3行目はA3=工事名、B3:C3=工事名入力先、D3=作成者、E3=氏名入力先、F3=確認者、G3=氏名入力先。結合セルには左上のB2・B3へ値を入れる。管理欄は10pt、左インデント1・縦中央、折返しなし・縮小なし、2〜3行目の高さ26pt。G2には実日付を入れ、型の `yyyy-mm-dd` を維持する。管理欄に明細用スタイルを上書きしない。`MB-SK-2025-PL-002`／`MB-SK-2025-DX-001` の全文が1行で印刷される。
+2. 初期列幅は指摘台帳がA=12、B=22、C=48、D=15、E=14、F=14、G=36、書類照合表がA=16、B=37、C=26、D=14、E=15、F=15、G=38。番号欄B2:C2の合計幅はそれぞれ70・63文字幅。列を足す・並べ替える・狭める場合もB2:C2・B3:C3の結合を維持し、Aは12以上、B+Cは44以上、D〜Fは14以上、Gは22以上を目安にする。文書番号・版・日付・工事名・両氏名をすべて実際の長さで埋め、少数行と複数ページの全ページで表示を確認する。番号が長くなれば結合幅を広げ、ラベルと入力先も必要に応じて移す。折返しや縮小で対応しない。
+3. 原稿の実明細を5行目以降に作る。文字は `MB Text`、整数・件数・先頭の番号は `MB Number`、日付は `MB Date`、注記は `MB Note`。Noto Sans CJK JP、本文10pt・注記9pt、上揃え・折返し。文章は左寄せ・左インデント1、数値は右寄せ・インデント0、日付は中央・インデント0。整数は `#,##0;[Red](#,##0);"—"`、日付は `yyyy-mm-dd`。`MB Text` と `MB Note` は型のNamedStyleに左インデント1を設定済み。数値列の右隣に文字列が来るときも、先頭番号列の右隣も、この余白を維持する。列を追加・並べ替えるとき、または配置を上書きするときも文字セルには `Alignment(horizontal="left", vertical="top", wrap_text=True, indent=1)` を指定する。文字幅にインデント分を加えて列幅を確保し、数値と文字が接していないことを印刷画像で確認する。未是正・未確認をゼロや架空の日付で埋めず、状態と期限を区別する。
+4. 集計が原稿に必要な場合だけ、最終明細の次に合計・件数行を作る。ラベルと実数式のセルへ `MB Total` を適用する（青灰の太字、淡灰背景、二重下罫線）。ラベルは左寄せ・インデント1へ変更し、数式は右寄せ・インデント0。指摘番号がすべて入っている場合の件数は `COUNTA(A5:A最終明細行)`、完了数は実際の状態列の値を参照する。書類照合表に意味のない合計は追加しない。数式は成形後に `bin/recalc` で結果を確認する。
+5. 行高は実文量に応じて設定する。短い明細の目安は30〜42pt、長い文章にはさらに高さを確保する。見出し行も左インデント1を維持する。列を変える場合は見出し・幅・印刷範囲も実内容に合わせる。用意した7列ではC5で固定し、A4横、幅1ページ・高さ自動、1〜4行を各ページに繰り返す。印刷範囲を `A1:G最終内容行`、オートフィルタを4行目から最終明細行まで設定する。列を足した場合は1行目の社名結合をB1から最終列まで広げ、印刷範囲とフィルタの末尾も最終列へ広げる。合計行はフィルタ対象に含めない。長い明細行がページをまたがないよう、実文量と倍率に応じて `ws.row_breaks.append(Break(id=改ページ直前行))`（`openpyxl.worksheet.pagebreak.Break`）を設定する。今回の42pt・38行見本では10明細ごと（14・24・34行の後）に改ページする。印刷倍率で文字が小さくなる場合は内容を分ける。
 
 ## PowerPointの使い方
 
@@ -63,35 +64,22 @@
 
 ## 見本と画像
 
-今回の組版検査の作業先は `scratch/p17-construction-project-manager/b001/work/templates-0001/`。`examples/` に仮内容を入れた見本、`render/` に `bin/render` の画像を置く。見本は受入対象でも事実台帳の根拠でもなく、その文面・通り芯・件数・番号を計画へ転記しない。型本体には見本の本文を残していない。
+今回のExcel列配置の検証先は `scratch/p17-construction-project-manager/templates-1794935723649673648/work/templates-0001/`。以下の見本と画像はこの作業先からの相対パス。文書番号・管理欄は規定の長さで全項目を埋め、明細は上記の方法で作成する。3行版と38行版で少数行・複数ページを検査する。書類照合表のcolumns版は8列へ変更し、A列の番号→B列の書類名と、C列の部数64→D列の文書番号の両方で数値と文字の間隔を検査する。38行版の反復明細やcolumns版の部数は印刷確認だけの内容で、事実台帳・計画・成果物の根拠にしない。
 
-| 型 | examples/以下の見本 | render/以下の画像フォルダ |
+| 型 | 見本 | 画像フォルダ |
 |---|---|---|
-| minatoryo-inspection.docx | `minatoryo-inspection.docx`（2ページ） | `minatoryo-inspection/` |
-| minatoryo-daily.docx | `minatoryo-daily.docx` | `minatoryo-daily/` |
-| minatoryo-conditions.docx | `minatoryo-conditions.docx` | `minatoryo-conditions/` |
-| minatoryo-handover.docx | `minatoryo-handover.docx` | `minatoryo-handover/` |
-| shiokuzu-confirmation.docx | `shiokuzu-confirmation.docx` | `shiokuzu-confirmation/` |
-| minatoryo-punch-list.xlsx | `minatoryo-punch-list-3.xlsx`、`minatoryo-punch-list-38.xlsx` | 同じstemの各フォルダ |
-| minatoryo-document-index.xlsx | `minatoryo-document-index-3.xlsx`、`minatoryo-document-index-38.xlsx` | 同じstemの各フォルダ |
-| minatoryo-site-brief.pptx | `minatoryo-site-brief.pptx`（全5レイアウト） | `minatoryo-site-brief/` |
-| minatoryo-field-sheet.cls | `minatoryo-field-sheet.tex`、`minatoryo-field-sheet.pdf`（2ページ） | `minatoryo-field-sheet/` |
+| minatoryo-punch-list.xlsx | `examples/minatoryo-punch-list-3.xlsx` | `render/minatoryo-punch-list-3/` |
+| minatoryo-punch-list.xlsx | `examples/minatoryo-punch-list-38.xlsx` | `render/minatoryo-punch-list-38/` |
+| minatoryo-document-index.xlsx | `examples/minatoryo-document-index-3.xlsx` | `render/minatoryo-document-index-3/` |
+| minatoryo-document-index.xlsx | `examples/minatoryo-document-index-38.xlsx` | `render/minatoryo-document-index-38/` |
+| minatoryo-document-index.xlsx（8列） | `examples/minatoryo-document-index-columns-3.xlsx` | `render/minatoryo-document-index-columns-3/` |
+| minatoryo-document-index.xlsx（8列） | `examples/minatoryo-document-index-columns-38.xlsx` | `render/minatoryo-document-index-columns-38/` |
 
-全9種類について、11個の内容入り見本・計23ページを `bin/render` で画像化して目視確認した。TeXは `bin/tex` で組版成功。Wordの元テーマの書体と題下罫線、PowerPointの元マスターの文字サイズ・中央揃え・影を除去し、指定書式へ修正して再確認した。PowerPointの最終見本は型のレイアウトから文字書式を継承する方法で作り直して確認した。構造検査は `structure.json` に記録し、Wordは題のみ・表の実体なし、Excelは4行まで・数式なし、PowerPointは1マスター・5レイアウト・スライド0枚、型内に見本の文面や生成ライブラリ名がないことを確認した。書式資産の制作なので、振る舞いのRed→Greenに代えて組版・画像・構造を検証した。
-
-レンダリングの結果は作業先の `render-results.json`、各 `*.render.log`、`tex.log`。scratchは後続の受入・破棄で消えるため、再確認時には使用する型に当該実行のscratchで見本を入れて再レンダリングする。別実行のtemplates-reviewによる検査と統括の受入はこの作業の後に行われる。
+他形式の型は維持し、今回の修正では変更しない。旧実行の消失した見本への参照と旧修正記録は、現行の書式・手順と上の参照へ置き換えた。今回の書式修正はRed→Greenの単体テストに代えて、型の再読込による構造・書式検証と `bin/render` による印刷画像の検証を行う。実行結果は `render-results.json`、構造とPDF文字座標の検証は `verification.json`、画像は上記フォルダに保存する。6見本とも `bin/render`・`bin/office-pdf` の終了コードは0。3行版は各1ページ、38行版は各4ページ、全15ページを画像で確認し、文書番号全文の1行表示・繰返し管理欄・先頭番号と後続文字の余白・部数64と文書番号の余白・明細行のページ内収まりを確認した。PDFの文字座標でも番号が1つの語として全ページに存在し、数値と後続文字の間隔が5ptより大きいことを確認した。型の再読込では4行のみ・入力値なし・数式なし・既定書体と色・左インデント1を検証した。別実行のtemplates-reviewによる検査と統括の受入は本作業に含まない。
 
 ## 型を使わない記録
 
 坂本の作業中のメモ、メール、CSV、現場写真にはロゴや文書番号を一律に付けない。写真はPicturesに撮影日で整理し、位置は実在住所でなく通り芯で示す。写真・手書きの画像を制作する段階ではimagegen skillを使う。本作業の図版見本は配置確認の幾何図形であり、現場写真でも手書き画像でもない。
-
-## 文書番号欄の修正と再検証（b001・templates-0003）
-
-両XLSXのE2は幅14／15・折返しなしのため、規定の文書番号がF2の「版」に遮られていた。E2のフォントを9pt、折返しあり・左寄せ・上下中央、2行目の高さを32ptへ修正した。番号の入力先、明細列幅、版の欄、印刷範囲と繰返し行は維持し、仮の番号や空の明細を型に追加していない。他のWord・PowerPoint・TeXの型と受入済み成果物は変更していない。
-
-今回の見本は `scratch/p17-construction-project-manager/b001/work/templates-0003/examples/` の `minatoryo-document-index-3.xlsx`、`minatoryo-document-index-38.xlsx`、`minatoryo-punch-list-3.xlsx`、`minatoryo-punch-list-38.xlsx`。各型と同名の見本に規定形式の番号を入力し、`bin/render` で同作業先の `render/<見本のstem>/` に全ページを画像化した。見本の文面・番号は組版検査専用であり計画や成果物に転記しない。今回も書式修正のためRed→Greenの単体テストに代えて、実際の印刷画像と構造を検証する。検証結果は同作業先の `verification.json`、実行ログは `*.render.log` に置く。
-
-再検証では両型それぞれ3行見本が1ページ、38行見本が4ページ、計10ページとなり、繰返しヘッダの文書番号が末尾の001まで見えることを全ページの画像で確認した。PDFの文字抽出でも全10ページに規定番号の全文があることを確認した。型本体は4行までで、E2は空、数式・仮の明細はない。LibreOfficeの初回変換は中断とPDF保存エラーがあったが、作業先の絶対パスを一時領域に指定し、`GSETTINGS_BACKEND=memory` を設定した再実行で4見本すべて成功した。変更前ハッシュとの比較ではREADMEと両XLSXだけが変更されている。別実行のtemplates-reviewと統括の受入は未実施。
 
 ## 汐葛の完成検査で用いる型なしの記録
 
@@ -101,18 +89,3 @@
 - 施主の書類受領控えは `scan:office:shiokuzu-confirmation.docx`。内容を入れた施主の原紙に手書きの受領者名・照合印を加え、bin/scanに通す。型自体に署名を足さず、Office原紙と手書き素材は当該実行のwork内に置く。
 
 今回の計画に新しいOffice・TeXの型は不要。PDFだけを保管する引継ぎ案内・施主確認書は既存の各型から作り、配布物に不要な元Wordを増やさない。
-
-## Excelのフォント修正と再検証（b001・templates-0007）
-
-両XLSXを開き、E2がCalibri・9pt、B2・G2・B3・E3・G3が既定セル書式のCalibri・11ptを使うことを確認した。NamedStyleのNormalだけでは既定セル書式を変更できていなかったため、既定セル書式をNoto Sans CJK JP・10pt、E2の個別書式を同フォント・9ptへ修正し、両者のテーマ書体指定を外した。E2の折返し・左寄せ・上下中央、2行目32pt、印刷設定は維持した。XLSX内部で変更したのは `xl/styles.xml` だけで、ロゴ・セルの値・行数・NamedStyleは維持している。
-
-今回の作業先は `scratch/p17-construction-project-manager/b001/work/templates-0007/`。修正した入力欄の書体を反映した組版検査専用の見本を以下に置いた。見本文面は計画・事実台帳へ転記しない。
-
-| 型 | 作業先からの見本パス | 画像フォルダ |
-|---|---|---|
-| minatoryo-document-index.xlsx | `examples/minatoryo-document-index-3.xlsx`、`examples/minatoryo-document-index-38.xlsx` | `render/minatoryo-document-index-3/`、`render/minatoryo-document-index-38/` |
-| minatoryo-punch-list.xlsx | `examples/minatoryo-punch-list-3.xlsx`、`examples/minatoryo-punch-list-38.xlsx` | `render/minatoryo-punch-list-3/`、`render/minatoryo-punch-list-38/` |
-
-`bin/render` と `bin/office-pdf` は4見本すべて終了コード0。各型の3行見本は1ページ、38行見本は4ページで計10ページ。全ページの画像を確認し、番号の末尾001、管理項目と繰返し列見出しの表示を確認した。PDFの文字抽出でも全ページに文書番号の全文がある。型を再読込して6入力欄の書体・サイズ・テーマ指定なしを検証し、型は4行まで・入力値と数式なしを確認した。書式だけの修正のため、TDDに代えて実ファイルの書式・構造と印刷画像を検証した。
-
-証跡は同作業先の `structure-verification.json`、`render-verification.json`、`hashes-before.json`、`final-verification.json` と各見本の `*.render.log`・`*.office-pdf.log`。Word・PowerPoint・TeXの既存型と受入済み成果物は変更していない。別実行のtemplates-reviewと統括の受入は未実施。

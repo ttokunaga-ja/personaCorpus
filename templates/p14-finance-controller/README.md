@@ -33,9 +33,9 @@
 
 型には1〜3行目の組織・管理項目と5行目の見出しだけがある。管理ラベルと入力先が継承するNormalもNoto Sans CJK JPで、テーマフォントへの依存はない。4行目は見出しとの余白で未書式。6行目以降に空セルや仮の数式・合計を置かない。ブック内のNamedStyleを使う。
 
-1. `load_workbook(型)`で開く。B2に文書番号、D2に版、F2に基準日、B3に作成者、D3に確認者。E3の単位も原稿に合わせる。表の種類が違うときは5行目の列名と幅を変更する。未払費用など6列に収まらない表では必要な列を追加し、タイトルの結合範囲、印刷範囲も広げる。
-2. 原稿の明細だけを6行目以降に追加する。テキストは `CW Text`、金額・数式は `CW Amount`、注記は `CW Note`。金額は右寄せ、文章は左寄せに設定する。全スタイルは折返し・上揃え。本文は10pt、注記9pt。日付・時刻は実値と必要な表示形式を設定する。USDは `#,##0.00;[Red](#,##0.00);"—"`、JPYは `#,##0;[Red](#,##0);"—"`。未確認の金額を0に置き換えない。
-3. 集計が意味を持つ表だけ、最後の明細の次に合計行を作る。合計対象の実セルを指す `SUM` など原稿の数式を入れ、ラベル・数式セルに `CW Total` を適用。ラベル左寄せ、数値右寄せ。無関係な勘定残高を足さない。未知額の合計を0としない。差異や調整後も原稿の式を使い、計算結果の確認はLibreOfficeで行う。
+1. `load_workbook(型)`で開く。文書番号は結合したB2:C2のB2、版は結合したE2:F2のE2、基準日はB3、作成者はD3、確認者はF3に入れる。ラベルはA2=文書番号、D2=版、A3=基準日、C3=作成、E3=確認。管理欄は11pt、左インデント1・縦中央、2〜3行目の高さ26pt。文書番号は折返し・縮小を使わず1行で印刷する。初期幅はA=24、B=32、C〜E=22、F=24で、番号欄はB+C=54文字幅を確保している。基準日は実日付に `yyyy-mm-dd` を指定する。単位はセルではなく `ws.oddHeader.right.text` に原稿どおり設定する（調整表の初期値は「単位：円」、チェックリストは「月次締め工程」）。表の種類が違うときは5行目の列名と幅を変更する。列を足す場合も管理欄の結合を維持し、1行目の社名結合B1から最終列までと印刷範囲を広げる。管理欄と同じ列の幅も変わるため、Aは14以上、B+Cは54以上、D・E・Fは22以上を目安に確保し、正式番号と隣接する版・日付・氏名を埋めて印刷を確認する。収まらない番号は結合幅を広げ、管理ラベルと入力先を移設して衝突を避ける。
+2. 原稿の明細だけを6行目以降に追加する。テキストは `CW Text`、金額・数式は `CW Amount`、注記は `CW Note`。金額・件数・先頭の連番は右寄せ（`CW Amount`）、文章は左寄せに設定する。`CW Text`・`CW Note`・`CW Heading` と既定Normalは左インデント1を型に設定済み。数値列の右隣の文字列はこのインデントを維持する。先頭の番号列の右隣も同じで、列を追加・並べ替え・狭めるときもインデントを0へ戻さず、文字幅と余白の分を列幅に含める。配置を上書きする場合も `Alignment(horizontal="left", vertical="top", wrap_text=True, indent=1)` とする。数値にインデントは付けない。全明細スタイルは折返し・上揃え。本文は10pt、注記9pt。日付・時刻は実値と必要な表示形式を設定する。USDは `#,##0.00;[Red](#,##0.00);"—"`、JPYは `#,##0;[Red](#,##0);"—"`。未確認の金額を0に置き換えない。
+3. 集計が意味を持つ表だけ、最後の明細の次に合計行を作る。合計対象の実セルを指す `SUM` など原稿の数式を入れ、ラベル・数式セルに `CW Total` を適用。ラベルは左寄せ・インデント1へ変更し、数値は右寄せ・インデント0を維持する。無関係な勘定残高を足さない。未知額の合計を0としない。差異や調整後も原稿の式を使い、計算結果の確認はLibreOfficeで行う。
 4. 折返しに合わせて行高を設定し、実際の内容の最終行まで印刷範囲を設定する。A4横、幅1ページ・縦自動、1〜5行繰返し、C6で固定、ページ番号フッタを維持。必要なら行数に応じて改ページを設定し、数字が縮みすぎる場合は表を分ける。
 
 ## 親会社と銀行
@@ -63,26 +63,18 @@
 
 ## 見本と確認
 
-b006の今回の検査用見本は `scratch/p14-finance-controller/b006/work/templates-0002/examples/`、画像は `scratch/p14-finance-controller/b006/work/templates-0002/render/` に置く。以下は型に仮内容を入れた組版検査用であり、受入済み成果物や事実台帳の根拠ではない。請求額・品番・番号等も検査用で、制作時へ転記しない。削除済みのb005の見本参照を今回の実在する見本へ置換した。
+今回の修正範囲はExcelの2型だけ。ほかのOffice・TeXの型は維持し、今回の再レンダリング対象には含めない。見本は `scratch/p14-finance-controller/templates-1794934627691472802/work/templates-0001/examples/`、画像は同じworkの `render/` に置く。過去の削除済み作業フォルダへの見本参照は除いた。
 
-| 型 | 見本（上記examplesからの相対パス） | 画像（上記renderからの相対パス） |
+| 型 | 見本（examplesからの相対パス） | 画像（renderからの相対パス） |
 |---|---|---|
-| cedar-review.docx | `cedar-review.docx` | `cedar-review/` |
-| cedar-minutes.docx | `cedar-minutes.docx` | `cedar-minutes/` |
-| cedar-notice.docx | `cedar-notice.docx` | `cedar-notice/` |
-| holdings-monthly.docx | `holdings-monthly.docx` | `holdings-monthly/` |
 | cedar-reconciliation.xlsx | `cedar-reconciliation-3.xlsx`、`cedar-reconciliation-36.xlsx` | `cedar-reconciliation-3/`、`cedar-reconciliation-36/` |
 | cedar-close-checklist.xlsx | `cedar-close-checklist-3.xlsx`、`cedar-close-checklist-36.xlsx` | `cedar-close-checklist-3/`、`cedar-close-checklist-36/` |
-| cedar-close-report.pptx | `cedar-close-report.pptx`（全5レイアウト） | `cedar-close-report/` |
-| minato-balance.cls | `minato-balance.tex`、`minato-balance.pdf` | `minato-balance/` |
-| ledgerline-report.cls | `ledgerline-report.tex`、`ledgerline-report.pdf` | `ledgerline-report/` |
-| cedar-count-sheet.cls | `cedar-count-sheet.tex`、`cedar-count-sheet.pdf`（活字の配置確認用） | `cedar-count-sheet/` |
-| hokuto-invoice.cls | `hokuto-invoice.tex`、`hokuto-invoice.pdf` | `hokuto-invoice/` |
-| enshu-invoice.cls | `enshu-invoice.tex`、`enshu-invoice.pdf` | `enshu-invoice/` |
 
-実行記録は `scratch/p14-finance-controller/b006/work/templates-0002/` の `render.log` と `render-results.json`、型別の `*.execution.json`。型本体の構造確認は `structure.json`、変更前ハッシュは `input-sha256.json` に記録する。PowerPointは全5レイアウト、Excelは少数行と複数ページの見本で確認する。scratchは受入・破棄時に削除されるため、上記は今回のレビュー中の参照である。削除後の再検証では、使用する型に仮内容を入れて当該batchのscratchへ組版・レンダリングする。受入済み成果物の見本はこの一覧に登録していない。
+管理欄は `CW-FIN-202601-MATCH-01`／`CW-FIN-202601-CLOSE-01`、版1.0、基準日2026-01-31、作成者・確認者を実際に入れる。調整表の見本は件数の照合へ列名を変更し、件数の表示形式は `0` とし、右寄せの64・0の直後に「64件を照合済」「追加支払なし」を置く。両型で先頭の番号を右寄せ、その右の項目・工程を左寄せ・インデント1とし、チェックリストは7列へ広げる。管理欄と表の幅を両立させた状態を検査する。3行版と36行版（17・29行目の後に改ページ）の全ページを確認する。
 
-今回も `templates/` 内を確認したが、他personaの型は存在せず、比較対象なし。
+見本は型の配置検査用であり、受入済み成果物や事実台帳の根拠ではない。36行版にはページ送りの検査用の表内行データを含む。これを制作へ転記しない。実行と構造検査の記録は同workの `validation.json`、構造検査は `check_excel.py`。scratchは受入・破棄時に削除されるため、上記は今回のレビュー中の参照である。削除後の再検証では当該batchのscratchに見本を作り直す。
+
+他personaの既存README（p08・p05）を確認した。Cedarの深緑と木材ロゴは維持し、青緑の巡回経路、藍と朱の織り目とは区別している。
 
 ## 型なしの記録
 
