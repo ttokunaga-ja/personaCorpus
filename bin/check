@@ -313,15 +313,21 @@ def source_reason(expected, actual, *, from_ocr=False, ext="txt", reviewed=False
     strip=ungroup
     words=lambda s:Counter({k:v for k,v in body_tokens(strip(s)).items() if k not in ('年','月','日','円')})
     expected=source_body(expected)
+    table=ext in ('xlsx','csv','tsv')
+    # A drawn chart or figure is a picture in the built file: its description and values are not text there.
+    figure=re.compile(r'図|グラフ|軸|凡例|目盛|chart|axis|axes|legend|graph',re.I)
+    if not table:expected='\n'.join(l for l in expected.splitlines() if not figure.search(l))
     want=words(expected);have=words(actual)
     overlap=sum((want & have).values())/sum(want.values()) if want else 1
     if not (from_ocr or derived):
         numbers=source_numbers(expected)
         missing=sorted(numbers-source_numbers(actual))
         # A table's manuscript may add a note (a total, an approval) that a CSV cannot carry.
-        allowed=max(len(numbers)//10,1 if len(numbers)>=5 else 0) if ext in ('xlsx','csv','tsv') else len(numbers)//20
+        allowed=max(len(numbers)//10,1 if len(numbers)>=5 else 0) if table else len(numbers)//20
         if len(missing)>allowed:return 'missing source values: '+', '.join(missing[:5])
-    threshold=.3 if from_ocr else .6 if reviewed else .5 if derived else .6 if ext in ('xlsx','csv','tsv') else .7 if ext=='pptx' else .8
+    # A large table is written as column rules plus sample rows, so its words cannot match the expanded file.
+    if table and not from_ocr:return None
+    threshold=.3 if from_ocr else .6 if reviewed else .5 if derived else .7 if ext=='pptx' else .8
     if overlap<threshold:return f'body token overlap {overlap:.3f} < {threshold}'
     return None
 
@@ -444,7 +450,8 @@ def inspect(item):
                     if ext=='eml':
                         reason=email_source_reason(body,path)
                         if reason:fail('email-headers',reason)
-                    visual_source=bool({'photo','handwriting','chart','diagram'} & set(scfg.get('kind','').split(':')))
+                    # Pictures are judged by eye in the visual review; OCR of screens, charts and handwriting is unreliable.
+                    visual_source=ext in ('png','jpg') or bool({'photo','handwriting','chart','diagram'} & set(scfg.get('kind','').split(':')))
                     if not visual_source:
                         if missing:skipped.append('source(OCR)')
                         else:

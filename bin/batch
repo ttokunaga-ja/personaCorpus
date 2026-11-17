@@ -808,7 +808,14 @@ class Batch:
                     if '/' not in candidate:
                         nearby = (PurePosixPath(rel).parent / candidate).as_posix()
                         matches = [p for p in candidates if PurePosixPath(p).name == candidate]
-                        candidate = nearby if nearby in candidates or safe_file(self.folder, nearby).is_file() else matches[0] if len(matches) == 1 else nearby
+                        if nearby in candidates or safe_file(self.folder, nearby).is_file():
+                            candidate = nearby
+                        elif len(matches) == 1:
+                            candidate = matches[0]
+                        else:
+                            # The attachment is usually a file saved elsewhere in the person's folders.
+                            found = sorted(p.relative_to(self.folder).as_posix() for p in self.folder.rglob(candidate) if p.is_file()) if self.folder.is_dir() else []
+                            candidate = found[0] if len(found) == 1 else nearby
                     # A name that is neither planned nor on disk is not a corpus file (for example a file
                     # shown in a screenshot, or an attachment the person never saved); it cannot be waited for.
                     if candidate in candidates or safe_file(self.folder, candidate).is_file():

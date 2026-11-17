@@ -46,10 +46,13 @@ class Hardening(unittest.TestCase):
 
     def test_thresholds(self):
         body = 'alpha bravo charlie delta echo foxtrot golf hotel india juliet'
-        for ext, minimum in [('docx',8),('pdf',8),('txt',8),('md',8),('log',8),('eml',8),('html',8),('pptx',7),('xlsx',6),('csv',6),('tsv',6)]:
+        for ext, minimum in [('docx',8),('pdf',8),('txt',8),('md',8),('log',8),('eml',8),('html',8),('pptx',7)]:
             with self.subTest(ext=ext):
                 self.assertIsNone(check.source_reason(body, ' '.join(body.split()[:minimum]), ext=ext))
                 self.assertIsNotNone(check.source_reason(body, ' '.join(body.split()[:minimum-1]), ext=ext))
+        # Tables are compared by their numbers only.
+        for ext in ('xlsx','csv','tsv'):
+            self.assertIsNone(check.source_reason(body, body.split()[0], ext=ext))
         self.assertIsNone(check.source_reason(body, ' '.join(body.split()[:3]), from_ocr=True))
         self.assertIsNotNone(check.source_reason(body, ' '.join(body.split()[:2]), from_ocr=True))
 

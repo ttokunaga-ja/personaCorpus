@@ -332,6 +332,15 @@ class Sources(Check):
         self.source('claims.csv','| 申請番号 | 金額 | 承認日 |\n|---|---:|---|\n| EX-2512-041 | 12,400 | 2025-12-18 |\n| EX-2512-042 | 11,600 | 2025-12-19 |\n| EX-2512-043 | 10,400 | 2025-12-22 |')
         _,rows=self.issues();self.assertFalse(any(r[2]=='source' for r in rows),rows)
 
+    def test_source_large_table_and_chart_values(self):
+        self.put('rows.csv','番号,担当,状態\n'+''.join(f'R-{i:03d},担当{i%7},確認済み\n' for i in range(184)))
+        self.source('rows.csv','列は番号・担当・状態。R-000 から R-183 までの 184 行。担当は 7 人で順に割り当てる。状態は全件が確認済み。\n\n| 番号 | 担当 | 状態 |\n|---|---|---|\n| R-000 | 担当0 | 確認済み |')
+        _,rows=self.issues();self.assertFalse(any(r[2]=='source' for r in rows),rows)
+        prose='The controller reported the January close to the finance director and explained the duplicate expense claims found after the system migration. '
+        self.put('report.txt',prose+'Duplicates totalled 2480000 yen.')
+        self.source('report.txt',prose+'Duplicates totalled 2,480,000 yen.\n\n図：棒グラフ。縦軸は 0〜3,500,000 円、500,000 円刻み。棒の値は 2,600,000 と 3,412,300。')
+        _,rows=self.issues();self.assertFalse(any(r[2]=='source' for r in rows),rows)
+
     def test_source_numbers_missing(self):
         prose='The March reconciliation was confirmed by the controller after the bank certificate arrived and the receivable entry was reversed. '
         self.put('recon.txt',prose+'Bank 486200000 and ledger 498600000 with items 1111111 and 2222222.')
@@ -366,8 +375,8 @@ class Sources(Check):
         self.assertIsNone(module.source_reason(body,body))
         self.assertIn('0.8',module.source_reason(body,'alpha bravo charlie delta echo foxtrot 9876'))
         self.assertIsNone(module.source_reason(body,'alpha bravo charlie delta echo foxtrot golf hotel 9876'))
-        cases=[('scan.pdf',True,True),('image.png',True,True),
-               ('image.jpg',True,True),('mixed.pdf',False,False),
+        # Pictures are never compared by text; that case is covered by test_pictures_skip_text_comparison.
+        cases=[('scan.pdf',True,True),('mixed.pdf',False,False),
                ('text.txt',False,False)]
         for rel,scan,passes in cases:
             with self.subTest(rel=rel):
@@ -378,6 +387,19 @@ class Sources(Check):
                 with patch.object(module,'extract',return_value=('alpha bravo',scan,False)), patch.object(module,'metadata',return_value=None):
                     result=module.inspect((p,self.home,{},'eng',self.base/'sources'/self.name))
                 self.assertIn('source',result[1],result)
+                p.unlink()
+
+    def test_pictures_skip_text_comparison(self):
+        from unittest.mock import patch
+        loader=importlib.machinery.SourceFileLoader('picture_check',str(BASE/'bin/check'))
+        spec=importlib.util.spec_from_loader(loader.name,loader)
+        module=importlib.util.module_from_spec(spec);loader.exec_module(module)
+        for rel in ('screen.png','site.jpg'):
+            with self.subTest(rel=rel):
+                p=self.put(rel,'valid bytes');self.source(rel,'確認画面。受付番号 R7-20260709-0142 と添付の名前が表示されている。')
+                with patch.object(module,'extract',return_value=('unreadable',True,False)), patch.object(module,'metadata',return_value=None):
+                    result=module.inspect((p,self.home,{},'eng',self.base/'sources'/self.name))
+                self.assertNotIn('source',result[1],result)
                 p.unlink()
 
     def test_only_image_pdf_uses_ocr_tolerance(self):
