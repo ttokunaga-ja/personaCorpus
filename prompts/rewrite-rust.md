@@ -4,7 +4,8 @@
 `bin/` と `ops/bin/` のツール（今は Python のスクリプト）を、Rust の 1 つの実行ファイルに書き換えて統一する。動作は変えない。仕様の正本は `runbooks/PRODUCTION.md`、`runbooks/REVIEW.md`、`AGENTS.md`、`SPEC.md`、`ops/README.md` と、今のテスト（`tests/`、`ops/tests/`）である。
 
 ## 前提
-- どの batch も動いていないときに行う（`codex-job status --repo personaCorpus` と `bin/batch status` で確かめてから始める）。動いている batch があれば、何も変更せずに終わる。
+- どの batch も動いておらず、自動運転も止まっているときに行う（`codex-job status --repo personaCorpus`、`bin/batch status`、`bin/autopilot status` で確かめてから始める）。動いている batch か自動運転があれば、何も変更せずに終わる。
+- 対象のコマンド：`bin/autopilot`、`bin/batch`、`bin/check`、`bin/manifest`、`bin/office-pdf`、`bin/pack`、`bin/recalc`、`bin/render`、`bin/scan`、`bin/stamp`、`bin/tex`、`ops/bin/` のすべて。`bin/autopilot` は常駐のループと `progress/holds.md`・`scratch/autopilot/log.tsv` への書き込みを含む。今のテスト（偽の Codex を使うものを含む）で、書き換え前と同じ振る舞いを確かめる。
 - personaCorpus は他の repo に依存しない。他の repo のコードを使わない。crate は crates.io の一般的なものだけを使う。
 
 ## 作るもの
