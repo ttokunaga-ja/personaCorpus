@@ -9,7 +9,7 @@
 - personaCorpus は他の repo に依存しない。他の repo のコードを使わない。crate は crates.io の一般的なものだけを使う。
 
 ## 作るもの
-- `tools/`：Cargo の workspace。実行ファイルは 1 つ（`corpus`）で、サブコマンドは `check`・`batch`・`manifest`・`pack`・`render`・`office-pdf`・`tex`・`scan`・`stamp`・`recalc`・`job`（今の `codex-job`）・`alert`（今の `agent-alert`）・`watchd`。
+- `tools/`：Cargo の workspace。実行ファイルは 1 つ（`corpus`）で、サブコマンドは `check`・`batch`・`manifest`・`pack`・`render`・`office-pdf`・`tex`・`scan`・`stamp`・`recalc`・`autopilot`・`job`（今の `codex-job`）・`alert`（今の `agent-alert`）・`watchd`。
 - `bin/` と `ops/bin/` の各コマンドは、同じ名前のまま、`tools/target/release/corpus <サブコマンド>` を呼ぶ薄い shell スクリプトにする（無ければ `cargo build --release` を促して失敗する）。資料に書いてあるコマンドの名前、引数、出力の形式、終了コードを変えない。
 - 外部コマンド（`soffice`、`pdftotext`、`pdfinfo`、`pdftoppm`、`tesseract`、`ffprobe`、`lualatex`、`tmux`、`git`、`codex`）の呼び方は今と同じにする。
 - Python は、制作のときに Codex が文書を組み立てるためのライブラリの環境（`pyproject.toml`）としてだけ残す。repo のツールとテストからは Python を無くす。
