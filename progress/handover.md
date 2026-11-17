@@ -2,21 +2,21 @@
 
 最終更新：2026-11-17（Claude Opus の統括セッション）
 
-## いまの状態（2026-11-18）
+## いまの状態（2026-11-18 03:25 JST）
 
-- 受入済み：p01 35、p03 34、p05 35、p08 35、p12 29、p13 34、p14 98、p15 34、p17 39、p18 35。成形待ちは 0。最初の区切り（300）に達した persona は無い。
-- 未着手の persona：p02、p04、p06、p07、p09、p10、p11、p16、p19、p20。
-- ユーザーの決定（2026-11-17）：制作の再開の前に、ツールの Rust への書き換えを Codex に出して完了させる。
-- 動いているジョブ：`rewrite-rust-20261118`（Sol、`prompts/rewrite-rust.md`）。batch と自動運転は止めている。
+- ツールは Rust の実行ファイル `corpus` に置き換えた（535e537db）。道具を直したら `cargo build --release --manifest-path tools/Cargo.toml` でビルドし直す。
+- 自動運転を p14・p17・p01 で動かしている（`bin/autopilot start --personas p14,p17,p01`）。最初の batch：p14 b007（年度決算と監査）、p17 b002（CO-014）、p01 b002（R7 の英語の変更説明）。
+- 最初の `bin/autopilot once` で、破棄済みの p14 b001〜b003 を resume した不具合があった。3 本は書き込む前に止め、`ledger()` が結果の報告の「状態：破棄／受入済み」も読むように直した（a81ad5fae）。
+- 受入済み：p01 35、p03 34、p05 35、p08 35、p12 29、p13 34、p14 98、p15 34、p17 39、p18 35。
 
 ## 次の手
 
-| 順 | すること | 確かめること |
-|---|---|---|
-| 1 | Rust への書き換えのジョブの結果を読む | 指示書の「確認」の全項目：tests/run.sh と ops/tests/run.sh の合格、受入済みの全ファイルで書き換え前後の `bin/check --all --report` が同じ、全 persona の `bin/manifest --verify`、`bin/pack` の出力がバイト単位で同じ、`bin/check --all` の所要時間。満たせば commit・push。満たさなければ指示書を直して出し直す |
-| 2 | 自動運転を 1 回りだけ動かす（`bin/autopilot once`） | `scratch/autopilot/log.tsv` で、p14 の破棄済みの b001〜b003 を `--redraft` の対象にしていないこと。roadmap の作成が起動されること |
-| 3 | roadmap を読む | 範囲の重なりと順番。受入済みの batch と重ならないこと |
-| 4 | `bin/autopilot start --personas` を 2〜3 個で始める | 最初の数 batch は、自動運転が受入したものを統括が全部開き、監査の判定が妥当かを確かめる。妥当なら persona を広げ、10 batch に 1 つの確認に移る |
+| 順 | すること |
+|---|---|
+| 1 | 自動運転が最初に受入した batch（p14 b007、p17 b002、p01 b002）を、統括が全部開いて確かめる。監査の判定（`progress/<persona>/<batch>.audit.md`）と自分の判断を比べ、監査が甘ければ自動運転を止めて `prompts/audit.md` を直す |
+| 2 | 妥当なら persona を広げる（`bin/autopilot stop` のあと `start --personas` に足す）。未着手の persona は定義を読んでから入れる |
+| 3 | 以後は受入済みの batch 10 につき 1 つを統括が確かめる。`progress/holds.md` の保留を処理する |
+| 4 | `bin/batch findings` を見て、くり返す指摘があれば改善のジョブ（worktree）を回す |
 
 ## 済んだこと（2026-11-17〜18）
 
