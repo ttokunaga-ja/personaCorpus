@@ -1,64 +1,10 @@
-#!/usr/bin/env -S uv run python
-"""Render document pages to PNG, or copy an existing image unchanged."""
-import argparse
-from pathlib import Path
-import shutil
-import subprocess
-import sys
-import tempfile
-
-from PIL import Image
-
-
-def positive(value):
-    number = int(value)
-    if number < 1:
-        raise argparse.ArgumentTypeError('must be positive')
-    return number
-
-
-def main():
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('file', type=Path)
-    parser.add_argument('outdir', type=Path)
-    parser.add_argument('--dpi', type=positive, default=110)
-    parser.add_argument('--max-pages', type=positive)
-    args = parser.parse_args()
-    source = args.file.resolve()
-    ext = source.suffix.lower()
-    if not source.is_file():
-        parser.error('input file does not exist')
-    if ext not in ('.docx', '.xlsx', '.pptx', '.pdf', '.png', '.jpg', '.jpeg', '.tif', '.tiff', '.bmp', '.webp'):
-        parser.error('unsupported input format')
-    args.outdir.mkdir(parents=True, exist_ok=True)
-    if ext not in ('.docx', '.xlsx', '.pptx', '.pdf'):
-        with Image.open(source) as image:
-            image.verify()
-        target = args.outdir / source.name
-        if target.resolve() != source:
-            shutil.copyfile(source, target)
-        return
-    with tempfile.TemporaryDirectory(prefix='render-') as directory:
-        work = Path(directory)
-        pdf = source
-        if ext != '.pdf':
-            pdf = work / 'document.pdf'
-            subprocess.run([str(Path(__file__).with_name('office-pdf')), str(source), str(pdf)], check=True)
-        command = ['pdftoppm', '-png', '-r', str(args.dpi)]
-        if args.max_pages:
-            command += ['-l', str(args.max_pages)]
-        subprocess.run(command + [str(pdf), str(work / 'page')], check=True, timeout=180)
-        pages = sorted(work.glob('page-*.png'), key=lambda p: int(p.stem.split('-')[-1]))
-        if not pages:
-            raise ValueError('no pages rendered')
-        for page in pages:
-            number = int(page.stem.split('-')[-1])
-            shutil.copyfile(page, args.outdir / f'{source.stem}-{number}.png')
-
-
-if __name__ == '__main__':
-    try:
-        main()
-    except (OSError, ValueError, subprocess.SubprocessError) as exc:
-        print(f'render: {exc}', file=sys.stderr)
-        sys.exit(1)
+#!/bin/sh
+set -eu
+repo=$(CDPATH= cd -- "$(dirname -- "$(readlink -f -- "$0")")/.." && pwd)
+corpus="$repo/tools/target/release/corpus"
+if [ ! -x "$corpus" ]; then
+    echo "corpus is not built; run: cargo build --release --manifest-path $repo/tools/Cargo.toml" >&2
+    exit 1
+fi
+export CORPUS_BASE="$repo"
+exec "$corpus" render "$@"

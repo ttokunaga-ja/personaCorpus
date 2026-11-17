@@ -1,0 +1,43 @@
+[workspace]
+members = ["."]
+resolver = "3"
+
+[package]
+name = "corpus"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+anyhow = "1"
+blake2 = "0.10"
+chrono = "0.4"
+chrono-tz = "0.10"
+clap = { version = "4", features = ["derive"] }
+crc32fast = "1"
+csv = "1"
+fancy-regex = "0.16"
+filetime = "0.2"
+flate2 = { version = "1", default-features = false, features = ["zlib"] }
+fs2 = "0.4"
+html-escape = "0.2"
+image = { version = "0.25", default-features = false, features = ["png", "jpeg", "tiff", "bmp", "webp"] }
+kamadak-exif = "0.6"
+libc = "0.2"
+lopdf = "0.38"
+mailparse = "0.16"
+rand = "0.9"
+rayon = "1"
+regex = "1"
+roxmltree = "0.21"
+serde_json = { version = "1", features = ["preserve_order"] }
+sha2 = "0.10"
+shell-words = "1"
+tempfile = "3"
+unicode-normalization = "0.1"
+unicode-casefold = "0.2"
+walkdir = "2"
+xmltree = { version = "0.11", features = ["attribute-order"] }
+zip = { version = "8", default-features = false, features = ["deflate"] }
+
+[dev-dependencies]
+tar = "0.4"

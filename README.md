@@ -13,7 +13,8 @@
 | `progress/<persona>/` | batch ごとの依頼、ファイル計画、結果の報告 |
 | `manifests/` | 受入済みファイルの一覧（パス、sha256、大きさ、更新時刻） |
 | `runbooks/PRODUCTION.md`、`runbooks/REVIEW.md` | 制作と受入の手順、レビューの基準 |
-| `bin/` | batch の進行（`batch`）、自動検査（`check`）、制作の道具（`render`・`tex`・`scan`・`office-pdf`）、一覧と梱包（`manifest`・`pack`） |
+| `bin/` | batch の進行（`batch`）、自動検査（`check`）、制作の道具（`render`・`tex`・`scan`・`office-pdf`・`stamp`・`recalc`）、一覧と梱包（`manifest`・`pack`）。どれも `tools/`（Rust の実行ファイル `corpus`）を呼ぶ shell スクリプト |
+| `tools/` | 道具の実装（Rust）。`cargo build --release --manifest-path tools/Cargo.toml` でビルドし、`tests/run.sh` でテストする |
 | `bin/autopilot` | 依頼の作成から受入までを、統括がいなくても回す自動運転 |
 | `config/limits.json` | 同時に動く Codex の数と、persona あたりの同時 batch 数の上限 |
 | `ops/` | Codex のジョブの起動と通知 |

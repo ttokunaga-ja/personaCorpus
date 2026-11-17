@@ -1,6 +1,6 @@
 # agent-ops
 
-Codex ジョブを tmux で実行し、状態変化だけをファイルへ通知する。bash、Python 3 標準ライブラリ、tmux、Codex CLI が必要。
+Codex ジョブを tmux で実行し、状態変化だけをファイルへ通知する。bash、tmux、Codex CLI と、ビルドした `tools/target/release/corpus`（`cargo build --release --manifest-path tools/Cargo.toml`）が必要。
 
 ```sh
 codex-job start --repo personaCorpus --name example --brief /absolute/path/brief.md --model gpt-6.1-terra --effort medium
