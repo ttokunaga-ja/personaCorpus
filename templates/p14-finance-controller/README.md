@@ -85,3 +85,19 @@
 | LedgerlineからのCSV | `text` | facts.mdで指定した列と行を直接出力し、帳票番号は列の値にする。説明の前置きや会社書式の装飾を付けない |
 | Outlookの保存メール（EML） | `text` | 送受信ヘッダ、本文、引用、必要な実添付を保持する。Officeの型を経由しない |
 | Ledgerline・精算ポータル画面の保存（PNG） | `screenshot` | 検索欄・結果表・状態を含む業務画面として構成し、報告書の用紙にはしない |
+
+## 年度監査の追加書式（2025年12月期）
+
+上の「監査法人の型は追加しない」はb006の対象範囲についての記録。年度監査では下記2型を追加する。Cedarの既存Office型は変更しない。
+
+| 名前 | 組織・利用者と用途 | 実際のファイル名 | 見た目 |
+|---|---|---|---|
+| 監査依頼・質問と受領整理 | 東雲監査法人、岩城・能登から千田・柳瀬へ。依頼リスト、質問番号、資料の受領と継続確認 | `shinonome-audit.cls` | A4縦、濃紫51465Fと墨303038、Noto Serif CJK JP／Liberation Serif。日の出と水平線の小ロゴ、上部発行者、文書番号・宛先・担当と確認者、横罫線表、発行者とページ番号。Cedarの木材ロゴを使わない |
+| 検収・除却の紙控え | Cedar Works静岡工場と経理。検収記録、除却申請、補完承認記録の印字原紙 | `cedar-evidence.cls` | A4縦、Cedarの木材ロゴ・深緑、Noto Sans CJK JP。社内保管控えのヘッダ、管理番号・記録日・部署、印字項目と横罫線表。承認者・承認日時は本文から渡し、空欄承認と補完承認を区別する |
+
+- 東雲：`\documentclass{shinonome-audit}`、`\AuditHeading{題}{番号}{発行日}{宛先}`、`\AuditContact{担当}{確認者}`、`\AuditSection{見出し}`、`AuditTable`環境（列指定を引数に取る）、`\AuditNote{注記}`。番号は `SN-CW-YYYYMM-PBC-連番`・`SN-CW-YYYYMM-Q-連番`。年度末YYYYMMを使い、実番号・期限・質問番号はfacts.mdで決める。表ヘッダと明細は原稿から追加し、`\endhead`で継続ページにヘッダを繰り返す。
+- 社内紙：`\documentclass{cedar-evidence}`、`\EvidenceHeading{題}{管理番号}{記録日}{部署}`、`\EvidenceSection{見出し}`、`EvidenceTable`環境（列指定）、`\EvidenceField{項目}{値}`、`\EvidenceNote{注記}`。本文幅170mm以内に列幅と列間余白を含める。検収は品名・数量・単価・金額・日付と確認者、除却は資産の識別・故障と廃棄・申請と承認の記録を原稿どおり入れる。
+- 両型に明細・空の承認欄・期限・仮署名・合計は埋め込まない。必要な空欄は個別原稿が明示した箇所だけに作る。今回は印字済みの紙控えであり手書きや印影を足さない。申請控えの大庭承認欄は空欄、補完承認は別紙に正しい2月の日付を印字する。
+- TeXの探索パス・`bin/tex`の呼出しは既存と同じ。社内紙の中間PDFを当該実行のwork内に作り、`bin/scan`で画像のみのPDFへ変換する。元紙は配布物に追加しない。
+- 依頼管理・残件は `cedar-close-checklist.xlsx`、買掛照合・年間資産増減・回答根拠は `cedar-reconciliation.xlsx`、回答と改善計画は `cedar-review.docx`、打合せ記録は `cedar-minutes.docx`、CFO説明は `cedar-close-report.pptx` を開いて使う。番号はfacts.mdの年度監査用を使う。
+- 見本は `scratch/p14-finance-controller/b007/work/plan-0002/examples/`、画像は同workの `render/`。`shinonome-audit.pdf`は質問資料の表と見出し、`cedar-evidence.pdf`は空欄の承認を含む申請紙の配置を検査する。見本は配布物ではなく、scratch削除後は同じAPIで当該workに再作成する。

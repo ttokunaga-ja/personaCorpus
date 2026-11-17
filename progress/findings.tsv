@@ -262,3 +262,9 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-17	p05-bi-data-analyst	b001	check	0	source	Documents/通販/返品と取消/2025-10-28_受領表と週報入力の差.xlsx	missing source values: 1334, 1335, 4000000
 2026-11-17	p05-bi-data-analyst	b001	build-review	2	V3	Documents/通販/返品と取消/2025-10-28_受領表と週報入力の差.xlsx	シート「修正案」D4の「石井美智（確認依頼）」がE4「単位・期間」と重なり末尾を読めない（レンダリング80〜133ページの繰返し見出し）。受領全1,328行・取消128件、全行の数式と計算結果および合計45,100,000円／42,000,000円は原稿と一致。
 2026-11-17	p13-corporate-privacy-counsel	b001	coordinator	0	other	Desktop/7月10日_再審査判断資料_河野赤字.docx	統括の抜き取りで不合格
+2026-11-17	p01-software-engineer	b002	templates-review	0	other	README.md	「見本と確認先」の scratch/p01-software-engineer/b001/work/templates-0001/examples/ 配下の全見本と、末尾の templates-0003/examples/asahi-release.pptx および render/slides-and-logos.jpg が存在せず、説明された確認先を参照できない。型の一覧と明細・合計の生成手順は確認した。
+2026-11-17	p01-software-engineer	b002	templates-review	0	other	asahi-performance.xlsx	AS CountとAS TextをREADMEどおり隣接適用した見本で、測定条件のE4とF4、測定結果のG4とH4の数値64と文字64件の説明を確認が接し「64 64件…」と一体に見える。3行・36行見本の全8頁で再現し、文書番号ABS-2026-PF-064と日付は折れず、型は各シート3行のみである。
+2026-11-17	p01-software-engineer	b002	templates-review	0	other	asahi-release.xlsx	AS CountとAS TextをREADMEどおり隣接適用した見本で、指摘と再審査・公開判定の両シートのF4とG4の数値64と文字64件の説明を確認が接し「64 64件…」と一体に見える。3行・36行見本の全8頁で再現し、文書番号ABS-2026-RL-064と日付は折れず、型は各シート3行のみである。
+2026-11-17	p14-finance-controller	b007	draft-review	0	D5	Documents/決算・監査/2025/2026-01_固定資産の年間増減.xlsx	取得価額・累計償却・純額照合の各表は行番号を除くとA項目・B根拠・C金額だが、合計がSUM(D6:D8)、シート参照が取得価額!D7等と全てD列を指し、金額列を集計・照合できない。
+2026-11-17	p14-finance-controller	b007	draft-review	0	D4	Desktop/2026-01_東雲への提出控え_初回.xlsx	シート「提出区分」11行の現預金担当が柳瀬となっているが、facts.md「2025年12月期の依頼管理の引継ぎと提出状態」と1月9日の依頼管理11行はいずれも千田であり、担当変更の経緯もない。
+2026-11-17	p14-finance-controller	b007	draft-review	0	D4	Outlook 保存/年度監査/2026-03_能登さんから継続確認と計画期限.eml	本文「1月に取消を行った精算64件」は実行時期が不一致。persona定義・facts.md「64件の振込履歴、社員精算未払と取消」・既存1月締め会議メモでは、取消登録は2月5日で会計日が1月31日であり、1月中の取消実行ではない。
