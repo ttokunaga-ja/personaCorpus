@@ -2,7 +2,7 @@
 
 内容の基準は `SPEC.md`、規則は `AGENTS.md`、persona の設定は `personas/<persona>.md`、レビューの基準は `runbooks/REVIEW.md` にある。
 
-制作は batch の単位で進める。統括（Opus）は「何を作るか」を依頼し、`bin/batch` が Codex に計画・制作・検査・レビュー・作り直しを最後までやらせる。統括は結果の報告を読み、抜き取りで確かめて、受入か破棄を決める。
+制作は batch の単位で進める。「何を作るか」の依頼から、`bin/batch` が Codex に計画・制作・検査・レビュー・作り直しを最後までやらせる。終わった batch は、独立した監査を経て受入か破棄になる。ふだんは自動運転（`bin/autopilot`。10 節）が、依頼・起動・やり直し・監査・受入を回す。統括（Claude Opus か Codex `gpt-6-astra` のセッション）は、自動運転が保留にした batch の処理、抜き取りの確認、仕組みの修正を行う。1〜6 節は、batch を手で動かすときの手順であり、自動運転が内部で行っていることでもある。
 
 ```
 統括：依頼を書く → bin/batch start
@@ -248,3 +248,49 @@ bin/pack <出力先のフォルダ>
 - `resume` は、済んだ段階と、検査に通っているファイルをやり直さない。
 - ファイルの場所を移す commit を push するときは `git -c pack.useSparse=false push origin main` を使う。既定の設定では、移しただけのファイルを全部送り直して上限を超える。
 - 規則を増やして対処しない。規則の変更が要ると思ったら、ユーザーに伝えて Fable のセッションで行う。
+
+## 10. 自動運転（`bin/autopilot`）
+
+Claude の利用上限で制作が止まらないように、依頼の作成から受入までを、LLM ではないスクリプトが回す。Codex のジョブ（制作、レビュー、監査）を起動し、結果のファイルを読んで次の操作を決める。統括のセッションが無くても進む。
+
+```sh
+bin/autopilot start [--personas p01,p05,...] [--target 300]   # tmux の中で動き続ける（codex-job のジョブ autopilot）
+bin/autopilot status                                           # persona ごとの受入済み・進行中・保留、Codex の使用中の数
+bin/autopilot stop                                             # 新しい起動をやめる。動いている batch は最後まで進み、受入まで行う
+bin/autopilot stop --now                                       # 自動運転のループだけをすぐ止める（動いている batch は止めない）
+```
+
+### 制作の道筋（roadmap）
+
+- `progress/<persona>/roadmap.md` に、その persona で作る batch を順に並べる。列は、batch、範囲、件数の目安、重点、含めたいもの、避けるもの、状態。
+- roadmap が無い persona は、自動運転が最初に Codex（`gpt-6-astra`、`prompts/roadmap.md`）に作らせる。persona の定義の「仕事の流れ」「フォルダ構成」「形式の目安」「規模の目安」と、これまでの計画を読み、最初の区切り（300 件）までの batch を、範囲が重ならないように並べる。最初の batch は、その persona の中心になる仕事にする。
+- 統括は roadmap を直してよい（順番、範囲、重点）。自動運転は、状態が空の行を上から順に使う。
+
+### 自動運転が 1 回りで行うこと（60 秒ごと）
+
+1. **止める条件を見る**：`bin/autopilot stop` が呼ばれている、空き容量が 30 GB 未満、保留の batch が 5 つ以上、のどれかなら、新しい起動をしない。
+2. **終わった batch を進める**（persona ごとに）：
+   - 失敗で止まった batch：理由が利用上限なら、30 分おいてから `bin/batch resume`。それ以外は 1 回だけ `resume` し、また失敗したら保留にする。
+   - 終わった batch に、原稿の段階の破棄が 3 行以上あれば `--redraft` を 1 回、成形待ちがあれば `--rebuild` を 2 回まで行う。
+   - やり直しが済んだ batch に、受入の監査（下）を起動する。
+   - 監査が合格なら、監査が挙げた行を `--drop` して `bin/batch accept`、`git push origin main`、roadmap の状態を「受入済み」にする。監査が保留なら、何もせず保留にする。
+3. **新しい batch を起動する**：進行中の batch が無い persona について、roadmap の次の行から依頼（`progress/<persona>/<batch>.request.md`）を書き、`bin/batch start` する。受入済みの件数が目標（`--target`、既定 300）に達した persona は起動しない。同じ persona の batch を並べるのは、roadmap の行に「並行可」と書いてあるときだけ（「並列」の条件を満たす範囲であることは、roadmap を書いた者が確かめる）。
+4. **記録する**：行ったことを `scratch/autopilot/log.tsv` に 1 行ずつ書く。保留にした batch は `progress/holds.md` に、persona、batch、理由、日時を書く（Git で管理する。統括が処理したら行を消す）。
+
+### 受入の監査
+
+- 担当は Codex `gpt-6-astra`（`prompts/audit.md`）。制作（Terra）ともレビュー（Sol）とも違うモデルが、できあがった成果物だけを見る。統括の抜き取りの代わりである。
+- 見る範囲：形式ごとに 1 件以上、合計で batch の 2 割以上（最低 8 件）。報告に「先に要るものが欠けたまま書いた行」「続きを使った行」があれば、それを優先する。成果物を開き、Office と PDF は `bin/render` で画像にして見る。観点は `runbooks/REVIEW.md` の両方（中身と見た目）。原稿・計画・台帳・persona の定義と照らす。
+- 出力：`progress/<persona>/<batch>.audit.md`。先頭に判定（`verdict: accept` か `verdict: hold`）、見たファイルの一覧と 1 件ごとの判定と理由、破棄すべき行（`drop:` の一覧）、batch の全体の所見。
+- 判定の決まり：見たうちの不合格が 1 件以下なら `accept`（その 1 件は `drop` に入れる）。2 件以上、または同じ原因が batch の全体に及ぶと見たら `hold`。迷ったら `hold`。
+- 監査はファイルを変更しない。自動運転が、監査の前後で成果物と原稿の sha256 が変わっていないことを確かめる。
+
+### 統括がすること
+
+統括は、Claude Opus のセッションでも、Codex `gpt-6-astra` のセッションでもよい（`prompts/coordinator.md` を最初に渡す）。自動運転が動いていれば、統括がいない間も制作は進む。
+
+- `bin/autopilot status` と `progress/holds.md` を見て、保留の batch を処理する：監査の報告を読み、自分で開いて確かめ、受入（`--drop` つき）か、やり直しか、破棄かを決める。原因が仕組みにあれば、仕組みを直す。
+- 受入済みの batch 10 につき 1 つを選び、自分で開いて確かめる（監査の甘さの確認）。不合格が見つかったら、自動運転を止め、監査の指示を直し、同じ時期に受入された batch を見直す。
+- `bin/batch findings` を見て、8 節の改善のジョブを回す。
+- roadmap を見直す。形式の割合が目安から外れてきたら、次の行の「含めたいもの」で調整する。
+- ユーザーへの報告：persona ごとの受入済みの件数、保留と破棄、直した仕組みと緩めた検査、判断を仰ぐこと（選択肢と自分の案）。

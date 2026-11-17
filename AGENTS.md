@@ -43,7 +43,7 @@ personaCorpus は Kio を含む他の repo に依存しない。他の repo の�
 ## 制作の単位
 
 - 制作は persona × batch の単位で行う。1 つの batch は 50 ファイル程度までの「仕事のまとまり」で、手順は `runbooks/PRODUCTION.md` に従う。受入を後回しにして未 commit の成果物を溜めない。
-- 統括は依頼を書いて `bin/batch start` で起動する。`bin/batch` が、テンプレート、ファイル計画、原稿、原稿のレビュー、成形、自動検査、見た目のレビュー、結果の報告までを Codex に順にやらせる。統括は、終わりの通知を受けてから、抜き取りで確かめて受入か破棄を決める。
+- 自動運転（`bin/autopilot`）か統括が、依頼を書いて `bin/batch start` で起動する。`bin/batch` が、テンプレート、ファイル計画、原稿、原稿のレビュー、成形、自動検査、見た目のレビュー、結果の報告までを Codex に順にやらせる。終わった batch は、独立した監査を経て、自動運転か統括が受入か破棄を決める。
 - 中身と形を分ける。中身は原稿（`sources/<persona>/`）に書いてレビューし、合格した原稿だけを形にする。成形は原稿の中身を変えない。
 - 並列は、違う persona の間、batch の中の組、同じ persona の複数の batch、の順に広げる。同じ persona の複数の batch は、受入済みの batch があり、依頼の範囲が重ならないときだけ、3 つまで同時に動かせる。条件と上限は `runbooks/PRODUCTION.md` の「並列」に従う。計画の段階の排他、同時に動く Codex の数の上限、commit の排他は `bin/batch` が行う。
 - 書いてよい場所は段階ごとに決まっている。計画は `progress/<persona>/`・`templates/<persona>/` と `personas/<persona>.md` の「仕事の流れ」への追記、原稿は `sources/<persona>/`、成形は `people/<persona>/`、レビューはどこも変更しない。どの段階も、一時物はその batch の `scratch/<persona>/<batch>/` に置く。
@@ -60,9 +60,11 @@ personaCorpus は Kio を含む他の repo に依存しない。他の repo の�
 
 ## 受入と破棄
 
-- 受入は統括が行う。`bin/check` の自動検査と Codex の 2 回のレビュー（原稿と見た目。`runbooks/REVIEW.md`）に合格し、統括の抜き取り確認で `SPEC.md` の品質を満たした batch だけを受理する。件数、パス、ハッシュの一致だけでは受理しない。Codex のレビューの合格は、統括の受入の代わりにならない。
+- 受入の条件は、`bin/check` の自動検査、Codex の 2 回のレビュー（原稿と見た目。`runbooks/REVIEW.md`）、独立した受入の監査（`gpt-6-astra`。`runbooks/PRODUCTION.md` の「自動運転」）のすべてに合格することである。件数、パス、ハッシュの一致だけでは受理しない。
+- 受入の操作（`bin/batch accept`・`discard`、`git push`）は、自動運転（`bin/autopilot`）か統括が行う。自動運転は、監査が合格とした batch だけを受入し、監査が保留とした batch には触れず、統括に残す。
+- 統括は、自動運転が受入した batch を全部は見ない。受入済みの batch 10 につき 1 つを選んで自分で開いて確かめ、監査が甘いと分かったら自動運転を止めて、監査の指示（`prompts/audit.md`）を直す。
 - 不合格のファイルは受理しない。直して残すのではなく破棄し、必要なら作り直す。破棄した行と理由はファイル計画に残す。
-- Codex は stage・commit・push をしない。統括が `bin/batch accept` または `bin/batch discard` で、その batch の成果物・原稿・計画・報告だけを commit し、push する。
+- 制作・レビュー・監査の Codex は stage・commit・push をしない。commit は `bin/batch accept`・`discard` だけが行い、その batch の成果物・原稿・計画・報告だけを含める。
 - 受入済みのファイルを後から変更・削除するのは、`SPEC.md` を満たさないと分かったときだけである。
 
 # エージェント運用（2026-11-12〜、個人デスクトップ WSL）
@@ -75,17 +77,20 @@ personaCorpus は Kio を含む他の repo に依存しない。他の repo の�
 
   | 役割 | 担当 |
   |---|---|
-  | 制作方式・品質基準・運用規則の見直しと修正 | Claude Fable 5.2（`claude-fable-5-2`）のセッション |
-  | 制作の指示・受入検証・commit・push の統括（調整担当） | Claude Opus 5.5（`claude-opus-5-5`） |
+  | 統括：制作の進め方の判断、保留になった batch の処理、抜き取りの確認、仕組み・規則・検査の修正 | Claude Opus 5.5（`claude-opus-5-5`）のセッション、または Codex `gpt-6-astra` のセッション（`prompts/coordinator.md`）。同時に統括を務めるのは 1 つだけ |
+  | 自動運転：依頼の作成、batch の起動、やり直し、監査の起動、受入、push | `bin/autopilot`（LLM ではないスクリプト。統括がいなくても進む） |
+  | 受入の監査、persona ごとの制作の道筋（roadmap）の作成 | Codex `gpt-6-astra` |
   | batch の原稿と成形 | Codex `gpt-6.1-terra` |
-  | batch のテンプレート、ファイル計画、原稿のレビュー、見た目のレビュー、仕組みの改善のジョブ | Codex `gpt-6.1-sol` |
+  | batch のテンプレート、ファイル計画、原稿のレビュー、見た目のレビュー、仕組みの改善のジョブ、Terra で品質が安定しない制作 | Codex `gpt-6.1-sol` |
   | 確立済みの検証コマンドの実行、読み取り専用の集計・探索 | Codex `gpt-6-luna` |
-  | 受入レビューの難しい判断、監査、Terra で品質が安定しない制作 | Codex `gpt-6.1-sol` |
 
+- **Claude の利用を減らす**：Claude の利用上限で作業が止まらないように、制作・レビュー・監査・受入は Codex と `bin/autopilot` で進める。Claude のセッションは、統括の判断が要るときだけ使う。統括が Claude でも Codex でも、手順（`prompts/coordinator.md`）は同じである。
+- **規則の変更**：統括は、仕組み・検査・指示のひな形・手順書・この文書の制作規則を、自分の判断で直してよい（以前は Fable のセッションの役割だった。2026-11-17 ユーザー決定）。変更は worktree で行い、テストを通し、受入済みの全ファイルが検査に通ることを確かめてから取り込む。検査を緩める変更と、手順書・規則の変更は、理由を commit メッセージに書き、次のユーザーへの報告に含める。Fable のセッションは、ユーザーが大きな見直しを頼むときだけ使う。
+- **ユーザーへの相談**：統括は、ほかのセッションに判断を求めない。下の「ユーザーの確認が要ること」と、自分で決めきれないこと（品質と量のどちらを優先するか、規模の目安の変更、persona の設定の大きな変更など）は、選択肢と自分の案と理由を付けて、ユーザーに直接出す。ユーザーの返事を待つ間も、返事に左右されない作業は進める。
 - **Terra から Sol への切替え**：原稿と成形はまず `gpt-6.1-terra` で行う。同じ batch で受入検査の不合格が 2 回続く、または同種の品質問題が繰り返す場合、統括がその persona・batch を `gpt-6.1-sol` に切り替え、切替えと理由を `progress/<persona>/` に記録する。
-- **ユーザーの確認が要ること**：成果物の大量の削除、force push と履歴の改変、秘密情報・外部サービス・課金に関わること、`SPEC.md` の変更、この節のモデルと権限の変更。Fable のセッションも統括も、事前にユーザーの確認を取る。
-- **委譲と監視**：Codex は `ops/` の `codex-job`（`ops/README.md`）で起動する。制作の batch は `bin/batch start` が `codex-job` を呼ぶ。統括は `agent-alert wait --repo personaCorpus` をバックグラウンドで待ち、通知を受けたときだけ処理する。LLM による定期監視（旧 Codex automation）は廃止した。
-- **停止の基準**：Codex が作業全体を止めてよいのは、取り返しのつかない操作、外部への公開、秘密情報、課金に関わる判断だけである。それ以外の不明点はその項目だけ保留として理由と選択肢を記録し、残りを進める。保留は統括が解決する。Codex は新しい停止規則・承認手続きを自分で作らず、repo の資料にも追加しない。規則の追加・変更は Fable のセッションで行う。
+- **ユーザーの確認が要ること**：成果物の大量の削除、force push と履歴の改変、秘密情報・外部サービス・課金に関わること、`SPEC.md` の変更、この節のモデルと権限の変更。統括は、事前にユーザーの確認を取る。自動運転と Codex は、これらを行わない。
+- **委譲と監視**：Codex は `ops/` の `codex-job`（`ops/README.md`）で起動する。制作の batch は `bin/batch start` が `codex-job` を呼ぶ。自動運転（`bin/autopilot`）は、通知を待たずに自分で状態を見て進める。統括が手で batch を動かすときは、`agent-alert wait --repo personaCorpus` をバックグラウンドで待ち、通知を受けたときだけ処理する。LLM による定期監視（旧 Codex automation）は廃止した。
+- **停止の基準**：Codex が作業全体を止めてよいのは、取り返しのつかない操作、外部への公開、秘密情報、課金に関わる判断だけである。それ以外の不明点はその項目だけ保留として理由と選択肢を記録し、残りを進める。保留は統括が解決する。制作・レビュー・監査の Codex は新しい停止規則・承認手続きを自分で作らず、repo の資料にも追加しない。規則の追加・変更は統括が行う。
 - **commit の粒度**：
   - 受入済みの成果物は、persona × batch（または phase）ごとに 1 commit とし、受入のたびに commit・push する。複数 persona や複数 batch をまとめた一括 commit、`git add -A`・`git add people/` のような広い stage はしない。
   - 1 回の push で送る pack は 1 GiB 程度までに抑える（GitHub の 2 GiB 上限）。超えそうな batch は分割して commit する。
