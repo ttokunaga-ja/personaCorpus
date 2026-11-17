@@ -201,21 +201,67 @@ fn loop_running(root: &Path) -> Result<bool> {
 }
 fn ledger(root: &Path) -> Result<Vec<BTreeMap<String, String>>> {
     let p = root.join("progress/batches.tsv");
-    if !p.exists() {
-        return Ok(Vec::new());
-    }
-    let mut r = csv::ReaderBuilder::new().delimiter(b'\t').from_path(p)?;
-    let h = r.headers()?.clone();
-    Ok(r.records()
-        .map(|r| {
-            r.map(|r| {
-                h.iter()
-                    .map(str::to_string)
-                    .zip(r.iter().map(str::to_string))
-                    .collect()
+    let mut rows = if p.exists() {
+        let mut r = csv::ReaderBuilder::new().delimiter(b'\t').from_path(p)?;
+        let h = r.headers()?.clone();
+        r.records()
+            .map(|r| {
+                r.map(|r| {
+                    h.iter()
+                        .map(str::to_string)
+                        .zip(r.iter().map(str::to_string))
+                        .collect()
+                })
             })
-        })
-        .collect::<std::result::Result<Vec<_>, _>>()?)
+            .collect::<std::result::Result<Vec<_>, _>>()?
+    } else {
+        Vec::new()
+    };
+    // Batches finished before the ledger existed are recorded only in their result report.
+    rows.extend(reported(root)?);
+    Ok(rows)
+}
+fn reported(root: &Path) -> Result<Vec<BTreeMap<String, String>>> {
+    let mut rows = Vec::new();
+    let progress = root.join("progress");
+    if !progress.is_dir() {
+        return Ok(rows);
+    }
+    let name = regex(r"^(b\d+)\.result\.md$");
+    let state = regex(r"(?m)^状態：(破棄|受入済み)\s*$");
+    for persona in fs::read_dir(&progress)? {
+        let persona = persona?.path();
+        if !persona.is_dir() {
+            continue;
+        }
+        for file in fs::read_dir(&persona)? {
+            let file = file?.path();
+            let Some(fname) = file.file_name().and_then(|n| n.to_str()) else {
+                continue;
+            };
+            let Some(batch) = name.captures(fname) else {
+                continue;
+            };
+            let text = read(&file)?;
+            let Some(found) = state.captures(&text) else {
+                continue;
+            };
+            let status = if &found[1] == "破棄" {
+                "discarded"
+            } else {
+                "accepted"
+            };
+            rows.push(BTreeMap::from([
+                (
+                    "persona".to_string(),
+                    persona.file_name().unwrap().to_string_lossy().into_owned(),
+                ),
+                ("batch".to_string(), batch[1].to_string()),
+                ("status".to_string(), status.to_string()),
+            ]));
+        }
+    }
+    Ok(rows)
 }
 struct Output {
     code: i32,

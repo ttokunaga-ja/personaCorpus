@@ -437,6 +437,22 @@ fn failed_resume_once_with_or_without_scratch() {
     }
 }
 #[test]
+fn batches_reported_discarded_or_accepted_before_the_ledger_are_finished() {
+    for state in ["破棄", "受入済み"] {
+        let f = Fixture::new();
+        fs::create_dir_all(f.r.join("progress/p01-test")).unwrap();
+        fs::write(
+            f.r.join("progress/p01-test/b001.result.md"),
+            format!("# p01-test b001\n\n状態：{state}\n"),
+        )
+        .unwrap();
+        f.job("p01-b001", "failed");
+        f.once();
+        assert_eq!(f.called("batch", "resume"), 0, "{state}");
+        assert!(!f.holds().contains("b001"), "{state}");
+    }
+}
+#[test]
 fn usage_limit_wait_and_live_limit_preserved() {
     let f = Fixture::new();
     f.batch("failed", "利用上限", 0, 0);
