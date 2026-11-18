@@ -12,8 +12,8 @@
 | 英語変更説明 | あさひ、田中からLauraへ送る英語草稿・赤字控えと、利用者／管理者向け説明 | `asahi-explanation.docx` | 自社の朝日・青黄・ゴシックを継承。表紙なし、英語3見出し、赤字の文字スタイル `AS Review` |
 | 委託先の英文レビュー報告 | Harlow Editorial Services、Laura Nichols。委託先発のテキストPDF | `harlow-review.cls` | A4縦、えんじと墨、セリフ体、校閲括弧のロゴ、英語ヘッダと通し頁。あさひとは別の型 |
 | 試行導入の確認 | 大島ルート配送株式会社、中村美喜子。顧客発の業務確認・正式な添付回答が必要な場合 | `oshima-trial.docx` | A4縦、表紙なし。折れ曲がる配送経路と矢印のロゴ、緑と墨、明朝。あさひの朝日・青・ゴシックと区別 |
-| 帳票保管要求 | 共栄ビジネス帳票株式会社 業務課、小林早百合。月間の発行量、保管と部署別閲覧に関する要求書 | `kyoei-storage-requirements.docx` | A4縦、表紙なし。連続帳票を重ねたロゴ、紫の二重罫線と見出し、ゴシック。業務課と自動ページ番号のフッタ |
-| 購買部門の照会要望・試行報告 | 藤崎医療資材株式会社、購買主任の加藤博典。購買業務に必要な照会項目の提示、試行で支障のあった業務の報告 | `fujisaki-trial.cls` | LuaLaTeX、A4縦、表紙なし。縦柱と3段の棚を組んだロゴ、青緑、明朝、淡い青緑の発行欄。購買部門名と通し頁 |
+| 業務課の要求書 | 共栄ビジネス帳票株式会社 業務課、小林早百合。帳票保管要求や、承認・閲覧に関する業務条件の提示 | `kyoei-storage-requirements.docx` | A4縦、表紙なし。連続帳票を重ねたロゴ、紫の二重罫線と見出し、ゴシック。業務課と自動ページ番号のフッタ |
+| 購買部門の照会要望・試行報告 | 藤崎医療資材株式会社、購買主任の加藤博典。照会項目の要望、試行報告、権限整理で購買側が確認した範囲 | `fujisaki-trial.cls` | LuaLaTeX、A4縦、表紙なし。縦柱と3段の棚を組んだロゴ、青緑、明朝、淡い青緑の発行欄。購買部門名と通し頁 |
 | 測定・技術比較 | あさひ、田中・渡辺。測定条件と結果、または保管容量と追加費用を別シートで整理 | `asahi-performance.xlsx` | A4横。朝日ロゴ、青白の列見出し。6列と8列。列名は用途に合わせる |
 | 指摘・公開判定 | あさひ、鈴木・田中・佐藤。未解決指摘の消し込みと判定観点の照合 | `asahi-release.xlsx` | A4横、共通の書式。指摘と再審査、公開判定の2シート。根拠と未決事項の列を広く取る |
 | 公開判定の説明 | あさひ、田中から佐藤・会議参加者へ。判定会議の資料 | `asahi-release.pptx` | 16:9白地、上部に朝日と社名、青の題、下罫線と開発部フッタ。1マスターと実レイアウト5種。型はスライド0枚 |
@@ -130,23 +130,32 @@ ADR-042のDOCXとPDFは `asahi-decision.docx` で完成させた同じ文書か�
 - 高橋との選定会議は `asahi-release.pptx`（`BR`）。「図」で発注の特定から納品情報の確認までの基本経路、「2段」で日常照会と別資料で確認する業務、「表」で項目と配置の対応を示す。候補・採用・対象外の件数の関係、観察期間、月2件未満の集計条件と採否の根拠は後続の計画と台帳に従う。
 - MD・TXTは個人の検討と打合せ、CSVは利用集計、EMLは業務要件の確認、PNGは画面遷移と項目配置、HTMLは製品説明の保存に使う。それぞれの保存形式に合わせる。
 
+## b009での使い分け
+
+- 田中の役割定義と説明草稿は `asahi-decision.docx`（`EV`）。原稿に合わせて見出しを「対象と前提」「役割の定義」「兼任の判断」「合意範囲と残る確認」などへ差し替える。顧客向けの草稿は宛先を管理欄へ入れ、相手に共有する条件と判断理由を記す。
+- 小林発の業務条件PDFは `kyoei-storage-requirements.docx` を別名保存し、ヘッダ第3ランの文書種別「帳票保管要求」を「権限整理の業務条件」へ差し替える。改行と「業務課」、ロゴと二重罫線を保ち、本文の見出しを業務条件に合わせる。管理欄には `KBC-YYYY-RQ-連番3桁`、版、日付、作成者、原稿指定の宛先を記す。PDFは `bin/office-pdf` で出力し、変換元のDOCXは作業先に置く。
+- 加藤発の確認PDFは `fujisaki-trial.cls`。プリアンブルで `\renewcommand{\FujisakiReportKind}{権限整理の確認}` と指定し、`\TrialTitle{実題}{FMI-YYYY-TR-連番3桁}{日付}{作成者}` を使う。購買の業務条件と加藤が確認した設計上の合意範囲を記す。文書を作る際は発行元の業務条件と宛先を原稿で確認する。
+- 役割表は `asahi-release.xlsx`（`RL`）。第1シートを「役割対応」とし、順番・対象顧客・現行の役割・整理後の役割・主な操作・確認日・統合の根拠を記す。第2シートは「兼任可否」とし、順番・対象顧客・承認の範囲・閲覧の範囲・確認者・確認日・判断と理由を記す。見本の列幅はA:Gの順に、役割対応が10・18・28・26・23・17・35、兼任可否が10・23・29・26・16・17・33。順番は `AS Count`、日付は `AS Date`、文字列はインデント付きの `AS Text`。管理欄はデータ末尾のA:Gを結合して `AS Note` を適用し、印刷範囲とフィルタを更新する。集計がある場合は、旧役割数・整理後の役割数・兼任判断の件数を、それぞれの集計対象に従って求める。
+- 説明資料は `asahi-release.pptx`（`BR`）。別名保存したファイルのマスターでフッタの「技術判断・公開審査」を「導入先権限整理」に差し替える。「表」で藤崎の7役割と5役割の対応を示し、「2段」や「図」で承認と閲覧の担当境界を説明する。2月17日の整理開始、兼任2件を認めない理由、各顧客への説明範囲と設計上の合意を扱う。役割名・例外の経過・番号・日付は計画と台帳に従う。移行完了の確認は後年の別記録に属する。
+- MD・TXT・EML・PNG・ボード写真のJPGは各形式に合わせて作る。
+
 ## 見本と確認先
 
-今回の作業先は `scratch/p01-software-engineer/b008/work/templates-0002/`。下表のパスは作業先からの相対パス。見本の管理番号・観察期間・表の値は組版確認用。実資料の値は計画と台帳に従う。
+今回の作業先は `scratch/p01-software-engineer/b009/work/templates-0002/`。下表のパスは作業先からの相対パス。見本の管理番号・日付・表の値は組版確認用。実資料の値は計画と台帳に従う。
 
 | 型 | 見本 | 全ページの画像 |
 |---|---|---|
-| `asahi-decision.docx` | `examples/asahi-decision.docx`、`examples/asahi-decision-long.docx`、`examples/asahi-decision.pdf` | `render/asahi-decision-docx/`、`render/asahi-decision-long-docx/`、`render/asahi-decision-pdf/` |
-| `asahi-explanation.docx` | `examples/asahi-explanation.docx`、`examples/asahi-explanation-long.docx` | `render/asahi-explanation-docx/`、`render/asahi-explanation-long-docx/` |
+| `asahi-decision.docx` | `examples/asahi-decision-3.docx`、`examples/asahi-decision-45.docx`、`examples/asahi-decision-3.pdf` | `render/asahi-decision-3-docx/`、`render/asahi-decision-45-docx/`、`render/asahi-decision-3-pdf/` |
+| `asahi-explanation.docx` | `examples/asahi-explanation-3.docx`、`examples/asahi-explanation-45.docx` | `render/asahi-explanation-3-docx/`、`render/asahi-explanation-45-docx/` |
 | `asahi-measurement.cls` | `examples/asahi-measurement-3.tex`、`examples/asahi-measurement-3.pdf`、`examples/asahi-measurement-47.tex`、`examples/asahi-measurement-47.pdf` | `render/asahi-measurement-3-pdf/`、`render/asahi-measurement-47-pdf/` |
-| `asahi-minutes.docx` | `examples/asahi-minutes.docx`、`examples/asahi-minutes-long.docx` | `render/asahi-minutes-docx/`、`render/asahi-minutes-long-docx/` |
-| `asahi-notice.docx` | `examples/asahi-notice.docx`、`examples/asahi-notice-long.docx` | `render/asahi-notice-docx/`、`render/asahi-notice-long-docx/` |
+| `asahi-minutes.docx` | `examples/asahi-minutes-3.docx`、`examples/asahi-minutes-45.docx` | `render/asahi-minutes-3-docx/`、`render/asahi-minutes-45-docx/` |
+| `asahi-notice.docx` | `examples/asahi-notice-3.docx`、`examples/asahi-notice-45.docx` | `render/asahi-notice-3-docx/`、`render/asahi-notice-45-docx/` |
 | `asahi-performance.xlsx` | `examples/asahi-performance-3.xlsx`、`examples/asahi-performance-36.xlsx` | `render/asahi-performance-3-xlsx/`、`render/asahi-performance-36-xlsx/` |
 | `asahi-release.pptx` | `examples/asahi-release.pptx` | `render/asahi-release-pptx/` |
-| `asahi-release.xlsx` | `examples/asahi-release-3.xlsx`、`examples/asahi-release-36.xlsx` | `render/asahi-release-3-xlsx/`、`render/asahi-release-36-xlsx/` |
-| `fujisaki-trial.cls` | `examples/fujisaki-trial-3.tex`、`examples/fujisaki-trial-3.pdf`、`examples/fujisaki-trial-47.tex`、`examples/fujisaki-trial-47.pdf` | `render/fujisaki-trial-3-pdf/`、`render/fujisaki-trial-47-pdf/` |
+| `asahi-release.xlsx` | `examples/asahi-release-3.xlsx`、`examples/asahi-release-36.xlsx`、`examples/asahi-role-mapping-3.xlsx`、`examples/asahi-role-mapping-36.xlsx` | `render/asahi-release-3-xlsx/`、`render/asahi-release-36-xlsx/`、`render/asahi-role-mapping-3-xlsx/`、`render/asahi-role-mapping-36-xlsx/` |
+| `fujisaki-trial.cls` | `examples/fujisaki-trial-3.tex`、`examples/fujisaki-trial-3.pdf`、`examples/fujisaki-trial-47.tex`、`examples/fujisaki-trial-47.pdf`、`examples/fujisaki-access-conditions-3.tex`、`examples/fujisaki-access-conditions-3.pdf`、`examples/fujisaki-access-conditions-47.tex`、`examples/fujisaki-access-conditions-47.pdf` | `render/fujisaki-trial-3-pdf/`、`render/fujisaki-trial-47-pdf/`、`render/fujisaki-access-conditions-3-pdf/`、`render/fujisaki-access-conditions-47-pdf/` |
 | `harlow-review.cls` | `examples/harlow-review-3.tex`、`examples/harlow-review-3.pdf`、`examples/harlow-review-47.tex`、`examples/harlow-review-47.pdf` | `render/harlow-review-3-pdf/`、`render/harlow-review-47-pdf/` |
-| `kyoei-storage-requirements.docx` | `examples/kyoei-storage-requirements.docx`、`examples/kyoei-storage-requirements-long.docx` | `render/kyoei-storage-requirements-docx/`、`render/kyoei-storage-requirements-long-docx/` |
-| `oshima-trial.docx` | `examples/oshima-trial.docx`、`examples/oshima-trial-long.docx` | `render/oshima-trial-docx/`、`render/oshima-trial-long-docx/` |
+| `kyoei-storage-requirements.docx` | `examples/kyoei-storage-requirements-3.docx`、`examples/kyoei-storage-requirements-45.docx`、`examples/kyoei-access-conditions-3.docx`、`examples/kyoei-access-conditions-3.pdf`、`examples/kyoei-access-conditions-45.docx`、`examples/kyoei-access-conditions-45.pdf` | `render/kyoei-storage-requirements-3-docx/`、`render/kyoei-storage-requirements-45-docx/`、`render/kyoei-access-conditions-3-pdf/`、`render/kyoei-access-conditions-45-pdf/` |
+| `oshima-trial.docx` | `examples/oshima-trial-3.docx`、`examples/oshima-trial-45.docx` | `render/oshima-trial-3-docx/`、`render/oshima-trial-45-docx/` |
 
 Wordは3・45明細、Excelは各シート3・36明細、TeXは3・47明細を収録。PowerPointは5レイアウトを1枚ずつ収録。
