@@ -1,0 +1,31 @@
+From: =?utf-8?b?6Yi05pyoIOijleS9sw==?= <yuka.suzuki@asahi-business-systems.example>
+To: =?utf-8?b?5LyK6JekIOijleeroA==?= <hiroaki.ito@asahi-business-systems.example>
+Cc: =?utf-8?b?55Sw5LitIOe+jueUsQ==?= <miyu.tanaka@asahi-business-systems.example>
+Date: Tue, 16 Sep 2025 10:34:00 +0900
+Subject: Re: =?utf-8?b?55Sz6KuL44OH44K544KvIOS4gOimp+WPluW+l+OBruWAmeijnOOCkue1nuOCiuOBvuOBl+OBnw==?=
+Message-ID: <b2d8ea41-94c7-47e6-936a-2b6479c831df@asahi-business-systems.example>
+In-Reply-To: <9f635d62-51a3-49d8-ab12-3be91e821064@asahi-business-systems.example>
+References: <9f635d62-51a3-49d8-ab12-3be91e821064@asahi-business-systems.example>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+
+伊藤さん
+
+ありがとうございます。正式走は受付送信40%、一覧35%、詳細25%の配分を保ち、各走の全操作のp95で目標を確認します。それに加えて一覧と詳細をそれぞれ件数と応答時間で集計し、一覧から詳細へ待ちが移っていないかを見ます。操作別の値は内訳を見るためのもので、正式走の全操作p95に代えるものではありません。
+
+受付番号の照会も対照に入れます。送信後に返された番号で保存結果を引き直し、送った申請と受付状態を確認できる手順を用意します。受付できたことと、その後の業務処理が完了したことは分けて確認します。
+
+配分を変えて原因を切り分ける走が必要になった場合は、正式な3走とは別に扱います。確認の観点を整理して共有します。
+
+鈴木
+
+2025年9月12日 14:17、伊藤 裕章 <hiroaki.ito@asahi-business-systems.example>:
+> 田中さん、鈴木さん
+>
+> 一覧取得の候補は、詳細専用項目を一覧の応答から外し、詳細を開くときに取得する案に絞りました。件数や順序、ページ境界、閲覧範囲と、保存確認後に番号を返す受付経路は維持する前提です。比較と確認点を添付にまとめました。
+>
+> 鈴木さん、一覧が軽くなっても詳細へ遅延が移る可能性があります。次の評価ではどの値を見ればよいでしょうか。また、返された受付番号で同じ申請を照会する確認を対照に含められますか。
+>
+> よろしくお願いします。
+> 伊藤

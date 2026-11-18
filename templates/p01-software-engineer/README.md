@@ -50,7 +50,7 @@ ADR-042のDOCXとPDFは `asahi-decision.docx` で完成させた同じ文書か�
 | `AS Total` | 原稿に集計がある場合だけ作る実セル。整数、太字・淡青、青の上罫線と二重下罫線 |
 | `AS Note` | 実際の注記。8pt、左寄せ・左インデント1、折返し。長い注記は必要範囲を結合し、行高を合わせる |
 
-ブックの既定Normalとフォント0も Noto Sans CJK JP 9pt・墨に設定済みで、未入力セルの既定も同じ。型の左寄せ列見出しにも左インデント1を設定してある。
+ブックの既定Normalとフォント0も Noto Sans CJK JP 9pt・墨に設定済みで、未入力セルの既定も同じ。両型の全シートで3行目の列見出しは左寄せを明示し、左インデント1・上下中央・折返しを設定している。見出し名を変えるときはセルの書式を維持する。
 
 各明細セルへ対応する名前付きスタイルを付ける。数値列（`AS Count`・`AS Number`）は右寄せ・インデント0、右隣の文字列は `AS Text` の左インデント1を必ず維持する。先頭連番列の右隣も同じ。配置を上書きするときも `Alignment(horizontal="left", vertical="top", wrap_text=True, indent=1)` とし、列幅に文字と余白を含める。明細行高は内容に応じて調整する（見本43pt）。合計はデータの直後に原稿の式で作り、合計行の実範囲全体に `AS Total` を設定する。合計行のラベルセルだけは左寄せ・左インデント1へ変更し、式と数値は右寄せ・インデント0を維持する。件数や重大未解決数はCOUNTA/COUNTIFSなど、内容に対応する式を使う。不要な合計を作らない。注記はその下へ実際の本文がある場合だけ追加する。
 
@@ -91,9 +91,14 @@ ADR-042のDOCXとPDFは `asahi-decision.docx` で完成させた同じ文書か�
 - `\documentclass{fujisaki-trial}` を開き、`\TrialTitle{実題}{文書番号}{発行日}{作成者}`、`\section`、必要なら `\TrialNote{実際の注記}` を使う。表を使う場合は `longtable` の `\endfirsthead` と `\endhead` の直前に `\TrialHead{\TrialCell{列名}&…}` を置き、毎頁の見出しを揃える。右寄せの順番列に続いて文字列が来る場合は、見本と同じ列指定 `>{\raggedleft\arraybackslash}p{11mm}@{\hspace{4mm}}p{52mm}p{84mm}` で4mmの間隔を確保する。明細と必要な注記だけ追加し、前節と同じ `TEXINPUTS` と `bin/tex` で出力する。
 - MD・EML・TXT・画面PNGはそれぞれの保存形式で作る。手書きの再現順序は原稿に沿った紙面を `bin/scan` でスキャンPDFにする。
 
+## b004での使い分け
+
+- 条件表と性能比較は `asahi-performance.xlsx`。測定条件シートには対象版・負荷・操作構成・測定回数と標本の採否を記録し、測定結果シートで実測のp95と次回目標を別列に示す。比較する条件の違いと、試行を採用または除外した理由は判定・根拠欄に記す。
+- 田中の評価草稿と佐藤への提案は `asahi-decision.docx`、直接PDFに組む測定報告と改善候補の技術説明は `asahi-measurement.cls`、佐藤への目標説明は `asahi-release.pptx`。2025年9月8日の評価実績はp95 246ms、次回目標はp95 184ms以下。2026年6月の比較前版の測定は別の集計として扱う。実際の対象版・測定条件・文書番号は計画と台帳で確定する。
+
 ## 見本と確認先
 
-今回の作業先は `scratch/p01-software-engineer/b003/work/templates-0002/`。下表のパスはこの work からの相対パス。見本の番号・日付・本文は組版確認用。
+今回の作業先は `scratch/p01-software-engineer/b004/work/templates-0002/`。下表のパスはこの work からの相対パス。見本の番号・日付・本文は組版確認用。
 
 | 型 | 見本（work以下） | 全ページの画像（work以下） |
 |---|---|---|
@@ -109,4 +114,4 @@ ADR-042のDOCXとPDFは `asahi-decision.docx` で完成させた同じ文書か�
 | harlow-review.cls | `examples/harlow-review-3.tex`、`examples/harlow-review-3.pdf`、`examples/harlow-review-32.tex`、`examples/harlow-review-32.pdf` | `render/harlow-review-3-pdf/`、`render/harlow-review-32-pdf/` |
 | fujisaki-trial.cls | `examples/fujisaki-trial-3.tex`、`examples/fujisaki-trial-3.pdf`、`examples/fujisaki-trial-32.tex`、`examples/fujisaki-trial-32.pdf` | `render/fujisaki-trial-3-pdf/`、`render/fujisaki-trial-32-pdf/` |
 
-Excelの短表は各シート3明細、長表は36明細。末尾の結合注記欄で `ABS-2026-PF-064` または `ABS-2026-RL-064`、版0.3、基準日2026-05-19、田中美由、Laura Nicholsを通して確認する。数値64／「64件の説明を確認」、先頭列の19／「TK250709-019」で列の間隔を確認する。藤崎試行報告は3明細と32明細で、管理欄の番号・日付・氏名、右寄せの順番列の右側、表見出しの繰返しを確認する。
+Excelの短表は各シート3明細、長表は36明細。末尾の結合注記欄で、性能測定の `ABS-2025-PF-064`・版0.3・基準日2025-08-25・田中美由・佐藤雅之と、指摘・公開判定の `ABS-2026-RL-064`・版0.3・基準日2026-05-19・田中美由・Laura Nicholsが全文印刷されることを確認する。数値64／「64件の説明を確認」、先頭列の19／「TK250709-019」で列の間隔を確認する。藤崎試行報告は3明細と32明細で、管理欄の番号・日付・氏名、右寄せの順番列の右側、表見出しの繰返しを確認する。
