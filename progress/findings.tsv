@@ -791,3 +791,33 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-18	p01-software-engineer	b009	build-review	0	V2	Documents/導入先権限整理/0226_藤崎向け_代番日の説明草稿.docx	1ページ目の文書番号・版、日付・作成、宛先の3段落がNormal（10.5 pt、段落後7 pt）で、型が指定するAS Metadata（9 pt、段落後3 pt）の管理欄書式と異なる。
 2026-11-18	p01-software-engineer	b009	build-review	1	V2	Documents/レビュー控え/2025/0226_藤崎説明_購買の引継ぎ.docx	1ページ目「担当と期限」の表はAS Table・白字になったが、見出し行の3セルで背景を#17618Bに直接上書きしており、asahi-minutes.docxと見本の#2548A6の見出し帯と異なる。
 2026-11-18	p01-software-engineer	b009	build-review	1	V2	Documents/導入先権限整理/0226_藤崎_役割対応と代番日の扱い.pdf	1ページ目「旧役割と整理後の対応」「合意した設計と今後の確認」の両表は白字になったが、見出し帯の実測色が#17618Bで、asahi-decision.docxのAS Tableおよび変換見本PDFの#2548A6と異なる。
+2026-11-18	p17-construction-project-manager	b006	check	0	source	Documents/海田研修棟改修/区画別工程/0414_掲示前に見る南廊下の案内図.pdf	body token overlap 0.705 < 0.8
+2026-11-18	p17-construction-project-manager	b006	check	0	source	Downloads/0401_小野さん_研修棟の既存平面.pdf	body token overlap 0.630 < 0.8
+2026-11-18	p17-construction-project-manager	b006	check	0	source	Downloads/0408_小野さん返し_南廊下を残す区画.pdf	body token overlap 0.546 < 0.8
+2026-11-18	p17-construction-project-manager	b006	check	1	source	Documents/海田研修棟改修/区画別工程/0414_北側で運ぶ範囲.pdf	body token overlap 0.697 < 0.8
+2026-11-18	p17-construction-project-manager	b006	check	1	source	Documents/海田研修棟改修/区画別工程/0414_掲示前に見る南廊下の案内図.pdf	body token overlap 0.682 < 0.8
+2026-11-18	p17-construction-project-manager	b006	check	1	source	Downloads/0401_小野さん_研修棟の既存平面.pdf	body token overlap 0.584 < 0.8
+2026-11-18	p17-construction-project-manager	b006	check	1	source	Downloads/0408_小野さん返し_南廊下を残す区画.pdf	body token overlap 0.593 < 0.8
+2026-11-18	p17-construction-project-manager	b006	check	2	source	Documents/海田研修棟改修/区画別工程/0407_南廊下側の区切り照会.pdf	body token overlap 0.673 < 0.8
+2026-11-18	p17-construction-project-manager	b006	check	2	source	Documents/海田研修棟改修/区画別工程/0414_北側で運ぶ範囲.pdf	body token overlap 0.655 < 0.8
+2026-11-18	p17-construction-project-manager	b006	check	2	source	Documents/海田研修棟改修/区画別工程/0414_掲示前に見る南廊下の案内図.pdf	body token overlap 0.679 < 0.8
+2026-11-18	p17-construction-project-manager	b006	check	2	source	Downloads/0401_小野さん_研修棟の既存平面.pdf	body token overlap 0.617 < 0.8
+2026-11-18	p17-construction-project-manager	b006	check	2	source	Downloads/0408_小野さん返し_南廊下を残す区画.pdf	body token overlap 0.533 < 0.8
+2026-11-18	p17-construction-project-manager	b006	check	2	plan	Documents/メール/海田流通/0411_原田さんへ使用条件と区画図.eml	plan: planned file missing。成形の最終出力：対象のメールは作成できませんでした。原稿で実添付を指定された「0411_工事中の研修室使用条件.pdf」が存在せず、計画では内容不足を理由に破棄されています。もう一方の区画図 PDF は存在します。 原稿や計画、他の成果物は変更していません。stage・commit・push も行っていません。
+2026-11-18	p17-construction-project-manager	b006	check	2	plan	Documents/海田研修棟改修/区画別工程/0411_工事中の研修室使用条件.docx	plan: planned file missing。成形の最終出力：[原稿](</home/ttokunaga-ja/dev/github.com/ttokunaga-ja/personaCorpus/sources/p17-construction-project-manager/Documents/海田研修棟改修/区画別工程/0411_工事中の研修室使用条件.docx.md>)には、I→II の切替え時に必要な設備・予約案内の確認と、坂本による可否の記録がありません。[事実の台帳](</home/ttokunaga-ja/dev/github.com/ttokunaga-ja/personaCorpus/progress/p17-construction-project-manager/facts.md:214>)と4月10日の協議記録には各切替えの確認事項として記載されており、前回の保留理由は解消されていません。同じ原稿を引き継ぐ配布 PDF もこの不足を理由に計画上破棄されています。 原稿を変更・補足する権限がないため、成果物は作成していません。stage・commit・push も行っていません。
+2026-11-18	p17-construction-project-manager	b006	check	0	source	Documents/海田研修棟改修/区画別工程/0407_南廊下側の区切り照会.pdf	body token overlap 0.671 < 0.8
+2026-11-18	p17-construction-project-manager	b006	check	0	source	Documents/海田研修棟改修/区画別工程/0414_北側で運ぶ範囲.pdf	body token overlap 0.701 < 0.8
+2026-11-18	p17-construction-project-manager	b006	check	0	source	Documents/海田研修棟改修/区画別工程/0414_掲示前に見る南廊下の案内図.pdf	body token overlap 0.675 < 0.8
+2026-11-18	p17-construction-project-manager	b006	check	0	source	Downloads/0408_小野さん返し_南廊下を残す区画.pdf	body token overlap 0.549 < 0.8
+2026-11-18	p17-construction-project-manager	b006	check	1	source	Documents/海田研修棟改修/区画別工程/0407_南廊下側の区切り照会.pdf	body token overlap 0.673 < 0.8
+2026-11-18	p17-construction-project-manager	b006	check	1	source	Documents/海田研修棟改修/区画別工程/0414_北側で運ぶ範囲.pdf	body token overlap 0.659 < 0.8
+2026-11-18	p17-construction-project-manager	b006	check	1	source	Documents/海田研修棟改修/区画別工程/0414_掲示前に見る南廊下の案内図.pdf	body token overlap 0.702 < 0.8
+2026-11-18	p17-construction-project-manager	b006	check	1	source	Downloads/0401_小野さん_研修棟の既存平面.pdf	body token overlap 0.617 < 0.8
+2026-11-18	p17-construction-project-manager	b006	check	1	source	Downloads/0408_小野さん返し_南廊下を残す区画.pdf	body token overlap 0.555 < 0.8
+2026-11-18	p17-construction-project-manager	b006	check	2	source	Documents/海田研修棟改修/区画別工程/0414_北側で運ぶ範囲.pdf	body token overlap 0.652 < 0.8
+2026-11-18	p17-construction-project-manager	b006	check	2	source	Documents/海田研修棟改修/区画別工程/0414_掲示前に見る南廊下の案内図.pdf	body token overlap 0.646 < 0.8
+2026-11-18	p17-construction-project-manager	b006	check	2	source	Downloads/0408_小野さん返し_南廊下を残す区画.pdf	body token overlap 0.555 < 0.8
+2026-11-18	p17-construction-project-manager	b006	check	2	plan	Documents/メール/海田流通/0411_原田さんへ使用条件と区画図.eml	plan: planned file missing。成形の最終出力：対象のメールは未作成です。原稿が実添付を指定する「0411_工事中の研修室使用条件.pdf」が存在せず、計画でも内容不足を理由に破棄されています。もう一方の区画図 PDF は存在します。 指定された添付を揃えられないため、メールは作成していません。原稿、計画、他の成果物は変更せず、stage・commit・push も行っていません。
+2026-11-18	p17-construction-project-manager	b006	check	2	plan	Documents/海田研修棟改修/区画別工程/0411_工事中の研修室使用条件.docx	plan: planned file missing。成形の最終出力：対象の **「0411_工事中の研修室使用条件.docx」は未作成**です。 [原稿](</home/ttokunaga-ja/dev/github.com/ttokunaga-ja/personaCorpus/sources/p17-construction-project-manager/Documents/海田研修棟改修/区画別工程/0411_工事中の研修室使用条件.docx.md>)には、I→IIの切替え時の中央研修室の投影・音声、中央2室の予約・利用案内の確認と、坂本による可否の記録がありません。[事実の台帳](</home/ttokunaga-ja/dev/github.com/ttokunaga-ja/personaCorpus/progress/p17-construction-project-manager/facts.md:214>)と4月10日の協議記録では、これらを初回前と各切替えの確認事項としています。前回の保留理由は解消されていません。 原稿を補足せずに成形すると合意条件が欠けるため、この行を保留しました。成果物や原稿は変更しておらず、stage・commit・pushも行っていません。 [原稿](</home/ttokunaga-ja/dev/github.com/ttokunaga-ja/personaCorpus/sources/p17-construction-project-manager/Documents/海田研修棟改修/区画別工程/0411_工事中の研修室使用条件.docx.md>)には、I→IIの切替え時の中央研修室の投影・音声、中央2室の予約・利用案内の確認と、坂本による可否の記録がありません。[事実の台帳](</home/ttokunaga-ja/dev/github.com/ttokunaga-ja/personaCorpus/progress/p17-construction-project-manager/facts.md:214>)と4月10日の協議記録では、これらを初回前と各切替えの確認事項としています。前回の保留理由は解消されていません。 原稿を補足せずに成形すると合意条件が欠けるため、この行を保留しました。成果物や原稿は変更しておらず、stage・commit・pushも行っていません。
+2026-11-18	p17-construction-project-manager	b006	coordinator	0	other	Documents/海田研修棟改修/区画別工程/0402_青木さんと見た室割り.pdf	統括の抜き取りで不合格
+2026-11-18	p17-construction-project-manager	b006	coordinator	0	other	Documents/海田研修棟改修/区画別工程/0411_工事中の研修室使用条件.docx	統括の抜き取りで不合格

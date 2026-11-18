@@ -140,3 +140,15 @@ PDFで保管する引継ぎ案内・施主確認書は、それぞれのWord型�
 | 掘削数量照合へ転用した場合 | `minatoryo-earthwork-quantity-3.xlsx`、`minatoryo-earthwork-quantity-38.xlsx` | 拡張子を除いた同名フォルダ |
 | 協議録の複数ページ | `minatoryo-change-note-49.docx` | `minatoryo-change-note-49/` |
 | 断面別比較表の複数ページ | `minatoryo-earthwork-section-38.tex`、`minatoryo-earthwork-section-38.pdf` | `minatoryo-earthwork-section-38/` |
+
+## 海田研修棟の段階施工
+
+| 名前 | 組織・利用者と用途 | 実際のファイル名 | 見た目 |
+|---|---|---|---|
+| 区画計画図 | 湊梁建設、坂本・青木。区画境界の照会、段階別の施工面、通行・切替えの図示 | `minatoryo-zone-plan.cls` | A4横。現場検査票と共通の梁ロゴ・橙の罫線・工事部フッタ。管理欄に工事名、図番・版、作成日、作成者、状態・縮尺。利用室は淡い青緑、施工面は橙斜線、予備・調整中の室は灰。南の利用動線は青灰実線、北の作業動線は橙破線 |
+
+- 自社の区画計画図は `\ZoneHeading{題}{工事名}{図番・版}{作成日}{作成者}{状態・縮尺}`。TikZの `zone grid`、`zone wall`、`zone work`、`zone open`、`zone buffer`、`zone public route`、`zone work route` で、芯線・壁・区画・矢印を描く。色だけに頼らず図中の文字と凡例で区別する。実寸縮尺を持たない図は「模式図」と明記し、寸法を表示するときは単位を付ける。白島設計室の既存平面・返送図は既存の `hakushima-drainage.cls`。
+- 協議記録・条件書は `minatoryo-change-note.docx` のTitleを文書の題に合わせ、元Wordの配布PDFは `bin/office-pdf` で出す。手持ちの切替え確認票は `minatoryo-field-sheet.cls` を使う。説明スライドは既存の `minatoryo-site-brief.pptx`。
+- 利用枠と施工順比較は `minatoryo-change-schedule.xlsx`、室の現況・切替え確認・未決事項は `minatoryo-punch-list.xlsx` を開く。B1の題と4行目の見出しは各原稿の用途に合わせる。予約枠の時刻はExcelの実時刻、有効室数や席数は数値を使い、管理欄と印刷の反復見出しは維持する。
+- 自社番号は `MB-KT-YYYY-用途-連番`。用途はRM（室現況）、US（利用枠）、SC（順序比較）、CK（切替え確認）、RF（未決照合）、MT（協議）、BR（説明）、UC（利用条件）、ZP（区画計画図）。同じ文書の版と他の図面を引用する番号を区別する。
+- `text`（EML）、`photo`（改修前写真）、`diagram`（説明用区画図）、`scan:handwriting`（原田の無地便箋、坂本の手帳、無地の持参メモ）は型なし。原田の紙は手書きの社名・氏名を含め、湊梁建設の図枠や海田流通の工事変更承認書式を付けない。
