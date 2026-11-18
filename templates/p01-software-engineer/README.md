@@ -96,20 +96,27 @@ ADR-042のDOCXとPDFは `asahi-decision.docx` で完成させた同じ文書か�
 - 条件表と性能比較は `asahi-performance.xlsx`。測定条件シートには対象版・負荷・操作構成・測定回数と標本の採否を記録し、測定結果シートで実測のp95と次回目標を別列に示す。比較する条件の違いと、試行を採用または除外した理由は判定・根拠欄に記す。
 - 田中の評価草稿と佐藤への提案は `asahi-decision.docx`、直接PDFに組む測定報告と改善候補の技術説明は `asahi-measurement.cls`、佐藤への目標説明は `asahi-release.pptx`。2025年9月8日の評価実績はp95 246ms、次回目標はp95 184ms以下。2026年6月の比較前版の測定は別の集計として扱う。実際の対象版・測定条件・文書番号は計画と台帳で確定する。
 
+## b005での使い分け
+
+- 旧受付の終了条件案は `asahi-decision.docx`（`EV`）、3月6日の会議記録は `asahi-minutes.docx`（`MT`）、あさひ発の併用説明の改訂と受付担当向け配布資料は `asahi-notice.docx`（`NT`）。見出しは原稿の論点に合わせる。受付担当向けPDFは完成したWord文書を `bin/office-pdf` で変換する。
+- 中村美喜子が大島ルート配送の業務条件を正式なPDFで送る場合は `oshima-trial.docx` を開き、大島の文書番号・日付・著者を入れて `bin/office-pdf` で変換する。受領物の計画がPDFのみなら、変換元DOCXは作業先に置く。
+- 併用説明のスライドは `asahi-release.pptx`（`BR`）。「2段」で旧受付・新受付の識別点、「図」で受付番号から元の記録へたどる照合の流れを示せる。3月6日に確認した終了条件と、未確定の終了日・未処理23件の解消状況を分ける。管理番号・日付・版・担当分担・照合方法の具体値は計画と台帳に従う。
+- 紙の引継ぎ書は原稿に沿って発行元の書式に組み、書込みを含む紙面を `bin/scan` で画像のみのPDFにする。メール・個人メモ・画面保存・ボード写真はそれぞれの形式で作る。
+
 ## 見本と確認先
 
-今回の作業先は `scratch/p01-software-engineer/b004/work/templates-0002/`。下表のパスはこの work からの相対パス。見本の番号・日付・本文は組版確認用。
+今回の作業先は `scratch/p01-software-engineer/b005/work/templates-0002/`。下表のパスはこの作業先からの相対パス。見本の番号・日付・本文は組版確認用。Wordは短表と複数ページの長表、PowerPointは全5レイアウトを収録。
 
-| 型 | 見本（work以下） | 全ページの画像（work以下） |
+| 型 | 見本 | 全ページの画像 |
 |---|---|---|
-| asahi-decision.docx | `examples/asahi-decision.docx`、`examples/asahi-sales-impact.docx`、`examples/asahi-sales-impact.pdf` | `render/asahi-decision-docx/`、`render/asahi-sales-impact-docx/`、`render/asahi-sales-impact-pdf/` |
-| asahi-minutes.docx | `examples/asahi-minutes.docx` | `render/asahi-minutes-docx/` |
-| asahi-notice.docx | `examples/asahi-notice.docx` | `render/asahi-notice-docx/` |
-| asahi-explanation.docx | `examples/asahi-explanation.docx`、`examples/asahi-explanation.pdf` | `render/asahi-explanation-docx/`、`render/asahi-explanation-pdf/` |
-| oshima-trial.docx | `examples/oshima-trial.docx` | `render/oshima-trial-docx/` |
+| asahi-decision.docx | `examples/asahi-decision.docx`、`examples/asahi-decision-long.docx` | `render/asahi-decision-docx/`、`render/asahi-decision-long-docx/` |
+| asahi-minutes.docx | `examples/asahi-minutes.docx`、`examples/asahi-minutes-long.docx` | `render/asahi-minutes-docx/`、`render/asahi-minutes-long-docx/` |
+| asahi-notice.docx | `examples/asahi-notice.docx`、`examples/asahi-notice-long.docx`、`examples/asahi-notice.pdf` | `render/asahi-notice-docx/`、`render/asahi-notice-long-docx/`、`render/asahi-notice-pdf/` |
+| asahi-explanation.docx | `examples/asahi-explanation.docx`、`examples/asahi-explanation-long.docx`、`examples/asahi-explanation.pdf` | `render/asahi-explanation-docx/`、`render/asahi-explanation-long-docx/`、`render/asahi-explanation-pdf/` |
+| oshima-trial.docx | `examples/oshima-trial.docx`、`examples/oshima-trial-long.docx`、`examples/oshima-trial.pdf` | `render/oshima-trial-docx/`、`render/oshima-trial-long-docx/`、`render/oshima-trial-pdf/` |
 | asahi-performance.xlsx | `examples/asahi-performance-3.xlsx`、`examples/asahi-performance-36.xlsx` | `render/asahi-performance-3-xlsx/`、`render/asahi-performance-36-xlsx/` |
 | asahi-release.xlsx | `examples/asahi-release-3.xlsx`、`examples/asahi-release-36.xlsx` | `render/asahi-release-3-xlsx/`、`render/asahi-release-36-xlsx/` |
-| asahi-release.pptx | `examples/asahi-release.pptx`（全5レイアウト） | `render/asahi-release-pptx/` |
+| asahi-release.pptx | `examples/asahi-release.pptx` | `render/asahi-release-pptx/` |
 | asahi-measurement.cls | `examples/asahi-measurement-3.tex`、`examples/asahi-measurement-3.pdf`、`examples/asahi-measurement-32.tex`、`examples/asahi-measurement-32.pdf` | `render/asahi-measurement-3-pdf/`、`render/asahi-measurement-32-pdf/` |
 | harlow-review.cls | `examples/harlow-review-3.tex`、`examples/harlow-review-3.pdf`、`examples/harlow-review-32.tex`、`examples/harlow-review-32.pdf` | `render/harlow-review-3-pdf/`、`render/harlow-review-32-pdf/` |
 | fujisaki-trial.cls | `examples/fujisaki-trial-3.tex`、`examples/fujisaki-trial-3.pdf`、`examples/fujisaki-trial-32.tex`、`examples/fujisaki-trial-32.pdf` | `render/fujisaki-trial-3-pdf/`、`render/fujisaki-trial-32-pdf/` |

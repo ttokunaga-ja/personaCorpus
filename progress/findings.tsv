@@ -574,3 +574,14 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-18	p14-finance-controller	b010	coordinator	0	other	Documents/規程・マニュアル/2026-04_経理が差戻すときの手順.docx	統括の抜き取りで不合格
 2026-11-18	p14-finance-controller	b010	coordinator	0	other	OneDrive - Cedar Works/経理財務部 共有/2026-03_経費規程の改定承認メモ.docx	統括の抜き取りで不合格
 2026-11-18	p14-finance-controller	b010	coordinator	0	other	OneDrive - Cedar Works/経理財務部 共有/2026-04_経費改定の周知と説明の段取り.xlsx	統括の抜き取りで不合格
+2026-11-18	p01-software-engineer	b005	templates-review	0	other	README.md	「見本と確認先」の基点 scratch/p01-software-engineer/b004/work/templates-0002/ が存在せず、examples/asahi-decision.docx や render/asahi-decision-docx/ を含む見本・画像の参照先44件を開けない。
+2026-11-18	p01-software-engineer	b005	draft-review	0	D5	Documents/申請デスク/受付業務/0303_残り23件の追い方.xlsx	原稿44〜46行のCOUNTIFは追跡対象のD4:D26（次の担当）を参照しており、行番号を除いたC列の区分を数えないため、内訳・合計は0・0・0・0となり、明細および注記の11・7・5・23と食い違う。
+2026-11-18	p01-software-engineer	b005	draft-review	0	D9	Documents/レビュー控え/2026/0305_旧受付を止める条件案_田中コメント.docx	23行目の2件目（「番号」へのコメント）の「新しい文」欄に「このコメントは赤字。」という成形指示がコメント本文の一文として混入している。
+2026-11-18	p01-software-engineer	b005	draft-review	1	D10	Documents/レビュー控え/2026/0305_旧受付を止める条件案_田中コメント.docx	39行目のコメント本文から前回指摘の成形指示は消えたが、計画20行目が同じbatchのDocuments/申請デスク/設計判断/0304_旧受付を止める条件案.docxにコメントを加える控えと定めているのに、原稿7行目のderived_fromが空で、10〜32行目に派生元と同一の本文が転記されている。
+2026-11-18	p01-software-engineer	b005	build-review	0	other	Desktop/0319_次は連絡控えをそろえてから.md	判定なし
+2026-11-18	p01-software-engineer	b005	build-review	0	V2	Documents/申請デスク/受付業務/0303_残り23件の追い方.xlsx	「区分集計」のC3:F3に旧型の列見出し書式だけが残り、印刷3ページ目で「区分」「件数」の右に明細のない青い空欄が伸びている。
+2026-11-18	p01-software-engineer	b005	build-review	0	V1	Pictures/打合せボード/0306_折返しは前の番号のほう.jpg	原稿は「ボード全体が入り」と指定しているが、写真の下端でボード枠の右下の角が画角外に切れている。手書き4箇所と矢印は判読できる。
+2026-11-18	p01-software-engineer	b005	build-review	0	V2	Documents/レビュー控え/2026/0306_併用を続ける条件.docx	2ページ目「担当と期限」の表が既定のTable Gridで、見本のAS Tableによる青地・白字の見出しになっていない。1ページ目の文書番号・版と作成日・作成者欄もAS MetadataではなくNormalで表示されている。
+2026-11-18	p01-software-engineer	b005	build-review	0	V2	Documents/申請デスク/受付業務/0306_旧受付と申請デスクを使うとき.docx	題名直下の文書番号・版、日付・作成、宛先の3段落に、案内の型で指定されたAS Metadata（9pt）が適用されず、本文のNormal（10.5pt）で表示されている。
+2026-11-18	p01-software-engineer	b005	build-review	0	V2	Library/CloudStorage/あさひ業務システムズ/設計会議/0312_折返しが来たらどちらを開くか.pptx	全5枚の右下に、型の手順と見本にあるページ番号がない。3・4枚目のフロー図の矢印も見本の黄ではなく青で、2枚目は型の左右の本文プレースホルダを使わず角丸図形に差し替えている。
+2026-11-18	p01-software-engineer	b005	build-review	1	V1	Library/CloudStorage/あさひ業務システムズ/設計会議/0312_折返しが来たらどちらを開くか.pptx	ページ番号・黄の矢印・2段のプレースホルダは修正済みだが、3枚目の図で下段「申請デスクを開く」の右矢印が空白を指し、原稿で旧・新両経路が合流する「元の記録を確認して追記」へ下段から到達する経路が描かれていない。
