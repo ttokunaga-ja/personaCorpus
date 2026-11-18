@@ -1,18 +1,20 @@
 # 千田真理子の文書の型
 
-月次締め共通の型。2026年2月の締め・同月の親会社報告、2026年1月の締めと経費精算の二重計上調査、および2025年11月の静岡工場の実地棚卸・棚卸差異調査・月末支払にも使用する。型の本文は空で、見出し・本文・表の書式と組織の識別だけを持つ。Officeの型は通常のDOCX・XLSX・PPTXなので、開いて別名保存する。受入済み成果物は変更しない。
+月次締め・年度監査・年度予算で使う型。見出し・本文・表の書式と組織の識別を持つ。Officeの型は通常のDOCX・XLSX・PPTXなので、開いて別名保存する。
 
 ## 型の一覧
 
 | 名前 | 組織・利用者と用途 | 実際のファイル名 | 見た目 |
 |---|---|---|---|
-| 支払・差異の確認記録 | Cedar Works経理、堀口・千田。調査の下書きと修正版 | `cedar-review.docx` | A4縦、表紙なし。小さな木材ロゴ、経理財務部／確認記録のヘッダ、深緑の見出し、罫線表。修正も本文中で読める余白 |
+| 確認記録・論点メモ | Cedar Works経理、堀口・千田。支払や差異の調査、予算審議の論点と判断記録 | `cedar-review.docx` | A4縦、表紙なし。小さな木材ロゴ、経理財務部／確認記録のヘッダ、深緑の見出し、罫線表。修正も本文中で読める余白 |
 | 締め会議議事録 | Cedar Works経理、千田。決定・責任者・期限の記録 | `cedar-minutes.docx` | A4縦、表紙なし。共通ロゴと「議事録」のヘッダ、簡潔な見出し階層 |
 | 部内通知・手順連絡 | Cedar Works経理、柳瀬・千田。確認手順や部内通知 | `cedar-notice.docx` | A4縦、表紙なし。「部内通知」のヘッダ、本文中心、必要時のみ表を追加 |
 | 月次報告パッケージ | Cedar Works Holdings Finance指定書式。千田が英語でDanaへ報告 | `holdings-monthly.docx` | A4縦、表紙なし。紺と青、菱形と横棒のロゴ、英語ヘッダ。日本子会社の木材ロゴは使わない |
-| 勘定調整・換算ワーク | Cedar Works経理。現預金・売掛・買掛・在庫・固定資産・未払費用、支払予定と換算 | `cedar-reconciliation.xlsx` | A4横、深緑の見出し、円数値右寄せ、負数赤括弧、合計は薄緑と二重下罫線。項目、根拠、調整前、修正額、調整後、確認状況の6列 |
+| 勘定調整・予算ワーク | Cedar Works経理・FP&A。勘定調整、支払予定と換算、部門申請・前提・集約・修正差分・承認予算 | `cedar-reconciliation.xlsx` | A4横、深緑の見出し、円数値右寄せ、負数赤括弧、合計は薄緑と二重下罫線。用途に合わせて5行目の列を組み替える |
 | 締めチェックリスト | Cedar Works経理、柳瀬・千田。工程、担当、期限、実績、確認者 | `cedar-close-checklist.xlsx` | 共通のA4横書式。工程／担当／期限／実完了／確認者／状況。架空の未完了工程を初期配置しない |
-| CFO締め報告 | Cedar Works経理、千田から大庭へ。5〜8枚の報告 | `cedar-close-report.pptx` | 16:9、白地、左上の木材ロゴ、深緑の題、下部の部門表記。マスター1種と実レイアウト5種（表紙、見出しと本文、2段、表、図）。型にはスライドなし |
+| 財務報告・審議資料 | Cedar Works経理、千田から大庭へ。CFO締め報告、予算審議草案と取締役会資料 | `cedar-close-report.pptx` | 16:9、白地、左上の木材ロゴ、深緑の題、下部の部門表記。マスター1種と実レイアウト5種（表紙、見出しと本文、2段、表、図）。型にはスライドなし |
+| 部門説明・承認予算配布 | Cedar Works経理財務部、日下部・千田。部門向け説明と承認後の配布 | `cedar-budget.cls` | A4縦、Noto Sans CJK JP。木材ロゴ、深緑の題と表見出し、灰緑の本文、黄土の注記記号。部門名とページ番号をフッタに載せる |
+| 年度予算指示 | Cedar Works Holdings Group Finance、Dana Whitlockから日本の経理財務部へ。年度予算の前提と提出指示 | `holdings-budget.cls` | A4縦、Liberation Sans／Noto Sans CJK JP。紺と青、菱形と横棒のロゴ、青い太めの上罫、紺の英語本文、FINANCE • INTERNALとページ番号 |
 | 残高証明書 | みなと中央銀行横浜支店、小田切。月次照合用の証明原紙 | `minato-balance.cls` | A4縦、Noto Serif CJK JPとLiberation Serif。えんじ色の円と山形のロゴ、細い罫線、広い余白、右下の発行者。Cedarの緑は使わない |
 | Ledgerline帳票 | Cedar Works経理のLedgerline出力。補助元帳、照会、集約試算表 | `ledgerline-report.cls` | A4縦、Cedarの木材ロゴと深緑。右上にシステム名、横罫線中心の密度の高い表、基準日・出力日時を区別 |
 | 実地棚卸票の印刷原紙 | Cedar Works静岡工場、三枝。区画別の手書き棚卸票の原紙 | `cedar-count-sheet.cls` | A4縦、木材ロゴと深緑、Noto Sans CJK JP。品番・品名と工程・実数・単位・備考の囲み表、数えた人と確認した人の署名欄。本文幅170mm |
@@ -27,7 +29,7 @@
 - 日本語は Noto Sans CJK JP。Word・Excel・PowerPointの日本語と英語も同フォントに統一。Ledgerlineの欧文は Liberation Sans。Word本文10.5pt、題22pt、見出し1は14pt、見出し2は11.5pt、注記9pt。段落後7pt、行間1.15。Wordの表は `Finance Table` を指定し、先頭行を見出しとして繰り返す。表の先頭行は深緑白字。先頭行のセル内段落には `Finance Table Header`、本文セルには `Finance Table Body` を必ず指定する（いずれも9pt）。本文に不要な空表は入れていない。
 - WordはNormal、Title、Heading 1、Heading 2、Captionを使用。フッタは組織・部門と自動ページ番号。本文の先頭にTitle、次に文書番号・版・基準日・作成／確認者を原稿に従って入れる。長い文書でも今回は独立した表紙を足さない。
 - 自社番号は `CW-FIN-YYYYMM-用途-連番`、Ledgerlineは `CW-LL-YYYYMM-帳票-連番`。実際の番号は事実台帳に従う。同一文書の下書き・修正・PDFは同番号で版を分ける。型自体に年月やダミー番号を焼き込まない。
-- PowerPointは `Presentation(型)` を開き、`slide_layouts[0..4]`から選ぶ。題はidx=0、本文／表・図の領域はidx=1、2段の右はidx=2。本文19pt、題28pt、注記12ptを下限の目安とする。表・図レイアウトのobjプレースホルダは実体の表・図に置き換え、領域外へ出さない。表は深緑白字のヘッダ、数値右寄せ。原稿が持つ文書番号・版・日時を表紙の副題へ、ページ番号を各スライド右下へ実際の枚数に合わせて追加。発表者メモは原稿どおり格納する。
+- PowerPointは `Presentation(型)` を開き、`slide_layouts[0..4]`から選ぶ。題はidx=0、本文／表・図の領域はidx=1、2段の右はidx=2。本文19pt、題28pt、注記12ptを下限の目安とする。表・図レイアウトのobjプレースホルダは実体の表・図に置き換え、領域外へ出さない。表は深緑白字のヘッダ、数値右寄せ。数値の右隣の文字セルは左余白を約4.6mm（`Inches(.18)`）取る。原稿が持つ文書番号・版・日時を表紙の副題へ、ページ番号を各スライド右下へ実際の枚数に合わせて追加。発表者メモは原稿どおり格納する。
 
 ## Excelの行を作る方法
 
@@ -61,9 +63,23 @@
 - 2社のクラスとも明細は空で、合計欄も呼出し時だけ生成する。表幅は本文170mm以内。フッタは相手の会社と部署・ページ番号。原稿の実明細がある原紙PDFを `bin/scan` へ渡す。当初・訂正後は同じ相手の型で作り、金額・注記・発行日を原稿どおりに区別する。
 - 写真・ホワイトボード・個人メモのための会社文書型は作らない。写真はimagegen skillで制作し、写る文字は全文を原稿に書く。
 
+## b009で使う型
+
+- 部門申請、前提、集約初稿、修正差分、承認予算は `cedar-reconciliation.xlsx` を開く。申請・差分の表では「番号／予算項目／申請額／修正差額／修正後／判断の根拠」を基に原稿に合わせる。差分は修正後から修正前を引く。前提表では値・単位・対象・根拠を分け、円/USDは数値、前年比は実値に百分率書式を適用する。単位混在の表には項目ごとの単位列を設ける。承認予算は承認した版の金額と承認日を示し、四半期の更新予測は別のファイルで扱う。
+- 論点メモは `cedar-review.docx`、予算審議の草案と12月18日の取締役会資料は `cedar-close-report.pptx`。取締役会スライドと同じ内容の配布PDFが計画にある場合は、完成したPPTXから直接変換する。独立した部門説明・承認後の配布通知は `cedar-budget.cls`、親会社の英語指示は `holdings-budget.cls`。紙の部門申請・承認記録は `cedar-evidence.cls` で個別に組んで `bin/scan` に渡す。記録日時、承認者、署名の有無は各原稿に従う。
+- 自社の番号は共通の `CW-FIN-YYYYMM-用途-連番`。FY2026でも年月部は発行月（12月なら `202512`）。親会社の年度指示は `CWH-BUD-FY年度-JP-連番`（例 `CWH-BUD-FY2026-JP-01`）。実際の番号・版・日付・作成者は計画と原稿に従う。
+- 部門の要求、3回の修正の争点・却下案・金額差・判断日は計画で確定する。前提表と説明資料では148円/USD、木材価格全体の前年比＋6％、北斗合板の個別単価（18mm合板4,300円から4,200円、11月納品分から）を別の項目にする。北斗の覚書・11月締め・後日の予測はそれぞれの案件で扱う。
+- 予算検討用実績CSV、差戻しと回答のEML、説明順のTXTは「型なしの記録」に従う。会議ホワイトボードのJPGは原稿に記した板書をimagegen skillで作る。
+
+### 予算PDFの組み方
+
+- 社内配布は `\documentclass{cedar-budget}`、`\BudgetHeading{題}{文書番号}{発行日}{作成者}{版}`、`\BudgetSection{見出し}`、`\BudgetNote{注記}`。表は `\begin{BudgetTable}{列指定}` を使う。本文幅170mm。3列の例は `p{38mm}>{\raggedleft\arraybackslash}p{21mm}p{91mm}`。列間には型の余白（片側7pt）を維持し、右寄せ数値と次の文字列の間に約5mmを取る。余白を含めて本文幅に収める。見出しを深緑白字にするには行頭に `\rowcolor{cedargreen}`、各見出しセルに `\textcolor{white}{見出し}` を指定する。
+- 親会社は `\documentclass{holdings-budget}`、`\DirectiveHeading{Title}{Reference}{Issued}{Prepared by}`、`\DirectiveSection{Heading}`、`\DirectiveNote{Note}`。表がある場合は `\begin{DirectiveTable}{列指定}` を使う。本文幅162mm。3列の例は `p{55mm}p{36mm}p{54mm}`。発行者は親会社担当者、宛先・提出期限・指示は原稿から本文に入れる。
+- 両表とも、見出しの後に `\\\midrule\endhead` を指定して継続ページで繰り返す。原稿にある明細だけを追加し、最終行の末尾の `\\` は省く。表が不要なら環境ごと省く。上記「TeXの使い方」に従ってテキストPDFへ組む。
+
 ## 見本と確認
 
-今回（b008）の見本は `scratch/p14-finance-controller/b008/work/templates-0002/examples/`、画像は `scratch/p14-finance-controller/b008/work/templates-0002/render/` に置く。既存の全14型を開き、以下の16見本を今回のworkに作り直す。型自体は維持する。
+今回（b009）の見本は `scratch/p14-finance-controller/b009/work/templates-0002/examples/`、画像は `scratch/p14-finance-controller/b009/work/templates-0002/render/`。配置確認用の見本であり、申請額・発行日などの業務事実は計画と事実台帳を参照する。
 
 | 型 | 見本（examplesからの相対パス） | 画像（renderからの相対パス） |
 |---|---|---|
@@ -80,11 +96,13 @@
 | hokuto-invoice.cls | `hokuto-invoice.tex`、`hokuto-invoice.pdf` | `hokuto-invoice/` |
 | enshu-invoice.cls | `enshu-invoice.tex`、`enshu-invoice.pdf` | `enshu-invoice/` |
 | shinonome-audit.cls | `shinonome-audit.tex`、`shinonome-audit.pdf` | `shinonome-audit/` |
-| cedar-evidence.cls | `cedar-evidence.tex`、`cedar-evidence.pdf` | `cedar-evidence/` |
+| cedar-evidence.cls | `cedar-evidence.tex`、`cedar-evidence.pdf`、`cedar-evidence-scan.pdf` | `cedar-evidence/`、`cedar-evidence-scan/` |
+| cedar-budget.cls | `cedar-budget.tex`、`cedar-budget.pdf` | `cedar-budget/` |
+| holdings-budget.cls | `holdings-budget.tex`、`holdings-budget.pdf` | `holdings-budget/` |
 
-Excelの管理欄は `CW-FIN-202602-MATCH-01`／`CW-FIN-202602-CLOSE-01`、版1.0、基準日2026-02-28、作成千田真理子・確認柳瀬文を入れる。調整表の見本は件数照合へ列名を変更し、表示形式 `0` の右寄せ数値と、左インデント1の文章を隣接させる。先頭番号の右隣も同じ余白を維持する。チェックリストは7列へ広げ、管理欄と表の幅を両立させる。3行版と36行版（17・29行目の後で改ページ）の全ページを確認する。Wordは見出し・表と次ページ、PowerPointは5種類のレイアウトを実スライドにして確認する。
+Excelの予算見本は `CW-FIN-202512-BUDGET-01`、版1.0、基準日2025-12-18、作成千田真理子・確認大庭健司。締めチェックリストの見本は `CW-FIN-202602-CLOSE-01`、版1.0、基準日2026-02-28、作成千田真理子・確認柳瀬文。3行と36行の両方を使い、正式番号と周囲の管理項目、先頭の連番および数値列と次の文字列との余白、繰返し見出し、合計式とフッタを印刷画像で確認する。Wordは見出し・表と次ページ、PowerPointは5種のレイアウトを実スライドにして確認する。
 
-見本は型の配置検査用であり、2月の残高・件数・締め日・レートの決定資料ではない。表内行データや1月の既定残高を含む配置検査値を制作へ転記しない。構造の記録は同workの `structure.json`、実行の記録は `execution.json`。scratch削除後の再検証では当該batchのworkに作り直す。
+構造の記録は同workの `structure.json`、実行の記録は `execution.json`。scratch削除後の再検証では当該batchのworkに見本を作り直す。
 
 他personaの既存README（p08-product-manager・p05-bi-data-analyst）を確認した。Cedarの深緑と木材ロゴは維持し、青緑の巡回経路、藍と朱の織り目とは区別している。
 
@@ -119,4 +137,4 @@ Excelの管理欄は `CW-FIN-202602-MATCH-01`／`CW-FIN-202602-CLOSE-01`、版1.
 - 両型に明細・空の承認欄・期限・仮署名・合計は埋め込まない。必要な空欄は個別原稿が明示した箇所だけに作る。今回は印字済みの紙控えであり手書きや印影を足さない。申請控えの大庭承認欄は空欄、補完承認は別紙に正しい2月の日付を印字する。
 - TeXの探索パス・`bin/tex`の呼出しは既存と同じ。社内紙の中間PDFを当該実行のwork内に作り、`bin/scan`で画像のみのPDFへ変換する。元紙は配布物に追加しない。
 - 依頼管理・残件は `cedar-close-checklist.xlsx`、買掛照合・年間資産増減・回答根拠は `cedar-reconciliation.xlsx`、回答と改善計画は `cedar-review.docx`、打合せ記録は `cedar-minutes.docx`、CFO説明は `cedar-close-report.pptx` を開いて使う。番号はfacts.mdの年度監査用を使う。
-- 見本は上記「見本と確認」の今回のworkを参照する。`shinonome-audit.pdf`は質問資料の表と見出し、`cedar-evidence.pdf`は検収記録の管理項目と明細表の配置を検査する。見本は配布物ではなく、scratch削除後は同じAPIで当該workに再作成する。
+- 見本は上記「見本と確認」の今回のworkを参照する。`shinonome-audit.pdf`は質問資料の表と見出し、`cedar-evidence.pdf`は部門予算申請を例に管理項目と明細表の配置を確認する。
