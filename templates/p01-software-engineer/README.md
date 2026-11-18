@@ -1,6 +1,6 @@
 # 田中美由の文書の型
 
-あさひ業務システムズ株式会社（従業員86人）の開発部が、申請デスクR7の性能評価、指摘の再審査、公開判定、ADR、利用者説明に使う書式。b002では5月の英語変更説明と読者別整理にも使う。Officeは通常のDOCX・XLSX・PPTXを開き、別名保存して使う。型には組織表示・見出し・書式だけを持たせ、案件の本文、実績値、仮の文書番号、空の明細・合計欄は入れていない。
+あさひ業務システムズ株式会社（従業員86人）の開発部が、申請デスクR7の性能評価、指摘の再審査、公開判定、ADR、利用者説明に使う書式。5月の英語変更説明・読者別整理と、照会ポータルの公開延期にも使う。Officeは通常のDOCX・XLSX・PPTXを開き、別名保存して使う。型には組織表示・見出し・書式だけを持たせ、案件の本文、実績値、仮の文書番号、空の明細・合計欄は入れていない。
 
 ## 一覧
 
@@ -12,6 +12,7 @@
 | 英語変更説明 | あさひ、田中からLauraへ送る英語草稿・赤字控えと、利用者／管理者向け説明 | `asahi-explanation.docx` | 自社の朝日・青黄・ゴシックを継承。表紙なし、英語3見出し、赤字の文字スタイル `AS Review` |
 | 委託先の英文レビュー報告 | Harlow Editorial Services、Laura Nichols。委託先発のテキストPDF | `harlow-review.cls` | A4縦、えんじと墨、セリフ体、校閲括弧のロゴ、英語ヘッダと通し頁。あさひとは別の型 |
 | 試行導入の確認 | 大島ルート配送株式会社、中村美喜子。顧客発の業務確認・正式な添付回答が必要な場合 | `oshima-trial.docx` | A4縦、表紙なし。折れ曲がる配送経路と矢印のロゴ、緑と墨、明朝。あさひの朝日・青・ゴシックと区別 |
+| 購買部門の試行報告 | 藤崎医療資材株式会社、購買主任の加藤博典。照会ポータルの試行で支障のあった業務を報告 | `fujisaki-trial.cls` | LuaLaTeX、A4縦、表紙なし。縦柱と3段の棚を組んだロゴ、青緑、明朝、淡い青緑の発行欄。購買部門名と通し頁 |
 | 性能の測定 | あさひ、田中。測定条件と結果の別シート、比較の根拠 | `asahi-performance.xlsx` | A4横。朝日ロゴ、青白の列見出し。条件6列と結果8列。p50・p95・目標を分離 |
 | 指摘・公開判定 | あさひ、鈴木・田中・佐藤。未解決指摘の消し込みと判定観点の照合 | `asahi-release.xlsx` | A4横、共通の書式。指摘と再審査、公開判定の2シート。根拠と未決事項の列を広く取る |
 | 公開判定の説明 | あさひ、田中から佐藤・会議参加者へ。判定会議の資料 | `asahi-release.pptx` | 16:9白地、上部に朝日と社名、青の題、下罫線と開発部フッタ。1マスターと実レイアウト5種。型はスライド0枚 |
@@ -80,25 +81,32 @@ ADR-042のDOCXとPDFは `asahi-decision.docx` で完成させた同じ文書か�
 - 既存の測定・公開判定の型と顧客の型は維持し、b002で再制作する根拠にはしない。7月の日本語通知はb001個別依頼の例外。b002の英語説明を日本語通知へ変更しない。
 - 個人のMD・TXT、EML、画面PNG、保存した製品説明HTMLにはOfficeの紙面書式を適用しない。HTMLは製品の画面として、画面PNGは説明対象の状態として作り、会社の報告書に見せない。16項目の内容、往復の版と確認日の確定は次の計画段階で行い、型の見本を事実台帳へ転記しない。
 
+## b003での使い分け
+
+- 指摘一覧と再審査結果は `asahi-release.xlsx`。指摘と再審査シートで重要度・指摘内容・確認の根拠・担当・再審査日・状態を管理する。公開判定シートでは受入条件・確認結果・未決事項・判定を分ける。38件の分類、重大4件の条件、当初と延期後の予定、再判定条件の実値は計画と台帳で確定する。延期後の予定日と実公開日を区別する。
+- 再審査議事録と田中コメント入りの控えは `asahi-minutes.docx`。コメントは該当箇所に付け、記録された発言・決定・期限と区別する。Wordのコメントを使う場合は原稿指定の著者と日時を設定する。
+- 営業向け影響説明PDFは `asahi-decision.docx` を開き、原稿の題と管理欄、判断・試行先業務への影響・営業の案内範囲・次の連絡を記して `bin/office-pdf` で出力する。文書番号の用途は `EV`。営業の山本へ渡す情報と、加藤が購買部門内で確認した業務を区別する。
+- 延期判断会議は `asahi-release.pptx`。表紙の副題に `ABS-YYYY-BR-連番`、日付、作成者を入れる。試行業務と営業説明は2段または別スライドに配置する。
+- 加藤から受領する試行報告PDFは `fujisaki-trial.cls`。青緑 `17696D`・墨 `2E3535`・淡青緑 `E9F3F1`。題・見出し・社名・罫線・表見出しに青緑、本文に墨、管理欄に淡青緑を使う。日本語の本文は Noto Serif CJK JP、社名のゴシックは Noto Sans CJK JP。欧文は Liberation Serif、ゴシックは Liberation Sans。ヘッダに社名・購買部門・文書種別、フッタに社名・購買部門・現在頁／総頁。管理番号は藤崎発の正式な報告に `FMI-YYYY-TR-連番3桁` を使う。連番・日付・著者は原稿と台帳の指定どおりに入れる。
+- `\documentclass{fujisaki-trial}` を開き、`\TrialTitle{実題}{文書番号}{発行日}{作成者}`、`\section`、必要なら `\TrialNote{実際の注記}` を使う。表を使う場合は `longtable` の `\endfirsthead` と `\endhead` の直前に `\TrialHead{\TrialCell{列名}&…}` を置き、毎頁の見出しを揃える。右寄せの順番列に続いて文字列が来る場合は、見本と同じ列指定 `>{\raggedleft\arraybackslash}p{11mm}@{\hspace{4mm}}p{52mm}p{84mm}` で4mmの間隔を確保する。明細と必要な注記だけ追加し、前節と同じ `TEXINPUTS` と `bin/tex` で出力する。
+- MD・EML・TXT・画面PNGはそれぞれの保存形式で作る。手書きの再現順序は原稿に沿った紙面を `bin/scan` でスキャンPDFにする。
+
 ## 見本と確認先
 
-今回の作業先は `scratch/p01-software-engineer/b002/work/templates-0002/`。下表はこのworkからの相対パス。見本は組版確認専用であり、業務事実や配布物の原稿ではない。消失したb001のscratch参照は置き換えた。
+今回の作業先は `scratch/p01-software-engineer/b003/work/templates-0002/`。下表のパスはこの work からの相対パス。見本の番号・日付・本文は組版確認用。
 
 | 型 | 見本（work以下） | 全ページの画像（work以下） |
 |---|---|---|
-| asahi-decision.docx | `examples/asahi-decision.docx` | `render/asahi-decision/` |
-| asahi-minutes.docx | `examples/asahi-minutes.docx` | `render/asahi-minutes/` |
-| asahi-notice.docx | `examples/asahi-notice.docx` | `render/asahi-notice/` |
-| asahi-explanation.docx | `examples/asahi-explanation.docx` と `examples/asahi-explanation.pdf` | `render/asahi-explanation/`（同内容のDOCX・PDF） |
-| oshima-trial.docx | `examples/oshima-trial.docx` | `render/oshima-trial/` |
-| asahi-performance.xlsx | `examples/asahi-performance-3.xlsx`、`examples/asahi-performance-36.xlsx` | `render/asahi-performance-3/`、`render/asahi-performance-36/` |
-| asahi-release.xlsx | `examples/asahi-release-3.xlsx`、`examples/asahi-release-36.xlsx` | `render/asahi-release-3/`、`render/asahi-release-36/` |
-| asahi-release.pptx | `examples/asahi-release.pptx`（全5レイアウト） | `render/asahi-release/` |
-| asahi-measurement.cls | `examples/asahi-measurement.tex` と `examples/asahi-measurement.pdf` | `render/asahi-measurement/` |
-| harlow-review.cls | `examples/harlow-review-3.tex` とPDF、`examples/harlow-review-32.tex` とPDF | `render/harlow-review-3/`、`render/harlow-review-32/` |
+| asahi-decision.docx | `examples/asahi-decision.docx`、`examples/asahi-sales-impact.docx`、`examples/asahi-sales-impact.pdf` | `render/asahi-decision-docx/`、`render/asahi-sales-impact-docx/`、`render/asahi-sales-impact-pdf/` |
+| asahi-minutes.docx | `examples/asahi-minutes.docx` | `render/asahi-minutes-docx/` |
+| asahi-notice.docx | `examples/asahi-notice.docx` | `render/asahi-notice-docx/` |
+| asahi-explanation.docx | `examples/asahi-explanation.docx`、`examples/asahi-explanation.pdf` | `render/asahi-explanation-docx/`、`render/asahi-explanation-pdf/` |
+| oshima-trial.docx | `examples/oshima-trial.docx` | `render/oshima-trial-docx/` |
+| asahi-performance.xlsx | `examples/asahi-performance-3.xlsx`、`examples/asahi-performance-36.xlsx` | `render/asahi-performance-3-xlsx/`、`render/asahi-performance-36-xlsx/` |
+| asahi-release.xlsx | `examples/asahi-release-3.xlsx`、`examples/asahi-release-36.xlsx` | `render/asahi-release-3-xlsx/`、`render/asahi-release-36-xlsx/` |
+| asahi-release.pptx | `examples/asahi-release.pptx`（全5レイアウト） | `render/asahi-release-pptx/` |
+| asahi-measurement.cls | `examples/asahi-measurement-3.tex`、`examples/asahi-measurement-3.pdf`、`examples/asahi-measurement-32.tex`、`examples/asahi-measurement-32.pdf` | `render/asahi-measurement-3-pdf/`、`render/asahi-measurement-32-pdf/` |
+| harlow-review.cls | `examples/harlow-review-3.tex`、`examples/harlow-review-3.pdf`、`examples/harlow-review-32.tex`、`examples/harlow-review-32.pdf` | `render/harlow-review-3-pdf/`、`render/harlow-review-32-pdf/` |
+| fujisaki-trial.cls | `examples/fujisaki-trial-3.tex`、`examples/fujisaki-trial-3.pdf`、`examples/fujisaki-trial-32.tex`、`examples/fujisaki-trial-32.pdf` | `render/fujisaki-trial-3-pdf/`、`render/fujisaki-trial-32-pdf/` |
 
-Excelの見本は各シート3明細と36明細。管理欄は `ABS-2026-PF-064` または `ABS-2026-RL-064`・版0.3・基準日2026-05-19・田中美由・Laura Nicholsを省略せず入力し、末尾の結合注記欄に配置する。隣接列の数値64／文字「64件の説明を確認」と、先頭の19／文字「TK250709-019」で余白を検証する。実データを入れた行と必要な合計・注記のみを追加しており、型そのものは全シート3行のまま。
-
-PowerPointマスターの黄色の朝日・青い水平線・短い下線は維持。型は1マスター・5レイアウト・スライド0枚。既存Word4型、PowerPoint、測定TeXの実物は維持し、新しい見本を開き直して確認した。受入済み成果物、sources、persona定義、factsは変更しない。別実行のtemplates-reviewによる再検査はこの作業には含めない。
-
-今回の確認：`bin/tex`（測定型1見本、Harlow型2見本）、`bin/office-pdf`（英語説明）、各見本の `bin/render` はすべて終了コード0。画像39ページを全て目視確認し、Excelの短表・長表の列間隔、管理番号全文・日付・氏名、繰返し見出し、Word長表の行分断防止、英語説明の赤字、PowerPoint全5レイアウト、Harlowの1頁／3頁のヘッダ・フッタを確認した。見本17ファイルを再読込し、READMEの具体的な見本・画像参照28か所を検証済み。`structure.json` と `validation.json` は今回のwork直下にある。変更は型と書式のため、Red→Greenの機能テストに代えて構造検査・実変換・全ページの画像確認を行った。`git diff --check` は成功。独立したtemplates-reviewの再検査は未実施。
+Excelの短表は各シート3明細、長表は36明細。末尾の結合注記欄で `ABS-2026-PF-064` または `ABS-2026-RL-064`、版0.3、基準日2026-05-19、田中美由、Laura Nicholsを通して確認する。数値64／「64件の説明を確認」、先頭列の19／「TK250709-019」で列の間隔を確認する。藤崎試行報告は3明細と32明細で、管理欄の番号・日付・氏名、右寄せの順番列の右側、表見出しの繰返しを確認する。

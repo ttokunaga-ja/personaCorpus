@@ -441,3 +441,42 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-18	p17-construction-project-manager	b002	coordinator	0	other	Documents/メール/白島設計室/0708_小野さんへ_排水接続高さの照会.eml	統括の抜き取りで不合格
 2026-11-18	p17-construction-project-manager	b002	coordinator	0	other	Documents/メール/白島設計室/0714_小野さんから_迂回図と設計回答.eml	統括の抜き取りで不合格
 2026-11-18	p17-construction-project-manager	b002	coordinator	0	other	Pictures/海田西配送棟増築/2026-07-13/0713_X4-Y4_桝まわりの余地.jpg	統括の抜き取りで不合格
+2026-11-18	p01-software-engineer	b003	templates-review	0	other	README.md	「見本と確認先」の基点 scratch/p01-software-engineer/b002/work/templates-0002/ に見本や画像がなく、具体例の examples/asahi-decision.docx、render/asahi-decision/、structure.json、validation.json を含む参照先を開けない。
+2026-11-18	p01-software-engineer	b003	draft-review	0	D3	Documents/レビュー控え/2025/1222_再判定前に合わせる証跡.docx	「条件と記載欄」のCP-20の期待結果が「条件と位置を確認する」にとどまり、元の絞込（12月・納品待ち）を維持して2ページ目に戻るという合格条件がないため、EV-004の手順だけでは現行の1ページ目に戻る結果を不合格と判定できない。
+2026-11-18	p01-software-engineer	b003	draft-review	0	D10	Documents/照会ポータル/公開延期/1203_照会指摘と確認先.xlsx	「指摘と再審査」の分類内訳は38明細から再集計すると区分別10・9・8・11件、重要度別4・14・20件で一致するが、内訳が固定値の注記だけで、明細を参照する集計式が原稿にない。
+2026-11-18	p01-software-engineer	b003	draft-review	0	D10	Pictures/操作確認/1209_一覧へ戻ると絞込が空.png	画面内の「一覧へ戻る」直後の対象月空欄・状態すべて・1頁は示しているが、原稿末尾で「一覧の各行が見える」とする各行の発注番号・発注日・状態が指定されていない。
+2026-11-18	p01-software-engineer	b003	draft-review	0	D10	Pictures/操作確認/1210_印刷プレビューで分納の続きが欠ける.png	本文2段落では注文詳細と印刷帳票の納品内訳が行番号だけで、両側に表示する列見出しと各可視行の明細値がなく、同じ注文の19〜24行だけが印刷側で欠ける証跡を原稿どおりに成形できない。
+2026-11-18	p01-software-engineer	b003	draft-review	0	D4	Library/CloudStorage/あさひ業務システムズ/設計会議/1216_照会ポータル公開枠をどうするか.pptx	4枚目の購買側に「一覧と詳細の残数が食い違い」とあるが、台帳のCP-11と再審査議事録では一覧の表示は「納品済み」で、残6は詳細の表示であり、二つの残数表示を比較した結果ではない。
+2026-11-18	p01-software-engineer	b003	draft-review	0	D1	Documents/照会ポータル/公開延期/1216_消し込み結果と持越し.xlsx	「指摘と再審査」のG12（CP-09）とG35（CP-32）は日付区切り・句読点を照合したとだけ記し、揃っていたかを示す実結果や証跡の参照先がなく、「確認済み」の根拠が記録されていない。
+2026-11-18	p01-software-engineer	b003	check	0	source	Documents/レビュー控え/2025/1209_分納と一覧戻りの手書き順.pdf	body token overlap 0.216 < 0.3
+2026-11-18	p01-software-engineer	b003	build-review	0	V3	Documents/照会ポータル/公開延期/1216_営業に渡す影響説明.docx	1ページ目の「営業が案内できること」の表が、セルに指定した38 mm・128 mmに反して等幅で表示され、右の案内列で「納品先への残数回答」の末尾「い。」と「問い合わせ」の末尾「す。」がそれぞれ単独行に落ちている。
+2026-11-18	p01-software-engineer	b003	build-review	0	V3	Documents/レビュー控え/2025/1205_再審査の確認順.docx	1ページ目「条件」の表が実表示では5列とも約33mmの等幅になり、1〜4だけを置く「順」列が表幅の5分の1を占め、CP-11の「照合する元と操作」は「残／数量6」をまたいで5行に折り返される。
+2026-11-18	p01-software-engineer	b003	check	1	source	Documents/レビュー控え/2025/1209_分納と一覧戻りの手書き順.pdf	body token overlap 0.164 < 0.3
+2026-11-18	p01-software-engineer	b003	check	2	source	Documents/レビュー控え/2025/1209_分納と一覧戻りの手書き順.pdf	body token overlap 0.155 < 0.3
+2026-11-18	p01-software-engineer	b003	check	0	source	Documents/レビュー控え/2025/1209_分納と一覧戻りの手書き順.pdf	body token overlap 0.190 < 0.3
+2026-11-18	p01-software-engineer	b003	check	1	source	Documents/レビュー控え/2025/1209_分納と一覧戻りの手書き順.pdf	body token overlap 0.224 < 0.3
+2026-11-18	p01-software-engineer	b003	check	2	source	Documents/レビュー控え/2025/1209_分納と一覧戻りの手書き順.pdf	body token overlap 0.164 < 0.3
+2026-11-18	p01-software-engineer	b003	check	0	source	Documents/レビュー控え/2025/1209_分納と一覧戻りの手書き順.pdf	body token overlap 0.276 < 0.3
+2026-11-18	p01-software-engineer	b003	check	1	source	Documents/レビュー控え/2025/1209_分納と一覧戻りの手書き順.pdf	body token overlap 0.190 < 0.3
+2026-11-18	p01-software-engineer	b003	check	2	source	Documents/レビュー控え/2025/1209_分納と一覧戻りの手書き順.pdf	body token overlap 0.207 < 0.3
+2026-11-18	p14-finance-controller	b009	templates-review	0	other	README.md	「見本と確認」が参照する b008/work/templates-0002 の examples/、render/、structure.json、execution.json が存在せず、記載先から見本・画像・記録を開けない（scratch 削除時は再作成との注記があり、見本は今回の b009 work に再作成して照合済み）。
+2026-11-18	p14-finance-controller	b009	draft-review	0	D3	Documents/予算/FY2026/2025-12_FY2026 Japan Budget Summary.pdf	Danaの9月3日付提出指示は主要設備ごとの支出予定時期と個別価格改定の数量・根拠を求めるが、原稿33〜34行目には発注条件だけで月別展開表にある支出予定時期がなく、28・31行目にも北斗18mmの予定60,000枚と税抜単価4,300→4,200円がなく個別差6百万円の算定根拠を追えない。
+2026-11-18	p14-finance-controller	b009	draft-review	0	D4	Desktop/2025-10_検収の月を聞く.docx	8行目の文書番号・版が10月1日付の別文書「2025-10_営業申請_検収月と販促.xlsx」と同じCW-FIN-202510-SALES-01・版1.0で、10月15日付の千田の差戻しメモと日下部の営業申請を番号と版で識別できない。
+2026-11-18	p14-finance-controller	b009	draft-review	0	D5	Downloads/2025-09_部門別月次実績_1-8月.csv	1〜8月の明細（原稿12〜19行）を合計すると什器3,960・内装部材2,360で売上6,320百万円となり、原稿21行と台帳の6,330百万円に10百万円届かない。
+2026-11-18	p14-finance-controller	b009	draft-review	0	D5	Documents/予算/FY2026/2025-09_実績から部門予算へ.xlsx	「実績と考え方」のB7は9月8日取得の内装部材実績を2,370百万円としているが、元CSVの1〜8月明細計は2,360百万円で、明細を使うと売上総額は6,320百万円、年換算は9,480百万円となる。
+2026-11-18	p14-finance-controller	b009	draft-review	0	D3	Documents/予算/FY2026/2025-10_営業申請_検収月と販促.xlsx	「売上申請」のC6・C9は6,080百万円の定期交換と3,600百万円の内装部材をともに「年間」とし、D6・D9も確認を促すだけで、9月12日の申請説明が求める検収予定月と確度を経理が照合できない。
+2026-11-18	p14-finance-controller	b009	draft-check	1	trace	Documents/予算/FY2026/2025-12_FY2026 Japan Budget Summary.pdf	制作の痕跡
+2026-11-18	p14-finance-controller	b009	draft-review	1	D3	Documents/予算/FY2026/2025-10_営業申請_検収月と販促.xlsx	「月別予定」6〜17行に検収予定月と確度は追加されたが、既存分の根拠は全行「定期交換・案件別予定」のみで、9月12日の部門申請説明が求める内装部材の案件別内訳と、既存分の契約状況・検収月の合意状況を別々に確認できない。
+2026-11-18	p14-finance-controller	b009	draft-check	2	trace	Documents/予算/FY2026/2025-12_FY2026 Japan Budget Summary.pdf	制作の痕跡
+2026-11-18	p14-finance-controller	b009	build-review	0	V2	Documents/予算/FY2026/2025-12_FY2026承認予算.xlsx	「部門と内訳」シートのE5:F5に見出しのない深緑の書式が残り、印刷3ページ目で原稿の4列表（A5:D5）の右に空の表見出しが2列続いている。
+2026-11-18	p14-finance-controller	b009	build-review	0	V2	Desktop/2025-10_部門集約_まず足しただけ.xlsx	「設備」シートに型のC6固定がなく、スクロール時に管理欄・列見出し・部門と金額の列が固定表示されない。
+2026-11-18	p14-finance-controller	b009	build-review	0	V2	Desktop/2025-10_検収の月を聞く.docx	差戻し表の「確認事項／回答欄」の先頭行に、cedar-review.docxの書式説明と見本が指定する見出し行の繰り返し設定がない。
+2026-11-18	p14-finance-controller	b009	build-review	0	V2	Documents/予算/FY2026/2025-10_営業申請_検収根拠の回答.xlsx	「基本案」「検収の内訳」「営業販管費」の3シートで、型のC6固定と印刷時の1〜5行目繰り返し設定が欠けている。
+2026-11-18	p14-finance-controller	b009	build-review	0	V2	Documents/予算/FY2026/2025-11_木材の固定分と変動分.xlsx	「対象区分」のA8:B8の母数計に型の淡緑・二重下罫線がなく、2ページ目の「北斗個別差」では経理財務部とページ番号を示すフッタが欠けている。
+2026-11-18	p14-finance-controller	b009	build-review	0	V3	Desktop/2025-11_社内審議_設計設備が残った案.pptx	スライド2「営業利益の変化」の折れ線が、集約初稿の数値ラベル「360」と第1回の「252」の文字を横切っている。
+2026-11-18	p14-finance-controller	b009	build-review	0	V3	Documents/予算/FY2026/2025-12_取締役会_FY2026予算案.pptx	スライド3「営業利益の橋渡し」の縦軸400と300の水平目盛線が、数値ラベル「360」と「252」の下部にそれぞれ重なっている。
+2026-11-18	p14-finance-controller	b009	build-review	0	V2	Documents/予算/FY2026/2025-09_予算前提.xlsx	「前提」B9・B10の部門提出と親会社提出の締切が文字列で保存されており、型の使用手順で指定された日時の実値と表示形式が設定されていない。
+2026-11-18	p14-finance-controller	b009	build-review	0	V2	Documents/予算/FY2026/2025-10_製造原価と設備の申請.xlsx	「製造原価」A10の木材価格差の計算用母数に合計用の薄緑と二重下罫線が付き、直上の実際の小計A9:B9は通常明細の書式なので、1ページ目で入力値1,000百万円の行が小計のように見える。
+2026-11-18	p14-finance-controller	b009	build-review	0	V2	Documents/予算/FY2026/2025-10_設計申請_積算設備更新.xlsx	「積算設備」シートに型のC6でのウィンドウ枠固定と1〜5行の繰り返し印刷設定が継承されていないことをシート設定とブックの印刷設定で確認した。
+2026-11-18	p14-finance-controller	b009	build-review	1	V2	Desktop/2025-10_検収の月を聞く.docx	回答表の先頭行の繰り返し設定は復旧したが、1ページ目の「確認事項／回答欄」が白地・黒文字で、型と見本の深緑・白文字になっていない。表にはFinance Tableの代わりにTable Grid、セル内にはFinance Table Header／Bodyの代わりにNormalが設定されている。
+2026-11-18	p14-finance-controller	b009	build-review	1	V2	Documents/予算/FY2026/2025-11_木材の固定分と変動分.xlsx	母数計A8:B8の淡緑・二重下罫線と2ページ目の部門・ページ番号フッタは復旧したが、「北斗個別差」の印刷ヘッダ中央に型と1ページ目の「Cedar Works | Finance」がなく、右の単位欄も型の9ptの書式が落ちて2ページ目だけ大きく表示される。
