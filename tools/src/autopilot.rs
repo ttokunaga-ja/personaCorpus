@@ -978,8 +978,24 @@ impl Pilot {
             std::iter::once("--drop".into()).chain(drops).collect()
         };
         if let Err(e) = self.batch_cmd("accept", p, b, &flags) {
+            // Acceptance is deterministic; retrying the same command cannot succeed.
             self.update_roadmap(p, b, "進行中")?;
-            return Err(e);
+            self.state["push_pending"] = json!(false);
+            self.store()?;
+            let reason: String = e
+                .to_string()
+                .replace('|', "／")
+                .split_whitespace()
+                .collect::<Vec<_>>()
+                .join(" ");
+            return self.hold(
+                p,
+                b,
+                &format!(
+                    "受入に失敗: {}",
+                    reason.chars().take(300).collect::<String>()
+                ),
+            );
         }
         self.state["batches"][&key]["accepted"] = json!(true);
         self.state["push_pending"] = json!(true);

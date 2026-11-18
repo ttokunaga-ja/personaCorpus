@@ -484,6 +484,16 @@ fn accepted_redo_does_not_reaccept_already_committed_paths() {
     assert!(String::from_utf8_lossy(&out.stderr).contains("受入するものがない"));
 }
 #[test]
+fn unaccepted_rebuild_can_drop_rows_built_earlier() {
+    let f = Fixture::new();
+    f.run("reject-always", true);
+    f.cli(&["run", "p01", "b001", "--rebuild"], "ok", true);
+    f.cli(&["accept", "p01", "b001", "--drop", SECOND], "ok", true);
+    assert!(!f.artifact(SECOND).exists());
+    let manifest = read(&f.root.join(format!("manifests/{P}.tsv")));
+    assert!(manifest.contains(FIRST) && !manifest.contains(SECOND));
+}
+#[test]
 fn accepted_failed_rebuild_new_generation_and_final_check_resume() {
     let f = Fixture::new();
     f.run("reject-always", true);

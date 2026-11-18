@@ -77,6 +77,10 @@ fn fake_service() {
                 atomic(&jp, &jobs)
             }
             "accept" => {
+                if r.join("accept-fails").exists() {
+                    eprintln!("batch: --drop はこの batch の相対パスを指定する");
+                    std::process::exit(1)
+                }
                 let mut file = fs::OpenOptions::new()
                     .append(true)
                     .open(r.join("progress/batches.tsv"))
@@ -378,6 +382,18 @@ fn accept_drop_pushes_roadmap() {
             .next()
             .unwrap()
     );
+}
+#[test]
+fn failed_accept_holds_instead_of_retrying() {
+    let f = Fixture::new();
+    f.done();
+    f.once();
+    f.audit("accept", "[\"ok.txt\"]");
+    fs::write(f.r.join("accept-fails"), "").unwrap();
+    f.once();
+    assert!(f.holds().contains("受入に失敗"), "{}", f.holds());
+    f.once();
+    assert_eq!(f.called("batch", "accept"), 1);
 }
 #[test]
 fn holds_and_both_hash_trees_protect_acceptance() {

@@ -3416,7 +3416,14 @@ impl Batch {
                 let path = rel(&self.root, &self.folder.join(p));
                 !head.contains(&path) || changed.contains(path.as_str())
             });
-            if rebuilding.is_empty() {
+            // A batch never accepted is accepted whole: earlier rebuilds and the
+            // first build are all still uncommitted and may be dropped.
+            let accepted_before = rows
+                .iter()
+                .any(|r| head.contains(&rel(&self.root, &self.folder.join(text(&r["パス"])))));
+            if !accepted_before {
+                rebuilding.clear();
+            } else if rebuilding.is_empty() {
                 bail!("受入するものがない（やり直した行はすべて受入済み）");
             }
         }
