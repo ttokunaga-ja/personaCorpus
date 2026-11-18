@@ -917,3 +917,39 @@ fn coordinator_merge_refuses_protected_paths_and_failing_tests() {
         assert!(brief.contains("\"previous\""), "{brief}");
     }
 }
+#[test]
+fn coordinator_can_leave_an_item_for_the_user_and_gets_the_answer() {
+    let f = Fixture::new();
+    hold_row(&f);
+    f.once();
+    assert_eq!(coordinator_briefs(&f).len(), 1);
+    finish_coordinator(
+        &f,
+        json!({"actions":[
+            {"do":"ask","item":"hold:p01-test/b001","question":"14 件を撤回して 22,000 枚で作り直すか"}
+        ]}),
+    );
+    for _ in 0..4 {
+        f.once();
+    }
+    assert_eq!(
+        coordinator_briefs(&f).len(),
+        1,
+        "an item waiting for the user is not relaunched"
+    );
+    let status = f.cli(&["status"]);
+    assert!(status.contains("ユーザーの判断待ち"), "{status}");
+    assert!(status.contains("22,000 枚で作り直すか"), "{status}");
+    assert!(
+        !status.contains("3 回で片付かず手が要るもの: hold"),
+        "{status}"
+    );
+    f.cli(&["answer", "hold:p01-test/b001", "22,000 枚で作り直す"]);
+    f.once();
+    let briefs = coordinator_briefs(&f);
+    assert_eq!(briefs.len(), 2);
+    let brief = briefs.last().unwrap();
+    assert!(brief.contains("\"answers\""), "{brief}");
+    assert!(brief.contains("22,000 枚で作り直す"), "{brief}");
+    assert!(!f.cli(&["status"]).contains("ユーザーの判断待ち"));
+}

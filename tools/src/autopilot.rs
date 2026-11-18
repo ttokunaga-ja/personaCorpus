@@ -54,6 +54,8 @@ enum Action {
         #[arg(long)]
         now: bool,
     },
+    /// Answer a question the coordinator left for the user (item as shown in status).
+    Answer { item: String, text: String },
 }
 fn now() -> String {
     chrono::Utc::now().to_rfc3339_opts(chrono::SecondsFormat::Micros, false)
@@ -1391,6 +1393,15 @@ impl Pilot {
         if kind == "merge" {
             return self.merge(&get("message"));
         }
+        if kind == "ask" {
+            let (item, question) = (get("item"), get("question"));
+            if item.is_empty() || question.is_empty() {
+                bail!("ask には item と question が要る")
+            }
+            self.state["coordinator"]["asked"][&item] = json!(question.clone());
+            self.log("coordinator-ask", "", "", &format!("{item}: {question}"))?;
+            return Ok("ユーザーの判断待ちにした".into());
+        }
         if kind == "start" {
             let stop = self.home.join("stop");
             if stop.exists() {
@@ -1718,6 +1729,32 @@ impl Pilot {
         if self.state["coordinator"].get("attempts").is_none() {
             self.state["coordinator"]["attempts"] = json!({});
         }
+        if !self.state["coordinator"]["asked"].is_object() {
+            self.state["coordinator"]["asked"] = json!({});
+        }
+        let answers_file = self.home.join("answers.tsv");
+        let mut answers = serde_json::Map::new();
+        if answers_file.exists() {
+            for line in read(&answers_file)?.lines() {
+                if let Some((item, text)) = line.split_once('\t') {
+                    answers.insert(item.to_string(), json!(text));
+                }
+            }
+        }
+        for item in answers.keys() {
+            self.state["coordinator"]["asked"]
+                .as_object_mut()
+                .unwrap()
+                .remove(item);
+            self.state["coordinator"]["attempts"]
+                .as_object_mut()
+                .unwrap()
+                .remove(item);
+        }
+        let asked = self.state["coordinator"]["asked"].as_object_mut().unwrap();
+        asked.retain(|k, _| agenda.contains(k));
+        let asked: Vec<String> = asked.keys().cloned().collect();
+        let agenda: Vec<String> = agenda.into_iter().filter(|i| !asked.contains(i)).collect();
         let attempts = self.state["coordinator"]["attempts"]
             .as_object_mut()
             .unwrap();
@@ -1766,8 +1803,12 @@ impl Pilot {
             "worktree": "scratch/autopilot/wt",
             "actions": format!("{scratch}/actions.json"),
             "previous": self.state["coordinator"]["last_result"].clone(),
+            "answers": answers,
             "launched_by": "autopilot",
         });
+        if answers_file.exists() {
+            fs::remove_file(&answers_file)?;
+        }
         let brief = work.join("brief.md");
         fs::write(
             &brief,
@@ -1929,6 +1970,20 @@ impl Pilot {
                 stuck.join(" ")
             }
         );
+        let asked: Vec<String> = self.state["coordinator"]["asked"]
+            .as_object()
+            .map(|a| {
+                a.iter()
+                    .map(|(k, v)| format!("{k}（{}）", v.as_str().unwrap_or("")))
+                    .collect()
+            })
+            .unwrap_or_default();
+        if !asked.is_empty() {
+            println!(
+                "ユーザーの判断待ち（`bin/autopilot answer <項目> <答え>` で答える）: {}",
+                asked.join(" / ")
+            );
+        }
         let reasons = self.stops()?.join("、");
         println!(
             "止める条件: {}",
@@ -1981,6 +2036,23 @@ fn execute(a: Action) -> Result<i32> {
         Action::Status { .. } => {
             pilot.refresh()?;
             pilot.status()?;
+        }
+        Action::Answer { item, text } => {
+            if item.contains('\t')
+                || text.contains('\t')
+                || text.contains('\n')
+                || text.trim().is_empty()
+            {
+                bail!("答えはタブと改行を含まない 1 行で書く")
+            }
+            fs::create_dir_all(&pilot.home)?;
+            let mut f = OpenOptions::new()
+                .create(true)
+                .append(true)
+                .open(pilot.home.join("answers.tsv"))?;
+            std::io::Write::write_all(&mut f, format!("{item}\t{text}\n").as_bytes())?;
+            pilot.log("answer", "", "", &format!("{item}: {text}"))?;
+            println!("答えを渡した。次の統括の起動で使われる");
         }
         Action::Stop { now } => {
             pilot.refresh()?;

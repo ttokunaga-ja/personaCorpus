@@ -50,6 +50,7 @@
   {"do":"discard","persona":"…","batch":"…","reason":"<理由>"},
   {"do":"resume","persona":"…","batch":"…","flag":"--rebuild"},
   {"do":"unhold","persona":"…","batch":"…"},
+  {"do":"ask","item":"hold:<persona>/<batch>","question":"<選択肢と案を 1 行で>"},
   {"do":"start"}
 ]}
 ```
@@ -58,6 +59,7 @@
 - 操作は上から順に実行されます。道具の修正が要る受入やり直しは、`merge` を先に書きます。
 - `flag` は `--rebuild`・`--redraft`・`--review-again` か空です。
 - 保留を処理したら `unhold` を入れます。
+- ユーザーの確認が要る判断（受入済みファイルの大量の削除、persona の設定の大きな変更など）が残る項目は、分析と案を `progress/handover.md` の「ユーザーに聞くこと」と結果の報告に書いて `merge` し、`ask` を入れます（`item` は AUTOPILOT_CONTEXT の agenda の文字列そのまま）。自動運転はその項目で統括を起動し直さず、`bin/autopilot status` に問いを出します。同じ分析をくり返して 3 回を使い切らないでください。ユーザーの答えは、次の起動の AUTOPILOT_CONTEXT の `answers` に入ります。答えを受けたら、その判断を実行し、`progress/handover.md` から問いを消します。
 
 ### 項目ごとの仕事
 
