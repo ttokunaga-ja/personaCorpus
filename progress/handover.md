@@ -2,21 +2,26 @@
 
 最終更新：2026-11-18（Claude Opus の統括セッション）
 
-## いまの状態（2026-11-18 21:30 JST）
+## いまの状態（2026-11-18 23:40 JST）
 
-- 自動運転は停止している（`bin/autopilot stop`、ユーザーの指示「最初の自動進行の受け入れまで完了させて停止」による）。動いている batch・Codex のジョブはない。保留（`progress/holds.md`）は 0 件。
-- ツールは Rust の実行ファイル `corpus`（535e537db）。道具を直したら `cargo build --release --manifest-path tools/Cargo.toml` でビルドし直す。worktree でテストするときは、`.venv` を main へのリンクで置く（fixture の生成に使う）。worktree でビルドした実行ファイルは、その worktree を repo の根として読むので、`bin/check --all` は main に取り込んでビルドし直してから回す。
-- モデル：計画・レビュー・改善のジョブは `gpt-6.2-sol`、監査・roadmap は `gpt-6.2-astra`、原稿・成形は `gpt-6.1-terra`。
+- Codex だけで回す試行中（ユーザーの指示、2026-11-18）。自動運転（`bin/autopilot start --personas p14,p17,p01`）が、保留・受入済みの確認・くり返す失敗のたびに Codex `gpt-6.2-astra` の統括を起動し、その `actions.json` を検証して実行する（6a0e8f668、`runbooks/PRODUCTION.md` の「統括がすること」）。
+- 試行の目標：10 batch 連続で、Codex の側だけで問題を見つけて直し、同じ品質で受入まで進むこと。各 batch の成功の条件は、(1) 受入まで進んだ（保留は Codex の統括が処理した）、(2) Codex の統括の確認が `progress/checks.tsv` に記録された、(3) Claude の統括が独立に開いて、Codex の側が見逃した不合格や誤った判断が無い、(4) Claude が手を入れていない。失敗したら、原因を仕組み（道具、指示、監査、統括の指示）で直し、連続の数え直しから続ける。
+- ツールは Rust の実行ファイル `corpus`。worktree でビルドした実行ファイルで main を検査するときは `CORPUS_BASE=<main の絶対パス>` を付ける。
 - 受入済み：p01 70、p03 34、p05 35、p08 35、p12 29、p13 34、p14 172、p15 34、p17 72（成形待ち 3）、p18 35。
+
+## 試行の記録
+
+| 順 | batch | Codex の側の結果 | Claude の評価 | 連続 |
+|---|---|---|---|---|
 
 ## 次の手
 
 | 順 | すること |
 |---|---|
-| 1 | p17 の白島設計室の図面の型（`templates/p17-construction-project-manager/hakushima-drainage.cls`）で、寸法線・基準線が注記の文字を横切る問題を直す（改善のジョブか、統括が直接）。直したら p17 b002 の成形待ち 3 件（D-41 Rev0、D-41 RevA、D-42 RevA）を `--rebuild` する |
-| 2 | 自動運転を再開するときは `bin/autopilot start --personas p14,p17,p01`。最初の受入 4 本（p14 b007・b008、p17 b002、p01 b002）は統括が開いて、監査の判定と一致した。以後は受入済みの batch 10 につき 1 つを統括が確かめる |
-| 3 | persona を広げる。未着手の persona（p02、p04、p06、p07、p09〜p11、p16、p19、p20）は定義を読んでから入れる。roadmap が無い persona（p03、p05、p08、p12、p13、p15、p18）は自動運転が roadmap を作る |
-| 4 | `bin/batch findings` を見て、くり返す指摘があれば改善のジョブ（worktree）を回す |
+| 1 | 自動運転が受入した batch ごとに、Codex の統括の確認（`progress/checks.tsv`、結果の報告）を読み、Claude の統括が独立に 8 件以上開いて比べ、上の表に記録する |
+| 2 | Codex の側の失敗は、仕組みで直す（道具はテストを先に、指示は `prompts/coordinator.md`・`prompts/audit.md`）。直したら連続を 0 から数え直す |
+| 3 | 10 連続で成功したら、Claude の評価をやめ、Codex だけで続ける |
+| 4 | p17 の白島設計室の図面の型の文字と線の重なりを直し、p17 b002 の成形待ち 3 件を成形し直す（Codex の統括に任せてよい） |
 
 ## 済んだこと（2026-11-18）
 
