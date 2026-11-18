@@ -95,6 +95,22 @@ fn invalid_plan_retried_once_and_stops() {
     assert_eq!(f.calls()["plan"], 2);
 }
 #[test]
+fn plan_dates_to_the_minute_are_accepted() {
+    let f = Fixture::new();
+    f.planned();
+    let plan = read(&f.plan());
+    assert!(plan.contains(" | 2026-03-06 | "));
+    f.reset_scratch();
+    write(
+        &f.root.join("fixture-plan.md"),
+        plan.replacen(" | 2026-03-06 | ", " | 2026-03-06 18:42 | ", 1),
+    );
+    f.run("ok", true);
+    let state = f.state();
+    assert!(!string(&state["reason"]).contains("premature"), "{state}");
+    assert_ne!(state["stage"], "plan", "{state}");
+}
+#[test]
 fn plan_path_date_method_and_existing_file_guards() {
     for (old, new) in [
         (FIRST, "../外.txt"),

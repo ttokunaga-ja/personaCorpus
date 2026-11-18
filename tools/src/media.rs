@@ -915,7 +915,11 @@ fn timestamp(value: &str, zone: &str) -> Result<DateTime<FixedOffset>> {
             .and_hms_opt(12, 0, 0)
             .unwrap()
     } else {
-        NaiveDateTime::parse_from_str(&value.replace('T', " "), "%Y-%m-%d %H:%M:%S")?
+        let value = value.replace('T', " ");
+        ["%Y-%m-%d %H:%M:%S", "%Y-%m-%d %H:%M"]
+            .iter()
+            .find_map(|f| NaiveDateTime::parse_from_str(&value, f).ok())
+            .with_context(|| format!("invalid date: {value}"))?
     };
     let timezone: chrono_tz::Tz = zone.parse().context("invalid timezone")?;
     Ok(timezone

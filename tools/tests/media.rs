@@ -225,6 +225,31 @@ s=Presentation();sl=s.slides.add_slide(s.slide_layouts[0]);sl.shapes.title.text=
             ],
         );
         assert_eq!(fs::read(&path).unwrap(), first);
+        // Plan dates are written to the minute ("2026-03-06 18:42"), as in runbooks/PRODUCTION.md.
+        fs::write(&path, &original).unwrap();
+        run(
+            "stamp",
+            &[
+                string(&path),
+                "--author",
+                "山田",
+                "--date",
+                "2026-03-06 18:42",
+                "--timezone",
+                "Asia/Tokyo",
+            ],
+        );
+        fs::write(&path, &original).unwrap();
+        run(
+            "stamp",
+            &[
+                string(&path),
+                "--author",
+                "山田",
+                "--date",
+                "2026-03-06T18:42:10+09:00",
+            ],
+        );
         let output = work.path().join(format!("{extension}.pdf"));
         run("office-pdf", &[string(&path), string(&output)]);
         let doc = Document::load(output).unwrap();
