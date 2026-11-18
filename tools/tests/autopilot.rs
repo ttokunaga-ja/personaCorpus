@@ -146,7 +146,7 @@ impl Fixture {
             fs::write(&p, script).unwrap();
             fs::set_permissions(p, fs::Permissions::from_mode(0o755)).unwrap();
         }
-        for k in ["audit", "roadmap"] {
+        for k in ["audit", "roadmap", "coordinator"] {
             fs::write(
                 r.join(format!("prompts/{k}.md")),
                 format!("{k} instructions"),
@@ -700,4 +700,220 @@ fn unreadable_manifest_and_runtime_lock_fail_closed() {
             .unwrap()
             .contains("error")
     );
+}
+
+fn coordinator_briefs(f: &Fixture) -> Vec<String> {
+    f.calls()
+        .iter()
+        .filter(|c| c[0] == "codex-job" && c[1] == "start")
+        .filter_map(|c| {
+            let n = &c[c.iter().position(|s| s == "--name").unwrap() + 1];
+            n.starts_with("coordinator").then(|| {
+                fs::read_to_string(f.r.join(format!("scratch/autopilot/jobs/{n}/brief.md")))
+                    .unwrap()
+            })
+        })
+        .collect()
+}
+fn log_lines(f: &Fixture, lines: &[(&str, &str)]) {
+    fs::create_dir_all(f.r.join("scratch/autopilot")).unwrap();
+    let mut text = fs::read_to_string(f.r.join("scratch/autopilot/log.tsv")).unwrap_or_default();
+    for (action, b) in lines {
+        text.push_str(&format!(
+            "2026-11-18T00:00:00+00:00\t{action}\tp01-test\t{b}\tdetail\n"
+        ));
+    }
+    fs::write(f.r.join("scratch/autopilot/log.tsv"), text).unwrap();
+}
+fn checks(f: &Fixture, rows: &[(&str, &str)]) {
+    let mut text = "persona\tbatch\t判定\t日時\t件数\tメモ\n".to_string();
+    for (b, verdict) in rows {
+        text.push_str(&format!("p01-test\t{b}\t{verdict}\t2026-11-18\t8\t確認\n"));
+    }
+    fs::write(f.r.join("progress/checks.tsv"), text).unwrap();
+}
+#[test]
+fn hold_launches_one_coordinator_and_stops_retrying_after_three() {
+    let f = Fixture::new();
+    fs::write(
+        f.r.join("progress/holds.md"),
+        "# 保留\n\n| persona | batch | 理由 | 日時 |\n|---|---|---|---|\n| p01-test | b001 | 監査 hold | 2026-11-18 |\n",
+    )
+    .unwrap();
+    f.once();
+    f.once();
+    let briefs = coordinator_briefs(&f);
+    assert_eq!(briefs.len(), 1);
+    assert!(briefs[0].starts_with("coordinator instructions"));
+    assert!(briefs[0].contains("hold:p01-test/b001"));
+    for n in ["coordinator", "coordinator-r2", "coordinator-r3"] {
+        f.job(n, "done");
+        f.once();
+    }
+    assert_eq!(coordinator_briefs(&f).len(), 3);
+    let log = fs::read_to_string(f.r.join("scratch/autopilot/log.tsv")).unwrap();
+    assert!(log.contains("coordinator-stuck"), "{log}");
+    assert!(f.cli(&["status"]).contains("hold:p01-test/b001"));
+}
+#[test]
+fn every_accept_is_checked_until_ten_agreements_then_one_in_ten() {
+    let f = Fixture::new();
+    log_lines(&f, &[("accept", "b001")]);
+    f.once();
+    assert!(coordinator_briefs(&f)[0].contains("check:p01-test/b001"));
+    let f = Fixture::new();
+    let agreed: Vec<String> = (1..=10).map(|i| format!("b{i:03}")).collect();
+    checks(
+        &f,
+        &agreed
+            .iter()
+            .map(|b| (b.as_str(), "一致"))
+            .collect::<Vec<_>>(),
+    );
+    let later: Vec<String> = (11..=19).map(|i| format!("b{i:03}")).collect();
+    log_lines(
+        &f,
+        &agreed
+            .iter()
+            .chain(&later)
+            .map(|b| ("accept", b.as_str()))
+            .collect::<Vec<_>>(),
+    );
+    f.once();
+    assert!(coordinator_briefs(&f).is_empty());
+    log_lines(&f, &[("accept", "b020")]);
+    f.once();
+    let brief = &coordinator_briefs(&f)[0];
+    assert!(brief.contains("check:p01-test/b020") && brief.contains("check:p01-test/b011"));
+    let f = Fixture::new();
+    let mut rows: Vec<(&str, &str)> = agreed.iter().map(|b| (b.as_str(), "一致")).collect();
+    rows.push(("b011", "不一致"));
+    checks(&f, &rows);
+    log_lines(&f, &[("accept", "b011"), ("accept", "b012")]);
+    f.once();
+    let brief = &coordinator_briefs(&f)[0];
+    assert!(brief.contains("check:p01-test/b012") && !brief.contains("check:p01-test/b011"));
+}
+#[test]
+fn repeated_errors_launch_the_coordinator() {
+    let f = Fixture::new();
+    log_lines(&f, &[("error", "b001"), ("error", "b001")]);
+    f.once();
+    assert!(coordinator_briefs(&f).is_empty());
+    log_lines(&f, &[("error", "b001")]);
+    f.once();
+    assert!(coordinator_briefs(&f)[0].contains("errors:p01-test/b001"));
+}
+#[test]
+fn start_clears_a_graceful_stop_of_a_running_loop() {
+    let f = Fixture::new();
+    f.job("autopilot", "running");
+    fs::create_dir_all(f.r.join("scratch/autopilot")).unwrap();
+    fs::write(f.r.join("scratch/autopilot/stop"), "").unwrap();
+    f.cli(&["start"]);
+    assert!(!f.r.join("scratch/autopilot/stop").exists());
+    assert_eq!(f.called("codex-job", "start"), 0);
+}
+fn finish_coordinator(f: &Fixture, actions: Value) -> String {
+    let job = f.state()["coordinator"]["job"]
+        .as_str()
+        .unwrap()
+        .to_string();
+    fs::write(
+        f.r.join(format!("scratch/autopilot/jobs/{job}/actions.json")),
+        serde_json::to_string(&actions).unwrap(),
+    )
+    .unwrap();
+    f.job(&job, "done");
+    job
+}
+fn hold_row(f: &Fixture) {
+    fs::write(
+        f.r.join("progress/holds.md"),
+        "# 保留\n\n| persona | batch | 理由 | 日時 |\n|---|---|---|---|\n| p01-test | b001 | 監査 hold | 2026-11-18 |\n",
+    )
+    .unwrap();
+    f.git(&["add", "progress/holds.md"]);
+    f.git(&["commit", "-qm", "hold"]);
+}
+#[test]
+fn coordinator_actions_accept_unhold_and_merge_its_worktree() {
+    let f = Fixture::new();
+    hold_row(&f);
+    f.once();
+    let wt = f.r.join("scratch/autopilot/wt");
+    assert_eq!(
+        f.git(&["-C", wt.to_str().unwrap(), "rev-parse", "HEAD"]),
+        f.git(&["rev-parse", "main"])
+    );
+    fs::write(wt.join("prompts/audit.md"), "audit instructions, stricter").unwrap();
+    fs::write(
+        wt.join("progress/checks.tsv"),
+        "persona\tbatch\t判定\t日時\t件数\tメモ\np01-test\tb001\t一致\t2026-11-18\t8\t確認\n",
+    )
+    .unwrap();
+    finish_coordinator(
+        &f,
+        json!({"actions":[
+            {"do":"accept","persona":"p01-test","batch":"b001","drop":["ok.txt"]},
+            {"do":"unhold","persona":"p01-test","batch":"b001"},
+            {"do":"merge","message":"Tighten the audit"},
+            {"do":"start"}
+        ]}),
+    );
+    fs::write(f.r.join("scratch/autopilot/stop"), "").unwrap();
+    f.once();
+    assert!(!f.r.join("scratch/autopilot/stop").exists());
+    assert!(f.calls().iter().any(|c| c[0] == "batch"
+        && c[1] == "accept"
+        && c.ends_with(&["--drop".into(), "ok.txt".into()])));
+    assert!(!f.holds().contains("| b001 |"));
+    assert_eq!(
+        fs::read_to_string(f.r.join("prompts/audit.md")).unwrap(),
+        "audit instructions, stricter"
+    );
+    assert!(f.git(&["log", "--format=%s"]).contains("Tighten the audit"));
+    assert_eq!(
+        f.git(&["rev-parse", "main"]).trim(),
+        f.git(&["ls-remote", "origin", "refs/heads/main"])
+            .split_whitespace()
+            .next()
+            .unwrap()
+    );
+    assert!(f.cli(&["status"]).contains("一致: 1"));
+}
+#[test]
+fn coordinator_merge_refuses_protected_paths_and_failing_tests() {
+    for case in ["spec", "tests"] {
+        let f = Fixture::new();
+        hold_row(&f);
+        f.once();
+        let wt = f.r.join("scratch/autopilot/wt");
+        if case == "spec" {
+            fs::write(wt.join("SPEC.md"), "changed").unwrap();
+        } else {
+            fs::create_dir_all(wt.join("tests")).unwrap();
+            fs::create_dir_all(wt.join("tools/src")).unwrap();
+            fs::write(wt.join("tools/src/x.rs"), "// change").unwrap();
+            fs::write(wt.join("tests/run.sh"), "#!/bin/sh\nexit 1\n").unwrap();
+            fs::set_permissions(wt.join("tests/run.sh"), fs::Permissions::from_mode(0o755))
+                .unwrap();
+        }
+        finish_coordinator(&f, json!({"actions":[{"do":"merge","message":"bad"}]}));
+        let before = f.git(&["rev-parse", "main"]);
+        f.once();
+        assert_eq!(f.git(&["rev-parse", "main"]), before, "{case}");
+        let state = f.state();
+        let result = state["coordinator"]["last_result"].to_string();
+        assert!(
+            result.contains(if case == "spec" {
+                "SPEC.md"
+            } else {
+                "tests/run.sh"
+            }),
+            "{result}"
+        );
+        let brief = coordinator_briefs(&f).pop().unwrap();
+        assert!(brief.contains("\"previous\""), "{brief}");
+    }
 }

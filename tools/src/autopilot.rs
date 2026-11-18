@@ -221,6 +221,41 @@ fn ledger(root: &Path) -> Result<Vec<BTreeMap<String, String>>> {
     rows.extend(reported(root)?);
     Ok(rows)
 }
+fn write_holds(root: &Path, rows: &[Row]) -> Result<()> {
+    let mut text = "# 保留\n\n| persona | batch | 理由 | 日時 |\n|---|---|---|---|\n".to_string();
+    for r in rows {
+        text.push_str(&format!(
+            "| {} |\n",
+            ["persona", "batch", "理由", "日時"]
+                .iter()
+                .map(|k| regex(r"[|\r\n\t]").replace_all(r.get(k), " ").into_owned())
+                .collect::<Vec<_>>()
+                .join(" | ")
+        ))
+    }
+    fs::create_dir_all(root.join("progress"))?;
+    fs::write(root.join("progress/holds.md"), text)?;
+    Ok(())
+}
+/// Coordinator checks (progress/checks.tsv): (persona/batch, 判定) in order.
+fn check_rows(root: &Path) -> Result<Vec<(String, String)>> {
+    let p = root.join("progress/checks.tsv");
+    if !p.exists() {
+        return Ok(Vec::new());
+    }
+    let text = read(&p)?;
+    let mut lines = text.lines();
+    let header: Vec<&str> = lines.next().unwrap_or("").split('\t').collect();
+    let col = |name: &str| header.iter().position(|h| *h == name);
+    let (Some(pi), Some(bi), Some(vi)) = (col("persona"), col("batch"), col("判定")) else {
+        bail!("progress/checks.tsv の見出しが不正");
+    };
+    Ok(lines
+        .map(|l| l.split('\t').collect::<Vec<_>>())
+        .filter(|c| c.len() > pi.max(bi).max(vi))
+        .map(|c| (format!("{}/{}", c[pi], c[bi]), c[vi].to_string()))
+        .collect())
+}
 fn reported(root: &Path) -> Result<Vec<BTreeMap<String, String>>> {
     let mut rows = Vec::new();
     let progress = root.join("progress");
@@ -307,6 +342,8 @@ struct Pilot {
     personas: Option<String>,
     target: i64,
     push_attempted: bool,
+    /// Set after a coordinator fix changed the tools; the loop re-executes itself.
+    restart: bool,
 }
 impl Pilot {
     fn new(personas: Option<String>, target: i64) -> Result<Self> {
@@ -335,6 +372,7 @@ impl Pilot {
             personas,
             target,
             push_attempted: false,
+            restart: false,
         })
     }
     fn store(&self) -> Result<()> {
@@ -461,20 +499,7 @@ impl Pilot {
                 line: 0,
             })
         }
-        let mut text =
-            "# 保留\n\n| persona | batch | 理由 | 日時 |\n|---|---|---|---|\n".to_string();
-        for r in rows {
-            text.push_str(&format!(
-                "| {} |\n",
-                ["persona", "batch", "理由", "日時"]
-                    .iter()
-                    .map(|k| regex(r"[|\r\n\t]").replace_all(r.get(k), " ").into_owned())
-                    .collect::<Vec<_>>()
-                    .join(" | ")
-            ))
-        }
-        fs::create_dir_all(self.root.join("progress"))?;
-        fs::write(self.root.join("progress/holds.md"), text)?;
+        write_holds(&self.root, &rows)?;
         drop(_lock);
         self.log("hold", p, b, reason)
     }
@@ -1225,7 +1250,11 @@ impl Pilot {
             }
             self.store()?;
         }
-        self.commit_holds()
+        self.commit_holds()?;
+        if let Err(e) = self.coordinate() {
+            self.log("error", "", "", &format!("統括の起動: {e}"))?;
+        }
+        Ok(())
     }
     fn once_persona(&mut self, p: &str) -> Result<()> {
         let paths = self.states(p).into_iter().collect::<BTreeMap<_, _>>();
@@ -1299,6 +1328,485 @@ impl Pilot {
             }
         }
         Ok(())
+    }
+    /// A fresh worktree on main for the coordinator to edit (Codex cannot write .git).
+    fn prepare_worktree(&self) -> Result<()> {
+        let wt = self.home.join("wt");
+        let w = wt.to_string_lossy().into_owned();
+        if wt.exists() {
+            self.cmd(&["git", "worktree", "remove", "--force", &w], false)?;
+            if wt.exists() {
+                fs::remove_dir_all(&wt)?;
+            }
+        }
+        self.cmd(&["git", "worktree", "prune"], true)?;
+        self.cmd(
+            &[
+                "git",
+                "worktree",
+                "add",
+                "-q",
+                "-B",
+                "autopilot-coordinator",
+                &w,
+                "main",
+            ],
+            true,
+        )?;
+        let venv = self.root.join(".venv");
+        if venv.exists() {
+            std::os::unix::fs::symlink(&venv, wt.join(".venv"))?;
+        }
+        Ok(())
+    }
+    /// Carry out the finished coordinator's actions.json. Codex decides; this executes
+    /// with the same gates as the coordinator rules (tests, full check, protected paths).
+    fn apply(&mut self) -> Result<()> {
+        self.state["coordinator"]["applied"] = json!(true);
+        self.store()?;
+        let job = self.state["coordinator"]["job"]
+            .as_str()
+            .unwrap_or("")
+            .to_string();
+        let path = self.home.join("jobs").join(&job).join("actions.json");
+        let mut results = Vec::new();
+        match read(&path).and_then(|t| Ok(serde_json::from_str::<Value>(&t)?)) {
+            Err(e) => results.push(format!("{job}: actions.json を読めない: {e}")),
+            Ok(v) => {
+                for a in v["actions"].as_array().cloned().unwrap_or_default() {
+                    results.push(match self.action(&a) {
+                        Ok(m) => format!("ok {a}: {m}"),
+                        Err(e) => format!("失敗 {a}: {e}"),
+                    });
+                }
+            }
+        }
+        self.log("coordinator-applied", "", "", &results.join(" / "))?;
+        self.state["coordinator"]["last_result"] = json!(results);
+        self.store()
+    }
+    fn action(&mut self, a: &Value) -> Result<String> {
+        let get = |k: &str| a[k].as_str().unwrap_or("").to_string();
+        let kind = get("do");
+        if kind == "merge" {
+            return self.merge(&get("message"));
+        }
+        if kind == "start" {
+            let stop = self.home.join("stop");
+            if stop.exists() {
+                fs::remove_file(stop)?;
+            }
+            return Ok("停止の指示を解除した".into());
+        }
+        let (p, b) = (get("persona"), get("batch"));
+        if !regex(r"^p\d\d-[a-z0-9-]+$").is_match(&p)
+            || !self.root.join("personas").join(format!("{p}.md")).exists()
+            || !regex(r"^b\d{3}$").is_match(&b)
+        {
+            bail!("persona・batch が不正")
+        }
+        match kind.as_str() {
+            "accept" => {
+                let drops: Vec<String> = a["drop"]
+                    .as_array()
+                    .map(|d| {
+                        d.iter()
+                            .filter_map(|v| v.as_str().map(str::to_string))
+                            .collect()
+                    })
+                    .unwrap_or_default();
+                if drops
+                    .iter()
+                    .any(|d| d.is_empty() || d.starts_with('/') || d.contains(".."))
+                {
+                    bail!("drop のパスが不正")
+                }
+                let mut flags = Vec::new();
+                if !drops.is_empty() {
+                    flags.push("--drop".to_string());
+                    flags.extend(drops);
+                }
+                self.update_roadmap(&p, &b, "受入済み")?;
+                self.state["push_pending"] = json!(true);
+                self.batch_cmd("accept", &p, &b, &flags)?;
+                self.state["batches"][format!("{p}/{b}")]["accepted"] = json!(true);
+                self.store()?;
+                self.push()?;
+            }
+            "discard" => {
+                let reason = get("reason");
+                if reason.is_empty() {
+                    bail!("破棄の理由が無い")
+                }
+                self.state["push_pending"] = json!(true);
+                self.batch_cmd("discard", &p, &b, &["--reason".into(), reason])?;
+                self.push()?;
+            }
+            "resume" => {
+                let flag = get("flag");
+                if !["", "--rebuild", "--redraft", "--review-again"].contains(&flag.as_str()) {
+                    bail!("resume の flag が不正")
+                }
+                let flags = if flag.is_empty() { vec![] } else { vec![flag] };
+                self.batch_cmd("resume", &p, &b, &flags)?;
+            }
+            "unhold" => {
+                let _lock = lock(&self.root, "records", true)?;
+                let rows: Vec<Row> = self
+                    .holds()?
+                    .into_iter()
+                    .filter(|r| !(r.get("persona") == p && r.get("batch") == b))
+                    .collect();
+                write_holds(&self.root, &rows)?;
+                drop(_lock);
+                self.log("unhold", &p, &b, "統括")?;
+            }
+            _ => bail!("不明な操作"),
+        }
+        Ok("done".into())
+    }
+    fn merge(&mut self, message: &str) -> Result<String> {
+        if message.trim().is_empty() {
+            bail!("merge の message が無い")
+        }
+        let wt = self.home.join("wt");
+        let w = wt.to_string_lossy().into_owned();
+        if !wt.exists() {
+            bail!("worktree が無い")
+        }
+        self.cmd(&["git", "-C", &w, "add", "-A", "--", ".", ":!.venv"], true)?;
+        let diff = self
+            .cmd(
+                &[
+                    "git",
+                    "-C",
+                    &w,
+                    "diff",
+                    "--cached",
+                    "--name-status",
+                    "--no-renames",
+                    "-z",
+                ],
+                true,
+            )?
+            .text;
+        let parts: Vec<&str> = diff.split('\0').filter(|s| !s.is_empty()).collect();
+        let changes: Vec<(String, String)> = parts
+            .chunks(2)
+            .filter(|c| c.len() == 2)
+            .map(|c| (c[0].to_string(), c[1].to_string()))
+            .collect();
+        if changes.is_empty() {
+            return Ok("変更なし".into());
+        }
+        let refused: Vec<String> = changes
+            .iter()
+            .filter(|(st, path)| {
+                ["SPEC.md", "AGENTS.md"].contains(&path.as_str())
+                    || path.starts_with(".git")
+                    || ((path.starts_with("people/") || path.starts_with("sources/")) && st != "D")
+            })
+            .map(|(_, p)| p.clone())
+            .collect();
+        let removed = changes
+            .iter()
+            .filter(|(st, p)| st == "D" && p.starts_with("people/"))
+            .count();
+        if !refused.is_empty() || removed > 3 {
+            self.cmd(&["git", "-C", &w, "reset", "-q"], true)?;
+            bail!(
+                "取り込めない変更（SPEC.md・AGENTS.md はユーザーの確認が要る。people/・sources/ は削除だけ、一度に 3 件まで）: {}",
+                refused.join(", ")
+            )
+        }
+        self.cmd(&["git", "-C", &w, "commit", "-qm", message], true)?;
+        if self
+            .cmd(&["git", "-C", &w, "rebase", "-q", "main"], false)?
+            .code
+            != 0
+        {
+            self.cmd(&["git", "-C", &w, "rebase", "--abort"], false)?;
+            bail!("main への rebase が衝突した")
+        }
+        let code = changes.iter().any(|(_, p)| {
+            ["tools/", "tests/", "ops/"]
+                .iter()
+                .any(|d| p.starts_with(d))
+        });
+        if code {
+            for script in ["tests/run.sh", "ops/tests/run.sh"] {
+                if wt.join(script).exists() {
+                    let o = command(
+                        &wt,
+                        &[wt.join(script).to_string_lossy().into_owned()],
+                        false,
+                    )?;
+                    if o.code != 0 {
+                        let tail: String = o
+                            .text
+                            .lines()
+                            .rev()
+                            .take(15)
+                            .collect::<Vec<_>>()
+                            .into_iter()
+                            .rev()
+                            .collect::<Vec<_>>()
+                            .join("\n");
+                        bail!("{script} が失敗した:\n{tail}")
+                    }
+                }
+            }
+            if wt.join("tools/Cargo.toml").exists() {
+                let manifest = wt.join("tools/Cargo.toml").to_string_lossy().into_owned();
+                self.cmd(
+                    &[
+                        "cargo",
+                        "build",
+                        "--release",
+                        "-q",
+                        "--manifest-path",
+                        &manifest,
+                    ],
+                    true,
+                )?;
+                let binary = wt
+                    .join("tools/target/release/corpus")
+                    .to_string_lossy()
+                    .into_owned();
+                let base = format!("CORPUS_BASE={}", self.root.to_string_lossy());
+                let o = self.cmd(&["env", &base, &binary, "check", "--all"], false)?;
+                if !o.text.contains("failed: 0,") {
+                    let tail: String = o
+                        .text
+                        .lines()
+                        .rev()
+                        .take(15)
+                        .collect::<Vec<_>>()
+                        .into_iter()
+                        .rev()
+                        .collect::<Vec<_>>()
+                        .join("\n");
+                    bail!("受入済みの全ファイルの検査に通らない:\n{tail}")
+                }
+            }
+        }
+        let personas: BTreeSet<String> = changes
+            .iter()
+            .filter(|(_, p)| p.starts_with("people/") || p.starts_with("manifests/"))
+            .filter_map(|(_, p)| {
+                let rest = p.split_once('/')?.1;
+                Some(rest.split(['/', '.']).next()?.to_string())
+            })
+            .collect();
+        for persona in personas {
+            let base = format!("CORPUS_BASE={w}");
+            let manifest = self
+                .root
+                .join("bin/manifest")
+                .to_string_lossy()
+                .into_owned();
+            let o = self.cmd(&["env", &base, &manifest, &persona, "--verify"], false)?;
+            if o.code != 0 {
+                bail!("manifest の照合に通らない（{persona}）: {}", o.text.trim())
+            }
+        }
+        {
+            let _lock = lock(&self.root, "records", true)?;
+            self.cmd(
+                &["git", "merge", "--ff-only", "-q", "autopilot-coordinator"],
+                true,
+            )?;
+            self.state["push_pending"] = json!(true);
+            self.store()?;
+        }
+        self.push_attempted = false;
+        self.push()?;
+        if code && self.root.join("tools/Cargo.toml").exists() {
+            let manifest = self
+                .root
+                .join("tools/Cargo.toml")
+                .to_string_lossy()
+                .into_owned();
+            self.cmd(
+                &[
+                    "cargo",
+                    "build",
+                    "--release",
+                    "-q",
+                    "--manifest-path",
+                    &manifest,
+                ],
+                true,
+            )?;
+            self.restart = true;
+        }
+        let head = self
+            .cmd(&["git", "rev-parse", "--short", "HEAD"], true)?
+            .text;
+        Ok(format!("取り込んだ {}", head.trim()))
+    }
+    /// What the coordinator must handle now: holds, accepted batches due for a check,
+    /// and batches whose processing keeps failing.
+    fn agenda(&self) -> Result<Vec<String>> {
+        let mut items: Vec<String> = self
+            .holds()?
+            .iter()
+            .map(|r| format!("hold:{}/{}", r.get("persona"), r.get("batch")))
+            .collect();
+        let log = self.home.join("log.tsv");
+        let lines: Vec<Vec<String>> = if log.exists() {
+            read(&log)?
+                .lines()
+                .map(|l| l.split('\t').map(str::to_string).collect())
+                .filter(|c: &Vec<String>| c.len() >= 4)
+                .collect()
+        } else {
+            Vec::new()
+        };
+        let checks = check_rows(&self.root)?;
+        let checked: BTreeSet<String> = checks.iter().map(|(k, _)| k.clone()).collect();
+        let streak = checks.iter().rev().take_while(|(_, v)| v == "一致").count();
+        let mut accepts: Vec<String> = Vec::new();
+        for c in lines.iter().filter(|c| c[1] == "accept") {
+            let key = format!("{}/{}", c[2], c[3]);
+            accepts.retain(|k| k != &key);
+            accepts.push(key);
+        }
+        let due: Vec<String> = if streak >= 10 {
+            let last = accepts.iter().rposition(|k| checked.contains(k));
+            let since: Vec<String> = accepts[last.map_or(0, |i| i + 1)..]
+                .iter()
+                .filter(|k| !checked.contains(*k))
+                .cloned()
+                .collect();
+            if since.len() >= 10 { since } else { Vec::new() }
+        } else {
+            accepts
+                .into_iter()
+                .filter(|k| !checked.contains(k))
+                .collect()
+        };
+        items.extend(due.into_iter().map(|k| format!("check:{k}")));
+        let since = self.state["coordinator"]["launched"].as_str().unwrap_or("");
+        let mut errors: BTreeMap<String, usize> = BTreeMap::new();
+        for c in lines
+            .iter()
+            .filter(|c| c[1] == "error" && c[0].as_str() > since)
+        {
+            *errors
+                .entry(format!("errors:{}/{}", c[2], c[3]))
+                .or_default() += 1;
+        }
+        items.extend(errors.into_iter().filter(|(_, n)| *n >= 3).map(|(k, _)| k));
+        Ok(items)
+    }
+    /// Launch the Codex coordinator (prompts/coordinator.md) for the agenda, one job at a time.
+    /// An item still open after three coordinator runs is left for the user.
+    fn coordinate(&mut self) -> Result<()> {
+        let active = self.jobs.iter().any(|(n, s)| {
+            regex(r"^coordinator(?:-r\d+)?$").is_match(n) && ACTIVE.contains(&s.as_str())
+        });
+        if active {
+            return Ok(());
+        }
+        if self.state["coordinator"]["applied"] == json!(false) {
+            self.apply()?;
+            self.push_attempted = false;
+            self.commit_holds()?;
+        }
+        let agenda = self.agenda()?;
+        if self.state["coordinator"].get("attempts").is_none() {
+            self.state["coordinator"]["attempts"] = json!({});
+        }
+        let attempts = self.state["coordinator"]["attempts"]
+            .as_object_mut()
+            .unwrap();
+        attempts.retain(|k, _| agenda.contains(k) || k.starts_with("errors:"));
+        let mut open = Vec::new();
+        let mut stuck = Vec::new();
+        for item in &agenda {
+            if attempts.get(item).and_then(Value::as_i64).unwrap_or(0) >= 3 {
+                stuck.push(item.clone())
+            } else {
+                open.push(item.clone())
+            }
+        }
+        let known: Vec<String> = self.state["coordinator"]["stuck"]
+            .as_array()
+            .map(|a| {
+                a.iter()
+                    .filter_map(|v| v.as_str().map(str::to_string))
+                    .collect()
+            })
+            .unwrap_or_default();
+        for item in stuck.iter().filter(|i| !known.contains(i)) {
+            self.log("coordinator-stuck", "", "", item)?;
+        }
+        self.state["coordinator"]["stuck"] = json!(stuck);
+        if open.is_empty() {
+            return self.store();
+        }
+        for item in &open {
+            let n = self.state["coordinator"]["attempts"][item]
+                .as_i64()
+                .unwrap_or(0);
+            self.state["coordinator"]["attempts"][item] = json!(n + 1);
+        }
+        let name = self.unique("coordinator");
+        let work = self.home.join("jobs").join(&name);
+        fs::create_dir_all(&work)?;
+        self.prepare_worktree()?;
+        let scratch = work
+            .strip_prefix(&self.root)?
+            .to_string_lossy()
+            .into_owned();
+        let context = json!({
+            "agenda": open,
+            "scratch": scratch,
+            "worktree": "scratch/autopilot/wt",
+            "actions": format!("{scratch}/actions.json"),
+            "previous": self.state["coordinator"]["last_result"].clone(),
+            "launched_by": "autopilot",
+        });
+        let brief = work.join("brief.md");
+        fs::write(
+            &brief,
+            read(&self.root.join("prompts/coordinator.md"))?
+                + "\n\nAUTOPILOT_CONTEXT\n"
+                + &serde_json::to_string(&context)?
+                + "\n",
+        )?;
+        self.state["coordinator"]["job"] = json!(name);
+        self.state["coordinator"]["launched"] = json!(now());
+        self.state["coordinator"]["applied"] = json!(false);
+        self.store()?;
+        let cmd = shell_words::join([
+            self.root.join("bin/batch").to_string_lossy().into_owned(),
+            "codex-once".into(),
+            "--brief".into(),
+            brief.to_string_lossy().into_owned(),
+            "--output".into(),
+            work.join("out.md").to_string_lossy().into_owned(),
+        ]);
+        let command = format!(
+            "cd {} && {cmd}",
+            shell_words::quote(&self.root.to_string_lossy())
+        );
+        self.job(&argv(&[
+            "start",
+            "--repo",
+            "personaCorpus",
+            "--name",
+            &name,
+            "--model",
+            "gpt-6.2-astra",
+            "--effort",
+            "medium",
+            "--command",
+            &command,
+        ]))?;
+        self.jobs.insert(name.clone(), "running".into());
+        self.log("coordinator", "", "", &format!("{name} {}", open.join(" ")))
     }
     fn status(&self) -> Result<()> {
         println!("persona\t受入済み/目標\t進行中 batch:段階\t成形待ち\t破棄\t保留\troadmap残り");
@@ -1395,6 +1903,32 @@ impl Pilot {
             "Codex 使用中: {used} / 自動運転: {}",
             if live { "稼働中" } else { "停止" }
         );
+        let job = self.state["coordinator"]["job"].as_str().unwrap_or("");
+        let stuck: Vec<&str> = self.state["coordinator"]["stuck"]
+            .as_array()
+            .map(|a| a.iter().filter_map(Value::as_str).collect())
+            .unwrap_or_default();
+        let streak = check_rows(&self.root)?
+            .iter()
+            .rev()
+            .take_while(|(_, v)| v == "一致")
+            .count();
+        println!(
+            "統括: {} / 確認の連続一致: {streak} / 3 回で片付かず手が要るもの: {}",
+            if job.is_empty() {
+                "未起動".to_string()
+            } else {
+                format!(
+                    "{job}（{}）",
+                    self.jobs.get(job).map_or("不明", String::as_str)
+                )
+            },
+            if stuck.is_empty() {
+                "なし".to_string()
+            } else {
+                stuck.join(" ")
+            }
+        );
         let reasons = self.stops()?.join("、");
         println!(
             "止める条件: {}",
@@ -1475,7 +2009,13 @@ fn execute(a: Action) -> Result<i32> {
                     regex(r"^autopilot(?:-r\d+)?$").is_match(n) && ACTIVE.contains(&s.as_str())
                 })
             {
-                println!("自動運転は起動済み");
+                let stop = pilot.home.join("stop");
+                if stop.exists() {
+                    fs::remove_file(stop)?;
+                    println!("自動運転は起動済み（停止の指示を解除した）");
+                } else {
+                    println!("自動運転は起動済み");
+                }
                 return Ok(0);
             }
             for n in ["stop", "stop-now"] {
@@ -1532,6 +2072,23 @@ fn execute(a: Action) -> Result<i32> {
                 }
                 if matches!(a, Action::Once { .. }) {
                     break;
+                }
+                if pilot.restart {
+                    // A merged coordinator fix rebuilt the tools: continue with the new binary.
+                    use std::os::unix::process::CommandExt;
+                    let mut args = vec![
+                        "run".to_string(),
+                        "--target".into(),
+                        pilot.target.to_string(),
+                    ];
+                    if let Some(p) = &pilot.personas {
+                        args.extend(["--personas".into(), p.clone()]);
+                    }
+                    drop(_lock);
+                    let e = Command::new(pilot.root.join("bin/autopilot"))
+                        .args(args)
+                        .exec();
+                    bail!("自動運転を新しい道具で起動し直せない: {e}");
                 }
                 let seconds = std::env::var("AUTOPILOT_INTERVAL_SECONDS")
                     .unwrap_or("60".into())

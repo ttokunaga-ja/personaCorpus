@@ -62,7 +62,7 @@ personaCorpus は Kio を含む他の repo に依存しない。他の repo の�
 
 - 受入の条件は、`bin/check` の自動検査、Codex の 2 回のレビュー（原稿と見た目。`runbooks/REVIEW.md`）、独立した受入の監査（`gpt-6.2-astra`。`runbooks/PRODUCTION.md` の「自動運転」）のすべてに合格することである。件数、パス、ハッシュの一致だけでは受理しない。
 - 受入の操作（`bin/batch accept`・`discard`、`git push`）は、自動運転（`bin/autopilot`）か統括が行う。自動運転は、監査が合格とした batch だけを受入し、監査が保留とした batch には触れず、統括に残す。
-- 統括は、自動運転が受入した batch を全部は見ない。受入済みの batch 10 につき 1 つを選んで自分で開いて確かめ、監査が甘いと分かったら自動運転を止めて、監査の指示（`prompts/audit.md`）を直す。
+- 統括は、確認の連続一致（`progress/checks.tsv`）が 10 に達するまでは、受入済みの batch をすべて、達したあとは 10 につき 1 つを自分で開いて確かめ、結果を `progress/checks.tsv` に記録する（`不一致` が出たら数え直し）。監査が甘いと分かったら自動運転を止めて、監査の指示（`prompts/audit.md`）を直す。
 - 不合格のファイルは受理しない。直して残すのではなく破棄し、必要なら作り直す。破棄した行と理由はファイル計画に残す。
 - 制作・レビュー・監査の Codex は stage・commit・push をしない。commit は `bin/batch accept`・`discard` だけが行い、その batch の成果物・原稿・計画・報告だけを含める。
 - 受入済みのファイルを後から変更・削除するのは、`SPEC.md` を満たさないと分かったときだけである。
@@ -78,7 +78,7 @@ personaCorpus は Kio を含む他の repo に依存しない。他の repo の�
   | 役割 | 担当 |
   |---|---|
   | 統括：制作の進め方の判断、保留になった batch の処理、抜き取りの確認、仕組み・規則・検査の修正 | Claude Opus 5.5（`claude-opus-5-5`）のセッション、または Codex `gpt-6.2-astra` のセッション（`prompts/coordinator.md`）。同時に統括を務めるのは 1 つだけ |
-  | 自動運転：依頼の作成、batch の起動、やり直し、監査の起動、受入、push | `bin/autopilot`（LLM ではないスクリプト。統括がいなくても進む） |
+  | 自動運転：依頼の作成、batch の起動、やり直し、監査の起動、受入、push。保留・確認・くり返す失敗があれば Codex の統括を起動し、その操作の指示を検証して実行する | `bin/autopilot`（LLM ではないスクリプト。統括がいなくても進む） |
   | 受入の監査、persona ごとの制作の道筋（roadmap）の作成 | Codex `gpt-6.2-astra` |
   | batch の原稿と成形 | Codex `gpt-6.1-terra` |
   | batch のテンプレート、ファイル計画、原稿のレビュー、見た目のレビュー、仕組みの改善のジョブ、Terra で品質が安定しない制作 | Codex `gpt-6.2-sol` |

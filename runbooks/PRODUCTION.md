@@ -296,8 +296,10 @@ bin/autopilot stop --now                                       # 自動運転の
 
 統括は、Claude Opus のセッションでも、Codex `gpt-6.2-astra` のセッションでもよい（`prompts/coordinator.md` を最初に渡す）。自動運転が動いていれば、統括がいない間も制作は進む。
 
+自動運転は、次のときに Codex `gpt-6.2-astra` の統括（`prompts/coordinator.md`）を 1 つだけ起動する：`progress/holds.md` に保留がある、確認が要る受入済みの batch がある、同じ batch の処理が 3 回以上失敗した。統括は sandbox の中で `.git` に書けないので、自動運転が main から作った worktree（`scratch/autopilot/wt`）で編集し、操作（`merge`・`accept`・`discard`・`resume`・`unhold`・`start`）を `actions.json` に書く。自動運転は、統括のジョブが終わったら操作を順に実行する。`merge` は、`SPEC.md`・`AGENTS.md` の変更と `people/`・`sources/` の追加・変更を拒み、道具の変更ならテストと受入済みの全ファイルの検査に通ったときだけ取り込んで、ビルドし直し、自動運転を新しい道具で起動し直す。同じ項目が 3 回の統括で片付かなければ、自動運転は統括の起動をやめ、`bin/autopilot status` の「手が要るもの」に出す（ユーザーか対話の統括が処理する）。
+
 - `bin/autopilot status` と `progress/holds.md` を見て、保留の batch を処理する：監査の報告を読み、自分で開いて確かめ、受入（`--drop` つき）か、やり直しか、破棄かを決める。原因が仕組みにあれば、仕組みを直す。
-- 受入済みの batch 10 につき 1 つを選び、自分で開いて確かめる（監査の甘さの確認）。不合格が見つかったら、自動運転を止め、監査の指示を直し、同じ時期に受入された batch を見直す。
+- 確認の連続一致（`progress/checks.tsv`）が 10 に達するまでは、受入済みの batch をすべて、達したあとは 10 につき 1 つを自分で開いて確かめる（監査の甘さの確認）。結果は `progress/checks.tsv` に `一致`・`不一致` で記録する。不合格が見つかったら、自動運転を止め、監査の指示を直し、同じ時期に受入された batch を見直す。
 - `bin/batch findings` を見て、8 節の改善のジョブを回す。
 - roadmap を見直す。形式の割合が目安から外れてきたら、次の行の「含めたいもの」で調整する。
 - ユーザーへの報告：persona ごとの受入済みの件数、保留と破棄、直した仕組みと緩めた検査、判断を仰ぐこと（選択肢と自分の案）。
