@@ -1094,3 +1094,25 @@ os.utime(p,(1767225600,1767225600))
         }
     }
 }
+
+#[test]
+fn parallel_file_checks_bound_each_ocr_process() {
+    let mut f = Fixture::new();
+    f.bytes("scan.pdf", b"PDF");
+    f.pdf_text("\x0c", BODY);
+    f.env.insert("OMP_THREAD_LIMIT".into(), "8".into());
+    let script = f.base.join("external-commands/tesseract");
+    fs::write(
+        script,
+        r#"#!/bin/sh
+if [ "$1" = "--list-langs" ]; then
+    echo eng
+    exit 0
+fi
+[ "$OMP_THREAD_LIMIT" = 1 ] || exit 42
+echo "Visible text on the scanned page"
+"#,
+    )
+    .unwrap();
+    absent(&f, "scan.pdf", "opens");
+}

@@ -59,7 +59,12 @@ fn read(p: &Path) -> Result<String> {
 }
 fn command(args: &[String]) -> Result<Vec<u8>> {
     use std::process::Stdio;
-    let mut child = Command::new(&args[0])
+    let mut command = Command::new(&args[0]);
+    if args[0] == "tesseract" {
+        // Files already run in parallel. Keep each OCR worker on one CPU thread.
+        command.env("OMP_THREAD_LIMIT", "1");
+    }
+    let mut child = command
         .args(&args[1..])
         .stdout(Stdio::piped())
         .stderr(Stdio::piped())
