@@ -255,6 +255,16 @@ s=Presentation();sl=s.slides.add_slide(s.slide_layouts[0]);sl.shapes.title.text=
         let doc = Document::load(output).unwrap();
         assert!(doc.trailer.get(b"Info").is_err());
         assert_eq!(doc.get_pages().len(), 1);
+    } // Version numbers in file names ("説明_v0.2.docx") must not lose the conversion output.
+    for extension in ["docx", "xlsx", "pptx"] {
+        let dotted = work.path().join(format!("説明_v0.2.{extension}"));
+        fs::copy(work.path().join(format!("report.{extension}")), &dotted).unwrap();
+        let output = work.path().join(format!("dotted-{extension}.pdf"));
+        run("office-pdf", &[string(&dotted), string(&output)]);
+        assert_eq!(Document::load(output).unwrap().get_pages().len(), 1);
+        let pages = work.path().join(format!("pages-{extension}"));
+        run("render", &[string(&dotted), string(&pages)]);
+        assert!(pages.join("説明_v0.2-1.png").is_file());
     }
 }
 #[test]

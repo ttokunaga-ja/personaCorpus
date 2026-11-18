@@ -281,10 +281,10 @@ fn office_pdf(source: &Path, output: &Path) -> Result<()> {
             .arg(work.path())
             .arg(&source),
     )?;
-    let pdf = work
-        .path()
-        .join(source.file_stem().unwrap())
-        .with_extension("pdf");
+    // LibreOffice replaces only the last extension: "説明_v0.2.docx" -> "説明_v0.2.pdf".
+    let mut name = source.file_stem().unwrap().to_os_string();
+    name.push(".pdf");
+    let pdf = work.path().join(name);
     ensure!(pdf.is_file(), "LibreOffice conversion failed: no output");
     clean_pdf(&pdf, output)
 }
