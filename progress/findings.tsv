@@ -636,3 +636,17 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-18	p17-construction-project-manager	b004	build-review	0	V2	Documents/海田西配送棟増築/変更/掘削増分/1028_積込行を消した藤井さん赤字.pdf	1ページ目上部の管理欄で、指定の型にある「文書番号」「版」「確認者」のラベルと値が元の試算表およびスキャンの印刷面に欠けており、前回の指摘が未解消。
 2026-11-18	p17-construction-project-manager	b004	check	2	source	Documents/海田西配送棟増築/変更/掘削増分/1028_積込行を消した藤井さん赤字.pdf	body token overlap 0.227 < 0.3
 2026-11-18	p17-construction-project-manager	b004	check	2	plan	Documents/海田西配送棟増築/変更/掘削増分/1024_搬出込みの単価をばらした表.xlsx	plan: planned file missing。成形の最終出力：[原稿](</home/ttokunaga-ja/dev/github.com/ttokunaga-ja/personaCorpus/sources/p17-construction-project-manager/Documents/海田西配送棟増築/変更/掘削増分/1024_搬出込みの単価をばらした表.xlsx.md>)、計画、事実台帳を確認しましたが、型の管理欄に必要な**文書番号・版・確認者**の指定がありません。[型の使用方法](</home/ttokunaga-ja/dev/github.com/ttokunaga-ja/personaCorpus/templates/p17-construction-project-manager/README.md>)はこれらを実際の値で埋めるよう求めています。値を推測せずに成形するには、原稿への補足が必要です。 成果物の作成、stage、commit、push は行っていません。
+2026-11-18	p17-construction-project-manager	b004	coordinator	0	other	Desktop/1015_青木さんと回る採寸箇所.docx	統括の抜き取りで不合格
+2026-11-18	p17-construction-project-manager	b004	coordinator	0	other	Desktop/1028_積込が二重に入った費用試算.xlsx	統括の抜き取りで不合格
+2026-11-18	p17-construction-project-manager	b004	coordinator	0	other	Documents/メール/海田流通/1028_原田さんへ掘削追加費用の資料送付.eml	統括の抜き取りで不合格
+2026-11-18	p17-construction-project-manager	b004	coordinator	0	other	Documents/メール/社内/1028_藤井さんへC端再確認の返事.eml	統括の抜き取りで不合格
+2026-11-18	p17-construction-project-manager	b004	coordinator	0	other	Documents/共通/積算相談/1031_西配送棟の掘削増分_月次の置き場.xlsx	統括の抜き取りで不合格
+2026-11-18	p17-construction-project-manager	b004	coordinator	0	other	Documents/海田西配送棟増築/変更/掘削増分/1028_原田さんへ掘削追加費用の説明.pdf	統括の抜き取りで不合格
+2026-11-18	p17-construction-project-manager	b004	coordinator	0	other	Documents/海田西配送棟増築/変更/掘削増分/1028_掘削150立米が増えた内訳.pdf	統括の抜き取りで不合格
+2026-11-18	p17-construction-project-manager	b004	coordinator	0	other	Documents/海田西配送棟増築/変更/掘削増分/1028_積込行を消した藤井さん赤字.pdf	統括の抜き取りで不合格
+2026-11-18	p17-construction-project-manager	b004	coordinator	0	other	Documents/海田西配送棟増築/変更/掘削増分/1028_藤井さんの端部照合.xlsx	統括の抜き取りで不合格
+2026-11-18	p17-construction-project-manager	b004	coordinator	0	other	Documents/海田西配送棟増築/変更/掘削増分/1028_追加150立米の費用説明額.xlsx	統括の抜き取りで不合格
+2026-11-18	p17-construction-project-manager	b004	coordinator	0	other	Documents/海田西配送棟増築/施工記録/1017_野帳のレベルと幅杭.xlsx	統括の抜き取りで不合格
+2026-11-18	p17-construction-project-manager	b004	coordinator	0	other	Documents/海田西配送棟増築/施工記録/1028_掘削数量の照合打合せ.docx	統括の抜き取りで不合格
+2026-11-18	p17-construction-project-manager	b004	coordinator	0	other	OneDrive - 湊梁建設/定例会議/1028_原田さんとの掘削増分説明.docx	統括の抜き取りで不合格
+2026-11-18	p17-construction-project-manager	b004	coordinator	0	other	OneDrive - 湊梁建設/定例会議/1029_原田さんとの掘削増分説明_共有控え.pdf	統括の抜き取りで不合格

@@ -14,8 +14,14 @@
 \AtBeginDocument{\color{HDInk}}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{5pt}
+\newcommand{\DrawingLogo}{%
+  \begin{tikzpicture}[x=1mm,y=1mm,baseline=-0.6mm]
+    \draw[HDLine,line width=.65pt] (0,0)--(0,4.8)--(5.8,0)--cycle;
+    \draw[HDLine,line width=.5pt] (1.5,0)--(1.5,1.5)--(0,1.5);
+  \end{tikzpicture}%
+}
 \pagestyle{fancy}\fancyhf{}
-\fancyhead[L]{\textsf{\bfseries 白島設計室}\quad 設計図・質疑回答}
+\fancyhead[L]{\DrawingLogo\enspace\textsf{\bfseries 白島設計室}\quad 設計図・質疑回答}
 \fancyfoot[L]{白島設計室}
 \fancyfoot[R]{\thepage\ / \pageref{LastPage}}
 \renewcommand{\headrulewidth}{0.4pt}
