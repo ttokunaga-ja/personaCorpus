@@ -1,6 +1,6 @@
 # 田中美由の文書の型
 
-あさひ業務システムズ株式会社（従業員86人）の開発部が、申請デスクR7の性能評価、指摘の再審査、公開判定、ADR、利用者説明に使う書式。Officeは通常のDOCX・XLSX・PPTXを開き、別名保存して使う。型には組織表示・見出し・書式だけを持たせ、案件の本文、実績値、仮の文書番号、空の明細・合計欄は入れていない。
+あさひ業務システムズ株式会社（従業員86人）の開発部が、申請デスクR7の性能評価、指摘の再審査、公開判定、ADR、利用者説明に使う書式。b002では5月の英語変更説明と読者別整理にも使う。Officeは通常のDOCX・XLSX・PPTXを開き、別名保存して使う。型には組織表示・見出し・書式だけを持たせ、案件の本文、実績値、仮の文書番号、空の明細・合計欄は入れていない。
 
 ## 一覧
 
@@ -9,13 +9,15 @@
 | 技術判断・評価 | あさひ、田中。ADR-042の説明文書、性能評価の根拠、採用案と却下案 | `asahi-decision.docx` | A4縦、表紙なし。朝日ロゴ、青い題と見出し、題下罫線、罫線表。背景・条件・採否・決定の4見出し |
 | 会議記録 | あさひ、田中・鈴木。公開判定会議、再審査、公開後の振り返り | `asahi-minutes.docx` | 共通書式。日時・資料、論点、決定、担当と期限の4見出し |
 | 利用者へのご案内 | あさひ、田中から大島ルート配送などの利用者へ。日本語の改訂通知 | `asahi-notice.docx` | 共通書式。簡潔な3見出し。あさひ発の社外文書なので自社ロゴを使う |
+| 英語変更説明 | あさひ、田中からLauraへ送る英語草稿・赤字控えと、利用者／管理者向け説明 | `asahi-explanation.docx` | 自社の朝日・青黄・ゴシックを継承。表紙なし、英語3見出し、赤字の文字スタイル `AS Review` |
+| 委託先の英文レビュー報告 | Harlow Editorial Services、Laura Nichols。委託先発のテキストPDF | `harlow-review.cls` | A4縦、えんじと墨、セリフ体、校閲括弧のロゴ、英語ヘッダと通し頁。あさひとは別の型 |
 | 試行導入の確認 | 大島ルート配送株式会社、中村美喜子。顧客発の業務確認・正式な添付回答が必要な場合 | `oshima-trial.docx` | A4縦、表紙なし。折れ曲がる配送経路と矢印のロゴ、緑と墨、明朝。あさひの朝日・青・ゴシックと区別 |
 | 性能の測定 | あさひ、田中。測定条件と結果の別シート、比較の根拠 | `asahi-performance.xlsx` | A4横。朝日ロゴ、青白の列見出し。条件6列と結果8列。p50・p95・目標を分離 |
 | 指摘・公開判定 | あさひ、鈴木・田中・佐藤。未解決指摘の消し込みと判定観点の照合 | `asahi-release.xlsx` | A4横、共通の書式。指摘と再審査、公開判定の2シート。根拠と未決事項の列を広く取る |
 | 公開判定の説明 | あさひ、田中から佐藤・会議参加者へ。判定会議の資料 | `asahi-release.pptx` | 16:9白地、上部に朝日と社名、青の題、下罫線と開発部フッタ。1マスターと実レイアウト5種。型はスライド0枚 |
 | 性能測定・評価記録 | あさひ、田中。Officeを経ずに直接PDFに組む測定報告が計画にある場合 | `asahi-measurement.cls` | LuaLaTeX、A4縦。朝日・青の題と罫線、繰り返し表見出し、会社・開発部と現在頁／総頁 |
 
-ADR-042のDOCXとPDFは `asahi-decision.docx` で完成させた同じ文書から `bin/office-pdf` で作る。TeXでADRを作り直さない。TeXの型や社外の型があることを理由に成果物を増やさない。中村との通常のメールはEMLのままで、顧客のOffice書式へ移さない。Laura、他製品、他顧客の型は今回作っていない。
+ADR-042のDOCXとPDFは `asahi-decision.docx` で完成させた同じ文書から `bin/office-pdf` で作る。TeXでADRを作り直さない。TeXの型や社外の型があることを理由に成果物を増やさない。中村との通常のメールはEMLのままで、顧客のOffice書式へ移さない。b002の委託先レビュー報告は `harlow-review.cls` で直接PDFにする。Lauraがあさひの草稿に赤字を入れる版は、自社の `asahi-explanation.docx` を維持する。読者別説明のPDFは同型で完成させたDOCXを `bin/office-pdf` で変換し、別のTeXで書き直さない。
 
 ## 組織の識別
 
@@ -23,14 +25,14 @@ ADR-042のDOCXとPDFは `asahi-decision.docx` で完成させた同じ文書か�
 - Word・Excelの図形ロゴは画像をファイル内部に埋込み、PowerPointのマスターとTeXでは図形で持つ。ロゴの外部ファイル依存はない。Officeの日本語・欧文は Noto Sans CJK JP。TeXの日本語も同じ、欧文は環境にある Liberation Sans。
 - 大島ルート配送は緑 `355E4B` と墨 `29313F`。日本語・欧文とも Noto Serif CJK JP。ヘッダは配送経路ロゴと社名、フッタは会社名・試行導入窓口・自動ページ番号。所在地、電話、署名、押印を型で作らない。
 - 自社のWordとTeXのヘッダは社名と文書種別、フッタは会社名・開発部・自動ページ番号。Excelはシート上段にロゴと会社名、印刷ヘッダに開発部、印刷フッタに社名と現在頁／総頁。PowerPointはマスターにロゴ・社名・部門を持ち、成形時に各スライドの右下へページ番号を入れる。
-- 文書番号は自社 `ABS-YYYY-用途-連番`。用途は `EV`（評価）、`MT`（議事録）、`NT`（通知）、`PF`（測定表・直接PDF）、`RL`（指摘・判定表）、`BR`（会議資料）。ADRは既定の `ADR-042` を文書番号として使い、別の番号を重ねない。版は番号とは別項目で記載する。大島の正式な確認書は `OR-YYYY-連番`。実値は計画・事実台帳で決める。同じDOCXとPDFは同番号・同版。メモ・写真・CSV・メールへ番号を強制しない。
+- 文書番号は自社 `ABS-YYYY-用途-連番`。用途は `EV`（評価）、`MT`（議事録）、`NT`（通知）、`PF`（測定表・直接PDF）、`RL`（指摘・判定表）、`BR`（会議資料）、`EX`（英語変更説明）。ADRは既定の `ADR-042` を文書番号として使い、別の番号を重ねない。版は番号とは別項目で記載する。大島の正式な確認書は `OR-YYYY-連番`。実値は計画・事実台帳で決める。同じDOCXとPDFは同番号・同版。メモ・写真・CSV・メールへ番号を強制しない。
 - 他personaのREADME（p03・p05・p12・p14・p17・p18）を確認し、p14の `cedar-review.docx` とp05の `oriba-analysis.docx` の実物を開いて書式も比較した。既存の木材・織り目・封筒・灯・柱梁・寸法枠と区別し、朝日と青黄を選んだ。他personaの型は変更していない。
 
 ## Wordの成形
 
-`Document(型のパス)`で開く。先頭見出しの前へ `Title` で実際の題を、`AS Metadata` で文書番号・版・日付・作成者・確認者・宛先を原稿に従って入れる。原稿の内容を既存の各見出しの下へ挿入し、不要な見出しは削る。空の節を完成文書に残さない。本文のNormalは10.5pt、Titleは23pt、Heading 1は13pt、Heading 2は11pt、段落後7pt、行間1.18。注記は `AS Note`、表題はCaption。独立した表紙は全4型とも設けない。
+`Document(型のパス)`で開く。先頭見出しの前へ `Title` で実際の題を、`AS Metadata` で文書番号・版・日付・作成者・確認者・宛先を原稿に従って入れる。原稿の内容を既存の各見出しの下へ挿入し、不要な見出しは削る。空の節を完成文書に残さない。本文のNormalは10.5pt、Titleは23pt、Heading 1は13pt、Heading 2は11pt、段落後7pt、行間1.18。注記は `AS Note`、表題はCaption。独立した表紙は全5型とも設けない。
 
-表は必要なときだけ追加し `AS Table` を指定する。先頭行のセル内段落を `AS Table Header`（白字・太字9pt）、明細のセル内段落を `AS Table Body`（9pt）にする。スタイルのfirstRowが自社は青、顧客は緑の背景を持つ。表先頭行の `w:trPr` に `w:tblHeader` を付け、複数ページで繰り返す。表幅は本文166mm以内。長い文章には列幅を明示し、セル内折返しとページ境界を確認する。見出しのkeep-with-nextを有効にしている。
+表は必要なときだけ追加し `AS Table` を指定する。先頭行のセル内段落を `AS Table Header`（白字・太字9pt）、明細のセル内段落を `AS Table Body`（9pt）にする。スタイルのfirstRowが自社は青、顧客は緑の背景を持つ。表先頭行の `w:trPr` に `w:tblHeader` を付け、複数ページで繰り返す。各明細行の `w:trPr` に `w:cantSplit` を付け、1行の文章がページをまたいで分断されないようにする。1行が本文1ページを超える場合は内容の区切りで行を分ける。表幅は本文166mm以内。長い文章には列幅を明示し、セル内折返しとページ境界を確認する。見出しのkeep-with-nextを有効にしている。
 
 ## Excelの成形
 
@@ -40,14 +42,16 @@ ADR-042のDOCXとPDFは `asahi-decision.docx` で完成させた同じ文書か�
 
 | 名前付きスタイル | 適用する実セルと書式 |
 |---|---|
-| `AS Text` | 明細の文字。Noto Sans CJK JP 9pt、上寄せ、折返し、薄い下罫線 |
+| `AS Text` | 明細の文字。Noto Sans CJK JP 9pt、左寄せ・左インデント1、上寄せ、折返し、薄い下罫線 |
 | `AS Number` | msなど小数値。小数1桁 `0.0`、右寄せ。精度が異なる原稿はnumber_formatを変更 |
 | `AS Count` | 標本数・件数。整数 `0`、右寄せ |
-| `AS Date` | 実日付値。表示 `yyyy-mm-dd` |
+| `AS Date` | 実日付値。表示 `yyyy-mm-dd`、左寄せ・左インデント1 |
 | `AS Total` | 原稿に集計がある場合だけ作る実セル。整数、太字・淡青、青の上罫線と二重下罫線 |
-| `AS Note` | 実際の注記。8pt、折返し。長い注記は必要範囲を結合し、行高を合わせる |
+| `AS Note` | 実際の注記。8pt、左寄せ・左インデント1、折返し。長い注記は必要範囲を結合し、行高を合わせる |
 
-各明細セルへ対応する名前付きスタイルを付ける。明細行高は内容に応じて調整する（見本43pt）。合計はデータの直後に原稿の式で作り、合計行の実範囲全体に `AS Total` を設定する。件数や重大未解決数はCOUNTA/COUNTIFSなど、内容に対応する式を使う。不要な合計を作らない。注記はその下へ実際の本文がある場合だけ追加する。
+ブックの既定Normalとフォント0も Noto Sans CJK JP 9pt・墨に設定済みで、未入力セルの既定も同じ。型の左寄せ列見出しにも左インデント1を設定してある。
+
+各明細セルへ対応する名前付きスタイルを付ける。数値列（`AS Count`・`AS Number`）は右寄せ・インデント0、右隣の文字列は `AS Text` の左インデント1を必ず維持する。先頭連番列の右隣も同じ。配置を上書きするときも `Alignment(horizontal="left", vertical="top", wrap_text=True, indent=1)` とし、列幅に文字と余白を含める。明細行高は内容に応じて調整する（見本43pt）。合計はデータの直後に原稿の式で作り、合計行の実範囲全体に `AS Total` を設定する。合計行のラベルセルだけは左寄せ・左インデント1へ変更し、式と数値は右寄せ・インデント0を維持する。件数や重大未解決数はCOUNTA/COUNTIFSなど、内容に対応する式を使う。不要な合計を作らない。注記はその下へ実際の本文がある場合だけ追加する。
 
 印刷はA4横、横1ページ・縦は自動、余白左右0.3in・上下0.4in、1～3行の見出しを毎頁繰返し。固定はC4。データ追加後に `auto_filter.ref` を3行目～最後の明細、`print_area` をA1～注記を含む最終セルへ更新する。印刷範囲を空白行・列へ広げない。不要なシートは削除してよい。CSVは結果や条件をテキスト表として保存し、会社ロゴや見出し装飾をCSVへ混ぜない。
 
@@ -67,27 +71,34 @@ ADR-042のDOCXとPDFは `asahi-decision.docx` で完成させた同じ文書か�
 - 表は本文幅166mm以内のlongtable。例の列幅は31・29・28・52mmで、列間の余白を含めて本文内へ収める。
 - 先頭見出しを `\ReportHead{\HeadCell{項目}&…}` で作り、`\endfirsthead` の後に同じ見出しを置いて `\endhead` とする。明細は実際の内容だけを追加する。合計は原稿にある場合だけ太字・淡青で追加する。空の記入欄や仮の集計を追加しない。
 
+## b002での使い分け
+
+- 英語草稿と読者別説明は `asahi-explanation.docx`。見出しは Scope and intended readers / Changes and user actions / Open questions and review status。原稿にない節は削除する。本文・表・管理欄は前記Word手順を使う。自社番号は `ABS-YYYY-EX-連番`。Lauraの修正は原稿指定の人・日付・版と修正前後を保ち、`AS Review` の赤字 `A02B35` で示す。削除箇所は原稿指定のときだけ取り消し線にし、文書全体の本文色は変えない。履歴機能が必要なら原稿の履歴情報をOOXMLの変更履歴に入れ、単なる赤字を変更履歴機能として扱わない。
+- 既存 `asahi-release.pptx` の全5レイアウトを英語の読者別説明にも使う。ファイル名は既存の型名であり、公開済みを意味しない。利用者10項目と管理者6項目の対象読者・用途を分け、5月時点の公開可否は未決と明示する。5月の資料に7月の測定・ADR・公開判定を先取りしない。
+- `harlow-review.cls` は委託先自身の報告。えんじ `743B51`・墨 `343034`。校閲括弧と3本の本文線のロゴに会社名の文字を添える。欧文 Liberation Serif、サンセリフは Liberation Sans、日本語 Noto Serif CJK JP、和文サンセリフは Noto Sans CJK JP。本文は墨、題・節見出し・注記・ヘッダ罫線と社名はえんじ、表見出しはえんじに白字を実適用する。ヘッダは会社名と Editorial review、フッタは会社名・Language review・現在頁／総頁。表紙なし。
+- TeXの呼出しは `\documentclass{harlow-review}`、`\ReviewTitle{実題}{HES-YYYY-ER-連番}{版}{日付}{Laura Nichols}`、`\section`、`\ReviewNote{実際の注記}`。実番号・版・確認日は後続の計画と台帳で確定する。longtableの見出しは `\ReviewHead{\ReviewCell{Audience}&…}` とし、`\endfirsthead` と `\endhead` の前に同じ見出しを入れる。本文幅162mm以内（見本のp列は27・35・55・21mm、列間余白込みで収まる）。明細と必要な合計だけを呼出し側で追加する。`TEXINPUTS` と `bin/tex` は前記と同じ。
+- 既存の測定・公開判定の型と顧客の型は維持し、b002で再制作する根拠にはしない。7月の日本語通知はb001個別依頼の例外。b002の英語説明を日本語通知へ変更しない。
+- 個人のMD・TXT、EML、画面PNG、保存した製品説明HTMLにはOfficeの紙面書式を適用しない。HTMLは製品の画面として、画面PNGは説明対象の状態として作り、会社の報告書に見せない。16項目の内容、往復の版と確認日の確定は次の計画段階で行い、型の見本を事実台帳へ転記しない。
+
 ## 見本と確認先
 
-今回の見本は `scratch/p01-software-engineer/b001/work/templates-0001/examples/`、全ページの画像は同workの `render/`。見本にある仮内容は組版確認用で、事実台帳や配布物の原稿ではない。実際の事実は後続の計画で確定する。
+今回の作業先は `scratch/p01-software-engineer/b002/work/templates-0002/`。下表はこのworkからの相対パス。見本は組版確認専用であり、業務事実や配布物の原稿ではない。消失したb001のscratch参照は置き換えた。
 
-| 型 | 見本（examples内） | 画像（render内） |
+| 型 | 見本（work以下） | 全ページの画像（work以下） |
 |---|---|---|
-| asahi-decision.docx | 同名DOCX、長い表を含む3頁 | `asahi-decision/` |
-| asahi-minutes.docx | 同名DOCX、1頁 | `asahi-minutes/` |
-| asahi-notice.docx | 同名DOCX、1頁 | `asahi-notice/` |
-| oshima-trial.docx | 同名DOCX、1頁 | `oshima-trial/` |
-| asahi-performance.xlsx | `asahi-performance-3.xlsx`、`asahi-performance-36.xlsx`（各シート3行／36行） | `asahi-performance-3/`、`asahi-performance-36/` |
-| asahi-release.xlsx | `asahi-release-3.xlsx`、`asahi-release-36.xlsx`（各シート3行／36行） | `asahi-release-3/`、`asahi-release-36/` |
-| asahi-release.pptx | 同名PPTX、全5レイアウト | `asahi-release/` |
-| asahi-measurement.cls | `asahi-measurement.tex` とPDF、2頁 | `asahi-measurement/` |
+| asahi-decision.docx | `examples/asahi-decision.docx` | `render/asahi-decision/` |
+| asahi-minutes.docx | `examples/asahi-minutes.docx` | `render/asahi-minutes/` |
+| asahi-notice.docx | `examples/asahi-notice.docx` | `render/asahi-notice/` |
+| asahi-explanation.docx | `examples/asahi-explanation.docx` と `examples/asahi-explanation.pdf` | `render/asahi-explanation/`（同内容のDOCX・PDF） |
+| oshima-trial.docx | `examples/oshima-trial.docx` | `render/oshima-trial/` |
+| asahi-performance.xlsx | `examples/asahi-performance-3.xlsx`、`examples/asahi-performance-36.xlsx` | `render/asahi-performance-3/`、`render/asahi-performance-36/` |
+| asahi-release.xlsx | `examples/asahi-release-3.xlsx`、`examples/asahi-release-36.xlsx` | `render/asahi-release-3/`、`render/asahi-release-36/` |
+| asahi-release.pptx | `examples/asahi-release.pptx`（全5レイアウト） | `render/asahi-release/` |
+| asahi-measurement.cls | `examples/asahi-measurement.tex` と `examples/asahi-measurement.pdf` | `render/asahi-measurement/` |
+| harlow-review.cls | `examples/harlow-review-3.tex` とPDF、`examples/harlow-review-32.tex` とPDF | `render/harlow-review-3/`、`render/harlow-review-32/` |
 
-この段階ではpeople、sources、persona定義を変更していない。既存のp01型・計画・facts.mdはなかった。言語設定に「利用者向け通知は英語」とあるが、今回の依頼で明示された日本語を本batchに適用する。写真・手描きのボード・画面・メール・田中の個人メモへOfficeの型を適用しない。写真制作時はimagegen skillを読む。
+Excelの見本は各シート3明細と36明細。管理欄は `ABS-2026-PF-064` または `ABS-2026-RL-064`・版0.3・基準日2026-05-19・田中美由・Laura Nicholsを省略せず入力し、末尾の結合注記欄に配置する。隣接列の数値64／文字「64件の説明を確認」と、先頭の19／文字「TK250709-019」で余白を検証する。実データを入れた行と必要な合計・注記のみを追加しており、型そのものは全シート3行のまま。
 
-### PowerPointロゴの修正と再確認
+PowerPointマスターの黄色の朝日・青い水平線・短い下線は維持。型は1マスター・5レイアウト・スライド0枚。既存Word4型、PowerPoint、測定TeXの実物は維持し、新しい見本を開き直して確認した。受入済み成果物、sources、persona定義、factsは変更しない。別実行のtemplates-reviewによる再検査はこの作業には含めない。
 
-`asahi-release.pptx` のマスターに、共通ロゴで定めた青い短い下線を追加した。位置は左0.485in・上0.46in、幅0.4in・高さ0.023in、色は `2548A6`。黄色の朝日・青い水平線の下に配置し、全5レイアウトが同じマスターから継承する。型のスライドは0枚のまま、既存のレイアウト・文字書式・他の型は維持した。
-
-修正後の見本は `scratch/p01-software-engineer/b001/work/templates-0003/examples/asahi-release.pptx`。この見本は修正した型を開いて全5レイアウトに内容を入れたもので、上表のPowerPoint見本に代わる。`bin/render` で出力した全5頁は同workの `render/asahi-release/`、全頁とロゴの確認用一覧は `render/slides-and-logos.jpg`。全レイアウトで短い下線が表示され、本文・表・図とヘッダ・フッタに重なりや欠けがないことを目視確認した。見本の内容は組版確認用であり、計画・事実台帳へ転記しない。
-
-`check_logo.py` でマスターの下線の色・位置・寸法、1マスター・5レイアウト・スライド0枚を確認した。PPTX内部で変更した部品は `ppt/slideMasters/slideMaster1.xml` のみ。受入済み成果物は変更していない。別実行のtemplates-reviewによる検査は未実施。
+今回の確認：`bin/tex`（測定型1見本、Harlow型2見本）、`bin/office-pdf`（英語説明）、各見本の `bin/render` はすべて終了コード0。画像39ページを全て目視確認し、Excelの短表・長表の列間隔、管理番号全文・日付・氏名、繰返し見出し、Word長表の行分断防止、英語説明の赤字、PowerPoint全5レイアウト、Harlowの1頁／3頁のヘッダ・フッタを確認した。見本17ファイルを再読込し、READMEの具体的な見本・画像参照28か所を検証済み。`structure.json` と `validation.json` は今回のwork直下にある。変更は型と書式のため、Red→Greenの機能テストに代えて構造検査・実変換・全ページの画像確認を行った。`git diff --check` は成功。独立したtemplates-reviewの再検査は未実施。

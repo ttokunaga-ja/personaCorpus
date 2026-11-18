@@ -12,5 +12,6 @@ p08-product-manager	b001	2026-11-16	35	1	2	0	0	accepted	5358.52
 p15-recruiter-people-ops	b001	2026-11-16	35	2	0	1	0	accepted	4704.39
 p13-corporate-privacy-counsel	b001	2026-11-16	35	0	1	1	1	accepted	6060.83
 p17-construction-project-manager	b002	2026-11-17	39	0	0	0	0	failed	1543.14
-p01-software-engineer	b002	2026-11-17	35	0	0	0	0	failed	1943.75
+p01-software-engineer	b002	2026-11-17	35	5	2	0	0	accepted	10741.08
 p14-finance-controller	b007	2026-11-17	40	3	0	0	0	accepted	5929.65
+p14-finance-controller	b008	2026-11-17	35	0	33	0	0	done	26068.41

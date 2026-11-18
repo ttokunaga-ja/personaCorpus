@@ -268,3 +268,121 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-17	p14-finance-controller	b007	draft-review	0	D5	Documents/決算・監査/2025/2026-01_固定資産の年間増減.xlsx	取得価額・累計償却・純額照合の各表は行番号を除くとA項目・B根拠・C金額だが、合計がSUM(D6:D8)、シート参照が取得価額!D7等と全てD列を指し、金額列を集計・照合できない。
 2026-11-17	p14-finance-controller	b007	draft-review	0	D4	Desktop/2026-01_東雲への提出控え_初回.xlsx	シート「提出区分」11行の現預金担当が柳瀬となっているが、facts.md「2025年12月期の依頼管理の引継ぎと提出状態」と1月9日の依頼管理11行はいずれも千田であり、担当変更の経緯もない。
 2026-11-17	p14-finance-controller	b007	draft-review	0	D4	Outlook 保存/年度監査/2026-03_能登さんから継続確認と計画期限.eml	本文「1月に取消を行った精算64件」は実行時期が不一致。persona定義・facts.md「64件の振込履歴、社員精算未払と取消」・既存1月締め会議メモでは、取消登録は2月5日で会計日が1月31日であり、1月中の取消実行ではない。
+2026-11-17	p14-finance-controller	b008	templates-review	0	other	README.md	年度監査の見本参照 scratch/p14-finance-controller/b007/work/plan-0002/examples/ と同workの render/ が実在せず、shinonome-audit.pdf・cedar-evidence.pdfの記載参照を確認できない。
+2026-11-17	p14-finance-controller	b008	check	0	mtime	Desktop/2026-02_JPY-USD換算_確認用.xlsx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	0	mtime	Desktop/2026-02_未払費用_確認用.xlsx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	0	mtime	Desktop/2026-02_締めチェック_開始時.xlsx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	0	mtime	Desktop/2026-02_締め前に聞くこと.txt	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	0	mtime	Desktop/2026-02_電力は先月のままでは.txt	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	0	mtime	Documents/月次/2026/2026-02/2026-02_CFO締め報告.pptx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	0	mtime	Documents/月次/2026/2026-02/2026-02_主要勘定照合.pdf	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	0	mtime	Documents/月次/2026/2026-02/2026-02_借入と資金確認.xlsx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	0	mtime	Documents/月次/2026/2026-02/2026-02_固定資産調整.xlsx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	0	mtime	Documents/月次/2026/2026-02/2026-02_在庫調整.xlsx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	0	mtime	Documents/月次/2026/2026-02/2026-02_売掛金調整.xlsx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	0	mtime	Documents/月次/2026/2026-02/2026-02_工場電力の見積根拠.xlsx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	0	mtime	Documents/月次/2026/2026-02/2026-02_未払費用確認.xlsx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	0	mtime	Documents/月次/2026/2026-02/2026-02_残高増減と当月損益.xlsx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	0	mtime	Documents/月次/2026/2026-02/2026-02_現預金調整.xlsx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	0	mtime	Documents/月次/2026/2026-02/2026-02_締めチェック.xlsx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	0	mtime	Documents/月次/2026/2026-02/2026-02_締め会議メモ.docx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	0	mtime	Documents/月次/2026/2026-02/2026-02_試算表_確定.csv	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	0	mtime	Documents/月次/2026/2026-02/2026-02_買掛金調整.xlsx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	0	mtime	Documents/月次/2026/2026-02/2026-02_通常精算の取込確認.xlsx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	0	mtime	Documents/月次/2026/2026-02/2026-02_電力見積の確認記録.docx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	0	mtime	Documents/月次/2026/2026-02/2026-02_電力見積修正仕訳.csv	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	0	mtime	Documents/親会社報告/2026/2026-02_JPY-USD換算.xlsx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	0	mtime	Documents/親会社報告/2026/2026-02_Monthly Financial Review.docx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	0	mtime	Downloads/2026-02_みなと中央銀行残高証明.pdf	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	0	mtime	Downloads/2026-02_仕入先残高.csv	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	0	mtime	Downloads/2026-02_得意先残高.csv	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	0	mtime	Downloads/2026-02_現預金の月間増減.csv	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	0	mtime	Outlook 保存/社内連絡/2026-02_勉強会の資料を会議室に置きました.eml	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	0	mtime	Outlook 保存/親会社/2026-02_Electricity estimate question.eml	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	0	mtime	Outlook 保存/親会社/2026-02_February reporting rates.eml	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	0	mtime	Outlook 保存/親会社/2026-02_Re_Electricity estimate question.eml	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	0	mtime	Pictures/2026-02_Ledgerline未払費用の照会.png	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	1	mtime	Desktop/2026-02_JPY-USD換算_確認用.xlsx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	1	mtime	Desktop/2026-02_未払費用_確認用.xlsx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	1	mtime	Desktop/2026-02_締めチェック_開始時.xlsx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	1	mtime	Desktop/2026-02_締め前に聞くこと.txt	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	1	mtime	Desktop/2026-02_電力は先月のままでは.txt	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	1	mtime	Documents/月次/2026/2026-02/2026-02_CFO締め報告.pptx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	1	mtime	Documents/月次/2026/2026-02/2026-02_主要勘定照合.pdf	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	1	mtime	Documents/月次/2026/2026-02/2026-02_借入と資金確認.xlsx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	1	mtime	Documents/月次/2026/2026-02/2026-02_固定資産調整.xlsx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	1	mtime	Documents/月次/2026/2026-02/2026-02_在庫調整.xlsx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	1	mtime	Documents/月次/2026/2026-02/2026-02_売掛金調整.xlsx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	1	mtime	Documents/月次/2026/2026-02/2026-02_工場電力の見積根拠.xlsx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	1	mtime	Documents/月次/2026/2026-02/2026-02_未払費用確認.xlsx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	1	mtime	Documents/月次/2026/2026-02/2026-02_残高増減と当月損益.xlsx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	1	mtime	Documents/月次/2026/2026-02/2026-02_現預金調整.xlsx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	1	mtime	Documents/月次/2026/2026-02/2026-02_締めチェック.xlsx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	1	mtime	Documents/月次/2026/2026-02/2026-02_締め会議メモ.docx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	1	mtime	Documents/月次/2026/2026-02/2026-02_試算表_確定.csv	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	1	mtime	Documents/月次/2026/2026-02/2026-02_買掛金調整.xlsx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	1	mtime	Documents/月次/2026/2026-02/2026-02_通常精算の取込確認.xlsx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	1	mtime	Documents/月次/2026/2026-02/2026-02_電力見積の確認記録.docx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	1	mtime	Documents/月次/2026/2026-02/2026-02_電力見積修正仕訳.csv	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	1	mtime	Documents/親会社報告/2026/2026-02_JPY-USD換算.xlsx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	1	mtime	Documents/親会社報告/2026/2026-02_Monthly Financial Review.docx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	1	mtime	Downloads/2026-02_みなと中央銀行残高証明.pdf	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	1	mtime	Downloads/2026-02_仕入先残高.csv	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	1	mtime	Downloads/2026-02_得意先残高.csv	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	1	mtime	Downloads/2026-02_現預金の月間増減.csv	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	1	mtime	Outlook 保存/社内連絡/2026-02_勉強会の資料を会議室に置きました.eml	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	1	mtime	Outlook 保存/親会社/2026-02_Electricity estimate question.eml	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	1	mtime	Outlook 保存/親会社/2026-02_February reporting rates.eml	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	1	mtime	Outlook 保存/親会社/2026-02_Re_Electricity estimate question.eml	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	1	mtime	Pictures/2026-02_Ledgerline未払費用の照会.png	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	2	mtime	Desktop/2026-02_JPY-USD換算_確認用.xlsx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	2	mtime	Desktop/2026-02_未払費用_確認用.xlsx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	2	mtime	Desktop/2026-02_締めチェック_開始時.xlsx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	2	mtime	Desktop/2026-02_締め前に聞くこと.txt	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	2	mtime	Desktop/2026-02_電力は先月のままでは.txt	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	2	mtime	Documents/月次/2026/2026-02/2026-02_CFO締め報告.pptx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	2	mtime	Documents/月次/2026/2026-02/2026-02_主要勘定照合.pdf	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	2	mtime	Documents/月次/2026/2026-02/2026-02_借入と資金確認.xlsx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	2	mtime	Documents/月次/2026/2026-02/2026-02_固定資産調整.xlsx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	2	mtime	Documents/月次/2026/2026-02/2026-02_在庫調整.xlsx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	2	mtime	Documents/月次/2026/2026-02/2026-02_売掛金調整.xlsx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	2	mtime	Documents/月次/2026/2026-02/2026-02_工場電力の見積根拠.xlsx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	2	mtime	Documents/月次/2026/2026-02/2026-02_未払費用確認.xlsx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	2	mtime	Documents/月次/2026/2026-02/2026-02_残高増減と当月損益.xlsx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	2	mtime	Documents/月次/2026/2026-02/2026-02_現預金調整.xlsx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	2	mtime	Documents/月次/2026/2026-02/2026-02_締めチェック.xlsx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	2	mtime	Documents/月次/2026/2026-02/2026-02_締め会議メモ.docx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	2	mtime	Documents/月次/2026/2026-02/2026-02_試算表_確定.csv	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	2	mtime	Documents/月次/2026/2026-02/2026-02_買掛金調整.xlsx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	2	mtime	Documents/月次/2026/2026-02/2026-02_通常精算の取込確認.xlsx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	2	mtime	Documents/月次/2026/2026-02/2026-02_電力見積の確認記録.docx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	2	mtime	Documents/月次/2026/2026-02/2026-02_電力見積修正仕訳.csv	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	2	mtime	Documents/親会社報告/2026/2026-02_JPY-USD換算.xlsx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	2	mtime	Documents/親会社報告/2026/2026-02_Monthly Financial Review.docx	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	2	mtime	Downloads/2026-02_みなと中央銀行残高証明.pdf	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	2	mtime	Downloads/2026-02_仕入先残高.csv	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	2	mtime	Downloads/2026-02_得意先残高.csv	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	2	mtime	Downloads/2026-02_現預金の月間増減.csv	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	2	mtime	Outlook 保存/社内連絡/2026-02_勉強会の資料を会議室に置きました.eml	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	2	mtime	Outlook 保存/親会社/2026-02_Electricity estimate question.eml	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	2	mtime	Outlook 保存/親会社/2026-02_February reporting rates.eml	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	2	mtime	Outlook 保存/親会社/2026-02_Re_Electricity estimate question.eml	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	2	mtime	Pictures/2026-02_Ledgerline未払費用の照会.png	invalid plan timestamp
+2026-11-17	p14-finance-controller	b008	check	2	plan	Outlook 保存/親会社/2026-02_February close package.eml	plan: planned file missing。成形の最終出力：対象メールは未作成です。指定された添付元 [2026-02_Monthly Financial Review.pdf](</home/ttokunaga-ja/dev/github.com/ttokunaga-ja/personaCorpus/people/p14-finance-controller/Documents/親会社報告/2026/2026-02_Monthly Financial Review.pdf>) が引き続き存在せず、PDF は今回の対象行にも含まれていません。 実ファイルの添付が必須のため、メールの成形を見送りました。ファイルの変更は行っていません。
+2026-11-17	p14-finance-controller	b008	check	2	plan	Outlook 保存/親会社/2026-02_February close package.eml	plan: planned file missing。成形の最終出力：対象メールは未作成です。原稿が指定する添付元 [2026-02_Monthly Financial Review.pdf](</home/ttokunaga-ja/dev/github.com/ttokunaga-ja/personaCorpus/people/p14-finance-controller/Documents/親会社報告/2026/2026-02_Monthly Financial Review.pdf>) が存在せず、PDF は今回の対象行にも含まれていません。実ファイルの添付が必須のため、成形を見送りました。 ファイルの変更、stage、commit、push は行っていません。
+2026-11-17	p14-finance-controller	b008	check	2	plan	Outlook 保存/親会社/2026-02_February close package.eml	plan: planned file missing。成形の最終出力：対象のメールは未作成です。原稿が指定する添付元 [2026-02_Monthly Financial Review.pdf](</home/ttokunaga-ja/dev/github.com/ttokunaga-ja/personaCorpus/people/p14-finance-controller/Documents/親会社報告/2026/2026-02_Monthly Financial Review.pdf>) が現在も存在せず、実ファイルを添付できません。 PDF は今回の対象行に含まれていないため、作成していません。ファイルの変更、stage・commit・push は行っていません。
+2026-11-18	p14-finance-controller	b008	build-review	0	V1	Desktop/2026-02_締めチェック_開始時.xlsx	原稿冒頭の表題「2026年2月 締めチェック」がシート内にも印刷ヘッダにもなく、印刷中央のヘッダは型の「Cedar Works | Finance」のまま。
+2026-11-18	p14-finance-controller	b008	build-review	0	V3	Documents/月次/2026/2026-02/2026-02_未払費用確認.xlsx	未払費用シートの1ページ目で、推移表のA12:F12に「未払費用の推移／金額（円）／状況」が左寄せの一続きで出力され、B13:B17が状況、C13:C17が金額である明細の列と見出しが対応していない。
+2026-11-18	p14-finance-controller	b008	build-review	0	V2	Documents/月次/2026/2026-02/2026-02_CFO締め報告.pptx	3・4枚目の図と5枚目の表は描画され、全6枚の発表者メモも原稿と一致するが、3〜5枚目の編集用データに型の空のコンテンツプレースホルダー（idx=1）が図表と重なって残っている。
+2026-11-18	p14-finance-controller	b008	build-review	0	V2	Documents/月次/2026/2026-02/2026-02_締めチェック.xlsx	第16行の完了件数はCOUNT式で10件になるが、A16とD16が通常の明細書式で、型の集計行に指定された薄緑と二重下罫線のCW Totalが適用されていない。
+2026-11-18	p14-finance-controller	b008	build-review	0	V2	Documents/親会社報告/2026/2026-02_JPY-USD換算.xlsx	期末151円・平均150円の参照式とUSD表示は原稿と一致するが、「預金増減の表示」の集計行A24・C24・E24が通常の明細書式のままで、型の薄緑と二重下罫線のCW Totalが適用されていない。
+2026-11-18	p14-finance-controller	b008	check	2	plan	Outlook 保存/親会社/2026-02_February close package.eml	plan: planned file missing。成形の最終出力：対象のメールは未作成です。原稿が実添付に指定する [2026-02_Monthly Financial Review.pdf](</home/ttokunaga-ja/dev/github.com/ttokunaga-ja/personaCorpus/people/p14-finance-controller/Documents/親会社報告/2026/2026-02_Monthly Financial Review.pdf>) が存在せず、指定どおりに添付できません。PDF は今回の対象行に含まれていません。 ファイルの変更、stage・commit・push は行っていません。
+2026-11-18	p01-software-engineer	b002	draft-review	0	D4	Library/CloudStorage/あさひ業務システムズ/設計会議/0527_R7読者別説明の引継ぎ.pptx	スライド5右の「5日・25日のSD-6831は受付済み／確認中」は表示元を一括りにしているが、5日の一覧原稿にある状態は「受付済み」で、「確認中」を読めるのは25日の詳細原稿だけである。
+2026-11-18	p01-software-engineer	b002	draft-review	0	D10	Downloads/0501_申請デスク_製品説明.html	原稿11行目の製品ナビゲーションは「製品情報｜申請デスク｜お問い合わせ」の表示名だけで、31行目の問い合わせリンク以外に遷移先の指定がなく、計画のナビゲーションを原稿だけでは成形できない。
+2026-11-18	p01-software-engineer	b002	draft-review	0	D1	Documents/用語と説明/0521_R7管理者向け説明_v0.3.docx	A02「Destination and internal routing」は申請者に示す確認先と内部振分けの一般的な照合だけを記し、personaの仕事の流れでA02の対象と定めた代理申請を本文で特定していない。
+2026-11-18	p01-software-engineer	b002	draft-review	0	D10	Documents/メール控え/申請デスク/0507_Lauraへ_十六項目の確認依頼.eml	末尾の添付欄にファイル名0507_R7変更説明_v0.1.docxはあるが、計画が原稿への併記を指定した添付元の相対パスDocuments/用語と説明/0507_R7変更説明_v0.1.docxが記録されていない。
+2026-11-18	p01-software-engineer	b002	draft-review	0	D10	Documents/メール控え/申請デスク/0520_Laura_分離後の確認範囲.eml	末尾の添付欄にファイル名0520_Laura_R7分離後の残課題.pdfはあるが、計画が原稿への併記を指定した添付元の相対パスDownloads/0520_Laura_R7分離後の残課題.pdfが記録されていない。
+2026-11-18	p01-software-engineer	b002	build-review	0	V2	Library/CloudStorage/あさひ業務システムズ/設計会議/0519_R7説明の読者を相談.pptx	1〜6枚目の右下に成形指定と見本のページ番号がなく、5枚目の2本の矢印は指定の黄色ではなく青で表示される。
+2026-11-18	p01-software-engineer	b002	build-review	0	V2	Documents/申請デスク/R7公開/0519_変更説明の読者を分ける.docx	「担当と期限」の表が指定のAS TableではなくTable Gridで、見本の青地・白字の見出しが白地・黒字になっており、表の幅も指定上限166 mmを超える177.8 mmになっている。
+2026-11-18	p01-software-engineer	b002	build-review	1	V2	Downloads/0528_Laura_R7読者別読み合わせ結果.pdf	1ページ目の「Material and purpose」「Read-through findings」と2ページ目の「English retained and matters outside this review」に、型の成形手順で指定する\sectionが付ける節番号1・2・3が表示されていない。
+2026-11-18	p01-software-engineer	b002	check	2	plan	Documents/メール控え/申請デスク/0529_Lauraへ_確認済みの範囲を固定.eml	plan: planned file missing。成形の最終出力：対象のメールは未作成です。原稿で実添付を指定された次の2つのPDFが、いずれも指定先に存在しませんでした。 - `Documents/用語と説明/0522_R7利用者向け説明_v0.3.pdf` - `Documents/用語と説明/0522_R7管理者向け説明_v0.3.pdf` 指定された実ファイルの添付とバイト照合ができないため、成形を保留しました。ファイルの変更は行っていません。
