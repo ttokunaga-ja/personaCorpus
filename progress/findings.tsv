@@ -386,3 +386,55 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-18	p01-software-engineer	b002	build-review	0	V2	Documents/申請デスク/R7公開/0519_変更説明の読者を分ける.docx	「担当と期限」の表が指定のAS TableではなくTable Gridで、見本の青地・白字の見出しが白地・黒字になっており、表の幅も指定上限166 mmを超える177.8 mmになっている。
 2026-11-18	p01-software-engineer	b002	build-review	1	V2	Downloads/0528_Laura_R7読者別読み合わせ結果.pdf	1ページ目の「Material and purpose」「Read-through findings」と2ページ目の「English retained and matters outside this review」に、型の成形手順で指定する\sectionが付ける節番号1・2・3が表示されていない。
 2026-11-18	p01-software-engineer	b002	check	2	plan	Documents/メール控え/申請デスク/0529_Lauraへ_確認済みの範囲を固定.eml	plan: planned file missing。成形の最終出力：対象のメールは未作成です。原稿で実添付を指定された次の2つのPDFが、いずれも指定先に存在しませんでした。 - `Documents/用語と説明/0522_R7利用者向け説明_v0.3.pdf` - `Documents/用語と説明/0522_R7管理者向け説明_v0.3.pdf` 指定された実ファイルの添付とバイト照合ができないため、成形を保留しました。ファイルの変更は行っていません。
+2026-11-18	p17-construction-project-manager	b002	draft-review	0	D10	Documents/共通/積算相談/0720_排水変更_単価と控除の確認.xlsx	計画43行の「数量・単位・差引は実数式にする」に対し、単価照合シートの明細5〜11行・13〜15行はC列の数量とD列の単位が固定値で、式の指定はF列の金額・集計に限られている。
+2026-11-18	p17-construction-project-manager	b002	draft-review	0	D10	Documents/メール/白島設計室/0708_小野さんへ_排水接続高さの照会.eml	末尾の添付欄には旧図D-41 Rev0と7月3日の手帳PDFのファイル名しかなく、計画「制作に渡す条件」で求めるMIME実添付元の相対パスが2件ともない。
+2026-11-18	p17-construction-project-manager	b002	draft-review	0	D10	Documents/海田西配送棟増築/変更/CO-014/0817_工程再編_遠藤さん相談前.xlsx	先頭のderived_fromに7月27日のRev0・Rev1ブックを指定しているが、「工程比較」の5〜28行は旧版の行を含む改訂後の全表であり、元本文を引き継いで差分だけを適用する派生原稿の指定と食い違う。
+2026-11-18	p17-construction-project-manager	b002	draft-review	0	D10	Documents/メール/白島設計室/0714_小野さんから_迂回図と設計回答.eml	「2026年7月8日 坂本修一郎さん」の引用欄に、元メールが添付した旧図D-41 Rev0と現地採寸スキャンのファイル名がなく、台帳と計画で求める旧添付一覧が欠けている。
+2026-11-18	p17-construction-project-manager	b002	draft-review	0	D4	Documents/海田西配送棟増築/変更/CO-014/0818_工程表_遠藤さんの赤字.pdf	先頭設定のcreatedが元の逐次工程PDFの保存日時である7月27日16:04を指し、8月18日の遠藤の筆記を含むスキャンそのものの作成日時が計画の8月18日11:22より前になっている。
+2026-11-18	p17-construction-project-manager	b002	check	0	source	Documents/海田西配送棟増築/図面と質疑/0702_排水平面_D-41_Rev0.pdf	body token overlap 0.500 < 0.8
+2026-11-18	p17-construction-project-manager	b002	check	0	source	Downloads/0710_白島_排水平面_D-41_RevA.pdf	body token overlap 0.714 < 0.8
+2026-11-18	p17-construction-project-manager	b002	check	0	source	Downloads/0713_白島_排水断面_D-42_RevA.pdf	body token overlap 0.702 < 0.8
+2026-11-18	p17-construction-project-manager	b002	build-review	0	V2	Documents/共通/積算相談/0720_排水変更_単価と控除の確認.xlsx	「拾いと単価」「単価照合」の両シートで基準日G2が文字列「2026年7月20日」で保存され、数量・積算型に指定された実日付とyyyy-mm-dd表示になっていない。
+2026-11-18	p17-construction-project-manager	b002	build-review	0	V1	Documents/海田西配送棟増築/変更/CO-014/0723_CO-014_変更見積.xlsx	「変更見積」4行目のA4・B4・G4が原稿指定の「区分」「項目」「条件・根拠」から「区分・位置」「項目・根拠」「照合・条件」に置き換わっており、G列の根拠欄が見出しで示されない。
+2026-11-18	p17-construction-project-manager	b002	build-review	0	V1	Documents/海田西配送棟増築/変更/CO-014/0806_同じ区画で重ねる案_見送り.xlsx	「同一区画案」2ページ目の日付軸B17:G24が日ごとの独立した「■」で、原稿指定の開始日から終了日までの横棒がなく、8月24〜25日の掘削・養生や24〜27日の見かけの重複が連続した期間として描かれていない。
+2026-11-18	p17-construction-project-manager	b002	build-review	0	V2	Documents/共通/積算相談/0706_排水迂回_拾い途中.xlsx	旧案シートの印刷2頁目に、型から継承する湊梁建設株式会社｜工事部とページ番号のフッタがない（1頁目にはあり、旧案のシートXMLにもフッタ設定がない）。
+2026-11-18	p17-construction-project-manager	b002	build-review	0	V5	Pictures/海田西配送棟増築/2026-07-13/0713_X4-Y4_桝まわりの余地.jpg	M3予定範囲の横幅に当てた巻尺で、中央付近の赤い目盛の間に数字の重複・逆順や数字として崩れた字形があり、測定目盛として読めない。
+2026-11-18	p17-construction-project-manager	b002	build-review	0	V2	Documents/海田西配送棟増築/変更/CO-014/0715_藤井照合_数量根拠.xlsx	新設数量シート14行目の掘削合計と差異シート7行目の新設掘削60.0m³が、型の合計用MB Totalではなく通常明細の書式で印刷される。
+2026-11-18	p17-construction-project-manager	b002	build-review	0	V1	Documents/海田西配送棟増築/変更/CO-014/0817_工程再編_遠藤さん相談前.xlsx	日付軸（印刷3ページ目）の凡例がRev0・Rev1・Rev2案の排水・作業をすべて青灰にまとめており、原稿が指定する凡例での3版の区別がない。
+2026-11-18	p17-construction-project-manager	b002	build-review	0	V1	Documents/海田西配送棟増築/変更/CO-014/0819_変更後工程と担当割.xlsx	日付軸（印刷4ページ目）の内装C19:D19と支持材E20:F20などが離れた四角記号で表示され、原稿指定の横棒がなく、凡例もRev0・Rev1・Rev2を同じ青灰にまとめている。
+2026-11-18	p17-construction-project-manager	b002	check	1	source	Documents/海田西配送棟増築/図面と質疑/0702_排水平面_D-41_Rev0.pdf	body token overlap 0.500 < 0.8
+2026-11-18	p17-construction-project-manager	b002	check	1	source	Downloads/0710_白島_排水平面_D-41_RevA.pdf	body token overlap 0.739 < 0.8
+2026-11-18	p17-construction-project-manager	b002	check	1	source	Downloads/0713_白島_排水断面_D-42_RevA.pdf	body token overlap 0.649 < 0.8
+2026-11-18	p17-construction-project-manager	b002	build-review	1	V2	Documents/共通/積算相談/0720_排水変更_単価と控除の確認.xlsx	両シートのG2は実日付に修正済みだが、単価照合シートの印刷2ページ目左上に型の梁ロゴがなく、シートにロゴ画像がない。
+2026-11-18	p17-construction-project-manager	b002	build-review	1	V3	Documents/海田西配送棟増築/変更/CO-014/0806_同じ区画で重ねる案_見送り.xlsx	日付軸の2ページ目に連続した横棒はあるが、8月31日のG列だけが幅25で他の日付列は幅11のため、1稼働日の埋戻しの棒が2稼働日の掘削・養生の棒より長く印刷される。
+2026-11-18	p17-construction-project-manager	b002	build-review	1	V1	Documents/海田西配送棟増築/変更/CO-014/0817_工程再編_遠藤さん相談前.xlsx	日付軸の4ページ目で3版の色は分かれたが、H21の9月1日「Rev2案 後続開始」が凡例の「Rev2案 排水」と同じ濃緑で、排水完了後に始まる別の工程を排水作業として色分けしている。
+2026-11-18	p17-construction-project-manager	b002	build-review	1	V1	Documents/海田西配送棟増築/変更/CO-014/0819_変更後工程と担当割.xlsx	日付軸の5ページ目で内装・支持材は連続横棒になり3版の色も分かれたが、H21の9月1日「Rev2 後続開始」が凡例の「Rev2 排水」と同じ濃緑で、排水完了後に始まる別の工程を排水作業として色分けしている。
+2026-11-18	p17-construction-project-manager	b002	build-review	2	V4	Documents/海田西配送棟増築/図面と質疑/0702_排水平面_D-41_Rev0.pdf	1ページ目の図の下に「通り芯として描く」「勾配1/100を記入する」などの作図指示がそのまま印刷され、白島設計室の図面本文に制作指示が露出している。
+2026-11-18	p17-construction-project-manager	b002	build-review	2	V4	Downloads/0710_白島_排水平面_D-41_RevA.pdf	1ページ目の図の下に「新設経路を…実線で描き」「旧案…を破線で描き…と記す」といった作図指示が図面本文として印刷されている。
+2026-11-18	p17-construction-project-manager	b002	build-review	2	V3	Downloads/0713_白島_排水断面_D-42_RevA.pdf	1ページ目の管路掘削・接続詳細で、掘削枠の右縦線が「内面管底」「外面下端：10mm下」の文字に重なっている。
+2026-11-18	p17-construction-project-manager	b002	build-review	2	V2	Documents/海田西配送棟増築/変更/CO-014/0806_同じ区画で重ねる案_見送り.xlsx	日付軸B〜G列は幅11にそろったが、両シートの2〜3行目で型の管理ラベルが削除され、印刷では日付・見送り判定・作成者・確認者がラベルなしで並んでいる。
+2026-11-18	p17-construction-project-manager	b002	build-review	2	V2	Documents/海田西配送棟増築/変更/CO-014/0817_工程再編_遠藤さん相談前.xlsx	日付軸2ページ目の9月1日「後続開始」は紫で排水と区別できるが、日付軸シートの印刷フッタが空で、型の部門名とページ番号が欠けている。
+2026-11-18	p17-construction-project-manager	b002	build-review	2	V2	Documents/海田西配送棟増築/変更/CO-014/0819_変更後工程と担当割.xlsx	日付軸2ページ目の9月1日「後続開始」は紫で排水と区別できるが、日付軸と担当割の印刷フッタが空で、2・3ページ目に型の部門名とページ番号が欠けている。
+2026-11-18	p17-construction-project-manager	b002	build-review	0	V2	Documents/海田西配送棟増築/変更/CO-014/0724_CO-014_提出見積.pdf	1ページ目上部の管理欄で作成者「藤井正和」の右に型の「確認者」ラベルだけが残り、記入欄が空白のまま施主提出用に印刷されている。
+2026-11-18	p17-construction-project-manager	b002	build-review	0	V2	Documents/海田西配送棟増築/変更/CO-014/0727_追加作業6日の影響.pdf	2ページ目「日付軸」の下端に、工程比較の型が備える「湊梁建設株式会社｜工事部」とページ番号「2/2」の印刷フッタが欠けている。
+2026-11-18	p17-construction-project-manager	b002	check	2	plan	Documents/メール/海田流通/0728_原田さんへ_CO-014承認依頼.eml	plan: planned file missing。成形の最終出力：対象のメール2通は未作成です。 - 7月28日の承認依頼：実添付が必要な「0724_CO-014_提出見積.pdf」と「0727_追加作業6日の影響.pdf」が指定先にありません。 - 7月29日の承認返信：承認控えPDFはありますが、先に必要な7月28日のメールを作成できていません。 依存ファイルの確認と両原稿の読込を行いました。メールを保存していないため、ヘッダと添付の検証は未実施です。
+2026-11-18	p17-construction-project-manager	b002	check	2	plan	Documents/メール/海田流通/0729_原田さんから_CO-014承認.eml	plan: planned file missing。成形の最終出力：対象のメール2通は未作成です。 - 7月28日の承認依頼：実添付が必要な「0724_CO-014_提出見積.pdf」と「0727_追加作業6日の影響.pdf」が指定先にありません。 - 7月29日の承認返信：承認控えPDFはありますが、先に必要な7月28日のメールを作成できていません。 依存ファイルの確認と両原稿の読込を行いました。メールを保存していないため、ヘッダと添付の検証は未実施です。
+2026-11-18	p17-construction-project-manager	b002	check	0	source	Documents/海田西配送棟増築/図面と質疑/0702_排水平面_D-41_Rev0.pdf	body token overlap 0.480 < 0.8
+2026-11-18	p17-construction-project-manager	b002	check	0	source	Downloads/0710_白島_排水平面_D-41_RevA.pdf	body token overlap 0.718 < 0.8
+2026-11-18	p17-construction-project-manager	b002	check	0	source	Downloads/0713_白島_排水断面_D-42_RevA.pdf	body token overlap 0.705 < 0.8
+2026-11-18	p17-construction-project-manager	b002	build-review	0	V1	Documents/海田西配送棟増築/変更/CO-014/0819_変更後工程と担当割.xlsx	3ページ目の日付軸は、凡例と横棒でRev1とRev2の排水を同じ橙にまとめており、原稿指定のRev0・Rev1・Rev2を凡例で区別する表示が欠けている。
+2026-11-18	p17-construction-project-manager	b002	check	1	source	Documents/海田西配送棟増築/図面と質疑/0702_排水平面_D-41_Rev0.pdf	body token overlap 0.510 < 0.8
+2026-11-18	p17-construction-project-manager	b002	check	1	source	Downloads/0710_白島_排水平面_D-41_RevA.pdf	body token overlap 0.679 < 0.8
+2026-11-18	p17-construction-project-manager	b002	check	1	source	Downloads/0713_白島_排水断面_D-42_RevA.pdf	body token overlap 0.692 < 0.8
+2026-11-18	p17-construction-project-manager	b002	check	2	source	Documents/海田西配送棟増築/図面と質疑/0702_排水平面_D-41_Rev0.pdf	body token overlap 0.510 < 0.8
+2026-11-18	p17-construction-project-manager	b002	check	2	source	Downloads/0710_白島_排水平面_D-41_RevA.pdf	body token overlap 0.701 < 0.8
+2026-11-18	p17-construction-project-manager	b002	check	2	source	Downloads/0713_白島_排水断面_D-42_RevA.pdf	body token overlap 0.675 < 0.8
+2026-11-18	p17-construction-project-manager	b002	check	0	source	Documents/海田西配送棟増築/図面と質疑/0702_排水平面_D-41_Rev0.pdf	body token overlap 0.510 < 0.8
+2026-11-18	p17-construction-project-manager	b002	check	0	source	Downloads/0710_白島_排水平面_D-41_RevA.pdf	body token overlap 0.705 < 0.8
+2026-11-18	p17-construction-project-manager	b002	check	0	source	Downloads/0713_白島_排水断面_D-42_RevA.pdf	body token overlap 0.738 < 0.8
+2026-11-18	p17-construction-project-manager	b002	check	1	source	Downloads/0713_白島_排水断面_D-42_RevA.pdf	body token overlap 0.685 < 0.8
+2026-11-18	p17-construction-project-manager	b002	build-review	1	V4	Documents/海田西配送棟増築/図面と質疑/0702_排水平面_D-41_Rev0.pdf	1ページ右側の排水平面の説明に「6m間隔の通り芯として描く」「Y3上のX7にP1、X4に既存桝M1を置く」という作図指示が印刷されたまま。
+2026-11-18	p17-construction-project-manager	b002	build-review	1	V3	Downloads/0710_白島_排水平面_D-41_RevA.pdf	前回指摘の作図指示は解消したが、1ページ左の排水平面でY2の水平通り芯が「離隔80mm／必要200mm」の文字を横切っている。
+2026-11-18	p17-construction-project-manager	b002	check	2	source	Downloads/0710_白島_排水平面_D-41_RevA.pdf	body token overlap 0.705 < 0.8
+2026-11-18	p17-construction-project-manager	b002	check	2	source	Downloads/0713_白島_排水断面_D-42_RevA.pdf	body token overlap 0.738 < 0.8
+2026-11-18	p14-finance-controller	b008	coordinator	0	other	Documents/月次/2026/2026-02/2026-02_残高増減と当月損益.xlsx	統括の抜き取りで不合格

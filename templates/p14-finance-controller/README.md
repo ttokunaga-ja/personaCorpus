@@ -1,6 +1,6 @@
 # 千田真理子の文書の型
 
-月次締め共通の型。2026年1月の締めと経費精算の二重計上調査、および2025年11月の静岡工場の実地棚卸・棚卸差異調査・月末支払にも使用する。型の本文は空で、見出し・本文・表の書式と組織の識別だけを持つ。Officeの型は通常のDOCX・XLSX・PPTXなので、開いて別名保存する。受入済み成果物は変更しない。
+月次締め共通の型。2026年2月の締め・同月の親会社報告、2026年1月の締めと経費精算の二重計上調査、および2025年11月の静岡工場の実地棚卸・棚卸差異調査・月末支払にも使用する。型の本文は空で、見出し・本文・表の書式と組織の識別だけを持つ。Officeの型は通常のDOCX・XLSX・PPTXなので、開いて別名保存する。受入済み成果物は変更しない。
 
 ## 型の一覧
 
@@ -63,18 +63,37 @@
 
 ## 見本と確認
 
-今回の修正範囲はExcelの2型だけ。ほかのOffice・TeXの型は維持し、今回の再レンダリング対象には含めない。見本は `scratch/p14-finance-controller/templates-1794934627691472802/work/templates-0001/examples/`、画像は同じworkの `render/` に置く。過去の削除済み作業フォルダへの見本参照は除いた。
+今回（b008）の見本は `scratch/p14-finance-controller/b008/work/templates-0002/examples/`、画像は `scratch/p14-finance-controller/b008/work/templates-0002/render/` に置く。既存の全14型を開き、以下の16見本を今回のworkに作り直す。型自体は維持する。
 
 | 型 | 見本（examplesからの相対パス） | 画像（renderからの相対パス） |
 |---|---|---|
+| cedar-review.docx | `cedar-review.docx` | `cedar-review/` |
+| cedar-minutes.docx | `cedar-minutes.docx` | `cedar-minutes/` |
+| cedar-notice.docx | `cedar-notice.docx` | `cedar-notice/` |
+| holdings-monthly.docx | `holdings-monthly.docx` | `holdings-monthly/` |
 | cedar-reconciliation.xlsx | `cedar-reconciliation-3.xlsx`、`cedar-reconciliation-36.xlsx` | `cedar-reconciliation-3/`、`cedar-reconciliation-36/` |
 | cedar-close-checklist.xlsx | `cedar-close-checklist-3.xlsx`、`cedar-close-checklist-36.xlsx` | `cedar-close-checklist-3/`、`cedar-close-checklist-36/` |
+| cedar-close-report.pptx | `cedar-close-report.pptx` | `cedar-close-report/` |
+| minato-balance.cls | `minato-balance.tex`、`minato-balance.pdf` | `minato-balance/` |
+| ledgerline-report.cls | `ledgerline-report.tex`、`ledgerline-report.pdf` | `ledgerline-report/` |
+| cedar-count-sheet.cls | `cedar-count-sheet.tex`、`cedar-count-sheet.pdf` | `cedar-count-sheet/` |
+| hokuto-invoice.cls | `hokuto-invoice.tex`、`hokuto-invoice.pdf` | `hokuto-invoice/` |
+| enshu-invoice.cls | `enshu-invoice.tex`、`enshu-invoice.pdf` | `enshu-invoice/` |
+| shinonome-audit.cls | `shinonome-audit.tex`、`shinonome-audit.pdf` | `shinonome-audit/` |
+| cedar-evidence.cls | `cedar-evidence.tex`、`cedar-evidence.pdf` | `cedar-evidence/` |
 
-管理欄は `CW-FIN-202601-MATCH-01`／`CW-FIN-202601-CLOSE-01`、版1.0、基準日2026-01-31、作成者・確認者を実際に入れる。調整表の見本は件数の照合へ列名を変更し、件数の表示形式は `0` とし、右寄せの64・0の直後に「64件を照合済」「追加支払なし」を置く。両型で先頭の番号を右寄せ、その右の項目・工程を左寄せ・インデント1とし、チェックリストは7列へ広げる。管理欄と表の幅を両立させた状態を検査する。3行版と36行版（17・29行目の後に改ページ）の全ページを確認する。
+Excelの管理欄は `CW-FIN-202602-MATCH-01`／`CW-FIN-202602-CLOSE-01`、版1.0、基準日2026-02-28、作成千田真理子・確認柳瀬文を入れる。調整表の見本は件数照合へ列名を変更し、表示形式 `0` の右寄せ数値と、左インデント1の文章を隣接させる。先頭番号の右隣も同じ余白を維持する。チェックリストは7列へ広げ、管理欄と表の幅を両立させる。3行版と36行版（17・29行目の後で改ページ）の全ページを確認する。Wordは見出し・表と次ページ、PowerPointは5種類のレイアウトを実スライドにして確認する。
 
-見本は型の配置検査用であり、受入済み成果物や事実台帳の根拠ではない。36行版にはページ送りの検査用の表内行データを含む。これを制作へ転記しない。実行と構造検査の記録は同workの `validation.json`、構造検査は `check_excel.py`。scratchは受入・破棄時に削除されるため、上記は今回のレビュー中の参照である。削除後の再検証では当該batchのscratchに見本を作り直す。
+見本は型の配置検査用であり、2月の残高・件数・締め日・レートの決定資料ではない。表内行データや1月の既定残高を含む配置検査値を制作へ転記しない。構造の記録は同workの `structure.json`、実行の記録は `execution.json`。scratch削除後の再検証では当該batchのworkに作り直す。
 
-他personaの既存README（p08・p05）を確認した。Cedarの深緑と木材ロゴは維持し、青緑の巡回経路、藍と朱の織り目とは区別している。
+他personaの既存README（p08-product-manager・p05-bi-data-analyst）を確認した。Cedarの深緑と木材ロゴは維持し、青緑の巡回経路、藍と朱の織り目とは区別している。
+
+## b008で使う型
+
+- 主要勘定調整・未払費用確認・JPY/USD換算は `cedar-reconciliation.xlsx`、締め工程は `cedar-close-checklist.xlsx`。残高と当月損益は別表または別シートとし、JPY・USDと適用レートの根拠を明示する。無関係な残高を総計しない。
+- 締め会議は `cedar-minutes.docx`、英語報告は `holdings-monthly.docx`。英語報告のPDFは完成したDOCXから直接変換する。CFOへの5〜8枚は `cedar-close-report.pptx`。LedgerlineのテキストPDFは `ledgerline-report.cls`、必要な銀行資料の原紙は `minato-balance.cls` を使う。
+- CSV、DanaとのEML、Ledgerline画面のPNG、Desktopの途中TXTは下記「型なしの記録」に従う。Desktopの確認用Excelは必要に応じて共通の調整表を使う。
+- 2月通常取込の確認は1月の64件調査・取消・2月5日の設定確認・9日の引継ぎと分ける。2月固有の論点と残高増減・締め日・親会社レートは計画段階でpersonaの仕事の流れとfacts.mdに補足する。型の見本で未確定の業務事実を決めない。年度監査用の型は維持するが、今回の月次締めで監査成果物を再制作しない。
 
 ## 型なしの記録
 
@@ -100,4 +119,4 @@
 - 両型に明細・空の承認欄・期限・仮署名・合計は埋め込まない。必要な空欄は個別原稿が明示した箇所だけに作る。今回は印字済みの紙控えであり手書きや印影を足さない。申請控えの大庭承認欄は空欄、補完承認は別紙に正しい2月の日付を印字する。
 - TeXの探索パス・`bin/tex`の呼出しは既存と同じ。社内紙の中間PDFを当該実行のwork内に作り、`bin/scan`で画像のみのPDFへ変換する。元紙は配布物に追加しない。
 - 依頼管理・残件は `cedar-close-checklist.xlsx`、買掛照合・年間資産増減・回答根拠は `cedar-reconciliation.xlsx`、回答と改善計画は `cedar-review.docx`、打合せ記録は `cedar-minutes.docx`、CFO説明は `cedar-close-report.pptx` を開いて使う。番号はfacts.mdの年度監査用を使う。
-- 見本は `scratch/p14-finance-controller/b007/work/plan-0002/examples/`、画像は同workの `render/`。`shinonome-audit.pdf`は質問資料の表と見出し、`cedar-evidence.pdf`は空欄の承認を含む申請紙の配置を検査する。見本は配布物ではなく、scratch削除後は同じAPIで当該workに再作成する。
+- 見本は上記「見本と確認」の今回のworkを参照する。`shinonome-audit.pdf`は質問資料の表と見出し、`cedar-evidence.pdf`は検収記録の管理項目と明細表の配置を検査する。見本は配布物ではなく、scratch削除後は同じAPIで当該workに再作成する。
