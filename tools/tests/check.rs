@@ -672,6 +672,28 @@ fn plan_pending_discarded_and_cross_batch_relations() {
     }
 }
 #[test]
+fn plan_dates_to_the_minute_check_mtime() {
+    for (date, ok) in [
+        ("2026-01-01 09:30", true),
+        ("2026-01-01T09:30", true),
+        ("2026-01-01 09:30:00", true),
+        ("2026-01-05 09:30", false),
+    ] {
+        let f = Fixture::new();
+        f.put("a.txt", BODY);
+        f.plan(&[("a.txt", date, "Meeting decision")]);
+        let rows = f.issues(&["--batch", "b001"]).1;
+        let mtime: Vec<_> = rows.iter().filter(|r| r[2] == "mtime").collect();
+        assert!(
+            !mtime
+                .iter()
+                .any(|r| r[3].contains("invalid plan timestamp")),
+            "{date}: {rows:?}"
+        );
+        assert_eq!(mtime.is_empty(), ok, "{date}: {rows:?}");
+    }
+}
+#[test]
 fn batch_membership_dates_tracked_v4_and_plan_failures() {
     let f = Fixture::new();
     f.put("a.txt", BODY);

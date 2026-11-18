@@ -1255,10 +1255,15 @@ impl Batch {
         }
         let date = if raw.contains('T') || raw.contains(' ') {
             // Plan dates are written to the minute ("2026-03-06 18:42") or the second.
-            ["%Y-%m-%dT%H:%M:%S", "%Y-%m-%d %H:%M:%S", "%Y-%m-%dT%H:%M", "%Y-%m-%d %H:%M"]
-                .iter()
-                .find_map(|f| NaiveDateTime::parse_from_str(raw, f).ok())
-                .ok_or_else(|| anyhow!("日付を読めない: {raw}"))?
+            [
+                "%Y-%m-%dT%H:%M:%S",
+                "%Y-%m-%d %H:%M:%S",
+                "%Y-%m-%dT%H:%M",
+                "%Y-%m-%d %H:%M",
+            ]
+            .iter()
+            .find_map(|f| NaiveDateTime::parse_from_str(raw, f).ok())
+            .ok_or_else(|| anyhow!("日付を読めない: {raw}"))?
         } else {
             NaiveDate::parse_from_str(raw, "%Y-%m-%d")?
                 .and_hms_opt(12, 0, 0)

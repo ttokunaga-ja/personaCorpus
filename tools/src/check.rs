@@ -1874,12 +1874,20 @@ fn run_inner(a: &Args, selected: Option<&BTreeMap<String, BTreeSet<String>>>) ->
                 *skips.entry(skip.clone()).or_default() += 1
             }
             if let Some(target) = &target {
-                let expected = stamp(&target[&r.rel], chrono_tz::UTC, None).or_else(|| {
-                    NaiveDate::parse_from_str(&target[&r.rel], "%Y-%m-%d")
-                        .ok()
-                        .and_then(|d| d.and_hms_opt(0, 0, 0))
-                        .map(|d| d.and_utc())
-                });
+                // Plan dates may be written to the minute ("2026-03-06 18:42").
+                let expected = stamp(&target[&r.rel], chrono_tz::UTC, None)
+                    .or_else(|| {
+                        ["%Y-%m-%d %H:%M", "%Y-%m-%dT%H:%M"]
+                            .iter()
+                            .find_map(|f| NaiveDateTime::parse_from_str(&target[&r.rel], f).ok())
+                            .map(|d| d.and_utc())
+                    })
+                    .or_else(|| {
+                        NaiveDate::parse_from_str(&target[&r.rel], "%Y-%m-%d")
+                            .ok()
+                            .and_then(|d| d.and_hms_opt(0, 0, 0))
+                            .map(|d| d.and_utc())
+                    });
                 match expected {
                     None => {
                         r.issues
