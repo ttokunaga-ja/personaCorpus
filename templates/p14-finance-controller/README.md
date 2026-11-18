@@ -1,24 +1,24 @@
 # 千田真理子の文書の型
 
-月次締め・年度監査・年度予算・経費精算・リース会計の検討・四半期予測で使う型。見出し・本文・表の書式と組織の識別を持つ。Officeの型は通常のDOCX・XLSX・PPTXなので、開いて別名保存する。
+月次締め・年度監査・年度予算・経費精算・リース会計の検討・四半期予測・取締役会報告で使う型。見出し・本文・表の書式と組織の識別を持つ。Officeの型は通常のDOCX・XLSX・PPTXなので、開いて別名保存する。
 
 ## 型の一覧
 
 | 名前 | 組織・利用者と用途 | 実際のファイル名 | 見た目 |
 |---|---|---|---|
-| 確認記録・論点メモ | Cedar Works経理、堀口・千田。支払や差異の調査、予算審議・四半期予測の論点と判断記録 | `cedar-review.docx` | A4縦、表紙なし。小さな木材ロゴ、経理財務部／確認記録のヘッダ、深緑の見出し、罫線表。修正も本文中で読める余白 |
-| 締め会議議事録 | Cedar Works経理、千田。決定・責任者・期限の記録 | `cedar-minutes.docx` | A4縦、表紙なし。共通ロゴと「議事録」のヘッダ、簡潔な見出し階層 |
+| 確認記録・論点メモ | Cedar Works経理、堀口・千田。支払や差異の調査、予算審議・四半期予測の論点と判断記録、取締役会の想定問答 | `cedar-review.docx` | A4縦、表紙なし。小さな木材ロゴ、経理財務部／確認記録のヘッダ、深緑の見出し、罫線表。修正も本文中で読める余白 |
+| 会議議事録 | Cedar Works経理、千田。締め会議や取締役会報告の質問・決定・責任者・期限の記録 | `cedar-minutes.docx` | A4縦、表紙なし。共通ロゴと「議事録」のヘッダ、簡潔な見出し階層 |
 | 部内通知・手順連絡 | Cedar Works経理、柳瀬・千田。確認手順や部内通知 | `cedar-notice.docx` | A4縦、表紙なし。「部内通知」のヘッダ、本文中心、必要時のみ表を追加 |
 | 経費精算規程 | Cedar Works経理財務部、千田・柳瀬。旧規程、改定案、承認版の原本 | `cedar-expense-policy.docx` | A4縦、表紙なし。木材ロゴと「経費規程」のヘッダ、深緑の条見出し、フッタに部門名と自動ページ番号 |
 | 月次報告パッケージ | Cedar Works Holdings Finance指定書式。千田が英語でDanaへ報告 | `holdings-monthly.docx` | A4縦、表紙なし。紺と青、菱形と横棒のロゴ、英語ヘッダ。日本子会社の木材ロゴは使わない |
-| 勘定調整・予算・予測ワーク | Cedar Works経理・FP&A。勘定調整、支払予定と換算、部門申請・承認予算、受注織込み・原価・資金・予測比較 | `cedar-reconciliation.xlsx` | A4横、深緑の見出し、円数値右寄せ、負数赤括弧、合計は薄緑と二重下罫線。用途に合わせて5行目の列を組み替える |
+| 勘定調整・予算・予測ワーク | Cedar Works経理・FP&A。勘定調整、支払予定と換算、部門申請・承認予算、受注織込み・原価・資金・予測比較、四半期の差異・資金増減・問答の根拠 | `cedar-reconciliation.xlsx` | A4横、深緑の見出し、円数値右寄せ、負数赤括弧、合計は薄緑と二重下罫線。用途に合わせて5行目の列を組み替える |
 | 締めチェックリスト | Cedar Works経理、柳瀬・千田。工程、担当、期限、実績、確認者 | `cedar-close-checklist.xlsx` | 共通のA4横書式。工程／担当／期限／実完了／確認者／状況。架空の未完了工程を初期配置しない |
 | 財務報告・審議資料 | Cedar Works経理、千田から大庭へ。CFO締め報告と予測説明、予算審議草案と取締役会資料、リース会計の対応案 | `cedar-close-report.pptx` | 16:9（13⅓ × 7.5インチ、内部のサイズ種別も `screen16x9`）。白地、左上の木材ロゴ、深緑の題、下部の部門表記。マスター1種と実レイアウト5種（表紙、見出しと本文、2段、表、図）。型にはスライドなし |
 | 部門説明・承認予算配布 | Cedar Works経理財務部、日下部・千田。部門向け説明と承認後の配布 | `cedar-budget.cls` | A4縦、Noto Sans CJK JP。木材ロゴ、深緑の題と表見出し、灰緑の本文、黄土の注記記号。部門名とページ番号をフッタに載せる |
 | 経費申請Q&A・配布補足 | Cedar Works経理財務部、柳瀬・堀口。申請者向けの独立した配布PDF | `cedar-expense-guide.cls` | A4縦、Noto Sans CJK JP。木材ロゴと「経理財務部｜経費精算」、深緑の見出し、墨緑の本文、黄土の注記記号。横罫線表とページ番号 |
 | 年度予算指示 | Cedar Works Holdings Group Finance、Dana Whitlockから日本の経理財務部へ。年度予算の前提と提出指示 | `holdings-budget.cls` | A4縦、Liberation Sans／Noto Sans CJK JP。紺と青、菱形と横棒のロゴ、青い太めの上罫、紺の英語本文、FINANCE • INTERNALとページ番号 |
 | 残高証明書 | みなと中央銀行横浜支店、小田切。月次照合用の証明原紙 | `minato-balance.cls` | A4縦、Noto Serif CJK JPとLiberation Serif。えんじ色の円と山形のロゴ、細い罫線、広い余白、右下の発行者。Cedarの緑は使わない |
-| Ledgerline帳票 | Cedar Works経理のLedgerline出力。補助元帳、照会、集約試算表 | `ledgerline-report.cls` | A4縦、Cedarの木材ロゴと深緑。右上にシステム名、横罫線中心の密度の高い表、基準日・出力日時を区別 |
+| Ledgerline帳票 | Cedar Works経理のLedgerline出力。補助元帳、照会、月次・四半期の集約試算表と照合明細 | `ledgerline-report.cls` | A4縦、Cedarの木材ロゴと深緑。右上にシステム名、横罫線中心の密度の高い表、基準日・出力日時を区別 |
 | 実地棚卸票の印刷原紙 | Cedar Works静岡工場、三枝。区画別の手書き棚卸票の原紙 | `cedar-count-sheet.cls` | A4縦、木材ロゴと深緑、Noto Sans CJK JP。品番・品名と工程・実数・単位・備考の囲み表、数えた人と確認した人の署名欄。本文幅170mm |
 | 北斗合板の請求書 | 北斗合板の請求管理。紙で届く当初・訂正請求書の原紙 | `hokuto-invoice.cls` | A4縦、茶 `654B35` と墨、Noto Serif CJK JP／Liberation Serif。合板の積層を表す長方形ロゴ、中央の明朝タイトル、右寄せ管理項目、枠付き請求額、細い横罫線 |
 | 遠州金物の請求書 | 遠州金物の営業管理。紙で届く当初・訂正請求書の原紙 | `enshu-invoice.cls` | A4縦、鋼青 `384D6A` と墨、Noto Sans CJK JP／Liberation Sans。六角ナットの図形ロゴ、左寄せの大きな題と太線、白抜き請求額帯、横罫線明細 |
@@ -37,7 +37,7 @@
 
 ## Excelの行を作る方法
 
-型には1〜3行目の組織・管理項目と5行目の見出しだけがある。管理ラベルと入力先が継承するNormalもNoto Sans CJK JPで、テーマフォントへの依存はない。4行目は見出しとの余白で未書式。6行目以降に空セルや仮の数式・合計を置かない。ブック内のNamedStyleを使う。
+型には1〜3行目の組織・管理項目と5行目の見出しだけがある。管理ラベル、入力先、NormalのフォントはNoto Sans CJK JP。管理欄とNormalの文字色には、各ブックのテーマで墨緑 `202924` を割り当てた「テキスト1」を使う。4行目は見出しとの余白で未書式。6行目以降に空セルや仮の数式・合計を置かない。ブック内のNamedStyleを使う。
 
 1. `load_workbook(型)`で開く。文書番号は結合したB2:C2のB2、版は結合したE2:F2のE2、基準日はB3、作成者はD3、確認者はF3に入れる。ラベルはA2=文書番号、D2=版、A3=基準日、C3=作成、E3=確認。管理欄は11pt、左インデント1・縦中央、2〜3行目の高さ26pt。文書番号は折返し・縮小を使わず1行で印刷する。初期幅はA=24、B=32、C〜E=22、F=24で、番号欄はB+C=54文字幅を確保している。基準日は実日付に `yyyy-mm-dd` を指定する。単位はセルではなく `ws.oddHeader.right.text` に原稿どおり設定する（調整表の初期値は「単位：円」、チェックリストは「月次締め工程」）。表の種類が違うときは5行目の列名と幅を変更する。列を足す場合も管理欄の結合を維持し、1行目の社名結合B1から最終列までと印刷範囲を広げる。管理欄と同じ列の幅も変わるため、Aは14以上、B+Cは54以上、D・E・Fは22以上を目安に確保し、正式番号と隣接する版・日付・氏名を埋めて印刷を確認する。収まらない番号は結合幅を広げ、管理ラベルと入力先を移設して衝突を避ける。
 2. 原稿の明細だけを6行目以降に追加する。テキストは `CW Text`、金額・数式は `CW Amount`、注記は `CW Note`。金額・件数・先頭の連番は右寄せ（`CW Amount`）、文章は左寄せに設定する。`CW Text`・`CW Note`・`CW Heading` と既定Normalは左インデント1を型に設定済み。数値列の右隣の文字列はこのインデントを維持する。先頭の番号列の右隣も同じで、列を追加・並べ替え・狭めるときもインデントを0へ戻さず、文字幅と余白の分を列幅に含める。配置を上書きする場合も `Alignment(horizontal="left", vertical="top", wrap_text=True, indent=1)` とする。数値にインデントは付けない。全明細スタイルは折返し・上揃え。本文は10pt、注記9pt。日付・時刻は実値と必要な表示形式を設定する。USDは `#,##0.00;[Red](#,##0.00);"—"`、JPYは `#,##0;[Red](#,##0);"—"`。未確認の金額を0に置き換えない。
@@ -60,7 +60,9 @@
 ## 棚卸票と仕入先請求書
 
 - 棚卸集計初版・再集計、在庫調整、支払予定は `cedar-reconciliation.xlsx` を開き、原稿に従って列名・幅・式を変える。区画、品番、棚卸票参照、帳簿、実地、差異、追記照合など必要な列だけを設ける。締め工程は既存チェックリスト、CFO向け報告は既存PowerPointを使う。
-- 棚卸票：`\documentclass{cedar-count-sheet}`、`\CountHeading{管理番号}{実施日}{区画}{票番号}`、`CountTable`環境、`\CountSignatures{数えた人}{確認した人}`、`\CountNote{注記}`。管理番号体系は `CW-SZ-YYYYMM-COUNT-連番`。実際の番号は計画で確定する。表の明細は原稿にある行だけを成形時に追加し、行間の罫線は `\\\hline`、最終行は末尾の改行なしとする。型に空の明細・署名・仮の品番を埋め込まない。
+- 棚卸票は `\documentclass{cedar-count-sheet}` を指定し、`\CountHeading{管理番号}{実施日}{区画}{票番号}` で管理欄を作る。管理番号体系は `CW-SZ-YYYYMM-COUNT-連番`。実際の番号は計画で確定する。
+- `\begin{CountTable}{数えた人}{確認した人}{注記}` から `\end{CountTable}` までに原稿の明細を入れる。注記がない場合は第3引数を `{}` にする。成形時に品番・品名と工程・実数・単位・備考を `&` で区切り、明細の間を `\\\hline` でつなぐ。最終明細の直後に `\end{CountTable}` を置く。型が末尾罫線・署名欄・注記を組み、最終明細と同じページに載せる。
+- 実数は右寄せ、単位は左寄せ。罫線の両側にセル余白を各6pt取り、実数と単位を離す。継続ページには表見出しを繰り返す。
 - `cedar-count-sheet.cls` は用紙の印刷書式であり、手書きそのものを作る型ではない。原稿が指定する筆記・署名・品番追記はimagegen skillで作る。読める文字はすべて原稿に記す。活字の検査見本を手書きの成果物として使わない。手書き画像を `bin/scan` に通して画像のみのPDFとする。
 - 請求書：それぞれ `\documentclass{hokuto-invoice}` または `\documentclass{enshu-invoice}`。`\InvoiceHeading{請求書番号}{発行日}{宛先}{対象期間}{支払期日}`、`\InvoiceTotal{税込請求額}`、`InvoiceTable`環境、`\InvoiceSummary{税抜小計}{税率}{消費税}{税込合計}`、`\InvoiceNote{注記}`。明細は品名・数量・単価・金額の4列。追加行の間は `\\`、最終行は末尾改行なし。数量の単位・税区分・端数処理・改定後単価の適用根拠・当初と訂正後の関係は原稿で指定する。未確定の税額を型で推算しない。
 - 北斗の番号は `HK-YYMM-連番`、遠州は `ES-YYMM-連番`、訂正再発行は同じstemに `-R1` などの版を付す方針。実際の値は計画・事実台帳で定め、自社の文書番号を付けない。組織名はpersonaどおりとし、所在地・登録番号・口座番号・押印を型で捏造しない。
@@ -117,20 +119,28 @@
 - `\documentclass{aoba-order}`、`\AobaOrderHeading{題}{照会番号}{発行日}{宛先}{発行担当}`。必要に応じて `\AobaSection{見出し}` と `\AobaNote{連絡事項の本文}` を使う。
 - 明細は `\begin{AobaOrderTable}{No.}{納入対象}{納入予定日}{発注額（円）}{受入事項}`。見出し名は原稿に合わせる。5列は順に右・左・左・右・左寄せ。各セルの左右に6ptを確保し、右寄せの連番や金額と右隣の文字を約4.2mm離す。続きのページにも表の見出しと発行者を表示する。明細行は `&` でセルを区切り、行間だけ `\\` を入れる。合計を原稿が指示する場合だけ、同じ列位置で行を追加する。「TeXの使い方」に従いPDFを組む。
 
-### b012の配置確認用見本
+## b013で使う型
 
-見本は `scratch/p14-finance-controller/b012/work/templates-0002/examples/`、画像は `scratch/p14-finance-controller/b012/work/templates-0002/render/` に置く。日付、棟別の金額、番号は書式の確認に使った値。実際の値は計画と事実台帳で確定する。
+- 千田・日下部の構成案、大庭の確認版、会議版は `cedar-close-report.pptx` を開いて作る。表紙の文書番号・版・日時（JST）・作成者は原稿から入れる。同じ説明資料の版は文書番号を通し、表紙とページ番号を各版に合わせる。会議版は4〜6月の業績と差異、営業・投資・財務の資金収支と残高、通期予測、質問・判断事項に必要な枚数を割く。完成した会議版PPTXを `bin/office-pdf <会議版.pptx> <配布資料.pdf>` で変換し、表紙の管理欄、スライド順、図表、ページ番号を照合する。発表者メモはPPTXのメモ欄に入れ、配布PDFはスライド面を出力する。
+- 業績差異、資金増減、想定問答の根拠表は `cedar-reconciliation.xlsx`。対象期間、単位、比較の基準と版、根拠シートを明示する。差異の比較列と合計は原稿に指定された範囲・算式で作る。資金増減表は増減の符号をそろえ、営業・投資・財務の合計を期首・期末残高に接続する。配布用の補助表がXLSXにある場合は、完成した表の印刷範囲から `bin/office-pdf` で出力する。
+- Ledgerlineの四半期集約・照合帳票を直接PDFにする場合は `ledgerline-report.cls`。帳票番号・基準日と出力日時は `\ReportHeading` に渡し、必要な出力担当欄は直後に `{\small 出力担当：氏名\par}` で入れる。短い番号も右寄せの `r`、文字列は `p`、セル左右の標準余白6ptを残す。見本の4列は `rp{46mm}rp{73mm}`。見出しの行末を `\\\midrule\endhead` とし、表の末行には改行記号を付けない。CSVの集計出力は原稿の列と対象期間を保持する。
+- 想定問答は `cedar-review.docx`、会議記録は `cedar-minutes.docx`。質問・根拠・回答、または議事・判断・担当・期限を原稿どおりに組む。大庭との修正過程はOutlookのEMLに残す。千田の手書き質問メモは原稿の筆記をimagegen skillで作り、`bin/scan` で画像のみのPDFにする。個人メモには会社の報告書の書式を当てない。
+- 四半期実績と承認予算の差異および通期更新予測を別表示にする。Aoba Stay 3棟の通期予測売上の増分は210百万円で、Q2の本件売上増分は0。Q3 162百万円・Q4 48百万円は検収予定に基づく見込み。6月の先行投入・仕掛と現金支払をそれぞれ示す。予測は `CW-FIN-202606-FCAST-01` 版1.0を参照する。事実台帳で比較保留とされた北斗18mm合板の予定数量と関連する予算原価・利益等は、保留が解消するまで比較に使わない。会議日、四半期の確定値、差異要因、質問と判断は計画・事実台帳に従う。
 
-| 型・出力 | 見本（examplesからの相対パス） | 画像（renderからの相対パス） |
-|---|---|---|
-| CFO向けPowerPoint | `cedar-close-report-cover.pptx`、`cedar-close-report.pptx` | `cedar-close-report-cover/`、`cedar-close-report/` |
-| 受注織込みExcel | `cedar-reconciliation-short.xlsx`、`cedar-reconciliation-long.xlsx` | `cedar-reconciliation-short/`、`cedar-reconciliation-long/` |
-| Excelからの配布PDF | `cedar-forecast-distribution.pdf` | `cedar-forecast-distribution/` |
-| 予測論点Word | `cedar-review-short.docx`、`cedar-review-long.docx` | `cedar-review-short/`、`cedar-review-long/` |
-| Aoba Stay発注明細 | `aoba-order-short.tex`、`aoba-order-short.pdf`、`aoba-order-long.tex`、`aoba-order-long.pdf` | `aoba-order-short/`、`aoba-order-long/` |
-| Cedar Worksの受注確認原紙とスキャン | `cedar-evidence.tex`、`cedar-evidence.pdf`、`cedar-evidence-long.tex`、`cedar-evidence-long.pdf`、`cedar-evidence-scan.pdf`、`cedar-evidence-long-scan.pdf` | `cedar-evidence/`、`cedar-evidence-long/`、`cedar-evidence-scan/`、`cedar-evidence-long-scan/` |
+### 実地棚卸票の配置確認
 
-CFO向けは表紙1枚と5レイアウト各1枚を作った。表紙の全文は `CW-FIN-202606-FORECASTBRIEF-01`、版1.0、2026年6月24日15:00、千田真理子。Excel・Word・発注明細・受注確認票は3行と54行で、文書番号と隣接する管理項目、繰り返し見出し、ページ番号、右寄せの番号や金額と文字列の間隔を確認した。Excelは両方の明細で合計210,000,000円を表示する。
+見本のTeXとPDFは `scratch/p14-finance-controller/b013/work/templates-0008/examples/`、画像は `scratch/p14-finance-controller/b013/work/templates-0008/render/` に置いた。見本名は `cedar-count-sheet-N.tex` と `cedar-count-sheet-N.pdf`、画像は `cedar-count-sheet-N/cedar-count-sheet-N-P.png`（Nは明細数、Pはページ番号）。明細は配置確認用。
+
+| 明細数 | ページ数 | 注記 |
+|---:|---:|---|
+| 3 | 1 | 1行 |
+| 18 | 2 | 1行 |
+| 19 | 2 | なし |
+| 38 | 3 | 1行 |
+| 39 | 3 | 2行に折返し |
+| 54 | 3 | 1行 |
+
+`bin/tex` で成形し、`bin/render` の全14ページで管理番号全文、実数と単位の間隔、継続ページの見出しとページ番号を確認した。どの見本も最終明細、末尾罫線、署名欄、指定した注記が同じページに収まった。
 
 ## b008で使う型
 
@@ -144,6 +154,7 @@ CFO向けは表紙1枚と5レイアウト各1枚を作った。表紙の全文�
 | 対象 | 作り方 | 扱い |
 |---|---|---|
 | 千田の手元メモ（TXT） | `text` | 自分への短い確認メモ。ロゴ・文書番号・報告書のヘッダを付けない |
+| 千田の手帳控え（スキャンPDF） | `scan:handwriting` | 手帳の罫と原稿どおりの筆記をimagegenで作り、画像を `bin/scan` で取り込む。ロゴ・管理欄のない手帳の頁 |
 | 精算ポータル・旧精算照会からのCSV | `text` | 移行済と旧承認済の申請を装飾せず表データとして保存する。列・64行の新旧対応・金額・取得時刻はfacts.mdに従う |
 | LedgerlineからのCSV | `text` | facts.mdで指定した列と行を直接出力し、帳票番号は列の値にする。説明の前置きや会社書式の装飾を付けない |
 | Outlookの保存メール（EML） | `text` | 送受信ヘッダ、本文、引用、必要な実添付を保持する。Officeの型を経由しない |

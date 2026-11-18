@@ -861,3 +861,6 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-18	p01-software-engineer	b010	build-review	0	V1	Pictures/操作確認/1209_受領の表示に直した配送便変更.png	11月27日版と同じ配置・社内確認環境という指定に対し、番号欄がラベルと値の横並びから別枠の上下並びに変わり、アドレスバーも application-desk.internal から application-desk.local に変わっている。
 2026-11-18	p01-software-engineer	b010	build-review	0	V1	Pictures/操作確認/1209_受付済みと確認中を並べて見る.png	11月27日版と同じ社内確認環境での比較という台帳の指定に対し、一覧・詳細のアドレスバーがいずれも desk.internal.example から application-desk.local に変わっている。
 2026-11-18	p01-software-engineer	b010	build-review	0	V2	Library/CloudStorage/あさひ業務システムズ/設計会議/1212_受付が済んだ画面と仕事が済んだ画面.pptx	型の手順で各スライド右下に入れるページ番号が全5枚に欠け、2枚目の図と4枚目の表に使い終えた空のコンテンツプレースホルダーが残っている。
+2026-11-18	p14-finance-controller	b013	coordinator	0	other	Desktop/2026-07_会議が済んだので戻すもの.txt	統括の抜き取りで不合格
+2026-11-18	p14-finance-controller	b013	coordinator	0	other	Documents/取締役会/2026/Q2/2026-07_Q2報告_会議用.pptx	統括の抜き取りで不合格
+2026-11-18	p14-finance-controller	b013	coordinator	0	other	Documents/取締役会/2026/Q2/2026-07_Q2報告_想定問答.docx	統括の抜き取りで不合格
