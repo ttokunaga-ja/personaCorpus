@@ -525,3 +525,13 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-18	p01-software-engineer	b004	build-review	0	V3	Library/CloudStorage/あさひ業務システムズ/設計会議/0908_246msから次回の目標を決める.pptx	1枚目の図の下で「計時」の右側の青い水平線が「時」の字に重なっている。
 2026-11-18	p01-software-engineer	b004	build-review	1	V1	Pictures/操作確認/0828_社内計測の経路.png	計時開始・終了の印は端末側の送信・受信端点に移ったが、下の括弧は端末と評価環境の箱の間を示して両端点を括っておらず、右の申請データ・添付保管への双方向矢印も中央の評価環境の箱の上・下で途切れている。
 2026-11-18	p01-software-engineer	b004	build-review	1	V2	Library/CloudStorage/あさひ業務システムズ/設計会議/0908_246msから次回の目標を決める.pptx	1枚目の「計時」と線の重なりは解消したが、同じ図の各箱をつなぐ5本の矢印が青色で、asahi-release.pptxの図の書式と見本5枚目が示す黄色の矢印と異なる。
+2026-11-18	p17-construction-project-manager	b003	coordinator	0	other	Documents/メール/白島設計室/0708_小野さんへ_柱際四か所の照会.eml	統括の抜き取りで不合格
+2026-11-18	p17-construction-project-manager	b003	coordinator	0	other	Documents/メール/白島設計室/0711_小野さん返信_四か所は保留.eml	統括の抜き取りで不合格
+2026-11-18	p17-construction-project-manager	b003	coordinator	0	other	Documents/海田西配送棟増築/図面と質疑/0404_白島_施工区画比較_A-11_Rev0.pdf	統括の抜き取りで不合格
+2026-11-18	p17-construction-project-manager	b003	coordinator	0	other	Documents/海田西配送棟増築/図面と質疑/0509_柱基礎伏図_S-21_照会用.pdf	統括の抜き取りで不合格
+2026-11-18	p17-construction-project-manager	b003	coordinator	0	other	Documents/海田西配送棟増築/図面と質疑/0514_土間と建具_A-32_照会用.pdf	統括の抜き取りで不合格
+2026-11-18	p17-construction-project-manager	b003	coordinator	0	other	Documents/海田西配送棟増築/図面と質疑/0522_S-21_西村さん測り直しの赤字.pdf	統括の抜き取りで不合格
+2026-11-18	p17-construction-project-manager	b003	coordinator	0	other	Documents/海田西配送棟増築/図面と質疑/0529_A-32_土間端を見直す赤字.pdf	統括の抜き取りで不合格
+2026-11-18	p17-construction-project-manager	b003	coordinator	0	other	Downloads/0426_白島_A-11_Rev1_稼働を残す区画.pdf	統括の抜き取りで不合格
+2026-11-18	p17-construction-project-manager	b003	coordinator	0	other	Pictures/海田西配送棟増築/2024-05-20/0520_X5-Y4_土間端と仮の切断線.jpg	統括の抜き取りで不合格
+2026-11-18	p17-construction-project-manager	b003	coordinator	0	other	Pictures/海田西配送棟増築/2024-05-21/0521_X6-Y4_防護柵のベース.jpg	統括の抜き取りで不合格
