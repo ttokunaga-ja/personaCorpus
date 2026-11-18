@@ -461,6 +461,42 @@ fn config_text(text: &str, source: bool) -> Result<BTreeMap<String, String>> {
     }
     Ok(out)
 }
+// Compare the printed portion when the derivative explicitly excludes working material.
+fn print_source(parent: &str, body: &str, request: &str) -> String {
+    if parent.ends_with(".pptx") && request.trim_start().starts_with("発表者ノートを含めない。")
+    {
+        return body
+            .lines()
+            .filter(|line| {
+                !line.trim_start().starts_with("発表者メモ：")
+                    && !line.trim_start().starts_with("発表者ノート：")
+            })
+            .collect::<Vec<_>>()
+            .join("\n");
+    }
+    if parent.ends_with(".xlsx") {
+        let selector = re(r"^「([^「」\n]+)」シートの印刷範囲のみ");
+        if let Some(name) = selector.captures(request.trim_start()) {
+            let wanted = format!("## シート「{}」", &name[1]);
+            if body.lines().filter(|line| line.trim() == wanted).count() == 1 {
+                let mut include = true;
+                return body
+                    .lines()
+                    .filter(|line| {
+                        if line.trim_start().starts_with("## ") {
+                            include = !line.trim_start().starts_with("## シート「")
+                                || line.trim() == wanted;
+                        }
+                        include
+                    })
+                    .collect::<Vec<_>>()
+                    .join("\n");
+            }
+        }
+    }
+    body.to_owned()
+}
+
 fn source(
     root: &Path,
     rel: &str,
@@ -495,7 +531,17 @@ fn source(
     let mut body = body.to_string();
     if let Some(parent) = cfg.get("derived_from").filter(|s| !s.is_empty()) {
         chain.push(rel.into());
-        body = source(root, parent, chain)?.1 + "\n" + &body;
+        let parent_body = source(root, parent, chain)?.1;
+        let expected = if rel.ends_with(".pdf")
+            && cfg
+                .get("kind")
+                .is_some_and(|kind| kind.starts_with("office:"))
+        {
+            print_source(parent, &parent_body, &body)
+        } else {
+            parent_body
+        };
+        body = expected + "\n" + &body;
         chain.pop();
     }
     if body.trim().is_empty() && cfg.get("kind").map(String::as_str) != Some("photo") {
@@ -2024,5 +2070,42 @@ pub fn run_selected(args: &[String], selected: Option<&BTreeMap<String, BTreeSet
             eprintln!("check: Error: {e}");
             1
         }
+    }
+}
+
+#[cfg(test)]
+mod print_scope_tests {
+    use super::*;
+
+    #[test]
+    fn derived_pdf_uses_only_the_requested_print_content() {
+        let slides = "## 1枚目\n本文：見出し\n発表者メモ：社内用\n## 2枚目\n本文：数字";
+        assert_eq!(
+            print_source(
+                "a.pptx",
+                slides,
+                "発表者ノートを含めない。スライド面は違いなし。"
+            ),
+            "## 1枚目\n本文：見出し\n## 2枚目\n本文：数字"
+        );
+        let sheets = "共通欄\n## シート「配布用」\n売上高\n## シート「根拠」\n内訳";
+        assert_eq!(
+            print_source(
+                "a.xlsx",
+                sheets,
+                "「配布用」シートの印刷範囲のみをPDF出力する。"
+            ),
+            "共通欄\n## シート「配布用」\n売上高"
+        );
+        for request in [
+            "全シートを配布",
+            "「不存在」シートの印刷範囲のみをPDF出力する。",
+        ] {
+            assert_eq!(print_source("a.xlsx", sheets, request), sheets);
+        }
+        assert_eq!(
+            print_source("a.pptx", slides, "発表者メモを付ける。"),
+            slides
+        );
     }
 }
