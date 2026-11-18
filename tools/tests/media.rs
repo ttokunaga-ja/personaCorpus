@@ -126,6 +126,35 @@ fn pdf_scan_render_and_stamp() {
     assert_eq!(fs::read(source).unwrap(), bytes);
 }
 #[test]
+fn png_screenshot_records_author_and_document_times() {
+    let work = tempfile::tempdir().unwrap();
+    let path = work.path().join("screen.png");
+    image::RgbImage::new(12, 12).save(&path).unwrap();
+    run(
+        "stamp",
+        &[
+            string(&path),
+            "--author",
+            "田中 美由",
+            "--created",
+            "2026-03-05T10:00:00+09:00",
+            "--date",
+            "2026-03-06T18:42:10+09:00",
+        ],
+    );
+    fixture(
+        work.path(),
+        r#"from pathlib import Path
+from PIL import Image
+import sys
+info = Image.open(Path(sys.argv[1]) / 'screen.png').info
+assert info['Author'] == '田中 美由'
+assert info['Creation Time'] == '2026-03-05T10:00:00+09:00'
+assert info['Modification Time'] == '2026-03-06T18:42:10+09:00'
+"#,
+    );
+}
+#[test]
 fn image_pixels_and_capture_dates() {
     let work = tempfile::tempdir().unwrap();
     for extension in ["png", "jpg"] {

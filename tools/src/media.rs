@@ -1114,7 +1114,7 @@ fn stamp(a: StampArgs) -> Result<()> {
             write_zip(&entries, Some(stamp))?
         }
         "pdf" => stamp_pdf(&raw, &a, date, created)?,
-        "png" | "jpg" | "jpeg" => stamp_image(&raw, &extension, date, a.device.as_deref())?,
+        "png" | "jpg" | "jpeg" => stamp_image(&raw, &extension, date, created, &a)?,
         _ => raw,
     };
     replace_file(&a.file, &output)
@@ -1559,12 +1559,23 @@ fn clean_tiff(
     }
     Ok(out)
 }
+fn png_chunk(out: &mut Vec<u8>, kind: &[u8], data: &[u8]) {
+    out.extend((data.len() as u32).to_be_bytes());
+    out.extend(kind);
+    out.extend(data);
+    let mut hash = crc32fast::Hasher::new();
+    hash.update(kind);
+    hash.update(data);
+    out.extend(hash.finalize().to_be_bytes());
+}
 fn stamp_image(
     raw: &[u8],
     extension: &str,
     date: DateTime<FixedOffset>,
-    device: Option<&str>,
+    created: DateTime<FixedOffset>,
+    args: &StampArgs,
 ) -> Result<Vec<u8>> {
+    let device = args.device.as_deref();
     if extension == "png" {
         ensure!(raw.starts_with(b"\x89PNG\r\n\x1a\n"), "invalid PNG");
         let mut result = raw[..8].to_vec();
@@ -1592,13 +1603,21 @@ fn stamp_image(
                 } else {
                     data.to_vec()
                 };
-                result.extend((cleaned.len() as u32).to_be_bytes());
-                result.extend(kind);
-                result.extend(&cleaned);
-                let mut hash = crc32fast::Hasher::new();
-                hash.update(kind);
-                hash.update(&cleaned);
-                result.extend(hash.finalize().to_be_bytes());
+                png_chunk(&mut result, kind, &cleaned);
+            }
+            if kind == b"IHDR" {
+                for (key, value) in [
+                    ("Author", args.author.clone()),
+                    ("Creation Time", created.to_rfc3339()),
+                    ("Modification Time", date.to_rfc3339()),
+                ] {
+                    // Uncompressed UTF-8 iTXt, with empty language and translated keyword.
+                    png_chunk(
+                        &mut result,
+                        b"iTXt",
+                        format!("{key}\0\0\0\0\0{value}").as_bytes(),
+                    );
+                }
             }
             pos += size + 12;
         }

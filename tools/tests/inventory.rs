@@ -152,7 +152,12 @@ fn pack_reproducible_accepted_only_and_gate() {
 }
 #[test]
 fn pack_locations_manifests_and_all_persona_checks() {
-    let f = Fixture::new();
+    let mut f = Fixture::new();
+    let repo = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+        .parent()
+        .unwrap();
+    f.env
+        .insert("CORPUS_BASE".into(), repo.display().to_string());
     f.put("a.txt", BODY);
     f.accept();
     let dest = f.base.join("missing");
@@ -162,10 +167,7 @@ fn pack_locations_manifests_and_all_persona_checks() {
     let nested = f.home.join("nested");
     failure(&f.cli("pack", &[nested.to_str().unwrap()]));
     assert!(!nested.exists());
-    let protected = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
-        .parent()
-        .unwrap()
-        .join("bad-distribution");
+    let protected = repo.join("bad-distribution");
     failure(&f.cli("pack", &[protected.to_str().unwrap()]));
     assert!(!protected.exists());
     f.write(&f.base.join("people/p02-editor/a.txt"), b"placeholder");
