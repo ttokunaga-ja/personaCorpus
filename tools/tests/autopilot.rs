@@ -612,12 +612,26 @@ fn push_failure_blocks_after_three_then_recovers_without_reaccept() {
     );
 }
 #[test]
+fn small_reproduction_row_starts_with_its_actual_count() {
+    let f = Fixture::new();
+    f.roadmap(Some(
+        "| b001 | 再制作：欠品5件 | 5 | 回収条件 | 表と返信 | 既受入分 | |\n| b002 | 次の仕事 | 30 | 重点 | 内容 | 回避 | |\n",
+    ));
+    f.once();
+    assert_eq!(f.called("batch", "start"), 1);
+    let request = fs::read_to_string(f.r.join("progress/p01-test/b001.request.md")).unwrap();
+    assert!(request.contains("件数の目安：5"));
+}
+
+#[test]
 fn invalid_roadmap_fields_retry_and_generated_roadmap_uses_next_number() {
     let f = Fixture::new();
     f.roadmap(Some("| b001 | | 30 | 重点 | 内容 | 回避 | |\n"));
     f.once();
     assert!(f.jobs().get("p01-roadmap").is_some());
-    f.roadmap(Some("| b001 | 月次 | 20 | 重点 | 内容 | 回避 | |\n"));
+    f.roadmap(Some(
+        "| b001 | 月次 | 5 | 重点 | 内容 | 回避 | |\n| b002 | 次の仕事 | 30 | 重点 | 内容 | 回避 | |\n",
+    ));
     f.job("p01-roadmap", "done");
     f.once();
     assert!(f.jobs().get("p01-roadmap-r2").is_some());
@@ -899,11 +913,15 @@ fn coordinator_merge_refuses_protected_paths_and_failing_tests() {
             fs::set_permissions(wt.join("tests/run.sh"), fs::Permissions::from_mode(0o755))
                 .unwrap();
         }
-        finish_coordinator(&f, json!({"actions":[{"do":"merge","message":"bad"}]}));
+        finish_coordinator(
+            &f,
+            json!({"actions":[{"do":"merge","message":"bad"},{"do":"unhold","persona":"p01-test","batch":"b001"}]}),
+        );
         let before = f.git(&["rev-parse", "main"]);
         f.once();
         assert_eq!(f.git(&["rev-parse", "main"]), before, "{case}");
         let state = f.state();
+        assert!(f.holds().contains("| b001 |"));
         let result = state["coordinator"]["last_result"].to_string();
         assert!(
             result.contains(if case == "spec" {

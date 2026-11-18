@@ -38,7 +38,7 @@
 
 - あなたは Codex の sandbox の中にいて、`.git` に書けません。commit、worktree の作成、`bin/batch accept`・`discard`・`resume`、push はできません。これらは **操作の指示**（JSON の `actions` のパス）に書きます。あなたが終わったあと、自動運転が上から順に実行し、結果を次の統括の `previous` に渡します。
 - ファイルの編集は、自動運転が main から作り直した worktree（JSON の `worktree`、`scratch/autopilot/wt`）だけで行います。本体の作業フォルダの成果物・資料・道具は編集しません（`scratch/` の一時物は除く）。
-- 道具を直すときは、worktree で先に失敗するテストを書き、`tests/run.sh` と `ops/tests/run.sh` を通し、`cargo build --release --manifest-path tools/Cargo.toml` のあと、`CORPUS_BASE=<本体の repo の絶対パス> tools/target/release/corpus check --all` で受入済みの全ファイルが通ることを確かめます（worktree でビルドした実行ファイルは、`CORPUS_BASE` が無いと worktree を repo の根として読みます）。自動運転も取り込む前に同じことを確かめ、通らなければ取り込みません。
+- 道具を直すときは、worktree で先に失敗するテストを書き、`tests/run.sh` と `ops/tests/run.sh` を通し、`cargo build --release --manifest-path tools/Cargo.toml` のあと、`CORPUS_BASE=<本体の repo の絶対パス> tools/target/release/corpus check --all --accepted` で受入済みの全ファイルが通ることを確かめます（worktree でビルドした実行ファイルは、`CORPUS_BASE` が無いと worktree を repo の根として読みます）。自動運転も取り込む前に同じことを確かめ、通らなければ取り込みません。
 - 新しい batch を始めさせたくないとき（監査が甘いと分かったときなど）は、最初に `bin/autopilot stop` を実行します（動いている batch は止まりません）。直したら `{"do":"start"}` で再開します。`bin/autopilot stop --now` は使いません。
 
 ### 操作の指示（actions.json）
@@ -56,7 +56,7 @@
 ```
 
 - `merge`：worktree の変更をすべて 1 つの commit にして main に取り込みます。worktree を編集したら、必ず入れます。`SPEC.md` と `AGENTS.md` の変更、`people/`・`sources/` の追加と変更は取り込まれません（ユーザーの確認が要ることは、`progress/handover.md` の「ユーザーに聞くこと」に選択肢と案を書きます）。受入済みのファイルの削除は 1 回に 3 件までで、manifest の行とファイル計画の行（`破棄：<理由>`）も一緒に直します。
-- 操作は上から順に実行されます。道具の修正が要る受入やり直しは、`merge` を先に書きます。
+- 操作は上から順に実行され、失敗すると後続の操作は中止されます。道具の修正が要る受入やり直しは、`merge` を先に書きます。
 - `flag` は `--rebuild`・`--redraft`・`--review-again` か空です。
 - 保留を処理したら `unhold` を入れます。
 - ユーザーの確認が要る判断（受入済みファイルの大量の削除、persona の設定の大きな変更など）が残る項目は、分析と案を `progress/handover.md` の「ユーザーに聞くこと」と結果の報告に書いて `merge` し、`ask` を入れます（`item` は AUTOPILOT_CONTEXT の agenda の文字列そのまま）。自動運転はその項目で統括を起動し直さず、`bin/autopilot status` に問いを出します。同じ分析をくり返して 3 回を使い切らないでください。ユーザーの答えは、次の起動の AUTOPILOT_CONTEXT の `answers` に入ります。答えを受けたら、その判断を実行し、`progress/handover.md` から問いを消します。

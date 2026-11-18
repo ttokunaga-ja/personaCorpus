@@ -1,4 +1,4 @@
-use anyhow::{Result, anyhow, bail};
+use anyhow::{Context, Result, anyhow, bail};
 use chrono::{DateTime, NaiveDate, NaiveDateTime, TimeZone, Utc};
 use clap::Parser;
 use fancy_regex::Regex as Fancy;
@@ -1593,6 +1593,9 @@ struct Args {
     persona: Option<String>,
     #[arg(long)]
     all: bool,
+    /// Inspect only deliverables committed in Git HEAD.
+    #[arg(long, requires = "all")]
+    accepted: bool,
     #[arg(long)]
     batch: Option<String>,
     #[arg(long)]
@@ -1759,6 +1762,19 @@ fn tracked(folder: &Path) -> Result<BTreeSet<String>> {
     Ok(paths)
 }
 fn run_inner(a: &Args, selected: Option<&BTreeMap<String, BTreeSet<String>>>) -> Result<i32> {
+    let mut accepted = BTreeMap::<String, BTreeSet<String>>::new();
+    let selected = if a.accepted {
+        for path in crate::manifest::accepted(&a.root)? {
+            let (name, rel) = path.split_once('/').context("invalid accepted file path")?;
+            accepted.entry(name.into()).or_default().insert(rel.into());
+        }
+        if accepted.is_empty() {
+            bail!("no accepted files")
+        }
+        Some(&accepted)
+    } else {
+        selected
+    };
     let names = match selected {
         Some(s) => s.keys().cloned().collect(),
         None => names(a)?,

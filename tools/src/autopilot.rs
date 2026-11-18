@@ -548,15 +548,20 @@ impl Pilot {
         )?;
         if rows.is_empty()
             || rows.iter().any(|r| {
+                let minimum = if r.get("範囲").starts_with("再制作：") {
+                    1
+                } else {
+                    30
+                };
                 r.get("範囲").is_empty()
                     || !r.get("件数の目安").chars().all(|c| c.is_ascii_digit())
                     || !r
                         .get("件数の目安")
                         .parse::<i64>()
-                        .is_ok_and(|n| (30..=40).contains(&n))
+                        .is_ok_and(|n| (minimum..=40).contains(&n))
             })
         {
-            bail!("roadmap: 範囲が空または件数が30〜40でない")
+            bail!("roadmap: 範囲が空または件数が範囲外（通常30〜40、再制作1〜40）")
         }
         if rows
             .iter()
@@ -1376,10 +1381,13 @@ impl Pilot {
             Err(e) => results.push(format!("{job}: actions.json を読めない: {e}")),
             Ok(v) => {
                 for a in v["actions"].as_array().cloned().unwrap_or_default() {
-                    results.push(match self.action(&a) {
-                        Ok(m) => format!("ok {a}: {m}"),
-                        Err(e) => format!("失敗 {a}: {e}"),
-                    });
+                    match self.action(&a) {
+                        Ok(m) => results.push(format!("ok {a}: {m}")),
+                        Err(e) => {
+                            results.push(format!("失敗 {a}: {e}（後続の操作を中止）"));
+                            break;
+                        }
+                    }
                 }
             }
         }
@@ -1585,8 +1593,11 @@ impl Pilot {
                     .to_string_lossy()
                     .into_owned();
                 let base = format!("CORPUS_BASE={}", self.root.to_string_lossy());
-                let o = self.cmd(&["env", &base, &binary, "check", "--all"], false)?;
-                if !o.text.contains("failed: 0,") {
+                let o = self.cmd(
+                    &["env", &base, &binary, "check", "--all", "--accepted"],
+                    false,
+                )?;
+                if o.code != 0 {
                     let tail: String = o
                         .text
                         .lines()

@@ -191,3 +191,15 @@ fn pack_locations_manifests_and_all_persona_checks() {
         .count();
     assert_eq!(archives, 1);
 }
+
+#[test]
+fn accepted_check_ignores_work_in_progress_and_rejects_missing_accepted_files() {
+    let f = Fixture::new();
+    f.put("accepted.txt", BODY);
+    f.accept();
+    f.bytes("in-progress.exe", b"incomplete");
+    failure(&f.cli("check", &["--all"]));
+    success(&f.cli("check", &["--all", "--accepted"]));
+    fs::remove_file(f.home.join("accepted.txt")).unwrap();
+    failure(&f.cli("check", &["--all", "--accepted"]));
+}
