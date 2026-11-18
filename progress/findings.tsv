@@ -438,3 +438,6 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-18	p17-construction-project-manager	b002	check	2	source	Downloads/0710_白島_排水平面_D-41_RevA.pdf	body token overlap 0.705 < 0.8
 2026-11-18	p17-construction-project-manager	b002	check	2	source	Downloads/0713_白島_排水断面_D-42_RevA.pdf	body token overlap 0.738 < 0.8
 2026-11-18	p14-finance-controller	b008	coordinator	0	other	Documents/月次/2026/2026-02/2026-02_残高増減と当月損益.xlsx	統括の抜き取りで不合格
+2026-11-18	p17-construction-project-manager	b002	coordinator	0	other	Documents/メール/白島設計室/0708_小野さんへ_排水接続高さの照会.eml	統括の抜き取りで不合格
+2026-11-18	p17-construction-project-manager	b002	coordinator	0	other	Documents/メール/白島設計室/0714_小野さんから_迂回図と設計回答.eml	統括の抜き取りで不合格
+2026-11-18	p17-construction-project-manager	b002	coordinator	0	other	Pictures/海田西配送棟増築/2026-07-13/0713_X4-Y4_桝まわりの余地.jpg	統括の抜き取りで不合格
