@@ -730,3 +730,13 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-18	p14-finance-controller	b012	coordinator	0	other	Desktop/2026-06_予測差替えで残すもの.txt	統括の抜き取りで不合格
 2026-11-18	p14-finance-controller	b012	coordinator	0	other	Documents/予測/2026/Q2/2026-06_CFO説明_Aoba3棟と着地見通し.pptx	統括の抜き取りで不合格
 2026-11-18	p14-finance-controller	b012	coordinator	0	other	Outlook 保存/予測/2026-06_Re_原価と先行手配.eml	統括の抜き取りで不合格
+2026-11-18	p01-software-engineer	b008	templates-review	0	other	README.md	「見本と確認先」の基点 scratch/p01-software-engineer/b007/work/templates-0002/ が存在せず、表の見本・レンダリング54参照がすべて解決できない。
+2026-11-18	p01-software-engineer	b008	draft-review	0	D10	Downloads/照会ポータル_発注と納品の照会.html	先頭設定4行目の author が田中美由になっているが、計画では田中は保存者で、本文10・18行目はあさひ業務システムズ株式会社の対外案内としており、既存の保存製品ページも発行元を author に記録している。
+2026-11-18	p01-software-engineer	b008	draft-review	0	D10	Documents/レビュー控え/2025/0317_照会項目を28に決めた打合せ.docx	冒頭8〜12行にMT-005 v1.0・会議日時・記録者・出席者はあるが、asahi-minutes.docxの管理欄で見本にもある議事録自身の確認者が示されておらず、出席や改訂項目の確認担当からは確定できない。
+2026-11-18	p01-software-engineer	b008	draft-review	0	D10	Documents/照会ポータル/照会設計/0324_藤崎購買へ渡す照会対象範囲.pdf	冒頭8〜10行にEV-012 v1.0・作成日・作成者・宛先はあるが、変換元のasahi-decision.docxの管理欄で見本にもある文書自身の確認者が原稿全体に示されていない。
+2026-11-18	p01-software-engineer	b008	draft-review	0	D10	Documents/レビュー控え/2025/0313_高橋さんから_項目定義の回答.docx	EV-011 v1.0の管理欄に作成者の高橋と宛先の田中はあるが、型一覧のb008節がレビュー回答に求める確認者が原稿に記されておらず、宛先の田中を確認者とする根拠がない。
+2026-11-18	p01-software-engineer	b008	draft-review	0	D10	Documents/レビュー控え/2025/0314_照会項目の定義_田中コメント.docx	EV-010 v0.1の草稿本文を保持した別名控えで、田中の4件のコメントは具体的だが、先頭のderived_fromが空で、計画が指定する3月11日の草稿の相対パスがない。
+2026-11-18	p01-software-engineer	b008	draft-review	0	D10	Documents/照会ポータル/照会設計/0319_照会項目の定義_選定反映.docx	EV-010 v0.2には採用28項目・対象外5項目と高橋の3回答が反映されているが、先頭のderived_fromが空で、計画の「先に要るもの」で指定された改訂元の3月11日版EV-010 v0.1の相対パスがない。
+2026-11-18	p01-software-engineer	b008	build-review	0	V2	Documents/照会ポータル/照会設計/0310_購買照会で使った項目.xlsx	第2シート「集計条件」はA6:G6の明細で終わり、印刷5頁目にも管理欄がない。型の両見本で第2シート末尾にあるA:G結合の管理欄に、原稿指定の文書番号ABS-2025-RL-004・版v0.1・基準日2025年3月10日・作成 田中 美由のラベルと値が欠けている。
+2026-11-18	p01-software-engineer	b008	build-review	0	V2	Library/CloudStorage/あさひ業務システムズ/設計会議/0317_照会項目をどこに置くか.pptx	全6枚の題と4・5枚目の表見出しが指定の青 #2548A6 から #1F4E79 に上書きされ、3枚目の図と4・5枚目の表も指定の淡青 #EEF1FA に代えて #DCEAF5 が使われている。
+2026-11-18	p01-software-engineer	b008	build-review	0	V2	Documents/照会ポータル/照会設計/0319_照会項目の定義_選定反映.docx	1ページ目のQ01・Q04、2ページ目のQ19・Q24の説明セルと3ページ目の別表Q29〜Q33の見出し・明細セルが型指定の表用9ptスタイルを失い、10.5ptの本文書式になっている。

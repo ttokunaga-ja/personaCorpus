@@ -20,8 +20,9 @@
 \end{tikzpicture}}
 \pagestyle{fancy}
 \fancyhf{}
+\newcommand{\FujisakiReportKind}{試行報告}
 \fancyhead[L]{\FujisakiLogo\quad\textcolor{FujisakiTeal}{\sffamily 藤崎医療資材株式会社}}
-\fancyhead[R]{\small 購買部門 / 試行報告}
+\fancyhead[R]{\small 購買部門 / \FujisakiReportKind}
 \fancyfoot[L]{\small 藤崎医療資材株式会社 / 購買部門}
 \fancyfoot[R]{\small\thepage\ / \pageref{LastPage}}
 \renewcommand{\headrulewidth}{.4pt}
