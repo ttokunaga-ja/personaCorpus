@@ -69,7 +69,7 @@ ADR-042のDOCXとPDFは `asahi-decision.docx` で完成させた同じ文書か�
 - `\documentclass{asahi-measurement}`、`\begin{document}`～`\end{document}` を使う。
 - `\ReportTitle{実題}{文書番号・版}{日付}{作成者}` で実情報を入れる。
 - `\section`、`\subsection`、`\ReportNote{実際の注記}` を使う。
-- 表は本文幅166mm以内のlongtable。例の列幅は31・29・28・52mmで、列間の余白を含めて本文内へ収める。
+- 表は本文幅166mm以内のlongtable。例の列幅は31・29・28・52mmで、列間の余白を含めて本文内へ収める。数値の列を右寄せにする場合は `>{\raggedleft\arraybackslash}p{…}`、次の文字列との境目は `@{\hspace{4mm}}` で間隔を取る。
 - 先頭見出しを `\ReportHead{\HeadCell{項目}&…}` で作り、`\endfirsthead` の後に同じ見出しを置いて `\endhead` とする。明細は実際の内容だけを追加する。合計は原稿にある場合だけ太字・淡青で追加する。空の記入欄や仮の集計を追加しない。
 
 ## b002での使い分け
@@ -103,13 +103,21 @@ ADR-042のDOCXとPDFは `asahi-decision.docx` で完成させた同じ文書か�
 - 併用説明のスライドは `asahi-release.pptx`（`BR`）。「2段」で旧受付・新受付の識別点、「図」で受付番号から元の記録へたどる照合の流れを示せる。3月6日に確認した終了条件と、未確定の終了日・未処理23件の解消状況を分ける。管理番号・日付・版・担当分担・照合方法の具体値は計画と台帳に従う。
 - 紙の引継ぎ書は原稿に沿って発行元の書式に組み、書込みを含む紙面を `bin/scan` で画像のみのPDFにする。メール・個人メモ・画面保存・ボード写真はそれぞれの形式で作る。
 
+## b006での使い分け
+
+- 田中の調査記録・田中コメント入り控え・表示方針は `asahi-decision.docx`（`EV`）。コメントは確認範囲や判断根拠の該当箇所に付け、著者と日時を原稿どおりに設定する。6月24日の会議を議事録にする場合は `asahi-minutes.docx`（`MT`）。表示方針のテキストPDFは、原稿に沿って成形したWord文書から `bin/office-pdf` で変換する。
+- 中村美喜子が大島ルート配送から送る申告資料のPDFは `oshima-trial.docx` で組む。管理欄は大島の `OR-YYYY-連番`、版、日付、作成者。中村が申告した内容と、田中・鈴木が照合した結果を発行元ごとに書き分ける。PDFだけが計画にある場合、変換元のWord文書は作業先に置く。
+- 7件の観点整理は `asahi-release.xlsx`（`RL`）。「指摘と再審査」を「申告別の照合」とし、順番・分類・申告時の状況・照合した控え・担当・確認日・対象内の判断を列に取る。画面表示の比較も必要なら「公開判定」を「表示案の確認」に変更し、申告の照合と案の評価を別シートで扱う。列見出しの書式、明細のインデント、印刷設定はExcel成形手順に従う。
+- 表示案の説明は `asahi-release.pptx`（`BR`）。「2段」で表示案を比較し、「図」で識別に使う位置を示せる。2025年6月24日の点検結果は申告の7件に限定し、権限逸脱の有無と、識別表示を先に改善する判断を区別する。表示の具体値や採否の根拠は計画・台帳で確定し、適用や公開の完了扱いを避ける。
+- 顧客照会と鈴木への確認はEML、電話聞取りはTXT、途中の仮説はMD、集計の画面保存はCSV、表示と比較案はPNGとして原稿に沿って作る。2026年のR7-03（添付差替え後に旧名が残る指摘）と対象を区別する。
+
 ## 見本と確認先
 
-今回の作業先は `scratch/p01-software-engineer/b005/work/templates-0002/`。下表のパスはこの作業先からの相対パス。見本の番号・日付・本文は組版確認用。Wordは短表と複数ページの長表、PowerPointは全5レイアウトを収録。
+今回の作業先は `scratch/p01-software-engineer/b006/work/templates-0002/`。下表のパスはこの作業先からの相対パス。見本の番号・日付・本文は組版確認用。Wordは3明細の短表と35明細の長表、PowerPointは全5レイアウトを収録。
 
 | 型 | 見本 | 全ページの画像 |
 |---|---|---|
-| asahi-decision.docx | `examples/asahi-decision.docx`、`examples/asahi-decision-long.docx` | `render/asahi-decision-docx/`、`render/asahi-decision-long-docx/` |
+| asahi-decision.docx | `examples/asahi-decision.docx`、`examples/asahi-decision-long.docx`、`examples/asahi-decision.pdf` | `render/asahi-decision-docx/`、`render/asahi-decision-long-docx/`、`render/asahi-decision-pdf/` |
 | asahi-minutes.docx | `examples/asahi-minutes.docx`、`examples/asahi-minutes-long.docx` | `render/asahi-minutes-docx/`、`render/asahi-minutes-long-docx/` |
 | asahi-notice.docx | `examples/asahi-notice.docx`、`examples/asahi-notice-long.docx`、`examples/asahi-notice.pdf` | `render/asahi-notice-docx/`、`render/asahi-notice-long-docx/`、`render/asahi-notice-pdf/` |
 | asahi-explanation.docx | `examples/asahi-explanation.docx`、`examples/asahi-explanation-long.docx`、`examples/asahi-explanation.pdf` | `render/asahi-explanation-docx/`、`render/asahi-explanation-long-docx/`、`render/asahi-explanation-pdf/` |
@@ -117,8 +125,8 @@ ADR-042のDOCXとPDFは `asahi-decision.docx` で完成させた同じ文書か�
 | asahi-performance.xlsx | `examples/asahi-performance-3.xlsx`、`examples/asahi-performance-36.xlsx` | `render/asahi-performance-3-xlsx/`、`render/asahi-performance-36-xlsx/` |
 | asahi-release.xlsx | `examples/asahi-release-3.xlsx`、`examples/asahi-release-36.xlsx` | `render/asahi-release-3-xlsx/`、`render/asahi-release-36-xlsx/` |
 | asahi-release.pptx | `examples/asahi-release.pptx` | `render/asahi-release-pptx/` |
-| asahi-measurement.cls | `examples/asahi-measurement-3.tex`、`examples/asahi-measurement-3.pdf`、`examples/asahi-measurement-32.tex`、`examples/asahi-measurement-32.pdf` | `render/asahi-measurement-3-pdf/`、`render/asahi-measurement-32-pdf/` |
-| harlow-review.cls | `examples/harlow-review-3.tex`、`examples/harlow-review-3.pdf`、`examples/harlow-review-32.tex`、`examples/harlow-review-32.pdf` | `render/harlow-review-3-pdf/`、`render/harlow-review-32-pdf/` |
-| fujisaki-trial.cls | `examples/fujisaki-trial-3.tex`、`examples/fujisaki-trial-3.pdf`、`examples/fujisaki-trial-32.tex`、`examples/fujisaki-trial-32.pdf` | `render/fujisaki-trial-3-pdf/`、`render/fujisaki-trial-32-pdf/` |
+| asahi-measurement.cls | `examples/asahi-measurement-3.tex`、`examples/asahi-measurement-3.pdf`、`examples/asahi-measurement-37.tex`、`examples/asahi-measurement-37.pdf` | `render/asahi-measurement-3-pdf/`、`render/asahi-measurement-37-pdf/` |
+| harlow-review.cls | `examples/harlow-review-3.tex`、`examples/harlow-review-3.pdf`、`examples/harlow-review-37.tex`、`examples/harlow-review-37.pdf` | `render/harlow-review-3-pdf/`、`render/harlow-review-37-pdf/` |
+| fujisaki-trial.cls | `examples/fujisaki-trial-3.tex`、`examples/fujisaki-trial-3.pdf`、`examples/fujisaki-trial-37.tex`、`examples/fujisaki-trial-37.pdf` | `render/fujisaki-trial-3-pdf/`、`render/fujisaki-trial-37-pdf/` |
 
-Excelの短表は各シート3明細、長表は36明細。末尾の結合注記欄で、性能測定の `ABS-2025-PF-064`・版0.3・基準日2025-08-25・田中美由・佐藤雅之と、指摘・公開判定の `ABS-2026-RL-064`・版0.3・基準日2026-05-19・田中美由・Laura Nicholsが全文印刷されることを確認する。数値64／「64件の説明を確認」、先頭列の19／「TK250709-019」で列の間隔を確認する。藤崎試行報告は3明細と32明細で、管理欄の番号・日付・氏名、右寄せの順番列の右側、表見出しの繰返しを確認する。
+Excelの短表は各シート3明細、長表は36明細。末尾の結合注記欄に、性能測定の `ABS-2025-PF-864`・版0.3・基準日2025-08-25・田中美由・佐藤雅之と、申告照合の `ABS-2025-RL-864`・版0.3・基準日2025-06-24・田中美由・鈴木裕佳を入れた。測定回19と「TK250709-019」、控えの件数7と「7件の控えを照合」が印刷上で接しないことを確認した。TeXの見本は各型3明細と37明細。発行欄の全文、数値と文字の境目、表見出しとページ番号の繰返しを確認した。
