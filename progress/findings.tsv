@@ -821,3 +821,43 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-18	p17-construction-project-manager	b006	check	2	plan	Documents/海田研修棟改修/区画別工程/0411_工事中の研修室使用条件.docx	plan: planned file missing。成形の最終出力：対象の **「0411_工事中の研修室使用条件.docx」は未作成**です。 [原稿](</home/ttokunaga-ja/dev/github.com/ttokunaga-ja/personaCorpus/sources/p17-construction-project-manager/Documents/海田研修棟改修/区画別工程/0411_工事中の研修室使用条件.docx.md>)には、I→IIの切替え時の中央研修室の投影・音声、中央2室の予約・利用案内の確認と、坂本による可否の記録がありません。[事実の台帳](</home/ttokunaga-ja/dev/github.com/ttokunaga-ja/personaCorpus/progress/p17-construction-project-manager/facts.md:214>)と4月10日の協議記録では、これらを初回前と各切替えの確認事項としています。前回の保留理由は解消されていません。 原稿を補足せずに成形すると合意条件が欠けるため、この行を保留しました。成果物や原稿は変更しておらず、stage・commit・pushも行っていません。 [原稿](</home/ttokunaga-ja/dev/github.com/ttokunaga-ja/personaCorpus/sources/p17-construction-project-manager/Documents/海田研修棟改修/区画別工程/0411_工事中の研修室使用条件.docx.md>)には、I→IIの切替え時の中央研修室の投影・音声、中央2室の予約・利用案内の確認と、坂本による可否の記録がありません。[事実の台帳](</home/ttokunaga-ja/dev/github.com/ttokunaga-ja/personaCorpus/progress/p17-construction-project-manager/facts.md:214>)と4月10日の協議記録では、これらを初回前と各切替えの確認事項としています。前回の保留理由は解消されていません。 原稿を補足せずに成形すると合意条件が欠けるため、この行を保留しました。成果物や原稿は変更しておらず、stage・commit・pushも行っていません。
 2026-11-18	p17-construction-project-manager	b006	coordinator	0	other	Documents/海田研修棟改修/区画別工程/0402_青木さんと見た室割り.pdf	統括の抜き取りで不合格
 2026-11-18	p17-construction-project-manager	b006	coordinator	0	other	Documents/海田研修棟改修/区画別工程/0411_工事中の研修室使用条件.docx	統括の抜き取りで不合格
+2026-11-18	p14-finance-controller	b013	templates-review	0	other	README.md	122行目のb012配置確認用の参照先 scratch/p14-finance-controller/b012/work/templates-0002/{examples,render}/ が両方とも存在せず、126〜131行目の見本と画像を参照できない。
+2026-11-18	p14-finance-controller	b013	templates-review	0	other	cedar-count-sheet.cls	README記載のCountTable・CountSignatures・CountNoteで54明細を組むと、表と署名欄は3ページ目で終わり、短い注記1行だけが4ページ目に送られて用紙がほぼ空白になる。
+2026-11-18	p14-finance-controller	b013	templates-review	1	other	cedar-count-sheet.cls	READMEの手順で表直後に署名欄と注記を置くと、18明細で2ページ目に表の末尾罫線・署名欄・注記だけが出て、38明細でも3ページ目に署名欄と注記だけが出るため、最終明細と署名が別紙に分かれる。
+2026-11-18	p14-finance-controller	b013	draft-review	0	D10	Desktop/2026-07_預金を明細のまま足した表.xlsx	調整表の管理欄に必要なB3の基準日とF3の確認者または確認なしの扱いが原稿にない。表のC9は通常のSUMで、計画にあるピボットの集計結果を残すための元データと集計結果の配置も区別されていない。
+2026-11-18	p14-finance-controller	b013	draft-review	0	D10	Documents/取締役会/2026/Q2/2026-07_4-6月の売上差と実績損益.xlsx	管理欄のB3に入れる本表の基準日とF3の確認者または確認なしの扱いが未指定で、12月18日は引用元予算の承認日。月別損益のF6:F9・K6:K9も「比較保留」のみで、計画がセル内に求める北斗18mm関連の保留理由は欄外にしかない。
+2026-11-18	p14-finance-controller	b013	draft-review	0	D10	Documents/取締役会/2026/Q2/2026-07_営業投資財務と預金残高.xlsx	「配布用」の管理欄に必要なB3の基準日とF3の確認者または確認なしの扱いが未指定。末尾の「6月30日基準」は参照するQTIE-01に付されており、宛先の大庭を本表の確認者とする記載もない。
+2026-11-18	p14-finance-controller	b013	draft-review	0	D10	Documents/取締役会/2026/Q2/2026-07_質問されたときに開く数字.xlsx	管理欄のB3に入れる本表の基準日とF3の確認者または確認なしの扱いがない。「質問別」D10の全社372百万円の根拠欄には接続式の説明だけがあり、7月＋20・8月▲101.2の参照文書が特定できない。
+2026-11-18	p14-finance-controller	b013	draft-review	1	D10	Desktop/2026-07_預金を明細のまま足した表.xlsx	基準日・確認なし、元データと集計結果の分離は追記されたが、「集計途中」のA8/A9を区分、C8/C9を合計とする指定は、区分を行フィールド、残高の合計を値フィールドにした2列のピボットの出力と一致せず、同じ条件でCalcに作ると値は区分の右隣のB列に入りC列は空く。
+2026-11-18	p14-finance-controller	b013	draft-review	1	D10	Documents/取締役会/2026/Q2/2026-07_質問されたときに開く数字.xlsx	基準日と確認なしは追記されたが、「質問別」D10の7月＋20・8月▲101.2百万円は「ファイル名未確認」の資金繰り予測欄にとどまり、記載のQTIE-01は6月末残高までのため、7月13日時点の根拠表として両月の見込みの参照先を特定できない。
+2026-11-18	p14-finance-controller	b013	draft-review	2	D10	Documents/取締役会/2026/Q2/2026-07_質問されたときに開く数字.xlsx	「質問別」C10・D10は6月末実績453.2百万円までの照合先と今後の確認を示すが、7月16日の想定問答Q3がこの表を根拠に挙げる全社8月末372百万円について、7月＋20・8月▲101.2百万円の参照先を依然として特定できない。
+2026-11-18	p14-finance-controller	b013	draft-review	0	D10	Documents/取締役会/2026/Q2/2026-07_Q2報告_会議用.pptx	原稿13行目の表紙管理欄は2026年7月17日の日付のみで、型一覧が表紙に求めるJSTの時刻（計画では10:30）が欠けている。先頭のcreatedは確認版の2026年7月14日14:45で、会議版の表紙日時には使えない。
+2026-11-18	p14-finance-controller	b013	build-review	0	V2	Desktop/2026-07_預金を明細のまま足した表.xlsx	「集計途中」の印刷2頁目で、本物のピボット見出しA7:B7の上に型由来の空の見出し帯A5:F5が残り、型の経理財務部フッタと頁番号が欠落している。
+2026-11-18	p14-finance-controller	b013	build-review	0	V2	Documents/取締役会/2026/Q2/2026-07_営業投資財務と預金残高.xlsx	印刷2頁目の「営業根拠」D5:F5と3頁目の「投資財務根拠」E5:F5に、見出しも明細もない型の緑帯が残るほか、全3シートの基準日B3が型指定の日付値ではなく文字列になっている。
+2026-11-18	p14-finance-controller	b013	build-review	0	V2	Documents/取締役会/2026/Q2/2026-07_取締役会での質問と持ち帰り.docx	1ページ目「確認と持ち帰り」の担当・期限表がTable GridとNormalで組まれ、型のFinance TableとFinance Table Header／Bodyが使われず、見出し行「事項／担当／期限・扱い」が白地黒字になっている。
+2026-11-18	p14-finance-controller	b013	build-review	0	V1	Documents/取締役会/2026/Q2/2026-07_8月の入金がずれた場合.xlsx	「8月末点検」シートのセルと印刷ページに、原稿の表題「8月の入金がずれた場合」がない。
+2026-11-18	p14-finance-controller	b013	build-review	1	V2	Desktop/2026-07_預金を明細のまま足した表.xlsx	「集計途中」の空帯とフッタは修正済みだが、印刷1頁目「元データ」のD5:F5に、見出しも明細もない深緑の帯が残っている。
+2026-11-18	p14-finance-controller	b013	build-review	1	V1	Documents/取締役会/2026/Q2/2026-07_営業投資財務と預金残高.xlsx	「営業根拠」「投資財務根拠」の余分な見出し帯と全3シートの基準日B3は修正済みだが、原稿の表題「Q2 営業・投資・財務と預金残高」がブック内に見当たらず、印刷1頁目「配布用」の管理欄下にも表示されない。
+2026-11-18	p14-finance-controller	b013	check	0	source	Documents/取締役会/2026/Q2/2026-07_Q2報告_配布資料.pdf	body token overlap 0.482 < 0.5
+2026-11-18	p14-finance-controller	b013	check	0	source	Documents/取締役会/2026/Q2/2026-07_Q2資金の補助表.pdf	body token overlap 0.336 < 0.5
+2026-11-18	p14-finance-controller	b013	check	1	source	Documents/取締役会/2026/Q2/2026-07_Q2報告_配布資料.pdf	body token overlap 0.482 < 0.5
+2026-11-18	p14-finance-controller	b013	check	1	source	Documents/取締役会/2026/Q2/2026-07_Q2資金の補助表.pdf	body token overlap 0.338 < 0.5
+2026-11-18	p14-finance-controller	b013	check	2	source	Documents/取締役会/2026/Q2/2026-07_Q2報告_配布資料.pdf	body token overlap 0.482 < 0.5
+2026-11-18	p14-finance-controller	b013	check	2	source	Documents/取締役会/2026/Q2/2026-07_Q2資金の補助表.pdf	body token overlap 0.336 < 0.5
+2026-11-18	p14-finance-controller	b013	check	0	source	Documents/取締役会/2026/Q2/2026-07_Q2資金の補助表.pdf	body token overlap 0.338 < 0.5
+2026-11-18	p14-finance-controller	b013	check	1	source	Documents/取締役会/2026/Q2/2026-07_Q2資金の補助表.pdf	body token overlap 0.336 < 0.5
+2026-11-18	p01-software-engineer	b010	templates-review	0	other	README.md	「見本と確認先」の基準ディレクトリ scratch/p01-software-engineer/b009/work/templates-0002/ が存在せず、表に記載された旧見本・画像の70参照すべてを開けない。
+2026-11-18	p01-software-engineer	b010	draft-review	0	D10	Downloads/1126_申請デスク_ご利用の流れ.html	27〜29行目の「お問い合わせ」は担当名を述べるだけで、計画が前提とする問い合わせ導線のリンク先・連絡方法が原稿にない。既存の同製品の保存HTMLには製品問い合わせへのリンクがある。
+2026-11-18	p01-software-engineer	b010	draft-review	0	D4	Pictures/操作確認/1127_一覧のCompletedと詳細のIn_review.png	19行目の詳細番号ラベル「Completion number」は校閲前用語表v0.1の50番「Receipt number」と矛盾し、台帳で「Completion number」を使うのは受付結果の25番だけで詳細番号は変更対象外。9行目の一覧の種類列も用語表38番の「Application type」に対し「Application」となっている。
+2026-11-18	p01-software-engineer	b010	draft-review	0	D10	Pictures/操作確認/1209_受付済みと確認中を並べて見る.png	本文10〜12行目に左一覧の申請列見出しと右詳細の画面見出し・番号ラベルの表示文字がない。11月27日の対照原稿にあるApplication・Application details・Completion numberの扱いが示されず、用語表v0.1の詳細番号ラベルReceipt numberとの関係も判別できない。
+2026-11-18	p01-software-engineer	b010	draft-review	0	D4	Documents/レビュー控え/2024/1209_Lauraと64件を読んだ記録.docx	45行目の「12月10日に共有された表」は共有日を10日と読めるが、台帳とLauraの確認メールでは共有が9日17:15、照合と返信が10日であり、「担当と期限」で日付のかかり先を分ける必要がある。
+2026-11-18	p01-software-engineer	b010	draft-review	0	D10	Library/CloudStorage/あさひ業務システムズ/設計会議/1212_受付が済んだ画面と仕事が済んだ画面.pptx	スライド4の比較表は4・2・2件と旧英語・新英語の例を示すが、型一覧のb010指定で比較する対応日本語の表示・訳語がなく、場所と理由だけでは日英対照表を原稿から成形できない。
+2026-11-18	p01-software-engineer	b010	draft-review	0	other	Documents/レビュー控え/2024/1202_日英用語表_v0.1_Lauraコメント.docx	判定なし
+2026-11-18	p01-software-engineer	b010	draft-review	0	other	Downloads/1205_Laura_受付の英語レビュー.pdf	判定なし
+2026-11-18	p01-software-engineer	b010	draft-review	0	other	Documents/用語と説明/1209_申請デスク日英用語表_v1.0.docx	判定なし
+2026-11-18	p01-software-engineer	b010	draft-review	0	other	Documents/メール控え/申請デスク/1216_中村さんへ_受付画面を読む時の資料.eml	判定なし
+2026-11-18	p01-software-engineer	b010	draft-review	1	D10	Documents/レビュー控え/2024/1202_日英用語表_v0.1_Lauraコメント.docx	計画では11月29日のDOCXにLauraが校閲を加えた返却版だが、先頭のderived_fromが空欄で、原稿は元版の本文・64行を丸ごと再掲しているため、元の相対パスを指定し8箇所のコメント・赤字の差分を記す派生原稿の規定と合わない。
+2026-11-18	p01-software-engineer	b010	draft-review	1	D10	Documents/用語と説明/1209_申請デスク日英用語表_v1.0.docx	計画ではABS-2024-EX-001 v0.1の64行を引き継いで指定の8行だけを改訂する版だが、先頭のderived_fromが空欄で、元版の相対パスと改訂差分で示すべき箇所を据置き56行ごと再掲している。
+2026-11-18	p01-software-engineer	b010	build-review	0	V1	Pictures/操作確認/1209_受領の表示に直した配送便変更.png	11月27日版と同じ配置・社内確認環境という指定に対し、番号欄がラベルと値の横並びから別枠の上下並びに変わり、アドレスバーも application-desk.internal から application-desk.local に変わっている。
+2026-11-18	p01-software-engineer	b010	build-review	0	V1	Pictures/操作確認/1209_受付済みと確認中を並べて見る.png	11月27日版と同じ社内確認環境での比較という台帳の指定に対し、一覧・詳細のアドレスバーがいずれも desk.internal.example から application-desk.local に変わっている。
+2026-11-18	p01-software-engineer	b010	build-review	0	V2	Library/CloudStorage/あさひ業務システムズ/設計会議/1212_受付が済んだ画面と仕事が済んだ画面.pptx	型の手順で各スライド右下に入れるページ番号が全5枚に欠け、2枚目の図と4枚目の表に使い終えた空のコンテンツプレースホルダーが残っている。
