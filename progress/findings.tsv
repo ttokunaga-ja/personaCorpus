@@ -650,3 +650,40 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-18	p17-construction-project-manager	b004	coordinator	0	other	Documents/海田西配送棟増築/施工記録/1028_掘削数量の照合打合せ.docx	統括の抜き取りで不合格
 2026-11-18	p17-construction-project-manager	b004	coordinator	0	other	OneDrive - 湊梁建設/定例会議/1028_原田さんとの掘削増分説明.docx	統括の抜き取りで不合格
 2026-11-18	p17-construction-project-manager	b004	coordinator	0	other	OneDrive - 湊梁建設/定例会議/1029_原田さんとの掘削増分説明_共有控え.pdf	統括の抜き取りで不合格
+2026-11-18	p17-construction-project-manager	b005	draft-review	0	D10	Desktop/0115_朝いっぺんに受ける案.xlsx	管理欄が「確認者 空欄」で、変更工程比較型のF3「確認者」に対応する必須入力先G3に入れる氏名が原稿にない。
+2026-11-18	p17-construction-project-manager	b005	draft-review	0	D10	Documents/共通/安全と搬入/0116_朝の干渉8件.xlsx	管理欄が「確認者 空欄」で、指摘管理台帳型のF3「確認者」に対応する必須入力先G3に入れる氏名がなく、宛先の3名からも確認者を特定できない。
+2026-11-18	p17-construction-project-manager	b005	draft-review	0	D10	Documents/共通/安全と搬入/0116_朝の時間帯比較_1便と2便.xlsx	管理欄が「確認者 空欄」で、変更工程比較型のF3「確認者」に対応する必須入力先G3に入れる氏名が原稿にない。
+2026-11-18	p17-construction-project-manager	b005	draft-review	0	D4	Desktop/0116_西配送棟_朝の搬入打合せ.pptx	5枚目が「養生幕と東寄り予備候補は破線で『未確認』」と一括表示するため、日報・干渉一覧の08で現認した養生幕と、持出し図・台帳で未確認とした予備候補の扱いが食い違う。
+2026-11-18	p17-construction-project-manager	b005	draft-review	0	D4	Documents/海田西配送棟増築/施工記録/0116_朝の2便を選んだ打合せ.docx	「今日選んだ時間枠」節で検品台車がいればその回を見送ると決定扱いにしており、台帳の台車優先および22日試行原稿の08:19に台車を先に通して同じ便を受けた経過と食い違う。
+2026-11-18	p17-construction-project-manager	b005	draft-review	0	D10	Documents/共通/安全と搬入/0120_三浦回答を入れた搬入予定.xlsx	工程型のF3「確認者」に対するG3の値が未指定で、原稿の管理欄にある三浦・岡本は「確認先」のため、確認済みの氏名を入れるのか未確認のまま空欄にするのか確定できない。
+2026-11-18	p17-construction-project-manager	b005	draft-review	0	D10	Documents/共通/安全と搬入/0129_朝2便の実績欄.xlsx	12〜13行目に作成者と共有先はあるが、変更工程比較型の管理欄「確認者」（ラベルF3、入力先G3）に入れる氏名または未確認・空欄の指定がなく、共有先から確認者を確定できない。
+2026-11-18	p17-construction-project-manager	b005	check	0	source	Documents/海田西配送棟増築/施工記録/0116_朝の動線_打合せに出した図.pdf	body token overlap 0.547 < 0.8
+2026-11-18	p17-construction-project-manager	b005	build-review	0	V1	Pictures/海田西配送棟増築/2025-01-15/2025-01-15_X4-X5_Y3_返却パレットと打継ぎ.jpg	画面中央の返却パレット3山は打継ぎ線に直交する向きに並び、中央の山が線をまたいでいるため、原稿に指定された打継ぎ線に沿う配置と異なる。
+2026-11-18	p17-construction-project-manager	b005	build-review	0	V2	Documents/海田西配送棟増築/施工記録/0129_青木日報_2便を通した朝.docx	1ページ目の表題で、minatoryo-daily.docxと記入見本の固定文書種別「工事日報」が案件題「朝の搬入　2便の立会い」に置き換わり、紙面に「工事日報」の表示がない。
+2026-11-18	p17-construction-project-manager	b005	build-review	0	V3	Pictures/図と画面/0115_朝の交錯位置と仮置き候補.png	平面図右下の「既存棟側」に区画柵の縦線が重なり、「既」の字を横切っている。
+2026-11-18	p17-construction-project-manager	b005	build-review	0	V1	Desktop/0116_西配送棟_朝の搬入打合せ.pptx	5枚目の予備候補の破線枠がX7をまたいでほぼ全体がX7より右にあり、原稿のX6〜X7/Y3内の東寄り候補を示していない。加えてX6芯線が「台車横切り」の字に重なる（V3）。
+2026-11-18	p17-construction-project-manager	b005	build-review	0	V2	Documents/共通/安全と搬入/0121_朝礼連絡_22日は金物だけ.docx	題直下の工事名・宛先・文書番号・文書日・作成の5段落が本文と同じNormalで、型の見本とREADME指定のSite Metadata（9pt・段落後3pt）になっていない。
+2026-11-18	p17-construction-project-manager	b005	build-review	0	V5	Pictures/海田西配送棟増築/2025-01-28/2025-01-28_X7-Y2_折れの先を再確認.jpg	同じX7-Y2の再撮影として計画が参照する1月15日写真では通路の折れに床から上まで連続するコンクリート柱があるが、28日写真では折れの柱が独立したコンクリート台座の上の鋼柱に変わっており、同じ柱を反対側から見た記録として整合しない。
+2026-11-18	p17-construction-project-manager	b005	build-review	0	V3	Pictures/図と画面/0128_朝だけ再確認した範囲.png	X6-Y2の04を示す橙色の「台車横切り」の「車」に、灰色の営業車路下端の水平罫線が重なっている。
+2026-11-18	p17-construction-project-manager	b005	check	1	source	Documents/海田西配送棟増築/施工記録/0116_朝の動線_打合せに出した図.pdf	body token overlap 0.547 < 0.8
+2026-11-18	p17-construction-project-manager	b005	build-review	1	V1	Pictures/図と画面/0115_朝の交錯位置と仮置き候補.png	「既存棟側」と区画柵の重なりは解消したが、6 mの寸法表示はX4〜X7の横方向だけにあり、原稿が指定するY2〜Y3の芯間6 mが図に示されていない。
+2026-11-18	p17-construction-project-manager	b005	build-review	1	V1	Desktop/0116_西配送棟_朝の搬入打合せ.pptx	5枚目の予備候補枠はX6〜X7内に収まり台車横切りの文字も芯線から離れたが、X7の外に移った養生幕の注記に引出線がなく、幕の実線はY3芯線と同色・同位置に重なって範囲を判別できない。
+2026-11-18	p17-construction-project-manager	b005	check	2	source	Documents/海田西配送棟増築/施工記録/0116_朝の動線_打合せに出した図.pdf	body token overlap 0.547 < 0.8
+2026-11-18	p17-construction-project-manager	b005	build-review	2	V1	Pictures/図と画面/0115_朝の交錯位置と仮置き候補.png	左側のY2〜Y3芯間6 mは確認できたが、既存棟側の荷さばき間口はX6付近の文字だけで、原稿が指定するX5〜X6の間口の位置・範囲を図形や線で示していない。
+2026-11-18	p17-construction-project-manager	b005	build-review	2	V1	Desktop/0116_西配送棟_朝の搬入打合せ.pptx	5枚目の養生幕はY3芯線から分離した橙の実線と引出線で判別できるが、「荷ほどき台」はY3芯線の反対側に文字だけがあり、X5〜X6の仮置き破線枠と台が重なる位置を図から確認できない。
+2026-11-18	p01-software-engineer	b007	templates-review	0	other	README.md	「見本と確認先」の基点 scratch/p01-software-engineer/b006/work/templates-0002/ が存在せず、表に記載された見本・画像の56パスがすべて参照切れ。
+2026-11-18	p01-software-engineer	b007	draft-review	0	D10	Documents/帳票キャビネット/保管仕様/0906_90日と180日の容量と月額.xlsx	容量比較・費用比較の末尾注記にはABS-2024-PF-003 v1.0と基準日・作成者・宛先があるが、b007の指定と型の見本で管理欄に入れる確認者の値または確認状況が両シートとも記載されていない。
+2026-11-18	p01-software-engineer	b007	draft-review	0	D10	Documents/帳票キャビネット/保管仕様/0925_原本180日保存の追加費用.docx	9〜13行の管理欄には自文書の番号・版・日付・作成者・宛先があるが、型の一覧とasahi-decision.docxの見本に示された確認者の値が原稿全体にない。
+2026-11-18	p01-software-engineer	b007	draft-review	0	D10	Documents/レビュー控え/2024/0926_180日保存と費用枠の判断.docx	9〜13行の管理欄には自文書の番号・版・日付・作成者・回覧先があるが、型の一覧とasahi-minutes.docxの見本に示された議事録の確認者が記されておらず、出席者の記載からも特定できない。
+2026-11-18	p01-software-engineer	b007	draft-review	0	D10	Documents/帳票キャビネット/保管仕様/0927_承認を受けて検証に渡す条件.docx	9〜13行の管理欄には自文書の番号・版・日付・作成者・宛先があるが、型の一覧とasahi-decision.docxの見本に示された確認者の値がなく、引継ぎ先の記載からも確認者を特定できない。
+2026-11-18	p01-software-engineer	b007	draft-review	0	D10	Documents/レビュー控え/2024/0806_保管先と期限のたたき台_田中コメント.docx	ABS-2024-EV-001 v0.2は計画でv0.1の改訂控えとされ、本文の削除表現の訂正と容量比較表の追記も確認できるが、先頭のderived_fromが空で、派生元のDocuments/レビュー控え/2024/0806_保管先と期限のたたき台.docxが指定されていない。
+2026-11-18	p01-software-engineer	b007	check	0	opens	Downloads/7月発行数_帳票の種類別.csv	Error: CSV error: record 7 (line: 8, byte: 314): found record with 1 fields, but the previous record has 5 fields
+2026-11-18	p01-software-engineer	b007	build-review	0	V2	Documents/帳票キャビネット/保管仕様/0925_原本180日保存の追加費用.docx	1ページ目「比較条件と費用」の表で、原稿が右寄せ指定した90日案・180日案・増分の明細が左寄せで、Word成形手順と見本が指定する先頭行の繰り返しと明細行の分割禁止も設定されていない。
+2026-11-18	p01-software-engineer	b007	build-review	0	V2	Documents/帳票キャビネット/保管仕様/0808_7月分を両方に置いた容量.xlsx	容量比較のA8と容量明細のA9で、印刷される管理欄のABS-2024-PF-001とv1.0に、asahi-performance-3.xlsxの両シートの見本にある「文書番号」「版」のラベルがない。
+2026-11-18	p01-software-engineer	b007	build-review	0	V3	Documents/帳票キャビネット/保管仕様/0813_原本と部署閲覧の経路.png	中央上の「原本の保存日数：検討中」の「日」を、原本の箱から日常閲覧判定へ下りる青い矢印が縦に貫いている。
+2026-11-18	p01-software-engineer	b007	build-review	0	V2	Documents/帳票キャビネット/保管仕様/0906_90日と180日の容量と月額.xlsx	両シートの印刷範囲内にあるA9管理欄に、型の見本にある「文書番号」「版」のラベルがなく、費用比較シートの印刷ページでは型と見本の1行目左端にある朝日ロゴも表示されない。
+2026-11-18	p01-software-engineer	b007	build-review	0	V3	Documents/帳票キャビネット/保管仕様/0910_104日後に問い合わせが来たとき.png	中段の見出し「原本の保存案」の「案」に0日の縦点線が重なり、拡大すると文字の画の上を点線が通っている。
+2026-11-18	p01-software-engineer	b007	build-review	0	V2	Documents/レビュー控え/2024/0912_期限の前後で見る確認項目.docx	「条件」の部署別期限表は、型の成形手順と見本にあるヘッダ行の繰り返し設定と、営業部・業務課・経理部の各明細行のページ分割禁止設定がない。
+2026-11-18	p01-software-engineer	b007	build-review	1	V2	Documents/帳票キャビネット/保管仕様/0808_7月分を両方に置いた容量.xlsx	容量比較A8・容量明細A9に「文書番号」「版」が入り、合計式は20.00→16.40 GB・18.0%減を表示するが、両印刷ページの1行目左端で型と見本の朝日ロゴが表示されず、容量明細シートには型指定のC4固定もない。
+2026-11-18	p01-software-engineer	b007	build-review	1	V2	Documents/帳票キャビネット/保管仕様/0906_90日と180日の容量と月額.xlsx	両シートA9に「文書番号」「版」が入り、費用比較の朝日ロゴと月額差60,000円の式・表示は確認できたが、容量比較の印刷ページの1行目左端に型と見本の朝日ロゴが表示されない。
+2026-11-18	p01-software-engineer	b007	build-review	1	V3	Documents/帳票キャビネット/保管仕様/0910_104日後に問い合わせが来たとき.png	「原本の保存案」と0日点線の重なりは解消したが、104日の縦点線が経理部の「期限ちょうどから閉じる」の「う」に重なり、0日と30日の縦点線も中段下の注記「日常画面を開けることを意味しない。」の「け」と句点に重なる。

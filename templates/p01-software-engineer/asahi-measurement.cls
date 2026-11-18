@@ -20,7 +20,8 @@
 \end{tikzpicture}}
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{\AsahiLogo\quad\small\color{AsahiBlue}あさひ業務システムズ株式会社\\\scriptsize 性能測定・評価記録}
+\newcommand{\AsahiReportKind}{性能測定・評価記録}
+\fancyhead[L]{\AsahiLogo\quad\small\color{AsahiBlue}あさひ業務システムズ株式会社\\\scriptsize \AsahiReportKind}
 \fancyfoot[L]{\scriptsize あさひ業務システムズ株式会社 / 開発部}
 \fancyfoot[R]{\scriptsize\thepage\ / \pageref{LastPage}}
 \renewcommand{\headrulewidth}{.7pt}
