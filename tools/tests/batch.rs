@@ -591,7 +591,15 @@ fn acceptance_scopes_batch_files_roadmap_and_drops_only_selected_rows() {
         "受入済み b001\n",
     );
     write(&f.root.join("progress/holds.md"), "無関係な保留\n");
+    let judgment = f.root.join(format!("progress/{P}/b001.judgment.md"));
+    let section = "## 統括の判断（監査 hold の処理）\n\n確認した図面と数値。";
+    write(&judgment, section);
+    let original = read(&f.root.join(format!("progress/{P}/b001.result.md")));
     f.cli(&["accept", "p01", "b001", "--drop", FIRST], "ok", true);
+    let report = read(&f.root.join(format!("progress/{P}/b001.result.md")));
+    assert!(report.ends_with(&format!("{section}\n")));
+    assert!(report.contains(original.lines().next().unwrap()));
+    assert!(!judgment.exists());
     assert!(!f.scratch().exists());
     assert!(!f.artifact(FIRST).exists());
     assert!(!f.source(FIRST).exists());

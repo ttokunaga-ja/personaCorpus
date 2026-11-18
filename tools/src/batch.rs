@@ -3559,7 +3559,7 @@ impl Batch {
             false,
         )?;
         let marker = if discard { "破棄" } else { "受入済み" };
-        if self.result.exists() {
+        let mut report = if self.result.exists() {
             let mut out = re(r"(?m)^状態：.*$")
                 .replace_all(&read(&self.result)?, format!("状態：{marker}"))
                 .to_string();
@@ -3575,19 +3575,29 @@ impl Batch {
                     .join("\n");
                 out.push('\n');
             }
-            write(&self.result, out)?;
+            out
         } else {
-            write(
-                &self.result,
-                format!(
-                    "# {} {}\n\n状態：{marker}\n\n理由：{}\n",
-                    self.persona,
-                    self.batch,
-                    if discard { &self.args.reason } else { "" }
-                ),
-            )?;
             paths.insert(rel(&self.root, &self.result));
+            format!(
+                "# {} {}\n\n状態：{marker}\n\n理由：{}\n",
+                self.persona,
+                self.batch,
+                if discard { &self.args.reason } else { "" }
+            )
+        };
+        let judgment = self
+            .plan
+            .with_file_name(format!("{}.judgment.md", self.batch));
+        if judgment.is_file() {
+            let section = read(&judgment)?;
+            if !report.contains(section.trim_end()) {
+                report.push('\n');
+                report.push_str(section.trim_end());
+                report.push('\n');
+            }
         }
+        write(&self.result, report)?;
+        remove(&judgment)?;
         let tracked: HashSet<_> = git(&self.root, &["ls-files", "-z"])?
             .split('\0')
             .map(str::to_string)
