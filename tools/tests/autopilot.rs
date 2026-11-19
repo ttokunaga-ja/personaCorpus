@@ -780,6 +780,8 @@ fn hold_launches_one_coordinator_and_stops_retrying_after_three() {
 #[test]
 fn every_accept_is_checked_until_ten_agreements_then_one_in_ten() {
     let f = Fixture::new();
+    checks(&f, &[("b000", "一致"), ("b001", "監査前")]);
+    assert!(f.cli(&["status"]).contains("一致: 1"));
     log_lines(&f, &[("accept", "b001")]);
     f.once();
     assert!(coordinator_briefs(&f)[0].contains("check:p01-test/b001"));

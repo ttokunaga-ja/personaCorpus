@@ -195,7 +195,7 @@ fn absolute(path: &Path) -> Result<PathBuf> {
     }
     resolve(path, 0)
 }
-fn file_uri(path: &Path) -> Result<String> {
+pub(crate) fn file_uri(path: &Path) -> Result<String> {
     use std::os::unix::ffi::OsStrExt;
     let path = absolute(path)?;
     let mut uri = String::from("file://");

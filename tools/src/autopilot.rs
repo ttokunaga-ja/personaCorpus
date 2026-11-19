@@ -395,7 +395,7 @@ fn check_rows(root: &Path) -> Result<Vec<(String, String)>> {
     };
     Ok(lines
         .map(|l| l.split('\t').collect::<Vec<_>>())
-        .filter(|c| c.len() > pi.max(bi).max(vi))
+        .filter(|c| c.len() > pi.max(bi).max(vi) && c[vi] != "監査前")
         .map(|c| (format!("{}/{}", c[pi], c[bi]), c[vi].to_string()))
         .collect())
 }

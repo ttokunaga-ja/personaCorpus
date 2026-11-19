@@ -1424,6 +1424,28 @@ w.save(home / 'together.xlsx')
 }
 
 #[test]
+fn scope_identifiers_stay_within_word_table_cells() {
+    let f = Fixture::new();
+    f.source("review.docx", "Decision scope Q8", "");
+    let scope = "<w:p><w:r><w:t>Decision scope</w:t></w:r></w:p>";
+    let identifier = "<w:p><w:r><w:t>Q8</w:t></w:r></w:p>";
+    f.docx(
+        &format!("<w:tbl><w:tr><w:tc>{scope}{identifier}</w:tc></w:tr></w:tbl>"),
+        "",
+    );
+    assert_eq!(
+        present(&f, "review.docx", "trace"),
+        "production trace: scope Q8"
+    );
+
+    f.docx(
+        &format!("<w:tbl><w:tr><w:tc>{scope}</w:tc><w:tc>{identifier}</w:tc></w:tr></w:tbl>"),
+        "",
+    );
+    absent(&f, "review.docx", "trace");
+}
+
+#[test]
 fn scope_identifiers_stay_within_presentation_text_boxes() {
     let f = Fixture::new();
     f.generate(

@@ -10,7 +10,10 @@ use std::{
     collections::{BTreeMap, BTreeSet, HashMap, HashSet},
     fs::{self, File, OpenOptions},
     io::{Read, Write},
-    os::{fd::AsRawFd, unix::process::CommandExt},
+    os::{
+        fd::AsRawFd,
+        unix::{fs::MetadataExt, process::CommandExt},
+    },
     path::{Path, PathBuf},
     process::{Command, Stdio},
     sync::{Arc, Mutex},
@@ -202,6 +205,53 @@ fn safe_file(folder: &Path, relative: &str) -> Result<PathBuf> {
         }
     }
     Ok(target)
+}
+
+fn no_symlinks(root: &Path, path: &Path) -> bool {
+    path.starts_with(root)
+        && path
+            .ancestors()
+            .take_while(|p| *p != root)
+            .all(|p| fs::symlink_metadata(p).is_ok_and(|m| !m.file_type().is_symlink()))
+}
+
+fn office_profile_idle(profile: &Path, uri: &str) -> bool {
+    if !matches!(fs::symlink_metadata(profile.join(".lock")), Err(e) if e.kind() == std::io::ErrorKind::NotFound)
+    {
+        return false;
+    }
+    // A process can open the profile with --nolockcheck. Treat an unreadable local
+    // process table as inconclusive and leave the document lock for the checker.
+    let Ok(processes) = fs::read_dir("/proc") else {
+        return false;
+    };
+    let argument = format!("-env:UserInstallation={uri}");
+    for process in processes {
+        let Ok(process) = process else {
+            return false;
+        };
+        if !process
+            .file_name()
+            .as_encoded_bytes()
+            .iter()
+            .all(u8::is_ascii_digit)
+        {
+            continue;
+        }
+        match fs::read(process.path().join("cmdline")) {
+            Ok(line)
+                if line
+                    .split(|b| *b == 0)
+                    .any(|part| part == argument.as_bytes() || part == uri.as_bytes()) =>
+            {
+                return false;
+            }
+            Ok(_) => (),
+            Err(e) if e.kind() == std::io::ErrorKind::NotFound => (),
+            Err(_) => return false,
+        }
+    }
+    true
 }
 fn split_pipe(s: &str) -> Vec<String> {
     let mut cells = vec![];
@@ -2093,6 +2143,8 @@ impl Batch {
         Ok(json!(failures))
     }
     fn check(&self, round: usize, rows: &[Value]) -> Result<Value> {
+        let plan = plan_rows(&self.plan)?;
+        self.quarantine_reviewer_locks(&plan)?;
         let report = self.scratch.join(format!(
             "{}check-r{round}.tsv",
             self.prefix.replace('/', "-")
@@ -2136,10 +2188,7 @@ impl Batch {
             .filter(|p| !known.contains(*p))
             .cloned()
             .collect();
-        let planned: HashSet<_> = plan_rows(&self.plan)?
-            .iter()
-            .map(|r| text(&r["パス"]).to_string())
-            .collect();
+        let planned: HashSet<_> = plan.iter().map(|r| text(&r["パス"]).to_string()).collect();
         if outside.difference(&planned).next().is_some() {
             bail!(
                 "batch 外の検査不合格: {:?}",
@@ -2154,6 +2203,163 @@ impl Batch {
             );
         }
         Ok(json!(failures))
+    }
+
+    fn quarantine_reviewer_locks(&self, plan: &[Value]) -> Result<()> {
+        for row in plan {
+            let relative = text(&row["パス"]);
+            let Ok(document) = safe_file(&self.folder, relative) else {
+                continue;
+            };
+            if !document
+                .extension()
+                .and_then(|e| e.to_str())
+                .is_some_and(|ext| {
+                    ["docx", "xlsx", "pptx"]
+                        .iter()
+                        .any(|office| ext.eq_ignore_ascii_case(office))
+                })
+                || !document.is_file()
+                || !no_symlinks(&self.root, &document)
+            {
+                continue;
+            }
+            let lock = document.with_file_name(format!(
+                ".~lock.{}#",
+                document.file_name().unwrap().to_string_lossy()
+            ));
+            let Ok(metadata) = fs::symlink_metadata(&lock) else {
+                continue;
+            };
+            if !metadata.is_file()
+                || metadata.len() > 4096
+                || metadata.nlink() != 1
+                || metadata.uid() != unsafe { libc::geteuid() }
+            {
+                continue;
+            }
+            let Ok(record) = fs::read_to_string(&lock) else {
+                continue;
+            };
+            let Some(record) = record.trim_end().strip_suffix(';') else {
+                continue;
+            };
+            // LibreOffice records the display name, login, host, time and profile URI.
+            let fields: Vec<_> = record.split(',').collect();
+            let [_, login, host, created, uri] = fields.as_slice() else {
+                continue;
+            };
+            if login.is_empty()
+                || host.is_empty()
+                || !uri.starts_with("file:///")
+                || NaiveDateTime::parse_from_str(created, "%d.%m.%Y %H:%M").is_err()
+            {
+                continue;
+            }
+            let Some(work) = self.completed_office_reviewer(relative, uri) else {
+                continue;
+            };
+            let path = rel(&self.root, &lock);
+            if !git(
+                &self.root,
+                &["--literal-pathspecs", "ls-files", "-z", "--", &path],
+            )?
+            .is_empty()
+                || !git(
+                    &self.root,
+                    &["--literal-pathspecs", "ls-tree", "-rz", "HEAD", "--", &path],
+                )?
+                .is_empty()
+                || !office_profile_idle(&work.join("tmp/uno-profile"), uri)
+            {
+                continue;
+            }
+            let quarantine = tempfile::Builder::new()
+                .prefix("office-lock-")
+                .tempdir_in(&work)?;
+            let destination = quarantine.path().join(lock.file_name().unwrap());
+            // A user may have replaced the lock while review ownership was checked.
+            if !no_symlinks(&self.root, &lock)
+                || !fs::symlink_metadata(&lock).is_ok_and(|current| {
+                    current.is_file()
+                        && current.dev() == metadata.dev()
+                        && current.ino() == metadata.ino()
+                        && current.ctime() == metadata.ctime()
+                        && current.ctime_nsec() == metadata.ctime_nsec()
+                })
+            {
+                continue;
+            }
+            fs::rename(&lock, &destination)?;
+            let _ = quarantine.keep();
+            println!(
+                "レビュー後に残った Office ロックを退避: {path} → {}",
+                rel(&self.root, &destination)
+            );
+        }
+        Ok(())
+    }
+
+    fn completed_office_reviewer(&self, relative: &str, uri: &str) -> Option<PathBuf> {
+        let work_root = self.scratch.join("work");
+        let logs = self.scratch.join("logs");
+        if !no_symlinks(&self.root, &work_root)
+            || !no_symlinks(&self.root, &logs)
+            || !no_symlinks(&self.root, &self.state_path)
+        {
+            return None;
+        }
+        let state = self.state();
+        let reviewer_name = re(r"^(build-review-\d{4,})(-retry1)?$");
+        let review_key = re(r"^build-review-r\d+-g\d+$");
+        for entry in fs::read_dir(work_root).ok()?.flatten() {
+            let name = entry.file_name();
+            let Some(captures) = name.to_str().and_then(|name| reviewer_name.captures(name)) else {
+                continue;
+            };
+            let work = entry.path();
+            let profile = work.join("tmp/uno-profile");
+            if !no_symlinks(&self.root, &profile)
+                || !profile.is_dir()
+                || crate::media::file_uri(&profile).as_deref().ok() != Some(uri)
+            {
+                continue;
+            }
+            let attempt = usize::from(captures.get(2).is_some());
+            let log = logs.join(format!("{}-a{attempt}.log", &captures[1]));
+            if !fs::symlink_metadata(&log).is_ok_and(|m| m.is_file()) {
+                return None;
+            }
+            let body = fs::read_to_string(log).ok()?;
+            let (_, context) = body.split_once("\nBATCH_CONTEXT\n")?;
+            let (context, _) = context.split_once("\nEND_BATCH_CONTEXT\n")?;
+            let context: Value = serde_json::from_str(context).ok()?;
+            if context["stage"] != "build-review"
+                || context["persona"] != self.persona
+                || context["batch"] != self.batch
+                || context["work"] != rel(&self.root, &work)
+                || !context["rows"]
+                    .as_array()?
+                    .iter()
+                    .any(|row| row["パス"] == relative)
+            {
+                return None;
+            }
+            let completed = state["completed"]
+                .as_object()?
+                .iter()
+                .any(|(key, verdicts)| {
+                    review_key.is_match(key.rsplit('/').next().unwrap_or(key))
+                        && verdicts.get(relative).is_some()
+                        && context["review_output"]
+                            == rel(
+                                &self.root,
+                                &self.scratch.join(format!("{}.tsv", key.replace('/', "-"))),
+                            )
+                });
+            return completed.then_some(work);
+        }
+        None
     }
     fn review(
         &self,
@@ -3485,6 +3691,7 @@ impl Batch {
         mark_plan(&self.plan, failures, "破棄")
     }
     fn final_check(&self) -> Result<()> {
+        self.quarantine_reviewer_locks(&plan_rows(&self.plan)?)?;
         let (code, out) = bin(
             &self.root,
             "check",

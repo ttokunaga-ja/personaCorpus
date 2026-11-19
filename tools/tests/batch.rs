@@ -532,6 +532,146 @@ fn final_check_failure_resumes_without_reproducing_or_losing_discards() {
         }
     }
 }
+
+const REVIEW_DOC: &str = "Documents/Review notes.docx";
+const REVIEW_LOCK: &str = "Documents/.~lock.Review notes.docx#";
+
+fn interrupted_office_review(f: &Fixture) -> (std::path::PathBuf, Value) {
+    f.planned();
+    let mut rows = f.rows();
+    rows[0]["パス"] = json!(REVIEW_DOC);
+    f.set_plan(&rows, true);
+    f.run("final-fail", false);
+    let context = f.contexts("build-review").pop().unwrap();
+    let work = f.root.join(string(&context["work"]));
+    let profile = work.join("tmp/uno-profile");
+    fs::create_dir_all(&profile).unwrap();
+    write(
+        &f.artifact(REVIEW_LOCK),
+        format!(
+            ",tester,machine,20.11.2026 03:07,file://{};",
+            profile.display()
+        ),
+    );
+    let log = f.scratch().join("logs").join(format!(
+        "{}-a0.log",
+        work.file_name().unwrap().to_str().unwrap()
+    ));
+    record_office_review(&log, &context);
+    executable(
+        &f.root.join("bin/check"),
+        &format!(
+            "#!/bin/sh\nif [ -e 'people/{P}/{REVIEW_LOCK}' ] || [ -L 'people/{P}/{REVIEW_LOCK}' ]; then\n  if [ \"$3\" = b001 ] && [ \"$4\" = --report ]; then\n    printf '%s\\t%s\\tplan\\tuntracked file outside batch plan\\n' '{P}' '{REVIEW_LOCK}' > \"$5\"\n  fi\n  exit 1\nfi\nif [ \"$4\" = --report ]; then : > \"$5\"; fi\n"
+        ),
+    );
+    (profile, context)
+}
+
+fn record_office_review(log: &Path, context: &Value) {
+    write(
+        log,
+        format!("user\nBATCH_CONTEXT\n{context}\nEND_BATCH_CONTEXT\ncodex\n"),
+    );
+}
+
+#[test]
+fn resume_quarantines_abandoned_completed_reviewer_office_lock_before_check() {
+    for build_check in [true, false] {
+        let f = Fixture::new();
+        let (profile, _) = interrupted_office_review(&f);
+        if build_check {
+            let mut state = f.state();
+            state["stage"] = json!("build-check-r0");
+            let completed = state["completed"].as_object_mut().unwrap();
+            completed.remove("build-complete").unwrap();
+            completed.remove("build-check-r0").unwrap();
+            f.save(&state);
+        }
+        let lock = fs::read(f.artifact(REVIEW_LOCK)).unwrap();
+        let doc = fs::read(f.artifact(REVIEW_DOC)).unwrap();
+        let calls = f.calls();
+        f.run("ok", true);
+        assert_eq!(f.state()["status"], "done");
+        assert_eq!(f.calls(), calls);
+        assert!(!f.artifact(REVIEW_LOCK).exists());
+        assert_eq!(fs::read(f.artifact(REVIEW_DOC)).unwrap(), doc);
+        let work = profile.parent().unwrap().parent().unwrap();
+        let archived = walkdir::WalkDir::new(work)
+            .into_iter()
+            .filter_map(Result::ok)
+            .find(|entry| entry.file_name() == ".~lock.Review notes.docx#")
+            .unwrap();
+        assert_eq!(fs::read(archived.path()).unwrap(), lock);
+    }
+}
+
+#[test]
+fn resume_preserves_office_locks_without_proof_of_abandonment() {
+    use std::os::unix::process::CommandExt;
+
+    for kind in [
+        "live-profile",
+        "running-process",
+        "unfinished-review",
+        "wrong-row",
+        "symlink",
+        "staged",
+    ] {
+        let f = Fixture::new();
+        let (profile, mut context) = interrupted_office_review(&f);
+        let lock = f.artifact(REVIEW_LOCK);
+        let expected = fs::read(&lock).unwrap();
+        let mut process = None;
+        match kind {
+            "live-profile" => write(&profile.join(".lock"), "active profile"),
+            "running-process" => {
+                process = Some(
+                    std::process::Command::new("sleep")
+                        .arg0(format!(
+                            "-env:UserInstallation=file://{}",
+                            profile.display()
+                        ))
+                        .arg("15")
+                        .spawn()
+                        .unwrap(),
+                );
+            }
+            "unfinished-review" => {
+                let mut state = f.state();
+                state["completed"]
+                    .as_object_mut()
+                    .unwrap()
+                    .remove("build-review-r0-g0");
+                f.save(&state);
+            }
+            "wrong-row" => {
+                context["rows"] = json!([]);
+                let work = f.root.join(string(&context["work"]));
+                let log = f.scratch().join("logs").join(format!(
+                    "{}-a0.log",
+                    work.file_name().unwrap().to_str().unwrap()
+                ));
+                record_office_review(&log, &context);
+            }
+            "symlink" => {
+                let target = f.scratch().join("lock-target");
+                fs::rename(&lock, &target).unwrap();
+                std::os::unix::fs::symlink(target, &lock).unwrap();
+            }
+            "staged" => {
+                f.git(&["add", "--", &format!("people/{P}/{REVIEW_LOCK}")]);
+            }
+            _ => unreachable!(),
+        }
+        f.run("ok", false);
+        if let Some(mut process) = process {
+            assert!(process.try_wait().unwrap().is_none());
+            process.kill().unwrap();
+            process.wait().unwrap();
+        }
+        assert_eq!(fs::read(&lock).unwrap(), expected, "{kind}");
+    }
+}
 #[test]
 fn pending_rebuild_preserves_original_source_and_supports_accept_redo() {
     for accept_first in [false, true] {

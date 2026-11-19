@@ -214,6 +214,26 @@ fn office_units(node: &xmltree::Element, presentation: bool, texts: &mut Vec<Str
         }
     }
 }
+fn word_units(node: &xmltree::Element, starts_unit: &mut bool, texts: &mut Vec<String>) {
+    let cell = node.name == "tc";
+    *starts_unit |= cell;
+    if matches!(node.name.as_str(), "p" | "si" | "c") {
+        let text = units(node);
+        if *starts_unit {
+            texts.push(text);
+            *starts_unit = false;
+        } else if let Some(previous) = texts.last_mut() {
+            previous.push(' ');
+            previous.push_str(&text);
+        }
+    }
+    for child in &node.children {
+        if let xmltree::XMLNode::Element(child) = child {
+            word_units(child, starts_unit, texts);
+        }
+    }
+    *starts_unit |= cell;
+}
 fn office_text(p: &Path, ext: &str) -> Result<String> {
     let parts = zip_parts(p)?;
     let main = match ext {
@@ -278,7 +298,12 @@ fn office_text(p: &Path, ext: &str) -> Result<String> {
         }
         if n.starts_with("word/") || n.starts_with("ppt/") || n.starts_with("xl/") {
             let before = texts.len();
-            office_units(&e, ext == "pptx", &mut texts);
+            if ext == "docx" {
+                let mut starts_unit = true;
+                word_units(&e, &mut starts_unit, &mut texts);
+            } else {
+                office_units(&e, ext == "pptx", &mut texts);
+            }
             if texts.len() == before {
                 let t = units(&e);
                 if !t.is_empty() {
@@ -288,11 +313,7 @@ fn office_text(p: &Path, ext: &str) -> Result<String> {
         }
     }
     // XML 1.0 forbids the record separator inside a cell or text box.
-    Ok(texts.join(if ["xlsx", "pptx"].contains(&ext) {
-        "\x1e"
-    } else {
-        " "
-    }))
+    Ok(texts.join("\x1e"))
 }
 fn ocr(p: &Path, language: &str) -> Result<String> {
     Ok(
@@ -639,6 +660,148 @@ fn revised_word_source(parent: &str, changes: &str) -> String {
         .join("\n");
     retained + "\n" + changes
 }
+fn numbered_pdf_pages(body: &str) -> Option<Vec<(usize, usize)>> {
+    let candidate = re(r"(?i)^## Page [0-9]");
+    let heading = re(r"(?i)^## Page ([1-9][0-9]*)(?:\s+[—–:-]\s+.+)?$");
+    body.lines()
+        .enumerate()
+        .filter(|(_, line)| candidate.is_match(line))
+        .map(|(index, line)| Some((index, heading.captures(line.trim_end())?[1].parse().ok()?)))
+        .collect()
+}
+
+fn pdf_page_range(cell: &str) -> Option<(usize, usize)> {
+    let span = re(r"^([1-9][0-9]*)(?:\s*[-–—]\s*([1-9][0-9]*))?$").captures(cell)?;
+    let first = span[1].parse().ok()?;
+    let last = match span.get(2) {
+        Some(last) => last.as_str().parse().ok()?,
+        None => first,
+    };
+    (first <= last).then_some((first, last))
+}
+
+fn shortened_pdf_source(
+    parent: &str,
+    parent_body: &str,
+    child: &str,
+    changes: &str,
+) -> Option<String> {
+    // A fenced example is not a page map or a numbered manuscript section.
+    if parent_body.lines().chain(changes.lines()).any(|line| {
+        let line = line.trim_start();
+        line.starts_with("```") || line.starts_with("~~~")
+    }) {
+        return None;
+    }
+    let child_lines: Vec<_> = changes.lines().collect();
+    let mut headers = child_lines.iter().enumerate().filter_map(|(index, line)| {
+        if !line.starts_with('|') {
+            return None;
+        }
+        let columns = cells(line);
+        let [destination, origin, purpose] = columns.as_slice() else {
+            return None;
+        };
+        purpose.eq_ignore_ascii_case("Replacements").then_some(())?;
+        Some((
+            index,
+            normalized(destination).strip_suffix(" pages")?.to_owned(),
+            normalized(origin).strip_suffix(" pages")?.to_owned(),
+        ))
+    });
+    let (index, destination, origin) = headers.next()?;
+    if headers.next().is_some() {
+        return None;
+    }
+    let names_edition = |edition: &str, path: &str| {
+        let edition = tokens(edition);
+        !edition.is_empty()
+            && Path::new(path)
+                .file_stem()
+                .and_then(|stem| stem.to_str())
+                .is_some_and(|stem| {
+                    tokens(&normalized(stem))
+                        .windows(edition.len())
+                        .any(|words| words == edition)
+                })
+    };
+    if !(destination == "new" && origin == "old"
+        || names_edition(&destination, child)
+            && !names_edition(&destination, parent)
+            && names_edition(&origin, parent)
+            && !names_edition(&origin, child))
+    {
+        return None;
+    }
+    let delimiter = cells(child_lines.get(index + 1)?);
+    if delimiter.len() != 3 || !separator(&delimiter) {
+        return None;
+    }
+    let mut retained = Vec::new();
+    let mut last_child = 0usize;
+    let mut last_parent = 0usize;
+    for row in child_lines[index + 2..]
+        .iter()
+        .take_while(|row| row.contains('|'))
+    {
+        let columns = cells(row);
+        let [destination, origin, _] = columns.as_slice() else {
+            return None;
+        };
+        let (first_child, end_child) = pdf_page_range(destination)?;
+        let (first_parent, end_parent) = pdf_page_range(origin)?;
+        if first_child != last_child.checked_add(1)?
+            || first_parent <= last_parent
+            || end_parent - first_parent != end_child - first_child
+        {
+            return None;
+        }
+        retained.push(first_parent..=end_parent);
+        last_child = end_child;
+        last_parent = end_parent;
+    }
+
+    let parent_pages = numbered_pdf_pages(parent_body)?;
+    if retained.is_empty()
+        || last_parent > parent_pages.len()
+        || last_child >= parent_pages.len()
+        || parent_pages
+            .iter()
+            .enumerate()
+            .any(|(i, &(_, page))| page != i + 1)
+    {
+        return None;
+    }
+    let mut prior_child = 0;
+    for (line, page) in numbered_pdf_pages(changes)? {
+        if line <= index || page <= prior_child || page > last_child {
+            return None;
+        }
+        prior_child = page;
+    }
+
+    let mut parent_pages = parent_pages.into_iter().peekable();
+    let mut expected = String::new();
+    let mut keep = true;
+    for (index, line) in parent_body.lines().enumerate() {
+        if let Some(&(line_index, page)) = parent_pages.peek()
+            && line_index == index
+        {
+            keep = retained.iter().any(|range| range.contains(&page));
+            parent_pages.next();
+        } else if line.starts_with("# ") || line.starts_with("## ") {
+            keep = true;
+        }
+        if keep {
+            expected.push_str(line);
+            expected.push('\n');
+        }
+    }
+    expected.push('\n');
+    expected.push_str(changes);
+    Some(expected)
+}
+
 fn source(
     root: &Path,
     rel: &str,
@@ -685,6 +848,9 @@ fn source(
             } else {
                 printed + "\n" + &body
             }
+        } else if rel.ends_with(".pdf") && parent.ends_with(".pdf") {
+            shortened_pdf_source(parent, &parent_body, rel, &body)
+                .unwrap_or_else(|| parent_body + "\n" + &body)
         } else if rel.ends_with(".docx") && parent.ends_with(".docx") {
             revised_word_source(&parent_body, &body)
         } else {
@@ -1857,7 +2023,9 @@ fn inspect(
             match extract(p, &ext, language) {
                 Err(e) => fail(&mut r, "opens", format!("Error: {e}")),
                 Ok((body, scan, missing)) => {
-                    let office_units = ["xlsx", "pptx"].contains(&ext.as_str()).then_some(&body);
+                    let office_units = ["docx", "xlsx", "pptx"]
+                        .contains(&ext.as_str())
+                        .then_some(&body);
                     text = if office_units.is_some() {
                         body.replace('\x1e', " ")
                     } else {
@@ -2713,6 +2881,116 @@ mod scan_transcript_tests {
         assert_eq!(
             scan_transcript(manuscript).unwrap().join(""),
             "\n29. janvier 1866\n\nLe comité accorde une dispense jusqu'au 12 février.\nReprenez les rappels après le 12.\n\n1. Montant dû\n3. Autre poste\n\n1. février\n\n"
+        );
+    }
+}
+
+#[cfg(test)]
+mod shortened_pdf_tests {
+    use super::*;
+
+    const PARENT: &str = "# Loan packet\n\n## Page 1 — Borrowing\n\nBring your library card and ask the circulation clerk for equipment.\n\n## Page 2 — Transcription\n\nWorksheet transcription vocabulary mentor practice example paraphrase synopsis definition syllables extraction dialogue copy.\n\n## Page 3 — Independent practice\n\nReflection assignment grammar syntax contrast sequence introductory exercises activity definitions discussion transcription study.\n\n## Page 4 — Returning\n\nReturn all borrowed adapters to the help desk before closing on Saturday.";
+    const MAP: &str = "| January pages | Autumn pages | Replacements |\n|---|---|---|\n| 1 | 1 | Retain borrowing. |\n| 2 | 4 | Add the sentence below. |";
+    const CHANGE: &str =
+        "## Page 2 — Added sentence\n\nLeave the signed return slip in the blue tray.";
+    const PRINTED: &str = "Loan packet\nBorrowing\nBring your library card and ask the circulation clerk for equipment.\nReturning\nReturn all borrowed adapters to the help desk before closing on Saturday.\nLeave the signed return slip in the blue tray.";
+
+    fn composed_source(parent: &str, changes: &str) -> String {
+        let root = tempfile::tempdir().unwrap();
+        for (path, origin, body) in [
+            ("Autumn packet.pdf", "", parent),
+            ("January packet.pdf", "Autumn packet.pdf", changes),
+        ] {
+            fs::write(
+                root.path().join(format!("{path}.md")),
+                format!("---\npath: {path}\nkind: tex:loans.cls\nauthor: Reader\nderived_from: {origin}\n---\n{body}"),
+            )
+            .unwrap();
+        }
+        source(root.path(), "January packet.pdf", &mut Vec::new())
+            .unwrap()
+            .1
+    }
+
+    #[test]
+    fn explicit_page_map_removes_only_unretained_sections() {
+        let changes = format!("# Changes\n\n{MAP}\n\n{CHANGE}");
+        let expected = composed_source(PARENT, &changes);
+        assert!(expected.contains("circulation clerk"));
+        assert!(expected.contains("borrowed adapters"));
+        assert!(expected.contains("signed return slip"));
+        assert!(!expected.contains("mentor practice"));
+        assert!(!expected.contains("Reflection assignment"));
+        assert_eq!(
+            source_reason(&expected, PRINTED, false, "pdf", false, true),
+            None
+        );
+        assert!(
+            source_reason(
+                &expected,
+                "Bring your library card",
+                false,
+                "pdf",
+                false,
+                true
+            )
+            .is_some()
+        );
+        let deleted = PARENT
+            .split_once("## Page 2")
+            .unwrap()
+            .1
+            .split_once("## Page 4")
+            .unwrap()
+            .0;
+        assert!(source_reason(&expected, deleted, false, "pdf", false, true).is_some());
+    }
+
+    #[test]
+    fn page_map_keeps_all_pages_in_retained_ranges() {
+        let parent = format!("{PARENT}\n\n## Page 5 — Receipt\n\nKeep a copy of the receipt.");
+        let map = MAP.replace("| 2 | 4 |", "| 2–3 | 4–5 |");
+        let expected = composed_source(&parent, &map);
+        assert!(expected.contains("borrowed adapters"));
+        assert!(expected.contains("copy of the receipt"));
+        assert!(!expected.contains("Reflection assignment"));
+    }
+
+    #[test]
+    fn invalid_page_maps_keep_the_full_parent_evidence() {
+        for map in [
+            MAP.replace("| 2 | 4 |", "| 3 | 4 |"),
+            MAP.replace("| 2 | 4 |", "| 2 | 5 |"),
+            MAP.replace("| 2 | 4 |", "| 2 | 1 |"),
+            MAP.replace("| 2 | 4 |", "| 2 | 4–3 |"),
+            MAP.replace("| 2 | 4 |", "| 2 | 3–4 |"),
+            MAP.replace(
+                "January pages | Autumn pages",
+                "Autumn pages | January pages",
+            ),
+            MAP.replace("January pages", "Revised pages"),
+            format!("{MAP}\n\n{MAP}"),
+            format!("```md\n{MAP}\n```"),
+        ] {
+            let changes = format!("# Changes\n\n{map}\n\n{CHANGE}");
+            assert_eq!(
+                composed_source(PARENT, &changes),
+                format!("{PARENT}\n{changes}")
+            );
+        }
+        let changes = format!(
+            "# Changes\n\n{MAP}\n\n{}",
+            CHANGE.replace("Page 2", "Page 3")
+        );
+        assert_eq!(
+            composed_source(PARENT, &changes),
+            format!("{PARENT}\n{changes}")
+        );
+        let parent = PARENT.replace("## Page 3", "## Page 2");
+        let changes = format!("# Changes\n\n{MAP}\n\n{CHANGE}");
+        assert_eq!(
+            composed_source(&parent, &changes),
+            format!("{parent}\n{changes}")
         );
     }
 }
