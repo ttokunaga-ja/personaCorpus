@@ -62,6 +62,9 @@ enum Action {
         stop_at: Option<f64>,
         #[arg(long)]
         off: bool,
+        /// Ignore readings made so far (after a reset ticket on the same account).
+        #[arg(long)]
+        recheck: bool,
     },
     /// Reserve the next stage's target: it starts once every persona is within
     /// one batch of its current goal.
@@ -81,6 +84,8 @@ enum Action {
 }
 /// One rate-limit window from Codex's own session log.
 struct Window {
+    /// When Codex recorded the snapshot (Unix seconds).
+    at: i64,
     used: f64,
     minutes: i64,
     resets_at: Option<i64>,
@@ -147,14 +152,16 @@ fn codex_usage() -> Vec<Window> {
             }
         }
     }
-    let Some((_, limits)) = best else {
+    let Some((at, limits)) = best else {
         return Vec::new();
     };
+    let at = chrono::DateTime::parse_from_rfc3339(&at).map_or(0, |t| t.timestamp());
     ["primary", "secondary"]
         .iter()
         .filter_map(|k| {
             let w = &limits[*k];
             w["used_percent"].as_f64().map(|used| Window {
+                at,
                 used,
                 minutes: w["window_minutes"].as_i64().unwrap_or(0),
                 resets_at: w["resets_at"].as_i64(),
@@ -675,7 +682,7 @@ impl Pilot {
         // batches finish. A window past its reset time no longer counts.
         if let Some(limit) = self.usage_stop() {
             let now = chrono::Utc::now().timestamp();
-            for w in &self.usage {
+            for w in self.current_usage() {
                 if w.used >= limit && w.resets_at.is_none_or(|r| now < r) {
                     reasons.push(format!(
                         "Codex の利用枠（{}）{}% が閾値 {limit}% 以上（{} にリセット）",
@@ -687,6 +694,41 @@ impl Pilot {
             }
         }
         Ok(reasons)
+    }
+    /// Snapshots older than this belong to an earlier login or were set aside
+    /// by `usage --recheck`: the Codex login (auth.json) changed, or the user
+    /// asked to wait for a fresh reading.
+    fn usage_cutoff(&self) -> i64 {
+        let auth = codex_sessions()
+            .parent()
+            .map(|d| d.join("auth.json"))
+            .and_then(|p| p.metadata().and_then(|m| m.modified()).ok())
+            .map_or(0, |t| chrono::DateTime::<chrono::Utc>::from(t).timestamp());
+        let since = read(&self.home.join("usage-since"))
+            .ok()
+            .and_then(|t| t.trim().parse::<i64>().ok())
+            .unwrap_or(0);
+        auth.max(since)
+    }
+    /// The windows of the current login; empty until it has a fresh snapshot.
+    fn current_usage(&self) -> Vec<&Window> {
+        let cutoff = self.usage_cutoff();
+        self.usage.iter().filter(|w| w.at >= cutoff).collect()
+    }
+    fn usage_text(&self) -> String {
+        let current = self.current_usage();
+        if current.is_empty() {
+            return if self.usage.is_empty() {
+                "不明".into()
+            } else {
+                "アカウントの切替え・確かめ直し後の記録待ち".into()
+            };
+        }
+        current
+            .iter()
+            .map(|w| format!("{} {}%（{} にリセット）", w.label(), w.used, w.reset()))
+            .collect::<Vec<_>>()
+            .join("、")
     }
     fn usage_stop(&self) -> Option<f64> {
         read(&self.home.join("usage-stop"))
@@ -2357,15 +2399,7 @@ impl Pilot {
         );
         println!(
             "Codex の利用枠: {} / 安全な停止: {}",
-            if self.usage.is_empty() {
-                "不明".to_string()
-            } else {
-                self.usage
-                    .iter()
-                    .map(|w| format!("{} {}%（{} にリセット）", w.label(), w.used, w.reset()))
-                    .collect::<Vec<_>>()
-                    .join("、")
-            },
+            self.usage_text(),
             self.usage_stop()
                 .map_or("なし".to_string(), |l| format!("{l}% 以上"))
         );
@@ -2465,7 +2499,11 @@ fn execute(a: Action) -> Result<i32> {
             pilot.refresh()?;
             pilot.status()?;
         }
-        Action::Usage { stop_at, off } => {
+        Action::Usage {
+            stop_at,
+            off,
+            recheck,
+        } => {
             fs::create_dir_all(&pilot.home)?;
             let file = pilot.home.join("usage-stop");
             if off {
@@ -2480,10 +2518,15 @@ fn execute(a: Action) -> Result<i32> {
                 fs::write(&file, format!("{limit}\n"))?;
                 pilot.log("usage-stop", "", "", &format!("{limit}%"))?;
             }
-            pilot.usage = codex_usage();
-            for w in &pilot.usage {
-                println!("{} {}%（{} にリセット）", w.label(), w.used, w.reset());
+            if recheck {
+                fs::write(
+                    pilot.home.join("usage-since"),
+                    format!("{}\n", chrono::Utc::now().timestamp()),
+                )?;
+                pilot.log("usage-recheck", "", "", "これより前の記録を使わない")?;
             }
+            pilot.usage = codex_usage();
+            println!("{}", pilot.usage_text());
             println!(
                 "安全な停止: {}",
                 pilot

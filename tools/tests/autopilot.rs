@@ -157,7 +157,10 @@ impl Fixture {
         fs::write(r.join("jobs.json"), "{}").unwrap();
         fs::write(r.join("progress/batches.tsv"), "persona\tbatch\tstatus\n").unwrap();
         let remote = tmp.path().join("remote.git");
-        let sessions = r.join("scratch/codex-sessions").to_string_lossy().into_owned();
+        let sessions = r
+            .join("scratch/codex-sessions")
+            .to_string_lossy()
+            .into_owned();
         let f = Self {
             _tmp: tmp,
             r,
@@ -1658,4 +1661,40 @@ fn the_next_stage_starts_when_every_persona_is_within_a_batch_of_its_goal() {
         "{:?}",
         f.calls()
     );
+}
+
+fn old_usage(f: &Fixture, used: f64) -> PathBuf {
+    let dir = f.r.join("scratch/codex-sessions/2026/01/01");
+    fs::create_dir_all(&dir).unwrap();
+    let line = json!({"timestamp":"2026-01-01T00:00:00.000Z","type":"event_msg","payload":{"type":"token_count","rate_limits":{"primary":{"used_percent":used,"window_minutes":10080,"resets_at":4_000_000_000i64}}}});
+    fs::write(dir.join("rollout-old.jsonl"), format!("{line}\n")).unwrap();
+    f.r.join("scratch/codex-sessions")
+}
+
+#[test]
+fn switching_the_codex_account_ignores_the_old_accounts_usage() {
+    let f = Fixture::new();
+    old_usage(&f, 95.0);
+    f.cli(&["usage", "--stop-at", "90"]);
+    f.roadmap(None);
+    f.once();
+    assert_eq!(f.called("batch", "start"), 0);
+    // Logging in to another account rewrites auth.json next to the sessions.
+    fs::write(f.r.join("scratch/auth.json"), "{}").unwrap();
+    f.once();
+    assert_eq!(f.called("batch", "start"), 1);
+}
+
+#[test]
+fn a_recheck_ignores_usage_recorded_before_it() {
+    let f = Fixture::new();
+    old_usage(&f, 95.0);
+    f.cli(&["usage", "--stop-at", "90"]);
+    f.roadmap(None);
+    f.once();
+    assert_eq!(f.called("batch", "start"), 0);
+    let out = f.cli(&["usage", "--recheck"]);
+    assert!(out.contains("記録待ち"), "{out}");
+    f.once();
+    assert_eq!(f.called("batch", "start"), 1);
 }
