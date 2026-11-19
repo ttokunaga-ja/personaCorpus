@@ -128,3 +128,23 @@
 - Claire's BRT-CU-20260511-001 is dated 11 May in v0.1 (draft and Daniel's commented copy) and v1.0 (issued DOCX and same-version PDF). Daniel's comment at 14:00 BST flags the draft phrase “within nine minutes of recovery”.
 - The approved wording describes records covered through 09:51 UTC at the 10:00 UTC exercise reference. The 09:52 UTC example requires a separate check with Support. Nine minutes describes the age of the point, and 15 minutes is the target for the exercise.
 - Standalone mail “Ticket archive recovery guidance for Westbury”, 11 May 15:37 BST, Claire → Stephen Cartledge, Cc Daniel, attaches Ticket archive recovery guidance.pdf. Claire uses `claire@brt-booking.example` and Stephen uses `stephen@westbury-coach.example`.
+
+## Fairfield staffed desk switch exercise, 24 February 2025
+
+- 10:00 UTC exercise cue → 10:03 planned release, with Claire's wording ready → Hannah sends at 10:10. Claire expected Hannah to go ahead and Hannah was waiting for an explicit release; the seven minutes measure the slip between the scheduled and actual send.
+- Coach Yard's 10:13 UTC entry is a phone ring. Fairfield has exact readback times for 11 desks and confirms coverage at all 12 by the 10:22 UTC roll call; the exact final-readback time and elapsed time remain unverified.
+- Original 12-desk order (February, still on 12 September and on the printed v0.1): North Hall, South Hall, Station Road, Market Street, Bus Station, High Street, Park Lane, East Gate, West Gate, Harbour Road, Riverside, Coach Yard.
+- At 14:00 UTC Daniel, Claire and Hannah agree that Hannah alone calls the desks and follows up, Claire agrees the wording before the cue, and Daniel measures the repeat. Daniel's meeting record and shared-drive PDF are BRT-MT-20250224-001.
+- “Fairfield February exercise receipts”, 24 February 11:32 GMT, Hannah → Claire and Daniel, standalone with Fairfield desk receipt record - 24 February.pdf (FTS-DR-20250224-001) attached. Hannah uses `hannah@fairfield-ticket.example`.
+- “Fairfield - who had the release at 10:03?” thread, 24 February GMT: (1) 12:08 Claire → Daniel, (2) 12:48 Daniel → Claire, “Re: Fairfield - who had the release at 10:03?”, quoting (1) and attaching February release clock checks.csv.
+
+## Fairfield staffed desk switch repeat and issue, 12–16 September 2025
+
+- “Fairfield Monday cue and readback”, 12 September 11:42 BST, Claire → Hannah and Daniel, standalone. Hannah releases one message to the existing desk group channel on Daniel's cue and calls for individual readbacks in order; each desk listens on the same channel.
+- On 15 September at 09:30 BST Hannah marks up Claire's v0.1: Coach Yard's relief is listening earlier, so Coach Yard moves to 11 and Riverside to 12. The first ten stay in order. Hannah changes the Support reminder to “Hannah rings back at 3 min”.
+- From the 09:20:00 UTC cue until the last distinct desk gives its name and says “exercise switch received”, allow at most 180 seconds (09:23:00 UTC). North Hall is first at 09:20:18, Coach Yard eleventh at 09:21:50 and Riverside twelfth at 09:22:00. Riverside's 09:21:56 “Riverside here” does not count.
+- Daniel records 12 of 12 in 120 seconds, 60 seconds inside the limit, with no fallback call. The call concerns one exercise booking; the live queue continues as usual.
+- At 13:00 UTC Daniel, Anjali, Claire and Hannah accept the result and agree the corrected card; Claire issues it, Hannah replaces desk copies, Daniel files the evidence. The decision record and its PDF are BRT-MT-20250915-001.
+- BRT-TC-20250915-001 is dated 15 September: v0.1 on the printout and the hand-marked scan, v1.0 on the issued DOCX and its PDF. Claire's notice points to v1.0. Hannah holds the one receipt list and phones only the missing desks after three minutes.
+- The card distinguishes “Exercise only: switch to the continuity procedure for the exercise booking. Keep serving live customers as usual.” from the live cue “Switch to the ticket office continuity procedure now. Keep issuing staffed tickets under the local procedure until Fairfield Operations gives the all-clear.” Hannah only gives the live cue after Fairfield Operations authorises the switch. The matching receipt phrases are “exercise switch received” and “switch received”.
+- “Fairfield desk card for the folders”, 15 September 15:53 BST, Claire → Hannah, Cc Daniel, standalone with Fairfield staffed desk switch card.pdf and September desk readbacks.csv as separate attachments. The PDF goes at the desks; the CSV stays with the exercise records.

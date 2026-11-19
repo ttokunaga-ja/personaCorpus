@@ -1,0 +1,15 @@
+---
+path: Documents/Ticket-office-continuity/2025-02-24/February release clock checks.csv
+kind: text
+author: Daniel Jennings
+derived_from:
+---
+
+```csv
+Event,Time UTC,Evidence owner,Use in release-delay calculation,Note
+Exercise cue,10:00,Daniel Jennings,No,Start of exercise rather than scheduled release
+Planned release,10:03,Claire Hutchinson,Yes,Release slot with wording ready
+Common switch message dispatched,10:10,Hannah Cartwright,Yes,Daniel heard the dispatch
+Coach Yard phone ring,10:13,Hannah Cartwright,No,Ring recorded as exception; not a readback
+Coverage roll call,10:22,Hannah Cartwright,No,12 of 12 covered; exact last readback time unverified
+```

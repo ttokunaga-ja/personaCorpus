@@ -131,7 +131,7 @@ p11-account-executive	b005	2026-11-19	30	5	7	0	0	accepted	6631.85
 p16-clinical-researcher	b006	2026-11-19	26	3	2	1	0	done	6291.77
 p05-bi-data-analyst	b006	2026-11-19	34	5	4	0	0	done	5874.05
 p08-product-manager	b008	2026-11-19	28	5	8	1	0	done	8561.07
-p02-site-reliability-engineer	b006	2026-11-19	33	3	3	3	0	done	6623.54
+p02-site-reliability-engineer	b006	2026-11-19	33	3	3	4	2	accepted	6623.54
 p07-humanities-researcher	b004	2026-11-19	30	4	1	3	0	done	5401.10
 p15-recruiter-people-ops	b008	2026-11-19	30	6	7	3	2	accepted	6392.61
 p19-educator-instructional-designer	b006	2026-11-19	0	0	0	0	0	failed	1880.13

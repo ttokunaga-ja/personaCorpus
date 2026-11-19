@@ -2859,3 +2859,5 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-19	p13-corporate-privacy-counsel	b009	build-review	0	V2	Documents/Matters/文書保全期限見直し/保全/8月28日_3区分の根拠がそろった時点.xlsx	1頁目の管理欄F3は型・見本が指定する実日付（yyyy-mm-dd）でなく「基準日 2026-08-28」という文字列で、E3の欄名が値にも重複している。また集計C10の3が型指定の右揃えでなく左揃えになっている。E7:E9の根拠とC10のCOUNT(F7:F9)の結果3は照合済み。
 2026-11-19	p15-recruiter-people-ops	b008	coordinator	0	other	Documents/メール控え/5月7日_渡辺さんへ_半期実績の照合を先に.eml	統括の抜き取りで不合格
 2026-11-19	p15-recruiter-people-ops	b008	coordinator	0	other	Documents/自分の手続/半期の内定承諾率_目標と実績の照合.xlsx	統括の抜き取りで不合格
+2026-11-19	p02-site-reliability-engineer	b006	coordinator	0	other	Documents/Mail/Fairfield desk card for the folders.eml	統括の抜き取りで不合格
+2026-11-19	p02-site-reliability-engineer	b006	coordinator	0	other	Documents/Ticket-office-continuity/2025-09-15/Where I put the old card.md	統括の抜き取りで不合格

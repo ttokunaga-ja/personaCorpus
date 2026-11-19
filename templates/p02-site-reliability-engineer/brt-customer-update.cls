@@ -34,7 +34,8 @@
 \raggedbottom
 \newcommand{\BRTUpdate}[4]{%
   \hypersetup{pdftitle={#1},pdfauthor={#4}}%
-  {\color{BRTBlue}\bfseries\fontsize{25}{31}\selectfont #1\par}%
+  {\raggedright\hyphenpenalty=10000\relax
+   \color{BRTBlue}\bfseries\fontsize{25}{31}\selectfont #1\par}%
   \vspace{4pt}%
   {\small\textbf{Reference}\enspace #2\hspace{8mm}\textbf{Issued}\enspace #3\par
    \textbf{Prepared by}\enspace #4\par}%

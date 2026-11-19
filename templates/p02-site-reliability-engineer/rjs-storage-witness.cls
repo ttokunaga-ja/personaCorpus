@@ -33,7 +33,7 @@
 \newcommand{\RJSWitnessReport}[5]{%
   \hypersetup{pdftitle={#1},pdfauthor={#4}}%
   \noindent{\color{RJSTeal}\rule{20mm}{2pt}}\par
-  {\color{RJSInk}\bfseries\fontsize{24}{29}\selectfont #1\par}%
+  {\raggedright\color{RJSInk}\bfseries\fontsize{24}{29}\selectfont #1\par}%
   \vspace{5pt}%
   \begingroup
   \setlength{\fboxsep}{8pt}%
