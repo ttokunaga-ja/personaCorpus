@@ -34,7 +34,8 @@
 \newcommand{\DeskSign}[1]{%
   \par\medskip\noindent\parbox[t]{\linewidth}{\raggedright #1\par}\par}
 \newenvironment{DeskSchedule}{%
-  \renewcommand{\arraystretch}{1.18}%
+  \renewcommand{\arraystretch}{1.08}%
+  \setlength{\LTpost}{5pt}%
   \arrayrulecolor{DeskWine}%
   \begin{longtable}{@{}>{\raggedleft\arraybackslash}p{.35in}@{\hspace{.17in}}%
     >{\raggedright\arraybackslash}p{2.35in}%
@@ -42,3 +43,8 @@
   \hline\rowcolor{DeskPaper}\textcolor{DeskWine}{\bfseries No.}&\textcolor{DeskWine}{\bfseries Record or reference}&
   \textcolor{DeskWine}{\bfseries Scope and limits}\\\hline\endhead
 }{\hline\end{longtable}}
+% Use \\* on the final detail row to keep it with the signature row.
+\newcommand{\DeskScheduleSign}[1]{%
+  \multicolumn{3}{@{}l@{}}{%
+    \parbox[t]{\dimexpr 6.47in+2\tabcolsep\relax}{%
+      \vspace{6pt}\raggedright #1\par}}\\}

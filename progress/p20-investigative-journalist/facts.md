@@ -49,3 +49,32 @@
 - 10月16日の照合表は ACN-INV-20241016-LOG-001 v1.0。スクリーンショットは CO-02 のPDF内3頁目（交付p.48）。囲うのは誤って比較した “Revised Total” 行で、税見込と改訂小計も同じ画面に残す。
 - 新規件名 “Drop the $310,000 road increase”。① 2024-10-16 16:08 EDT Leslie → Richard、Cc Veronica・Miguel。Alder and Quarry - same tax basis.xlsx と Alder - I copied the bottom total.png を添付。旧集計は作業の経緯として保管し、増額の裏付けから外す。
 - 10月18日の編集メモの Word と編集部共有用PDFは ACN-INV-20241018-MEM-001 v1.0。確認済みの税区分と、なお追う変更理由・承認日を分けて引き継ぐ。
+
+## Suzanne Wheeler の記名面談と四つの日付の手掛かり
+
+- Suzanne Wheeler の取材用メールは suzanne.wheeler@mapleton-alumni.example。スレッド “Jan. 27 road records interview” は①2025-01-21 09:36 EST Leslie → Suzanne、②01-22 15:14 EST Suzanne → Leslie（①を引用）。どちらも添付なし。録音と元調達担当としての記名を了承し、直接観察・後から読んだ紙・推測を区別して引用する。
+- 2025-01-27 14:05–15:00 EST、borough 閲覧室で Leslie Crawford が Suzanne Wheeler と面談。録音55分。0:00から同意、後半52:40から今後の照合と締め。引用の前後も聴けるよう、以下の時刻は各話題の入り口にそろえる。
+- 12:18、PW-22-01 Alder FY22。2022-07-11は Suzanne が窓口控えで後から読んだゲート搬入日で、搬入の目撃はなし。2022-07-14は変更ファイルの窓口受領日。7月11日の控えの現物と同一変更の着手日報・決裁は未入手。
+- 23:06、PW-22-02 Mill FY22。2022-08-08に Suzanne が見たのは Stone Culvert 側の路面の印。2022-08-11は技術審査束の回付受付日。初回交付 p.17 は条件付き勧告、決裁欄は空。印を施工開始と結び付ける記録は未入手。
+- 34:42、PW-23-01 Alder FY23。Suzanne は2023-09-07に Depot Gate の詰所で資材車を見た。車の用途は不明。2023-09-12は CO-02 の執行署名日（初回交付 p.46）。入構票から当該変更作業の開始は確認できない。
+- 45:15、PW-23-03 Quarry FY23。Suzanne は2023-09-28に Weighhouse Gate 側のバリケードを見たが路盤工事・舗設は見ていない。2023-10-03は CO-01 の執行署名日（初回交付 p.95）。交通準備と変更工事は別に追う。
+- 新規件名 “Alder gate slip and Quarry barriers” は①2025-01-30 10:02 EST Leslie → Suzanne、②01-31 14:43 EST Suzanne → Leslie（①を引用）。添付なし。返信では Alder FY22 の日付は後読、Quarry のバリケードは目撃と明示。
+
+## 4契約の決裁と現場日報の照会、紙の部分交付
+
+- 2025-02-06付 ACN-INV-20250206-REQ-001 は ACN-INV-20240731-REQ-001 を本文で参照。PW-22-01・PW-22-02・PW-23-01・PW-23-03 の決裁者と発効日、変更範囲が分かる日報か着手記録を照会。面談情報は渡さない。
+- 件名 “Decision dates and daily logs for four resurfacing jobs” は①2025-02-06 09:26 EST Leslie → Dorothy、Feb 6 - find the decision and the work log.pdf 添付。②02-13 11:32 EST Dorothy → Leslie、①を引用、添付なし。3月3日13:30の閲覧を提案。
+- Dorothy の部分交付通知 MFB-PRO-20250303-001 は2025-03-03 12:41 EST。件名 “Paper copies for this afternoon” は同日12:56 EST Dorothy → Leslie、添付は Mar 3 - paper copies for the four jobs.pdf のみ。同日13:30に紙の控え3点・計4面を窓口で交付。
+- 紙3点は Public Works の Eleanor Briggs 管理。受領簿2面に Alder FY22 と Mill FY22 の各受付、入構票1面に Alder FY23 の車の受付、準備票1面に Quarry FY23 の交通準備。初回開示の124ページと別に管理し、その通し頁は割り当てない。正式決裁や各変更作業の開始はこの交付で確定しない。
+- 2025-03-12 14:00 EDT、Leslie・Keith・Miguel が日付と欄名を照合。Keith は決裁、Leslie は現場日報、Miguel は同じ区間名で混ざる年度を追う。Leslie の回覧メモと同版の共有PDFは ACN-INV-20250312-MEM-001 v1.0。
+
+## 4月17日の出典点検と道路記事の延期
+
+- 点検対象は Leslie の ACN-INV-20250409-DRF-001 v0.4。4月11日の Desktop 抜粋と4月15日のPDF・その書き込み紙は v0.4 が下地。4月17日の Veronica の赤字は v0.5、同日の Leslie による延期稿は v0.6。延期稿は v0.4 を元に赤字と打合せの判断を反映。
+- Veronica の出典表 ACN-INV-20250417-LOG-001 v1.0 は計43出典箇所。18公示行（1つの公示アーカイブ）、8月の17資料区分（交付索引の頁範囲）、3月の紙3点と送付状、1月27日面談、1月22日記名承諾、Quarry入札追補、1月31日確認返信。逐語録と録音は同一の面談出典。
+- Sources の1–18は発注年度・契約番号順、19–35は初回交付の頁順、36–39は受領簿・入構票・準備票・送付状の順、40–43は面談・記名承諾・入札追補・確認返信の順。H1–H4は40、H5は22、H6は29、H7は37を指す。
+- H1 Alder FY22 の変更工事が7月11日に始まった、H2 Mill FY22 の変更工事が8月8日に始まった。候補はいずれも面談1系統。後日の確認返信・受領簿・勧告は開始を独立に支えない。
+- H3 Alder FY23 の変更工事が9月7日に始まった、H4 Quarry FY23 の変更工事が9月28日に始まった。候補はそれぞれ資材車・バリケードについての面談1系統。入構票と準備票は観察の一部に対応するが、変更工事の開始までは支えない。
+- H5 Mill FY22 の技術勧告の測定条件が満たされた（候補は初回交付 p.17、測定原票なし）、H6 Mill FY23 で840 square yardsが施工された（同p.63、実測票なし）、H7 Alder FY23 の車がCO-02用だった（3月交付の入構票、変更番号に結び付く搬入明細なし）。
+- 2025-04-17 14:30–14:55 EDT、Veronica Huang・Leslie Crawford・Richard Espinoza。43出典箇所を点検した結果、裏付けの候補が一系統しかなく当該文言まで届かない7主張 H1–H7 を保留。4月17日枠を2週間延期、5月1日は再点検日。H1–H4は Keith・Leslie、H5–H7は Miguel・Leslie が調べ、Veronica が照合。
+- 件名 “Hold the road story for two weeks” は2025-04-17 16:22 EDT Leslie → Richard、Cc Veronica。添付は Road dates - hold copy for Richard.docx（v0.6）と April 17 - sources and holds.xlsx（出典表）の2点。掲載時期の決定は再点検に残す。
