@@ -40,7 +40,7 @@
 - あなたは Codex の sandbox の中にいて、`.git` に書けません。commit、worktree の作成、`bin/batch accept`・`discard`・`resume`、push はできません。これらは **操作の指示**（JSON の `actions` のパス）に書きます。あなたが終わったあと、自動運転が上から順に実行し、結果を次の統括の `previous` に渡します。
 - ファイルの編集は、自動運転が main から作り直した worktree（JSON の `worktree`、`scratch/autopilot/wt`）だけで行います。本体の作業フォルダの成果物・資料・道具は編集しません（`scratch/` の一時物は除く）。
 - 道具を直すときは、worktree で先に失敗するテストを書き、`tests/run.sh` と `ops/tests/run.sh` を通し、`cargo build --release --manifest-path tools/Cargo.toml` のあと、`CORPUS_BASE=<本体の repo の絶対パス> tools/target/release/corpus check --all --accepted` で受入済みの全ファイルが通ることを確かめます（worktree でビルドした実行ファイルは、`CORPUS_BASE` が無いと worktree を repo の根として読みます）。自動運転も取り込む前に同じことを確かめ、通らなければ取り込みません。
-- 新しい batch を始めさせたくないとき（監査が甘いと分かったときなど）は、最初に `bin/autopilot stop` を実行します（動いている batch は止まりません）。直したら `{"do":"start"}` で再開します。`bin/autopilot stop --now` は使いません。
+- 自動運転から起動された統括は、`bin/autopilot stop`・`start`・`stop --now` を実行しません。監査が甘いと分かったときは、監査の指示を直して `merge` に入れます。取り込みはジョブの終わりにすぐ行われ、次の監査から効くので、止める必要はありません。ジョブ中に作られた stop は、自動運転が解除します。
 
 ### 操作の指示（actions.json）
 
@@ -80,7 +80,7 @@
 **`check:<persona>/<batch>`（受入済みの確認）**
 1. 監査の報告を読み、監査が見ていないファイルを 8 件以上、形式ごとに 1 件以上開きます。項目が複数あるときは、指示に従って全部（確認の連続一致が 10 未満のとき）、または 1 つを選んで（10 以上のとき）確かめます。
 2. `progress/checks.tsv` に 1 行足します。見出しは `persona	batch	判定	日時	件数	メモ`（タブ区切り。ファイルが無ければ見出しから作る）。`判定` は、不合格が無ければ `一致`、監査が通した不合格を見つけたら `不一致` です。`件数` は開いたファイルの数、`メモ` は短い要点です。結果の報告の末尾にも「統括の確認（<日付>）」として、開いたファイルと確かめたことを書きます。
-3. `不一致` のとき：不合格のファイルを受入済みから除き（manifest・計画の行も直す）、監査の指示（`prompts/audit.md`）を、その不合格を見逃さないように直します。同じ時期に受入された batch で同じ種類のファイルを見直します。直すまでの間は `bin/autopilot stop` で新しい batch を止め、直したら `start` します。
+3. `不一致` のとき：不合格のファイルを受入済みから除き（manifest・計画の行も直す）、監査の指示（`prompts/audit.md`）を、その不合格を見逃さないように直します。同じ時期に受入された batch で同じ種類のファイルを見直します。直した指示は `merge` で取り込みます（止めません）。
 
 **`errors:<persona>/<batch>`（くり返す失敗）**
 `scratch/autopilot/log.tsv` の末尾、`bin/batch status <persona> <batch>`、`bin/autopilot status`、ジョブの記録（`ops/jobs/personaCorpus/<ジョブ名>/log`）を読み、原因を特定します。道具の不具合なら直して `merge`、batch の状態の問題なら `resume`・`discard` を書きます。原因が分からなければ、分かったことと次の手を `progress/handover.md` に書きます。

@@ -1272,3 +1272,28 @@ fn a_roadmap_that_asks_to_review_the_scale_is_held_at_once() {
     assert!(f.jobs().get("p01-roadmap-r2").is_none());
     assert_eq!(f.called("batch", "start"), 0);
 }
+
+#[test]
+fn a_stop_left_by_a_coordinator_is_cleared_when_its_actions_are_applied() {
+    let f = Fixture::new();
+    hold_row(&f);
+    f.once();
+    fs::write(f.r.join("scratch/autopilot/stop"), "").unwrap();
+    finish_coordinator(&f, json!({"actions":[]}));
+    f.once();
+    assert!(!f.r.join("scratch/autopilot/stop").exists());
+    let log = fs::read_to_string(f.r.join("scratch/autopilot/log.tsv")).unwrap();
+    assert!(log.contains("coordinator-stop-cleared"), "{log}");
+    // A stop made before the coordinator started (by the user) is kept.
+    let g = Fixture::new();
+    hold_row(&g);
+    fs::create_dir_all(g.r.join("scratch/autopilot")).unwrap();
+    fs::write(g.r.join("scratch/autopilot/stop"), "").unwrap();
+    std::thread::sleep(std::time::Duration::from_millis(20));
+    g.once();
+    if g.state()["coordinator"]["job"].as_str().is_some() {
+        finish_coordinator(&g, json!({"actions":[]}));
+        g.once();
+    }
+    assert!(g.r.join("scratch/autopilot/stop").exists());
+}

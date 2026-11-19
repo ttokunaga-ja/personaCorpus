@@ -1533,6 +1533,25 @@ impl Pilot {
     fn apply(&mut self) -> Result<()> {
         self.state["coordinator"]["applied"] = json!(true);
         self.store()?;
+        // The coordinator fixes things through its actions and merges, which take
+        // effect at once; a graceful stop it made by hand must not outlive it.
+        let stop = self.home.join("stop");
+        let launched = self.state["coordinator"]["launched"]
+            .as_str()
+            .and_then(|t| chrono::DateTime::parse_from_rfc3339(t).ok());
+        if let (Some(launched), Ok(made)) =
+            (launched, fs::metadata(&stop).and_then(|m| m.modified()))
+        {
+            if chrono::DateTime::<chrono::Utc>::from(made) >= launched {
+                fs::remove_file(&stop)?;
+                self.log(
+                    "coordinator-stop-cleared",
+                    "",
+                    "",
+                    "統括のジョブ中に作られた stop を解除",
+                )?;
+            }
+        }
         let job = self.state["coordinator"]["job"]
             .as_str()
             .unwrap_or("")
