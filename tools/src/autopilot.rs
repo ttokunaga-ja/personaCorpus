@@ -1003,34 +1003,38 @@ impl Pilot {
         }
         Ok(())
     }
-    // A coordinator may resume a held batch after its last audit. The journal
-    // records successful launches even when the coordinator just merged a fix.
-    fn resumed_after_audit(&self, p: &str, b: &str, job: &str) -> Result<bool> {
+    // The journal survives a coordinator merge and the following daemon restart.
+    fn action_after_job(
+        &self,
+        persona: &str,
+        job: &str,
+        launch: (&str, &str),
+        action: (&str, &str),
+    ) -> Result<bool> {
         let path = self.home.join("log.tsv");
         if !path.exists() {
             return Ok(false);
         }
-        let mut seen_audit = false;
-        let mut resumed = false;
+        let mut matching_job = false;
+        let mut acted = false;
         let mut log = csv::ReaderBuilder::new()
             .delimiter(b'\t')
             .has_headers(false)
             .from_path(path)?;
         for row in log.records() {
             let row = row?;
-            if row.get(2) != Some(p) || row.get(3) != Some(b) {
+            if row.get(2) != Some(persona) {
                 continue;
             }
-            match row.get(1) {
-                Some("audit") => {
-                    seen_audit = row.get(4) == Some(job);
-                    resumed = false;
-                }
-                Some("resume") if seen_audit => resumed = true,
-                _ => (),
+            let entry = (row.get(1).unwrap_or(""), row.get(3).unwrap_or(""));
+            if entry == launch {
+                matching_job = row.get(4) == Some(job);
+                acted = false;
+            } else if matching_job && entry == action {
+                acted = true;
             }
         }
-        Ok(resumed)
+        Ok(acted)
     }
     fn set_record(&mut self, p: &str, b: &str, kind: &str, record: Value) {
         if kind == "roadmap" {
@@ -1069,8 +1073,16 @@ impl Pilot {
                 + "\n",
         )?;
         let output = self.root.join(&output);
-        if output.exists() {
-            fs::copy(&output, work.join("previous.md"))?;
+        // An interrupted roadmap may have partially overwritten its output.
+        // Carry its original comparison copy through quota retries.
+        let previous = match rec["limited_job"].as_str() {
+            Some(job) if kind == "roadmap" && rec["job"].as_str() == Some(job) => {
+                self.home.join("jobs").join(job).join("previous.md")
+            }
+            _ => output.clone(),
+        };
+        if previous.exists() {
+            fs::copy(&previous, work.join("previous.md"))?;
             // An audit must be written afresh; a roadmap is extended in place.
             if kind == "audit" {
                 fs::remove_file(&output)?;
@@ -1123,6 +1135,25 @@ impl Pilot {
         {
             return Ok(None);
         }
+        let status = self.jobs.get(name).map(String::as_str);
+        let unfinished = !name.is_empty() && status != Some("done");
+        let repaired =
+            unfinished && self.action_after_job(p, name, ("roadmap", ""), ("unhold", "roadmap"))?;
+        if !repaired && status == Some("failed") && self.limited(name) {
+            if self.held(p, "roadmap")? {
+                return Ok(None);
+            }
+            if rec["limited_job"].as_str() == Some(name) {
+                // The global cooldown has elapsed. Retry even if partial output looks valid.
+                self.launch(p, "", "roadmap", rec)?;
+            } else {
+                rec["limited_job"] = json!(name);
+                rec["attempts"] = json!((rec["attempts"].as_i64().unwrap_or(1) - 1).max(0));
+                self.state["roadmaps"][p] = rec;
+                self.note_limit(name)?;
+            }
+            return Ok(None);
+        }
         let path = self.root.join("progress").join(p).join("roadmap.md");
         if let Some(line) = read(&path)
             .unwrap_or_default()
@@ -1135,8 +1166,7 @@ impl Pilot {
             }
             return Ok(None);
         }
-        let checked = if !name.is_empty() && self.jobs.get(name).map(String::as_str) != Some("done")
-        {
+        let checked = if unfinished && !repaired {
             Err(anyhow::anyhow!("roadmap ジョブが正常終了していない"))
         } else if rec["kept"].as_str() == Some(name) {
             self.roadmap(p)
@@ -1406,7 +1436,7 @@ impl Pilot {
         {
             return Ok(());
         }
-        if name.is_empty() || self.resumed_after_audit(p, b, name)? {
+        if name.is_empty() || self.action_after_job(p, name, ("audit", b), ("resume", b))? {
             if !self.paused() {
                 self.launch(
                     p,

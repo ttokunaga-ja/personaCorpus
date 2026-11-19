@@ -1848,3 +1848,61 @@ fn a_recheck_after_a_reset_ticket_ends_the_usage_limit_wait() {
     f.once();
     assert!(!f.cli(&["status", "--target", "30"]).contains("利用上限"));
 }
+
+#[test]
+fn a_coordinator_unhold_uses_the_repaired_roadmap_after_a_failed_job() {
+    let f = Fixture::new();
+    f.once();
+    f.job("p01-roadmap", "failed");
+    f.once();
+    f.job("p01-roadmap-r2", "failed");
+    f.roadmap(None);
+    f.once();
+    assert_eq!(f.called("batch", "start"), 0);
+    assert!(f.holds().contains("| roadmap |"));
+    finish_coordinator(
+        &f,
+        json!({"actions":[{"do":"unhold","persona":"p01-test","batch":"roadmap"}]}),
+    );
+    f.once();
+    assert!(!f.holds().contains("| roadmap |"));
+    f.once();
+    assert_eq!(f.called("batch", "start"), 1);
+}
+
+#[test]
+fn a_roadmap_usage_limit_waits_without_using_attempts_or_accepting_partial_output() {
+    let f = Fixture::new();
+    f.roadmap(Some(
+        "| b001 | 月次締め | 30 | 重点 | 内容 | 回避 | 受入済み b001 |\n",
+    ));
+    let original = fs::read(f.r.join("progress/p01-test/roadmap.md")).unwrap();
+    f.once();
+    for _ in 0..3 {
+        let job = f.state()["roadmaps"]["p01-test"]["job"]
+            .as_str()
+            .unwrap()
+            .to_string();
+        f.roadmap(None);
+        limit_failure(&f, &job);
+        f.once();
+        assert!(f.cli(&["status"]).contains("利用上限"));
+        assert_eq!(f.called("batch", "start"), 0);
+        let until = f.state()["limit_until"].clone();
+        f.once();
+        assert_eq!(f.state()["limit_until"], until);
+        expire_limit(&f);
+        f.once();
+        assert_ne!(f.state()["roadmaps"]["p01-test"]["job"], json!(job));
+        let retry = f.state()["roadmaps"]["p01-test"]["job"]
+            .as_str()
+            .unwrap()
+            .to_owned();
+        assert_eq!(
+            fs::read(f.r.join(format!("scratch/autopilot/jobs/{retry}/previous.md"))).unwrap(),
+            original
+        );
+        assert_eq!(f.state()["roadmaps"]["p01-test"]["attempts"], 1);
+    }
+    assert!(!f.holds().contains("| roadmap |"));
+}
