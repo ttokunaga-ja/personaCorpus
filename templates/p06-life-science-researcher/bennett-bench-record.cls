@@ -24,12 +24,12 @@
   \draw[BCEInk,line width=.95pt] (0,0) circle[radius=.42];
   \fill[BCEIris] (.11,.08) circle[radius=.13];
   \fill[BCEIris] (.48,-.17) circle[radius=.14];}}
-\newcommand{\BennettRecord}[4]{%
-  {\fontsize{24}{29}\selectfont\bfseries #1\par}\vspace{4pt}
+\newcommand{\BennettRecord}[5][Measurement date]{%
+  {\fontsize{24}{29}\selectfont\bfseries #2\par}\vspace{4pt}
   \setlength{\fboxsep}{8pt}%
   \colorbox{BCETint}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
-    \textbf{Document}\enspace #2\hfill \textbf{Measurement date}\enspace #3\par
-    \textbf{Recorded by}\enspace #4}}\par\vspace{5pt}}
+    \textbf{Document}\enspace #3\hfill \textbf{#1}\enspace #4\par
+    \textbf{Recorded by}\enspace #5}}\par\vspace{5pt}}
 \newcommand{\BennettSection}[1]{\par\medskip{\large\bfseries\color{BCEIris}#1}\par\smallskip}
 \newenvironment{BennettBenchTable}{%
   \renewcommand{\arraystretch}{1.5}%

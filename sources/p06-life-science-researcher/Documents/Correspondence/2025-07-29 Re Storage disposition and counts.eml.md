@@ -1,0 +1,23 @@
+---
+path: Documents/Correspondence/2025-07-29 Re Storage disposition and counts.eml
+kind: text
+author: Robert Nguyen
+derived_from:
+---
+From: Robert Nguyen <robert@bennett-cell.example>
+To: Melissa Watkins <melissa@bennett-cell.example>
+Cc: Anthony Mendoza <anthony@bennett-cell.example>, Lauren Brooks <lauren@bennett-cell.example>
+Date: Tue, 29 Jul 2025 09:26:00 -0400
+Subject: Re: July storage disposition and counts
+Message-ID: <f1e792b4-d43c-42e2-9d71-870e78cb83a1@bennett-cell.example>
+In-Reply-To: <8b6017fd-0c15-4be4-9b76-bc88175a77a2@bennett-cell.example>
+References: <8b6017fd-0c15-4be4-9b76-bc88175a77a2@bennett-cell.example>
+
+Hi Melissa,
+
+Thank you. I have 36 planned and 34 eligible for the review log. When the results table is ready, please show each group's denominator alongside the result where it is used.
+
+Robert
+
+On Thu, Jul 24, 2025 at 11:49 AM Melissa Watkins wrote:
+> Please use 12, 11 and 11 eligible records for the 0, 24 and 48 h groups, respectively, in the review log.
