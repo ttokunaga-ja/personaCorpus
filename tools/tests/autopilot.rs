@@ -971,3 +971,47 @@ fn coordinator_can_leave_an_item_for_the_user_and_gets_the_answer() {
     assert!(brief.contains("22,000 枚で作り直す"), "{brief}");
     assert!(!f.cli(&["status"]).contains("ユーザーの判断待ち"));
 }
+#[test]
+fn an_answer_can_allow_the_next_merge_to_delete_more_than_three_files() {
+    let f = Fixture::new();
+    fs::create_dir_all(f.r.join("people/p01-test")).unwrap();
+    for i in 0..5 {
+        fs::write(f.r.join(format!("people/p01-test/old{i}.txt")), "x").unwrap();
+    }
+    f.git(&["add", "people"]);
+    f.git(&["commit", "-qm", "files"]);
+    hold_row(&f);
+    f.once();
+    finish_coordinator(
+        &f,
+        json!({"actions":[{"do":"ask","item":"hold:p01-test/b001","question":"5 件を撤回するか"}]}),
+    );
+    f.once();
+    f.cli(&[
+        "answer",
+        "hold:p01-test/b001",
+        "撤回する",
+        "--allow-delete",
+        "5",
+    ]);
+    f.once();
+    let wt = f.r.join("scratch/autopilot/wt");
+    for i in 0..5 {
+        fs::remove_file(wt.join(format!("people/p01-test/old{i}.txt"))).unwrap();
+    }
+    finish_coordinator(
+        &f,
+        json!({"actions":[{"do":"merge","message":"Withdraw five"}]}),
+    );
+    f.once();
+    let result = f.state()["coordinator"]["last_result"].to_string();
+    assert!(!result.contains("取り込めない変更"), "{result}");
+    assert!(
+        result.contains("manifest"),
+        "the next gate is reached: {result}"
+    );
+    assert!(
+        f.r.join("scratch/autopilot/allow-delete").exists(),
+        "kept until a merge succeeds"
+    );
+}

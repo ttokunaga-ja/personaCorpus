@@ -55,7 +55,13 @@ enum Action {
         now: bool,
     },
     /// Answer a question the coordinator left for the user (item as shown in status).
-    Answer { item: String, text: String },
+    Answer {
+        item: String,
+        text: String,
+        /// The user approved deleting this many accepted files in the coordinator's next merge.
+        #[arg(long)]
+        allow_delete: Option<usize>,
+    },
 }
 fn now() -> String {
     chrono::Utc::now().to_rfc3339_opts(chrono::SecondsFormat::Micros, false)
@@ -1531,10 +1537,16 @@ impl Pilot {
             .iter()
             .filter(|(st, p)| st == "D" && p.starts_with("people/"))
             .count();
-        if !refused.is_empty() || removed > 3 {
+        let allowance = self.home.join("allow-delete");
+        let limit = fs::read_to_string(&allowance)
+            .ok()
+            .and_then(|s| s.trim().parse::<usize>().ok())
+            .unwrap_or(0)
+            .max(3);
+        if !refused.is_empty() || removed > limit {
             self.cmd(&["git", "-C", &w, "reset", "-q"], true)?;
             bail!(
-                "取り込めない変更（SPEC.md・AGENTS.md はユーザーの確認が要る。people/・sources/ は削除だけ、一度に 3 件まで）: {}",
+                "取り込めない変更（SPEC.md・AGENTS.md はユーザーの確認が要る。people/・sources/ は削除だけ、一度に {limit} 件まで。削除 {removed} 件）: {}",
                 refused.join(", ")
             )
         }
@@ -1665,6 +1677,9 @@ impl Pilot {
         let head = self
             .cmd(&["git", "rev-parse", "--short", "HEAD"], true)?
             .text;
+        if removed > 3 && allowance.exists() {
+            fs::remove_file(&allowance)?;
+        }
         Ok(format!("取り込んだ {}", head.trim()))
     }
     /// What the coordinator must handle now: holds, accepted batches due for a check,
@@ -2048,7 +2063,11 @@ fn execute(a: Action) -> Result<i32> {
             pilot.refresh()?;
             pilot.status()?;
         }
-        Action::Answer { item, text } => {
+        Action::Answer {
+            item,
+            text,
+            allow_delete,
+        } => {
             if item.contains('\t')
                 || text.contains('\t')
                 || text.contains('\n')
@@ -2062,6 +2081,9 @@ fn execute(a: Action) -> Result<i32> {
                 .append(true)
                 .open(pilot.home.join("answers.tsv"))?;
             std::io::Write::write_all(&mut f, format!("{item}\t{text}\n").as_bytes())?;
+            if let Some(n) = allow_delete {
+                fs::write(pilot.home.join("allow-delete"), n.to_string())?;
+            }
             pilot.log("answer", "", "", &format!("{item}: {text}"))?;
             println!("答えを渡した。次の統括の起動で使われる");
         }

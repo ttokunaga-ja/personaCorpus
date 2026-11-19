@@ -55,7 +55,7 @@
 ]}
 ```
 
-- `merge`：worktree の変更をすべて 1 つの commit にして main に取り込みます。worktree を編集したら、必ず入れます。`SPEC.md` と `AGENTS.md` の変更、`people/`・`sources/` の追加と変更は取り込まれません（ユーザーの確認が要ることは、`progress/handover.md` の「ユーザーに聞くこと」に選択肢と案を書きます）。受入済みのファイルの削除は 1 回に 3 件までで、manifest の行とファイル計画の行（`破棄：<理由>`）も一緒に直します。
+- `merge`：worktree の変更をすべて 1 つの commit にして main に取り込みます。worktree を編集したら、必ず入れます。`SPEC.md` と `AGENTS.md` の変更、`people/`・`sources/` の追加と変更は取り込まれません（ユーザーの確認が要ることは、`progress/handover.md` の「ユーザーに聞くこと」に選択肢と案を書きます）。受入済みのファイルの削除は 1 回に 3 件まで（ユーザーが `bin/autopilot answer … --allow-delete <数>` で認めたときは、次に成功する `merge` 1 回だけその数まで）で、manifest の行とファイル計画の行（`破棄：<理由>`）も一緒に直します。
 - 操作は上から順に実行され、失敗すると後続の操作は中止されます。道具の修正が要る受入やり直しは、`merge` を先に書きます。
 - `flag` は `--rebuild`・`--redraft`・`--review-again` か空です。
 - 保留を処理したら `unhold` を入れます。
