@@ -3,6 +3,7 @@ Desktop/Ask Michael before I take either review.txt	10331b8927681789e014528469fe
 Desktop/Ask Nicole what the no applies to.txt	3c0214cfe0a6b227302556b0a05662f04133c52f60c80c120b681c9b81d7045f	550	2026-01-12T17:16:00Z
 Desktop/Ask about same-label rows Jul 18.md	29f9bb259e6a84f692e14ed3876d30d694edfdb72b917e97085de7642b91f4e0	681	2024-07-17T23:52:00Z
 Desktop/Aug 11 ask which volume is on both sides.txt	930d5497495a42c87dbb88475d6c4d1bc5bdcda92aa2c879c60b2cec62a7c0a7	460	2026-08-11T16:19:00Z
+Desktop/Aug 9 don't put the July holds on this slide.txt	2b124260b5db0921cf155d5ed0b19aa15c5eda7fbb6c65b6ed94aacbb7c659dd	539	2024-08-09T23:43:00Z
 Desktop/Before Eric gets the draft.txt	af0e3c1553f7350ad97b48bfb1d522f41757c7a7314782483d0183e9c2e2ee55	597	2026-04-22T23:38:00Z
 Desktop/Draw the gap before showing a score.txt	bc942f695823f890f55b3da487cfb2ce1b1e3b945a18b6cdd6bf1deebfb2a659	538	2025-09-11T16:07:00Z
 Desktop/If they ask about the other point zero two one.txt	22fb9cca64154ec7aa85ab8ede2ec3bdd5e509d38292423c879cca10ab186240	1037	2026-07-17T16:44:00Z
@@ -14,7 +15,9 @@ Desktop/Sep 9 check which 935.txt	f273f9e725ebf2fe2b552de5b681f135798f895f3c9aee
 Desktop/Where did I paste 0851.txt	0f20494b74881637a2f42a7df1bd377f12237fd5f75088b23d3433cef6f59ddd	876	2025-01-23T19:37:00Z
 Documents/Conferences-and-funding/Feb 16 remove the second registration charge.txt	1597b0ab1aed4b0bc1d9132edd829e654e2e54624b140fa766731b7913856fb0	369	2026-02-16T18:25:00Z
 Documents/Confidence-abstention/At the two cutoff lines.csv	4b5ac2075ca6ff8f03aabce8c36cfc0a821b793cf49b7f9ba48d832ce9c1665d	122	2026-06-08T16:18:00Z
+Documents/Confidence-abstention/August replay by prediction and destination.csv	1785952e04c75dbd943dec0e04c0f3ca73a50677fe8207ce7d200b0dca0acc70	130	2024-08-09T16:36:00Z
 Documents/Confidence-abstention/Before using a smaller review queue.pdf	2bf47ff59ab5e26509bc883efbd1d6973c60e9e6f63973729aef7c7d395f209b	33796	2026-06-19T23:21:00Z
+Documents/Confidence-abstention/Conditions for the August routing replay.pdf	7ac09d720661242eaa4d3977917dcc450512f3c892e188dc7576c01e19f8875c	31944	2024-08-07T22:26:00Z
 Documents/Confidence-abstention/Cutoff comparison June.csv	9f66ca7dff29a1574a5470af7e5927c3bef4f5dc33be1790268c254a7dedc914	282	2026-06-08T16:55:00Z
 Documents/Confidence-abstention/Jun 23 which June copies to keep.md	fed898e98e60658d3b7ef3085eaea33832de50ffa14c960a4bf9fcc1c226a571	2075	2026-06-23T23:09:00Z
 Documents/Confidence-abstention/June comparison - conditions checked.docx	b1f6ba46788c7a68040ae961e806e371bca381dd4db8498095d9a513d54e643b	40979	2026-06-09T17:49:00Z
@@ -23,19 +26,24 @@ Documents/Confidence-abstention/June cutoff comparison - working copy.docx	80aaf
 Documents/Confidence-abstention/June review input counts.csv	2e70cfda3bfbe16c0f123fc21a60947b4f5c183130cc5a8070705282f8eb3a7b	218	2026-06-02T16:37:00Z
 Documents/Confidence-abstention/Release band by intake route.csv	0966efe63705651297666e996d52d9558c19554b53b630e0bbc7a65e7ed86b84	292	2026-06-08T18:06:00Z
 Documents/Confidence-abstention/Released cases - joint reading.csv	572dd5716dc88088dafefa6883e09dfc3b73ec21fcf694cd790e4b39320a121c	1060	2026-06-08T22:44:00Z
+Documents/Confidence-abstention/Review queue by intake route.csv	71f3824b827838e6d2576a9fc0d60a84d2fdd31ace49ed9382ff19e5ebcb3213	153	2024-08-09T17:14:00Z
 Documents/Confidence-abstention/What a wrong route would cost us.pdf	c5ee800c6d7ea8b44fee6c3d1742ec275cf130c0dd3851eda4a72d12248d6e37	33429	2026-06-10T22:37:00Z
 Documents/Confidence-abstention/What counts as an error caught.pdf	6e033979595147a72401ec2459e64d0904debe2bd3c934d2c67eeba6fb4fe92e	31259	2026-06-05T16:46:00Z
 Documents/Confidence-abstention/What the seven released errors were asking for.md	fc4b7bdcde1e608d3fea835eb919082d18fa74f3a9b21423fa16899789393765	2953	2026-06-08T23:34:00Z
+Documents/Confidence-abstention/What we can infer from the first queue.pdf	78e9f228ca068b3db48956abcf0bb101696f7c6002be4e74229b1aa19ee1229e	32340	2024-08-14T22:11:00Z
 Documents/Confidence-abstention/Where the decisions moved.tsv	1bb26250cbda29d66a34bd78eef6047f256c836b8a07d847ca95296ed1bdb58b	219	2026-06-08T17:18:00Z
 Documents/Confidence-abstention/Where to start the reroute clock.xlsx	bdd0bcdefee227f3705d2baa7f209aaa65ba7e0774edde34ee9440ac5c09da1a	8538	2026-06-16T21:25:00Z
 Documents/Correspondence/April intake rerun for our review.eml	a8f01024dd7acab34221197390c2c4f2fa35de761e7de8472d09d1dde4899401	171156	2025-04-17T18:48:00Z
+Documents/Correspondence/Friday - check the replay queue.eml	f2d8d2389e1186f07e46b401612ee187f10d26f1a56796b9adf2317bf6eef940	44957	2024-08-08T16:38:00Z
 Documents/Correspondence/Inspection routing stays on hold.eml	b68d969ac3733a51e35e19e49f315fff28ac2c7e28fcab2b30b911648fd10ccc	66081	2026-08-12T18:18:00Z
 Documents/Correspondence/June routing review - measures and movement.eml	0ab4f61b0b69eb413a5b6bb6612441648e7a3e73c8be7b923953a6f490d380b2	45246	2026-06-12T16:26:00Z
 Documents/Correspondence/Monday - read what comes off hold.eml	e09b9a70141ba20e2e7b27bf1dde28f179cb3242db63259ba40f691ffa3d2c41	44139	2026-06-05T17:22:00Z
 Documents/Correspondence/Moving the short intake draft to May 15.eml	95950902e4464419d31c7096010d94f3b0c8a5225780438b60584f629e1f46c1	866	2026-04-23T22:12:00Z
 Documents/Correspondence/Nine final points on short intake.eml	1aa4323dbd5a70a109be17604a264fb0dc18b2200558b718da4881f4d2098883	54498	2026-09-09T17:18:00Z
 Documents/Correspondence/October 12 review assignment confirmed.eml	b09ffae55b818e20463834dd057ed27b5efeda73b094d121e435be26ae0ab0b8	829	2026-09-23T16:36:00Z
+Documents/Correspondence/October intake decision and timing sheet.eml	c51621303c76de2784203c3cc0b876a05d03dd60f16c0e4e62d49e8b291901a2	59090	2024-10-09T17:47:00Z
 Documents/Correspondence/R184 figure and wording for the talk.eml	dd57540a414e8ecfc4b09c271b739a916f85c69ea3e14cb711b49524970c594a	415692	2026-07-16T23:18:00Z
+Documents/Correspondence/Re Friday - check the replay queue.eml	a67050e708077d4368b5b1c55674ff84e7bf7ee4da95d31b2f5eb9d295be67f8	1535	2024-08-08T17:51:00Z
 Documents/Correspondence/Re Inspection routing stays on hold.eml	dc821184b21e8a2d5ed2f9a1c320cc539f6df1bbbbc5a59407c1ac27b08a3f4f	926	2026-08-13T16:42:00Z
 Documents/Correspondence/Re Monday - read what comes off hold.eml	f578eb5ae3818978f0436d602bcb9c9ce1c1722a10fbca68e76aedadd9bb510a	1642	2026-06-05T18:08:00Z
 Documents/Correspondence/Re Moving the short intake draft to May 15.eml	c8b94e05999fc1f06dc20ea2189c3f332014ad70d8d4a596b4cf2ae31846783f	1325	2026-04-24T16:34:00Z
@@ -68,7 +76,10 @@ Documents/Data-descriptions/Where the case key came from.pdf	3d8c70b78828741f456
 Documents/Data-descriptions/Which guide goes with which labels.md	9e2bd09ef854ee56742fc969a7204cdee1b6375b22cf96a022bf9e35480bd081	1407	2024-07-24T17:28:00Z
 Documents/Data-descriptions/Which intake bodies are in the July set.pdf	46b7e599bdd129994c1cfad65316ba7f99f003cf94a2c49b9f4573a53759ef54	33588	2026-07-06T17:21:00Z
 Documents/Lab-meetings/2024/Apr 15 scope decisions.docx	91e5a2fb26a1fa878d40b154994b3483bfa71c842df209dc70803467a1563e36	40008	2024-04-15T22:06:00Z
+Documents/Lab-meetings/2024/Can the bigger model earn its place - working.pptx	cc931633e6b6e920ee85568e945de600aa0046f27ed035265e5cb6f18c839968	31685	2024-10-03T23:16:00Z
+Documents/Lab-meetings/2024/Can the bigger model earn its place.pptx	4e2269873527aab8f9d534f19d55e85d3b338e8333c04b9b43a36d07d404668f	32085	2024-10-08T22:21:00Z
 Documents/Lab-meetings/2024/Jul 18 adjudication decisions.docx	94eb3cf6a46675b0c92aacaa3c682df1a23f4360ed2cb9d69eef2db34152c795	40304	2024-07-18T22:44:00Z
+Documents/Lab-meetings/2024/Oct 8 notes from the cost review.docx	62afc65c2ea4b5e095ef585d831f6dc60935ab6fb8e7d88d998a068dc230399b	40473	2024-10-08T23:26:00Z
 Documents/Lab-meetings/2024/Reading the borderline requests.pptx	02cdf35cef40ef68c3bb0d55e79bf44106d19377a100b398104d24531f03884f	32016	2024-07-18T19:48:00Z
 Documents/Lab-meetings/2025/Apr 17 where to use the new score.docx	81adcf70bcec19b2f86c1b006c4f67a1aa2156232672e89c131fb10126e3dc4e	40011	2025-04-17T22:36:00Z
 Documents/Lab-meetings/2025/Jan 27 what we can still cite.docx	47ba763d5bcdd0915cf57707e2cf833dceedbbbaa62001fa0cd543733f73c86f	40021	2025-01-27T23:32:00Z
@@ -110,6 +121,7 @@ Documents/Publications/Revision/Who can check the case split from the paper.pdf	
 Documents/Publications/Revision/Why the classifier missed the request - before Jan 12.docx	144a7d345ae459a1cab9553386dbc9948c7ee5f8fcdab26d0bc656759732fcd3	39917	2026-01-08T23:42:00Z
 Documents/Publications/Revision/Why the classifier missed the request - revised discussion.docx	ffc752f4645c3a45f2316b5ee2e787f35ac5d1753ae009d0291978ccae5dcfe9	40220	2026-02-07T00:08:00Z
 Documents/Review-notes/Apr 22 where the old deck goes.md	42bb46fe2568a06d499b2a78f02e18e40f85d46e20938e5e2763cf2d0794108e	855	2025-04-22T17:18:00Z
+Documents/Review-notes/Aug 20 one reviewer can take only so many.md	412d579e4e2f7bb73a3cdd36d70d931f5418ad6b36867f40af57c1ea78994249	1150	2024-08-20T23:07:00Z
 Documents/Review-notes/Aug 5 count the body before capping it.md	4a60f91d979940ff599650e51f7ff788dfce1408825747fd9bde7a1323da1619	889	2026-08-05T18:08:00Z
 Documents/Review-notes/Feb 24 stop using the old score as the opening.md	8aa23417e88bc7baaf270b29f5354d26d90031f1db11b3c70c2329f618280d5d	744	2026-02-24T22:45:00Z
 Documents/Review-notes/Feb 3 leave the fixed labels where they are.md	7151941c6222de3fe9e91bc90abcbd988d8633705460fdfca16f67a2f8c94e0f	908	2026-02-03T19:08:00Z
@@ -129,12 +141,14 @@ Documents/Review-notes/Mar 19 equal sizes are not the gate.md	3ba3c00cbdbdd7bba2
 Documents/Review-notes/May 28 why ninety two is still a queue.md	3d0c679535c45a530c6acd3ab4ba3a1ff6a99eb49626ad36b19d5a5ac3a282ec	2066	2025-05-28T22:08:00Z
 Documents/Review-notes/Oct 30 keep both windows with the result.md	8e648adb44b422256a0e9e3ac7c00e97c787391f0ad263e7ef3cb80cacc6f020	782	2025-10-30T23:13:00Z
 Documents/Review-notes/Sep 10 why I left July out.md	f63e5021d9be6d211e26d617bd38654af56b6f9515c713a35bc6d43acdac3eba	801	2026-09-10T21:38:00Z
+Documents/Review-notes/Sep 18 higher scores may only sound surer.md	220bdae3a566505f38d4b6436756337d8b4fcb3d7c71d1afa61b1ce4a79fafc5	932	2024-09-18T23:22:00Z
 Documents/Review-notes/Sep 21 how much of the Dawson tie to disclose.md	ced65f92775837927b9cf879931b7b4eaf45fc389ce279264e3b9c69d672e24a	562	2026-09-21T23:28:00Z
 Documents/Review-notes/Sep 23 hold time for the Fenwick read.txt	aefe70eeba188707dfdc7e486d3cbee8e09a97d976009db6817737f569fa9ac3	733	2026-09-23T18:06:00Z
 Documents/Review-notes/Sep 3 the last paragraph is often just a signature.md	f5d0f6f22cf4817f9cc1586424b5c3a6786cdea61323e113ceb35ee6dc5c7ad4	1557	2025-09-03T22:57:00Z
 Documents/Review-notes/What a routing tag actually tells us.md	28a569c011724d000ca1a4ddad32916507b5c75b0edef31587c21799a68ea7e0	1212	2024-04-25T23:11:00Z
 Documents/Staff-notes/Aug 14 take the reading room at three.md	0e3429476677e5ce15610bbcd33da4ca87d60a8e14183831e38ffd1d067bff3d	347	2026-08-14T17:17:00Z
 Documents/Staff-notes/Chloe - pair the forty readings.docx	4e2b6620f1e9e43cc27dffa97835d9d1417b010dc8f2871371fd9950b313eec9	39793	2025-08-11T22:12:00Z
+Documents/Staff-notes/Friday methods hour moved.eml	c313d42eba6cd86b3fb06d506a90afa6e5beb15bd349accee2c4883c6790cc10	788	2024-10-04T16:11:00Z
 Documents/Staff-notes/Projector adapter before Thursday.eml	41e21941b4319d0449fd0e8049433c16bdc3c36546990265e90161096f5637f0	664	2026-06-10T18:37:00Z
 Documents/Staff-notes/Projector cable for Thursday.txt	a66bd0fe71f9ac938912d01ee86c00f6a920cdda65068c751d8235d59ee087fd	195	2025-09-10T23:04:00Z
 Documents/Staff-notes/Projector cart back by four.txt	c04d36acbf08837f3118481444c34332e5e63994ef839f82a997c105071e6285	175	2024-06-04T18:19:00Z
@@ -166,6 +180,7 @@ Documents/短文受付意図分類/Measurements/Case split reevaluation Apr 17.p
 Documents/短文受付意図分類/Measurements/Check the July scoring handoff.pdf	af34df7acea29e3e75e681ca638a4313335e9aa24b24d86854b95620e2f039a1	32863	2026-07-10T21:08:00Z
 Documents/短文受付意図分類/Measurements/Checking the April score from the intent counts.csv	df946ca488cf552ec150d1df5134fe35d1a0393d1344966a960b06b9b23fb2c2	652	2026-03-05T19:26:00Z
 Documents/短文受付意図分類/Measurements/Gold labels before the first score.pdf	3a06731ffd6b7d53328a662ebcc0c546a10c59671141d40d7f2c2646d014657e	33074	2024-07-22T22:41:00Z
+Documents/短文受付意図分類/Measurements/Intake cost at equal volume.xlsx	4e0e1316a230c6dfa1880db1b8b2299d21fef7f8882fc29041352925ba1cbdb8	8424	2024-10-08T18:37:00Z
 Documents/短文受付意図分類/Measurements/Intake documents by partition.tsv	e59d1ac56014e6f9f3c018199e56215b5b8895d50f03df4a4145620a955e6943	391	2025-04-03T17:48:00Z
 Documents/短文受付意図分類/Measurements/January crossing totals.csv	9ed063610c3c03d30608cadd6875165c832e6bde2f1243989f10e74b95c3a3cf	148	2025-01-24T19:18:00Z
 Documents/短文受付意図分類/Measurements/January split joins.xlsx	f6fb8cff46c5aeb07e2e05e86e8d8d51fd420048a7e1dd81cf1ea223ab82a035	9404	2025-01-24T18:46:00Z
@@ -178,8 +193,13 @@ Documents/短文受付意図分類/Measurements/May ledger source check.xlsx	011
 Documents/短文受付意図分類/Measurements/R184 evaluation conditions.xlsx	ae6fa4a18450a424f7156912596d5c75a5ce4b2e6c74aa8494068b1c9e113de8	8927	2026-07-16T21:47:00Z
 Documents/短文受付意図分類/Measurements/R184 results by intent.csv	9e4dbf4a97d59161f168b4157a9f6976d5336efdfc6dc78be9952e353b09772f	875	2026-07-16T17:26:00Z
 Documents/短文受付意図分類/Measurements/R184 run comparison.tsv	308682c2e6498dc74aad4a4b5516074c99af474f4faddb67612c472d546259e0	264	2026-07-16T18:14:00Z
+Documents/短文受付意図分類/Measurements/Read the same bodies on the same worker.pdf	96eda8a1777dbc63c90c071b559291129af036c03f1d0391b0d024a56bc2a536	30558	2024-09-25T21:46:00Z
 Documents/短文受付意図分類/Measurements/Scoring the frozen intake set.pdf	cabf7b75538f47c4ec4bbd1418f091cd0cdb882e8917fb6384ac3a00a8d5ca6a	39247	2025-04-08T21:38:00Z
+Documents/短文受付意図分類/Measurements/Seconds on the intake worker.tsv	02e6b3a0b8a394d92ffdf0242acc0ab1d7fb1886ef0446025900b13473a46683	271	2024-10-01T17:06:00Z
+Documents/短文受付意図分類/Measurements/September intake model comparison.csv	422576b454b1f681265639ca0aac5313a6f40548a0d8b9cd970b3af3684086c4	698	2024-09-30T17:42:00Z
 Documents/短文受付意図分類/Measurements/Withdrawal of the January intake score.pdf	6db9dc51bfc523bb592fc4b8715c3500110246b66bfacd5b25cb9c89bececbc2	41464	2025-01-28T18:34:00Z
+Documents/短文受付意図分類/Measurements/Working out which seconds count.xlsx	c6030d382f072f8fa9432b027bf04941baae53441306288ea410bc3c95dd5654	8306	2024-10-02T22:14:00Z
+Documents/短文受付意図分類/Research-questions/Before we compare the heavier model.pdf	5065e37bb14fbbc658ce2f57edc8af53c366f90855e3921f437c76e4b93c8798	31882	2024-09-12T22:18:00Z
 Documents/短文受付意図分類/Research-questions/Can we label the request without the queue.md	8fb8d460445865c86f6eb549782f4e05350b472d6d18413d2657a2464ba2f1ae	1085	2024-04-11T23:42:00Z
 Documents/短文受付意図分類/Research-questions/How many support examples do we need.md	fdec13930b7ef4664e3e6b9c99314b3518282956f4269b4234bf514867cbeaee	1145	2024-04-19T17:53:00Z
 Documents/短文受付意図分類/Research-questions/Jul 2 decide what R184 has to beat.md	45ff285b28bde3267307ebfed28d195f8fed80c029828ce7e03c4f5aee7b1e70	1463	2026-07-02T22:12:00Z
@@ -190,6 +210,7 @@ Documents/短文受付意図分類/Research-questions/What July still leaves for
 Documents/短文受付意図分類/Research-questions/What the new split must hold fixed Fatima markup.docx	d6c760d001a2c979f1a08a71a2483598fceda41809e5ca02e106c90a47aebc51	40829	2025-02-14T19:06:00Z
 Documents/短文受付意図分類/Research-questions/What the new split must hold fixed approved.docx	2713ddeda2c307cd3ceb0276c41b2744aa93734ae3b369c2ae54d83c798a181d	40944	2025-03-12T23:10:00Z
 Documents/短文受付意図分類/Research-questions/What the new split must hold fixed.docx	8de14fe811258dfe8fa1ea74dc9d42704ea768c43bb85baa56930d62013ad70b	40011	2025-02-13T00:24:00Z
+Documents/短文受付意図分類/Research-questions/Where the bigger model stays.pdf	5bd0c222c0c73947974765bb6a526a63e4cc502a7de57e2b8fffef2d36fb5248	33501	2024-10-09T17:03:00Z
 Documents/長文点検記録分類/Cost-discussions/Aug 11 monthly cost review.docx	99669827a33548de60396f5ab45b271fefe79ac15baef7950017c5499cc725a6	40324	2026-08-11T22:21:00Z
 Documents/長文点検記録分類/Cost-discussions/Aug 28 keep with the August rates.md	5031ef591db29806ed1df87a3f518d3e668fcc848b56dc27db6547c74fc02043	1402	2026-08-28T23:22:00Z
 Documents/長文点検記録分類/Cost-discussions/Aug 3 intake call with Brandon.md	7291c18874a97c2c98b4e53d0075669c364b565648ed94178c3f554cb43df5c6	918	2026-08-03T22:21:00Z
@@ -237,6 +258,7 @@ Pictures/Boards/Jul 18 enough to call it.jpg	ee0ad131e26f3b14370fa329542dd99d692
 Pictures/Boards/Sep 11 windows on the board.jpg	94067dc167d296df08fa67175366a292e9525ab3b18e373c8c1b5a5512019b22	345398	2025-09-11T21:43:00Z
 Pictures/Charts/Changes hidden by the net miss count.png	5718aff748484c44d03485bfee430bac73418794fa6f79a5361aa5b7cc696b2d	113076	2026-08-10T16:28:00Z
 Pictures/Charts/How much room for a second read.png	cf7d4fb8833191c31566dfa2460b4d3f0b306b5ec8f6d8a896e5a6a07830716c	120500	2026-08-18T21:08:00Z
+Pictures/Charts/Inbox review load in the August replay.png	ed107fe0029eafc67d208a198511175e18d4a15ccc20dcaad3b173d4722d464b	109512	2024-08-13T16:52:00Z
 Pictures/Charts/Inspection bodies beyond 2048.png	6b9f8089c320607b777537e414c304b4e2d3356285cb512129e0ad4154d70f85	89841	2025-08-08T17:31:00Z
 Pictures/Charts/January score withdrawn April rerun.png	7a6846a8ed4adde1dce21909d4388e6728f5530d854e1258b2d8cf695c76875d	90011	2025-04-16T22:08:00Z
 Pictures/Charts/Jul 16 the two points look too far apart.png	e2d54abdb7066b65524db8a68c308277e01aabbb79c91ff4415451b2f40bb118	67103	2026-07-16T18:56:00Z
@@ -246,8 +268,10 @@ Pictures/Charts/Jun 4 one scale - leave out.png	6af2141190bf654695ee06df020a766e
 Pictures/Charts/May ledger evidence by channel.png	b1a44496f4c47856ca959fe032f6d6309a1cbbb7de66f629fc7e5554358d5fbe	99966	2025-05-23T19:48:00Z
 Pictures/Charts/May pilot disagreement by channel.png	86af621a66b6b886b39da91d76b9e7fc5b595999bb9fafa1322daebd0c207d84	66729	2024-05-23T20:20:00Z
 Pictures/Charts/Same cutoffs two denominators.png	42d1fbd26f6b89546609393324c8d285db362d10377fd857fdf45a1b8eeff161	82399	2026-06-09T20:46:00Z
+Pictures/Charts/Same workload from parse to route.png	c8bbd6cba429b8be49016eb5d6c1d538004ef88453267744a97a546eb8dde2f6	116482	2024-10-08T19:06:00Z
 Pictures/Charts/What came off the review shelf.png	1cf183addbd24c80ad22ec5665b9890bdb3db47d14f4fb7779273778955063b5	101667	2026-06-09T22:14:00Z
 Pictures/Charts/What pushes the monthly bill over.png	5d0ef5e1c064d38d55d45f98f0af3068fe43e6f1d888d669c04d67309921f554	122070	2026-08-12T16:13:00Z
+Pictures/Charts/What was waiting on Aug 9.png	b61bc4a696582a6437b480348387c1fa46462cced32b88fbda274591a055b2be	57165	2024-08-09T19:21:00Z
 Pictures/Charts/Where the July gain was uneven.png	7e665ceb502c49d277e065ae0834a3c7357465b7eeda1ded0351060c743a57b1	152405	2026-07-17T21:28:00Z
 Pictures/Charts/Where the missed evidence fell.png	9c56b46a8a4f6a739ad85d8beede50a1426bab33a1b18b90b5d8d7a8e2182ce3	62746	2025-10-09T18:34:00Z
 Pictures/Charts/Where the readers differed before discussion.png	bb932f17a065174d5cee107d0c2985cfbd8f849d112b62d0916e03c15d58ae55	84084	2026-01-20T18:54:00Z

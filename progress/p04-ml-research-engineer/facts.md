@@ -199,3 +199,26 @@
 - 購買記録の件名は “Review request - purchase record line grouping”、論文名は “Line grouping in municipal purchase records”。1通目は Nicole → Vanessa、9月21日10:12 PDT。2通目は同件名に “Re: ” を付けた Vanessa → Nicole、9月22日10:08 PDT の受諾。
 - 購買記録の Message-ID は順に `<783ceba6-96da-4a0c-a2f3-d54bf1765d95@hartwell-evaluation.example>`、`<c972656e-022e-4dda-9d36-e8c3576a2cf5@mercer-document.example>`。2通目は1通目を引用し In-Reply-To・References に1通目のIDを使う。両通とも添付なし。
 - 担当登録の独立した連絡 “October 12 review assignment confirmed” は9月23日09:36 PDT、Nicole → Vanessa。Fenwick の締切は10月12日、論文へのアクセスは後続の個別案内。添付なし。
+
+## 8月9日の保留判定の再生試行（2024年）
+
+- 8月6日に Joshua と Fatima は7月の正解付き4,674文書を文書単位で学習2,800／開発934／評価940に割り付けた。8月の試行は開発から固定した800本文（Web form 360／Shared inbox 264／Service desk relay 176）。7月の正解なし Hold 126件は全区画の外。
+- 保存済み最上位予測と未丸め信頼度で、0.60未満を確認待ち、同値以上を自動側とする単一条件を再生した。予測ラベルと正解は固定し、実際の受付への振分けは行わない。
+- 確認待ちは正解122＋誤り22＝144、自動側は正解578＋誤り78＝656。誤分類捕捉率22/100＝22%、確認待ち率144/800＝18%。捕捉は分類の訂正を意味しない。
+- 確認待ちの正解／誤りは Web form 49／10、Shared inbox 49／9、Service desk relay 24／3。各入口の確認待ち合計は59／58／27。
+- 8月9日14:00 PDTに Vanessa と Emily Chen は各セルから1例ずつ計4例を持ち寄り、先に本文の動作を読み、保存予測と参照ラベルを突き合わせた。Vanessa は 8月14日に Michael と Brandon に144件の負担を伝え、現行の受付を維持し閾値を再検討する。
+- 1通目 “Friday - check the replay queue” は Vanessa → Emily、2024-08-08 09:38 PDT。Conditions for the August routing replay.pdf を添付。2通目 “Re: Friday - check the replay queue” は Emily → Vanessa、同日10:51 PDT。1通目を引用し、添付なし。
+
+## 9月の短文大型案の開発比較と同量の計時（2024年）
+
+- 9月12日に Vanessa、Fatima、Emily が比較条件を確認。線形（単語頻度）と大型（文脈モデル）は同じ学習2,800本文・開発934本文・7月改訂の12分類で比較し、入力は本文のみ。開発934件には8月の試行800件を含むが、9月は保留を適用せず全件を採点し、評価940件は開けない。
+- 9月30日の開発結果は線形0.827／大型0.846（12分類の未丸め F1 の等重み平均を3桁に丸めた値）。Cancel request は支持57、線形0.877／大型0.832、FN は7／10。初年度目標0.82と用途判断は区別する。
+- 計時は同じ常駐ワーカーで開発本文934件＋先頭66件の再送を各回同順で直列に流し、モデルごとに3回。全経路は最初のパースから最後の宛先出力まで。起動、外部待機、人手確認は範囲外。再送66件を F1 には加えない。
+- 10月1日に Emily が残した全経路秒は線形98／100／103、大型206／210／214（中央値100／210）。大型の推論部だけなら149／150／153秒（中央値150）。推論部と全経路の混在で出た1.50倍は作業値。
+
+## 10月8日の用途判断と比較資料の整理（2024年）
+
+- 10月8日午前に Vanessa と Brandon Romero が全経路を共通の端点に揃えた。ワーカー配賦単価は両案 USD 1.20/時。各回1,000受付から10,000受付に換算して線形 USD 0.3333、大型 USD 0.7000（表示4桁）、丸め前の単位費用の比は2.10。
+- 10月3日の作業稿 `MDR-STI-20241003-LM-01-R01` の費用比較を、10月8日発行の `MDR-STI-20241003-LM-01-R02` で1.50倍から2.10倍へ差し替えた。開発結果の表は同じ。
+- 10月8日14:00 PDTに Vanessa、Michael Serrano、Brandon、Emily が研究会。Michael は大型案を自動受付用途に不採用とし、Vanessa が研究用の比較結果と確定試算、Emily が計時表を残す。8月試行の閾値はこの場で決めない。
+- “October intake decision and timing sheet” は Vanessa → Michael・Brandon（Cc Emily）、2024-10-09 10:47 PDTの独立した連絡。Where the bigger model stays.pdf と Intake cost at equal volume.xlsx の2本を添付する。
