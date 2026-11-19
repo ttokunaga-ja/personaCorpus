@@ -1,0 +1,12 @@
+What actually gets handed over — 16 April, after Christine
+
+Christine's account
+- A changed window can leave the old time in the handoff. The next dispatcher may carry that old value forward.
+- A route can be Held without the reason reaching the person taking over.
+- A replacement vehicle number can be visible to the receiver, yet the receiver may not know whether the replacement is settled. Reading the number on the screen and treating the assignment as confirmed are separate events.
+- A stop's exception Note can be skipped in the handoff. The note on R-214 is a stop instruction, not the reason for Held.
+
+What I want to see
+For a recent handoff, follow the value from where the sender got it to what the receiver was told. If the window differs, ask where each value came from. For Held, record what the receiver sees and whom they approach for an explanation, without supplying the answer. I do not yet know who has authority to release a hold; ask rather than assume.
+
+For the replacement, record the vehicle number seen and then the evidence the person uses to regard it as confirmed. Do not turn a displayed assignment into a confirmation. For the stop exception, distinguish opening the stop, reading the Note, and passing its content on. These four situations are starting points from Christine, not findings from participants. We agreed not to use operation time as the measure of success.

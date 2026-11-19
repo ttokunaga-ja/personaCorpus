@@ -1,0 +1,13 @@
+---
+path: Documents/配車の見通し調査/Planning/2024-07-11 US moderator margin notes.txt
+kind: text
+author: Jennifer Salazar
+derived_from:
+---
+US session — margin notes, July 11
+
+45 minutes: 0–5 opening; 5–12 recall; 12–22 state and reason; 22–32 change and cross-check; 32–42 what reached the next person; 42–45 anything left to add.
+
+If reconstructing the run takes longer, cut optional follow-ups first. Keep 32–42 for what the receiver could know and where they could check, and 42–45 for what the participant still wants to say. If an answer has already covered a prompt, briefly check the point instead of asking the whole question again.
+
+Use the person's own workplace term. Repeat it back to check my understanding; do not translate it into Held or confirmed and move on as if the terms were equivalent. Leave a pause rather than offering a field, a contact method, or a decision. Record an unanswered point as unknown.

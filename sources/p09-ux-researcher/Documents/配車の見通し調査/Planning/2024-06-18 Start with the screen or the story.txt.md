@@ -1,0 +1,13 @@
+---
+path: Documents/配車の見通し調査/Planning/2024-06-18 Start with the screen or the story.txt
+kind: text
+author: Jennifer Salazar
+derived_from:
+---
+Start with the screen or the story? — June 18
+
+If I put the screen up immediately, I am likely to name a field while trying to help someone start. The person may then follow my labels instead of the path they actually took. A call or a piece of paper could disappear from the account simply because neither is on the screen.
+
+Start instead with one recent handoff and ask the person to walk through it in their own order. After they have recalled it, ask back only about materials they themselves mentioned. Keep what they saw, where they checked and what they handed on separate; if we cannot establish one of those, leave it unknown.
+
+For the July read-through, practice that opening. Jeremy's two directions are useful for our discussion but should not be shown as answers to the person we are asking.
