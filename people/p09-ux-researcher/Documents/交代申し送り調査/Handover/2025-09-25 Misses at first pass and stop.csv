@@ -1,0 +1,10 @@
+Date,Condition,Stage,Missed,Possible,Unit,Rescue,Definition
+2025-07-23,Pilot,First pass,3,9,items,No,One participant; first circuit before post-task question
+2025-09-23,A,First pass,12,45,items,No,Five participants times nine items; spontaneous stop or 90 seconds whichever first
+2025-09-23,A,Task endpoint,6,45,items,No,At save or seven-minute cutoff before oral question
+2025-09-23,B,First pass,9,45,items,No,Five participants times nine items; spontaneous stop or 90 seconds whichever first
+2025-09-23,B,Task endpoint,3,45,items,No,At save or seven-minute cutoff before oral question
+2025-09-24,A,First pass,11,45,items,No,Five participants times nine items; spontaneous stop or 90 seconds whichever first
+2025-09-24,A,Task endpoint,5,45,items,No,At save or seven-minute cutoff before oral question
+2025-09-24,B,First pass,8,45,items,No,Five participants times nine items; spontaneous stop or 90 seconds whichever first
+2025-09-24,B,Task endpoint,4,45,items,No,At save or seven-minute cutoff before oral question

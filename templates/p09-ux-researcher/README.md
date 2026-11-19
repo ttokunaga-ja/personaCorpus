@@ -7,11 +7,13 @@
 | 観察計画 | Carver Workplace Research LLC、Jennifer。配車の引継ぎ場面、観察する証拠、面談手順を英語で共有 | `carver-observation-plan.docx` | Letter 縦、表紙なし。段違いの三本線と社名、煉瓦色の小見出し。四つの場面と観察点を本文中の表で対応させる |
 | 夜勤棚卸の観察手引き | Carver、Jennifer。現場で照合が止まる直前と、戻って照合を始めるときの行動を別々に記録する | `carver-night-shift-guide.docx` | Letter 縦、表紙なし。共通ロゴと煉瓦色の小見出し。観察範囲、止まる前、止まってからの再開、記録の扱いの4節 |
 | 面談進行台本 | Carver、金子・Jennifer。日本語面談の発話、進行者への指示、聞き返しを区別 | `carver-moderator-guide.docx` | Letter 縦、表紙なし。区間と進行の合図に煉瓦色の太字を使用 |
+| 調査参加のご案内 | Carver、金子。日本側の候補者に参加内容、所要時間、記録範囲、日程変更や辞退の連絡方法を伝える | `carver-participant-invitation.docx` | Letter 縦、共通ロゴと煉瓦色の和文見出し。表紙なし、候補者向けの4節 |
 | 研修画面の課題票 | Carver、Jennifer・金子。中山の新人に提示する課題と、進行者が回答根拠を控える欄を作る | `carver-training-task.docx` | Letter 縦、表紙なし。日本語の4節、共通ロゴ、煉瓦色の小見出し |
 | 調査判断記録 | Carver、Jennifer・金子。観察の範囲や質問の採否について判断・根拠・未決事項を記録 | `carver-research-decisions.docx` | Letter 縦、表紙なし。短い英語の見出しと、必要に応じて根拠の表を使用 |
 | 日英質問対照 | Carver、Jennifer・金子。並べた質問を読み合わせ、言い直しや採否を照合 | `carver-prompt-review.xlsx` | Letter 横。日英の列を同幅に取り、黒鉛色の列見出しと煉瓦色の管理ラベルを配置 |
 | 再開手掛かりの分類照合 | Carver、Brian と Jennifer。2人の初回コードと場面ごとの確定理由を照合 | `carver-field-coding.xlsx` | Letter 横。日英質問対照と同じ Carver の紙面で、場面・初回2列・確定・一致判定・行動根拠を6列で示す |
 | 読み上げ順の項目表 | Carver、Jennifer。Amanda の観察を Jeremy に渡す際、期待順・観察順・判定・修正観点を項目別に整理 | `carver-reading-order.xlsx` | Letter 横。黒鉛色の6列見出し。先頭の期待順は右寄せ、直後の項目名は1字下げ |
+| 募集条件照合 | Carver、Carolyn。候補を符号で扱い、3条件の回答と最初に外れた条件を週次の募集会議で照合する | `carver-participant-eligibility.xlsx` | Letter 横、共通ロゴ、黒鉛色の6列見出しと麻色の集計欄。1候補1行で根拠欄を広く取る |
 | 場面共有スライド | Carver、Jennifer。引継ぎの四場面、夜勤棚卸の再開、研修画面の文言案を説明 | `carver-field-brief.pptx` | 16:9、白地。小さな社名と図形ロゴを上に、ページの区切り線を下に置く。マスター1種・レイアウト5種 |
 | 質問試行用紙 | Carver、金子。読み合わせに使う旧質問を余白のある紙面に組む | `carver-pilot-questionnaire.cls` | Letter 縦。麻色の管理欄、煉瓦色の区間見出し、番号付きの日英対。手で削除や言い直しを書き込める質問間隔 |
 | 現地調査報告 | Carver、Jennifer。Ronald に観察範囲、中断と再開の根拠、再開位置の表示、他の勤務帯への留保を伝える | `carver-field-report.cls` | Letter 縦、表紙なし。共通ロゴと煉瓦色の見出し。麻色の管理欄に提出先を独立表示し、根拠を黒鉛色の見出し付きの二列表にできる |
@@ -22,6 +24,8 @@
 配車の見通し調査と夜勤棚卸観察で使う型。実ファイルには計画と原稿で定めた内容を入れる。メールは差出人・宛先・日時を持つ EML とする。夜勤の野帳は TXT、場面別の照合記録は CSV、顔の写らない作業机と掲示物は JPG。手書きの照合順は原稿で定めた筆記内容を画像にしてから `bin/scan` で PDF にする。Carver が作成して Kenton に送る手引き、説明、報告には Carver の型を使う。
 
 研修画面理解調査は日本語の課題票と共有スライドを使う。回答の根拠は TXT、再試行結果は CSV、6月の保留連絡は EML とする。5月の配車点検は Fuller 発の観察 PDF、Carver 内部の項目表、順路の注釈 PNG に分ける。5月の配車点検と翌年6月の研修画面再試行は、同意・対象項目・判定を調査ごとに記録する。
+
+交代申し送り調査の案件コードは `HO`。参加案内は用途 `INV`、募集条件照合は `ELG` を使う。それ以外は共通の用途を使う。
 
 ## Carver の書式
 
@@ -37,6 +41,7 @@
 - Letter 縦、左右0.86インチ、上1.16・下0.8インチ。Normal 11pt、Title 27pt、Heading 1 は14pt、Heading 2 は11pt、管理欄9.5pt、進行の合図10pt。段落の行間は1.16。表紙を作らず1ページ目に本文を続ける。
 - 実表に `CWR Evidence Table` を設定し、先頭行は黒鉛色 `252A35` のセル塗りと `CWR Table Header`（白太字10pt）を使う。LibreOffice での印刷にもセル塗りが反映されるよう、先頭セル群に同色の `w:shd` を明示する。明細は `CWR Table Body`（10pt）にする。先頭行に `w:tblHeader`、明細に `w:cantSplit` を付け、実際の文量に合わせて列幅を決める。
 - 研修課題票の節は「実施条件」「画面で行うこと」「判断の根拠」「進行者の記録」。提示する文を「画面で行うこと」に分け、進行者が聞く問いと観察時の記録欄を後ろに置く。版を表示する場合は管理欄に続ける。
+- 参加案内の節は「ご参加のお願い」「当日の流れ」「記録について」「日程の変更・辞退」。候補者が読む時間は現地時刻を先に書き、辞退の連絡は案内を受け取った業務上の経路へ返す旨を記す。版は管理欄に続ける。
 
 ## Excel の成形
 
@@ -60,6 +65,13 @@
 
 - 集計を載せる場合は明細直後に24ptの行を作り、A列に件数、B〜Cの結合セルに対象のラベルを置く。合計行は `CWR Total`、結合セルの左端だけ `CWR Text` の位置揃えをコピーする。全明細数はA列を `COUNT`、未読件数はE列を `COUNTIF` で集計する。未読の判定語は式と明細で揃える。注記が必要なときは次の行のA〜Fを結合し、`CWR Note` で記載する。
 - フィルターは A6:F最終明細行、印刷範囲は A1:F最終使用行。ペインは B7、Letter 横、幅1頁・高さ自動、1〜6行繰返し。実データを入れたら `bin/recalc` と `bin/render` で全ページを確認する。
+
+### 募集条件照合
+
+`carver-participant-eligibility.xlsx` のシート `Eligibility` を開く。ロゴ・題・管理欄は日英質問対照と同じ位置を使う。6行目は No.、Handoff in last 30 days、Incoming responsibility、Shared list use、Eligibility、Basis / follow-up。7行目から候補ごとに、A列は照合用の整数（`CWR Integer`）、B〜E列は `CWR Text`、根拠のF列は `CWR Note`。
+
+- 集計は明細直下に、A列に数式、B〜Cの結合欄にラベルを置く。候補数はA列の `COUNT`、適合・条件外はE列の判定語と同じ語を使う `COUNTIF`。全体に `CWR Total` を適用し、結合欄の左端は `CWR Text` の左寄せ・字下げを保つ。除外理由の内訳を式で出す場合は、最初に該当しない条件を明細F列の根拠の先頭で揃え、その条件別に数える。
+- A6:F最終明細行にフィルター、印刷範囲は A1:F最終使用行、ペインは B7。Letter 横、幅1頁・高さ自動、1〜6行繰返し。根拠は折り返し、内容に合わせて行高を取る。集計を入れたら `bin/recalc` と `bin/render` で確認する。
 
 ## PowerPoint の成形
 
