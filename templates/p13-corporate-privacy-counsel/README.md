@@ -13,6 +13,7 @@
 | 判断比較表・回答担当対照表・集計条件点検表 | 同社、高田・村田。判断根拠と回答分担を対照し、取締役会報告前の算入条件を点検 | `toto-decision-comparison.xlsx` | 台帳と共通のA4横。既定では長文用のD・E列は各29幅 |
 | 再審査の説明・取締役会の訂正報告 | 同社、高田から河野・藤本または取締役会へ。再審査や、訂正箇所と継続報告を説明 | `toto-legal-brief.pptx` | 16:9、白地、左端の紫灰色帯、小さな社名ロゴ、銅色の下罫線。1マスター、5実レイアウト、スライド0枚 |
 | 弁護士回答書 | 宮坂・野田法律事務所、岩崎裕二郎から高田へ。保全解除についての照会回答 | `miyasaka-noda-advice.docx` | A4縦、明朝体、青灰色、円内の天秤ロゴと事務所名、落ち着いた見出しと細罫線。社内のロゴは使わない |
+| 英文移管条項案・削除報告書 | Fairview Document Transfer Ltd、Catherine Simmonsから東都へ。移管後の保存条項案と、削除報告・証明範囲の提出 | `fairview-transfer-record.docx` | A4縦、表紙なし。段違いの転送マークと英文社名、紺の題、琥珀色の上罫、証明明細の罫線表、英文頁番号 |
 | 方針説明・確認手順・紙の確認票 | 東都文書データサービス、高田から河野・関係部署へ。方針説明と手順の配布、担当引受けや再審査の原紙 | `toto-review-sheet.cls` | A4縦、文書照合ロゴ・紫灰色の見出し、銅色のヘッダ罫線。表を使うときは続頁にも列見出しと頁番号 |
 | 保存目的の棚卸し 会議論点表 | 同社、高田から藤本・関係部署へ。原記録を参照する業務と時点、期限判断に必要な根拠、照会先の確認事項を配布 | `toto-retention-issues.cls` | A4縦、共通ロゴと罫線。4列の表見出しを繰り返し、フッタに法務部・保存目的の棚卸し・頁数 |
 | 英文再委託先追加通知 | Winslow Records Services、Andrea Powellから東都へ。文書処理を支援する再委託先の追加を通知 | `winslow-subprocessor-notice.cls` | Letter縦、左上の3本のファイル背表紙と社名、青の大見出し、緑青の横罫。下部に英文社名と頁数 |
@@ -28,7 +29,8 @@
 - Winslow：3本の背表紙と英文社名。深青 `234B69`、緑青 `16736C`、本文 `252E35`。欧文は `Liberation Sans`。
 - はるか契約コンサルティング：向かい合う角括弧と社名。臙脂 `713539`、黄土 `AE7849`、本文 `342D29`。日本語は `Noto Serif CJK JP`、欧文は `Liberation Serif`。
 - 大和田文書保管：積み重ねた保管箱の線画と社名。深緑 `284E3C`、淡緑 `E5ECE5`、本文 `282D2A`。日本語は `Noto Sans CJK JP`、欧文は `Liberation Sans`。
-- 自社Officeは日本語・欧文とも `Noto Sans CJK JP`、社外Wordは日本語・欧文とも `Noto Serif CJK JP`。TeXは日本語 `Noto Sans CJK JP`、欧文 `Liberation Sans`。既定Normal、見出し、表、入力用管理セルにも実設定し、Officeテーマのフォントと主色も設定した。
+- Fairview：段違いの3本の転送タブと英文社名。紺 `173553`、琥珀 `D69239`、本文 `293743`。欧文 `Liberation Sans`、和文 `Noto Sans CJK JP`。WordのNormal、段落・表スタイルとテーマにも設定する。
+- 自社Officeは日本語・欧文とも `Noto Sans CJK JP`、宮坂・野田のWordは日本語・欧文とも `Noto Serif CJK JP`。TeXは日本語 `Noto Sans CJK JP`、欧文 `Liberation Sans`。既定Normal、見出し、表、入力用管理セルにも実設定し、Officeテーマのフォントと主色も設定した。
 - Wordは社名ヘッダと組織・部門／用途・自動頁番号のフッタ。Excelは社名上段と社名・法務部・頁数の印刷フッタ。PPTXはマスター上のロゴ・社名・罫線・部門表記。東都のTeXは社名ヘッダと部門・現在頁／総頁のフッタ、案件名は文書ごとに指定できる。
 - 自社文書番号：`TDS-LG-YYYYMM-用途-連番3桁`。用途は `REV` 判断資料、`CON` 相談記録、`INS` 指示、`RPT` 報告、`REQ` 申出、`REG` 台帳、`CMP` 比較表、`BRF` 会議資料、`CHK` 紙の再審査票。外部回答は `MN-YYYYMM-ADV-連番3桁`。実番号は計画で割り当て、草稿・確定版・Officeから保存したPDFは同番号と版で追跡する。メール・個人メモに無理に番号を付けない。
 - 外部通知・論点書・返却帳票は発行元の番号を使う。Winslowの追加通知は `WR-YYYYMM-SPN-連番3桁`、菅原の論点書は `HCC-YYYYMM-ISS-連番3桁`、大和田の返却帳票は `OW-YYYYMM-RTN-連番3桁`。
@@ -44,7 +46,7 @@
 
 A4縦、左右23mm、上29mm、下23mm。Normal 10.5pt、段落後6pt、行間1.2。Title 22pt、Heading 1は13pt、Heading 2は11pt、題と見出しは組織の主色・太字。`TD Metadata`・`TD Note`・Captionは9pt。`TD Redline` は赤 `B02032` の10.5pt。赤字は原稿にある実際の訂正へ適用し、削除箇所は取り消し線等で変更内容を読めるようにする。型に赤字の仮本文はない。
 
-表を必要な行数だけ追加し `TD Table` を指定する。先頭行は主色の塗り、段落に `TD Table Header`（9pt白字太字）、本文セルには `TD Table Body`（9pt墨色）。`trPr` に `w:tblHeader` を追加して見出しを続頁へ繰り返す。照会項目ごとに行が収まる場合は明細行の `trPr` に `w:cantSplit` を追加する。長文に合わせて列幅を調整し、行高は固定しない。社外型も同じスタイル名を持つが、書体と色は事務所のもの。
+表を必要な行数だけ追加し `TD Table` を指定する。先頭行は主色の塗り、段落に `TD Table Header`（9pt白字太字）、本文セルには `TD Table Body`（9pt墨色）。`trPr` に `w:tblHeader` を追加して見出しを続頁へ繰り返す。照会項目ごとに行が収まる場合は明細行の `trPr` に `w:cantSplit` を追加する。長文に合わせて列幅を調整し、行高は固定しない。宮坂・野田の型も同じスタイル名を持ち、事務所の書体と色を使う。
 
 判断資料・相談回答のPDFは、完成したWordを `bin/office-pdf` で保存する。同じ内容のPDFを別原稿で作り直さない。紙をスキャンする場合も先に内容のある原紙を作る。
 
@@ -53,6 +55,14 @@ A4縦、左右23mm、上29mm、下23mm。Normal 10.5pt、段落後6pt、行間1.
 2025年7月22日の赤字交渉案も `toto-review.docx` を使う。比較した18条は交渉案にまとめ、旧案の削除証明を省く文言には `TD Redline` と取り消し線を適用し、終了後30日以内の報告条件は修正案に記す。8月4日の大和田への差戻し記録は別案件として `toto-instruction.docx` を使う。返却の突合結果、照会する受領根拠、廃棄完了草稿の差戻しを記す。
 
 10月の取締役会向け説明草稿は `toto-review.docx` を使い、報告対象・集計の参照元・報告文案・部長確認前の照会を分ける。誤記は該当する草稿の版に残し、訂正を示す版では取り消す文言に `TD Redline` と取り消し線を適用する。想定問答には `toto-consultation.docx` を使い、訂正範囲、未回答6件の扱い、承認に要る根拠、継続報告事項を問いごとに書く。
+
+### Fairviewの条項案と削除報告書
+
+`fairview-transfer-record.docx` を開き、英文の実題を `Title`、文書番号・版・発行日・作成者・提出先を `Fairview Record` で入れる。発行元の番号は `FDT-YYYYMM-用途-連番3桁`（`CL` 条項案、`DR` 削除報告）。実番号と版は計画に従い、日付は `12 November 2025` のように書く。左右22mm、上31mm、下23mm。本文は `Normal` 11pt、題は24pt、節見出しは `Heading 1` 13pt。ヘッダの転送マークと琥珀罫、フッタの発行組織と自動頁番号は全頁に出る。
+
+報告に証明明細を入れる場合は3列36／89／41mmを起点に `Fairview Evidence` の表を作る。列見出しは `Fairview Table Header`、本文は `Fairview Table Text`（各10pt）。先頭行の `trPr` に `w:tblHeader` を入れ、収まる明細行には `w:cantSplit` を入れる。行高は内容に合わせ、表の横余白を保つ。参照符号、報告が示す証明範囲、未提出・不足の注記を別列で記す。テキストPDFの受領控えは完成した英文報告を `bin/office-pdf` で保存し、番号・版・発行者を引き継ぐ。
+
+11月12日の先方案の90日保存と、高田が条件とした確認完了から30日以内の削除報告は、各文書の発行元・版ごとに記録する。3月18日の社内点検では、杉山と照合した12区分、不足を特定した1区分、期限内の追加依頼、完了判断の保留を区別する。
 
 ## Excelの成形
 
@@ -102,6 +112,12 @@ B〜Hの文字セルに `TD Text` を使う。6行目は34pt、明細は42ptを�
 - 高田の点検表は `toto-decision-comparison.xlsx` を使う。A〜Hの見出しは「No.／点検項目／照合資料／訂正後の条件／訂正前／訂正後／差分／報告上の扱い」、幅は `11, 24, 23, 29, 12, 12, 11, 25` を起点にする。A・E〜G列は `TD Number`、B〜Dは `TD Text`、Hは `TD Note`。差分は同じ項目の訂正後から訂正前を引く。重なりのある点検項目は個別に比較する。
 - 10月16日の訂正では、22件中の未回答6件を承認済みから外し、回答待ちとして継続報告する。残りの案件は個別の承認記録で判定する。2026年9月の未回答2件は別の報告で扱う。旧集計が記録された受領版と、根拠を照合した点検表はそれぞれの版・基準日を保持する。
 
+### Fairviewの期限と証明範囲の点検表
+
+`toto-decision-comparison.xlsx` を開き、シート名とA2を点検表の題に合わせる。A6:H6は「No.／対象区分／報告の参照箇所／確認完了日・根拠／報告期限／証明範囲／照合結果／追加報告・留保」、幅は順に `11, 17, 23, 26, 16, 27, 14, 30`。Aは `TD Number`、Eは `TD Date`、Hは `TD Note`、ほかは `TD Text`。Bは左インデント1を維持する。Dに確認完了の記録を示し、Eには原稿で確認した期限を実日付で記録する。確認完了日と期限を裏付ける記録がない欄は空欄または根拠照会中とし、移管日で代用しない。
+
+3月18日の証明点検では明細を12区分作る。該当する1区分をG列で「証明不足」とし、H列に期限内に求める追加証明と完了判断の保留を記す。対象区分数はA列の `COUNT`、証明不足数はG列の `COUNTIF` で集計する。末尾にB列のラベルとC列の式を `TD Total` で追加し、Bを左・Cを右に揃える。確認完了日と根拠、削除報告の提出期限、証明範囲の照合、完了判断は原稿の証拠に合わせて個別に記録する。
+
 ## PowerPointの成形
 
 スライドサイズはワイド画面（16:9、13⅓ × 7.5インチ）。
@@ -133,24 +149,24 @@ Winslowの英文通知は同じコマンドで `\documentclass{winslow-subproces
 
 10月の訂正回覧票は `toto-review-sheet.cls` を開き、`\ReviewMatter{取締役会報告の訂正}` を指定する。CHKの文書番号・版・作成日・作成者、差替え対象のBRF番号、取り消す記載、継続報告、河野が回覧で確認する事項を記してから原紙PDFを `bin/scan` に渡す。回覧確認と個別の委託承認は別に記録する。
 
+Fairview案件の法務共有用の合意条件要旨と、3月18日の紙の点検控えの原紙には `toto-review-sheet.cls` を使う。`\ReviewMatter{移管先削除条件}` を指定し、要旨では確認完了から30日以内と証明範囲を記す。紙の控えは照合した区分と証明不足の箇所が読めるよう原紙を組む。手書きの印は成形時に原稿に従って加え、内容のある紙面を `bin/scan` に渡す。
+
 ## 見本と検証
 
-今回の作業先は `scratch/p13-corporate-privacy-counsel/b006/work/templates-0004/`。下表のファイルは作業先の `examples/`、全頁画像は `render/<拡張子を除いた見本名>/` にある。TeXの画像は同名のPDFをレンダリングしたもの。見本には完全な文書番号・日付・作成者と、形式に応じた基準日・版・確認者等を入力した。件数を増やした見本は続頁の印刷確認用。成果物の番号・日付・値は計画と原稿に従う。
+今回の作業先は `scratch/p13-corporate-privacy-counsel/b007/work/templates-0002/`。下表のファイルは `examples/`、全頁画像は `render/<拡張子を除いた見本名>/` にある。TeXは対応するPDFをレンダリングした。管理欄の番号・日付・作成者を埋め、表は少量と複数頁で確認した。見本の区分名・証明不足の行番号や番号の割り当ては印刷確認用。成果物では計画と原稿を使う。
 
 | 確認する型・用途 | 見本ファイル |
 |---|---|
-| Word社外回答・社内相談・照合手順・赤字訂正 | `miyasaka-noda-advice.docx`、`toto-consultation.docx`、`toto-instruction.docx`（表の続頁あり）、`toto-review.docx` |
-| Word取締役会の説明草稿と想定問答 | `toto-board-explanation-draft.docx`、`toto-board-questions.docx` |
-| Excel委託審査一覧と台帳の続頁 | `toto-procurement-register-3.xlsx`、`toto-procurement-register-22.xlsx`、`toto-hold-register-3.xlsx`、`toto-hold-register-36.xlsx` |
-| Excel集計条件点検と比較表の続頁 | `toto-procurement-conditions.xlsx`、`toto-decision-comparison-3.xlsx`、`toto-decision-comparison-36.xlsx` |
-| PowerPointの5レイアウトと配布控え | `toto-legal-brief.pptx`、`toto-board-correction-handout.pdf` |
-| TeX紙票の少量・複数頁の表 | `toto-review-sheet-3.tex`、`toto-review-sheet-38.tex` と対応するPDF |
-| TeX会議用の論点表 | `toto-retention-issues-3.tex`、`toto-retention-issues-28.tex` と対応するPDF |
-| 外部の英文通知・契約論点書 | `winslow-subprocessor-notice.tex`、`haruka-contract-issues.tex` と対応するPDF |
-| 大和田の返却明細・紙の返却控え | `owada-return-record-3.tex`、`owada-return-record-12.tex`、`owada-return-record-38.tex` と対応するPDF、3行の控えをスキャンした `owada-return-receipt-scan.pdf` |
-| 取締役会報告の訂正回覧票 | `toto-board-correction-circulation.tex` と対応するPDF、原紙をスキャンした `toto-board-correction-circulation-scan.pdf` |
+| Word社外回答・社内相談・照合手順・判断資料 | `miyasaka-noda-advice.docx`、`toto-consultation.docx`、`toto-instruction.docx`、`toto-review.docx` |
+| Fairviewの英文条項案と削除報告書 | `fairview-transfer-clause.docx`、`fairview-deletion-report-extract.docx`、`fairview-deletion-report-full.docx`、`fairview-deletion-report-file-copy.pdf` |
+| Excel台帳と比較表の少量・複数頁 | `toto-hold-register-3.xlsx`、`toto-hold-register-36.xlsx`、`toto-decision-comparison-3.xlsx`、`toto-decision-comparison-36.xlsx` |
+| Fairview証明範囲の点検表・12区分の印刷と続頁確認 | `toto-fairview-evidence-3.xlsx`、`toto-fairview-evidence-12.xlsx`、`toto-fairview-evidence-36.xlsx` |
+| PowerPointの5レイアウトと配布控え | `toto-legal-brief.pptx`、`toto-legal-brief-handout.pdf` |
+| TeXの紙票・棚卸し論点表・大和田返却明細の少量と複数頁 | `toto-review-sheet-short.tex`、`toto-review-sheet.tex`、`toto-retention-issues-short.tex`、`toto-retention-issues.tex`、`owada-return-record-short.tex`、`owada-return-record.tex` と各PDF |
+| 外部の英文通知・契約論点書 | `winslow-subprocessor-notice.tex`、`haruka-contract-issues.tex` と各PDF |
+| Fairviewの合意条件要旨と点検控えのスキャン試し刷り | `toto-fairview-terms.tex` と対応するPDF、`toto-fairview-paper.tex` と対応する原紙PDF、`toto-fairview-paper-scan.pdf` |
 
-作業先の `render-results.json` に形式・内部属性・集計結果と画像の枚数を記録する。OfficeとPDFの完成ファイルは、`bin/stamp --author "<原稿の作成者>" --date "<原稿の日付>" --timezone Asia/Tokyo <ファイル>` で内部属性を合わせる。更新者や初版日が異なるときは `--modified-by` と `--created` を指定する。
+作業先の `render-results.json` に全頁画像のパス、頁数、数式の検算結果を記録した。OfficeとPDFの完成ファイルは、`bin/stamp --author "<原稿の作成者>" --date "<原稿の日付>" --timezone Asia/Tokyo <ファイル>` で内部属性を合わせる。更新者や初版日が異なるときは `--modified-by` と `--created` を指定する。
 
 ## 保存した社内ページ・メール・図
 
@@ -161,3 +177,5 @@ Winslowの英文通知は同じコマンドで `\documentclass{winslow-subproces
 8月4日の差戻しメールは、未確認2箱の受領根拠と訂正した報告を求めるEMLとして保存する。返却と廃棄を混同した箇所の手控えは、高田が参照した記述と確認すべき根拠をTXTに残す。
 
 10月の村田との確認はJSTのEMLに保存し、返信は元のMessage-IDを参照する。誤集計のPNG控えは、対象の一覧を開き、集計欄の見出しと対象範囲、誤算入が分かる部分を一緒に写す。写す版とセル範囲は原稿に従う。
+
+Fairviewへの起算点の照会は英文EMLにし、返信には先行メールのMessage-IDを参照する。PNGの流れ図は移管と確認完了を別の節点に描き、確認完了から削除報告の期限につながることを示す。証明不足に対する追加報告と完了判断の保留は、図が扱う時点に応じて原稿どおりに示す。
