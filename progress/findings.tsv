@@ -1427,3 +1427,14 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-19	p20-investigative-journalist	b001	check	2	source	Documents/Stories/Road-contracts/Records/Mapleton Falls resurfacing bid and award archive.html	body token overlap 0.729 < 0.8
 2026-11-19	p20-investigative-journalist	b001	build-review	2	V2	Documents/Pitches/Road contracts - what the notices can tell us.pptx	7〜8枚目（Alder・Quarry）は前回の白い覆いが除かれた一方、型と見本が指定する図用プレースホルダー（idx=1）がスライド本体に挿入されず、区画図が独立した線・点・テキストボックスのまま配置されている。
 2026-11-19	p09-ux-researcher	b001	coordinator	0	other	Documents/配車の見通し調査/Planning/2024-07-10 Five prompts we took out.docx	統括の抜き取りで不合格
+2026-11-19	p05-bi-data-analyst	b003	templates-review	0	other	README.md	「b002の組版見本」の参照先 templates-0004 に見本・画像フォルダが19件とも存在せず、「b002での使い方」の7月1〜15日累計8,420万円も事実台帳の同期間17時時点25,260万円と一致しない。
+2026-11-19	p05-bi-data-analyst	b003	templates-review	1	other	README.md	一覧の7ファイルと記載のbinコマンドは実在し用途は依頼と整合するが、Word節42行目の複数ページ表の手順では行分割を抑止できず、分析報告の見本では2ページ目の見出し直下に空の罫線行が出る。
+2026-11-19	p05-bi-data-analyst	b003	templates-review	1	other	oriba-analysis.docx	READMEの表スタイルと繰返し見出しで23明細を組むと、7月22日の行が改ページで分割され、2ページ目の見出し直下に空の罫線行が出ることを確認した。
+2026-11-19	p05-bi-data-analyst	b003	templates-review	2	other	README.md	参照ファイルと行追加手順は確認できたが、63行目の「すべて上揃え」は両XLSXの列見出しA6:F6の実設定（縦中央揃え）と一致しない。
+2026-11-19	p10-management-consultant	b001	draft-check	0	trace	Documents/Clients/Whitfield/Diagnosis/07 Jun - What the event labels actually mean.docx	制作の痕跡
+2026-11-19	p10-management-consultant	b001	draft-check	0	trace	Documents/Clients/Whitfield/Diagnosis/26 Jun - Time by payment step.xlsx	制作の痕跡
+2026-11-19	p10-management-consultant	b001	draft-check	0	trace	Pictures/28 Jun - Japan payments route and queues.png	制作の痕跡
+2026-11-19	p10-management-consultant	b001	draft-review	0	D5	Documents/Clients/Whitfield/Diagnosis/12 Jun - Pairs we can use.xlsx	受領・消込は有無の記録になり前回の誤った時間合計は消えたが、Pair checkではRow列を除くとReturnedはG列、DecisionはH列、ReasonはI列。ChecksのB2・B3・B4・B6は判定をI列、差戻しをH列で数えるためすべて0件となり、38・28・10・2件と一致しない。
+2026-11-19	p10-management-consultant	b001	draft-review	0	D5	Documents/Clients/Whitfield/Diagnosis/26 Jun - Working and waiting by case.xlsx	WB-0432の07待ち17時間20分と列合計は一致するが、Casesの2〜5行の実作業＋滞留はWB-0401〜0404の順に22・28・28・28時間。10 May - Mailbox dates first pass.xlsxの7〜10行の受領から消込までの経過時間55・74・147.5・125時間と一致しない。
+2026-11-19	p10-management-consultant	b001	draft-check	1	source	Documents/Clients/Whitfield/Diagnosis/26 Jun - Working and waiting by case.xlsx	/home/ttokunaga-ja/dev/github.com/ttokunaga-ja/personaCorpus/sources/p10-management-consultant/Documents/Clients/Whitfield/Diagnosis/26 Jun - Working and waiting by case.xlsx.md: No such file or directory (os error 2)
+2026-11-19	p10-management-consultant	b001	draft-check	2	source	Documents/Clients/Whitfield/Diagnosis/26 Jun - Time by payment step.xlsx	/home/ttokunaga-ja/dev/github.com/ttokunaga-ja/personaCorpus/sources/p10-management-consultant/Documents/Clients/Whitfield/Diagnosis/26 Jun - Time by payment step.xlsx.md: No such file or directory (os error 2)

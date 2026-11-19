@@ -1,0 +1,7 @@
+---
+path: Pictures/Cultures/2024-07-10 Date card at front of rack.jpg
+kind: photo
+author: Lauren Brooks
+derived_from:
+---
+A close view of the July 10 rack for Melissa. A card standing at the front reads “Jul 10”. Behind it, part of the same rack and several closed vessels are visible. The position labels “01”, “02”, “03” and “04” are in the frame and legible alongside the date card. The adjacent rack is outside the frame. The date and position labels together identify this rack; the picture does not show measurement results.
