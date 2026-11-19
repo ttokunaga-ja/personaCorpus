@@ -6,3 +6,4 @@
 | p05-bi-data-analyst | b003 | 監査 hold: progress/p05-bi-data-analyst/b003.audit.md | 2026-11-19T11:00:13.012763+00:00 |
 | p10-management-consultant | b001 | 監査 hold: progress/p10-management-consultant/b001.audit.md | 2026-11-19T11:05:27.943129+00:00 |
 | p06-life-science-researcher | b002 | 監査 hold: progress/p06-life-science-researcher/b002.audit.md | 2026-11-19T11:17:03.225026+00:00 |
+| p17-construction-project-manager | b011 | 監査 hold: progress/p17-construction-project-manager/b011.audit.md | 2026-11-19T11:19:08.752096+00:00 |
