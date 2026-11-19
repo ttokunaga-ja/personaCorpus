@@ -1,0 +1,14 @@
+intent,unique_reference_documents
+New work request,160
+Quote request,120
+Schedule check,110
+Reschedule,100
+Cancel request,80
+Job status,120
+Send document,90
+Request document,85
+Correct record,75
+Access issue,70
+Report defect,95
+Invoice question,95
+Total with reference label,1200

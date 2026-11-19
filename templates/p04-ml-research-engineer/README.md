@@ -30,6 +30,12 @@
 - 保留率は保留文書数を評価800文書で割る。誤分類捕捉率は保留に回った誤分類数を、保留適用前の予測の全誤分類数で割る。比較表と図では保留率18%・9%、誤分類捕捉率22%・15%を、それぞれ分母と並べて表示する。
 - 用途採用は保留と記録する。閾値別の結果は CSV、判定の移動集計は TSV、見逃し例の読解は Markdown にまとめる。
 
+## 2026年7月の M-14 / R184
+
+- Measurements の条件表は Adjudication Worksheet、固定結果の PDF は Research Brief、説明順を見直した発表資料は Lab Meeting Deck を使う。文書種別は順に `AW`、`RM`、`LM`。
+- 条件表と固定結果には、7月16日に確認した分割単位と採点単位、評価1,200文書、同じ評価集合での比較対象、F1 の計算・平均・丸めを記す。分類別の支持件数は参照ラベルごとに CSV にまとめ、比較条件と結果は TSV に揃える。F1 0.873 と比較差0.021は7月の条件と並べ、2025年4月の0.832を引用する場合は別の評価935文書の値と明記する。
+- 発表では評価集合と比較条件を結果より先に示す。発表図の PNG には軸・指標の尺度・評価母数を入れ、図と説明を Michael Serrano が認めた範囲に揃える。Correspondence の許可メールは EML、Desktop の想定質問は TXT として保存する。用途への採用判断は別に扱う。
+
 ## 組織・文書番号
 
 - **Mercer**。右上へ上がる3つの正方形と社名。プラム `#593875` を題、節、罫線に、黄土 `#A56720` を3つ目の正方形や短い罫線に、墨 `#242331` を本文に使う。淡いプラム `#EFE9F4` は表見出しや集計の背景。英字は Liberation Sans、日本語が必要な箇所は Noto Sans CJK JP。成果物の文面は英語。
@@ -77,16 +83,4 @@
 
 ## 見本とレンダリング
 
-今回の見本は [examples](../../scratch/p04-ml-research-engineer/b005/work/templates-0002/examples/) に、`bin/render` で出力した全頁の画像は [render](../../scratch/p04-ml-research-engineer/b005/work/templates-0002/render/) にある。各入力の画像は render 内の拡張子を除いた同名のディレクトリにある。Hartwell の PDF の画像は [hartwell-pdf](../../scratch/p04-ml-research-engineer/b005/work/templates-0002/render/hartwell-pdf/) にある。
-
-| 型 | 確認に使った入力 |
-|---|---|
-| Annotation Guidelines | `mercer-label-guide-short.docx`、`mercer-label-guide-long.docx`（対例表の短い版と複数頁版） |
-| Research Memorandum | `mercer-research-note.docx`（6月8日の条件点検） |
-| Lab Meeting Record | `mercer-lab-record.docx`（6月8日の判断と次の確認事項） |
-| Adjudication Worksheet | `mercer-adjudication-short.xlsx`（明細1行と集計）、`mercer-adjudication-long.xlsx`（明細30行と集計）、`mercer-adjudication-conditions.xlsx`（条件表6行） |
-| Lab Meeting Deck | `mercer-lab-meeting.pptx`（5レイアウト。図版は `threshold-denominators.png`） |
-| Research Brief | `mercer-research-brief-short.pdf`（指標定義と比較表）、`mercer-research-brief-long.pdf`（複数頁にまたがる対例表付き）。組版元は同名の `.tex` |
-| Independent Methods Review | `hartwell-methods-review.docx` と、そこから出力した `hartwell-methods-review.pdf`（PDFからの画像は `render/hartwell-pdf/`） |
-
-見本の対例、明細の識別子、条件の具体的な文言は書式確認用。成形時は各原稿の内容を使う。
+見本と画像は、その回の作業フォルダに置く。作業フォルダは batch の受入・破棄時に削除されるため、確認した入力と画像の一覧も同じフォルダに置く。

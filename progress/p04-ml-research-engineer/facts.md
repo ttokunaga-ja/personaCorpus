@@ -117,3 +117,30 @@
 - 6月11日14:00 PDTに Vanessa、Michael Serrano、Emily、Brandon Romero が研究会。Michael は用途採用を保留し現行の振分けに変更を入れない。Emily は次回の比較条件、Brandon は誤振分けの復旧担当・計測点、Vanessa は独立した次回評価案を6月19日までに持ち寄る。
 - 6月19日時点では、検知から正しい担当への受渡しまでを測る案を残した。正しい担当が受領した時刻の取得方法と許容する作業負担は未合意。次回の独立評価と復旧時間の計測はいずれも未実施。
 - “June routing review - measures and movement” は Vanessa → Michael（`michael@mercer-document.example`）・Brandon（`brandon@mercer-document.example`）、Cc Emily、6月12日09:26 PDTの独立した連絡。What counts as an error caught.pdf と Where the decisions moved.tsv を添付。
+
+## M-14の7月評価集合と候補の選択
+
+- 2026年7月の正解付き6,000受信本文を、受領記録と確認済み別名で裏付けた窓口横断案件キーで学習3,600／開発1,200／評価1,200文書に分けた。7月7日に Joshua が3組の共有案件各0、キー欠落0文書、重複採点ID 0件を確認した。
+- Web form／Shared inbox／Service desk relay の順で学習1,642／1,125／833、開発534／382／284、評価515／401／284文書。過去の評価区画、2025年5月の候補、2026年6月の保留比較から持ち込まない。
+- 参照は2024年7月改訂の12分類基準。既定の分類順で評価の支持は160／120／110／100／80／120／90／85／75／70／95／95（計1,200）。配分単位は案件、採点単位は本文1通。正解不明の旧 Hold 126件は含めず、信頼度で評価文書を取り除かない。
+- 同じ7月の学習集合・正則化付き線形分類器で、R173 は単語頻度のみ、R184 は単語頻度と文字3〜5グラムを使う。受信本文以外の案件キー・経路・件名・後付けの追記を特徴に使わない。いずれも評価文書に上位1分類を出す。
+- 7月8日、Vanessa と Emily は同じ開発1,200文書の macro-F1（R173 0.848、R184 0.871、文字2〜5グラム案 R187 0.870）を確認。R187を開発で止め、評価を見る前に R173 を比較用、R184 を固定候補として設定を閉じた。
+
+## 7月16日のR184固定と採点結果
+
+- 2026年7月16日13:30 PDTに Vanessa と Fatima が分割・同一参照・採点を照合し、14:20に固定。各分類は 2TP/(2TP+FP+FN)、12分類の未丸め値を等重みで平均する。
+- 同じ評価1,200文書で R184 0.873、R173 0.852、差+0.021 macro-F1。未丸め平均は約0.872784697／0.852005305、差は約0.020779392。報告値と差はそれぞれ最後に小数第3位に丸める。
+- R184が下がった分類は Reschedule、Send document、Correct record。Reschedule は支持100、R173 0.888（FN 9）、R184 0.829（FN 20）。FNの差11は両ラン間で入れ替わった文書数を表さない。
+- 条件表は `MDR-STI-20260716-AW-01-R01`、固定報告は `MDR-STI-20260716-RM-01-R01`（ともに Issued July 16, 2026）。2025年4月の0.832と当時の多数クラス基準0.021はいずれも別の935文書の結果。
+
+## R184の口頭発表資料と許可
+
+- 発表資料は `MDR-STI-20260715-LM-01-R01`（Issued July 15）の結果先行案から、Emily の7月15日14:00 PDTの読み合わせを経て、同系列 `MDR-STI-20260715-LM-01-R02`（Issued July 16）で集合・比較条件を先にした。
+- 1通目 “R184 figure and wording for the talk” は Vanessa → Michael、Cc Fatima、7月16日16:18 PDT。Intake talk - conditions before the score.pptx、R184 on the same July set.png、July 16 R184 frozen results.pdf、R184 run comparison.tsv を添付。PDF と TSV は社内の判断資料。
+- 2通目 “Re: R184 figure and wording for the talk” は Michael → Vanessa、Cc Fatima、7月16日17:11 PDT。1通目を引用し、返信自体の添付なし。Michael が許可したのは Applied Document Research Forum の口頭発表での R02 と 0〜1軸の指定図、同じ1,200文書の評価条件・差・分類によるばらつきの説明。
+- 本文例・固定報告・集計表の外部配布、会場外での再公開、用途採用・運用効果の主張は許可の範囲外。6月に保留した用途判断はこの評価で進めず、誤振分けの復旧時間は未計測。
+
+## 7月21日の発表練習
+
+- 7月21日14:00 PDTから研究会室で15分間、Vanessa・Michael・Fatima・Emily が通し練習。R02 と指定図を保持し、差の読み方を “a difference of 0.021 in macro-F1 on this evaluation” にそろえた。
+- 前年値を尋ねられたときは別の評価集合と説明し、前年の数値は口頭発表に加えない。ノート付きの会場配布資料は作らない。
