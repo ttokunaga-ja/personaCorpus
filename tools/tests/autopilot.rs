@@ -851,6 +851,25 @@ fn hold_row(f: &Fixture) {
     f.git(&["commit", "-qm", "hold"]);
 }
 #[test]
+fn coordinator_unholds_roadmap_and_keeps_batch_hold() {
+    let f = Fixture::new();
+    hold_row(&f);
+    let holds = f.r.join("progress/holds.md");
+    fs::write(
+        &holds,
+        format!("{}| p01-test | roadmap | 規模 | 2026-11-19 |\n", f.holds()),
+    )
+    .unwrap();
+    f.once();
+    finish_coordinator(
+        &f,
+        json!({"actions":[{"do":"unhold","persona":"p01-test","batch":"roadmap"}]}),
+    );
+    f.once();
+    assert!(!f.holds().contains("| roadmap |"));
+    assert!(f.holds().contains("| b001 |"));
+}
+#[test]
 fn coordinator_actions_accept_unhold_and_merge_its_worktree() {
     let f = Fixture::new();
     hold_row(&f);

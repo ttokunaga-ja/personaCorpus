@@ -908,7 +908,9 @@ fn tool_regex() -> Regex {
     Regex::new(r"(?i)python|openpyxl|reportlab|pypdf|pillow|matplotlib|codex|chatgpt|openai|imagegen|(?:lua|pdf|xe)?latex|(?:lua|pdf|xe)tex|tesseract|ghostscript|libreoffice|/Users/|/home/|/tmp/|scratch/").unwrap()
 }
 fn timestamp(value: &str, zone: &str) -> Result<DateTime<FixedOffset>> {
-    if let Ok(t) = DateTime::parse_from_rfc3339(value) {
+    if let Ok(t) = DateTime::parse_from_rfc3339(value)
+        .or_else(|_| DateTime::parse_from_str(value, "%Y-%m-%d %H:%M:%S %z"))
+    {
         return Ok(t);
     }
     let (local, abbreviation) = match value.rsplit_once(' ') {

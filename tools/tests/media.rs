@@ -629,6 +629,14 @@ fn stamp_checks_created_abbreviation_against_persona_timezone() {
             .output()
             .unwrap()
     };
+    let out = stamp("2025-05-23 14:00:00 -0700");
+    assert!(
+        out.status.success(),
+        "{}",
+        String::from_utf8_lossy(&out.stderr)
+    );
+    assert_eq!(property(&path, "created"), "2025-05-23T21:00:00Z");
+
     let out = stamp("2026-07-13 16:42 BST");
     assert!(
         out.status.success(),

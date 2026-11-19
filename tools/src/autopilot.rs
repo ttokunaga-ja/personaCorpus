@@ -1636,7 +1636,7 @@ impl Pilot {
         let (p, b) = (get("persona"), get("batch"));
         if !regex(r"^p\d\d-[a-z0-9-]+$").is_match(&p)
             || !self.root.join("personas").join(format!("{p}.md")).exists()
-            || !regex(r"^b\d{3}$").is_match(&b)
+            || !(regex(r"^b\d{3}$").is_match(&b) || (kind == "unhold" && b == "roadmap"))
         {
             bail!("persona・batch が不正")
         }
