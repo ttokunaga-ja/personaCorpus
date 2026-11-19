@@ -1083,3 +1083,30 @@ fn usage_limit_does_not_turn_a_failed_audit_into_a_hold() {
     }
     assert!(!f.holds().contains("| b001 |"), "{}", f.holds());
 }
+#[test]
+fn a_stale_limit_message_in_the_tail_does_not_hide_a_plan_failure() {
+    let f = Fixture::new();
+    f.batch(
+        "failed",
+        "計画不合格: 進行中の batch と重複パス: a.txt",
+        0,
+        0,
+    );
+    let p = f.r.join("scratch/p01-test/b001/state.json");
+    let mut s: Value = serde_json::from_slice(&fs::read(&p).unwrap()).unwrap();
+    s["failure_tail"] = json!("ERROR: You've hit your usage limit. try again at 8:35 PM.");
+    atomic(&p, &s);
+    f.once();
+    assert_eq!(
+        f.called("batch", "resume"),
+        1,
+        "a plan failure is resumed once"
+    );
+    f.job("p01-b001", "failed");
+    f.once();
+    assert!(
+        f.holds().contains("再失敗"),
+        "then held for the coordinator: {}",
+        f.holds()
+    );
+}

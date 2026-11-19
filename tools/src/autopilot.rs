@@ -921,8 +921,10 @@ impl Pilot {
                 state["reason"].as_str().unwrap_or(""),
                 state["failure_tail"].as_str().unwrap_or("")
             );
-            let limited =
-                regex(r"(?i)利用上限|usage limit|rate limit|\b429\b|\bquota\b").is_match(&reason);
+            // bin/batch records a usage-limit failure as the reason; the tail may be left
+            // over from an earlier Codex run and must not hide a later plan or check failure.
+            let limited = regex(r"(?i)利用上限|usage limit|rate limit|\b429\b|\bquota\b")
+                .is_match(state["reason"].as_str().unwrap_or(""));
             if limited {
                 if rec.get("limit_since").is_none() {
                     rec["limit_since"] = json!(epoch());
