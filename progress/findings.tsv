@@ -3295,3 +3295,9 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-19	p18-manufacturing-quality-engineer	b006	coordinator	0	other	Documents/是正と効果/2月5日_出口側を持ち替えて見る段取り.pdf	統括の抜き取りで不合格
 2026-11-19	p18-manufacturing-quality-engineer	b006	coordinator	0	other	Pictures/BR-2410 位置決めブラケット/2025-01-22_固定口金と底が当たる側.jpg	統括の抜き取りで不合格
 2026-11-19	p18-manufacturing-quality-engineer	b006	coordinator	0	other	Pictures/BR-2410 位置決めブラケット/2025-01-29_止め方向の指示計.jpg	統括の抜き取りで不合格
+2026-11-19	p16-clinical-researcher	b007	build-review	0	V2	Documents/統計相談/0122_項目別の表に付ける注記_修正稿.docx	1ページ目の表題「中間集計の進捗と項目別表に付ける注記」は文字サイズを18ptに直接指定しており、katsuragawa-consultation.docxのTitleおよびREADMEの指定25ptより小さく表示される。
+2026-11-19	p16-clinical-researcher	b007	check	2	plan	Documents/メール保存/低用量観察/0120_Interim counts for this afternoon.eml	plan: planned file missing。成形の最終出力：対象のメールは作成できませんでした。原稿が指定する添付元 [0120_1月20日朝の項目別分母.xlsx](/home/ttokunaga-ja/dev/github.com/ttokunaga-ja/personaCorpus/people/p16-clinical-researcher/Documents/統計相談/0120_1月20日朝の項目別分母.xlsx) が、今回も存在しません。 添付元は今回の対象行ではないため、作成や代用はしていません。指定ファイルが用意された後、メールの成形と添付・ヘッダの検証が必要です。
+2026-11-19	p10-management-consultant	b005	build-review	1	V2	Documents/Internal-review/03 Oct - Can we take this to five v0.3.pptx	スライド3にはBaseline／Pilotの凡例が追加されたが、全4枚の右下管理欄は型の指定が内部余白0のところXMLで上下左右18288 EMU（0.02インチ）となっており、印刷面で右端が基準位置より内側にずれている。
+2026-11-19	p10-management-consultant	b005	build-review	1	V2	Documents/Internal-review/06 Oct - Can we take this to five v0.4 Elizabeth comments.pptx	スライド3には元版と同じBaseline／Pilotの凡例があり赤字指摘も読めるが、全4枚の右下管理欄は型の指定が内部余白0のところXMLで上下左右18288 EMU（0.02インチ）となっており、印刷面で右端が基準位置より内側にずれている。
+2026-11-19	p05-bi-data-analyst	b007	build-review	2	V2	Documents/物流/灘浜運輸/荷受と店の在庫を合わせた51件.xlsx	集計シートの印刷8ページ目で、B7:B9の停車数（8・41・2）が型の右寄せ指定に反して左寄せになり、B10の51と桁位置が揃わない。A10の「合計」も型の左寄せ・左インデント指定に反して右寄せになっている。
+2026-11-19	p16-clinical-researcher	b007	coordinator	0	other	OneDrive - かつら川臨床研究/研究会議/0126_20日朝までに確認できたこと.pptx	統括の抜き取りで不合格
