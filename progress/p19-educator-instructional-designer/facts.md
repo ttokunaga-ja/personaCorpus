@@ -101,3 +101,23 @@
 - 「Can we talk about how you compared the callback options」① 2025-10-24 11:05 EDT Heather → Grace Lim（grace@brookdale-service.example）。② 2025-10-27 15:10 EDT Grace → Heather、「Re: Can we talk about how you compared the callback options」で①を引用し範囲を確認。両通とも添付なし。
 - 「Callback comparison sheet for Thursday」2025-10-29 14:25 EDT Heather → Erin、単独のメール。無記名の比較用紙 ELM-BPE-2025-HO-010 と出口課題 ELM-BPE-2025-HO-011 のPDFを添付。
 - 10月30日10:00–10:30にHeatherとErinが授業。出口課題は無記名12枚を回収し、水曜は条件付きで期限を保持7枚、未確認でも水曜を確約3枚、全件木曜へ移す2枚。回答傾向の内訳であり、受講者の得点や出席数ではない。
+
+## Tristan の貸出条件の授業観察と二つの理解確認
+
+- Reading Conditions at Work。HeatherがTristan McLeodの50分授業を2025-11-05と11-10の各10:00–10:50に観察。5日は10:18に受付メモへ移り10:38に初めて各自で記述、連続説明の長さは未計測。10日は10:00–10:35が説明、10:35–10:50が記述・全体確認（個別の内訳は未計測）。
+- 11-10 11:15–11:40にHeatherとTristanが、経過15分で通常則の出所を書き、30分で延長の根拠を照合する各3分の確認に合意。次回案は説明15分・確認3分・説明12分・確認3分・説明8分・まとめ9分で計50分。
+- 11-17 11:00–11:25の机上確認はHeatherとTristanのみ。投影見出しで答えが先に読めたため、ELM-CRW-2025-SLD-001 を11-13のv0.1から11-18のv1.0へ変更。後半の投影例は15:40申請、当番責任者の承認欄が空。次回に見るのは受講者が挙げる出所と判断理由で、改訂後の受講者データはない。
+- 11-10の講評は ELM-CRW-2025-DD-001 v1.0、計時と次回案の対照表は ELM-CRW-2025-MAP-001 v1.0。時刻はTorontoのEST（UTC−05:00）、Tristanの社内アドレスは tristan@elmwood-learning.example。
+- 「Can I sit in on the fifth and tenth」11-03 10:15 Heather → Tristan、添付なし。「Notes from the two visits」11-10 15:20 Heather → Tristan、講評DOCXと時間対照XLSXを添付。別件名の単独メールで引用関係はない。
+
+## 貸出条件の読解冊子と1月の討議時間
+
+- Elmwood内の研修機材貸出を題材にした Reading Conditions at Work の教材。Building Proposals from Evidence のBrookdale折返し枠や2024年の金曜引渡しとは別題材で、2024-04-18に決めた五つの読解目標は維持する。
+- 利用者向け掲示はElmwoodの準備室が発行し、通常返却16:30を示す。準備室の当番責任者が受付担当に出したメモは、15:45までの申請と16:15までの当番責任者の承認記録が揃うときだけ翌営業日09:00まで延長可。承認欄が空なら確認中は延長を約束せず、16:15までに記録がなければ通常返却を案内する。
+- 残す問いはQ2（掲示を引用して通常の16:30返却）、Q5（15:32に申請受理、当日16:05時点で承認欄は空白なので、当番責任者に確認し確約を保留）、Q8（掲示と受付メモの発行者・読者・適用範囲）、Q10（16:15を過ぎても未承認なら、通常返却とその理由を窓口で一文にする）。
+- 旧冊子 ELM-CRW-2025-HO-002 v1.0 は11-27保存・30ページ、新冊子 ELM-CRW-2026-HO-002 v1.0 は01-23配布用保存・18ページ。旧pp.3–4（語彙）、9–11（転記）、16–18（同じ結論の解説例）、22–25（自習）を削除。旧pp.1–2、5–8、12–15、19–21、26–30を残し、掲示と受付メモの本文・設問番号を維持して頁参照を付け直す。
+- 削減初案は ELM-CRW-2025-DD-002 v0.1、12-02作成、Yusufの12-04コメントも同じ版。1月の決定文書は ELM-CRW-2026-DD-001、01-20回覧v0.2、HeatherとDavidが2026-01-22 14:00–14:30に承認した版がv1.0。
+- 01-22に決めた70分の内訳は、導入5分・独読40→20分・討議15→35分・出口課題10分。追加20分はペア照合7分、発行元・適用範囲の全体比較8分、理由の再記述5分。改訂案ではペア照合を25分、従来の全体討議を32分、指示比較を47分、再記述を55分、出口課題を60分から始める。時間表は ELM-CRW-2026-MAP-001 v1.0。
+- Heatherが教材と進行を更新し、Tristanが講師用資料を確認。01-26に二人でRoom 2を下見し、入口脇コルク板の「Start here」の下が配布棚、奥が討議用の白板。Arjunが01-29正午までに棚を差し替え、旧30ページ版はPreviousに保持する。
+- 「January packet for the room copy」① 2026-01-28 10:10 EST Heather → Arjun・Tristan、新18ページPDFと別添の時間配分XLSXを添付。② 01-29 11:35 EST Arjun → Heather・Tristan、「Re: January packet for the room copy」で①へ引用なしで返信し棚の差替えを報告。②に新しい添付はない。
+- 上記のMessage-IDは① `<794072d9-82d3-468a-a9d7-3487ae422cfd@elmwood-learning.example>`、② `<f69efcf4-5c41-4b0a-8040-65d8f14dad74@elmwood-learning.example>`。②のIn-Reply-ToとReferencesは①。

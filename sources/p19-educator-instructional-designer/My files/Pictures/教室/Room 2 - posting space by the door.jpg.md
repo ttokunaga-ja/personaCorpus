@@ -1,0 +1,10 @@
+---
+path: My files/Pictures/教室/Room 2 - posting space by the door.jpg
+kind: photo
+author: Heather Callahan
+derived_from:
+---
+
+Landscape photograph taken from the Room 2 threshold at Elmwood in Toronto on 26 January at 09:20, for checking the handout location with Tristan. The near edge of the doorframe is in view. Just inside the door, a single sheet pinned to the corkboard reads “Start here”. The handout shelf sits directly below the sheet and both shelf and board are visible in the same shot, so someone arriving can see where to stop before walking into the room.
+
+Beyond the shelf, the aisle between the classroom tables leads towards the blank whiteboard on the far wall. Low winter daylight comes in from the side windows. The room is empty and the shelf is bare. “Start here” is the only legible text. There are no reception memos, posted answers, names, faces or learner work in view.

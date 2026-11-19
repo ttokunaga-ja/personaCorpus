@@ -1,0 +1,24 @@
+---
+path: My files/Mail/Paper cart outside the prep room.eml
+kind: text
+author: Arjun Deshmukh
+derived_from:
+---
+
+From: Arjun Deshmukh <arjun@elmwood-learning.example>
+To: Heather Callahan <heather@elmwood-learning.example>
+Cc:
+Date: Thu, 18 Dec 2025 11:20:00 -0500
+Subject: Paper cart outside the prep room
+Message-ID: <b3d82d8a-9640-4b4c-9fe9-623c6b39373e@elmwood-learning.example>
+In-Reply-To:
+References:
+
+Hi Heather,
+
+Could you fold up the paper cart and return it by 3:00 this afternoon? We're clearing the passage outside the prep room before the holiday. Any spare Letter paper can go on the top shelf. Please leave the packs sealed.
+
+Thanks,
+Arjun
+
+Attachments: none

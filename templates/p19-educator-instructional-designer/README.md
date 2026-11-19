@@ -7,13 +7,13 @@
 | 名前 | 組織・利用者と用途 | 実際のファイル名 | 見た目 |
 |---|---|---|---|
 | Lesson plan | Elmwood Adult Learning Cooperative、Heather。授業の進行と理解確認。速読中心の旧案、議題から発言を組む演習など | `elmwood-lesson-plan.docx` | Letter 縦、表紙なし。青紫の題、金茶のヘッダ罫線。Learning aims、Teaching sequence、Check for understanding |
-| Curriculum design decision | Elmwood、Heather から David Ashcroft。5目標の確認、改訂理由と次に確認すること | `elmwood-design-decision.docx` | 同じヘッダ、表紙なし。Context、Change and rationale、Next review。判断の比較には横罫の表 |
+| Curriculum design decision | Elmwood、Heather から David Ashcroft。5目標の確認、授業観察の講評、改訂理由と次に確認すること | `elmwood-design-decision.docx` | 同じヘッダ、表紙なし。Context、Change and rationale、Next review。判断の比較には横罫の表 |
 | Item trial review | Elmwood、Heather と Erin MacDonald。設問試行の記録、採点基準に加える答案例と注釈 | `elmwood-item-review.docx` | 同じヘッダ、表紙なし。3節の見出しと、出典や採点理由を添える注記スタイル |
 | Course outcomes report | Elmwood、Heather から Glenn Fletcher。全6回の対象、提出、条件付き提案の到達、報告できる範囲を伝える | `elmwood-course-outcomes.docx` | Letter 縦、表紙なし。共通ロゴと金茶の罫線。提出と到達を比較する表 |
-| Item and aim alignment | Elmwood、Heather と Erin。学習目標・設問・根拠の読み取りを対応付け、授業で根拠を示す順序を検討する | `elmwood-item-alignment.xlsx` | Letter 横。ロゴと印刷管理欄、青紫地に白の列見出し、明細は細い横罫。7列 |
+| Item and aim alignment | Elmwood、Heather と Erin。学習目標・設問・根拠の読み取りを対応付け、授業で根拠を示す順序や読解・討議の時間配分を検討する | `elmwood-item-alignment.xlsx` | Letter 横。ロゴと印刷管理欄、青紫地に白の列見出し、明細は細い横罫。7列 |
 | Outcome reconciliation | Elmwood、Heather。匿名で提出記録と評価結果を照合し、報告の分母・提出者数・到達者数を確認 | `elmwood-outcome-reconciliation.xlsx` | Letter 横。共通のロゴと管理欄、青紫の見出し。提出と条件付き提案の判定は別の列 |
 | Independent marking comparison | Elmwood、Heather と Erin。匿名答案を突き合わせ、独立採点の点差と協議時の判断を記録 | `elmwood-score-comparison.xlsx` | Letter 横。共通の管理欄と7列の青紫見出し。両者の得点と絶対点差は右揃え、協議フラグと理由は左揃え |
-| Classroom deck | Elmwood、Heather。一般則と例外、議題と条件によって変わる発言を投影し、討議に使う | `elmwood-classroom.pptx` | 16:9、白地に3本の段形と金茶の上罫線。1マスター、5レイアウト |
+| Classroom deck | Elmwood、Heather。一般則と例外、議題と条件によって変わる発言、説明途中の確認課題を投影し、討議に使う | `elmwood-classroom.pptx` | 16:9、白地に3本の段形と金茶の上罫線。1マスター、5レイアウト |
 | Reading handout | Elmwood、Heather。職場文書と設問の配布、試行答案への個別の再指導に使う直接 PDF | `elmwood-reading.cls` | Letter 縦。青紫の大見出し、金茶の淡色抜粋欄、ヘッダとページ番号 |
 | Workplace operations notice | Brookdale Service Cooperative、Janice Mitchell。授業で参照し得る社外の業務通知を直接 PDF にする型 | `brookdale-workplace-notice.cls` | Letter 縦、右上に円と2本の山形、中央題と節番号。深緑と墨のセリフ体、下罫線に部門名とページ番号 |
 | Meeting agenda extract | Rosedale Workers Housing Cooperative、Glenn Fletcher。先方名義で受領した議題抜粋を直接 PDF にする型 | `rosedale-meeting-agenda.cls` | Letter 縦、家形と社名、煉瓦色の議題番号、麻色の管理帯、左揃えのサンセリフ体 |
@@ -38,6 +38,8 @@ Brookdale は読解素材の発行元として使う場合の型。見本の通�
 
 採点例では Item trial review の節見出しを Independent reads、Annotated examples、Agreement for the next read など、原稿に合わせて変更する。匿名の答案抜粋を置き、Elmwood Source Note でどの記述に得点を与えるかを直後に示す。7月14日の旧講評と訂正理由には同じ型を開き、原稿に合わせて見出しを設定する。旧講評の満点判断、示された根拠が0件だったこと、次に何を確かめるかを区別し、訂正後の得点欄は設けない。
 
+11月の授業観察の講評は Curriculum design decision を開き、節を Observed sequence、Agreement on 10 November、What to look for next に変更する。2回の観察で見た進行、35分の説明に15分ごとの確認を入れる合意、次に見ることを節ごとに記す。紙の手控えは、観察ごとの記入内容が読める紙面を作り、`bin/scan` で保管用 PDF にする。
+
 ## Excel
 
 各型で `A2` に題、`C3:D3` に番号、`G3` に作成者、`C4:D4` に日付の実値、`G4` に講座名を入れる。結合範囲には左上セルから入力する。これらの入力先は書式済み。1〜6行は各印刷ページで反復し、列見出しと管理欄を読める状態にする。
@@ -51,6 +53,16 @@ Brookdale は読解素材の発行元として使う場合の型。見本の通�
 Planning の外部査読対応表では E6 を Review finding、F6 を Revision status に変更し、E・F を文字列の `ELM Text` にする。見本の列幅は E が24、F が19、行高は54 pt。B に設問番号、C に目標、D に改訂後の問い、G に答案で確認する根拠を書く。対応表の件数を表示するときは、収録した設問の範囲を明記する。
 
 比較根拠を示す順序の検討では、A〜G の見出しを順に Order、Evidence、Comparison aim、Question to ask、Detail to withhold、Teaching move、What to listen for に設定する。7行目から根拠1件につき1行。A は `ELM Count`、B〜G は `ELM Text`、見本の列幅は E が24、F が19、行高は54 pt。必要なら Alignment と同じ手順で実明細の件数、配布時の注記を加え、印刷範囲を指定して再計算する。
+
+### Reading and discussion timing
+
+`elmwood-item-alignment.xlsx` を使い、管理欄には MAP の文書番号を入れる。A〜G の幅は順に 8、16、40、12、12、12、44。6行目の見出しは No.、Phase、Activity、Before (min)、Revised (min)、Change (min)、Prompt / decision とし、高さは31 pt。
+
+1. 7行目から活動ごとに1行置く。A・D〜F は右寄せの `ELM Count`、B・C・G は左インデントと折り返し付きの `ELM Text`。追加する活動は旧配分を0分、削る活動は改訂後を0分とする。F7 の `=E7-D7` を最終明細まで繰り下げる。見本は3明細で46 pt、16明細で54 pt。
+2. 最終明細の次の行は A:C を結合して集計名を置き、D〜F は実明細範囲の `SUM`。A・G の文字列は `ELM Total text`、D〜F は `ELM Total count`。G に討議への振替時間を書ける。見本の集計行は26 pt。
+3. 注記は A:G を結合して `ELM Note` を適用し、旧版30ページと短縮版18ページの関係を記す。Alignment と同じ手順で印刷範囲を更新し、再計算する。見本の注記は25 pt。複数ページの場合は各ページの管理欄・見出しと最終ページの合計、F の数値と G の文字の間隔を確認する。
+
+11月の観察と次回案の対照では列見出しを Observed (min)、Planned (min)、Change (min) にする。観察で計っていない値は空欄にし、差は両方に値がある行だけ `=IF(COUNT(D7:E7)=2,E7-D7,"")` で出す。集計は範囲がそろっている場合に入れる。注記に観察日と計測の範囲を示す。
 
 ### Reconciliation
 
@@ -72,9 +84,13 @@ Planning の外部査読対応表では E6 を Review finding、F6 を Revision 
 
 講師協議では Two columns に匿名答案の比較箇所だけを並べ、どの根拠を両者が読んだかを続くスライドで示す。授業で根拠を一つ外すときは、比較レイアウトに3件がある場合と残り2件の場合を置く。残りの根拠から言えることと、保留する判断を問い、学習者の名前は配布用・投影用の両方から外す。
 
+11月の講師用スライドでは、説明開始から15分と30分を目安に確認課題を挟む。Heading and body で最初に答えさせる問いを投影し、Two columns や Diagram で次の確認に使うケースを示す。
+
 ## TeX
 
 `elmwood-reading` は `\ElmHandout{題}{講座}{文書番号}{日付}{作成者}`、`\ElmHeading{見出し}`、`ElmExtract` 環境、`\ElmSource{資料名}`。抜粋欄はページをまたがないため、長い引用は原資料の段落境界で分ける。本人返却用は最初の節に宛名を置き、答えのどこに根拠を足すかを記す。授業配布用は無記名にし、本人返却用のコメントを転記しない。手書き答案と紙への書き込みは、記入した紙面を `bin/scan` に通して保管する。
+
+旧30ページ版と短縮18ページ版は同じ `elmwood-reading` を使い、版ごとに一つの PDF にまとめる。保持した問いの後に、本文のどの条件を根拠にしたかを討議に持ち寄る指示を置ける。
 
 `brookdale-workplace-notice` は `\BrookNotice{題}{文書番号}{日付}{作成者}` と `\BrookClause{節番号と見出し}{本文}`。型のあるディレクトリを `TEXINPUTS` に加えるか、作業先の TeX 原稿と同じ位置に型をコピーし、`bin/tex` で組む。
 
@@ -84,21 +100,22 @@ Planning の外部査読対応表では E6 を Review finding、F6 を Revision 
 
 ## 見本
 
-今回の作業フォルダに保存した見本。答案番号・個々の得点・設問番号・文書番号は書式と印刷範囲の確認用で、実際の制作には計画と事実の台帳を使う。
+今回の作業フォルダに保存した見本。答案番号・個々の得点・設問番号・文書番号・時間配分の内訳は書式と印刷範囲の確認用で、実際の制作には計画と事実の台帳を使う。
 
 | 型 | 見本 |
 |---|---|
-| Lesson plan | [What changes when one piece of evidence is removed?](../../scratch/p19-educator-instructional-designer/b004/work/templates-0002/samples/elmwood-lesson-plan.docx) |
-| Curriculum design decision | [Read the condition before deciding](../../scratch/p19-educator-instructional-designer/b004/work/templates-0002/samples/elmwood-design-decision.docx) |
-| Item trial review | [A correct conclusion without supporting evidence](../../scratch/p19-educator-instructional-designer/b004/work/templates-0002/samples/elmwood-item-review.docx)、[Evidence that earns credit](../../scratch/p19-educator-instructional-designer/b004/work/templates-0002/samples/elmwood-rubric-annotations.docx) |
-| Course outcomes report | [Workplace meetings training results](../../scratch/p19-educator-instructional-designer/b004/work/templates-0002/samples/elmwood-course-outcomes.docx) |
-| Item and aim alignment | [3明細](../../scratch/p19-educator-instructional-designer/b004/work/templates-0002/samples/elmwood-item-alignment-3.xlsx)、[16明細](../../scratch/p19-educator-instructional-designer/b004/work/templates-0002/samples/elmwood-item-alignment-16.xlsx)、[査読対応](../../scratch/p19-educator-instructional-designer/b004/work/templates-0002/samples/elmwood-alignment-review.xlsx)、[根拠の提示順](../../scratch/p19-educator-instructional-designer/b004/work/templates-0002/samples/elmwood-evidence-order.xlsx) |
-| Outcome reconciliation | [3明細](../../scratch/p19-educator-instructional-designer/b004/work/templates-0002/samples/elmwood-outcome-reconciliation-3.xlsx)、[24明細](../../scratch/p19-educator-instructional-designer/b004/work/templates-0002/samples/elmwood-outcome-reconciliation-24.xlsx) |
-| Independent marking comparison | [3明細](../../scratch/p19-educator-instructional-designer/b004/work/templates-0002/samples/elmwood-score-comparison-3.xlsx)、[18明細](../../scratch/p19-educator-instructional-designer/b004/work/templates-0002/samples/elmwood-score-comparison-18.xlsx) |
-| Classroom deck | [5レイアウト](../../scratch/p19-educator-instructional-designer/b004/work/templates-0002/samples/elmwood-classroom.pptx)、[匿名答案の協議](../../scratch/p19-educator-instructional-designer/b004/work/templates-0002/samples/elmwood-moderation-discussion.pptx) |
-| Reading handout | [What evidence supports the decision?](../../scratch/p19-educator-instructional-designer/b004/work/templates-0002/samples/elmwood-reading.pdf)、[Which collection slot would you propose?](../../scratch/p19-educator-instructional-designer/b004/work/templates-0002/samples/elmwood-conditions-exercise.pdf)、[本人への再指導](../../scratch/p19-educator-instructional-designer/b004/work/templates-0002/samples/elmwood-return-guidance.pdf) |
-| Workplace operations notice | [Friday collection of reserved items](../../scratch/p19-educator-instructional-designer/b004/work/templates-0002/samples/brookdale-workplace-notice.pdf) |
-| Meeting agenda extract | [Maintenance handover discussion](../../scratch/p19-educator-instructional-designer/b004/work/templates-0002/samples/rosedale-meeting-agenda.pdf) |
-| Course review memorandum | [Building Proposals from Evidence](../../scratch/p19-educator-instructional-designer/b004/work/templates-0002/samples/fletcher-course-review.pdf) |
+| Lesson plan | [Check a decision before adding the exception](../../scratch/p19-educator-instructional-designer/b005/work/templates-0002/samples/elmwood-lesson-plan.docx) |
+| Curriculum design decision | [Shorten the reading and protect discussion time](../../scratch/p19-educator-instructional-designer/b005/work/templates-0002/samples/elmwood-design-decision.docx)、[授業観察の講評](../../scratch/p19-educator-instructional-designer/b005/work/templates-0002/samples/elmwood-observation-feedback.docx) |
+| Item trial review | [Evidence in two collection answers](../../scratch/p19-educator-instructional-designer/b005/work/templates-0002/samples/elmwood-item-review.docx)、[Evidence that earns credit](../../scratch/p19-educator-instructional-designer/b005/work/templates-0002/samples/elmwood-rubric-annotations.docx) |
+| Course outcomes report | [Workplace meetings training results](../../scratch/p19-educator-instructional-designer/b005/work/templates-0002/samples/elmwood-course-outcomes.docx) |
+| Item and aim alignment | [3明細](../../scratch/p19-educator-instructional-designer/b005/work/templates-0002/samples/elmwood-item-alignment-3.xlsx)、[16明細](../../scratch/p19-educator-instructional-designer/b005/work/templates-0002/samples/elmwood-item-alignment-16.xlsx)、[査読対応](../../scratch/p19-educator-instructional-designer/b005/work/templates-0002/samples/elmwood-alignment-review.xlsx)、[根拠の提示順](../../scratch/p19-educator-instructional-designer/b005/work/templates-0002/samples/elmwood-evidence-order.xlsx) |
+| Reading and discussion timing | [3明細](../../scratch/p19-educator-instructional-designer/b005/work/templates-0002/samples/elmwood-reading-timing-3.xlsx)、[16明細](../../scratch/p19-educator-instructional-designer/b005/work/templates-0002/samples/elmwood-reading-timing-16.xlsx) |
+| Outcome reconciliation | [3明細](../../scratch/p19-educator-instructional-designer/b005/work/templates-0002/samples/elmwood-outcome-reconciliation-3.xlsx)、[24明細](../../scratch/p19-educator-instructional-designer/b005/work/templates-0002/samples/elmwood-outcome-reconciliation-24.xlsx) |
+| Independent marking comparison | [3明細](../../scratch/p19-educator-instructional-designer/b005/work/templates-0002/samples/elmwood-score-comparison-3.xlsx)、[18明細](../../scratch/p19-educator-instructional-designer/b005/work/templates-0002/samples/elmwood-score-comparison-18.xlsx) |
+| Classroom deck | [5レイアウト](../../scratch/p19-educator-instructional-designer/b005/work/templates-0002/samples/elmwood-classroom.pptx)、[匿名答案の協議](../../scratch/p19-educator-instructional-designer/b005/work/templates-0002/samples/elmwood-moderation-discussion.pptx) |
+| Reading handout | [Find the condition that changes the decision](../../scratch/p19-educator-instructional-designer/b005/work/templates-0002/samples/elmwood-reading.pdf)、[Which collection slot would you propose?](../../scratch/p19-educator-instructional-designer/b005/work/templates-0002/samples/elmwood-conditions-exercise.pdf)、[本人への再指導](../../scratch/p19-educator-instructional-designer/b005/work/templates-0002/samples/elmwood-return-guidance.pdf) |
+| Workplace operations notice | [Friday collection of reserved items](../../scratch/p19-educator-instructional-designer/b005/work/templates-0002/samples/brookdale-workplace-notice.pdf) |
+| Meeting agenda extract | [Maintenance handover discussion](../../scratch/p19-educator-instructional-designer/b005/work/templates-0002/samples/rosedale-meeting-agenda.pdf) |
+| Course review memorandum | [Conditions in the practice questions](../../scratch/p19-educator-instructional-designer/b005/work/templates-0002/samples/fletcher-course-review.pdf) |
 
-[全ページのレンダリング](../../scratch/p19-educator-instructional-designer/b004/work/templates-0002/render)
+[全ページのレンダリング](../../scratch/p19-educator-instructional-designer/b005/work/templates-0002/render)
