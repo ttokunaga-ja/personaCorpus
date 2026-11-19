@@ -6,3 +6,5 @@
 | p04-ml-research-engineer | b007 | 監査 hold: progress/p04-ml-research-engineer/b007.audit.md | 2026-11-19T18:26:17.191761+00:00 |
 | p09-ux-researcher | b006 | 監査 hold: progress/p09-ux-researcher/b006.audit.md | 2026-11-19T18:28:54.545871+00:00 |
 | p03-security-grc-analyst | b006 | 監査 hold: progress/p03-security-grc-analyst/b006.audit.md | 2026-11-19T18:50:21.258759+00:00 |
+| p10-management-consultant | b004 | 監査 hold: progress/p10-management-consultant/b004.audit.md | 2026-11-19T18:56:14.412815+00:00 |
+| p11-account-executive | b005 | 監査 hold: progress/p11-account-executive/b005.audit.md | 2026-11-19T18:56:14.726012+00:00 |
