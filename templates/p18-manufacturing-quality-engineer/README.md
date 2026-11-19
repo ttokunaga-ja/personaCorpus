@@ -1,6 +1,6 @@
 # 中山由紀子の文書の型
 
-金原産業精機株式会社の品質保証部と取引先の文書の型。8月の不適合・選別・出荷判断と、9月の是正後の効果確認を扱う。Officeは通常のDOCX・XLSX・PPTXとして開き、別名保存する。型には文書種別、社名、列名と書式を持たせる。番号、日付、人名、案件本文、明細は原稿をもとに成形時に入れる。
+金原産業精機株式会社の品質保証部と取引先の文書の型。2024年4月の不良分析と加工工程の見直し、2026年8月の不適合・選別・出荷判断、同年9月の是正後の効果確認に使う。Officeは通常のDOCX・XLSX・PPTXとして開き、別名保存する。型には文書種別、社名、列名と書式を持たせる。番号、日付、人名、案件本文、明細は原稿をもとに成形時に入れる。
 
 ## 型の一覧
 
@@ -9,12 +9,15 @@
 | 不適合報告 | 金原産業精機、中山・上田。発見と要求値、測定根拠、保留と処置の報告 | `kanehara-ncr.docx` | A4縦、表紙なし。寸法枠ロゴ、青緑の題と見出し、ゴシック、細い罫線表 |
 | 出荷判定 | 金原産業精機、中山・石田。適合品の出荷範囲と承認、隔離継続の記録 | `kanehara-release.docx` | 同じヘッダ・フッタ、22ptの題、短い節で判定根拠を整理 |
 | 是正処置 効果確認書 | 金原産業精機、中山が起案し、石田が監視条件付きの完了を決裁する | `kanehara-effectiveness.docx` | A4縦、表紙なし。金原共通の寸法枠ロゴと青緑見出し。案と承認後のPDFは同じ書式 |
+| 品質会議議事録 | 金原産業精機、中山が石田との品質会議の決定と確認事項を記録 | `kanehara-minutes.docx` | A4縦、表紙なし。共通ロゴと青緑の見出し、決定と持ち帰りを節で分ける |
 | 顧客連絡 | 金原産業精機、宮本・中山から竹田産業機工の谷口へ。保留説明と納期の正式な添付文書 | `kanehara-customer.docx` | 自社の社外提出書式。A4縦、表紙なし、宛先と文書情報を題の後に記載 |
 | 納入予定確認 | 竹田産業機工、谷口。顧客が正式な確認書を返す必要が計画にある場合のみ | `takeda-confirmation.docx` | 菱形と社名、茶色、明朝。自社ロゴを使わない、A4縦、表紙なし |
 | 寸法測定記録 | 金原産業精機、中山・柴田。測定順、日付、ロット、測定値と判定根拠 | `kanehara-measurement.xlsx` | A4横、青緑の見出し、測定値は小数第2位、根拠列を広くする |
 | 選別・隔離記録 | 金原産業精機、原・柴田・中山。確認単位ごとの数量と隔離、引継ぎの照合 | `kanehara-sorting.xlsx` | A4横、共通のヘッダ、数量は整数右寄せ、必要な合計だけ淡青緑 |
-| 品質説明 | 金原産業精機、中山から石田・関係部署へ。選別の経過と判定を説明する場合 | `kanehara-quality.pptx` | 16:9、白地、左上の寸法枠ロゴ。1マスター・5レイアウト、スライド0枚 |
-| 現場確認票 | 金原産業精機、原・中山。印刷して現物と照合する確認票の直接PDF用 | `kanehara-field.cls` | A4縦、共通ロゴと青緑、ゴシック。確認単位・数量・判定・引継ぎ・確認者の繰返し見出し表。是正後のロット別照合にも対応 |
+| 不良呼称分類表 | 金原産業精機、中山・石田。不良履歴の原記載を統一分類へ対応づける | `kanehara-defect-classification.xlsx` | A4横、共通ロゴと青緑の見出し。呼称、加工面、件数、分類根拠の7列 |
+| バリ発生箇所別集計 | 金原産業精機、中山・上田。現物や写真で照合したバリの箇所を集計する | `kanehara-defect-location.xlsx` | A4横、共通ロゴと青緑の見出し。箇所区分、加工面、照合状態と証拠の7列 |
+| 品質説明 | 金原産業精機、中山から石田・関係部署へ。不良分析や選別の経過と、会議の判断を説明する場合 | `kanehara-quality.pptx` | 16:9、白地、左上の寸法枠ロゴ。1マスター・5レイアウト、スライド0枚 |
+| 現場確認票 | 金原産業精機、原・中山。印刷して現物と照合する確認票の直接PDF用 | `kanehara-field.cls` | A4縦、共通ロゴと青緑、ゴシック。確認単位・数量・判定・引継ぎ・確認者の繰返し見出し表。是正後のロット別照合と、バリの観察箇所・加工面の照合にも対応 |
 | 是正後の工程・寸法確認報告 | 双葉表面処理工業、安藤から金原の品質保証部への報告PDF | `futaba-verification.cls` | A4縦、右上に高さの異なる2本の角形と社名。えんじの中央題、明朝、淡紅の表見出しと横罫線 |
 
 竹田の確認書はメールだけの回答を文書に水増しするためには使わない。顧客への金原発の説明は金原の型を使う。双葉の提出報告は双葉の型を使う。
@@ -29,7 +32,7 @@
 
 金原のWord・TeXヘッダはロゴと社名、フッタは品質保証部とページ番号。Excelは上段の社名・ロゴと印刷フッタ、PowerPointはマスターの社名・ロゴと品質保証部。PowerPointの実ページ番号は成形時に右下へ追加する。
 
-文書番号は金原が `KS-QA-YYYY-用途-連番`（用途：不適合NCR、判定REL、連絡COM、測定MES、選別SEL、説明BRF、現場票FLD、効果確認EFF）。既に案件番号NCR-026があるため、案件番号と文書番号は分ける。竹田は `TK-Q-YYYY-連番`、双葉は `FB-Q-YYYY-連番`。番号の実値と版は計画・台帳で決める。同一報告のDOCXと配布PDFは同番号・同版。個人メモ、装置CSV、写真には番号を強制しない。
+文書番号は金原が `KS-QA-YYYY-用途-連番`（用途：不適合NCR、判定REL、連絡COM、測定MES、選別SEL、説明BRF、現場票FLD、効果確認EFF、呼称分類CLS、箇所集計LOC、議事録MIN）。既に案件番号NCR-026があるため、案件番号と文書番号は分ける。竹田は `TK-Q-YYYY-連番`、双葉は `FB-Q-YYYY-連番`。番号の実値と版は計画・台帳で決める。同一報告のDOCXと配布PDFは同番号・同版。個人メモ、装置CSV、写真には番号を強制しない。
 
 金原は寸法線を持つ青緑の工場書式で、p17の梁のロゴと橙罫線やp14の木材をモチーフにした深緑と区別する。
 
@@ -37,10 +40,12 @@
 
 - `Document(型)` で開く。Normal 10pt、Title 22pt、Heading 1 13pt、Heading 2 11pt、Caption 8.5pt。行間1.15、段落後6pt。左右20mm、上27mm、下22mm。表紙なし。
 - 題の次に原稿の文書番号・版・日付・対象品種・ロット・作成／確認／承認者を `Record Metadata`（9pt）で追加する。顧客連絡には宛先も入れる。見出しと本文は原稿から作る。型に仮の記入欄や本文はない。
-- 表は必要時に追加し、`Record Table` を指定。先頭行の「最初の行」を有効にし、`w:tblHeader` を設定して改ページで繰り返す。先頭行は `Record Header`（9pt白太字）、明細は `Record Cell`（9pt）。先頭行背景は自社が青緑、竹田が茶。罫線は灰。文章左寄せ、数値右寄せ、実内容に応じて幅と高さを決める。固定行高・空の明細は作らない。
+- 表は必要時に追加し、`Record Table` を指定。先頭行の「最初の行」を有効にし、`w:tblHeader` を設定して改ページで繰り返す。先頭行は `Record Header`（9pt白太字）、明細は `Record Cell`（9pt）。先頭行背景は自社が青緑、竹田が茶。罫線は灰。文章左寄せ、数値右寄せ、実内容に応じて幅と高さを決める。右寄せ数値の次が左寄せ文字なら文字段落を1字分（約3mm）字下げする。固定行高・空の明細は作らない。
 - 注記は `Record Note`。写真を載せる場合は幅170mm以内、縦横比を維持し、Captionに撮影日・方向・測定箇所を原稿どおり記す。
 - NCR報告は要求値・観察値・保留範囲・処置・継続事項を分ける。出荷判定は選別の実績・承認対象・隔離品の扱い・承認を分け、是正活動の完了と混同しない。根本原因や測定条件は根拠となる原稿を参照する。
 - 効果確認書は、対象ロット・確認数、測定箇所・条件と照合結果、根拠資料、監視項目・担当・判定基準・逸脱時の扱いを分ける。起案には案の版と回付先、決裁版には承認者・承認日と監視を条件とする決裁内容を入れる。決裁PDFは承認後の同番号・同版のDOCXから `bin/office-pdf` で出力する。
+
+- 品質会議議事録は、開催日・出席者・記録者に続けて確認範囲、決定、持ち帰りの担当と期限を原稿から入れる。検査の追加で変えられる範囲と、製造側で確認する加工上の論点を区別する。配布PDFは同番号・同版のDOCXから `bin/office-pdf` で出力する。
 
 ## Excel：明細・合計・印刷
 
@@ -55,6 +60,12 @@
 
 `kanehara-measurement.xlsx` を開き、シート名とA2を「是正後ロット・測定条件対応表」にする。6行目のA〜Gを「照合順、測定日、製造ロット、確認数 (個)、不適合 (個)、測定箇所・条件、根拠・確認者」に変更する。幅の目安は順に10、18、16、13、13、31、37。行高は短い明細で45ptを目安とし、複数行の場合は広げる。明細のスタイルは順に `K Count`、`K Date`、`K Text`、`K Count`、`K Count`、`K Text Indented`、`K Note`。F列には測定箇所・基準面・器具や分解能のうち照合した条件、G列には双葉の記録と社内記録の対応・照合担当を入れる。長い条件は内容のまとまりで改行し、単位と数値を同じ行に置く。1ロットが複数行にまたがる場合は個数を重複集計しない。集計が必要なときは、実明細直後のC列に合計ラベル、D・E列に集計式を置き、上記の印刷・フィルタ範囲を設定する。
 
+### 不良呼称分類表・バリ発生箇所別集計
+
+- 共通の管理欄を使い、F4に対象品種と集計単位を入れる。両型ともA〜Gの明細スタイルは順に `K Count`、`K Text Indented`、`K Text`、`K Text`、`K Count`、`K Text Indented`、`K Note`。A→BとE→Fの間隔はBとFの字下げで確保する。
+- 分類表は履歴の記載をB列に残し、C列に統一分類、D列に加工面・箇所、G列に判断根拠を置く。箇所別集計はB〜D列に箇所区分・観察位置・加工面、G列に現物番号や写真番号を記す。位置や加工面に未確認の項目があれば、F列で照合状態を示す。
+- 各行の件数が重複しない集計では、実明細直後のD列に「合計」、E列に `=SUM(E7:E最終明細行)` を入れ、`K Total` を適用する。D列の合計ラベルは左寄せ。分類表は不良履歴86件、箇所別集計はそのうちのバリ39件と照合し、未特定の履歴があれば集計内で明示する。フィルタ・印刷範囲は共通手順どおりに設定する。
+
 ## PowerPoint
 
 `Presentation(型)` を開き、`slide_layouts[0..4]` の表紙、見出しと本文、2段、表、図を使う。題idx=0、本文または図表領域idx=1、2段の右idx=2。表紙の題34pt、副題18pt、他の題30pt、本文20pt。表紙の副題には文書番号・版・日付・発表者を入れる。各実スライド右下へ実ページ番号を追加する。
@@ -68,6 +79,7 @@
 - `\QualityHeading{題}{文書番号}{対象品種・ロット}{実施日}{記録者}`、`\QualitySection{見出し}`、`\QualityNote{注記}` を必要なところだけ使う。
 - `SelectionTable` 環境は照合単位、確認数（個）、判定、隔離・引継ぎの確認、確認者の5列。原稿の実明細を `&` で区切り、行末を `\\\hline` とする。見出しはページごとに繰り返す。長文の記録を1行に詰めず、行単位で改ページできる量にする。
 - `EffectCheckTable` 環境は製造ロット、照合項目、確認内容・対応記録、確認者の4列。照合した基準面・測定器・ロット識別などの確認事項を各行に記入する。書き方とページごとの見出し繰返しは `SelectionTable` と同じ。
+- `BurrCheckTable` 環境は履歴・現物番号、観察箇所・加工面、写真番号・向き、照合結果・確認事項の4列。原稿に沿い、検出した位置と加工上の確認事項を対応づける。行の書き方と見出し繰返しは `SelectionTable` と同じ。
 - 型は書式と見出しを持つ。印刷原紙として手書き欄が必要な実文書では、原稿に沿って成形時に作る。現場の手書き記録そのものはimagegen skillを読み、実際の筆記内容のある画像として制作する。活字のPDFを手書き記録の代用にしない。最後に `bin/scan` に通す。
 - 不適合報告のPDFは完成したDOCXから `bin/office-pdf` で出す。Officeの内容をTeXで別に書き直さない。
 
@@ -75,18 +87,19 @@
 
 ## 型を使わないもの
 
-装置CSVは素の測定出力、EMLは送受信ヘッダ・本文・必要な添付を持つメール、TXTは中山の作業メモ。写真はPicturesの現物・測定箇所、管理図PNGは実測値から描く図であり、Officeの用紙枠を付けない。管理限界と仕様限界を混同せず、単位・対象期間・サンプル定義を原稿どおり示す。写真・手書き制作時にはimagegen skillを読む。本工程では写真や手書きの代用品を作っていない。
+不良履歴のCSVは抽出元の表記と履歴番号を保ち、パレート図PNGは分類済み件数を降順に並べ、件数・累積比率の軸と母数を示す。装置CSVは素の測定出力、EMLは送受信ヘッダ・本文・必要な添付を持つメール、TXTは中山の作業メモ。写真はPicturesの現物・測定箇所、管理図PNGは実測値から描く図であり、Officeの用紙枠を付けない。管理限界と仕様限界を混同せず、単位・対象期間・サンプル定義を原稿どおり示す。写真・手書き制作時にはimagegen skillを読む。本工程では写真や手書きの代用品を作っていない。
 
 ## 見本と検査先
 
-今回の見本は `scratch/p18-manufacturing-quality-engineer/b002/work/templates-0002/` に置く。原稿と事実台帳には、計画で確定した文書番号・日付・測定条件を使う。
+見本の入力ファイルは `scratch/p18-manufacturing-quality-engineer/b003/work/templates-0002/examples/`、印刷PDFは同じ作業先の `pdf/`。原寸画像は `render/<見本stem>-<入力拡張子>/`。見本の文書番号、箇所別内訳、個々の照合内容は書式確認用。成形では計画・台帳・原稿で確定した値を使う。
 
 | 確認した型 | 入力見本 | 全ページの画像 |
 |---|---|---|
-| Word 5種と効果確認の決裁PDF | `examples/` に各型と同名のDOCX、`pdf/kanehara-effectiveness.pdf` に決裁PDF | [Wordと決裁PDF](../../scratch/p18-manufacturing-quality-engineer/b002/work/templates-0002/pages-word.png) |
-| 寸法測定・ロット条件対応 | `examples/kanehara-measurement-3.xlsx`、`examples/kanehara-measurement-48.xlsx`、`examples/kanehara-measurement-lots.xlsx` | [寸法測定とロット条件対応](../../scratch/p18-manufacturing-quality-engineer/b002/work/templates-0002/pages-excel-measurement.png) |
-| 選別・隔離 | `examples/kanehara-sorting-3.xlsx`、`examples/kanehara-sorting-48.xlsx` | [選別・隔離](../../scratch/p18-manufacturing-quality-engineer/b002/work/templates-0002/pages-excel-sorting.png) |
-| 品質説明 | `examples/kanehara-quality.pptx` の5レイアウト | [品質説明](../../scratch/p18-manufacturing-quality-engineer/b002/work/templates-0002/pages-slides.png) |
-| 現場確認票と双葉の提出報告 | `examples/` の `kanehara-field`、`kanehara-effect-field`、`futaba-verification`（各 `.tex` と `.pdf`） | [現場確認票と提出報告](../../scratch/p18-manufacturing-quality-engineer/b002/work/templates-0002/pages-tex.png) |
+| Word 6種 | 各型と同名のDOCX。議事録と効果確認の配布用PDFは `pdf/` 内に同名で保存 | [Wordと配布PDF](../../scratch/p18-manufacturing-quality-engineer/b003/work/templates-0002/pages-word.png) |
+| 寸法測定・ロット条件対応 | `kanehara-measurement-measurement-3.xlsx`、`kanehara-measurement-measurement-25.xlsx`、`kanehara-measurement-lots-3.xlsx` | [寸法測定・ロット条件対応](../../scratch/p18-manufacturing-quality-engineer/b003/work/templates-0002/pages-excel-measurement.png) |
+| 選別・隔離 | `kanehara-sorting-sorting-3.xlsx`、`kanehara-sorting-sorting-25.xlsx` | [選別・隔離](../../scratch/p18-manufacturing-quality-engineer/b003/work/templates-0002/pages-excel-sorting.png) |
+| 不良呼称分類・バリ発生箇所 | `kanehara-defect-classification-3.xlsx`、`kanehara-defect-classification-33.xlsx`、`kanehara-defect-location-3.xlsx`、`kanehara-defect-location-26.xlsx` | [不良呼称分類・バリ発生箇所](../../scratch/p18-manufacturing-quality-engineer/b003/work/templates-0002/pages-excel-defects.png) |
+| 品質説明 | `kanehara-quality.pptx` の5レイアウト | [品質説明](../../scratch/p18-manufacturing-quality-engineer/b003/work/templates-0002/pages-slides.png) |
+| 現場確認票・双葉の提出報告 | `kanehara-field.tex`、`kanehara-effect-field.tex`、`kanehara-burr-field.tex`、`kanehara-burr-field-multipage.tex`、`futaba-verification.tex` | [現場確認票・双葉の提出報告](../../scratch/p18-manufacturing-quality-engineer/b003/work/templates-0002/pages-tex.png) |
 
-原寸のページ画像は同じ作業先の `render/<見本stem>-<拡張子>/`。Excelの印刷PDFは `pdf/` に保存した。両Excel型の3明細は各1ページ、48明細は各6ページ。各ページで文書番号が一行で読めること、管理欄と見出しの繰返し、数値・文字の列間隔、集計の終端を確認した。PDFの全対象明細で文字の外接矩形の間隔を測り、測定ブックで最小8.65 pt、選別ブックで最小8.51 ptだった。構造・印刷結果は [verification.json](../../scratch/p18-manufacturing-quality-engineer/b002/work/templates-0002/verification.json) に記録した。
+見本別のページ数、各Excel見本の印刷管理欄と見出し、合計、新しい集計型の数値列と文字列の最小間隔を [verification.json](../../scratch/p18-manufacturing-quality-engineer/b003/work/templates-0002/verification.json) に記録した。

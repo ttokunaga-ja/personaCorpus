@@ -32,3 +32,16 @@
   \hline\EffectCheckColumns\endfirsthead
   \hline\EffectCheckColumns\endhead
 }{\end{longtable}}
+
+\newcommand{\BurrCheckColumns}{%
+  \rowcolor{KTeal}\color{white}履歴・現物番号&
+  \color{white}観察箇所・加工面&
+  \color{white}写真番号・向き&
+  \color{white}照合結果・確認事項\\\hline
+}
+\newenvironment{BurrCheckTable}{%
+  \renewcommand{\arraystretch}{1.6}%
+  \begin{longtable}{|p{27mm}|p{43mm}|p{35mm}|p{45mm}|}%
+  \hline\BurrCheckColumns\endfirsthead
+  \hline\BurrCheckColumns\endhead
+}{\end{longtable}}
