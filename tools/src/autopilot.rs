@@ -1927,6 +1927,50 @@ impl Pilot {
             bail!("worktree が無い")
         }
         self.cmd(&["git", "-C", &w, "add", "-A", "--", ".", ":!.venv"], true)?;
+        // Files a running batch is editing in main (uncommitted) stay the batch's:
+        // the coordinator's edit to them is left out and reported.
+        let dirty: BTreeSet<String> = self
+            .cmd(
+                &[
+                    "git",
+                    "status",
+                    "--porcelain",
+                    "-z",
+                    "--untracked-files=all",
+                ],
+                true,
+            )?
+            .text
+            .split('\0')
+            .filter(|e| e.len() > 3)
+            .map(|e| e[3..].to_string())
+            .collect();
+        let staged = self
+            .cmd(
+                &["git", "-C", &w, "diff", "--cached", "--name-only", "-z"],
+                true,
+            )?
+            .text;
+        let mut kept_back = Vec::new();
+        for path in staged.split('\0').filter(|p| dirty.contains(*p)) {
+            self.cmd(&["git", "-C", &w, "reset", "-q", "--", path], true)?;
+            let tracked = self
+                .cmd(
+                    &["git", "-C", &w, "cat-file", "-e", &format!("HEAD:{path}")],
+                    false,
+                )?
+                .code
+                == 0;
+            if tracked {
+                self.cmd(
+                    &["git", "-C", &w, "checkout", "-q", "HEAD", "--", path],
+                    true,
+                )?;
+            } else {
+                let _ = fs::remove_file(wt.join(path));
+            }
+            kept_back.push(path.to_string());
+        }
         let diff = self
             .cmd(
                 &[
@@ -1948,8 +1992,16 @@ impl Pilot {
             .filter(|c| c.len() == 2)
             .map(|c| (c[0].to_string(), c[1].to_string()))
             .collect();
+        let note = if kept_back.is_empty() {
+            String::new()
+        } else {
+            format!(
+                "。動いている batch が書き換え中のため取り込まなかった（batch の受入後に直し直す）: {}",
+                kept_back.join(", ")
+            )
+        };
         if changes.is_empty() {
-            return Ok("変更なし".into());
+            return Ok(format!("変更なし{note}"));
         }
         let refused: Vec<String> = changes
             .iter()
@@ -2044,7 +2096,7 @@ impl Pilot {
         if removed > 3 && allowance.exists() {
             fs::remove_file(&allowance)?;
         }
-        Ok(format!("取り込んだ {}", head.trim()))
+        Ok(format!("取り込んだ {}{note}", head.trim()))
     }
     fn validate_merge(&self, wt: &Path, code: bool, personas: &BTreeSet<String>) -> Result<()> {
         if code {

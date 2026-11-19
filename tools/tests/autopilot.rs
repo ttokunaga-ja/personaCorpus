@@ -1754,3 +1754,34 @@ fn an_account_switch_ends_the_usage_limit_wait_and_drops_old_readings() {
     assert!(log.contains("account-switch"), "{log}");
     assert!(!f.cli(&["status", "--target", "30"]).contains("利用上限"));
 }
+
+#[test]
+fn a_coordinator_merge_leaves_files_a_running_batch_is_editing() {
+    let f = Fixture::new();
+    hold_row(&f);
+    f.once();
+    let wt = f.r.join("scratch/autopilot/wt");
+    // A running batch has an uncommitted edit in main.
+    fs::write(f.r.join("prompts/roadmap.md"), "batch edit in progress").unwrap();
+    fs::write(wt.join("prompts/roadmap.md"), "coordinator edit").unwrap();
+    fs::write(wt.join("prompts/audit.md"), "audit instructions, stricter").unwrap();
+    finish_coordinator(
+        &f,
+        json!({"actions":[{"do":"merge","message":"Tighten the audit"},{"do":"unhold","persona":"p01-test","batch":"b001"}]}),
+    );
+    f.once();
+    assert_eq!(
+        fs::read_to_string(f.r.join("prompts/audit.md")).unwrap(),
+        "audit instructions, stricter"
+    );
+    assert_eq!(
+        fs::read_to_string(f.r.join("prompts/roadmap.md")).unwrap(),
+        "batch edit in progress"
+    );
+    let result = f.state()["coordinator"]["last_result"].to_string();
+    assert!(
+        result.contains("prompts/roadmap.md") && !result.contains("失敗"),
+        "{result}"
+    );
+    assert!(!f.holds().contains("p01-test"), "{}", f.holds());
+}
