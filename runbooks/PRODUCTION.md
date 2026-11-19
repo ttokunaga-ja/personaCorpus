@@ -280,7 +280,7 @@ bin/autopilot stop --now                                       # 自動運転の
 
 ### 自動運転が 1 回りで行うこと（60 秒ごと。`AUTOPILOT_INTERVAL_SECONDS` で変えられる）
 
-1. **止める条件を見る**：`bin/autopilot stop` が呼ばれている、空き容量が 30 GB 未満、保留の batch が 5 つ以上、のどれかなら、新しい起動をしない。
+1. **止める条件を見る**：`bin/autopilot stop` が呼ばれている、空き容量が 30 GB 未満、保留の batch が 5 つ、または選んだ persona の数の半分の多いほう以上（20 persona なら 10。保留はその persona だけを止め、この条件は共通の原因で多くの persona が止まったときに全体を止める）、のどれかなら、新しい起動をしない。
 2. **終わった batch を進める**（persona ごとに）：
    - 失敗で止まった batch：理由が利用上限なら、30 分おいてから `bin/batch resume`。それ以外は 1 回だけ `resume` し、また失敗したら保留にする。
    - 終わった batch に、原稿の段階の破棄が 3 行以上あれば `--redraft` を 1 回、成形待ちがあれば `--rebuild` を 2 回まで行う。

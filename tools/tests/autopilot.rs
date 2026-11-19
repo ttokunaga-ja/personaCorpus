@@ -1410,3 +1410,47 @@ fn a_shortfall_under_one_batch_does_not_invalidate_a_roadmap_with_open_rows() {
     assert!(f.jobs().get("p01-roadmap").is_none(), "{:?}", f.jobs());
     assert_eq!(f.called("batch", "start"), 1);
 }
+
+#[test]
+fn rows_of_a_running_batch_count_toward_the_goal() {
+    let f = Fixture::new();
+    f.roadmap(Some("| b001 | 月次 | 35 | 重点 | 内容 | 回避 | 進行中 b001 |\n| b002 | 四半期 | 30 | 重点 | 内容 | 回避 | |\n"));
+    let path = f.r.join("progress/p01-test/roadmap.md");
+    let text = fs::read_to_string(&path).unwrap();
+    fs::write(
+        &path,
+        format!("{text}\n規模の見直し：残り 5 件のための行は足さない\n"),
+    )
+    .unwrap();
+    f.batch("running", "", 0, 0);
+    f.cli(&["once", "--target", "70"]);
+    assert!(!f.holds().contains("規模の見直し"), "{}", f.holds());
+}
+
+#[test]
+fn the_hold_limit_scales_with_the_number_of_personas() {
+    let f = Fixture::new();
+    for i in 2..=12 {
+        fs::write(f.r.join(format!("personas/p{i:02}-test.md")), "# test").unwrap();
+    }
+    let rows: String = (1..=5)
+        .map(|i| format!("| p{i:02}-test | b001 | 監査 hold | 2026-11-19 |\n"))
+        .collect();
+    fs::write(
+        f.r.join("progress/holds.md"),
+        format!("# 保留\n\n| persona | batch | 理由 | 日時 |\n|---|---|---|---|\n{rows}"),
+    )
+    .unwrap();
+    let status = f.cli(&["status", "--target", "30"]);
+    assert!(status.contains("止める条件: なし"), "{status}");
+    let rows: String = (1..=6)
+        .map(|i| format!("| p{i:02}-test | b001 | 監査 hold | 2026-11-19 |\n"))
+        .collect();
+    fs::write(
+        f.r.join("progress/holds.md"),
+        format!("# 保留\n\n| persona | batch | 理由 | 日時 |\n|---|---|---|---|\n{rows}"),
+    )
+    .unwrap();
+    let status = f.cli(&["status", "--target", "30"]);
+    assert!(status.contains("保留6件以上"), "{status}");
+}

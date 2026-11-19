@@ -550,14 +550,17 @@ impl Pilot {
         if (fs2::available_space(&self.root)? as f64) < threshold {
             reasons.push("空き容量30GB未満".into())
         }
+        // Holds stop only their persona; a share of held batches across the
+        // personas points to a common cause, so new work stops everywhere.
+        let limit = 5.max(self.names()?.len() / 2);
         if self
             .holds()?
             .iter()
             .filter(|r| r.get("batch").starts_with('b'))
             .count()
-            >= 5
+            >= limit
         {
-            reasons.push("保留5件以上".into())
+            reasons.push(format!("保留{limit}件以上"))
         }
         if self.state["push_failures"].as_i64().unwrap_or(0) >= 3 {
             reasons.push("push連続失敗".into())
@@ -620,15 +623,23 @@ impl Pilot {
         }
         Ok(rows)
     }
-    /// Files the roadmap's open rows fall short of the current goal.
+    /// Files the roadmap's open rows, and the rows of running batches, fall
+    /// short of the current goal.
     fn shortfall(&self, p: &str) -> Result<i64> {
+        let active = self.active(p)?;
         let open: i64 = table(
             &self.root.join("progress").join(p).join("roadmap.md"),
             &ROAD,
             &self.root,
         )?
         .iter()
-        .filter(|r| r.get("状態").is_empty())
+        .filter(|r| {
+            let state = r.get("状態");
+            state.is_empty()
+                || state
+                    .strip_prefix("進行中 ")
+                    .is_some_and(|b| active.contains(b.trim()))
+        })
         .filter_map(|r| r.get("件数の目安").parse::<i64>().ok())
         .sum();
         Ok(self.goal(p)? - self.count(p)? as i64 - open)
