@@ -78,3 +78,25 @@
 - H5 Mill FY22 の技術勧告の測定条件が満たされた（候補は初回交付 p.17、測定原票なし）、H6 Mill FY23 で840 square yardsが施工された（同p.63、実測票なし）、H7 Alder FY23 の車がCO-02用だった（3月交付の入構票、変更番号に結び付く搬入明細なし）。
 - 2025-04-17 14:30–14:55 EDT、Veronica Huang・Leslie Crawford・Richard Espinoza。43出典箇所を点検した結果、裏付けの候補が一系統しかなく当該文言まで届かない7主張 H1–H7 を保留。4月17日枠を2週間延期、5月1日は再点検日。H1–H4は Keith・Leslie、H5–H7は Miguel・Leslie が調べ、Veronica が照合。
 - 件名 “Hold the road story for two weeks” は2025-04-17 16:22 EDT Leslie → Richard、Cc Veronica。添付は Road dates - hold copy for Richard.docx（v0.6）と April 17 - sources and holds.xlsx（出典表）の2点。掲載時期の決定は再点検に残す。
+
+## FY2023の追加工事3区画の公道確認
+
+- 2025-06-12に Leslie が公道から Alder の Depot Gate 側の矩形補修（10:08）、Mill の Stone Culvert 側の排水口と曲がる継ぎ目（11:03）、Quarry の Weighhouse Gate 手前の側溝（12:06、反射で見切れ）を撮影。Mill の歩数からの面積推定は採らない。
+- 2025-07-02に Leslie が Quarry を再訪。10:22にゲート手前の表面と側溝の位置関係、10:28に側溝に沿った帯状補修を撮影。観察は現在の表面状態までで、FY23の施工量・日付や下層状態の独立裏付けには使わない。
+- 6月5日の現地確認メモと6月6日の配布PDFは ACN-INV-20250605-MEM-001 の同一内容。7月7日の質問対照表、7月8日の共有PDFと鉛筆入り紙控えは ACN-INV-20250707-MEM-001 を共通の版とし、紙控えの鉛筆書きのみ異なる。
+
+## Kellerへの12問と会社の回答
+
+- Leslie は公開記録を3件の前提に置き、各4問で必要性の判断・代替・測定または確認者・追跡できる原記録を問う。Alder は PW-23-01 CO-02、Mill は PW-23-02 の2023-08-29付改訂数量明細（交付pp.61–64）、Quarry は PW-23-03 CO-01。Mill の文書に変更指示番号を割り当てない。
+- 件名 “Questions on three FY23 resurfacing changes”。①2025-07-09 09:38 EDT、Leslie（leslie@allegheny-civic.example）→ Raymond Salazar（raymond.salazar@keller-municipal.example）、12問を本文に記載、添付なし。回答期限は07-16 17:00 EDT。
+- ②同件名の Re:、2025-07-15 11:08 EDT、Raymond → Leslie。①を引用し、添付は7月15日付 “Keller - Mill outlet milling schedule.pdf”（KMP-20250715-WS-001）1点のみ。
+- Alder の会社説明は「荷重がかかると路面が動いたとの現場班報告から Depot Gate 側を優先」。CO-02 は軟弱部への表層の振替を記す。入構票は車の受付までで、軟弱部の実測・比較記録・確認者・使用目的・完了を確かめられない。
+- Mill の会社説明は「既存の排水口と支持縁を保護するため部分幅」。会社添付の840平方ヤードは役所の明細と同じ予定値で、進入・排水口周囲・復帰の3区分を含む。2資料は予定値の別表現であり、個別面積・完成実測の裏付けは得られていない。
+- Quarry の会社説明は「ゲート進入路の下層が弱いと現場班が判断し、側溝際より先に扱う必要があった」。CO-01 は側溝際から下層補修へ400平方ヤードを振り替える予定を示す。準備票は交通準備までで、診断・確認者・実測や受入範囲は確認できない。
+
+## 会社回答を受けた7月の編集確認
+
+- 2025-07-17 14:00–14:30 EDT、Leslie、Veronica、Miguel、Keith が3件を机上で照合。会社メールと自社添付は同じ出所と扱う。Leslie は Alder の日報、Miguel は Mill の実測票、Keith は Quarry の下層判断と検査欄を追う。
+- 机上確認の回覧メモと7月18日の配布PDFは ACN-INV-20250717-MEM-001 の同一版。出典・保留の別添ブックは ACN-INV-20250717-LOG-001。
+- 新規件名 “Three changes — desk read before the rewrite”、2025-07-18 09:46 EDT、Leslie → Richard、Cc Veronica・Miguel・Keith。添付は “July 17 - what the record supports.pdf” と “July 17 - receipts behind the company answer.xlsx” の2点。
+- 追加工事の節草稿 ACN-INV-20250721-DRF-001 は7月21日 Leslie v0.1、22日 Veronica の赤字 v0.2、24日 Leslie の改訂 v0.3。25日の共有PDFは v0.3 と同内容。工事の必要性・実測・着工日の保留を残し、掲載判断には進めない。

@@ -1,6 +1,6 @@
 # Leslie Crawford の文書の型
 
-Allegheny Civic News Cooperative の調査報道デスクと Mapleton Falls Borough の公文書窓口の文書に使う。本文は英語（en-US）、時刻は America/New_York、用紙は US Letter。記入見本の道路名、対象年度、資料名の内訳、ページ、金額の内訳、文書番号、追加の日付はレイアウト確認用。制作では計画と事実の台帳で確定した値を使う。
+Allegheny Civic News Cooperative の調査報道デスク、Mapleton Falls Borough、Keller Municipal Paving Inc の文書に使う。本文は英語（en-US）、時刻は America/New_York、用紙は US Letter。記入見本の道路名、対象年度、資料名の内訳、ページ、金額の内訳、文書番号、追加の日付はレイアウト確認用。制作では計画と事実の台帳で確定した値を使う。
 
 | 名前 | 組織・利用者と用途 | ファイル名 | 見た目 |
 |---|---|---|---|
@@ -16,14 +16,23 @@ Allegheny Civic News Cooperative の調査報道デスクと Mapleton Falls Boro
 | Public Records Office reply | Mapleton Falls Borough、Dorothy から Leslie へ。窓口が独立した PDF として出す回答、通知、開示送付状 | `mapleton-falls-records.cls` | Letter 縦。丸い庁舎章と名称の中央組み、青い帯の件名とラベル付きの管理欄。サンセリフ体 |
 | Public Works contract and change schedule | Mapleton Falls Borough が契約当事者と作成・保管する契約書、変更指示、価格明細 | `mapleton-falls-records.cls` | 同じ庁舎章と青帯。契約参照番号と契約先の欄、金額を右揃えにした明細と繰り返し見出し |
 | Public Works field records | Mapleton Falls Borough、Eleanor Briggs が管理する受領簿・入構票・交通整理準備票の紙控え | `mapleton-falls-records.cls` | Public Works の庁舎章と青帯。受領簿は受付明細の横罫、入構票と準備票は欄名と記入値の組 |
+| Supplemental work schedule | Keller Municipal Paving Inc、Raymond Salazar が提供する自社の工事・数量明細 | `keller-work-schedule.cls` | Letter 縦。路面と破線のマークを左上に置き、黄土色の上罫と砂色の明細見出し。番号と数量は右寄せ |
 
 保存した公示 HTML は Mapleton Falls Borough の掲載物として、庁舎章の円と青・濃灰のサンセリフ体を使う。公示の表題、掲載日、発注参照番号、掲示された区画を保存時点の文面で残す。メールは EML のヘッダと本文を使い、差出人・宛先・日付・件名と返信関係を保つ。請求 PDF は Leslie が書く一通の請求につき一つ。手書きの区画メモは原稿に沿って手帳の画像を作り `bin/scan` で組む。掲示写真は現場の掲示物と読める区画表記を画像にする。これらの形式はそれぞれ元資料の外観を使う。
+
+
+## 道路の追加工事の取材（2025年6〜7月）
+
+7月9日に Raymond へ送る12問と返信は EML で保存する。草稿は `acn-road-draft.docx` を使い、会社が述べた理由、契約記録・公道から確認できた事項、なお確かめる事項を原稿の構成に沿って示す。記事とは別に照合経過を回覧する場合は `acn-scope-memo.docx` の見出しを取材内容に合わせる。継ぎ目や補修箇所の写真は JPG、手書きの現場手帳は手帳面を `bin/scan` に通して画像だけの PDF にする。
+
+受領した工事明細は発行元の書式を使う。区役所の変更記録は `mapleton-falls-records.cls`、Keller が自社資料として出す数量明細は `keller-work-schedule.cls` を使い、契約参照・変更番号で照合する。契約書や改訂明細の予定数量と実測値、会社の説明と独立に確認できた結果を分けて記載する。
 
 ## 書体・組織・管理番号
 
 - 編集部は、階段状に置いた三つの四角と社名でマストヘッドを作る。欧文は **Liberation Serif**。墨 `#232826` は本文、えんじ `#792C3D` は組織名・見出し・罫、淡い赤みの紙色 `#F6EFEB` は表の帯と強調欄。通常紙面は白。ヘッダにマストヘッド、フッタに Investigations desk。縦文書とワークブックの印刷にはページ番号を付ける。
 - 編集部の番号は `ACN-INV-YYYYMMDD-用途-連番3桁`。用途は企画 `PIT`、構成 `OUT`、範囲メモ `MEM`、照合表 `LOG`、会議資料 `BRF`、請求 `REQ`、記事本文稿 `DRF`。例は `ACN-INV-20240725-REQ-001`。日付は文書の日付、連番は同日・同用途内。独立した再請求は自身の文書番号を持ち、本文で初回請求を参照する。単なる書き出しは元文書の番号を引き継ぐ。
 - 区役所は、丸い枠に庁舎の輪郭を描いた章と名称を並べる。欧文は **Liberation Sans**。青 `#234C69` は章、タイトル帯、ラベル、罫。濃灰 `#293942` は本文。フッタは発行部署（Public Records Office または Public Works）とページ番号。区役所自身の番号は `MFB-PRO-YYYYMMDD-連番3桁`（例 `MFB-PRO-20240726-001`）。照会相手の番号を引用する場合は本文に記す。契約書と変更明細の管理欄には、記録自体の契約参照番号（例 `PW-23-03`）と、原表にある変更番号を使う。開示の番号や日時は送付状で管理する。
+- Keller は、車道をかたどった平行四辺形と二本の区画線を社名の左に置く。欧文は **Liberation Sans**。アスファルト色 `#252C30` をロゴと本文、黄土色 `#AE741C` を区画線と罫、砂色 `#F3EAD8` を表の見出し地に使う。下端に Project records とページ番号。Reference には契約参照・変更番号と、別の発行番号がある場合はその番号を併記する。Keller が新たに発行する工事明細の番号は `KMP-YYYYMMDD-WS-連番3桁`（例 `KMP-20250715-WS-001`）。受領済み資料の管理番号・日付は原記録から転記する。
 - 作成者・日付は管理欄とファイルの内部プロパティを揃える。既定の文書言語は英語。地名・日付・文書番号は行の隣に実際の値を入れて読み合わせる。
 
 ## Word
@@ -72,7 +81,7 @@ Allegheny Civic News Cooperative の調査報道デスクと Mapleton Falls Boro
 
 ## TeX
 
-本文の `.tex` を作業場所に置き、リポジトリ直下から `TEXINPUTS="$PWD/templates/p20-investigative-journalist:" bin/tex "$source" "$pdf"` で組む。`source` に本文のパス、`pdf` に出力先のパスを指定する。両クラスとも LuaLaTeX を使う。組版時に PDF のメタデータは除去される。通常の制作では成形後に進行役が `bin/stamp` を実行する。単独で作る見本にも、管理欄と同じ作成者、計画の日付と時刻を指定して適用する。たとえば July 25, 2024 の請求書を現地時刻 12:00 の見本にする場合は、次のように組版後の PDF を更新する。
+本文の `.tex` を作業場所に置き、リポジトリ直下から `TEXINPUTS="$PWD/templates/p20-investigative-journalist:" bin/tex "$source" "$pdf"` で組む。`source` に本文のパス、`pdf` に出力先のパスを指定する。各クラスは LuaLaTeX を使う。組版時に PDF のメタデータは除去される。通常の制作では成形後に進行役が `bin/stamp` を実行する。単独で作る見本にも、管理欄と同じ作成者、計画の日付と時刻を指定して適用する。たとえば July 25, 2024 の請求書を現地時刻 12:00 の見本にする場合は、次のように組版後の PDF を更新する。
 
 ```sh
 bin/stamp "$pdf" --author "Leslie Crawford" --date "2024-07-25T12:00:00" --timezone America/New_York
@@ -86,6 +95,10 @@ TZ=America/New_York pdfinfo "$pdf"
 
 - 区役所が保管する契約・変更記録は `\BoroughContract{題}{契約参照・変更番号}{原記録の日付}{契約先}{発行部署}` を使う。条項・根拠・署名欄は原稿に沿って組む。価格明細は `BoroughPriceSchedule` 内に `番号 & 品目または金額の欄名 & USD額 & 税区分または原表の参照 \\` の順に書く。番号・金額の右に 0.17 in の間隔を取り、列見出しを各ページに繰り返す。未記載の金額は空欄のままにする。紙原本として交付された文書は、組版した PDF を `bin/scan` に通して画像だけの PDF にする。契約書・変更明細の番号と日付は原記録のものを使い、送付状の番号と受領日は開示の記録に残す。
 
+### Keller の工事明細
+
+本文で `\KellerSchedule{題}{契約参照・変更番号と発行番号}{原記録の日付}{道路名・区間}{発行者}` を呼ぶ。発行番号も記すときは参照欄の契約・変更番号に続けて `\KellerIssue{発行番号}` を置き、別行に番号全文を表示する。区間は長さに応じて折り返す。続けて、原稿にある条件と数量の根拠を置く。`KellerItems` 環境内で `番号 & 工事項目 & 数量 & 単位 & 原表の参照 \\ ` の順に実際の明細を組む。番号・数量の右側には 0.19 in の間隔があり、表の見出しは各ページに繰り返される。行数は実明細に合わせ、数量欄の値と単位・項目の対応を確認する。必要な注記や、同じ単位かつ原記録で裏付けられる集計は表の後に置く。
+
 ### Public Works の紙帳票
 
 `mapleton-falls-records` の本文冒頭で `\renewcommand{\BoroughUnit}{Public Works}` を設定し、`\BoroughHeading{帳票名}{原記録の参照}{原記録の日付または期間}{第3欄の値}{管理者氏名}{第3欄名}{Custodian}` を使う。表の見出しは `\BoroughAmountHead{欄名}` とし、`\arrayrulecolor{BoroughBlue}` で横罫をそろえる。日付や参照番号は文字列として置き、折り返す欄は `p{幅}` で組む。
@@ -98,32 +111,7 @@ TZ=America/New_York pdfinfo "$pdf"
 
 原記録にある欄と値を組んでから `bin/scan "$pdf" "$scan"` に通す。開示番号、2025年3月3日の交付日時、交付単位の紙面数は Dorothy の送付状に載せる。スキャンのメタデータは `bin/stamp` で原記録の管理者と計画にある保存日時を設定する。`pdfinfo` で面数、`pdftotext` でテキスト層が空であること、`bin/render` で綴じ穴・原票の欄・受付印の視認性を確認する。
 
-## 記入見本
 
-下のパスは作業フォルダ `scratch/p20-investigative-journalist/b003/work/templates-0004/` からの相対パス。
+## 記入見本の確認
 
-| 決めた書式を確認する箇所 | 記入したファイル | 全ページの画像 |
-|---|---|---|
-| 企画書、明細 1 行 | `pitch-short.docx` | `render/pitch-short/` |
-| 企画書、明細 18 行、見出しを繰り返す | `pitch-long.docx` | `render/pitch-long/` |
-| 採らなかった構成案 | `outline.docx` | `render/outline/` |
-| 構成案、対照表付き | `outline-table.docx` | `render/outline-table/` |
-| 請求範囲のメモ | `scope-memo.docx` | `render/scope-memo/` |
-| 請求範囲のメモ、対照表付き | `scope-memo-table.docx` | `render/scope-memo-table/` |
-| 照合表、契約 3 行と資料種別 6 行 | `scope-short.xlsx` | `render/scope-short/` |
-| 照合表、各シートが 2 ページ | `scope-long.xlsx` | `render/scope-long/` |
-| 表紙、本文、2 段、表、図 | `editorial-brief.pptx` | `render/editorial-brief/` |
-| 4 件の短い照会、最終明細と署名 | `request-short.tex`、`request-short.pdf` | `render/request-short/` |
-| 照会明細 36 行、継続ページの見出しと署名 | `request-long.tex`、`request-long.pdf` | `render/request-long/` |
-| 区役所からの3月3日の部分交付送付状 | `borough-reply.tex`、`borough-reply.pdf` | `render/borough-reply/` |
-| 税照合、旧額と変更額の 1 組 | `tax-short.xlsx` | `render/tax-short/` |
-| 税照合、改ページ後の原表欄と金額欄 | `tax-long.xlsx` | `render/tax-long/` |
-| 区役所の契約書、金額と税区分 | `borough-contract-short.tex`、`borough-contract-short.pdf` | `render/borough-contract-short/` |
-| 区役所の変更明細、管理番号と継続見出し | `borough-contract-long.tex`、`borough-contract-long.pdf` | `render/borough-contract-long/` |
-| 紙原本の変更明細、スキャン PDF | `borough-contract-scan.pdf` | `render/borough-contract-scan/` |
-| 記事本文、管理欄とデスクの赤字 | `acn-road-draft.docx` | `render/acn-road-draft/` |
-| 出典点検、両シートに短い明細 | `source-short.xlsx` | `render/source-short/` |
-| 出典点検、Sources 43 行・Holds 7 行 | `source-long.xlsx` | `render/source-long/` |
-| Public Works の受領簿 2 面 | `receiving-register.tex`、`receiving-register-scan.pdf` | `render/receiving-register-scan/` |
-| Depot Gate の入構票 1 面 | `truck-entry.tex`、`truck-entry-scan.pdf` | `render/truck-entry-scan/` |
-| 交通整理準備票 1 面 | `traffic-staging.tex`、`traffic-staging-scan.pdf` | `render/traffic-staging-scan/` |
+各型を開いて管理欄に文書番号の全文・日付・作成者を入れ、本文と短い明細を組む。Word の対照表、Excel の各照合表、TeX の各明細表は複数ページの見本も作る。番号の全桁、数値と次の文字列の間隔、明細行の折返し、繰返し見出し、最終明細と署名の配置を `bin/render` の全ページで確認する。Editorial brief は5つのレイアウトを1枚ずつ確認する。見本と画像は制作時の作業フォルダに置く。受入・破棄時に消える作業フォルダの参照は、当該実行の報告に記録する。
