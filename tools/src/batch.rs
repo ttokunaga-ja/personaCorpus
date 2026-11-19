@@ -1096,6 +1096,10 @@ impl Batch {
                 "計画全体の文脈・関連と依存関係を確認する",
             ),
         ];
+        let judgment = self.judgment_path();
+        if (self.args.rebuild || self.args.redraft) && judgment.is_file() {
+            references.push((judgment, "再制作の対象・判断理由・照合する資料を確認する"));
+        }
         if stage == "plan" {
             for p in files(self.plan.parent().unwrap()) {
                 let name = p.file_name().unwrap().to_string_lossy();
@@ -2742,6 +2746,11 @@ impl Batch {
         })?;
         Ok(json!(failed))
     }
+    fn judgment_path(&self) -> PathBuf {
+        self.plan
+            .with_file_name(format!("{}.judgment.md", self.batch))
+    }
+
     fn redraft_candidates(&self) -> Result<(Vec<Value>, Vec<String>)> {
         let s = self.state();
         let mut events = array(&s["events"]);
@@ -2986,15 +2995,21 @@ impl Batch {
             println!("done 終了 {} 件", state["count"].as_u64().unwrap_or(0));
             return Ok(());
         }
-        let coordinator_producer = if (self.args.rebuild || self.args.redraft)
-            && read(&self.request)?
-                .lines()
-                .any(|line| line.trim() == "- 再制作の担当：gpt-6.2-sol")
-        {
-            Some("gpt-6.2-sol".to_owned())
-        } else {
-            None
-        };
+        let mut coordinator_producer = None;
+        if self.args.rebuild || self.args.redraft {
+            let judgment = self.judgment_path();
+            for path in
+                std::iter::once(&self.request).chain(judgment.is_file().then_some(&judgment))
+            {
+                if read(path)?
+                    .lines()
+                    .any(|line| line.trim() == "- 再制作の担当：gpt-6.2-sol")
+                {
+                    coordinator_producer = Some("gpt-6.2-sol".to_owned());
+                    break;
+                }
+            }
+        }
         self.update(|s| {
             s["active"] = json!({});
             s["producer"] = json!(
@@ -3621,9 +3636,7 @@ impl Batch {
                 if discard { &self.args.reason } else { "" }
             )
         };
-        let judgment = self
-            .plan
-            .with_file_name(format!("{}.judgment.md", self.batch));
+        let judgment = self.judgment_path();
         if judgment.is_file() {
             let section = read(&judgment)?;
             if !report.contains(section.trim_end()) {

@@ -1370,3 +1370,14 @@ fn coordinator_selects_sol_for_a_pending_rebuild() {
     f.cli(&["run", "p01", "b001", "--rebuild"], "ok", true);
     assert_eq!(f.state()["producer"], "gpt-6.2-sol");
 }
+
+#[test]
+fn coordinator_selects_sol_before_the_request_is_tracked() {
+    let f = Fixture::new();
+    f.run("draft-reject-always", true);
+    let judgment = format!("progress/{P}/b001.judgment.md");
+    write(&f.root.join(&judgment), "- 再制作の担当：gpt-6.2-sol\n");
+    f.cli(&["run", "p01", "b001", "--redraft"], "ok", true);
+    assert!(read(&f.scratch().join("prompts.jsonl")).contains(&judgment));
+    assert_eq!(f.state()["producer"], "gpt-6.2-sol");
+}
