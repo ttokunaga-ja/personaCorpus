@@ -1,0 +1,11 @@
+---
+path: Google Drive/My Drive/My-reflections/July folder - keep the version with the clue.txt
+kind: text
+author: Heather Callahan
+derived_from:
+---
+July folder
+
+When I look back at the old questions, open the twelve-question booklet used on 16 July alongside the anonymous counts. Keep Q07 in that trial record: “booked” in B was a clue, and taking it out of the saved booklet would make the 22/24 harder to interpret. Removing it from the item bank is a different job from changing the record of what people saw.
+
+Next time: try the four written questions saved on 23 July. For R3, listen separately for what someone does while the confirmation log is being checked and what they decide after a late confirmation is found. Ask where the change in their decision comes from. Don't assume those two moments sound different to everyone.

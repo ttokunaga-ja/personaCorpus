@@ -1,0 +1,20 @@
+---
+path: My files/Downloads/July reading check - item counts.csv
+kind: text
+author: Erin MacDonald
+derived_from:
+---
+
+Question,Responses,Correct,Correct rate
+Q01,24,20,83%
+Q02,24,19,79%
+Q03,24,18,75%
+Q04,24,17,71%
+Q05,24,16,67%
+Q06,24,21,88%
+Q07,24,22,92%
+Q08,24,15,63%
+Q09,24,18,75%
+Q10,24,17,71%
+Q11,24,14,58%
+Q12,24,16,67%
