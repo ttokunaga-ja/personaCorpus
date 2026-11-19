@@ -1,0 +1,55 @@
+From: Allison Kim <allison@halstead-branch.example>
+To: Michelle Whitaker <michelle@halstead-branch.example>
+Date: Wed, 16 Oct 2024 11:12:00 -0600
+Subject: Re: Aldridge RFP - six mandatory checks
+Message-ID: <548122a3a0944a198e497f56afc12f3b@halstead-branch.example>
+In-Reply-To: <d825c0fa4b934264ad81b87f4fb6a05c@halstead-branch.example>
+References: <d825c0fa4b934264ad81b87f4fb6a05c@halstead-branch.example>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Hi Michelle,
+
+Please leave all six as exceptions. The current service does not meet any of =
+these mandatory conditions:
+
+- #5: No automatic two-way synchronization. The customer maintains the source=
+ roster and can supply a CSV for manual import; that is not sync.
+- #14: No delegation of user administration restricted to a single site. A ce=
+ntral administrator can process site requests.
+- #24: The delivery log records sending, not an individual recipient's acknow=
+ledgment. A callback would be a customer process.
+- #34: Seven-year retention within the service is not available. An administr=
+ator can export CSV; Aldridge would manage its own storage, access and retent=
+ion.
+- #43: We cannot offer an all-site cutover in one night. Divya's sequence che=
+cks one site before proceeding to others.
+- #51: We cannot offer a 30-minute overnight initial response. Overnight issu=
+es can be received for contact on the next business day.
+
+These alternatives describe the boundary, not compliance with the requirement=
+s.
+
+Allison
+
+On October 14, Michelle wrote:
+> Could you confirm by noon on Wednesday, October 16 whether the current serv=
+ice meets each of these mandatory requirements? Please distinguish what is av=
+ailable now from an alternative process; I do not want to mark a near match a=
+s a Yes.
+>
+> - #5: Is directory synchronization automatic and two-way? A customer-manage=
+d CSV import is a different process; does it meet that requirement?
+> - #14: Can user administration be delegated with authority restricted to on=
+e site?
+> - #24: Does an after-hours handoff record each recipient's acknowledgment, =
+beyond the delivery log?
+> - #34: Are activity logs retained in the service for seven years, rather th=
+an merely viewable or exportable?
+> - #43: Can we offer all sites cutting over on the same night?
+> - #51: Can we provide an initial response within 30 minutes overnight? Plea=
+se distinguish that from contact on the next business day.
+>
+> For any condition we cannot meet, please give me the boundary of what we ca=
+n offer today. Divya is checking the rollout work separately.
