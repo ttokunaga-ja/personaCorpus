@@ -1225,3 +1225,33 @@ fn slide_pdf_repeats_printed_lines_in_its_manuscript() {
     f.pdf_text("alpha beta", "");
     present(&f, "board.pdf", "source");
 }
+
+#[test]
+fn scope_numbers_stay_within_workbook_cells() {
+    let f = Fixture::new();
+    f.generate(
+        r#"
+from openpyxl import Workbook
+w = Workbook()
+w.active.append(["Original agreement and incorporated scope"])
+w.active.append([2, "Signed changes"])
+w.save(home / 'separate.xlsx')
+w.active.append(["Scope\nX17"])
+w.save(home / 'together.xlsx')
+"#,
+    );
+    absent(&f, "separate.xlsx", "trace");
+    present(&f, "together.xlsx", "trace");
+}
+
+#[test]
+fn html_source_compares_notice_urls_as_link_targets() {
+    let f = Fixture::new();
+    let url = "https://town.example/public/archive/fiscal-year/contracts/notice-42323";
+    let source = format!("[Award notice]({url})");
+    f.put("award.html", &format!("<a href='{url}'>Award notice</a>"));
+    f.source("award.html", &source, "");
+    absent(&f, "award.html", "source");
+    f.bytes("award.html", b"<a href='/other'>Award notice</a>");
+    present(&f, "award.html", "source");
+}

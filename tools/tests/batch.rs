@@ -495,12 +495,19 @@ fn pending_rebuild_preserves_original_source_and_supports_accept_redo() {
         f.run("reject-always", true);
         let before = fs::read(f.source(FIRST)).unwrap();
         if accept_first {
+            write(
+                &f.root.join(format!("progress/{P}/b001.judgment.md")),
+                "- 再制作の担当：gpt-6.2-sol\n",
+            );
             f.accepted();
             let accepted = f.state();
             f.run("ok", true);
             assert_eq!(f.state(), accepted);
         }
         f.cli(&["run", "p01", "b001", "--rebuild"], "ok", true);
+        if accept_first {
+            assert_eq!(f.state()["producer"], "gpt-6.2-sol");
+        }
         assert_eq!(fs::read(f.source(FIRST)).unwrap(), before);
         assert!(!read(&f.plan()).contains("成形待ち："));
         assert!(f.artifact(FIRST).exists());

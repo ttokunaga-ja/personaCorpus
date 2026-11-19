@@ -122,6 +122,46 @@ fn html(text: &str) -> String {
         re(r"(?is)<(?:script|style)\b[^>]*>.*?</(?:script|style)\s*>").replace_all(text, "");
     html_escape::decode_html_entities(&re(r"(?s)<[^>]*>").replace_all(&stripped, " ")).into_owned()
 }
+// Only discount the URL tokens of a manuscript link when the HTML contains
+// the same visible label and destination. Keep the label in the body check.
+fn html_source_labels(body: &str, raw: &[u8]) -> Result<String> {
+    let links = re(r"\[([^\]\n]+)\]\((https?://[^\s()]+)\)");
+    if !links.is_match(body) {
+        return Ok(body.to_owned());
+    }
+    let dom = tl::parse(std::str::from_utf8(raw)?, tl::ParserOptions::default())?;
+    let mut anchors = Vec::new();
+    for tag in dom.nodes().iter().filter_map(tl::Node::as_tag) {
+        if !tag.name().as_bytes().eq_ignore_ascii_case(b"a") {
+            continue;
+        }
+        if let Some(href) = tag.attributes().get("href").flatten() {
+            let label = tag.inner_text(dom.parser());
+            let label = html_escape::decode_html_entities(&label)
+                .split_whitespace()
+                .collect::<Vec<_>>()
+                .join(" ");
+            anchors.push((
+                label,
+                html_escape::decode_html_entities(&href.as_utf8_str()).into_owned(),
+            ));
+        }
+    }
+    Ok(links
+        .replace_all(body, |c: &regex::Captures<'_>| {
+            let label = c[1].split_whitespace().collect::<Vec<_>>().join(" ");
+            if let Some(i) = anchors
+                .iter()
+                .position(|(text, href)| *text == label && *href == c[2])
+            {
+                anchors.swap_remove(i);
+                c[1].to_owned()
+            } else {
+                c[0].to_owned()
+            }
+        })
+        .into_owned())
+}
 fn zip_parts(p: &Path) -> Result<BTreeMap<String, Vec<u8>>> {
     let mut z = zip::ZipArchive::new(fs::File::open(p)?)?;
     let mut parts = BTreeMap::new();
@@ -235,7 +275,8 @@ fn office_text(p: &Path, ext: &str) -> Result<String> {
             }
         }
     }
-    Ok(texts.join(" "))
+    // XML 1.0 forbids the record separator inside a cell.
+    Ok(texts.join(if ext == "xlsx" { "\x1e" } else { " " }))
 }
 fn ocr(p: &Path, language: &str) -> Result<String> {
     Ok(
@@ -1422,7 +1463,12 @@ fn inspect(
             match extract(p, &ext, language) {
                 Err(e) => fail(&mut r, "opens", format!("Error: {e}")),
                 Ok((body, scan, missing)) => {
-                    text = body;
+                    let workbook_units = (ext == "xlsx").then_some(&body);
+                    text = if workbook_units.is_some() {
+                        body.replace('\x1e', " ")
+                    } else {
+                        body.clone()
+                    };
                     if ext == "xlsx" {
                         match formula(p) {
                             Ok(Some(reason)) => fail(&mut r, "formula", reason),
@@ -1448,6 +1494,11 @@ fn inspect(
                                     Err(e) => fail(&mut r, "source", e),
                                 }
                             }
+                            let body = if ext == "html" {
+                                html_source_labels(&body, &raw)?
+                            } else {
+                                body
+                            };
                             let visual = ["png", "jpg"].contains(&ext.as_str())
                                 || scfg.get("kind").is_some_and(|s| {
                                     s.split(':').any(|s| {
@@ -1525,6 +1576,14 @@ fn inspect(
                     }
                     let mut found = false;
                     for m in fancy(TRACE).find_iter(&traced).flatten() {
+                        // A cell ending in "scope" and an adjacent row number form no identifier.
+                        if m.as_str().to_ascii_lowercase().starts_with("scope")
+                            && let Some(units) = workbook_units
+                            && let Some(start) = m.start().checked_sub(rel.len() + 1)
+                            && units[start..start + m.as_str().len()].contains('\x1e')
+                        {
+                            continue;
+                        }
                         if !allowed
                             .iter()
                             .any(|(a, b)| *a <= m.start() && m.end() <= *b)

@@ -38,6 +38,7 @@ unicode-casefold = "0.2"
 walkdir = "2"
 xmltree = { version = "0.11", features = ["attribute-order"] }
 zip = { version = "8", default-features = false, features = ["deflate"] }
+tl = "0.7.8"
 
 [dev-dependencies]
 tar = "0.4"

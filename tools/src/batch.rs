@@ -22,6 +22,7 @@ use walkdir::WalkDir;
 const COLUMNS: [&str; 6] = ["パス", "日付", "作り方", "内容", "関連", "先に要るもの"];
 const EXT: &str = "docx pdf xlsx csv tsv pptx txt md log eml html png jpg json xml wav mp3 m4a zip";
 const BAD_PATH: &str = r"foundation|visual|source-art|full|(?<![a-z0-9])m1(?![a-z0-9])|primary|secondary|pdf_scan|pdf_text|txt_log|csv_tsv|html_eml|structured_text|domain_binary|imagegen";
+const SOL_REBUILD: &str = "- 再制作の担当：gpt-6.2-sol";
 const TRACE: &str = r"(?<!\w)(?:kio(?:-eval)?|personacorpus|persona|corpus|fixture|content\s+spine|synthetic|fictional|not\s+a\s+real|artifact\s+id|source\s+id|batch|scope\s+(?=[\w-]*\d)[\w-]+|p\d{2}-[\w-]+|lorem\s+ipsum|placeholder)(?!\w)|/Users/|scratch/";
 fn text(v: &Value) -> &str {
     v.as_str().unwrap_or("")
@@ -3264,10 +3265,7 @@ impl Batch {
             for path in
                 std::iter::once(&self.request).chain(judgment.is_file().then_some(&judgment))
             {
-                if read(path)?
-                    .lines()
-                    .any(|line| line.trim() == "- 再制作の担当：gpt-6.2-sol")
-                {
+                if read(path)?.lines().any(|line| line.trim() == SOL_REBUILD) {
                     coordinator_producer = Some("gpt-6.2-sol".to_owned());
                     break;
                 }
@@ -3947,6 +3945,16 @@ impl Batch {
         let judgment = self.judgment_path();
         if judgment.is_file() {
             let section = read(&judgment)?;
+            if !discard && section.lines().any(|line| line.trim() == SOL_REBUILD) {
+                let request = read(&self.request)?;
+                if !request.lines().any(|line| line.trim() == SOL_REBUILD) {
+                    write(
+                        &self.request,
+                        format!("{}\n\n{SOL_REBUILD}\n", request.trim_end()),
+                    )?;
+                    paths.insert(rel(&self.root, &self.request));
+                }
+            }
             if !report.contains(section.trim_end()) {
                 report.push('\n');
                 report.push_str(section.trim_end());
