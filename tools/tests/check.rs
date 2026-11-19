@@ -1255,3 +1255,24 @@ fn html_source_compares_notice_urls_as_link_targets() {
     f.bytes("award.html", b"<a href='/other'>Award notice</a>");
     present(&f, "award.html", "source");
 }
+
+#[test]
+fn word_revision_timestamp_checks_the_same_instant() {
+    let f = Fixture::new();
+    f.docx(
+        &format!(r#"<w:p><w:ins w:author="Marisol Torres" w:date="2025-01-09T21:26:00Z"><w:r><w:t>{BODY}</w:t></w:r></w:ins></w:p>"#),
+        "",
+    );
+    let source = format!("{BODY}\n- 挿入 | Marisol Torres | 2025-01-09 14:26 -0700 | 対象: fee");
+    f.source("review.docx", &source, "");
+    absent(&f, "review.docx", "source");
+    for wrong in [
+        source.replace("14:26", "14:25"),
+        source.replace("挿入", "削除"),
+        source.replace("Torres", "Frost"),
+        format!("{source}\nAmount due: 0700"),
+    ] {
+        f.source("review.docx", &wrong, "");
+        present(&f, "review.docx", "source");
+    }
+}

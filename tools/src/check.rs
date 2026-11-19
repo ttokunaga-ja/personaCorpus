@@ -762,6 +762,50 @@ fn data_lines(text: &str) -> String {
         lines.join("\n")
     }
 }
+// Revision instructions use a local timestamp, while Word commonly stores the instant in UTC.
+fn word_revision_source(body: &str, path: &Path) -> Result<String> {
+    let instruction = re(
+        r"(?m)^[-*] (削除|挿入|コメント) *\| *([^|\n]+?) *\| *(\d{4}-\d\d-\d\d \d\d:\d\d [+-]\d{4}) *\|",
+    );
+    if !instruction.is_match(body) {
+        return Ok(body.to_string());
+    }
+    let parts = zip_parts(path)?;
+    let mut revisions = BTreeSet::new();
+    for part in ["word/document.xml", "word/comments.xml"] {
+        if let Some(raw) = parts.get(part) {
+            visit(&xml(raw)?, &mut |node| {
+                let kind = match (part, node.name.as_str()) {
+                    ("word/document.xml", "del") => "削除",
+                    ("word/document.xml", "ins") => "挿入",
+                    ("word/comments.xml", "comment") => "コメント",
+                    _ => return,
+                };
+                if let (Some(author), Some(date)) =
+                    (node.attributes.get("author"), node.attributes.get("date"))
+                    && let Ok(instant) = DateTime::parse_from_rfc3339(date)
+                {
+                    revisions.insert((kind, author.clone(), instant));
+                }
+            });
+        }
+    }
+    let mut result = body.to_string();
+    for captures in instruction
+        .captures_iter(body)
+        .collect::<Vec<_>>()
+        .into_iter()
+        .rev()
+    {
+        let date = captures.get(3).unwrap();
+        if let Ok(instant) = DateTime::parse_from_str(date.as_str(), "%Y-%m-%d %H:%M %z")
+            && revisions.contains(&(&captures[1], captures[2].to_string(), instant))
+        {
+            result.replace_range(date.range(), "");
+        }
+    }
+    Ok(result)
+}
 fn source_reason(
     expected: &str,
     actual: &str,
@@ -1496,6 +1540,10 @@ fn inspect(
                             }
                             let body = if ext == "html" {
                                 html_source_labels(&body, &raw)?
+                            } else if ext == "docx"
+                                && scfg.get("derived_from").is_none_or(String::is_empty)
+                            {
+                                word_revision_source(&body, p)?
                             } else {
                                 body
                             };
