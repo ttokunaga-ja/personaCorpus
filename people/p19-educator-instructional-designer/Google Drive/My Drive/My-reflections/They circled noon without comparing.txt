@@ -1,0 +1,5 @@
+20 May, after reading the questions at the desk with Erin
+
+When I began Q11 with “What is the deadline?”, we circled noon and stopped. That answer said nothing about why 22 kits cannot be made in-house. It also hid the difference between an order at 11:40 and one at 12:10.
+
+Next draft: put the two times and their outcomes alongside each other first. Then ask why the available route changes even though the quantity is the same. Keep capacity and the receipt deadline as separate checks; do not let a correct time stand in for the comparison.

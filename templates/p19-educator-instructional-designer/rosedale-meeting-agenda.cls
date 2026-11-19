@@ -32,4 +32,10 @@
   \noindent\colorbox{RoseLinen}{%
     \parbox{\dimexpr\linewidth-2\fboxsep\relax}{\small\strut #2\quad /\quad #3\quad /\quad #4\strut}}\par\medskip
 }
-\newcommand{\RoseItem}[2]{\par\medskip{\large\bfseries\color{RoseBrick} #1\par}\nobreak #2\par}
+\newcommand{\RoseItem}[2]{%
+  \par\medskip
+  \begingroup\raggedright
+    {\large\bfseries\color{RoseBrick} #1\par}%
+    \nobreak #2\par
+  \endgroup
+}

@@ -57,3 +57,27 @@
 - 「Workplace meetings training for Rosedale」2024-08-20 09:14 EDT、Glenn → Heather。8月22日の打合せを打診し、Maintenance handover - agenda extract.pdf を添付。
 - 「Spare markers in the small room」2024-09-05 11:05 EDT、Arjun → Heather。添付なし。
 - 「Rosedale workplace meetings - December report」2024-12-02 10:06 EST、Heather → Glenn。Workplace meetings - outcomes for Glenn.pdf を添付。
+
+## 火曜の部屋割りと4月の独立採点
+
+- Building Proposals from Evidence の提出課題 ELM-BPE-2025-HO-001 は4月17日16:00締切。見込み18人。Room Aは上限16で火曜09:00と11:00に9人ずつなら1人の講師で実施可。Room Bは上限24で09:00の1回、月曜15:00までに補助講師が確定することが条件。
+- 同じ有効答案18件をP01〜P18で匿名化。HeatherとErinは4月21日に相手の点を見ず採点。Recommendation / Evidence / Conditional comparison が各0〜4、計12点。4月22日09:25の比較表 ELM-BPE-2025-MOD-001 は独立時点の合計点の絶対差を使い、3点以上をDiscussとする。
+- 3点以上の答案と合計（Heather/Erin）は P02 10/6、P04 4/7、P06 7/10、P09 8/4、P12 6/9、P15 10/7、P17 4/7。残り11件は全て0〜2点差で両者の点がある。
+- P02は推薦4/4・根拠4/1・比較2/1。定員表のRoom Bの行を言い換えて24席と18人を接続したが、Erinは資料名の完全一致を求め、未確定時の記述も狭く読んだ。P04は4/4・0/3・0/0。Room Bなら全員入るはず、という文に定員の数値・出典はなく、Erinは定員を暗黙に補った。
+- P06は推薦3/3・根拠3/3・比較1/4。月曜15:00の確認条件はあるが未確定時の行動を書かず、Erinは二回実施を補って読んだ。P15は4/4・3/3・3/0。補助講師が未確認ならRoom Aで二回に分ける言い換えを、Erinは所定の条件句がないため見落とした。
+- P09（推薦3/3・根拠3/1・比較2/0）は定員の事実と未確認時の延期の言い換えをErinが拾わなかった。P12（3/3・1/4・2/2）は出典付きの部屋の設備情報を需要の根拠にもなるとErinが解釈。P17（2/2・1/3・1/2）は希望人数を確認済人数と読み、日程の再相談を具体的な代案とみなしたErinの点が高い。
+- 4月22日13:30〜14:15にHeatherとErinが協議。資料名の逐語一致より箇所と事実の特定、根拠と判断の接続、確認条件と未確定時の行動を別々に読むことに合意し、独立点と配点は維持。ガイド ELM-BPE-2025-IR-001 は4月10日v0.2、Erinの4月24日コメントは同じ版、4月25日に匿名対照例を加えたv1.0。
+- 「Examples for the next proposal marking」4月25日15:20 Heather → Erin、ガイドv1.0のDOCX添付。独立した運営連絡「Please leave the side table clear」4月30日11:10 Arjun → Heather、添付なし。時刻はEDT。
+
+## 5月の教材査読と研修キットの差替え
+
+- Building Proposals from Evidence の5月練習冊子 ELM-BPE-2025-HO-003 v0.9 は16問。目標は G1 Frame the decision（Q01〜03）、G2 Weigh the evidence（Q05〜07、Q09）、G3 Compare options under constraints（Q04、Q08、Q10〜12、Q15）、G4 Recommend and name a check（Q13、Q14、Q16）。
+- Seanが2025-05-13の FCR-REV-2025-001 で挙げたのはG3のQ04（内製上限）、Q08（必要担当者数）、Q11（印刷室受付締切）、Q15（出欠表の件数欄）。単一情報を写せば済むこの4問だけを条件比較に改め、他の12問と全16問の番号を保つ。
+- 教材内の研修キットは木曜10:00までに必要。内製は最大20組、担当者2人が必要、在庫で追加費用なし。印刷室は16〜32組、1組CAD 2.50、水曜正午までに申込受領で木曜09:00に納品。両案が実行可能なら追加費用の少ない方を選ぶ。
+- Q04は水曜11:40で担当2人、18組なら両案可で内製、22組なら印刷室のみ可。Q08は18組・水曜11:40で担当1人なら印刷室のみ可、2人なら両案可で内製。
+- Q11は22組・担当2人、水曜11:40の申込なら印刷室のみ可、12:10なら現条件では両案不可。特急枠は資料にないので確約せず、依頼元へ納期の変更可否を聞く。
+- Q15は水曜11:15時点で18組、内製担当者数が未確認。運営担当に11:30までに2人の確保を確認し、確認が取れなければ正午の受付に間に合うよう印刷室の案を選ぶ。担当者数が未確認であることを不足確定として扱わない。
+- 5月13日11:00〜11:35 HeatherとSeanが指摘を確認。5月15日の試案 ELM-BPE-2025-IR-003 v0.1 に5月16日Yusufがコメント。5月20日にHeatherとErinが机上読みし、5月21日に4問の差替え紙 ELM-BPE-2025-HO-004 v1.0 を保存。
+- 目標対応表 ELM-BPE-2025-MAP-001 は5月8日v0.2、5月22日v1.0。5月22日14:00〜14:25にDavidとHeatherが差替えを確認・承認し、5月28日10:00からHeatherとErinが35分の授業で使用。授業時の観察は点数の改善を示す集計にしない。
+- Seanのアドレスは sean@fletcher-course-review.example。時刻はEDT。「May proposal practice for your review」① 5月7日10:00 Heather → Sean、冊子v0.9のPDF添付。② 5月13日09:22 Sean → Heather、「Re: May proposal practice for your review」で①に引用返信し、発行09:05の査読意見PDFを添付。
+- 「Four revised comparison questions」5月23日10:10 Heather → Sean、5月22日承認済みの差替え紙PDFを添付。独立した件名で送付し、FCR-REV-2025-001を参照。
