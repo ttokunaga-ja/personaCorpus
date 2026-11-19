@@ -1,0 +1,20 @@
+---
+path: Documents/Service-reviews/BRT Passenger Identity/2026-01-20/Repeat watch - Carys.txt
+kind: text
+author: Carys Morgan
+derived_from:
+---
+
+Passenger Identity repeat — observer's watch, 20 January 2026
+Times UTC. For Daniel.
+
+09:00  I announced the simulated sign-in failure cue. Clock started.
+09:03  Daniel's request logged. Emma left it undecided for the exercise.
+09:05  Two minutes on the request. Andrew confirmed scope and acknowledged ownership in the exercise record first. Daniel held restoration while ownership was being recorded. Andrew then recorded the decision and gave Daniel the go-ahead, still in the 09:05 minute.
+09:12  Daniel reported ready for verification. Clock continued.
+09:17  First successful exercise sign-in.
+09:18  Second consecutive successful exercise sign-in, one minute after the first. I called “Stop — second good sign-in, 09:18 UTC.”
+
+Elapsed cue to stop: 18 minutes. I recorded the transfer and results without coaching the decision.
+
+Carys

@@ -54,5 +54,10 @@
   \begin{longtable}{>{\raggedleft\arraybackslash}p{10mm}@{\hspace{6mm}}>{\raggedright\arraybackslash}p{50mm}>{\raggedright\arraybackslash}p{84mm}}
     \PalmerCheckHead\endfirsthead
     \PalmerCheckHead\endhead
-    \arrayrulecolor{PalmerPlum}\bottomrule\endlastfoot
-}{\end{longtable}}
+    \arrayrulecolor{PalmerPlum}\bottomrule\endfoot
+}{%
+  % Test the page break while longtable can still repeat the heading.
+  \noalign{\nobreak\vskip0pt\penalty0}%
+  \end{longtable}}
+\newcommand{\PalmerCheckNote}[1]{%
+  \multicolumn{3}{>{\raggedright\arraybackslash}p{\dimexpr150mm+2\tabcolsep\relax}}{\itshape #1}\\}

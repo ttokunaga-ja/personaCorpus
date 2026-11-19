@@ -81,3 +81,27 @@
 - Carys, Owen and Megan start their first supervised watches on 10, 12 and 14 November respectively, each 22:00–07:00 GMT with Andrew as named cover. Carys records her first morning readback on 11 November for a single receipt-status query owned by Claire, next check 09:00 GMT.
 - “November trainees cleared for supervised duty” is standalone, 6 November 13:24 GMT, Daniel → Anjali and Andrew, with November handover refresher record.pdf attached. Message-ID: `<7d6a3fe0-4065-4ea5-9409-3958954856d3@brt-booking.example>`.
 - Internal addresses for the rota and training correspondence use `@brt-booking.example` with local parts `daniel`, `anjali`, `andrew`, `matthew` and `sanjay`.
+
+## Passenger Identity recovery exercise, 16 October 2024
+
+- Exercise only. Daniel Jennings operates, Emma Wilkinson owns the decision, and Carys Morgan observes and keeps time. Both runs use a 20-minute target and the same clock: Carys issues the simulated sign-in failure cue and stops at the second of two consecutive successful exercise sign-ins one minute apart.
+- 16 October UTC boundaries for scope/request, approval wait, restoration and verification: 09:00 cue → 09:04 logged request → 09:16 Emma records approval → 09:26 ready to verify → 09:34 second good sign-in (first at 09:33). The intervals are 4, 12, 10 and 8 minutes, 34 total and 14 over target.
+- Daniel, Emma and Carys read the timings back at 13:00 UTC on 16 October. Acknowledging receipt did not release restoration; BRT-MT-20241016-001 names Andrew Cartwright to cover future Identity exercises, subject to checking the handover and authority.
+- BRT-EX-20241018-001 is Daniel's 18 October baseline report, with the four original intervals intact and the 17–18 October actions dated separately. Retain the report and October CSV as issued; keep both exercises outside actual incident and availability totals.
+- Standalone mail, BST: 15 October 15:06 “16 October exercise - who has the clock”, Emma → Daniel and Carys; 18 October 15:03 “October Identity exercise baseline for the review file”, Daniel → Emma and Anjali, with Passenger Identity recovery exercise - October baseline.pdf attached.
+
+## Passenger Identity exercise decision cover and access, 17–18 October 2024
+
+- Daniel's 17 October first pass proposed five minutes and parallel decision routes. Emma's revision replaces these with transfer after two minutes without a decision on a logged request, or immediately on her explicit handover.
+- Andrew is the named, prechecked delegate. During transfer Daniel holds restoration; Andrew confirms the scope and acknowledges sole decision ownership in the exercise record before recording the decision, with no parallel approval by Emma. If no checked delegate accepts, hold and contact Anjali.
+- 17 October check: Andrew can read the request and see both verification results but cannot write the decision, so 2 of 3. Emma adjusts the exercise-only access and witnesses the 18 October 09:15 UTC repeat with Daniel and Andrew: all three pass. Emma publishes the rehearsal role page on 18 October after the check.
+- “Can Andrew record the Identity exercise decision” thread, BST: (1) 17 October 12:14 Daniel → Emma with Andrew's exercise access checks.csv attached; (2) 18 October 11:04 “Re: Can Andrew record the Identity exercise decision”, Emma → Daniel, Cc Andrew, quoting (1), with no new attachment.
+- For internal mail, Emma and Carys use `emma@brt-booking.example` and `carys@brt-booking.example`.
+
+## Passenger Identity recovery repeat, 20 January 2026
+
+- At the 19 January 10:30 UTC preflight, Daniel, Emma and Andrew observe 3 of 3 checks on Andrew's own exercise access: read a request, record and read back a practice decision, and see both verification results. Emma leaves the timed request undecided by design so the repeat exercises the two-minute trigger.
+- 20 January UTC boundaries: 09:00 cue → 09:03 logged request → 09:05 Andrew first accepts ownership then records approval → 09:12 ready to verify → 09:18 second good sign-in (first at 09:17). The same four intervals are 3, 2, 7 and 6 minutes, 18 total and two under target.
+- Compared with October, the four intervals shrink by 1, 10, 3 and 2 minutes. The decision wait accounts for 10 of the 16 minutes saved; the cause of the other six minutes is unresolved.
+- Daniel's comparison deck is BRT-RB-20260120-001. Daniel, Emma and Anjali meet at 14:00 UTC. Daniel's BRT-MT-20260120-001 and its PDF export retain one decision owner for the next rehearsal, assign Daniel to file the two runs separately that day and assign Andrew to recheck his access before the next run.
+- Standalone mail, GMT: 19 January 14:12 “Tuesday Identity repeat - preflight clear”, Daniel → Emma, Andrew and Carys; 20 January 15:46 “January Identity exercise readout and interval extract”, Daniel → Anjali and Emma, Cc Andrew and Carys, attaches January exercise readout decisions.pdf and 20 January Identity recovery timings.csv.

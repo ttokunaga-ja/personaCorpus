@@ -49,5 +49,10 @@
   \begin{longtable}{>{\raggedleft\arraybackslash}p{11mm}@{\hspace{5mm}}>{\raggedright\arraybackslash}p{48mm}>{\raggedright\arraybackslash}p{87mm}}
   \BRTEventHead\endfirsthead
   \BRTEventHead\endhead
-  \arrayrulecolor{BRTBlue}\bottomrule\endlastfoot
-}{\end{longtable}}
+  \arrayrulecolor{BRTBlue}\bottomrule\endfoot
+}{%
+  % Test the page break while longtable can still repeat the heading.
+  \noalign{\nobreak\vskip0pt\penalty0}%
+  \end{longtable}}
+\newcommand{\BRTEventNote}[1]{%
+  \multicolumn{3}{>{\raggedright\arraybackslash}p{\dimexpr151mm+2\tabcolsep\relax}}{\itshape #1}\\}
