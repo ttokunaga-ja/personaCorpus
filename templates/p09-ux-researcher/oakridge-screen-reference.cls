@@ -2,7 +2,8 @@
 \ProvidesClass{oakridge-screen-reference}[2024/04/16 Oakridge dispatch screen reference]
 \LoadClass[letterpaper,11pt]{article}
 \RequirePackage[letterpaper,left=.82in,right=.82in,top=1.31in,bottom=.82in,headheight=31pt,headsep=17pt]{geometry}
-\RequirePackage{luatexja-fontspec,xcolor,tikz,fancyhdr,graphicx,booktabs,tabularx,colortbl}
+\RequirePackage[match]{luatexja-fontspec}
+\RequirePackage{xcolor,tikz,fancyhdr,graphicx,booktabs,tabularx,colortbl}
 \RequirePackage[hidelinks]{hyperref}
 \setmainfont{Liberation Serif}
 \setsansfont{Liberation Sans}

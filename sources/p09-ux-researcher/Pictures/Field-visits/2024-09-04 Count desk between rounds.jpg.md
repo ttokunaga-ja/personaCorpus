@@ -1,0 +1,7 @@
+---
+path: Pictures/Field-visits/2024-09-04 Count desk between rounds.jpg
+kind: photo
+author: Jennifer Salazar
+derived_from:
+---
+A photograph from slightly above and to one side of an unoccupied warehouse work desk before the visit. An empty clipboard lies at the left, a scanner cradle sits at the right, and a closed terminal is at the back center. The view extends down to the yellow aisle line on the floor so the desk's relationship to the walkway is clear. There is no visible screen, bin label, person's face or hand, and no readable text.

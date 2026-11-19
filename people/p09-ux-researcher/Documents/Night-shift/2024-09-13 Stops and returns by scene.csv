@@ -1,0 +1,13 @@
+participant,date,stage,time,last_confirmed_bin,stage_bin,observed_action,cue_at_stage,cue_time
+N01,2024-09-04,stop,20:46,B-14,B-15,Looking at bin label; left when asked to clear aisle,B-15 bin label,20:46
+N01,2024-09-04,return,20:55,B-14,B-15,Began reconciling B-15 after returning at 20:53,Own paper: completed B-14 check; followed to next line,20:54
+N02,2024-09-04,stop,21:12,C-07,C-08,Left to move cart before checking quantity,,
+N02,2024-09-04,return,21:22,C-07,C-08,Began reconciling C-08 after returning at 21:20,Asked colleague; colleague indicated C-08,21:21
+N03,2024-09-04,stop,21:43,D-03,D-04,Quantity entered but not saved; left count,,
+N03,2024-09-04,return,21:54,D-03,D-04,Resumed reconciliation; recounted and then saved,D-04 bin label,21:53
+N04,2024-09-11,stop,20:41,B-21,B-22,Left to move empty pallet before physical reconciliation,,
+N04,2024-09-11,return,20:48,B-21,B-22,Began reconciling B-22 after returning at 20:46,Fold in paper led to completed B-21 mark,20:47
+N05,2024-09-11,stop,21:08,C-11,C-12,On way to C-12; left in response to another worker's call,,
+N05,2024-09-11,return,21:14,C-11,C-12,Returned and began reconciling in same recorded minute; no conspicuous search observed,Colleague said C-12,21:14
+N06,2024-09-11,stop,21:49,D-09,D-10,Left to get supplies before physical reconciliation,,
+N06,2024-09-11,return,21:58,D-09,D-10,Began reconciling D-10 after returning at 21:55,Traced paper from top to completed D-09 mark,21:56

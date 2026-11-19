@@ -1,0 +1,29 @@
+---
+path: Documents/Night-shift/2024-09-04 First night stop and return.txt
+kind: text
+author: Jennifer Salazar
+derived_from:
+---
+September 4 — first night: stop and return
+Jennifer's clean notes for comparison with Ayesha
+Visit window 20:30–22:15 CDT. Times below are to the minute, not durations measured to the second. One interruption-to-reconciliation scene per person.
+
+N01
+20:46 — At B-15, looking at the bin label when asked to clear the aisle; left the count. B-14 was the last confirmed bin. The quantity for B-15 was not established in my view.
+20:53 — Returned to the count area.
+20:54 — Looked at own paper and found the completed check at B-14; followed it to the next line. Paper was the first observed cue for the return position.
+20:55 — Began reconciling B-15. I did not capture the quantity.
+
+N02
+21:12 — At C-08, before checking its quantity, asked to move a cart and left. Last confirmed: C-07.
+21:20 — Returned to the count area.
+21:21 — Asked a colleague which bin; colleague indicated C-08. First cue: the colleague's answer.
+21:22 — Began reconciling C-08. Quantity not captured. The interval since leaving includes the cart task; it is not a measure of searching after return.
+
+N03
+21:43 — At D-04, a quantity had been entered when the interruption came. The input had not been saved; D-03 was the last confirmed bin. Left the count.
+21:52 — Returned to the count area.
+21:53 — Looked again at the D-04 bin label. This identified the bin; it did not confirm its quantity.
+21:54 — Resumed reconciliation at D-04, recounted the stock and then saved. Quantity not captured in these notes.
+
+My first impression at the interruption was that D-04 might already be the last completed line because there was a quantity on screen. The observed sequence does not support that: the entry was unsaved when N03 left, and after return N03 checked the label, recounted and saved. Keep D-03 as last confirmed at the stop; do not turn the visible D-04 input into a completed count. Ayesha, please compare the order of label, recount and Save with your notes.
