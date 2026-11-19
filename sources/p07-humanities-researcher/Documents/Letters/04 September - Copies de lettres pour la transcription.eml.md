@@ -1,0 +1,34 @@
+---
+path: Documents/Letters/04 September - Copies de lettres pour la transcription.eml
+kind: text
+author: Judith Morris
+derived_from:
+---
+
+From: Judith Morris <judith@langley-history.example>
+To: Camille Laurent <camille@saint-aubin-sur-rive-archives.example>
+Cc:
+Date: Wed, 4 Sep 2024 10:08:00 +0100
+Subject: Copies de lettres pour la transcription
+Message-ID: <a9df64c2-291a-41e8-aee4-51f5d4c92078@langley-history.example>
+
+Bonjour Madame Laurent,
+
+À la suite de ma visite en juillet, je souhaiterais commander des copies papier de trente-deux lettres de la Société de lecture de Saint-Aubin-sur-Rive. Julie Perrin et moi les lirons à York pour en établir la transcription. Pourriez-vous me dire s'il serait possible de copier les six ensembles suivants ?
+
+- CR/12/A, ff. 021–025 : 5 lettres ;
+- CR/12/B, ff. 034–039 : 6 lettres ;
+- CR/13/A, ff. 083–086 : 4 lettres ;
+- CR/14/A, ff. 171–175 : 5 lettres ;
+- CR/14/A, ff. 181–183 et 185–188 : 7 lettres ;
+- CR/14/B, ff. 200–204 : 5 lettres.
+
+Ces feuilles ne reprennent pas les copies que j'ai reçues en juillet. Pour le deuxième ensemble du carton 14, je souhaite bien exclure le f. 184 : pourriez-vous garder les deux plages distinctes ? Serait-il possible de joindre les copies par ensemble, sans modifier l'ordre des feuilles, avec une séparation entre les six liasses ?
+
+Je vous remercie de votre aide et reste à votre disposition si une précision est nécessaire.
+
+Bien cordialement,
+Judith Morris
+Langley Historical Trust
+
+添付なし。

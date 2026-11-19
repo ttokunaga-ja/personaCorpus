@@ -37,4 +37,20 @@
     \end{tabularx}\par}%
   \vspace{8pt}}
 \newcommand{\SourceNote}[1]{\par{\small\itshape #1\par}}
+\newcommand{\ParallelPassage}[4]{%
+  \par\medskip\noindent
+  \begin{minipage}{\linewidth}
+    {\large\bfseries\color{LangleyPlum}#1\par}
+    \smallskip
+    \begingroup
+      \setlength{\tabcolsep}{0pt}%
+      \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}X%
+        @{\hspace{8mm}}>{\raggedright\arraybackslash}X@{}}
+        \textcolor{LangleyPlum}{\bfseries Texte français} &
+        \textcolor{LangleyPlum}{\bfseries English translation} \\[3pt]
+        #2 & #3
+      \end{tabularx}\par
+    \endgroup
+    \smallskip\SourceNote{#4}%
+  \end{minipage}\par}
 \endinput

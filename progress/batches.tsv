@@ -65,7 +65,7 @@ p04-ml-research-engineer	b002	2026-11-19	38	3	5	0	0	accepted	8887.32
 p13-corporate-privacy-counsel	b003	2026-11-19	28	3	2	3	3	accepted	5163.44
 p15-recruiter-people-ops	b003	2026-11-19	36	3	4	0	0	accepted	6825.10
 p06-life-science-researcher	b002	2026-11-19	31	6	6	5	0	done	8375.50
-p07-humanities-researcher	b002	2026-11-19	36	4	11	1	0	done	11293.71
+p07-humanities-researcher	b002	2026-11-19	36	4	11	5	4	accepted	11293.71
 p09-ux-researcher	b002	2026-11-19	28	4	3	1	1	accepted	6488.56
 p02-site-reliability-engineer	b002	2026-11-19	33	2	1	0	0	accepted	4579.70
 p19-educator-instructional-designer	b002	2026-11-19	35	3	4	0	0	accepted	6910.11
@@ -79,4 +79,5 @@ p16-clinical-researcher	b003	2026-11-19	27	2	2	0	0	done	5238.92
 p09-ux-researcher	b003	2026-11-19	38	11	1	0	0	done	5887.98
 p13-corporate-privacy-counsel	b004	2026-11-19	28	3	4	0	0	accepted	6227.48
 p04-ml-research-engineer	b003	2026-11-19	35	4	6	0	0	accepted	5971.63
-p20-investigative-journalist	b002	2026-11-19	33	8	5	1	0	done	6059.74
+p20-investigative-journalist	b002	2026-11-19	33	8	5	1	0	done	6642.74
+p02-site-reliability-engineer	b003	2026-11-19	34	3	1	2	0	done	5697.65
