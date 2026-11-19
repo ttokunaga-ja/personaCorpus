@@ -72,6 +72,14 @@ b001は2026-08-10〜09-30の研修設計リード採用3枠を扱う。8観点�
 - 試行申請（`APR`）と修了報告（`BRF`）は `mirai-approval.docx` を使い、ロゴを保持したままヘッダの用途と節を原稿に合わせる。2026年6月17日の照合前の草稿と照合後の報告を版で区別する。照合後は修了16人・補講2人。補講案内（`NOT`）は `mirai-notice.docx` のヘッダの用途を「補講案内」に替え、宛先・案内・予定・連絡先に沿って組む。
 - 紙の受講回確認票は `mirai-recruiting-note.cls` で版下を組み、プリアンブルで `\renewcommand{\MWDocumentUse}{英語窓口研修}` を指定する。用途コードは `REC`。匿名で受講回と照合内容を記す。原稿の確認記入を載せた紙面を `bin/scan` で画像PDF化し、印刷面と記入を確認する。匿名集計のCSVには受講者氏名を入れない。
 
+### 2025年5月の新任管理者受入（b010）
+
+- 佐藤の進行案は `mirai-approval.docx`、吉田と読み合わせた講師用の問いは `mirai-interview.docx` を使う。ヘッダの用途をそれぞれ「新任管理者受入」「講師用の問い」に替え、ロゴの run を保持する。進行案では回ごとに説明・演習と判断の到達点を対応させる。講師控えには問いと答えを確かめる観点を置く。用途コードは `REC`。個別の補講案内には `mirai-notice.docx` と `NOT` を使う。
+- 回別出欠は `mirai-expenses.xlsx` を開き、A〜F列を「回／講義・演習／予定枠（回）／出席（回）／欠席（回）／担当者控え」、列幅を11・33・22・22・22・35とする。A・C〜E列は `MW Number`、B・F列は `MW Text`。回別の台帳と照合してから入力し、合計はC〜Eの延べ回数にだけ付ける。4回を7〜10行目に置く場合は、例えば出席合計を `=SUM(D7:D10)` とする。対象9人・欠席した実人数2人は注記に別掲する。用途コードは `EXP`。
+- 個別補講の割付は `mirai-evaluation.xlsx` を使い、A〜F列を「欠席回／確認する判断／補講候補日／開始時刻／担当／連絡・確認事項」、列幅を12・34・19・16・20・44とする。回は `MW Number`、日付は `MW Date`、開始時刻は実時刻に `MW Number` と `hh:mm`、他は `MW Text`。割付の行だけを作り、実施日や修了の実績は記入しない。用途コードは `MAP`。
+- 討議用の投影は `mirai-recruiting.pptx`（`BRF`）。本文・2段で場面と討議の問いを示し、表や図は原稿の回別到達点や判断の流れに使う。相談先の案内は `mirai-recruiting-note.cls`（`NOT`）で、ヘッダの用途を「新任管理者向け配布資料」に替える。受講者が判断に迷った時点で、相談相手と伝える事項を確認できるようにする。
+- 個別補講で使う無記名の確認票は `mirai-recruiting-note.cls`（`REC`）で「個別補講」の版下を組む。判断・引継ぎ・次に確かめることのうち、原稿に指定されたものだけを記入する。記入罫を置く場合は、説明文の後を `\par` で閉じ、罫を別段落にする。原稿どおりに手書きを入れた紙面を `bin/scan` で画像PDFにする。吉田との日程調整はEML、無人の席配置写真はJPG。
+
 ## 共通の意匠と管理
 
 - 178人の研修会社として、小さな「開いた本」の図形と社名を使う。本の左ページは桑実色 `963A65`、右ページは灰緑 `7B8270`。本文は墨 `34383C`、白地、合計の淡色は桑実色の濃淡 `F5EDF1`。Word・Excelの図形は埋込みPNG、PowerPointはネイティブ図形、TeXはTikZ。外部画像リンクはない。
@@ -90,7 +98,7 @@ b001は2026-08-10〜09-30の研修設計リード採用3枠を扱う。8観点�
 
 1. 最初の見出しの前に `Title` の実題と `MW Metadata` の文書番号・版・作成日・作成者を追加する。承認記録は原稿の承認者・承認日・条件も記載し、申請段階で未承認の内容を承認済みにしない。候補者案内は原稿の宛名・発信者を入れる。候補者の私用連絡先を創作しない。
 2. 既存の見出しの下へ原稿を挿入する。不要な節は削り、空の見出しを残さない。Normalは10.5pt、段落後6pt、行間1.18。Titleは22pt、Heading 1は13pt、Heading 2は11ptで組織色・太字。Caption・MW Metadata・MW Noteは9pt。
-3. 実表が必要なときだけ表を作り `MW Table` を指定。先頭行を組織色の塗りとし、各セルの段落を `MW Table Header`（白・太字9pt）、明細は `MW Table Body`（墨9pt）にする。先頭行の `trPr` に `w:tblHeader` を付けて続頁で繰り返す。各明細行の `trPr` に `w:cantSplit` を付け、行の途中で分割しない。表幅は本文幅162mm以内、列幅と行高は実際の文章量に合わせる。長文を固定高さに閉じ込めない。
+3. 実表が必要なときだけ表を作り `MW Table` を指定。先頭行を組織色の塗りとし、各セルの段落を `MW Table Header`（白・太字9pt）、明細は `MW Table Body`（墨9pt）にする。先頭行の `trPr` に `w:tblHeader` を付けて続頁で繰り返す。各明細行の `trPr` に `w:cantSplit` を付け、行の途中で分割しない。表幅は本文幅162mm以内、列幅と行高は実際の文章量に合わせる。番号を右揃えにする列の右隣ではセルの左右余白を維持する。長文を固定高さに閉じ込めない。
 4. PDF化する既存Word文書は `bin/office-pdf` で変換する。TeXへ書き直して内容を二重管理しない。
 
 ## Excelの入力と行の作り方
@@ -154,26 +162,24 @@ Miltonの研修提案書は同じ `TEXINPUTS` で `\documentclass{milton-trainin
 
 ## 今回の見本と確認先
 
-作業フォルダは `scratch/p15-recruiter-people-ops/b009/work/templates-0004/`。表のパスはこのフォルダを基準とする。番号・明細は書式確認用。成果物には計画・台帳・原稿の内容を使う。
+作業フォルダは `scratch/p15-recruiter-people-ops/b010/work/templates-0002/`。表のパスはこのフォルダを基準とする。見本の文書番号・回別内訳・日程・設問は印刷確認用。成果物に入れる値と内容は計画・事実台帳・原稿に従う。
 
 | 型／確認内容 | 見本 | 全ページの画像 |
 |---|---|---|
-| 英語窓口研修の試行申請 | `examples/mirai-approval.docx` | `render/mirai-approval/` |
-| 試行申請の継続表 | `examples/mirai-approval-long.docx` | `render/mirai-approval-long/` |
-| 照合前の修了報告 | `examples/mirai-approval-report.docx` | `render/mirai-approval-report/` |
-| 面接・追加確認 | `examples/mirai-interview.docx` | `render/mirai-interview/` |
-| 補講案内 | `examples/mirai-notice.docx` | `render/mirai-notice/` |
-| 窓口対応の確認項目（3行） | `examples/mirai-evaluation-short.xlsx` | `render/mirai-evaluation-short/` |
-| 窓口対応の確認項目（12行） | `examples/mirai-evaluation-long.xlsx` | `render/mirai-evaluation-long/` |
-| 費用明細の差額・合計（3行） | `examples/mirai-expenses-short.xlsx` | `render/mirai-expenses-short/` |
-| 費用明細の差額・合計（12行） | `examples/mirai-expenses-long.xlsx` | `render/mirai-expenses-long/` |
-| 英語窓口研修の2案比較 | `examples/mirai-expenses-options.xlsx` | `render/mirai-expenses-options/` |
-| 英語窓口研修の報告（全5レイアウト） | `examples/mirai-recruiting.pptx` | `render/mirai-recruiting/` |
-| 紙の受講回確認票（短い表） | `examples/mirai-recruiting-note-short.tex`、`examples/mirai-recruiting-note-short.pdf` | `render/mirai-recruiting-note-short/` |
-| 確認票の継続表 | `examples/mirai-recruiting-note-long.tex`、`examples/mirai-recruiting-note-long.pdf` | `render/mirai-recruiting-note-long/` |
+| 進行案（4回分の短い表） | `examples/mirai-session-plan.docx` | `render/mirai-session-plan/` |
+| 進行案・講師控え（継続表） | `examples/mirai-session-plan-long.docx` | `render/mirai-session-plan-long/` |
+| 吉田と確認した講師用の問い | `examples/mirai-instructor-prompts.docx` | `render/mirai-instructor-prompts/` |
+| 個別補講の案内 | `examples/mirai-makeup-notice.docx` | `render/mirai-makeup-notice/` |
+| 個別補講の割付（2行） | `examples/mirai-makeup-allocation.xlsx` | `render/mirai-makeup-allocation/` |
+| 個別補講の準備項目（継続表） | `examples/mirai-makeup-allocation-long.xlsx` | `render/mirai-makeup-allocation-long/` |
+| 回別出欠（4行と延べ回数の合計） | `examples/mirai-attendance.xlsx` | `render/mirai-attendance/` |
+| 費用の照合（継続表と合計） | `examples/mirai-expenses-long.xlsx` | `render/mirai-expenses-long/` |
+| 管理者研修の演習（全5レイアウト） | `examples/mirai-manager-exercises.pptx` | `render/mirai-manager-exercises/` |
+| 受講者向けの相談先案内 | `examples/mirai-contact-guide.tex`、`examples/mirai-contact-guide.pdf` | `render/mirai-contact-guide/` |
+| 無記名確認票の版下（短い表） | `examples/mirai-makeup-paper-short.tex`、`examples/mirai-makeup-paper-short.pdf` | `render/mirai-makeup-paper-short/` |
+| 無記名確認票の版下（継続表の確認） | `examples/mirai-makeup-paper-long.tex`、`examples/mirai-makeup-paper-long.pdf` | `render/mirai-makeup-paper-long/` |
 | 青山の採用支援の連絡 | `examples/aoyama-recruiting-note.docx` | `render/aoyama-recruiting-note/` |
 | 青山の配布資料 | `examples/aoyama-channel-handout.tex`、`examples/aoyama-channel-handout.pdf` | `render/aoyama-channel-handout/` |
 | 明星の掲載原稿 | `examples/myojo-ad-proof.tex`、`examples/myojo-ad-proof.pdf` | `render/myojo-ad-proof/` |
 | 岡部の演習資料 | `examples/okabe-interviewer-exercise.tex`、`examples/okabe-interviewer-exercise.pdf` | `render/okabe-interviewer-exercise/` |
-| Miltonの英語提案書（2案の比較） | `examples/milton-training-proposal-short.tex`、`examples/milton-training-proposal-short.pdf` | `render/milton-training-proposal-short/` |
-| Miltonの英語提案書（続頁の確認項目表） | `examples/milton-training-proposal-long.tex`、`examples/milton-training-proposal-long.pdf` | `render/milton-training-proposal-long/` |
+| Miltonの英語提案書 | `examples/milton-training-proposal.tex`、`examples/milton-training-proposal.pdf` | `render/milton-training-proposal/` |
