@@ -10,21 +10,22 @@
 | 指標の定義・集計 | オルタ、三浦・石田。期間・分母・分子と採用率の照合 | `olta-metrics.xlsx` | A4横、青緑白抜き見出し。7列、分母・分子・比率・目標を分離 |
 | 要望と工数の照合 | オルタ、石田・太田。要望の出所、見積人週、依存工程、公開時の扱いを要望番号単位で照合 | `olta-requests.xlsx` | A4横、青緑白抜き見出し。先頭に順位と要望番号、工数の右に依存工程 |
 | 拠点別の利用確認 | オルタ、石田・中川。12拠点の利用と教育を区別して整理 | `olta-sites.xlsx` | A4横、共通書式。7列、教育状況と利用状況を別列にする |
-| 公開範囲・公開後の説明 | オルタ、石田。太田との案の比較、営業への公開範囲説明、公開後報告 | `olta-review.pptx` | 16:9、白地、上左の巡回経路ロゴと社名、青緑の題、下罫線。1マスター・5レイアウト、スライド0枚 |
-| 利用状況の出力 | オルタ、石田。Officeを経ず直接PDFにする利用記録が計画にある場合 | `olta-extract.cls` | LuaLaTeX、A4縦、共通ロゴ、青緑見出しと表ヘッダ、繰返しヘッダ・自動頁 |
+| 投資回収の前提比較 | オルタ、中野・石田。有償社数、月次寄与、初期費用を条件別に置き、回収月数と未確認事項を比較 | `olta-payback.xlsx` | A4横、共通書式。7列、金額と回収月数を右揃え、右隣の未確認事項は字下げ |
+| 企画・公開範囲の説明 | オルタ、石田。太田との案の比較、営業への公開範囲説明、公開後報告、投資案と試行の説明 | `olta-review.pptx` | 16:9、白地、上左の巡回経路ロゴと社名、青緑の題、下罫線。1マスター・5レイアウト、スライド0枚 |
+| 利用状況の出力・経営会議資料 | オルタ、石田。Officeを経ず直接PDFにする利用記録と経営会議への提出資料 | `olta-extract.cls` | LuaLaTeX、A4縦、共通ロゴ、用途別の右ヘッダ、青緑見出しと表ヘッダ、繰返しヘッダ・自動頁 |
 | 拠点確認書 | 若松設備管理、小野。顧客発の拠点確認と正式な添付回答 | `wakamatsu-confirmation.docx` | A4縦、表紙なし。屋根と幹の図形、灰緑・明朝、控えめな事務用紙 |
 | 依頼受付の手順 | 若松設備管理、管理部の小野。依頼受付の流れを案内する直接出力のテキストPDF | `wakamatsu-intake.cls` | LuaLaTeX、A4縦。屋根と幹の図形、灰緑の細い上罫、明朝体、管理部と自動頁 |
 
-今回の範囲は2024年4〜7月。4月11日の受付6工程の観察から、7月25日の公開範囲決定までを扱う。週14回は二重入力の頻度。要望38件、上位9件・18人週、公開対象5件をそれぞれ区別し、依存工程と対象四半期は計画・台帳で確定する。決定メールと公開範囲の説明資料には暦年・会計年度の四半期を併記する。
-
 受付観察は `olta-minutes.docx`、再利用要件は `olta-report.docx` を使う。開発向け比較と営業向け説明は共通の `olta-review.pptx` から別々に作る。DOCXと同内容のPDFは完成したDOCXから `bin/office-pdf` で出し、小野から届く受付手順は若松の `wakamatsu-intake.cls` で組む。
+
+2024年12月〜2025年1月の年間計画では、全体開発の旧稿と試行範囲の文書を `olta-report.docx`、福田向け投資案と試行担当者向けの説明を `olta-review.pptx` からそれぞれ作る。経営会議に直接渡すPDFには `olta-extract.cls` の経営会議用管理欄を使う。商談条件のCSVには確認済み・未確認の区別を持たせる。見込4社と有償移行の想定は別に扱い、1月24日の提案は試行に限定する。試行で確かめる項目と再判断の条件は原稿に従う。決定メール・説明資料には対象の暦年と会計年度の四半期を併記する。
 
 ## 組織の識別と管理項目
 
 - 自社ロゴは、下を回って右へ上がる青緑の巡回経路と、右上の黄土の矢印、その右の社名。青緑 `006D77`、黄土 `D69E36`、本文の墨 `283C40` の3色。Officeのテーマにも同じ配色を登録している。淡青緑 `EAF3F3` は主色の背景用濃淡。Word・Excelは図形部分を内部に埋め込み、社名は編集可能な文字。PowerPointのマスターとTeXは図形で持つ。外部画像依存はない。
 - オルタのOfficeは日本語・欧文とも Noto Sans CJK JP。既定のNormal、見出し、表、テーマのmajor/minor、Excel既定フォントと管理入力欄にも設定済み。オルタのTeXの日本語は Noto Sans CJK JP、欧文は Liberation Sans。どちらも環境に存在する。
 - 自社のWordは上部にロゴと正式社名、下部にプロダクト企画・社名・自動頁。PowerPointは同じ識別をマスターに持つ。Excelは上部にロゴと正式社名、印刷ヘッダにプロダクト企画、フッタに社名と現在頁／総頁。TeXは上部にロゴと社名・用途、下部に部門・社名・現在頁／総頁。
-- 文書番号は `OFS-YYYYMM-用途-連番3桁`。用途は `RP`（報告・定義・判断）、`MT`（議事録）、`NT`（案内）、`KM`（指標集計）、`ST`（拠点表）、`RQ`（要望と工数の照合）、`BR`（スライド）、`EX`（直接出力PDF）。実際の番号・版は計画と事実台帳で決める。同じDOCXとPDFは同じ番号・同じ版。全ての正式文書に日付・作成者・版を添える。期間や基準日と発行日・出力日時を混同しない。
+- 文書番号は `OFS-YYYYMM-用途-連番3桁`。用途は `RP`（報告・定義・判断）、`MT`（議事録）、`NT`（案内）、`KM`（指標集計・試算）、`ST`（拠点表）、`RQ`（要望と工数の照合）、`BR`（スライド）、`EX`（直接出力PDF）。実際の番号・版は計画と事実台帳で決める。同じDOCXとPDFは同じ番号・同じ版。全ての正式文書に日付・作成者・版を添える。期間や基準日と発行日・出力日時を混同しない。
 - 若松のロゴは屋根形と垂直な幹、下の水平線。灰緑 `52644C` と墨 `283C40`、白地。Wordは日本語・欧文とも Noto Serif CJK JP。ヘッダに正式社名、フッタに管理部・社名・自動頁。若松発の正式な確認書は `WSK-YYYYMM-CF-連番3桁`、受付手順は `WSK-YYYYMM-PR-連番3桁`。受領側は発行元の番号を保持する。
 - オルタの識別には青緑の巡回経路を使う。織庭の藍と織り目、湊梁建設の橙と柱梁とは、図形と配色で判別できる。
 
@@ -46,6 +47,8 @@ A4縦、左右23mm、上29mm、下23mm。Normalは10.5pt、行間1.16、段落�
 4. 注記は存在するときだけ実内容の末尾へ追加し、必要ならA:Gを結合する。長さに応じて行高を設定する。明細が少なくても空行で紙面を埋めない。
 5. `auto_filter.ref` はA6から最終明細のG列まで。合計・注記を含めない。`print_area` はA1から実内容の最終行G列まで。A4横、幅1ページ・高さ自動、1〜6行目の印刷繰返し、C7固定、左右0.3inch・上下0.4inch。全ページをレンダリングし、読める文字サイズ・番号・列見出し・行の折返しを確認する。数式は `bin/recalc` で計算して確認する。
 
+回収比較の列はAから順に試算条件、有償想定社数、月次寄与（円／社）、初期費用（円）、回収月数、未確認の条件、出典・扱い。A・F・Gは `OF Text`、Bは `OF Number`、C・Dは `OF Yen`（円単位・桁区切り）、Eは `OF Months`（小数1桁）。月次寄与と初期費用の範囲は原稿に従う。単純回収月数を使う場合、E7に `=IF(OR(COUNT(B7:D7)<>3,B7<=0,C7<=0),"",D7/(B7*C7))` を入れ、実際の明細行に合わせて参照を変える。未確認の入力セルは値を空にし、回収月数が空になる理由と確認先はF・Gへ記す。仮定の異なるケースは集計せず、必要な注記を末尾へ入れる。
+
 ## PowerPointで説明資料を作る
 
 `Presentation(型のパス)` で開き、実レイアウトを選ぶ。index 0は表紙、1は見出しと本文、2は2段、3は表、4は図。型はスライド0枚で、例文はない。題のplaceholderはidx=0、本文・図表領域はidx=1、2段右はidx=2。表紙題34pt、その他題28pt、本文20pt、表・図18pt以上。表紙副題へ文書番号・版・日付・作成者・対象四半期を入れる。
@@ -54,9 +57,11 @@ A4縦、左右23mm、上29mm、下23mm。Normalは10.5pt、行間1.16、段落�
 
 ## TeXで直接PDFを作る
 
-オルタの利用状況出力と若松の受付手順に使う。`olta-extract.cls` を指定scratchのTeX原稿と同じディレクトリへコピーし、`\documentclass{olta-extract}` で読み込む。`bin/tex 原稿.tex 出力.pdf` で組む。クラス単体に本文・例文はない。
+オルタの利用状況出力・経営会議資料と若松の受付手順に使う。`olta-extract.cls` を指定scratchのTeX原稿と同じディレクトリへコピーし、`\documentclass{olta-extract}` で読み込む。`bin/tex 原稿.tex 出力.pdf` で組む。クラス単体に本文・例文はない。
 
 `\OFRecord[版]{題}{文書番号}{基準日}{出力日時}{作成者}` で実値を指定する。版を管理しない出力では角括弧を省ける。本文は10pt・墨、題は青緑、`\OFSection{見出し}` も青緑。余白23mm、上29mm、下24mm。`longtable` の見出し行は `\rowcolor{OFteal}` と各セルの `\OFHead{列名}` を使い、`\endfirsthead` と `\endhead` で繰返す。列幅の合計と列間余白を本文幅164mm以内に収める。見本では15＋45＋90mmと列間余白を使う。先頭を右寄せにする場合は `>{\raggedleft\arraybackslash}p{15mm}@{\hspace{5mm}}` で次の左寄せ列との間を空ける。型の色は定義するだけでなく、本文・管理題・見出し・ヘッダ・フッタ・ロゴへ適用済み。長い出力でも管理欄と表を重ねない。
+
+経営会議へ直接提出する場合は、本文の最初に `\OFMeetingRecord{題}{文書番号}{版}{発行日}{作成者}{対象期間}` を使う。右ヘッダが「経営会議資料」になり、番号・版・発行日・作成者・計画の対象期間を表示する。見出し・表・次頁は利用状況出力と同じ仕様。
 
 `wakamatsu-intake.cls` も原稿と同じディレクトリへコピーし、`\documentclass{wakamatsu-intake}` で読み込む。`\WSKRecord{題}{文書番号}{版}{発行日}{作成者}` に送付元の値を入れ、手順の区切りを `\WSKStep{見出し}` で示す。日本語は Noto Serif CJK JP、欧文は Liberation Serif、本文11pt・墨、題と見出しは灰緑。必要に応じて上と同じ方法で表を置き、見出し行は `\rowcolor{WSKgreen}` と `\WSKHead{列名}` を使う。出力PDFはテキストを選択できることを確認する。
 
@@ -66,7 +71,7 @@ CSVは原稿の素の列と値だけを出し、ロゴ・管理行を混入さ�
 
 ## 組版見本と検証先
 
-今回の見本は `scratch/p08-product-manager/b002/work/templates-0002/examples/`、画像は `scratch/p08-product-manager/b002/work/templates-0002/render/` に置く。見本中の番号・対象四半期・明細は組版確認用。成形時の値は計画・台帳・原稿から取る。
+見本は `scratch/p08-product-manager/b003/work/templates-0002/examples/`、画像は `scratch/p08-product-manager/b003/work/templates-0002/render/`。見本中の番号・明細・試算値は組版確認用。成形時の値は計画・台帳・原稿から取る。
 
 | 型 | examples以下の見本 | render以下の全頁一覧 |
 |---|---|---|
@@ -77,8 +82,10 @@ CSVは原稿の素の列と値だけを出し、ロゴ・管理行を混入さ�
 | `olta-metrics.xlsx` | `olta-metrics-3.xlsx`・`olta-metrics-38.xlsx` | `excel-metrics.jpg` |
 | `olta-sites.xlsx` | `olta-sites-3.xlsx`・`olta-sites-38.xlsx` | `excel-sites.jpg` |
 | `olta-requests.xlsx` | `olta-requests-3.xlsx`・`olta-requests-38.xlsx` | `excel-requests.jpg` |
+| `olta-payback.xlsx` | `olta-payback-3.xlsx`・`olta-payback-38.xlsx` | `excel-payback.jpg` |
 | `olta-review.pptx` | `olta-review.pptx`（全5レイアウト） | `slides.jpg` |
-| `olta-extract.cls` | `olta-extract-short.tex`・`olta-extract-long.tex` と各PDF | `tex.jpg` |
-| `wakamatsu-intake.cls` | `wakamatsu-intake-short.tex`・`wakamatsu-intake-long.tex` と各PDF | `tex.jpg` |
+| `olta-extract.cls` | `olta-extract-short.tex`・`olta-extract-long.tex` と `olta-extract-short.pdf`・`olta-extract-long.pdf` | `tex-extract.jpg` |
+| `olta-extract.cls`（経営会議） | `olta-meeting-short.tex`・`olta-meeting-long.tex` と `olta-meeting-short.pdf`・`olta-meeting-long.pdf` | `tex-meeting.jpg` |
+| `wakamatsu-intake.cls` | `wakamatsu-intake-short.tex`・`wakamatsu-intake-long.tex` と `wakamatsu-intake-short.pdf`・`wakamatsu-intake-long.pdf` | `tex-wakamatsu.jpg` |
 
-各頁の原寸PNGは見本と同じstemの画像フォルダにある。Excelの管理欄と列の境界は `excel-metrics-detail.png`、`excel-sites-detail.png`、`excel-requests-detail.png` で拡大確認できる。実行記録は `scratch/p08-product-manager/b002/work/templates-0002/commands.json`、構造検査は同じ場所の `structure.json`。
+各頁のPNGは画像先にある見本と同じ拡張子なしの名前のフォルダに格納。Excelの管理欄と明細の列境界は `excel-metrics-detail.png`、`excel-sites-detail.png`、`excel-requests-detail.png`、`excel-payback-detail.png` で確認できる。実行記録は `scratch/p08-product-manager/b003/work/templates-0002/commands.json`、構造検査は `scratch/p08-product-manager/b003/work/templates-0002/structure.json`。

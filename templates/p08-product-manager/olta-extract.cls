@@ -26,5 +26,10 @@
   {\small 文書番号：#3\quad
     \if\relax\detokenize{#1}\relax\else 版：#1\quad\fi
     作成者：#6\par 基準日：#4\quad 出力日時：#5\par}\medskip}
+\newcommand{\OFMeetingRecord}[6]{%
+  \fancyhead[R]{\small\color{OFteal}経営会議資料}%
+  {\LARGE\bfseries\color{OFteal}#1\par}
+  {\small 文書番号：#2\quad 版：#3\quad 作成者：#5\par
+    発行日：#4\quad 対象期間：#6\par}\medskip}
 \newcommand{\OFSection}[1]{\par\medskip{\large\bfseries\color{OFteal}#1}\par}
 \newcommand{\OFHead}[1]{\textcolor{white}{\bfseries #1}}
