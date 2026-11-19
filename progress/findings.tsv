@@ -1720,3 +1720,12 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-19	p08-product-manager	b004	build-review	1	V2	Documents/店舗権限分離/3月5日_竹内さんと代理の指名順を確認.docx	1頁目の「担当と期限」の表は青緑地に白字のOF Tableへ直ったが、主題「代理の指名順と終了条件」の文字が20ptで直接指定され、olta-minutes.docxと見本のTitle 24ptより小さい。
 2026-11-19	p08-product-manager	b004	build-review	1	V2	Documents/店舗権限分離/代理承認を認める条件_3月合意.docx	1頁目の「代理の条件と指名順」の表は青緑地に白字のOF Tableへ直ったが、主題「代理承認を認める条件」の文字が20ptで直接指定され、olta-report.docxと見本のTitle 24ptより小さい。
 2026-11-19	p18-manufacturing-quality-engineer	b003	check	1	opens	Documents/不適合/その他/BR-2410_保管品の引当.csv	Error: CSV error: record 1 (line: 2, byte: 27): found record with 4 fields, but the previous record has 1 fields
+2026-11-19	p07-humanities-researcher	b002	check	0	source	Documents/Archive/Box-14/Carton 14 - la date au bout de la ligne ff172-173.pdf	body token overlap 0.187 < 0.3
+2026-11-19	p07-humanities-researcher	b002	check	1	source	Documents/Archive/Box-14/Carton 14 - la date au bout de la ligne ff172-173.pdf	body token overlap 0.152 < 0.3
+2026-11-19	p07-humanities-researcher	b002	check	2	source	Documents/Archive/Box-14/Carton 14 - la date au bout de la ligne ff172-173.pdf	body token overlap 0.200 < 0.3
+2026-11-19	p15-recruiter-people-ops	b004	templates-review	0	other	README.md	一覧の型9件は実在するが、「今回の見本と確認先」が基準とする scratch/p15-recruiter-people-ops/b003/work/templates-0002/ が存在せず、見本と画像の参照34件すべてを開けない。
+2026-11-19	p15-recruiter-people-ops	b004	draft-review	0	D3	OneDrive - みらい職場研修/規程と手順/入社前に受入担当が見ること.html	5項目表の直後には未準備と無回答時の連絡しかなく、台帳137行の「受入担当が3営業日前正午までに項目別回答を集めて伊藤へ共有する」手順が抜けているため、全項目が準備済みの場合の回答先が案内から分からない。
+2026-11-19	p15-recruiter-people-ops	b004	build-review	0	V2	Documents/入社支援/正午の回答と15時の引継ぎ.xlsx	「日中の扱い」の表はA6:D10の4列だが、E6:F6に経費表の見出し書式が空欄のまま残り、印刷で第4列の右に空の見出し帯が続く。
+2026-11-19	p15-recruiter-people-ops	b004	build-review	0	V1	Documents/入社支援/2月の確認日_休日を飛ばす計算.xlsx	「確認日」B7・D7・F7とB8・D8・F8の曜日は原稿で日本語指定だが、保存された計算結果と印刷表示が順にMon・Wed・FriとThu・Fri・Wedになっている。
+2026-11-19	p15-recruiter-people-ops	b004	build-review	1	V1	Documents/入社支援/2月の確認日_休日を飛ばす計算.xlsx	「確認日」のB7・D7・F7とB8・D8・F8は、保存された数式の結果と印刷表示がともにMon・Wed・Fri／Thu・Fri・Wedで、原稿指定の月・水・金／木・金・水になっていない。
+2026-11-19	p15-recruiter-people-ops	b004	build-review	2	V1	Documents/入社支援/2月の確認日_休日を飛ばす計算.xlsx	「確認日」のB7・D7・F7とB8・D8・F8は、保存されたTEXT式の計算結果と印刷1ページ目でMon・Wed・Fri／Thu・Fri・Wedと表示され、原稿指定の月・水・金／木・金・水になっていない。
