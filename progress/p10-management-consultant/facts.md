@@ -96,3 +96,30 @@
 - 件名「Papers for the implementation review」、2025-01-20 09:16 GMT Nicholas → Elizabeth（Cc Connor、Neha、Siobhan）。指摘への回答 DOCX を実添付し、書き込み用 PDF は会議室で手渡す。
 - 2025-01-20 10:00〜10:45 GMT、Elizabeth・Nicholas・Connor・Neha・Siobhan の審査で、Elizabeth が修正後の顧客説明方針を了承。顧客側の着手承認・担当指名・基準期間が揃うまで開始日は保留。
 - 件名「Before we date the Japan changes」、1月20日14:12 GMT Nicholas → Kenneth（Cc Neha、Siobhan、添付なし）。顧客側の担当指名と着手前4週の記録を揃えられる時期を照会。
+
+## Pioneer の仕入先選定と全社再交渉の旧案
+
+- 2025-04-07 14:00 BST、Meera Kulkarni・Nicholas Hargreaves・Connor Atkinson が開始会議。Meera は診断を取引上位12社に限定し、42社の一斉再交渉案（HRA-PIO-BUY-BRF-2025-001 v0.2）を見送った。
+- 2025-01-01〜03-31に計上した税抜 USD の請求と貸方を仕入先IDで合算する。純仕入額の降順、同額はID昇順。母集団42社のうち1〜12位が診断対象、13〜42位は母集団に残す。
+- S042 の別表示名2件の請求 USD 121,000（AP-48106）と USD 78,000（AP-49271）に貸方 USD 9,000（AP-49308）を反映すると11位 USD 190,000。12位 S018 は AP-48962 の USD 186,400、13位 S021 は AP-49115 の USD 182,900。
+- 4月7日は仕入先IDによる暫定順位を使用し、4月9日の名寄せと4月11日の確定表 HRA-PIO-BUY-SEL-2025-001 v1.0 でこの順位を確認した。取引明細CSVは境界と別名義の抜粋であり、42社を数える元は Q1 全明細。
+
+## Pioneer の現行例外要領と緊急申請の照会
+
+- 現行要領は Meera 発行の PTD-BUY-EXC-2025-001 Rev 2、2025-01-06 発効。理由・必要日・数量・依頼元・根拠を記入し、緊急も Buying の判断と時刻を残してから発注する。需要初認時刻の照合や7月の先行共有票は現行の必須手順に含まれない。
+- Meera は `meera@pioneer-trade.example`、Nicholas、Neha、Connor、Paul、Oliver はそれぞれ `nicholas@holt-reeves.example`、`neha@holt-reeves.example`、`connor@holt-reeves.example`、`paul@holt-reeves.example`、`oliver@holt-reeves.example`。
+- 「The procedure Buying uses today」、2025-04-09 13:40 BST、Meera → Nicholas（Cc Neha）。現行要領 `Buying exception requests - evidence and approval.pdf` を実添付。
+- 例外は2025-04-01〜06-30に受付、全仕入先横断で一意の申請IDを数える。93件のうち申請時に Urgent が37件、非緊急が56件。再送は同一IDに束ね、時刻は Pioneer の現地表示 EDT を使用。
+- 需要初認は数量と必要日が確認できる最初の証跡。通常手配の基準は必要日の前営業日15:00 EDT。締切前に需要が判明し、Buying への初回共有が締切後だと確認できたものを計画遅れ、締切後の新規・増量を突発需要、発注済み分の供給変更を供給側変更、根拠が足りないものを証拠不足とする。
+- 7月8日の暫定内訳は計画遅れ22、突発需要8、供給側変更4、保留3。7月10日の照会回答を反映した確定内訳は23、8、4、証拠不足2（合計37）、明細は HRA-PIO-BUY-EXC-2025-001 v1.0。非緊急56件の原因内訳は集計していない。
+- EX-052 は申請理由「stock needed today」、6月11日08:42 EDTの申請が Buying への初回共有。6月10日14:20 EDTに補充記録 RP-6118 で240ケース・必要日6月11日が揃い、前営業日15:00の締切より40分前と確認できたので、保留から計画遅れに移す。
+- EX-077 は申請理由「same-day top-up」、6月24日08:31 EDTに申請。08:13 EDTの転送より前の数量確定時刻が取れず、証拠不足。もう1件の EX-088 は必要日が口頭で変わり原記録から確定時刻を復元できず、証拠不足。
+- 「Two requests with dates I cannot place」、2025-07-09 13:23 BST Neha → Meera（Cc Nicholas）。2025-07-10 14:18 BST Meera → Neha（Cc Nicholas）が「Re: Two requests with dates I cannot place」で両件の問いを引用し、EX-052 の数量・必要日と EX-077 の転送元の欠落を回答。両通とも添付なし。
+
+## Pioneer の需要共有案と Meera の判断
+
+- HRA-PIO-BUY-BRF-2025-005 は Nicholas の7月11日 v0.4、同日13:18 BSTの Elizabeth 赤字入り v0.5、Nicholas の7月16日 v1.0。曖昧な「late demand」を v1.0 で「Known before cut-off, shared late」に替え、23・8・4・2の分母37を示す。7月16日配布PDFは v1.0 と同じ版。
+- 7月15日11:00 BST、Nicholas・Neha・Siobhan が EX-052 と EX-077 で机上確認。提案は依頼元の数量・必要日・需要初認時刻を前営業日15:00 EDTまでに Buying へ渡すこと。締切後の突発需要と供給側変更には現行例外経路を使い、時刻不明は Buying に確認する。
+- 「Papers for the buying discussion」、2025-07-16 13:29 BST、Nicholas → Meera（Cc Neha、Connor）。v1.0 の `16 Jul - Demand sharing first.pdf` と別添集計 `15 Jul - Coverage and urgent breakdown.xlsx` を実添付。
+- 2025-07-16 14:00〜14:40 BST、Meera・Nicholas・Neha・Connor。Meera は4月の全社再交渉見送りと12社の診断範囲を維持し、需要共有の詰めを先行することに同意。Meera が Buying の窓口を指名し、Neha が共有票を詰める。開始日と窓口名は未確定。
+- 23件は当時の証跡で需要の共有が遅かった件数。先行共有で回避できる件数、削減額、運用後の実績はこの診断では測っていない。
