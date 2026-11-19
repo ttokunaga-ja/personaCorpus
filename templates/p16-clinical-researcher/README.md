@@ -9,7 +9,7 @@
 | 観察記録票 | センター。鈴木と木村が、正式開始前に欄の並びを読み合わせる | [katsuragawa-observation-form.docx](katsuragawa-observation-form.docx) | A4縦、独立表紙なし。記録を開く、観察の記録、未記入欄の確認と引継ぎの順。各節の表に共通の赤紫の見出しを使う |
 | 分母の比較 | センター。鈴木・石川が項目ごとの対象、記録あり、欠測理由を並べる | [katsuragawa-denominators.xlsx](katsuragawa-denominators.xlsx) | A4横。淡い赤紫の管理欄ラベルと白抜きの列見出し。続頁にも管理欄と列見出し |
 | 審査質問と修正箇所の対照 | センター。鈴木が質問番号ごとに計画書の参照先、旧記載、改訂後の記載と回答を照合する | [katsuragawa-ethics-crosswalk.xlsx](katsuragawa-ethics-crosswalk.xlsx) | A4横。共通の管理欄と赤紫の列見出し、折返しのある8列。続頁にも管理欄と列見出し |
-| 研究会議 | センター。鈴木が会議で論点・空表・手続図を示す | [katsuragawa-meeting.pptx](katsuragawa-meeting.pptx) | 16:9。上下の細罫と余白。2段レイアウトの本文領域は淡い赤紫 |
+| 研究会議 | センター。鈴木が会議で論点・空表・手続図を示す。前田は手続研修の進行に使う | [katsuragawa-meeting.pptx](katsuragawa-meeting.pptx) | 16:9。上下の細罫と余白。2段レイアウトの本文領域は淡い赤紫 |
 | 研究概要 | センター。鈴木が作成し田中が確認する研究概要をPDFで共有する | [katsuragawa-summary.cls](katsuragawa-summary.cls) | A4縦。右上に研究概要、題の下に管理欄と確認者。本文を選択できるPDF |
 | 提出前確認票 | センター。鈴木が再提出する添付と照会回答の対応を紙で確かめる | [katsuragawa-submission-check.cls](katsuragawa-submission-check.cls) | A4縦。共通ヘッダ、チェック枠、確認・備考を書き込む間隔とくすみ紅の罫線 |
 | 試料受渡し確認票 | センター薬剤管理。橋本が試料証明書との照合と保留中の引継ぎを残す | [katsuragawa-handover-check.cls](katsuragawa-handover-check.cls) | A4縦。共通ヘッダ、淡い赤紫の見出しとくすみ紅の横罫を引いた確認項目・確認結果の2列、薬剤管理のフッタ |
@@ -17,6 +17,10 @@
 | 承認日根拠確認票 | センター。鈴木が確認した資料、照合結果、次の確認先を紙に残す | [katsuragawa-approval-evidence.cls](katsuragawa-approval-evidence.cls) | A4縦。共通ロゴ、淡い赤紫の項目帯、2列の照合欄。印刷面をスキャン |
 | 完了報告 | センター。鈴木が点検所見を参照し、保留と再確認の条件を記録する | [katsuragawa-completion-hold.docx](katsuragawa-completion-hold.docx) | A4縦、独立表紙なし。共通の管理欄の下に所見、完了報告の扱い、再確認の条件 |
 | 照会割当一覧 | センター。池田が週次会議で照会・担当・回答期限を照合する | [katsuragawa-query-assignments.xlsx](katsuragawa-query-assignments.xlsx) | A4横。淡い管理欄と赤紫の見出し。担当、回答期限、回答日、状態を別列に置く。続頁にも管理欄と列見出し |
+| 説明手続理解度調査の説明文 | センター。鈴木が田中と確認する参加者向けの説明文二案 | [katsuragawa-survey-explanation.docx](katsuragawa-survey-explanation.docx) | A4縦、独立表紙なし。「調査のご案内」のヘッダ。目的、協力内容、問い合わせの順 |
+| 説明手続理解度調査の進め方 | センター。鈴木が田中と確認し、実施担当に調査の手順を渡す | [katsuragawa-survey-procedure.cls](katsuragawa-survey-procedure.cls) | A4縦。右上に「調査実施手順」、題下に文書管理欄と確認者、赤紫の節見出し。テキストPDF |
+| 手続研修の例題解説 | センター。石川が記録された0、対象内の欠測、対象外の判断を場面ごとに解説する | [katsuragawa-training-examples.xlsx](katsuragawa-training-examples.xlsx) | A4横。管理欄と赤紫の見出し。記録値を右寄せし、右隣の取扱いは左に字下げ。続頁にも管理欄と列見出し |
+| 手続研修の確認票 | センター。前田が再説明前後の言葉と申し送りを手書きで残す | [katsuragawa-training-check.cls](katsuragawa-training-check.cls) | A4縦。淡い赤紫の項目帯とくすみ紅の筆記罫。教育担当を併記したフッタ。印刷面をスキャン |
 | Statistical Consultation | 吉村統計研究合同会社。後藤が統計所見を文書添付で返す場合の型 | [yoshimura-statistical-note.cls](yoshimura-statistical-note.cls) | A4縦。右上に座標軸と3つの点・社名。青い見出しと左寄せの英文管理欄、下部の青罫 |
 | 研究計画書についての照会 | あかね研究倫理協議会。長谷川が鈴木へ質問をまとめて通知する | [akane-ethics-questions.cls](akane-ethics-questions.cls) | A4縦。向き合う三角形と協議会名、淡い緑の題帯、左にそろえた管理欄と番号付き質問、下部に緑の罫線 |
 | 試料証明書 | 長田研究機材株式会社。石井が供給品の識別情報をセンターへ提出する | [osada-sample-certificate.cls](osada-sample-certificate.cls) | A4縦。右上に高さが順に下がる3本の矩形と社名、右寄せの発行欄、中央の題、生成りの項目欄と黄土色の下罫 |
@@ -34,6 +38,10 @@
 
 - 完全性点検所見は `REV`、完了報告は `RPT`、承認日根拠確認票は `CHK`、照会割当一覧は `TAB`。4月15日の点検24件と承認日欠落3件は点検の集計。5月15日の照会21件と担当不明4件は割当の集計。日付の根拠は対象版に対応する承認記録で照合し、未確認なら承認日欄を空ける。照会を森に割り当てた後も、未回答の行は継続扱いにする。
 
+- 説明手続理解度調査には `KRC-CMP-YYYYMMDD-種別-連番3桁` を使う。種別は `EXP`（説明文）と `PRO`（実施手順）。説明文の二案には別々の番号を付ける。
+- 手続研修には `KRC-TRN-YYYYMMDD-種別-連番3桁` を使う。種別は `MTG`（進行用スライド）、`TAB`（例題解説）、`CHK`（確認票）。どちらの番号も、初回作成日、連番、改訂時の扱いはセンター共通の規則に従う。
+- 2025年7月29日開始の調査は説明文二案を使う24件。低用量観察の予定48例は別の研究の進捗に記す。8月25日の研修対象は17人、欠測を0と説明したのはそのうち2人、石川が再説明に使ったのは例題3問。人数、調査の件数、観察の例数、例題の数にはそれぞれの単位を付ける。
+
 ## Word
 
 1. `Document(型のパス)` で開く。本文の最初の段落（`Title`）に題を入れ、続く2段落（`KRC Control`）に「文書番号・版」「作成日・作成者」を記入する。日付は `YYYY-MM-DD`。計画書は最初の「研究目的」の段落でページを改める。議事録と相談書は同じ頁から続ける。
@@ -43,6 +51,8 @@
 5. 観察記録票は節ごとに必要な行だけを作る。3列なら「項目／記入欄／確認事項」を42／54／64mmとし、記入欄は空け、項目名と確認事項を原稿に沿って入れる。表は手順3の表スタイルと見出しの繰返し設定を使う。記入欄の高さは記入量に合わせる。1月28日の試行6件・記入漏れ11箇所は改訂の根拠として記し、票面の欄順は実際に記入する順にする。
 
 6. 完了報告は本文と同じ頁に管理欄を置く。点検所見を文書番号で参照し、点検範囲と残件、保留の扱い、再確認の条件を各節に記す。題に当該版の扱いを示し、保留稿の版と作成日を管理欄に入れる。
+
+7. 説明文二案は同じ型から別々に成形する。手順1の題と管理欄を各案の番号・版・日付・作成者で埋め、参加者向けの本文を各節に入れる。節名は文面に合わせて変更できる。案を使い分ける実施担当向けの指示は調査実施手順に置く。
 
 ## Excel
 
@@ -55,11 +65,15 @@
 
 7. 照会割当一覧は同じ管理セルと印刷設定を使う。A:Hの幅は7／22／36／16／17／17／15／31。Aは `KRC Integer`、B〜DとG〜Hは `KRC Text`。EとFは日付型で `KRC Date`、未確定・未回答の日付セルは空欄にして書式だけ指定する。明細は7行目から作り、1〜2行の短文なら34ptを基準に行高を調整する。会議の引継ぎ注記を付ける場合は、明細末尾の次行のA:Hを結合し `KRC Note` を指定する。照会の一覧に合計行は設けない。印刷範囲・フィルタ・続頁見出しは手順4のとおり設定する。
 
+8. 例題解説も同じ管理セルと印刷設定を使う。A:Hの幅は7／24／10／15／26／26／16／30。A（例題の番号）とC（記録値）は `KRC Integer`、B・D〜Hは左寄せでインデント1の `KRC Text`。Cには原票に記録された値を入れ、欠測と対象外では `None` とする。Dの取扱いとEの根拠で区別する。明細は7行目から書式ごと作り、行高42ptを基準に折返しに合わせて調整する。例題番号と記録値は集計対象にならないため、合計行は設けない。必要な注記は明細の次行のA:Hを結合し `KRC Note` を指定する。印刷範囲とフィルタは手順4に従う。短い版と続頁のある版で、番号の全文と隣接する版・日付・氏名、A→BとC→Dの間隔、続頁の見出しを画像で確認する。型の内部タイトル（`docProps/core.xml` の `dc:title`）は「手続研修の例題解説」。成形時に表題を変える場合は `workbook.properties.title` も更新し、手順6の `bin/stamp` 後に表題と一致することを確認する。
+
 ## PowerPoint
 
 - `Presentation(型のパス)` で開き、`slide_layouts[0:5]` を順に表紙、見出しと本文、2段、表、図として使う。題はプレースホルダ0。表紙の管理欄・本文・表・図は1、2段の右側は2。表紙の題34ptと副題18pt、他頁の題28ptと本文20pt。副題の1行目に文書番号と版、2行目に作成日（`YYYY-MM-DD`）と作成者を入れる。
 - 表は `placeholders[1].insert_table(行数, 列数)`。見本は18ptで赤紫に白抜きの見出し、本文は白または淡い赤紫の地に墨。数値列は右寄せにし、右隣の文字列は左寄せでセルの左余白を0.25インチ取る。図は `insert_picture` した後に、全体が見えるようにトリミングを解除し、位置・幅・高さを明示して元の縦横比で領域内に収める。表・図の領域は左0.72、上2.03、幅11.83、高さ4.55インチ。
 - 頁数は成形時に右下（左12.08、上6.99インチ）へ墨色の11ptで置く。ロゴと研究事務局の表記はマスター上にある。見出しや本文が2行になったときは、続く要素との間隔も画像で確認する。
+
+- 研修の進行用スライドもこのマスターを使う。表、二段、図は原稿に必要なものを選ぶ。研修内で人数を示すときは、表の対象と単位を明記する。
 
 ## TeX・メール・手続図
 
@@ -72,41 +86,10 @@
 - 完全性点検所見は `\documentclass{katsuragawa-integrity-findings}`、`\KRCFindingsHeading{題}{文書番号}{版}{作成日}{作成者}` と `\KRCSection{見出し}` を使う。点検範囲、確認できなかった欄、事務局へ伝える条件を順に組み、テキスト層を持つPDFにする。
 - 承認日根拠確認票は `\documentclass{katsuragawa-approval-evidence}`、`\KRCCheckHeading{題}{文書番号}{版}{作成日}{作成者}`、`\KRCSection{区分}` を使う。照合先ごとに `\KRCEvidenceItem{区分}{照合資料}{確認結果}{次の確認先}` を並べ、完成面を `bin/scan` に通す。照合資料の発行日と承認日を区別する。
 - 森の照会一覧はCSVで照会番号、担当、回答期限、回答日、状態などを独立した欄で持つ。池田の引継ぎはTXTで、担当が決まった行と回答を待つ行の扱いを残す。
+- 調査実施手順は `\documentclass{katsuragawa-survey-procedure}`、`\KRCHeading{題}{文書番号}{版}{作成日}{作成者}{確認者}`、`\KRCSection{見出し}`、必要に応じて `\KRCNote{注記}` を使う。説明文の版、手順、聞き取りの記録、進捗の管理を原稿に沿って組み、テキスト層を持つPDFにする。
+- 手続研修の確認票は `\documentclass{katsuragawa-training-check}`、`\KRCCheckHeading{題}{文書番号}{版}{作成日}{作成者}`、`\KRCTrainingField{項目名}{記入の案内}` を使う。取り違えた説明、再説明に使った例題、説明し直した内容と申し送りなど、記入する項目ごとに罫線を設ける。手書きの記入がある面を `bin/scan` に通す。
+- 研修の板書は会議ボードの写真（JPG）として扱い、参加者名や診療情報を含めない。研修後に直した区別が原稿に示される場合は、写真でもその箇所が読めるようにする。
 - いずれのTeXもリポジトリ直下から `TEXINPUTS="$PWD/templates/p16-clinical-researcher:" bin/tex <作業フォルダの.tex> <出力.pdf>` で組む。
 - EMLは通常のテキストメール。鈴木は `mitsuko.suzuki@katsuragawa-clinical.example`、後藤は `koichi@yoshimura-statistics.example`。返信は件名と返信ヘッダを元メールに対応させ、時刻は日本時間を使う。社名は署名で表す。再提出の送付控えは、照会番号と実際に提出した版・添付ファイル名を本文で対応させる。
 - PNGの手続図は原稿の流れに応じて組む。記録票、項目別の対象の確認、集計表の各段階を箱で示し、白地にセンターの色・和文書体を使う。
 - 試行の記入漏れ集計はCSVに項目別の数を記し、会議ボード写真は記入順を整理した会議の資料として扱う。石井との返信は証明書番号で照合し、差戻し後の受領や使用の確定は記さない。
-
-## b004 の組版見本
-
-見本の明細と文書番号は組版確認用。成果物の値と番号はファイル計画・原稿に従う。
-
-| 見本 | ページ画像 |
-|---|---|
-| [完全性点検所見](../../scratch/p16-clinical-researcher/b004/work/templates-0002/samples/katsuragawa-integrity-findings.pdf) | [1頁](../../scratch/p16-clinical-researcher/b004/work/templates-0002/render/katsuragawa-integrity-findings-1.png) |
-| [承認日根拠確認票のスキャン](../../scratch/p16-clinical-researcher/b004/work/templates-0002/samples/katsuragawa-approval-evidence-scan.pdf) | [1頁](../../scratch/p16-clinical-researcher/b004/work/templates-0002/render/katsuragawa-approval-evidence-scan-1.png) |
-| [完了報告の保留稿](../../scratch/p16-clinical-researcher/b004/work/templates-0002/samples/completion-hold-preview.docx) | [1頁](../../scratch/p16-clinical-researcher/b004/work/templates-0002/render/completion-hold-preview-1.png) |
-| [照会割当一覧・4行](../../scratch/p16-clinical-researcher/b004/work/templates-0002/samples/katsuragawa-query-assignments-short.xlsx) | [1頁](../../scratch/p16-clinical-researcher/b004/work/templates-0002/render/katsuragawa-query-assignments-short-1.png) |
-| [照会割当一覧・21行](../../scratch/p16-clinical-researcher/b004/work/templates-0002/samples/katsuragawa-query-assignments-multipage.xlsx) | [1頁](../../scratch/p16-clinical-researcher/b004/work/templates-0002/render/katsuragawa-query-assignments-multipage-1.png)・[2頁](../../scratch/p16-clinical-researcher/b004/work/templates-0002/render/katsuragawa-query-assignments-multipage-2.png) |
-
-## 既存の組版見本
-
-| 見本 | ページ画像 |
-|---|---|
-| [研究会議・5レイアウト](../../scratch/p16-clinical-researcher/b004/work/templates-0002/samples/katsuragawa-meeting.pptx) | [表紙](../../scratch/p16-clinical-researcher/b004/work/templates-0002/render/katsuragawa-meeting-1.png)・[見出しと本文](../../scratch/p16-clinical-researcher/b004/work/templates-0002/render/katsuragawa-meeting-2.png)・[2段](../../scratch/p16-clinical-researcher/b004/work/templates-0002/render/katsuragawa-meeting-3.png)・[表](../../scratch/p16-clinical-researcher/b004/work/templates-0002/render/katsuragawa-meeting-4.png)・[図](../../scratch/p16-clinical-researcher/b004/work/templates-0002/render/katsuragawa-meeting-5.png) |
-| [分母の比較・短い版](../../scratch/p16-clinical-researcher/b004/work/templates-0002/samples/katsuragawa-denominators-short.xlsx) | [1頁](../../scratch/p16-clinical-researcher/b004/work/templates-0002/render/katsuragawa-denominators-short-1.png) |
-| [分母の比較・続頁版](../../scratch/p16-clinical-researcher/b004/work/templates-0002/samples/katsuragawa-denominators-multipage.xlsx) | [1頁](../../scratch/p16-clinical-researcher/b004/work/templates-0002/render/katsuragawa-denominators-multipage-1.png)・[2頁](../../scratch/p16-clinical-researcher/b004/work/templates-0002/render/katsuragawa-denominators-multipage-2.png)・[3頁](../../scratch/p16-clinical-researcher/b004/work/templates-0002/render/katsuragawa-denominators-multipage-3.png)・[4頁](../../scratch/p16-clinical-researcher/b004/work/templates-0002/render/katsuragawa-denominators-multipage-4.png) |
-| [分母の比較・合計式付き](../../scratch/p16-clinical-researcher/b004/work/templates-0002/samples/katsuragawa-denominators-total.xlsx) | [1頁](../../scratch/p16-clinical-researcher/b004/work/templates-0002/render/katsuragawa-denominators-total-1.png) |
-| [審査対照表・短い版](../../scratch/p16-clinical-researcher/b004/work/templates-0002/samples/katsuragawa-ethics-crosswalk-short.xlsx) | [1頁](../../scratch/p16-clinical-researcher/b004/work/templates-0002/render/katsuragawa-ethics-crosswalk-short-1.png) |
-| [審査対照表・続頁版](../../scratch/p16-clinical-researcher/b004/work/templates-0002/samples/katsuragawa-ethics-crosswalk-multipage.xlsx) | [1頁](../../scratch/p16-clinical-researcher/b004/work/templates-0002/render/katsuragawa-ethics-crosswalk-multipage-1.png)・[2頁](../../scratch/p16-clinical-researcher/b004/work/templates-0002/render/katsuragawa-ethics-crosswalk-multipage-2.png)・[3頁](../../scratch/p16-clinical-researcher/b004/work/templates-0002/render/katsuragawa-ethics-crosswalk-multipage-3.png) |
-| [観察記録票の改訂案](../../scratch/p16-clinical-researcher/b004/work/templates-0002/samples/katsuragawa-observation-form.docx) | [1頁](../../scratch/p16-clinical-researcher/b004/work/templates-0002/render/katsuragawa-observation-form-1.png) |
-| [試料受渡し確認票のスキャン](../../scratch/p16-clinical-researcher/b004/work/templates-0002/samples/katsuragawa-handover-check-scan.pdf) | [1頁](../../scratch/p16-clinical-researcher/b004/work/templates-0002/render/katsuragawa-handover-check-scan-1.png) |
-| [長田の試料証明書](../../scratch/p16-clinical-researcher/b004/work/templates-0002/samples/osada-sample-certificate.pdf) | [1頁](../../scratch/p16-clinical-researcher/b004/work/templates-0002/render/osada-sample-certificate-1.png) |
-| [研究計画書](../../scratch/p16-clinical-researcher/b004/work/templates-0002/samples/katsuragawa-protocol.docx) | [1頁](../../scratch/p16-clinical-researcher/b004/work/templates-0002/render/katsuragawa-protocol-1.png)・[2頁](../../scratch/p16-clinical-researcher/b004/work/templates-0002/render/katsuragawa-protocol-2.png) |
-| [週次事務局会議の記録](../../scratch/p16-clinical-researcher/b004/work/templates-0002/samples/katsuragawa-minutes.docx) | [1頁](../../scratch/p16-clinical-researcher/b004/work/templates-0002/render/katsuragawa-minutes-1.png) |
-| [統計相談書](../../scratch/p16-clinical-researcher/b004/work/templates-0002/samples/katsuragawa-consultation.docx) | [1頁](../../scratch/p16-clinical-researcher/b004/work/templates-0002/render/katsuragawa-consultation-1.png) |
-| [審査照会への回答](../../scratch/p16-clinical-researcher/b004/work/templates-0002/samples/katsuragawa-ethics-response.docx) | [1頁](../../scratch/p16-clinical-researcher/b004/work/templates-0002/render/katsuragawa-ethics-response-1.png) |
-| [研究概要](../../scratch/p16-clinical-researcher/b004/work/templates-0002/samples/katsuragawa-summary.pdf) | [1頁](../../scratch/p16-clinical-researcher/b004/work/templates-0002/render/katsuragawa-summary-1.png) |
-| [提出前確認票のスキャン](../../scratch/p16-clinical-researcher/b004/work/templates-0002/samples/katsuragawa-submission-check-scan.pdf) | [1頁](../../scratch/p16-clinical-researcher/b004/work/templates-0002/render/katsuragawa-submission-check-scan-1.png) |
-| [吉村の統計所見](../../scratch/p16-clinical-researcher/b004/work/templates-0002/samples/yoshimura-statistical-note.pdf) | [1頁](../../scratch/p16-clinical-researcher/b004/work/templates-0002/render/yoshimura-statistical-note-1.png) |
-| [あかねの研究計画書についての照会](../../scratch/p16-clinical-researcher/b004/work/templates-0002/samples/akane-ethics-questions.pdf) | [1頁](../../scratch/p16-clinical-researcher/b004/work/templates-0002/render/akane-ethics-questions-1.png) |
