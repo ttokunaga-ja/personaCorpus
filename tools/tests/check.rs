@@ -1543,10 +1543,13 @@ fn literal_html_manuscript_matches_the_saved_page() {
 <main><p>Open the <a href="../records/April%20receipt.pdf">April receipt</a>.</p></main>
 </body></html>"#;
     f.put("notice.html", page);
-    f.source("notice.html", page, "");
-    absent(&f, "notice.html", "source");
-    f.bytes("notice.html", b"<html><body>Unrelated</body></html>");
-    present(&f, "notice.html", "source");
+    for manuscript in [page.to_owned(), format!("```html\n{page}\n```")] {
+        f.bytes("notice.html", page.as_bytes());
+        f.source("notice.html", &manuscript, "");
+        absent(&f, "notice.html", "source");
+        f.bytes("notice.html", b"<html><body>Unrelated</body></html>");
+        present(&f, "notice.html", "source");
+    }
     let empty = "<!DOCTYPE html><html><body></body></html>";
     f.bytes("notice.html", empty.as_bytes());
     f.source("notice.html", empty, "");

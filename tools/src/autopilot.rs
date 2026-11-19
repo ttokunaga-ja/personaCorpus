@@ -787,17 +787,17 @@ impl Pilot {
             .filter(|r| r.get("状態").is_empty())
             .map(|r| r.get("件数の目安").parse::<i64>().unwrap())
             .sum();
-        let need = self.goal(p)? - self.count(p)? as i64;
-        // A gap smaller than one batch cannot be filled without padding; the
-        // roadmap is complete for this goal. With no open row left, it must be
-        // extended unless the roadmap job said the work is used up.
+        // Extend an exhausted roadmap only if the stage has a full batch left.
+        // With rows still open, plan ahead only as far as the next chunk.
+        let target = if open == 0 {
+            self.final_target(p)?
+        } else {
+            self.goal(p)?
+        };
+        let shortfall = target - self.count(p)? as i64 - open;
         let review = read(&self.root.join("progress").join(p).join("roadmap.md"))?
             .contains("規模の見直し：");
-        if need > 0
-            && !review
-            && self.active(p)?.is_empty()
-            && (need - open >= MIN_ROW || open == 0)
-        {
+        if shortfall >= MIN_ROW && !review && self.active(p)?.is_empty() {
             bail!("roadmap: 未着手の行の件数が次の区切りまでに足りない")
         }
         Ok(rows)

@@ -127,8 +127,14 @@ fn html(text: &str) -> String {
 fn html_source_labels(body: &str, raw: &[u8]) -> Result<String> {
     // A manuscript may contain the complete saved HTML, including its links.
     // When the markup itself matches, compare the visible text on both sides.
-    if body.trim_start().starts_with('<') && body.trim().as_bytes() == raw.trim_ascii() {
-        let visible = html(body);
+    let trimmed = body.trim();
+    let markup = trimmed
+        .strip_prefix("```html\n")
+        .and_then(|s| s.strip_suffix("\n```"))
+        .unwrap_or(trimmed)
+        .trim();
+    if markup.starts_with('<') && markup.as_bytes() == raw.trim_ascii() {
+        let visible = html(markup);
         if !visible.trim().is_empty() {
             return Ok(visible);
         }

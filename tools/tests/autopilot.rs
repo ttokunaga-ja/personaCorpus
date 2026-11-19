@@ -1339,6 +1339,22 @@ fn brief_context(f: &Fixture, job: &str) -> Value {
 }
 
 #[test]
+fn a_finished_roadmap_with_279_of_300_files_needs_no_new_batch() {
+    let f = Fixture::new();
+    f.roadmap(Some(
+        "| b009 | 研究会 | 30 | 重点 | 内容 | 回避 | 受入済み b009 |\n",
+    ));
+    fs::write(
+        f.r.join("manifests/p01-test.tsv"),
+        "x\thash\t1\tdate\n".repeat(279),
+    )
+    .unwrap();
+    f.cli(&["once", "--target", "300"]);
+    assert!(f.jobs().get("p01-roadmap").is_none(), "{:?}", f.jobs());
+    assert_eq!(f.called("batch", "start"), 0);
+}
+
+#[test]
 fn a_used_up_roadmap_is_extended_and_must_keep_its_rows() {
     let f = Fixture::new();
     f.roadmap(Some(
@@ -1349,10 +1365,10 @@ fn a_used_up_roadmap_is_extended_and_must_keep_its_rows() {
         "x\thash\t1\tdate\n".repeat(10),
     )
     .unwrap();
-    f.once();
+    f.cli(&["once", "--target", "40"]);
     assert!(f.jobs().get("p01-roadmap").is_some(), "{:?}", f.jobs());
     let context = brief_context(&f, "p01-roadmap");
-    assert_eq!(context["target"], 30);
+    assert_eq!(context["target"], 40);
     assert_eq!(context["accepted"], 10);
     assert!(
         f.r.join("scratch/autopilot/jobs/p01-roadmap/previous.md")
@@ -1361,14 +1377,14 @@ fn a_used_up_roadmap_is_extended_and_must_keep_its_rows() {
     // A rewrite that loses the finished row is rejected.
     f.roadmap(Some("| b002 | 四半期締め | 30 | 重点 | 内容 | 回避 | |\n"));
     f.job("p01-roadmap", "done");
-    f.once();
+    f.cli(&["once", "--target", "40"]);
     assert!(f.jobs().get("p01-roadmap-r2").is_some());
     assert_eq!(f.called("batch", "start"), 0);
     f.roadmap(Some(
         "| b001 | 月次締め | 30 | 重点 | 内容 | 回避 | 受入済み b001 |\n| b002 | 四半期締め | 30 | 重点 | 内容 | 回避 | |\n",
     ));
     f.job("p01-roadmap-r2", "done");
-    f.once();
+    f.cli(&["once", "--target", "40"]);
     assert_eq!(f.called("batch", "start"), 1);
 }
 

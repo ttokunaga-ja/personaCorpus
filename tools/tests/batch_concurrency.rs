@@ -184,6 +184,7 @@ fn real_groups_obey_global_limit_and_review_parallelism() {
     let mut f = Fixture::new();
     parallel(&f);
     f.env.insert("CORPUS_MAX_CODEX".into(), "2".into());
+    write(&f.root.join("review-rendezvous"), "");
     f.run("ok", true);
     let mut active = 0;
     let mut maximum = 0;

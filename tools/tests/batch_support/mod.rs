@@ -229,7 +229,22 @@ pub fn fake_service() {
                         chrono::Utc::now().timestamp_micros()
                     ]),
                 );
-                thread::sleep(Duration::from_millis(90));
+                if stage == "draft-review" && root.join("review-rendezvous").exists() && count <= 2
+                {
+                    // Keep each of the first two reviews active until its peer has started.
+                    write(&scratch.join(format!("review-started-{count}")), "");
+                    let peer = scratch.join(format!("review-started-{}", 3 - count));
+                    let deadline = Instant::now() + Duration::from_secs(10);
+                    while !peer.exists() {
+                        assert!(
+                            Instant::now() < deadline,
+                            "second concurrent review never started"
+                        );
+                        thread::sleep(Duration::from_millis(10));
+                    }
+                } else {
+                    thread::sleep(Duration::from_millis(90));
+                }
             }
             if mode == "parallel-fail"
                 && stage == "draft"
