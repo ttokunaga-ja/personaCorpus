@@ -1640,3 +1640,83 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-19	p10-management-consultant	b001	check	0	source	Documents/Clients/Whitfield/Meetings/17 Jul - Japan payments diagnosis.pdf	body token overlap 0.463 < 0.5
 2026-11-19	p10-management-consultant	b001	check	1	source	Documents/Clients/Whitfield/Meetings/17 Jul - Japan payments diagnosis.pdf	body token overlap 0.463 < 0.5
 2026-11-19	p10-management-consultant	b001	check	2	source	Documents/Clients/Whitfield/Meetings/17 Jul - Japan payments diagnosis.pdf	body token overlap 0.463 < 0.5
+2026-11-19	p17-construction-project-manager	b011	templates-review	0	other	README.md	「見本と画像」で参照する scratch/p17-construction-project-manager/b010/work/templates-0002/ が存在せず、案内されている samples/ の見本と render/ の画像を開けない。
+2026-11-19	p17-construction-project-manager	b011	draft-review	0	D10	Documents/自分の現場運営/0212_Y3撮影演習_現場に持つ紙.pdf	BR-003 Rev0の管理情報に2月12日の作成日はあるが、指定のminatoryo-field-sheet.clsのSiteHeadingが印字する「実施日」に入る2月13日の演習日が原稿にない。
+2026-11-19	p17-construction-project-manager	b011	draft-review	0	D10	Documents/自分の現場運営/0213_撮影演習_12枚の講評表.xlsx	BR-004 Rev0の冒頭は作成者の中野と宛先の坂本・岡本を示すが、型の管理欄F3「確認者」に対応するG3の氏名指定がなく、宛先から表の確認者を確定できない。
+2026-11-19	p17-construction-project-manager	b011	draft-review	0	D10	Documents/自分の現場運営/0119_西配送棟_青木さんと写真照合.xlsx	管理欄に作成者と共有先はあるが、minatoryo-punch-list.xlsxのG3に必須の帳票の確認者が明記されておらず、点検参加者と共有先からは記入値を確定できない。
+2026-11-19	p17-construction-project-manager	b011	draft-review	0	D10	Documents/自分の現場運営/0120_Y3の3か所_現場で見た分.xlsx	作成者・宛先と明細E列の現認者3名は記載されているが、minatoryo-punch-list.xlsxの管理欄G3に必須の帳票の確認者が明記されていない。
+2026-11-19	p17-construction-project-manager	b011	draft-review	0	D3	Documents/自分の現場運営/0122_梁上の吊り点_記録の照合控え.pdf	「照合結果」の梁の識別行は取付チェック票と1月20日の見取りで刻印が一致したとするが、照合した刻印の値をどちらにも記さず、梁上側の判断の根拠を控えから追えない。
+2026-11-19	p17-construction-project-manager	b011	draft-review	0	D10	Pictures/図と画面/0119_Y3の写真_どちらから撮ったか.png	原稿5行目のderived_fromが空欄だが、10〜18行目は計画で先に要る位置照合図ZP-001 Rev0を元図とし、芯配置とP034・P092・P127の始点・矢頭を引き継いでおり、派生元の相対パスが欠けている。
+2026-11-19	p17-construction-project-manager	b011	draft-review	0	D10	Documents/自分の現場運営/0216_撮影演習の講評_配る分.pdf	計画はBR-005 Rev0のWordから本文と表を引き継ぐ指定だが、原稿8行目は「違いなし。」で、派生元の講評DOCX原稿には「位置を示す目印」などの本文段落のみで継承対象の表がなく、PDFに載せる表の列と行を確定できない。
+2026-11-19	p17-construction-project-manager	b011	draft-check	1	source	Documents/自分の現場運営/0216_撮影演習の講評_配る分.pdf	/home/ttokunaga-ja/dev/github.com/ttokunaga-ja/personaCorpus/sources/p17-construction-project-manager/Documents/自分の現場運営/0216_撮影演習の講評_配る分.pdf.md: No such file or directory (os error 2)
+2026-11-19	p17-construction-project-manager	b011	draft-review	2	D10	Documents/自分の現場運営/0216_撮影演習の講評_配る分.pdf	計画30行目はBR-005 Rev0の本文と表の継承を指定するが、配布PDF原稿8行目は「違いなし」で、派生元DOCX原稿の18〜24行目は目印と次回手順の段落のみで原稿全体に表の列・明細行がなく、BR-004 Rev0の別添講評表からは同版の配布PDFに継承する表を確定できない。
+2026-11-19	p17-construction-project-manager	b011	check	0	source	Documents/自分の現場運営/0119_Y3沿い_写真の位置照合図.pdf	body token overlap 0.661 < 0.8
+2026-11-19	p17-construction-project-manager	b011	build-review	0	V2	Documents/自分の現場運営/0203_撮影演習_坂本たたき台.docx	1ページ目の工事名から宛先までの管理欄が指定のSite MetadataではなくNormalで、4地点表は指定のSite TableではなくTable Gridの黒罫線・白地見出しになっている。
+2026-11-19	p17-construction-project-manager	b011	build-review	0	V2	Documents/自分の現場運営/0210_撮影演習_説明なしで図に戻す.docx	1ページ目の地点表と2ページ目の進行表がTable Gridで、型に備わるSite Tableの青灰地・白字の見出しがなく、表題直下の管理情報もSite Metadataで組まれていない。
+2026-11-19	p17-construction-project-manager	b011	build-review	0	V2	Documents/自分の現場運営/0212_岡本さんと使う_写真の撮り方.pptx	全4枚の右下に型の使い方と見本が指定するスライド番号がない。3枚目の左図では保護板の上端が画枠の外へ突き出し、画枠で切れる構図になっていない。
+2026-11-19	p17-construction-project-manager	b011	build-review	0	V1	Pictures/海田西配送棟増築/2026-02-13/2026-02-13_X7-Y3_演習_台車枠と壁角.jpg	初回12の黄色いL形テープが12Rの手前では白いテープに変わり、台車も青色部材付きの台枠から錆のある別形状の台枠に変わっており、同じテープと車輪を残すという指定に合わない。
+2026-11-19	p17-construction-project-manager	b011	build-review	0	V2	Documents/自分の現場運営/0216_中野さんの講評_位置を言える一枚.docx	表題直下の工事名・文書番号・文書日・作成者・宛先の5段落が本文用Normalの10.5pt・段落後7ptで組まれ、型と講評見本のSite Metadataによる9ptの管理欄になっていない。
+2026-11-19	p17-construction-project-manager	b011	build-review	1	V2	Documents/自分の現場運営/0203_撮影演習_坂本たたき台.docx	1ページ目の管理欄と表のスタイルは修正済みだが、「実施案」の4地点表の「順」列の明細1〜4が左寄せで、型のREADMEが指定する数値の右寄せになっていない。
+2026-11-19	p17-construction-project-manager	b011	build-review	1	V2	Documents/自分の現場運営/0210_撮影演習_説明なしで図に戻す.docx	1ページ目の管理欄と両表のスタイルは修正済みだが、「実施と役割」の4地点表の「順」列の明細1〜4が左寄せで、型のREADMEが指定する数値の右寄せになっていない。
+2026-11-19	p17-construction-project-manager	b011	build-review	2	V2	Documents/自分の現場運営/0203_撮影演習_坂本たたき台.docx	「実施案」の表の「順」列1〜4は右寄せに修正済みだが、「ねらい」などの本文に適用されるNormalの段落後が4ptで、型とREADMEの指定7ptに一致しない。
+2026-11-19	p17-construction-project-manager	b011	build-review	2	V2	Documents/自分の現場運営/0210_撮影演習_説明なしで図に戻す.docx	「実施と役割」の表の「順」列1〜4は右寄せに修正済みだが、「ねらい」などの本文に適用されるNormalの段落後が4ptで、型とREADMEの指定7ptに一致しない。
+2026-11-19	p07-humanities-researcher	b002	check	0	source	Documents/Archive/Box-14/Carton 14 - la date au bout de la ligne ff172-173.pdf	body token overlap 0.230 < 0.3
+2026-11-19	p07-humanities-researcher	b002	check	0	source	Documents/Archive/Box-14/Carton 14 - le poêle et le prêt ff182 et 186.pdf	body token overlap 0.255 < 0.3
+2026-11-19	p07-humanities-researcher	b002	check	0	source	Documents/Archive/Other-boxes/Carton 12 - écritures du terme ff023-024.pdf	body token overlap 0.135 < 0.3
+2026-11-19	p07-humanities-researcher	b002	check	1	source	Documents/Archive/Box-14/Carton 14 - la date au bout de la ligne ff172-173.pdf	body token overlap 0.130 < 0.3
+2026-11-19	p07-humanities-researcher	b002	check	1	source	Documents/Archive/Box-14/Carton 14 - le poêle et le prêt ff182 et 186.pdf	body token overlap 0.266 < 0.3
+2026-11-19	p07-humanities-researcher	b002	check	1	source	Documents/Archive/Other-boxes/Carton 12 - écritures du terme ff023-024.pdf	body token overlap 0.135 < 0.3
+2026-11-19	p07-humanities-researcher	b002	check	2	source	Documents/Archive/Box-14/Carton 14 - la date au bout de la ligne ff172-173.pdf	body token overlap 0.257 < 0.3
+2026-11-19	p07-humanities-researcher	b002	check	2	source	Documents/Archive/Box-14/Carton 14 - le poêle et le prêt ff182 et 186.pdf	body token overlap 0.223 < 0.3
+2026-11-19	p06-life-science-researcher	b002	check	2	plan	Documents/Quality/Deviations/October measurement dates and hold scope.xlsx	plan: planned file missing。成形の最終出力：対象の **October measurement dates and hold scope.xlsx は未作成**です。 計画は測定結果 CSV 3件を逐語的に取り込むよう指定していますが、3件はいずれも計画上で破棄され、指定先に存在しません。合格原稿には54行の値がありますが、取込元との一致を確認できないため、指定どおりの成果物として成形できませんでした。8行の crosswalk は存在します。 成果物の作成、stage・commit・push は行っていません。
+2026-11-19	p18-manufacturing-quality-engineer	b003	templates-review	0	other	README.md	「見本と検査先」の b002/work/templates-0002/ が存在せず、Word・Excel 2種・PowerPoint・TeXの全ページ画像5点と verification.json への計6リンクが切れている。
+2026-11-19	p18-manufacturing-quality-engineer	b003	draft-check	0	trace	Documents/不適合/その他/BR-2410_写真で位置が読めない分.csv	制作の痕跡
+2026-11-19	p18-manufacturing-quality-engineer	b003	draft-check	0	trace	Downloads/BR-2410_1月から3月の不良履歴.csv	制作の痕跡
+2026-11-19	p18-manufacturing-quality-engineer	b003	draft-review	0	D10	Desktop/BR-2410_最終でもう一回見る案.docx	題直下の管理情報は「作成：中山由紀子　相談：原智之　確認：石田正雄」までで、型のWord共通手順が指定する承認者欄に入れる値がない。第0.1版の事前相談メモとして未承認等の状態も原稿に明記されていない。
+2026-11-19	p18-manufacturing-quality-engineer	b003	draft-review	0	D10	Pictures/Charts/BR-2410_穴あけ直後と面取り後に見る面.png	本文14行目の段差肩に描く「工具が抜ける候補方向」の破線は候補の向きがどの面・軸に対してどちらなのか記されておらず、成形時に加工上の情報を補わないと描けない。
+2026-11-19	p18-manufacturing-quality-engineer	b003	draft-check	1	trace	Downloads/BR-2410_1月から3月の不良履歴.csv	制作の痕跡
+2026-11-19	p18-manufacturing-quality-engineer	b003	draft-review	0	D10	Documents/不適合/その他/BR-2410_不良の呼び方_仮.xlsx	原稿14〜16行でD列を「検出工程」に置き換えており、指定の分類型のD6「加工面・箇所」に入る明細がない。Q24-005とQ24-019は抽出履歴から横穴出口と低段側の肩を区別できるが、原稿明細にその値がない。
+2026-11-19	p18-manufacturing-quality-engineer	b003	draft-review	0	D10	OneDrive - 金原産業精機/品質会議/2024-04-08_BR-2410_品質会議議事録.pdf	同番号・同版の配布PDFとして参照先WordのMIN-006第1版と決定・担当・期限は確認できるが、元原稿10〜13行の管理情報に、型のRecord Metadataに入れる議事録の確認者・承認者またはその状態がない。
+2026-11-19	p18-manufacturing-quality-engineer	b003	draft-check	1	source	OneDrive - 金原産業精機/品質会議/2024-04-08_BR-2410_品質会議議事録.pdf	/home/ttokunaga-ja/dev/github.com/ttokunaga-ja/personaCorpus/sources/p18-manufacturing-quality-engineer/OneDrive - 金原産業精機/品質会議/2024-04-08_BR-2410_品質会議議事録.pdf.md: No such file or directory (os error 2)
+2026-11-19	p18-manufacturing-quality-engineer	b003	draft-review	1	D10	Documents/不適合/その他/BR-2410_不良の呼び方_仮.xlsx	D列は復元され、Q24-005とQ24-019の箇所は抽出履歴と一致するが、型がF列「照合状態」に求める位置の未確認・未特定の区別がない。Q24-004（原稿22行、穴口の向き未確認）、Q24-027（45行、接写で位置不明）、Q24-033（51行、反射で位置不明）、Q24-081（99行、写真と現物札の対応を確認できず位置不明）は、いずれもF列が「原記載で仮分類」のまま。
+2026-11-19	p18-manufacturing-quality-engineer	b003	draft-review	2	D10	Documents/不適合/その他/BR-2410_不良の呼び方_仮.xlsx	前回指摘の4行はF列で未確認と未特定を区別でき、86件中の暫定バリ40件も抽出履歴と一致するが、Q24-012・014・036・059（原稿28・30・52・75行）はD列が穴口の原記載、G列が保管札のみで、4月4日の現物照合前に入口・出口の向きを確認できていない状態がF列の「原記載で仮分類」からは分からない。
+2026-11-19	p18-manufacturing-quality-engineer	b003	draft-review	2	D10	OneDrive - 金原産業精機/品質会議/2024-04-08_BR-2410_品質会議議事録.pdf	参照先WordのMIN-006第1版と開催日時・86件・検査回数維持・担当・4月19日の期限は一致するが、PDFが「違いなし」で引き継ぐWord原稿10〜13行のRecord Metadataには作成者と宛先のみで、議事録の確認者・承認者またはその状態の記載が引き続きない。
+2026-11-19	p18-manufacturing-quality-engineer	b003	check	0	mtime	Desktop/BR-2410_月曜に石田さんと見る分.txt	outside persona period (UTC)
+2026-11-19	p18-manufacturing-quality-engineer	b003	check	0	source	Documents/不適合/その他/BR-2410_保管品の引当.csv	missing source values: 2410
+2026-11-19	p18-manufacturing-quality-engineer	b003	build-review	0	V3	Pictures/Charts/BR-2410_1月から3月の不良パレート.png	右上の「その他」に対応する累積比率100%の丸マーカーがプロット上端の罫線で半分切れている。
+2026-11-19	p18-manufacturing-quality-engineer	b003	build-review	0	V2	Desktop/BR-2410_最終でもう一回見る案.docx	1ページ目の冒頭に型の初期表題「品質会議議事録」が残り、原稿の「BR-2410 最終でもう一回見る案　打合せメモ」と二重に印刷される。
+2026-11-19	p18-manufacturing-quality-engineer	b003	build-review	0	V3	OneDrive - 金原産業精機/品質会議/2024-04-08_BR-2410_バリの箇所と加工確認.pptx	スライド2でパレート図画像の白地が表題「不良履歴86件の分類」の下端を覆って字を切っており、同図には件数の棒と累積比率の折れ線を識別する凡例もない（V5）。
+2026-11-19	p18-manufacturing-quality-engineer	b003	check	1	mtime	Desktop/BR-2410_月曜に石田さんと見る分.txt	outside persona period (UTC)
+2026-11-19	p18-manufacturing-quality-engineer	b003	check	1	source	Documents/不適合/その他/BR-2410_保管品の引当.csv	missing source values: 2410
+2026-11-19	p18-manufacturing-quality-engineer	b003	build-review	1	V3	Pictures/Charts/BR-2410_1月から3月の不良パレート.png	右上の100%の丸マーカーは全体が見えるが、左端「バリ」の累積比率ラベル「45.3%」を橙色の折れ線が斜めに横切り、数字と線が重なっている。
+2026-11-19	p18-manufacturing-quality-engineer	b003	check	2	mtime	Desktop/BR-2410_月曜に石田さんと見る分.txt	outside persona period (UTC)
+2026-11-19	p18-manufacturing-quality-engineer	b003	check	2	opens	Documents/不適合/その他/BR-2410_保管品の引当.csv	Error: CSV error: record 1 (line: 1, byte: 27): found record with 4 fields, but the previous record has 1 fields
+2026-11-19	p12-support-success-lead	b004	templates-review	0	other	maruyama-permission-questions.xlsx	確認事項シートで下余白0.4インチに対してフッタ余白が0.5インチで、bin/renderの14行・28行見本では設定済みの左下の社名と右下のページ番号が全ページで欠落し、検証用コピーのフッタ余白だけを0.2インチにすると表示された。
+2026-11-19	p12-support-success-lead	b004	templates-review	1	other	tomorie-support.pptx	5レイアウトを描画して確認した。ppt/theme/theme1.xmlのmajorFont・minorFontの日本語用JpanがＭＳ Ｐゴシックで、README指定のNoto Sans CJK JPと一致しない。
+2026-11-19	p12-support-success-lead	b004	draft-review	0	D3	Documents/顧客会議/円山印章/円山印章_権限の確認と操作のご案内.docx	「必要なときだけ個別操作する」で01の招待も「利用者一覧から対象者を選び」と案内しているが、丸山の01は新しい担当者の招待で、根拠の「利用者の招待と権限」では一覧の「招待」から招待先・役割・所属を入力するため、既存利用者を選ぶ02〜04とは入口が異なる。
+2026-11-19	p12-support-success-lead	b004	draft-review	0	D4	Documents/キュー/2025/02/0227_円山印章の次の連絡先を更新.csv	2月26日10:25の受領行で「次の連絡担当」を内田美樹としており、台帳と2月末の履歴控えでは内田が丸山への前提確認を引き取るのは翌27日13:35であるため、イベント時点の担当の移り変わりが合わない。
+2026-11-19	p12-support-success-lead	b004	draft-review	0	D10	Desktop/円山印章_工藤さんのコメント付き.docx	先頭7行目の derived_from が空欄で、計画が別名保存の元に指定する「Desktop/円山印章_丸山さんに返す下書き.docx」を指していないため、元のWordに40〜42行目の3コメントを加える派生として指定されていない。
+2026-11-19	p12-support-success-lead	b004	build-review	0	V3	Pictures/利用者一覧で見る役割と所属.png	現管理者から利用者一覧への矢印の上で、設定側の枠の右辺が「既存メンバーを」「1名ずつ変更」の両行の文字を横切り、現管理者の枠の右上角も「1名」に重なっている。
+2026-11-19	p12-support-success-lead	b004	build-review	0	V2	Documents/顧客会議/円山印章/丸山さんの14件_操作と支援を照合.xlsx	「操作と支援の照合」B4（基準日）が型と見本の実日付（yyyy-mm-dd）に対して「2025年2月24日」の文字列で、印刷でも指定の日付書式が効いていない。
+2026-11-19	p18-manufacturing-quality-engineer	b003	build-review	1	V1	Documents/不適合/その他/BR-2410_保管品の引当.csv	4列の見出しと保管品12件の明細は原稿と一致するが、1行目の原稿表題と15行目の表外の引渡し連絡が第1列（履歴番号）に入り、第2〜第4列を空欄にしたレコードになっている。
+2026-11-19	p18-manufacturing-quality-engineer	b003	check	2	source	Documents/不適合/その他/BR-2410_保管品の引当.csv	missing source values: 2410
+2026-11-19	p08-product-manager	b004	templates-review	0	other	README.md	型11点と制作コマンドの参照は実在するが、「組版見本と検証先」のb003/work/templates-0002にexamples・render・commands.json・structure.jsonがなく、ひかり店舗管理発の役割表に対応する型も一覧にない。
+2026-11-19	p08-product-manager	b004	templates-review	0	other	olta-report.docx	共通ロゴ・4節・表見出しの再掲は確認したが、READMEの表作成手順で18明細を追加すると1頁末の店舗13の行が分断され、2頁冒頭の再掲見出し直下に店舗番号なしで確認条件の末尾「る。」だけが残る。
+2026-11-19	p08-product-manager	b004	templates-review	1	other	olta-guidance.docx	READMEのWord節が示す行分割防止の既定値がword/styles.xmlのOF Tableにない（w:cantSplit欠落）。行への直接指定を外した見本では対象03の取扱いが2頁目に続き、対象番号と分離する。
+2026-11-19	p08-product-manager	b004	templates-review	1	other	olta-minutes.docx	READMEのWord節が示す行分割防止の既定値がword/styles.xmlのOF Tableにない（w:cantSplit欠落）。行への直接指定を外した見本では対象03の取扱いが2頁目に続き、対象番号と分離する。
+2026-11-19	p08-product-manager	b004	templates-review	1	other	wakamatsu-confirmation.docx	READMEのWord節が示す行分割防止の既定値がword/styles.xmlのOF Tableにない（w:cantSplit欠落）。行への直接指定を外した見本では対象03の取扱いが2頁目に続き、対象番号と分離する。
+2026-11-19	p08-product-manager	b004	draft-review	0	D3	Documents/店舗権限分離/5月の動作確認表_代理を外した後まで.xlsx	動作確認シートの7〜9行は一覧での表示・非表示だけを記録し、対象の詳細を開けたか、対象外の保冷庫点検の詳細が開けなかったかを記録せずにすべて「再確認 不要」としており、3月21日の確認条件が求める一覧・詳細それぞれの判定に使えない。
+2026-11-19	p08-product-manager	b004	draft-review	0	D10	Documents/店舗権限分離/6月12日_店舗から代理を申し出る前に.pdf	冒頭に自文書の番号・版・5月28日の日付・作成者・宛先はあるが、正式手引きと用途を分けたこのPDFに通常の \OFRecord 管理欄を使うための「基準日」と「出力日時」が原稿上で区別されておらず、両欄を原稿の値で埋められない。
+2026-11-19	p08-product-manager	b004	build-review	0	V2	Documents/店舗権限分離/代理者の指定を取り消すとき_竹内さんと段取り.pptx	全3枚の右下に型が指定するページ番号がなく、2枚目の手順図も左端0.45インチから始まり、型の図領域（左0.85インチ、幅11.6インチ）を左右に越えている。
+2026-11-19	p08-product-manager	b004	build-review	0	V2	Documents/店舗権限分離/6月11日_店内で足りるかの照合.xlsx	申出照合シートの印刷1ページ目で、合計行A11の「対象件数合計」が型の記入手順で指定された左寄せになっておらず、折り返した「合計」がセル右側に寄っている。
+2026-11-19	p08-product-manager	b004	build-review	0	V2	Desktop/2月19日_全店を開く案を持っていく前に.pptx	表紙を含む全5枚の題が墨色 #283C40 で直接指定され、olta-review.pptx の青緑 #006D77 のタイトル書式および見本と異なる。
+2026-11-19	p08-product-manager	b004	build-review	0	V2	Documents/店舗権限分離/2月19日_手書きの協議合意票.pdf	1頁目の「合意」と「持帰り事項」に、olta-minutes.docx の節と表で組む指定の印刷用紙の記入枠・表罫線がなく、手書きの合意と持帰りは見出しの下に枠なしで並ぶ。
+2026-11-19	p08-product-manager	b004	build-review	0	V2	Documents/店舗権限分離/代理承認を認める条件_店内優先のたたき台.docx	1頁目「条件の案」の表の「場面／提案する扱い／確認したい点」が淡青緑地に墨字で、olta-report.docx の OF Table の青緑地に白字の見出しと細い罫線の書式を外れている（表は TableGrid）。
+2026-11-19	p08-product-manager	b004	build-review	0	V2	Documents/店舗権限分離/代理承認を認める条件_太田さん赤字.docx	1頁目「条件の案」の表の「場面／提案する扱い／確認したい点」が淡青緑地に墨字で、olta-report.docx の OF Table の青緑地に白字の見出しと細い罫線の書式を外れている（表は TableGrid）。
+2026-11-19	p08-product-manager	b004	build-review	0	V2	Documents/店舗権限分離/3月5日_竹内さんと代理の指名順を確認.docx	1頁目「担当と期限」の表の「担当／対応／期限」が淡青緑地に墨字で、olta-minutes.docx の OF Table の青緑地に白字の見出しと細い罫線の書式を外れている（表は TableGrid）。
+2026-11-19	p08-product-manager	b004	build-review	0	V2	Documents/店舗権限分離/代理承認を認める条件_3月合意.docx	1頁目「代理の条件と指名順」の表の「段階／担当／扱い」が淡青緑地に墨字で、olta-report.docx の OF Table の青緑地に白字の見出しと細い罫線の書式を外れている（表は TableGrid）。
+2026-11-19	p08-product-manager	b004	build-review	1	V2	Documents/店舗権限分離/代理承認を認める条件_店内優先のたたき台.docx	1頁目の「条件の案」の表は青緑地に白字のOF Tableへ直ったが、主題「代理承認を認める条件　店内優先のたたき台」の文字が20ptで直接指定され、olta-report.docxと見本のTitle 24ptより小さい。
+2026-11-19	p08-product-manager	b004	build-review	1	V2	Documents/店舗権限分離/代理承認を認める条件_太田さん赤字.docx	1頁目の「条件の案」の表は青緑地に白字のOF Tableへ直ったが、主題「代理承認を認める条件　店内優先のたたき台」の文字が20ptで直接指定され、olta-report.docxと見本のTitle 24ptより小さい。
+2026-11-19	p08-product-manager	b004	build-review	1	V2	Documents/店舗権限分離/3月5日_竹内さんと代理の指名順を確認.docx	1頁目の「担当と期限」の表は青緑地に白字のOF Tableへ直ったが、主題「代理の指名順と終了条件」の文字が20ptで直接指定され、olta-minutes.docxと見本のTitle 24ptより小さい。
+2026-11-19	p08-product-manager	b004	build-review	1	V2	Documents/店舗権限分離/代理承認を認める条件_3月合意.docx	1頁目の「代理の条件と指名順」の表は青緑地に白字のOF Tableへ直ったが、主題「代理承認を認める条件」の文字が20ptで直接指定され、olta-report.docxと見本のTitle 24ptより小さい。
+2026-11-19	p18-manufacturing-quality-engineer	b003	check	1	opens	Documents/不適合/その他/BR-2410_保管品の引当.csv	Error: CSV error: record 1 (line: 2, byte: 27): found record with 4 fields, but the previous record has 1 fields
