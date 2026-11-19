@@ -29,6 +29,8 @@
 
 2025年9〜10月の拠点ボードの工程点検には `olta-dependencies.xlsx` を使う。太田の見積りコメント入り旧版は `olta-report.docx` を使い、「対象と前提」「工程別の見積り」「公開条件への影響」「次の確認」など内容に合う節名にする。見積りの該当箇所に太田名義のWordコメントを付ける。元の執筆者と作成日時を保持し、版・最終更新者・更新日時は原稿に従う。判断前に福田へ示す二案と、承認後に営業・利用支援・導入へ伝える内容は、`olta-review.pptx` から別ファイルにする。旧予定と変更後の四半期、再判定条件を伝えるテキストPDFは `olta-extract.cls` で組む。旧掲示の控えは当時の表示を保ったHTML、公開条件の未達メモはMD、承認と周知はEML、並べ直した工程はボードの写真として保存する。
 
+2026年3〜4月のFY2026計画では、優先順位途中表に `olta-requests.xlsx`、余力試算に `olta-metrics.xlsx` を使い、下の「四半期計画の優先順位と開発余力」の列へ差し替える。配分根拠と福田への提案は `olta-report.docx` を開き、対象と前提、判断材料、配分案、次の確認などに節を調整する。事業会議の比較案と開発・利用支援への説明は `olta-review.pptx` から別々に作る。承認範囲の配布PDFには `olta-extract.cls` を使う。4〜6月の資料は FY2026 Q1／暦年2026年Q2 と併記する。30%の基準となる余力の内訳と、配分変更で先送りする仕事は計画・台帳・原稿に従う。
+
 ## 組織の識別と管理項目
 
 - 自社ロゴは、下を回って右へ上がる青緑の巡回経路と、右上の黄土の矢印、その右の社名。青緑 `006D77`、黄土 `D69E36`、本文の墨 `283C40` の3色。Officeのテーマにも同じ配色を登録している。淡青緑 `EAF3F3` は主色の背景用濃淡。Word・Excelは図形部分を内部に埋め込み、社名は編集可能な文字。PowerPointのマスターとTeXは図形で持つ。外部画像依存はない。
@@ -91,6 +93,12 @@ for index, row in enumerate(table.rows):
 3. 役割明細は通常、合計を置かない。店舗数を明示する必要があれば末尾に確認済みの対象店舗数を置く。同じ店舗に複数行ある場合は重複を除く。数値には `HK Total`（生成り・上二重罫・整数）、ラベルには同スタイルを指定して左寄せにする。注記があるときだけ、末尾のA:Fを結合して `HK Note` と必要な行高を設定する。見本の注記は26pt。
 4. `auto_filter.ref` はA6から最終明細のF列まで、`print_area` はA1から実内容の最終行F列まで。A4横、幅1ページ・高さ自動、1〜6行目を各ページに再掲、C7固定。左右0.32inch、上0.44inch、下0.47inch。全ページを見て、番号・日付・担当、店番と店舗名の間隔、最終行の折返しを確認する。
 
+### 四半期計画の優先順位と開発余力
+
+優先順位途中表は `olta-requests.xlsx` を開き、A2を「四半期計画の優先順位」にする。A6:G6を「順位」「要望番号」「区分・候補」「商談上の条件（藤原）」「工数（人週）」「利用者の広がり（三浦）」「扱い」に変更し、見出しの書式と列幅を引き継ぐ。管理番号は `RQ`。Aは `OF Number`、Eは `OF Effort`、残りは `OF Text`。明細の行高は42ptを目安にする。C列で新規要望と既存課題を区別し、D列の商談条件に利用者数を混ぜず、F列に三浦が確認した利用者・拠点の範囲や集計条件を記す。E列は太田の人週見積りを入れ、未見積り時は空欄のままG列に確認事項を書く。保留・先送りは理由と再確認条件を原稿に沿って記す。
+
+余力試算は `olta-metrics.xlsx` を開き、A2を「四半期の開発余力試算」にする。A6:G6を「試算条件」「対象工数（人週）」「既定作業（人週）」「配分前余力（人週）」「既存課題枠（人週）」「確保率」「前提・扱い」に変更する。列幅は順に20、18、18、20、20、13、28、見出し行高は30pt。管理番号は `KM`。A・Gは `OF Text`、B〜Eは `OF Number` と同じフォント・配置・罫線に小数1桁（`0.0`）を指定し、Fは `OF Percent`。明細の行高は36ptを目安にする。見本のD7は `=B7-C7`、E7は `=D7*F7`。承認した確保率は0.30で入力し、既定作業を引いた配分前余力を基準にする。期間・既定作業の範囲と先送りする仕事はG列または末尾の注記で示す。比較用の行は別々の試算条件として扱う。両表とも管理欄・フィルタ・印刷設定は共通手順に従う。
+
 ## PowerPointで説明資料を作る
 
 `Presentation(型のパス)` で開き、実レイアウトを選ぶ。index 0は表紙、1は見出しと本文、2は2段、3は表、4は図。型はスライド0枚で、例文はない。題のplaceholderはidx=0、本文・図表領域はidx=1、2段右はidx=2。表紙題34pt、その他題28pt、本文20pt、表・図18pt以上。表紙副題へ文書番号・版・日付・作成者・対象四半期を入れる。
@@ -111,6 +119,8 @@ for index, row in enumerate(table.rows):
 
 日程変更通知では `\OFGuideRecord[公開日程変更のお知らせ]{題}{文書番号}{版}{発行日}{作成者}{配布先}` を使う。文書番号は `NT`。旧予定と変更後の四半期は暦年とFYを併記する。公開日が未確定の間は、次の判定に必要な確認と旧予定での案内の扱いを本文に書く。部署別の対応表が原稿にある場合は、共通の表書式で組む。
 
+4月9日の承認範囲は `\OFGuideRecord[承認範囲の共有]{題}{文書番号}{版}{発行日}{作成者}{配布先}` で組む。直接出力PDFの文書番号は `EX`。対象四半期、定着を優先する範囲、既存課題に確保した余力とその基準、開発・利用支援の引き継ぎ事項を本文に記す。
+
 `wakamatsu-intake.cls` も原稿と同じディレクトリへコピーし、`\documentclass{wakamatsu-intake}` で読み込む。`\WSKRecord{題}{文書番号}{版}{発行日}{作成者}` に送付元の値を入れ、手順の区切りを `\WSKStep{見出し}` で示す。日本語は Noto Serif CJK JP、欧文は Liberation Serif、本文11pt・墨、題と見出しは灰緑。必要に応じて上と同じ方法で表を置き、見出し行は `\rowcolor{WSKgreen}` と `\WSKHead{列名}` を使う。出力PDFはテキストを選択できることを確認する。
 
 ## 型を使わない記録
@@ -119,7 +129,7 @@ CSVは原稿の素の列と値だけを出し、ロゴ・管理行を混入さ�
 
 ## 組版見本と検証先
 
-見本は `scratch/p08-product-manager/b006/work/templates-0002/examples/`、レンダリング画像は同じ作業フォルダの `render/`。見本の文書番号・明細・設問・試算値は組版確認用。成形時には計画・台帳・原稿の値を使う。
+見本は `scratch/p08-product-manager/b007/work/templates-0002/examples/`、レンダリング画像は同じ作業フォルダの `render/`。見本の文書番号・明細・設問・試算値は組版確認用。成形時には計画・台帳・原稿の値を使う。
 
 | 型 | examples以下の見本 | render以下の全ページ一覧 |
 |---|---|---|
@@ -127,19 +137,22 @@ CSVは原稿の素の列と値だけを出し、ロゴ・管理行を混入さ�
 | `olta-minutes.docx` | `olta-minutes-short.docx`・`olta-minutes-long.docx` | `olta-minutes.jpg` |
 | `olta-report.docx` | `olta-report-short.docx`・`olta-report-long.docx` | `olta-report.jpg` |
 | `wakamatsu-confirmation.docx` | `wakamatsu-confirmation-short.docx`・`wakamatsu-confirmation-long.docx` | `wakamatsu-confirmation.jpg` |
-| `olta-metrics.xlsx` | `olta-metrics-3.xlsx`・`olta-metrics-38.xlsx` | `olta-metrics.jpg` |
-| `olta-sites.xlsx` | `olta-sites-3.xlsx`・`olta-sites-38.xlsx` | `olta-sites.jpg` |
-| `olta-requests.xlsx` | `olta-requests-3.xlsx`・`olta-requests-38.xlsx` | `olta-requests.jpg` |
-| `olta-payback.xlsx` | `olta-payback-3.xlsx`・`olta-payback-38.xlsx` | `olta-payback.jpg` |
-| `olta-reading-results.xlsx` | `olta-reading-results-3.xlsx`・`olta-reading-results-38.xlsx` | `olta-reading-results.jpg` |
-| `hikari-store-roles.xlsx` | `hikari-store-roles-3.xlsx`・`hikari-store-roles-38.xlsx` | `hikari-store-roles.jpg` |
-| `olta-dependencies.xlsx` | `olta-dependencies-7.xlsx`・`olta-dependencies-21.xlsx` | `olta-dependencies.jpg` |
-| `olta-review.pptx` | `olta-review.pptx`（判断前・全5レイアウト）・`olta-release-brief.pptx`（承認後） | `olta-review.jpg` |
+| `olta-metrics.xlsx` | `olta-metrics-3.xlsx`・`olta-metrics-23.xlsx` | `olta-metrics.jpg` |
+| `olta-sites.xlsx` | `olta-sites-3.xlsx`・`olta-sites-23.xlsx` | `olta-sites.jpg` |
+| `olta-requests.xlsx` | `olta-requests-3.xlsx`・`olta-requests-23.xlsx` | `olta-requests.jpg` |
+| `olta-payback.xlsx` | `olta-payback-3.xlsx`・`olta-payback-23.xlsx` | `olta-payback.jpg` |
+| `olta-reading-results.xlsx` | `olta-reading-results-3.xlsx`・`olta-reading-results-23.xlsx` | `olta-reading-results.jpg` |
+| `hikari-store-roles.xlsx` | `hikari-store-roles-3.xlsx`・`hikari-store-roles-23.xlsx` | `hikari-store-roles.jpg` |
+| `olta-dependencies.xlsx` | `olta-dependencies-3.xlsx`・`olta-dependencies-23.xlsx` | `olta-dependencies.jpg` |
+| `olta-requests.xlsx`（優先順位途中表） | `olta-priorities-3.xlsx`・`olta-priorities-23.xlsx` | `olta-priorities.jpg` |
+| `olta-metrics.xlsx`（開発余力試算） | `olta-capacity-3.xlsx`・`olta-capacity-23.xlsx` | `olta-capacity.jpg` |
+| `olta-review.pptx` | `olta-review.pptx`（事業会議・全5レイアウト）・`olta-allocation-brief.pptx`（承認後） | `olta-review.jpg`・`olta-allocation-brief.jpg` |
 | `olta-extract.cls`（利用状況） | `olta-extract-short.tex`・`olta-extract-long.tex` と `olta-extract-short.pdf`・`olta-extract-long.pdf` | `olta-extract.jpg` |
 | `olta-extract.cls`（経営会議） | `olta-meeting-short.tex`・`olta-meeting-long.tex` と `olta-meeting-short.pdf`・`olta-meeting-long.pdf` | `olta-meeting.jpg` |
 | `olta-extract.cls`（承認担当者向け手引き） | `olta-guide-short.tex`・`olta-guide-long.tex` と `olta-guide-short.pdf`・`olta-guide-long.pdf` | `olta-guide.jpg` |
 | `olta-extract.cls`（利用者向け配布資料） | `olta-handout-short.tex`・`olta-handout-long.tex` と `olta-handout-short.pdf`・`olta-handout-long.pdf` | `olta-handout.jpg` |
 | `olta-extract.cls`（公開日程変更通知） | `olta-schedule-notice-short.tex`・`olta-schedule-notice-long.tex` と `olta-schedule-notice-short.pdf`・`olta-schedule-notice-long.pdf` | `olta-schedule-notice.jpg` |
+| `olta-extract.cls`（承認範囲の共有） | `olta-allocation-notice-short.tex`・`olta-allocation-notice-long.tex` と `olta-allocation-notice-short.pdf`・`olta-allocation-notice-long.pdf` | `olta-allocation-notice.jpg` |
 | `wakamatsu-intake.cls` | `wakamatsu-intake-short.tex`・`wakamatsu-intake-long.tex` と `wakamatsu-intake-short.pdf`・`wakamatsu-intake-long.pdf` | `wakamatsu-intake.jpg` |
 
-各ページのPNGは `render/` にある見本と同じ拡張子なしの名前のフォルダに格納。作業フォルダ内の `commands.json`・`rerender.json` にレンダリングの実行結果、`structure.json` に型と見本の検査結果を記録した。
+各ページのPNGは `render/` にある見本と同じ拡張子なしの名前のフォルダに格納。作業フォルダ内の `commands.json` にレンダリング結果、`recalculation.json` に数式の再計算結果、`structure.json` に型と見本の検査結果を記録した。

@@ -2501,3 +2501,13 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-19	p11-account-executive	b004	coordinator	0	other	Documents/Accounts/Waverley/May 7 room and roster walk-through.docx	統括の抜き取りで不合格
 2026-11-19	p11-account-executive	b004	coordinator	0	other	Documents/Accounts/Waverley/Room check - marked at Waverley.pdf	統括の抜き取りで不合格
 2026-11-19	p11-account-executive	b004	coordinator	0	other	Documents/Mail/Merritt/Nasrin - time for the busy weeks.eml	統括の抜き取りで不合格
+2026-11-19	p16-clinical-researcher	b005	check	0	source	Desktop/0718_木村さんの赤字_お願いの段落.docx	body token overlap 0.547 < 0.6
+2026-11-19	p16-clinical-researcher	b005	check	1	source	Desktop/0718_木村さんの赤字_お願いの段落.docx	body token overlap 0.547 < 0.6
+2026-11-19	p16-clinical-researcher	b005	check	2	source	Desktop/0718_木村さんの赤字_お願いの段落.docx	body token overlap 0.547 < 0.6
+2026-11-19	p08-product-manager	b007	draft-review	0	D3	Desktop/4月の候補_まだ順番は仮.xlsx	「候補」E8の一括承認6人週とE11の期限通知3人週は、前回の判定で確認した3月13日の口頭確認を記す「工数控え」とG列からの参照が現稿に無く、3月12日の余力試算にも両件の値はあるが見積りの対象工程が無く、工程を示す太田の報告は3月24日付のため、3月13日時点で何を含む値として確認したかをたどれない。
+2026-11-19	p19-educator-instructional-designer	b005	check	0	trace	Google Drive/Shared drives/Elmwood/Planning/Jan 22 - keep the questions give back the time.docx	production trace: scope Q8
+2026-11-19	p19-educator-instructional-designer	b005	check	1	trace	Google Drive/Shared drives/Elmwood/Planning/Jan 22 - keep the questions give back the time.docx	production trace: scope Q8
+2026-11-19	p19-educator-instructional-designer	b005	check	2	trace	Google Drive/Shared drives/Elmwood/Planning/Jan 22 - keep the questions give back the time.docx	production trace: scope Q8
+2026-11-19	p19-educator-instructional-designer	b005	check	0	source	Google Drive/My Drive/Teaching/条件を読む仕事術/Previous/Equipment loans - January reading packet.pdf	body token overlap 0.498 < 0.5
+2026-11-19	p19-educator-instructional-designer	b005	check	1	source	Google Drive/My Drive/Teaching/条件を読む仕事術/Previous/Equipment loans - January reading packet.pdf	body token overlap 0.498 < 0.5
+2026-11-19	p19-educator-instructional-designer	b005	check	2	source	Google Drive/My Drive/Teaching/条件を読む仕事術/Previous/Equipment loans - January reading packet.pdf	body token overlap 0.498 < 0.5
