@@ -864,3 +864,5 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-18	p14-finance-controller	b013	coordinator	0	other	Desktop/2026-07_会議が済んだので戻すもの.txt	統括の抜き取りで不合格
 2026-11-18	p14-finance-controller	b013	coordinator	0	other	Documents/取締役会/2026/Q2/2026-07_Q2報告_会議用.pptx	統括の抜き取りで不合格
 2026-11-18	p14-finance-controller	b013	coordinator	0	other	Documents/取締役会/2026/Q2/2026-07_Q2報告_想定問答.docx	統括の抜き取りで不合格
+2026-11-19	p14-finance-controller	b014	draft-review	0	D10	Documents/予測/2026/Q2/2026-06_Aoba3棟_検収から回収まで.xlsx	原稿9行目の管理欄はF3を「宛先 千田 真理子」と指定しているが、cedar-reconciliation.xlsxのE3は「確認」でF3は確認者欄のため、確認者または未確認などの確認状態が原稿にない。回収月と集計式は一致し、11月回収0・累計回収162・月末売掛48百万円を確認した。
+2026-11-19	p14-finance-controller	b014	build-review	0	V3	Documents/予測/2026/Q2/2026-06_CFO説明_Aoba3棟と着地見通し.pptx	5枚目「3棟の資金推移」の折れ線で、0百万円の横軸線が7月のデータラベル「−58」と9月の「−45」の文字を横切っている。
