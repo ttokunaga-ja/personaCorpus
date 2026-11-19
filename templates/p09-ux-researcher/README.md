@@ -7,22 +7,27 @@
 | 観察計画 | Carver Workplace Research LLC、Jennifer。配車の引継ぎ場面、観察する証拠、面談手順を英語で共有 | `carver-observation-plan.docx` | Letter 縦、表紙なし。段違いの三本線と社名、煉瓦色の小見出し。四つの場面と観察点を本文中の表で対応させる |
 | 夜勤棚卸の観察手引き | Carver、Jennifer。現場で照合が止まる直前と、戻って照合を始めるときの行動を別々に記録する | `carver-night-shift-guide.docx` | Letter 縦、表紙なし。共通ロゴと煉瓦色の小見出し。観察範囲、止まる前、止まってからの再開、記録の扱いの4節 |
 | 面談進行台本 | Carver、金子・Jennifer。日本語面談の発話、進行者への指示、聞き返しを区別 | `carver-moderator-guide.docx` | Letter 縦、表紙なし。区間と進行の合図に煉瓦色の太字を使用 |
+| 研修画面の課題票 | Carver、Jennifer・金子。中山の新人に提示する課題と、進行者が回答根拠を控える欄を作る | `carver-training-task.docx` | Letter 縦、表紙なし。日本語の4節、共通ロゴ、煉瓦色の小見出し |
 | 調査判断記録 | Carver、Jennifer・金子。観察の範囲や質問の採否について判断・根拠・未決事項を記録 | `carver-research-decisions.docx` | Letter 縦、表紙なし。短い英語の見出しと、必要に応じて根拠の表を使用 |
 | 日英質問対照 | Carver、Jennifer・金子。並べた質問を読み合わせ、言い直しや採否を照合 | `carver-prompt-review.xlsx` | Letter 横。日英の列を同幅に取り、黒鉛色の列見出しと煉瓦色の管理ラベルを配置 |
 | 再開手掛かりの分類照合 | Carver、Brian と Jennifer。2人の初回コードと場面ごとの確定理由を照合 | `carver-field-coding.xlsx` | Letter 横。日英質問対照と同じ Carver の紙面で、場面・初回2列・確定・一致判定・行動根拠を6列で示す |
-| 場面共有スライド | Carver、Jennifer。引継ぎの四場面や夜勤棚卸で観察した中断と再開を依頼側へ説明 | `carver-field-brief.pptx` | 16:9、白地。小さな社名と図形ロゴを上に、ページの区切り線を下に置く。マスター1種・レイアウト5種 |
+| 読み上げ順の項目表 | Carver、Jennifer。Amanda の観察を Jeremy に渡す際、期待順・観察順・判定・修正観点を項目別に整理 | `carver-reading-order.xlsx` | Letter 横。黒鉛色の6列見出し。先頭の期待順は右寄せ、直後の項目名は1字下げ |
+| 場面共有スライド | Carver、Jennifer。引継ぎの四場面、夜勤棚卸の再開、研修画面の文言案を説明 | `carver-field-brief.pptx` | 16:9、白地。小さな社名と図形ロゴを上に、ページの区切り線を下に置く。マスター1種・レイアウト5種 |
 | 質問試行用紙 | Carver、金子。読み合わせに使う旧質問を余白のある紙面に組む | `carver-pilot-questionnaire.cls` | Letter 縦。麻色の管理欄、煉瓦色の区間見出し、番号付きの日英対。手で削除や言い直しを書き込める質問間隔 |
 | 現地調査報告 | Carver、Jennifer。Ronald に観察範囲、中断と再開の根拠、再開位置の表示、他の勤務帯への留保を伝える | `carver-field-report.cls` | Letter 縦、表紙なし。共通ロゴと煉瓦色の見出し。麻色の管理欄に提出先を独立表示し、根拠を黒鉛色の見出し付きの二列表にできる |
 | 配送計画画面の説明 | Oakridge Dispatch Cooperative、Christine。Dispatch Systems から渡された画面説明 PDF | `oakridge-screen-reference.cls` | Letter 縦。分岐する配送路の図形と社名、濃紺のセリフ体の題、氷青色の管理欄と表見出し |
 | 棚卸手順 | Kenton Contract Warehousing Inc、Ronald。Kenton 発の棚卸手順書や現場掲示の印刷原版 | `kenton-count-instructions.cls` | Letter 縦。アンバーの枠内に棚のマーク、太い上罫、濃い青灰の太字、薄い青灰の管理欄 |
+| 読み上げ観察記録 | Fuller Accessibility Lab LLC、Amanda Shah。観察条件と読み上げの経路を発行元の PDF で Carver に渡す | `fuller-accessibility-observations.cls` | Letter 縦。紫の波形と社名、薄紫の右柱と管理欄、白地に幅の広い本文 |
 
 配車の見通し調査と夜勤棚卸観察で使う型。実ファイルには計画と原稿で定めた内容を入れる。メールは差出人・宛先・日時を持つ EML とする。夜勤の野帳は TXT、場面別の照合記録は CSV、顔の写らない作業机と掲示物は JPG。手書きの照合順は原稿で定めた筆記内容を画像にしてから `bin/scan` で PDF にする。Carver が作成して Kenton に送る手引き、説明、報告には Carver の型を使う。
+
+研修画面理解調査は日本語の課題票と共有スライドを使う。回答の根拠は TXT、再試行結果は CSV、6月の保留連絡は EML とする。5月の配車点検は Fuller 発の観察 PDF、Carver 内部の項目表、順路の注釈 PNG に分ける。5月の配車点検と翌年6月の研修画面再試行は、同意・対象項目・判定を調査ごとに記録する。
 
 ## Carver の書式
 
 - 小規模な業務調査会社の社内資料として、煉瓦色 `B3463C` の段違いの三本線と正式社名を組み合わせる。黒鉛色 `252A35` を本文と表の濃色面、麻色 `ECE5DA` を補助面と罫線に使う。地色は白。Word・Excel のロゴは埋め込み画像、PowerPoint はマスター上の図形と文字、TeX は TikZ と文字。
 - 日本語は Noto Sans CJK JP。Word・PowerPoint・TeX の欧文は Liberation Sans。Excel は見出しと本文・数値が混植になるため同一の Noto Sans CJK JP をブックの既定とし、英文だけの大見出し・ブランドと印刷フッタに Liberation Sans を使う。
-- 文書番号は `CWR-案件-YYYYMMDD-用途-NN`。配車の見通し調査は `DR`、夜勤棚卸観察は `NS`。用途は `OBS`（観察計画・手引き）、`MOD`（進行台本）、`DEC`（判断記録）、`XLT`（対照表）、`BRF`（共有スライド）、`QST`（質問試行用紙）、`RPT`（報告）。日付部分と2桁の枝番は計画で定め、同じ文書の改訂は版で表す。作成日と担当者を文書番号とともに記載する。ファイルの作成者・更新者・日時は実際の担当者と計画の日時を使う。時刻の基準は America/Chicago。
+- 文書番号は `CWR-案件-YYYYMMDD-用途-NN`。配車の見通し調査は `DR`、夜勤棚卸観察は `NS`、研修画面理解調査は `TC`、読み上げ配車点検は `SR`。用途は `OBS`（観察計画・手引き）、`MOD`（進行台本）、`DEC`（判断記録）、`XLT`（対照表）、`BRF`（共有スライド）、`QST`（質問試行用紙）、`RPT`（報告）、`TSK`（研修課題票）、`ORD`（読み上げ順の項目表）。再開手掛かりの分類照合は `DEC` を使う。日付部分と2桁の枝番は計画で定め、同じ文書の改訂は版で表す。作成日と担当者を文書番号とともに記載する。ファイルの作成者・更新者・日時は実際の担当者と計画の日時を使う。時刻の基準は America/Chicago。
 - Word・質問用紙のヘッダに組織名と用途、フッタに Research Practice と頁番号。PowerPoint は組織名・研究部門名・罫線をマスターで共用。Excel は紙面上部にロゴと題を置き、印刷フッタに組織名と現在頁・総頁を出す。
 
 ## Word の成形
@@ -31,6 +36,7 @@
 
 - Letter 縦、左右0.86インチ、上1.16・下0.8インチ。Normal 11pt、Title 27pt、Heading 1 は14pt、Heading 2 は11pt、管理欄9.5pt、進行の合図10pt。段落の行間は1.16。表紙を作らず1ページ目に本文を続ける。
 - 実表に `CWR Evidence Table` を設定し、先頭行は黒鉛色 `252A35` のセル塗りと `CWR Table Header`（白太字10pt）を使う。LibreOffice での印刷にもセル塗りが反映されるよう、先頭セル群に同色の `w:shd` を明示する。明細は `CWR Table Body`（10pt）にする。先頭行に `w:tblHeader`、明細に `w:cantSplit` を付け、実際の文量に合わせて列幅を決める。
+- 研修課題票の節は「実施条件」「画面で行うこと」「判断の根拠」「進行者の記録」。提示する文を「画面で行うこと」に分け、進行者が聞く問いと観察時の記録欄を後ろに置く。版を表示する場合は管理欄に続ける。
 
 ## Excel の成形
 
@@ -45,8 +51,15 @@
 
 `carver-field-coding.xlsx` のシート `Return cues` を開く。管理欄は日英質問対照と同じ位置を使う。6行目の列は Scene、Jennifer · first pass、Brian · first pass、Agreed cue、First pass match、Observation behind the call。7行目から1場面1行を入れ、初回コードは照合後も保持する。
 
-- 明細は `CWR Text`、根拠列は `CWR Note`。一致欄は初回2列を比べる式で Agree または Review を表示する。明細の次に初回一致数と確定コードの件数を、ラベルとそれぞれの列を対象とした COUNTIF 式で示し、集計行は `CWR Total` を使う。
+- 明細は `CWR Text`、根拠列は `CWR Note`。一致欄は初回2列を比べる式で Agree または Review を表示する。集計は明細の次の行から始め、A列に初回一致数または確定コードの件数を `COUNTIF` で入れ、B列にラベルを書く。行全体に `CWR Total` を適用し、B列だけ `CWR Text` の位置揃えをコピーする。ラベルの行数に合わせて高さを調整する。
 - 列幅は A〜F が14、21、21、20、18、44。根拠は折り返して内容に合わせて行高を調整する。A6:F最終明細行にフィルター、印刷は A1:F最終使用行、B7 で固定。印刷時は幅1頁・高さ自動、1〜6行繰返し。集計を含め `bin/recalc` と `bin/render` で確認する。
+
+### 読み上げ順の項目表
+
+`carver-reading-order.xlsx` のシート `Reading order` を開く。ロゴ・題・管理欄は日英質問対照と同じ位置を使う。列は Expected order、Screen item、Announced order、Context、Status、Revision cue。列幅は A〜F が12、26、18、26、17、40。A列は `CWR Integer`、B〜E列は `CWR Text`、F列は `CWR Note`。C列は未読なども記録できる文字列とし、B列とD列の字下げを保つ。明細は7行目から1項目1行で、印刷時に全文が読めるよう、2行までなら34ptを目安にして文量に応じて行高を増やす。
+
+- 集計を載せる場合は明細直後に24ptの行を作り、A列に件数、B〜Cの結合セルに対象のラベルを置く。合計行は `CWR Total`、結合セルの左端だけ `CWR Text` の位置揃えをコピーする。全明細数はA列を `COUNT`、未読件数はE列を `COUNTIF` で集計する。未読の判定語は式と明細で揃える。注記が必要なときは次の行のA〜Fを結合し、`CWR Note` で記載する。
+- フィルターは A6:F最終明細行、印刷範囲は A1:F最終使用行。ペインは B7、Letter 横、幅1頁・高さ自動、1〜6行繰返し。実データを入れたら `bin/recalc` と `bin/render` で全ページを確認する。
 
 ## PowerPoint の成形
 
@@ -69,3 +82,4 @@
 - Oakridge は `\documentclass{oakridge-screen-reference}`。濃紺 `183D52` と氷青 `D9E9EE`、配送経路の分岐図形を使う。欧文の表題・本文は Liberation Serif、管理欄・見出し・柱は Liberation Sans。和文がある場合はそれぞれ Noto Serif CJK JP と Noto Sans CJK JP。上部に社名と Dispatch Systems、下部に Screen Reference と頁を出す。
 - Oakridge の番号は `ODC-DSP-YYYYMMDD-REF-NN`。本文冒頭に `\OakDocument{題}{番号}{日付}{作成者}` を置く。受領日を発行日に置き換えず、発行元の担当者と日付を記載する。節は `\OakHeading{見出し}`。表の先頭行は `\OakTableHeader` を使い、長文は `tabularx` で折り返す。
 - Kenton は `\documentclass{kenton-count-instructions}`。棚のマークと太い罫はアンバー `F4C85B`、本文は青灰 `202D3A`、管理欄は薄い青灰 `EDF0F2`。欧文は DejaVu Sans、和文は Noto Sans CJK JP。柱に社名と Inventory Control、フッタに Warehouse Operations と頁を出す。日勤用の手順番号は `KCW-IC-YYYYMMDD-DAY-NN`。冒頭の `\KentonInstruction{題}{番号}{発行日}{発行担当者}` に発行元の情報を入れ、節は `\KentonHeading{見出し}` で組む。日勤手順の記載は夜勤での観察記録と区別する。
+- Fuller は `\documentclass{fuller-accessibility-observations}`。紫 `513E75` の波形と社名を上に置き、薄紫 `EEE9F4` を管理欄と右柱に、黒紫 `282339` を本文に使う。欧文は DejaVu Sans、和文は Noto Sans CJK JP。番号は `FAL-YYYYMMDD-OBS-NN`。冒頭に `\FullerObservation{題}{番号}{発行日}{作成者}`、節に `\FullerHeading{見出し}` を置く。表は `\begin{FullerTable}{p{1.8in}X}` と `\end{FullerTable}` で囲み、先頭行に `\FullerTableHeader` を使う。本文幅で改段し、`X` 列で長い観察記録を折り返す。発行日・作成者は Fuller の原稿に合わせ、右柱とフッタに観察記録の種別と頁を表示する。

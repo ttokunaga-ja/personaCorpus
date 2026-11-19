@@ -1,0 +1,9 @@
+participant,date,first_stop,state_stated,basis_code,misunderstanding
+TC-01,2025-02-05,after_save,complete,completion_message,yes
+TC-02,2025-02-05,after_save,complete,completion_message,yes
+TC-03,2025-02-05,after_save,complete,review_optional,yes
+TC-04,2025-02-05,after_save,incomplete,confirmation_next,no
+TC-05,2025-02-06,after_save,complete,completion_message,yes
+TC-06,2025-02-06,before_submit,incomplete,submit_required,no
+TC-07,2025-02-06,after_save,complete,review_optional,yes
+TC-08,2025-02-06,after_submit,complete,submitted_message,no

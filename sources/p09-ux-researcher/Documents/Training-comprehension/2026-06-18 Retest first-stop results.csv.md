@@ -1,0 +1,21 @@
+---
+path: Documents/Training-comprehension/2026-06-18 Retest first-stop results.csv
+kind: text
+author: Jennifer Salazar
+derived_from:
+---
+# Retest first-stop results
+
+The following is the complete CSV, including its header. Each row records the first stop, before any prompting or assistance.
+
+```csv
+ID,Session date,First stop,Stated state,Cue referenced,Unprompted next action,Misunderstanding
+TCR-01,2026-06-16,After saving,Not complete,研修は未完了です,Proceed to confirmation and submit,No
+TCR-02,2026-06-16,After saving,Not complete,確認画面で提出すると完了します,Proceed to confirmation and submit,No
+TCR-03,2026-06-16,Confirmation screen,Not complete,提出する,Submit,No
+TCR-04,2026-06-16,After submission,Complete,研修が完了しました,No further submission,No
+TCR-05,2026-06-17,After saving,Not complete,ここまで保存しました and 研修は未完了です,Proceed to confirmation and submit,No
+TCR-06,2026-06-17,After saving,Complete,確認へ進む read as optional review,Stop; review only if desired,Yes
+TCR-07,2026-06-17,Confirmation screen,Not complete,提出する,Submit,No
+TCR-08,2026-06-17,After saving,Not complete,確認画面で提出すると完了します,Proceed to confirmation and submit,No
+```

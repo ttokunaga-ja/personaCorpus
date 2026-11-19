@@ -1,0 +1,17 @@
+---
+path: Documents/Training-comprehension/2026-06-18 Two reading-order checks before signoff.txt
+kind: text
+author: Jennifer Salazar
+derived_from:
+---
+# Two reading-order checks before signoff
+
+June 18, 2026, 07:10–07:25 CDT. Amanda operated the practice training herself; I noted the continuous pass. This is a separate accessibility check, not an eighth-person or ninth-person response in the newcomer count.
+
+Start: Immediately after the intermediate-save display appeared, Amanda began continuous reading through that display.
+
+Heard: 「確認へ進む」 was read before 「ここまで保存しました」. The supplementary sentence 「研修は未完了です。確認画面で提出すると完了します。」 was not heard along this route.
+
+Visible: The display showed the heading 「ここまで保存しました」, the supplementary sentence 「研修は未完了です。確認画面で提出すると完了します。」 and the action 「確認へ進む」.
+
+Expected position: The heading should be heard first, followed by the supplementary sentence, before 「確認へ進む」. Two items remain unresolved: the heading is in the wrong position and the supplementary sentence is absent on this route. Recheck both in one continuous pass after a revised confirmation screen is available. This observation does not establish why TCR-06 answered as they did.
