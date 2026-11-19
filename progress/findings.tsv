@@ -3389,3 +3389,19 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-19	p10-management-consultant	b005	coordinator	0	other	Documents/Clients/Whitfield/Meetings/09 Oct - Signed payment pilot scope change.pdf	統括の抜き取りで不合格
 2026-11-19	p10-management-consultant	b005	coordinator	0	other	Documents/Mail/Whitfield/08 Oct - Papers for the payment pilot decision.eml	統括の抜き取りで不合格
 2026-11-19	p10-management-consultant	b005	coordinator	0	other	Documents/Mail/Whitfield/09 Oct - Signed change and desk copy.eml	統括の抜き取りで不合格
+2026-11-19	p15-recruiter-people-ops	b010	templates-review	0	other	README.md	「今回の見本と確認先」の基準ディレクトリ scratch/p15-recruiter-people-ops/b009/work/templates-0004/ が存在せず、見本と全ページ画像への45件の参照先がすべて切れている。
+2026-11-19	p15-recruiter-people-ops	b010	draft-review	0	D1	Documents/研修/新任管理者受入/その場で約束しない返事と最初の面談.pptx	第3回のスライド2・3は役の割当てと人員条件の開示までで、5月8日に固定制から変更した管理者役の交代をどこで行うかが本文・発表者メモともにない。交代の指示は第4回のスライド5に限られる。
+2026-11-19	p15-recruiter-people-ops	b010	draft-review	0	D4	Documents/研修/新任管理者受入/5月08日_吉田さんの赤字.docx	11:36保存のv0.2の23〜24行目「8日に詰めたいこと」に、同日11:25に確定した4候補日の決定と、19〜20行目で共有範囲・役割交代を決めた論点が、旧稿と同じ未決の確認事項として残っており、26〜35行目の変更履歴にもその節の扱いがない。
+2026-11-19	p15-recruiter-people-ops	b010	build-review	0	V1	Documents/研修/新任管理者受入/5月08日_吉田さんへ_四つの午後枠.eml	復号した「5月の管理者受入_進行たたき台.docx」は39,874バイトで保存版39,868バイトと異なり、作成・更新日時も2026-08-10T09:00:00Zのまま（保存版は両方2025-05-07T07:18:00Z）。「午後の研修室と当番の照合.xlsx」は7,978バイトで保存版8,080バイトと異なり、作成・更新日時は2026-08-10T09:00:00Zと2026-11-19T22:57:18Z（保存版は両方2025-05-07T06:26:00Z）。
+2026-11-19	p15-recruiter-people-ops	b010	build-review	0	V2	Documents/研修/新任管理者受入/まずどこへ相談するか.pdf	1ページ目右上の用途ヘッダが「人事／新任管理者受入」になっており、型のREADMEと見本が指定する「人事／新任管理者向け配布資料」が本文冒頭にだけ置かれている。
+2026-11-19	p15-recruiter-people-ops	b010	build-review	0	V1	Documents/研修/新任管理者受入/5月09日_加藤さんへ_机上に置く案内.eml	復号した「まずどこへ相談するか.pdf」は57,575バイトで保存版58,544バイトと一致しない。抽出本文は一致するが、添付には保存版の作成者・作成日時・更新日時とXMPメタデータがない。
+2026-11-19	p15-recruiter-people-ops	b010	build-review	0	V1	Documents/研修/新任管理者受入/5月26日_吉田さんへ_補講の二枠.eml	MIME添付「5月26日_出欠を回ごとに照合.xlsx」は復号後8,248バイト、指定保存版は8,360バイトで、作成・更新日時およびアプリ情報が異なる。
+2026-11-19	p15-recruiter-people-ops	b010	build-review	0	V1	Documents/研修/新任管理者受入/5月27日_加藤さんへ_補講は個別で.eml	MIME添付「29日と30日_欠席回別の補講割付.xlsx」は復号後7,990バイトで指定保存版は8,070バイト、「補講の連絡_個別に送る文案.docx」は復号後39,311バイトで指定保存版は39,308バイトであり、いずれも作成・更新日時およびアプリ情報が異なる。
+2026-11-19	p15-recruiter-people-ops	b010	build-review	0	V2	Documents/研修/新任管理者受入/当番を替えるときと相談を受けたとき.pptx	全5枚のタイトルに墨色（#34383C）が直接設定され、型の表紙・2段・表・図のタイトルに指定された桑実色（#963A65）が置き換わっている。
+2026-11-19	p15-recruiter-people-ops	b010	build-review	1	V1	Documents/研修/新任管理者受入/5月09日_加藤さんへ_机上に置く案内.eml	MIME添付「まずどこへ相談するか.pdf」は復号後57,566バイトで指定保存版58,535バイトと不一致。抽出本文は一致するが、添付版には保存版の作成者・作成日時・更新日時およびXMPがない。
+2026-11-19	p15-recruiter-people-ops	b010	build-review	1	V2	Documents/研修/新任管理者受入/当番を替えるときと相談を受けたとき.pptx	全5枚の題は桑実色（#963A65）に修正されたが、4枚目の分岐図では4つの箱がすべて淡色（#F5EDF1）、矢印が灰緑（#7B8270）で、型のREADMEと見本が図に指定する桑実色（#963A65）が使われていない。
+2026-11-19	p02-site-reliability-engineer	b008	draft-review	0	D3	Documents/On-call/Westbury refund check for Wednesday.md	冒頭の「The eight are a submission count」が提出待ち8件を指す一方、次段落の「refreshed submission count」はMatthewが更新する提出済み件数を指し、引継ぎで異なる状態の件数に同じ呼称を使っている。
+2026-11-19	p05-bi-data-analyst	b007	coordinator	0	other	Documents/メール/岡田/2026-06-23_10時の灘浜照合に使う資料です.eml	統括の抜き取りで不合格
+2026-11-19	p05-bi-data-analyst	b007	coordinator	0	other	Documents/物流/灘浜運輸/6月末_元の表を戻す場所.md	統括の抜き取りで不合格
+2026-11-19	p05-bi-data-analyst	b007	coordinator	0	other	Documents/物流/灘浜運輸/荷受と店の在庫を合わせた51件.xlsx	統括の抜き取りで不合格
+2026-11-19	p05-bi-data-analyst	b007	coordinator	0	other	Downloads/2026-06-22_遅配便の販売可能数_受領時点.csv	統括の抜き取りで不合格
