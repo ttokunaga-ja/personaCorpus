@@ -2524,3 +2524,51 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-19	p02-site-reliability-engineer	b005	coordinator	0	other	Documents/Mail/RJS observations from the 19 August archive check.eml	統括の抜き取りで不合格
 2026-11-19	p07-humanities-researcher	b003	draft-review	0	D3	Documents/Book/Chapter-2/Dues and participation - revised for Edward.docx	§5の未同定8件の段落は原綴り列を検索するよう指示するが、注17が挙げる Place spellings from the January copies.csv は計画で破棄済みで原稿もなく、前回の合格理由にあった章内一覧も現稿にはないため、改稿に示された索引の手順では8件を引けない。
 2026-11-19	p07-humanities-researcher	b003	build-review	0	V5	Documents/Archive/Box-14/Deux plis à garder avec les dispenses ff176-177.pdf	1頁目 f. 176r の本文第4行を拡大すると、左端近くの縦の折り筋は「Val」の V を通るが、V の返しの筆画は交差箇所で連続しており、原稿指定の折り目による途切れが再現されていない。
+2026-11-19	p15-recruiter-people-ops	b007	templates-review	0	other	README.md	「今回の見本と確認先」の基準フォルダ scratch/p15-recruiter-people-ops/b006/work/templates-0002/ が存在せず、表に掲載された見本と全ページ画像の参照先を開けない。
+2026-11-19	p15-recruiter-people-ops	b007	draft-review	0	D5	Desktop/42の下に何人か書く.txt	本文11行目の「42％を151人で割ったのか」は報告率42％そのものを割られる数にしており、否定件数を151人で割って42％を出したかどうかを問うメモとして分子と率を取り違えている。
+2026-11-19	p15-recruiter-people-ops	b007	draft-review	0	D3	Documents/組織調査/会議に出す数字の点検.xlsx	「掲載可否」8行目F列は伊藤の集計根拠XLSXの否定63人と締めのCSVの報告値42％を並べて掲載可としているが、行にも表の注記にも出典がなく、整数％しか収録しない受領CSVと直接計数を掲載前にたどり分けられない。
+2026-11-19	p15-recruiter-people-ops	b007	draft-review	0	D3	Documents/組織調査/10月14日_伊藤さんから_設問は149人.eml	返信本文20行目と添付根拠表の19〜20行目は「4択の否定側2択」とだけ記し、引用された照会が求めた選択肢とどの2択を否定側に含めたかを示していないため、佐藤が42％の集計範囲を確認できない。
+2026-11-19	p15-recruiter-people-ops	b007	build-review	0	V2	Documents/組織調査/演習で聞き返せたか.xlsx	「4週間後の問い」シートの印刷2ページ目で、mirai-expenses.xlsx のフッタ（社名・人事、ページ番号）が欠落し、シートの印刷設定にもフッタと1〜6行の繰り返し指定がない。
+2026-11-19	p15-recruiter-people-ops	b007	build-review	0	V2	Documents/組織調査/45分を一度にするか分けるか.xlsx	「拘束時間」の印刷ページでは型にある社名・人事とページ番号のフッタが欠落し、両シートの作成日が型指定のyyyy-mm-ddではなく「2025-10-17 0:00:00」と表示される。
+2026-11-19	p15-recruiter-people-ops	b007	build-review	0	V5	Documents/組織調査/10月22日の説明_円で試した版.pptx	スライド2の左円では下に「提出151人／未回答23人」と並ぶが、桑実色・灰緑の各扇形を識別する凡例キーや直接ラベルがない。
+2026-11-19	p15-recruiter-people-ops	b007	build-review	1	V1	Documents/組織調査/45分を一度にするか分けるか.xlsx	両シートの管理欄直後から末尾まで照合したところ、原稿で管理欄に続く用途の一文「高橋さん・渡辺さんへの比較用」がブック内にも印刷面にもない。
+2026-11-19	p15-recruiter-people-ops	b007	build-review	2	V2	Documents/組織調査/45分を一度にするか分けるか.xlsx	前回欠けていた用途文は両シートのA5と印刷面に復元されたが、「拘束時間」シートには型の印刷フッタ設定がなく、2ページ目下端に「みらい職場研修株式会社 | 人事」とページ番号「2 / 2」が表示されない。
+2026-11-19	p13-corporate-privacy-counsel	b008	templates-review	0	other	README.md	156〜169行が参照する b007/work/templates-0002/ が存在せず、記載された見本・全頁画像・render-results.json を指定先で確認できない。
+2026-11-19	p13-corporate-privacy-counsel	b008	draft-review	0	D4	Documents/社内研修/4月10日_例外承認_当日の投影.pptx	第2枚の画面タイトル（17行目）「保存期間を自分で延ばす前に」は、所管自身が延長できる前提を置き、第3・11・12枚のノートと現行方針の河野による個別判断に反するうえ、第2枚は5月の修正対象6・9・12・16・19枚に含まれず、この誤読が維持される。
+2026-11-19	p13-corporate-privacy-counsel	b008	draft-review	0	D3	Documents/社内研修/5月18日_実務で見る例外承認の補足.pdf	「承認済みの例外の終期に達したとき」の例は「直ちに削除完了とはしません」と完了記録だけを否定しており、通常保存の残期間と別の有効な根拠を確かめてから削除の可否を判断する順を明示していないため、旧第19枚の即時削除の誤読が残る。
+2026-11-19	p13-corporate-privacy-counsel	b008	draft-review	0	D1	Documents/社内研修/4月16日_講師補足_河野部長の赤字.docx	「講師が補う説明案」の口頭例と変更履歴の挿入文（21・34行目）は「個別判断を受ける」までで判断者が書かれておらず、4月14日の確認記録と台帳が補足の核心とする「河野が個別に判断する」を講師が読み上げられない。
+2026-11-19	p13-corporate-privacy-counsel	b008	draft-review	0	D1	Documents/人事と事務の控え/2026-05-18_条件が読める補足に差替え.eml	本文18〜20行目には旧投影を参照する担当者という範囲だけがあり、計画・14:50の案内依頼・台帳で示す今回の配信対象38人が記載されていない。
+2026-11-19	p13-corporate-privacy-counsel	b008	draft-review	0	D4	Documents/人事と事務の控え/2026-05-18_小島さん_38人へ配信しました.eml	原稿10行目のCcに小山泰弘が入っているが、事実の台帳267行目では小山をCcに入れるのは14:50の依頼で、16:09の返信は小島から高田宛てとされている。
+2026-11-19	p13-corporate-privacy-counsel	b008	build-review	0	V2	Documents/社内研修/5月18日_直す5枚と残す17枚.xlsx	「投影の突合」の管理欄で、型と見本にあるA3「文書番号」、E3「基準日」、A4「作成者」、E4「確認者・版」がすべて空セルで印刷にも出ない。文書番号と作成者は値欄に記載があるが、特に右側は基準日のラベルがなく、確認者・版の欄が「共有」の記載に置き換わっている。
+2026-11-19	p13-corporate-privacy-counsel	b008	build-review	0	V2	Documents/社内研修/4月13日_終了時の5問_設問別.xlsx	印刷1頁上部のE4「確認者・版」に対応するF4:H4に版がなく、版1.0は文書番号欄B3:D3に入り、型と見本が指定する管理欄の配置と異なります。原稿のB3/F4指定と型の指示が食い違っています。
+2026-11-19	p13-corporate-privacy-counsel	b008	build-review	0	V2	Documents/相談控え/2026/4月14日_河野部長と研修の結果確認.docx	1頁の表題直下にある文書番号・版、作成日・作成者、共有先の3段落が、型と見本の管理行TD Metadata（9pt）ではなく、本文書式Normal（10.5pt）で組まれています。
+2026-11-19	p13-corporate-privacy-counsel	b008	build-review	0	V2	Desktop/4月15日_講師補足_先に手順を言う案.docx	1頁の表題直下にある文書番号・版、作成日・作成者、宛先の3段落が、型と見本の管理行TD Metadata（9pt）ではなく、本文書式Normal（10.5pt）で組まれています。
+2026-11-19	p13-corporate-privacy-counsel	b008	build-review	0	V2	Documents/社内研修/4月16日_講師補足_河野部長の赤字.docx	1頁の表題直下にある文書番号・版、作成日・作成者、修正日・修正者、宛先の4段落が、型と見本の管理行TD Metadata（9pt）ではなく、本文書式Normal（10.5pt）で組まれています。
+2026-11-19	p13-corporate-privacy-counsel	b008	build-review	0	V2	Documents/社内研修/5月25日_差替え後の窓口引継ぎ.docx	1頁「質問と担当」の表の先頭行で、白字太字の TD Table Header が必要な「質問」「対応」「担当」に TD Table Body が適用され、紫灰色地に墨色で表示されて判読しづらい。
+2026-11-19	p13-corporate-privacy-counsel	b008	build-review	1	V2	Documents/社内研修/5月18日_直す5枚と残す17枚.xlsx	「投影の突合」1頁の管理ラベル4項目と版1.0は印刷に出るが、E4「確認者・版」に対応するF4:H4の値が「共有 小山泰弘・平野裕佳　版 1.0」のままで、確認者と共有先を区別できない（明細G7:G11の確認者は小山・高田）。
+2026-11-19	p09-ux-researcher	b006	templates-review	0	other	carver-participant-eligibility.xlsx	描画2頁の番号・日付・数値とラベルの間隔は適合したが、型のdocProps/core.xmlのdcterms:modifiedが2026-11-19T14:47:44Zで、personaの対象期間外かつ型ファイルの更新と同秒の制作日時が残っている。
+2026-11-19	p09-ux-researcher	b006	draft-review	0	D10	Documents/Team-and-expenses/2026-01-30 January room charges.pdf	冒頭の管理欄に文書番号・版・発行日・発行者はあるが、carver-venue-statement.clsが必須とする第4引数の提出先（Prepared for）の値が原稿にない。
+2026-11-19	p09-ux-researcher	b006	draft-review	0	D3	Documents/Team-and-expenses/2026-02-02 Room costs for January.xlsx	10行目F列の13:45解放は紙明細CWR-OPS-20260130-VEN-01の行4にはなく、Ayeshaの1月22日付解放メモで確認できるが、精算表の根拠欄と末尾注記にはこの別出典への参照がない。
+2026-11-19	p09-ux-researcher	b006	draft-review	0	D1	Documents/Team-and-expenses/2025-11-06 Say the time limit before asking.md	第1回（11月4日、原稿10行目）の180日説明と第3回（11月6日、原稿14行目）の伏せた説明への切替え・再同意が行動の要約に留まり、計画が求めるAyeshaの実際の言い方を第1・第3回について確認できない。
+2026-11-19	p09-ux-researcher	b006	draft-review	0	other	Documents/Team-and-expenses/2025-11-07 Ayesha can take the opening.docx	判定なし
+2026-11-19	p09-ux-researcher	b006	draft-review	0	other	Documents/Japanese-review/2026-01-26 停車メモ 外に出せる箇所.md	判定なし
+2026-11-19	p09-ux-researcher	b006	draft-review	1	other	Documents/Team-and-expenses/2025-11-06 Say the time limit before asking.md	判定なし
+2026-11-19	p09-ux-researcher	b006	draft-review	1	other	Documents/Team-and-expenses/2025-11-07 Ayesha can take the opening.docx	判定なし
+2026-11-19	p09-ux-researcher	b006	draft-review	1	other	Documents/Japanese-review/2026-01-26 停車メモ 外に出せる箇所.md	判定なし
+2026-11-19	p09-ux-researcher	b006	draft-review	1	other	Documents/Team-and-expenses/2026-01-30 January room charges.pdf	判定なし
+2026-11-19	p09-ux-researcher	b006	draft-review	1	other	Documents/Team-and-expenses/2026-02-02 Room costs for January.xlsx	判定なし
+2026-11-19	p09-ux-researcher	b006	draft-review	2	D3	Documents/Team-and-expenses/2026-02-02 Room costs for January.xlsx	Venue expensesのF10は紙明細の行4と照合する欠席費の行だが、無連絡・来室なし、1月21日17:00までの取消未受領、13:45の解放は紙明細に記載がなく、精算表から根拠となるAyeshaの1月22日の解放メモをたどれない。
+2026-11-19	p09-ux-researcher	b006	draft-review	0	D10	Documents/Japanese-review/2026-01-29 The stop note example - Mihoko's markup.docx	先頭の derived_from が空欄で、計画が元に指定した 2026-01-27 The stop note example - hold this draft.docx（同番号の v0.1）を、v0.2 の変更履歴の派生元として指定していない。
+2026-11-19	p09-ux-researcher	b006	check	0	source	Documents/Japanese-review/2026-01-29 The stop note example - Mihoko's markup.docx	body token overlap 0.548 < 0.6
+2026-11-19	p09-ux-researcher	b006	check	1	source	Documents/Japanese-review/2026-01-29 The stop note example - Mihoko's markup.docx	body token overlap 0.548 < 0.6
+2026-11-19	p09-ux-researcher	b006	check	2	source	Documents/Japanese-review/2026-01-29 The stop note example - Mihoko's markup.docx	body token overlap 0.548 < 0.6
+2026-11-19	p20-investigative-journalist	b004	templates-review	0	other	README.md	「記入見本」の基点 scratch/p20-investigative-journalist/b003/work/templates-0004/ が存在せず、pitch-short.docx や render/source-long/ を含む記入見本・画像の参照54パスを開けない。
+2026-11-19	p20-investigative-journalist	b004	templates-review	1	other	keller-work-schedule.cls	見本の1・2ページともProject records直上のフッタ罫が黒（#000000）で、README.mdの罫の指定色（黄土色 #AE741C）と一致しない。
+2026-11-19	p20-investigative-journalist	b004	draft-review	0	D4	Pictures/Reporting/Quarry - gate approach and ditch in one frame.jpg	本文8行目はQuarry Roadに沿ってBriar Street方向を向いた広角写真の背景にゲート方向が見えるとするが、同じ10:22の撮影位置を示す「July 2 - gate approach sketch.pdf」原稿の見取図では道路に沿うWeighhouse Gate方向とBriar St.方向が互いに逆で、写真の視線と背景の位置関係が一致しない。
+2026-11-19	p20-investigative-journalist	b004	draft-review	0	D10	Documents/Stories/Road-contracts/Checks/July 17 - receipts behind the company answer.xlsx	Holdsの全3行に型のC列「Source no.」に入れるSourcesの行番号とF列「Status」の行別値がなく、両シートに明細だけを数えるCOUNT式（Sources A7:A16、Holds A7:A9）もないため、保留から根拠をたどれる指定のブックに成形できない。
+2026-11-19	p20-investigative-journalist	b004	draft-review	0	other	Documents/Stories/Road-contracts/Drafts/Three changes - attributed copy for Richard.docx	D1はEditorial noteの照会先欠落。Alder・Mill・Quarryで探す記録と社内担当はあるが、誰に照会するかが記されていない。D4は導入の “a weak approach beneath another gate”。7月15日の会社回答が弱いとしたのは進入路の下層で、CO-01と同稿Quarry節も補修箇所をWeighhouse Gate手前としている。
+2026-11-19	p20-investigative-journalist	b004	build-review	0	V5	Documents/Stories/Road-contracts/Checks/July 2 - gate approach sketch.pdf	手帳1面の見取図で、B 10:28の狭い画角を示す破線2本が車道の反対側の端で止まり、原稿が指定する表面補修帯に沿った画角を示していない。
+2026-11-19	p20-investigative-journalist	b004	build-review	0	V2	Documents/Interviews/Keller - questions before we cut the dates.docx	1ページ目の題の上に型と見本の「RECORDS SCOPE MEMO」がなく、型の管理欄「Prepared by Leslie Crawford」もなく原稿の「From: Leslie Crawford」だけが置かれている。
+2026-11-19	p20-investigative-journalist	b004	build-review	0	V2	Documents/Stories/Road-contracts/Checks/Do we need to ask for the date again.docx	1ページ目の題の上に型と見本の「RECORDS SCOPE MEMO」がない。原稿指定の挿入2件・削除3件と実測に関するコメントはWordの変更履歴とコメントで確認した。
+2026-11-19	p20-investigative-journalist	b004	check	1	source	Documents/Stories/Road-contracts/Checks/July 2 - gate approach sketch.pdf	body token overlap 0.256 < 0.3
+2026-11-19	p20-investigative-journalist	b004	build-review	1	V3	Documents/Stories/Road-contracts/Checks/Do we need to ask for the date again.docx	1ページ目の「Rough date questions」第2項は継ぎ目に関する質問文だけが変更履歴の削除対象で、箇条書き段落自体が残り、変更を反映した確認用レンダリングではその位置に本文のない箇条書き記号が表示される。

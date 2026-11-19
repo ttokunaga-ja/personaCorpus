@@ -108,7 +108,7 @@ p12-support-success-lead	b007	2026-11-19	25	5	0	1	0	accepted	5207.48
 p11-account-executive	b004	2026-11-19	33	3	9	3	3	accepted	9206.19
 p20-investigative-journalist	b003	2026-11-19	36	14	1	8	3	accepted	8878.26
 p16-clinical-researcher	b005	2026-11-19	28	4	5	1	0	accepted	19203.96
-p19-educator-instructional-designer	b005	2026-11-19	32	8	8	3	0	done	19064.97
+p19-educator-instructional-designer	b005	2026-11-19	32	8	8	3	0	done	19741.19
 p04-ml-research-engineer	b006	2026-11-19	32	3	1	1	0	accepted	14709.55
 p08-product-manager	b007	2026-11-19	37	4	7	0	0	accepted	19808.61
 p09-ux-researcher	b005	2026-11-19	37	7	4	4	3	accepted	7500.10
@@ -118,3 +118,7 @@ p12-support-success-lead	b008	2026-11-19	26	6	2	0	0	accepted	5412.77
 p13-corporate-privacy-counsel	b007	2026-11-19	29	2	4	0	0	accepted	6189.02
 p06-life-science-researcher	b004	2026-11-19	30	6	5	0	0	accepted	5883.13
 p12-support-success-lead	b009	2026-11-19	30	3	5	0	0	done	5141.02
+p15-recruiter-people-ops	b007	2026-11-19	28	3	3	0	0	done	6127.05
+p13-corporate-privacy-counsel	b008	2026-11-19	28	5	6	0	0	accepted	5649.36
+p09-ux-researcher	b006	2026-11-19	26	6	1	4	0	done	5235.88
+p20-investigative-journalist	b004	2026-11-19	31	3	3	0	0	failed	5863.60

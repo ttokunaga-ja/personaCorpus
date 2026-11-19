@@ -151,22 +151,29 @@ Winslowの英文通知は同じコマンドで `\documentclass{winslow-subproces
 
 Fairview案件の法務共有用の合意条件要旨と、3月18日の紙の点検控えの原紙には `toto-review-sheet.cls` を使う。`\ReviewMatter{移管先削除条件}` を指定し、要旨では確認完了から30日以内と証明範囲を記す。紙の控えは照合した区分と証明不足の箇所が読めるよう原紙を組む。手書きの印は成形時に原稿に従って加え、内容のある紙面を `bin/scan` に渡す。
 
+## 2026年4〜5月の例外承認研修
+
+- 講師の説明案は `toto-consultation.docx` を使い、受講結果、読み違いのあった箇所、講師が補う条件、質疑の扱いに分ける。小山との表現点検は `toto-review.docx`、配布方法を部内で確認する場合は `toto-instruction.docx` を使う。
+- 設問別集計は `toto-hold-register.xlsx` を開く。A6:H6は「No.／設問・確認項目／有効回答（件）／正答（件）／正答率／読み違い・点検視点／確認先／集計・連絡上の注記」、幅は `9, 24, 14, 12, 12, 31, 15, 31` を起点とする。A・C・Dは `TD Number`、Eも `TD Number` を適用して表示形式を `0%` にする。有効回答がある設問は正答数を有効回答数で割る。分母が未確定または0の設問は率を空欄にして理由を記す。Hは `TD Note`、残る文字列は `TD Text`。明細は42ptから調整し、必要なら最終明細の次のB列に設問数のラベル、C列に実範囲のA列を数える `COUNT` を置き、双方に `TD Total` を適用する。4月14日に確認した受講214人・正答率78%は受講結果の集計値として扱い、設問別の回答数を足して受講人数を求めない。
+- 修正箇所を一覧で対照するときは `toto-decision-comparison.xlsx` を使う。A6:H6は「No.／点検項目／照合資料／修正前の表現／修正時に示す条件／点検箇所（件）／確認者／再案内の扱い」、幅は `9, 23, 19, 25, 29, 14, 15, 24` を起点とする。A・Fは `TD Number`、Hは `TD Note`、ほかは `TD Text`。両ブックともB3:D3とF3:H3の結合、B・F・Gの文字セルの左インデント、1〜6行の印刷繰り返しを維持する。
+- 投影資料は `toto-legal-brief.pptx` の2段レイアウトで修正前の文と条件を補った文を対照し、ひとつの資料にまとめる。5月18日に確認した22枚中の修正5枚と、補足の連絡対象38人を用途ごとに示す。
+- 直接組む配布PDFは `toto-review-sheet.cls` と `\ReviewMatter{社内研修}` を使う。保存HTMLは原稿の題、発行部署、日付、節と本文を保存する。人事向けの連絡控えはJSTのEMLにし、対象人数や参照する配布資料を本文に示す。研修ボード写真は承認の流れが読める板面を写し、受講者の名簿や顔を含めない。
+
 ## 見本と検証
 
-今回の作業先は `scratch/p13-corporate-privacy-counsel/b007/work/templates-0002/`。下表のファイルは `examples/`、全頁画像は `render/<拡張子を除いた見本名>/` にある。TeXは対応するPDFをレンダリングした。管理欄の番号・日付・作成者を埋め、表は少量と複数頁で確認した。見本の区分名・証明不足の行番号や番号の割り当ては印刷確認用。成果物では計画と原稿を使う。
+今回の作業先は `scratch/p13-corporate-privacy-counsel/b008/work/templates-0002/`。見本は [examples](../../scratch/p13-corporate-privacy-counsel/b008/work/templates-0002/examples/)、全頁画像は [render](../../scratch/p13-corporate-privacy-counsel/b008/work/templates-0002/render/) 内の見本名と同じフォルダにある。TeXは各原稿と同名のPDFをレンダリングした。見本の文書番号・明細数・設問ごとの数値は印刷確認用。成果物の管理欄と数値は計画・原稿に従う。
 
-| 確認する型・用途 | 見本ファイル |
+| 確認した型・用途 | 見本ファイル |
 |---|---|
-| Word社外回答・社内相談・照合手順・判断資料 | `miyasaka-noda-advice.docx`、`toto-consultation.docx`、`toto-instruction.docx`、`toto-review.docx` |
-| Fairviewの英文条項案と削除報告書 | `fairview-transfer-clause.docx`、`fairview-deletion-report-extract.docx`、`fairview-deletion-report-full.docx`、`fairview-deletion-report-file-copy.pdf` |
-| Excel台帳と比較表の少量・複数頁 | `toto-hold-register-3.xlsx`、`toto-hold-register-36.xlsx`、`toto-decision-comparison-3.xlsx`、`toto-decision-comparison-36.xlsx` |
-| Fairview証明範囲の点検表・12区分の印刷と続頁確認 | `toto-fairview-evidence-3.xlsx`、`toto-fairview-evidence-12.xlsx`、`toto-fairview-evidence-36.xlsx` |
-| PowerPointの5レイアウトと配布控え | `toto-legal-brief.pptx`、`toto-legal-brief-handout.pdf` |
-| TeXの紙票・棚卸し論点表・大和田返却明細の少量と複数頁 | `toto-review-sheet-short.tex`、`toto-review-sheet.tex`、`toto-retention-issues-short.tex`、`toto-retention-issues.tex`、`owada-return-record-short.tex`、`owada-return-record.tex` と各PDF |
+| Word社内相談・実施指示・判断資料 | `toto-consultation.docx`、`toto-instruction.docx`、`toto-review.docx` |
+| 宮坂・野田の回答とFairviewの証明明細 | `miyasaka-noda-advice.docx`、`fairview-transfer-record.docx` |
+| Excel設問別集計・表現対照の少量と続頁 | `toto-training-results-3.xlsx`、`toto-training-results-30.xlsx`、`toto-training-wording-3.xlsx`、`toto-training-wording-30.xlsx` |
+| PowerPointの5レイアウト | `toto-training-brief.pptx` |
+| TeXの配布用補足と条件の確認表 | `toto-training-handout.tex`、`toto-review-table-3.tex`、`toto-review-table-44.tex` と各PDF |
+| TeXの棚卸し論点表と大和田返却明細の少量と続頁 | `toto-retention-issues-3.tex`、`toto-retention-issues-44.tex`、`owada-return-record-3.tex`、`owada-return-record-44.tex` と各PDF |
 | 外部の英文通知・契約論点書 | `winslow-subprocessor-notice.tex`、`haruka-contract-issues.tex` と各PDF |
-| Fairviewの合意条件要旨と点検控えのスキャン試し刷り | `toto-fairview-terms.tex` と対応するPDF、`toto-fairview-paper.tex` と対応する原紙PDF、`toto-fairview-paper-scan.pdf` |
 
-作業先の `render-results.json` に全頁画像のパス、頁数、数式の検算結果を記録した。OfficeとPDFの完成ファイルは、`bin/stamp --author "<原稿の作成者>" --date "<原稿の日付>" --timezone Asia/Tokyo <ファイル>` で内部属性を合わせる。更新者や初版日が異なるときは `--modified-by` と `--created` を指定する。
+[render-results.json](../../scratch/p13-corporate-privacy-counsel/b008/work/templates-0002/render-results.json) に19見本・全35頁の画像パスと数式の検算結果を記録した。OfficeとPDFの完成ファイルは、`bin/stamp --author "<原稿の作成者>" --date "<原稿の日付>" --timezone Asia/Tokyo <ファイル>` で内部属性を合わせる。更新者や初版日が異なるときは `--modified-by` と `--created` を指定する。
 
 ## 保存した社内ページ・メール・図
 
