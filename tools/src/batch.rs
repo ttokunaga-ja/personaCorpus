@@ -215,9 +215,12 @@ fn split_pipe(s: &str) -> Vec<String> {
     cells
 }
 pub fn plan_rows(p: &Path) -> Result<Vec<Value>> {
+    parse_plan(&read(p)?)
+}
+fn parse_plan(plan: &str) -> Result<Vec<Value>> {
     let mut rows = vec![];
     let mut indices: Option<Vec<Option<usize>>> = None;
-    for (number, line) in read(p)?.lines().enumerate() {
+    for (number, line) in plan.lines().enumerate() {
         if !line.trim().starts_with('|') {
             continue;
         }
@@ -904,6 +907,12 @@ impl Batch {
     }
     fn state(&self) -> Value {
         self.state.lock().unwrap().clone()
+    }
+    fn reload_state(&self) -> Result<()> {
+        if self.state_path.is_file() {
+            *self.state.lock().unwrap() = serde_json::from_str(&read(&self.state_path)?)?;
+        }
+        Ok(())
     }
     fn update<T>(&self, action: impl FnOnce(&mut Value) -> T) -> Result<T> {
         let mut state = self.state.lock().unwrap();
@@ -2751,6 +2760,181 @@ impl Batch {
             .with_file_name(format!("{}.judgment.md", self.batch))
     }
 
+    fn request_redraft(&self) -> Result<()> {
+        let state = self.state();
+        let status = text(&state["status"]);
+        if state["redraft_requested_from"].is_string()
+            || state["redraft_active"] == true
+            || ["accepted", "discarded"].contains(&status)
+            || !git(
+                &self.root,
+                &["ls-tree", "HEAD", "--", &rel(&self.root, &self.plan)],
+            )?
+            .is_empty()
+        {
+            return Ok(());
+        }
+        self.update(|s| {
+            s["redraft_requested_from"] = json!(status);
+            s["status"] = json!("running");
+            s["stage"] = json!("redraft-requested");
+            s["reason"] = json!("");
+        })
+    }
+
+    fn prepare_replan(&self) -> Result<Option<String>> {
+        let relative = format!("progress/{}/{}.replan.patch", self.persona, self.batch);
+        let path = safe_file(&self.root, &relative)?;
+        if !path.try_exists()? {
+            if !git(&self.root, &["ls-tree", "HEAD", "--", &relative])?.is_empty() {
+                bail!("HEAD にある再計画の差分が作業ツリーにない: {relative}");
+            }
+            return Ok(None);
+        }
+        let _persona = persona_lock(&self.root, &self.persona, false, true)?;
+        let patch = read(&path)?;
+        let digest = format!("{:x}", Sha256::digest(patch.as_bytes()));
+        let state = self.state();
+        if array(&state["replan_digests"]).iter().any(|v| v == &digest) {
+            return Ok(None);
+        }
+        let tracked = git(&self.root, &["show", &format!("HEAD:{relative}")])
+            .map_err(|_| anyhow!("再計画の差分を HEAD で確認できない: {relative}"))?;
+        if tracked != patch {
+            bail!("再計画の差分が HEAD の内容と一致しない: {relative}");
+        }
+        let plan_path = rel(&self.root, &self.plan);
+        if matches!(text(&state["status"]), "accepted" | "discarded")
+            || !git(&self.root, &["ls-tree", "HEAD", "--", &plan_path])?.is_empty()
+        {
+            bail!("受入または破棄済みの batch には再計画を適用しない");
+        }
+        if state["redraft_active"] == true {
+            bail!("進行中の原稿やり直しには新しい再計画を適用しない");
+        }
+        let progress = format!("progress/{}", self.persona);
+        let allowed = [
+            plan_path.clone(),
+            rel(&self.root, &self.request),
+            rel(&self.root, &self.definition),
+            format!("{progress}/facts.md"),
+            format!("{progress}/roadmap.md"),
+        ];
+        let header = re(
+            r"^diff --git a/([^ \n]+) b/([^ \n]+)\nindex ([0-9a-f]{40})\.\.([0-9a-f]{40}) 100644\n--- a/([^ \n]+)\n\+\+\+ b/([^ \n]+)\n@@ ",
+        );
+        let plan = safe_file(&self.root, &plan_path)?;
+        let mut before = read(&plan)?;
+        let mut after = before.clone();
+        fs::create_dir_all(&self.scratch)?;
+        let staging = tempfile::tempdir_in(&self.scratch)?;
+        let diff_file = staging.path().join("replan.patch");
+        let mut seen = HashSet::new();
+        let mut replacements = Vec::new();
+        let mut parts = patch.split("\ndiff --git ");
+        let first = parts.next().unwrap_or_default().to_owned();
+        for section in std::iter::once(first).chain(parts.map(|p| format!("diff --git {p}"))) {
+            let caps = header.captures(&section).ok_or_else(|| {
+                anyhow!("再計画には既存 Markdown の完全な Git blob ID を含む差分が必要")
+            })?;
+            let relative = &caps[1];
+            if !allowed.iter().any(|p| p == relative)
+                || [2, 5, 6].iter().any(|i| &caps[*i] != relative)
+                || !seen.insert(relative.to_owned())
+            {
+                bail!("再計画の対象外または重複: {relative}");
+            }
+            let target = safe_file(&self.root, relative)?;
+            let current = read(&target)?;
+            let projected = staging.path().join(relative);
+            write(&projected, &current)?;
+            let blob = |path: &Path| -> Result<String> {
+                git(
+                    &self.root,
+                    &["hash-object", "--no-filters", "--", path.to_str().unwrap()],
+                )
+                .map(|s| s.trim().to_owned())
+            };
+            let hash = blob(&projected)?;
+            let reverse = if hash == caps[3] {
+                false
+            } else if hash == caps[4] {
+                true
+            } else {
+                bail!("再計画の差分と現在の内容が一致しない: {relative}");
+            };
+            write(&diff_file, format!("{}\n", section.trim_end_matches('\n')))?;
+            let mut apply = Command::new("git");
+            apply
+                .current_dir(staging.path())
+                .env_remove("GIT_DIR")
+                .env_remove("GIT_WORK_TREE")
+                .env_remove("GIT_INDEX_FILE")
+                .env_remove("GIT_COMMON_DIR")
+                .env("GIT_CEILING_DIRECTORIES", &self.scratch)
+                .args([
+                    "apply",
+                    "--whitespace=nowarn",
+                    &format!("--include={relative}"),
+                ]);
+            if reverse {
+                apply.arg("--reverse");
+            }
+            let out = apply.arg(&diff_file).output()?;
+            if !out.status.success() || blob(&projected)? != caps[if reverse { 3 } else { 4 }] {
+                bail!(
+                    "再計画の差分を適用できない: {relative} {}",
+                    String::from_utf8_lossy(&out.stderr)
+                );
+            }
+            let changed = read(&projected)?;
+            if relative == plan_path {
+                if reverse {
+                    before = changed.clone();
+                } else {
+                    after = changed.clone();
+                }
+            }
+            if !reverse {
+                let mut temp = tempfile::NamedTempFile::new_in(&self.scratch)?;
+                temp.as_file()
+                    .set_permissions(fs::metadata(&target)?.permissions())?;
+                temp.write_all(changed.as_bytes())?;
+                replacements.push((target, current, temp));
+            }
+        }
+        let before = parse_plan(&before)?;
+        let after = parse_plan(&after)?;
+        if before.len() != after.len()
+            || before.iter().zip(&after).any(|(old, new)| {
+                old["パス"] != new["パス"]
+                    || (text(&old["内容"]).starts_with("破棄：")
+                        || text(&new["内容"]).starts_with("破棄："))
+                        && COLUMNS.iter().any(|c| old[*c] != new[*c])
+            })
+        {
+            bail!("再計画は計画のパス、順番、破棄済みの行を変更できない");
+        }
+        let pending: Vec<_> = after
+            .into_iter()
+            .filter(|row| !text(&row["内容"]).starts_with("破棄："))
+            .collect();
+        if pending.is_empty() {
+            bail!("再計画で作り直す行がない");
+        }
+        self.protected(&pending, false)?;
+        // A retry recognizes any files already replaced before an interruption.
+        for (target, before, _) in &replacements {
+            if read(target)? != *before {
+                bail!("再計画の適用中に内容が変更された: {}", target.display());
+            }
+        }
+        for (target, _, temp) in replacements {
+            temp.persist(target)?;
+        }
+        Ok(Some(digest))
+    }
+
     fn redraft_candidates(&self) -> Result<(Vec<Value>, Vec<String>)> {
         let s = self.state();
         let mut events = array(&s["events"]);
@@ -2810,12 +2994,29 @@ impl Batch {
         }
         Ok((selected, unknown))
     }
-    fn redraft(&self) -> Result<()> {
-        let (pending, unknown) = self.redraft_candidates()?;
+    fn redraft(&self, replan: Option<String>) -> Result<()> {
+        let (pending, unknown) = if replan.is_some() {
+            (
+                plan_rows(&self.plan)?
+                    .into_iter()
+                    .filter(|row| !text(&row["内容"]).starts_with("破棄："))
+                    .collect(),
+                vec![],
+            )
+        } else {
+            self.redraft_candidates()?
+        };
         for p in unknown {
             println!("原稿段階の破棄か判断できないため対象外: {p}");
         }
         if pending.is_empty() {
+            if let Some(previous) = self.state()["redraft_requested_from"].as_str() {
+                self.update(|s| {
+                    s["status"] = json!(previous);
+                    s["stage"] = json!(previous);
+                    s["redraft_requested_from"] = Value::Null;
+                })?;
+            }
             return Ok(());
         }
         self.protected(&pending, false)?;
@@ -2823,6 +3024,12 @@ impl Batch {
         let generation = self.update(|s| {
             let active = s["redraft_active"] == true;
             if !active {
+                s["redraft_replanned"] = json!(replan.is_some());
+                if let Some(digest) = replan {
+                    let mut consumed = array(&s["replan_digests"]);
+                    consumed.push(json!(digest));
+                    s["replan_digests"] = json!(consumed);
+                }
                 s["redraft_previous_draft_failures"] = json!(
                     map(&s["draft_failures"])
                         .into_iter()
@@ -2852,6 +3059,26 @@ impl Batch {
         })?;
         let mut batch = self.clone();
         batch.prefix = format!("redraft{generation}/");
+        let replanned = self.state()["redraft_replanned"] == true;
+        if replanned {
+            batch.step("replan-backup", pending.len(), || {
+                for row in &pending {
+                    let relative = text(&row["パス"]);
+                    for original in [safe_file(&self.folder, relative)?, self.source(relative)?] {
+                        if original.is_file() {
+                            let backup = self
+                                .scratch
+                                .join(format!("redraft{generation}/previous"))
+                                .join(rel(&self.root, &original));
+                            fs::create_dir_all(backup.parent().unwrap())?;
+                            fs::rename(original, backup)?;
+                        }
+                    }
+                }
+                Ok(Value::Null)
+            })?;
+            restore_plan(&self.plan, &paths, "成形待ち：")?;
+        }
         restore_plan(&self.plan, &paths, "破棄：")?;
         self.update(|s| {
             s["draft_failures"] = json!(
@@ -2906,6 +3133,7 @@ impl Batch {
             s["stage"] = json!("done");
             s["reason"] = json!("");
             s["redraft_active"] = json!(false);
+            s["redraft_requested_from"] = Value::Null;
         })?;
         Ok(())
     }
@@ -2981,7 +3209,34 @@ impl Batch {
             s["stage"] = json!("done");
         })
     }
-    fn run(&self) -> Result<()> {
+    fn run(&mut self) -> Result<()> {
+        self.reload_state()?;
+        if self.args.redraft {
+            self.request_redraft()?;
+        }
+        let state = self.state();
+        self.args.redraft |=
+            state["redraft_requested_from"].is_string() || state["redraft_active"] == true;
+        let result = self.run_attempt();
+        if let Err(error) = &result
+            && self.state()["redraft_requested_from"].is_string()
+        {
+            self.update(|s| {
+                s["status"] = json!("failed");
+                s["reason"] = json!(error.to_string());
+            })?;
+        }
+        result
+    }
+    fn run_attempt(&mut self) -> Result<()> {
+        let replan = if self.args.redraft {
+            self.prepare_replan()?
+        } else {
+            None
+        };
+        if replan.is_some() {
+            self.cfg = config(&self.definition);
+        }
         if !self.request.is_file() {
             bail!("依頼なし: {}", self.request.display());
         }
@@ -3026,7 +3281,7 @@ impl Batch {
             );
         })?;
         fs::create_dir_all(self.scratch.join("logs"))?;
-        let result = self.run_inner(again);
+        let result = self.run_inner(again, replan);
         if let Err(e) = &result {
             self.update(|s| {
                 s["status"] = json!("failed");
@@ -3036,9 +3291,9 @@ impl Batch {
         }
         result
     }
-    fn run_inner(&self, again: bool) -> Result<()> {
+    fn run_inner(&self, again: bool, replan: Option<String>) -> Result<()> {
         if self.args.redraft {
-            return self.redraft();
+            return self.redraft(replan);
         }
         if again {
             self.update(|s| {
@@ -3428,10 +3683,16 @@ impl Batch {
     }
     fn finish(&self, discard: bool) -> Result<()> {
         let _batch = batch_lock(&self.root, &self.persona, &self.batch, false)?;
+        self.reload_state()?;
         let _persona = persona_lock(&self.root, &self.persona, true, true)?;
         let _repository = repository_lock(&self.root, "records")?;
         let rows = plan_rows(&self.plan)?;
         let state = self.state();
+        if !discard
+            && (state["redraft_requested_from"].is_string() || state["redraft_active"] == true)
+        {
+            bail!("原稿のやり直しが未完了の batch は受入できない");
+        }
         let mut rebuilding: HashSet<String> = array(&state["rebuild_paths"])
             .iter()
             .map(|v| text(v).into())
@@ -3766,6 +4027,11 @@ impl Batch {
             .map(|s| shell_words::quote(s).to_string())
             .collect::<Vec<_>>()
             .join(" ");
+        if self.args.redraft {
+            let _batch = batch_lock(&self.root, &self.persona, &self.batch, false)?;
+            self.reload_state()?;
+            self.request_redraft()?;
+        }
         let out = cmd(
             &self.root,
             &[
@@ -4366,7 +4632,7 @@ fn main_inner(args: &[String]) -> Result<i32> {
     if action == "discard" && a.reason.is_empty() {
         bail!("--reason required");
     }
-    let b = Batch::new(&root, a)?;
+    let mut b = Batch::new(&root, a)?;
     match action {
         "start" | "resume" => b.launch()?,
         "run" => {

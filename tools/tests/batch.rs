@@ -510,6 +510,148 @@ fn accepted_failed_rebuild_new_generation_and_final_check_resume() {
     assert_eq!(f.state()["status"], "done");
     assert!(!read(&f.plan()).contains("成形待ち："));
 }
+fn replan_diff(f: &Fixture, path: &str, old: &str, new: &str) -> String {
+    let blob = |content: &str| {
+        let file = f.scratch().join("replan-blob");
+        write(&file, content);
+        f.git(&["hash-object", file.to_str().unwrap()])
+            .trim()
+            .to_owned()
+    };
+    let range = |content: &str| {
+        let lines = content.lines().count();
+        format!("{},{lines}", usize::from(lines != 0))
+    };
+    let mut diff = format!(
+        "diff --git a/{path} b/{path}\nindex {}..{} 100644\n--- a/{path}\n+++ b/{path}\n@@ -{} +{} @@\n",
+        blob(old),
+        blob(new),
+        range(old),
+        range(new)
+    );
+    for (prefix, content) in [('-', old), ('+', new)] {
+        for line in content.lines() {
+            diff.push_str(&format!("{prefix}{line}\n"));
+        }
+    }
+    diff
+}
+
+#[test]
+fn redraft_coordinator_patch_runs_all_rows_and_is_consumed() {
+    let f = Fixture::new();
+    f.run("ok", true);
+    let plan_path = format!("progress/{P}/b001.md");
+    let facts_path = format!("progress/{P}/facts.md");
+    let definition_path = format!("personas/{P}.md");
+    let patch_path = f.root.join(format!("progress/{P}/b001.replan.patch"));
+    let old_plan = read(&f.plan());
+    let new_plan = old_plan.replace("案件の判断と相手への連絡。", "承認後に修正点を通知する。");
+    assert_ne!(new_plan, old_plan);
+    let old_definition = read(&f.root.join(&definition_path));
+    let dirty_definition = format!("{old_definition}既存の追記\n");
+    let new_definition = format!("{dirty_definition}承認済みの追記\n");
+    write(&f.root.join(&definition_path), &dirty_definition);
+    // An earlier attempt may have already applied some entries.
+    write(&f.root.join(&facts_path), "更新済み\n");
+    write(
+        &patch_path,
+        replan_diff(&f, &definition_path, &dirty_definition, &new_definition)
+            + &replan_diff(&f, &facts_path, "以前\n", "更新済み\n")
+            + &replan_diff(&f, &plan_path, &old_plan, &new_plan),
+    );
+    f.git(&["add", patch_path.to_str().unwrap()]);
+    f.git(&["commit", "-qm", "Approve replan"]);
+    let index = f.git(&["ls-files", "--stage"]);
+    f.cli(&["run", "p01", "b001", "--redraft"], "final-fail", false);
+    assert_eq!(f.state()["redraft_paths"], json!([FIRST, SECOND]));
+    assert_eq!(read(&f.root.join(&definition_path)), new_definition);
+    assert_eq!(read(&f.plan()), new_plan);
+    f.run("ok", true);
+    f.cli(&["run", "p01", "b001", "--redraft"], "ok", true);
+    assert_eq!(f.state()["redraft_generation"], 1);
+    assert_eq!(f.calls()["draft"], 2);
+    assert_eq!(f.git(&["ls-files", "--stage"]), index);
+}
+
+#[test]
+fn redraft_intent_survives_background_launch_and_preflight_failure() {
+    let f = Fixture::new();
+    f.run("ok", true);
+    let path = format!("progress/{P}/facts.md");
+    let patch = f.root.join(format!("progress/{P}/b001.replan.patch"));
+    write(&f.root.join(&path), "未解決\n");
+    write(&patch, replan_diff(&f, &path, "修正前\n", "修正後\n"));
+    f.git(&["add", patch.to_str().unwrap()]);
+    f.git(&["commit", "-qm", "Approve replan"]);
+
+    // The fake job recorder accepts the launch without running the worker.
+    f.cli(&["resume", "p01", "b001", "--redraft"], "ok", true);
+    assert_eq!(f.state()["status"], "running");
+    f.run("ok", false);
+    assert_eq!(f.state()["status"], "failed");
+    f.cli(&["accept", "p01", "b001"], "ok", false);
+    assert_eq!(f.calls()["draft"], 1);
+
+    write(&f.root.join(&path), "修正前\n");
+    f.run("ok", true);
+    assert_eq!(read(&f.root.join(&path)), "修正後\n");
+    assert_eq!(f.state()["status"], "done");
+    assert_eq!(f.calls()["draft"], 2);
+    f.accepted();
+}
+
+#[test]
+fn redraft_coordinator_patch_rejects_stale_disallowed_and_accepted_inputs() {
+    for case in [
+        "stale",
+        "disallowed",
+        "rename",
+        "accepted",
+        "untracked",
+        "modified",
+    ] {
+        let f = Fixture::new();
+        f.run("ok", true);
+        let plan_path = format!("progress/{P}/b001.md");
+        let facts_path = format!("progress/{P}/facts.md");
+        let patch_path = f.root.join(format!("progress/{P}/b001.replan.patch"));
+        let before = read(&f.plan());
+        if case == "accepted" {
+            f.accepted();
+        }
+        write(&f.root.join(&facts_path), "現在\n");
+        let mut patch = replan_diff(&f, &facts_path, "現在\n", "更新\n");
+        patch += &match case {
+            "stale" => replan_diff(&f, &plan_path, "古い内容\n", "異なる内容\n"),
+            "disallowed" => replan_diff(&f, "jobs.tsv", "", "許可対象外\n"),
+            "rename" => replan_diff(
+                &f,
+                &plan_path,
+                &before,
+                &before.replace(FIRST, "Documents/変更.txt"),
+            ),
+            _ => String::new(),
+        };
+        write(&patch_path, &patch);
+        if case != "untracked" {
+            f.git(&["add", patch_path.to_str().unwrap()]);
+            f.git(&["commit", "-qm", "Approve replan"]);
+        }
+        if case == "modified" {
+            write(&patch_path, patch + "\n");
+        }
+        f.cli(&["run", "p01", "b001", "--redraft"], "ok", false);
+        assert_eq!(read(&f.root.join(&facts_path)), "現在\n", "{case}");
+        assert_eq!(read(&f.plan()), before, "{case}");
+        if case == "accepted" {
+            assert!(!f.scratch().join("calls.json").exists());
+        } else {
+            assert_eq!(f.calls()["draft"], 1, "{case}");
+        }
+    }
+}
+
 #[test]
 fn redraft_only_failed_drafts_preserves_other_work_and_accepted_ledger_recovery() {
     for accepted in [false, true] {
