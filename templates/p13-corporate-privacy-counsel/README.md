@@ -32,7 +32,7 @@
 - Fairview：段違いの3本の転送タブと英文社名。紺 `173553`、琥珀 `D69239`、本文 `293743`。欧文 `Liberation Sans`、和文 `Noto Sans CJK JP`。WordのNormal、段落・表スタイルとテーマにも設定する。
 - 自社Officeは日本語・欧文とも `Noto Sans CJK JP`、宮坂・野田のWordは日本語・欧文とも `Noto Serif CJK JP`。TeXは日本語 `Noto Sans CJK JP`、欧文 `Liberation Sans`。既定Normal、見出し、表、入力用管理セルにも実設定し、Officeテーマのフォントと主色も設定した。
 - Wordは社名ヘッダと組織・部門／用途・自動頁番号のフッタ。Excelは社名上段と社名・法務部・頁数の印刷フッタ。PPTXはマスター上のロゴ・社名・罫線・部門表記。東都のTeXは社名ヘッダと部門・現在頁／総頁のフッタ、案件名は文書ごとに指定できる。
-- 自社文書番号：`TDS-LG-YYYYMM-用途-連番3桁`。用途は `REV` 判断資料、`CON` 相談記録、`INS` 指示、`RPT` 報告、`REQ` 申出、`REG` 台帳、`CMP` 比較表、`BRF` 会議資料、`CHK` 紙の再審査票。外部回答は `MN-YYYYMM-ADV-連番3桁`。実番号は計画で割り当て、草稿・確定版・Officeから保存したPDFは同番号と版で追跡する。メール・個人メモに無理に番号を付けない。
+- 自社文書番号は `TDS-LG-YYYYMM-用途-連番3桁`。用途は `REV` 判断資料、`CON` 相談記録、`INS` 指示・配布手順、`RPT` 報告、`REQ` 申出、`REG` 台帳、`CMP` 比較表、`BRF` 会議資料、`CHK` 紙の確認・承認票。外部回答は `MN-YYYYMM-ADV-連番3桁`。実番号は計画で割り当て、草稿・確定版・Officeから保存したPDFは同番号と版で追跡する。メール・個人メモに無理に番号を付けない。
 - 外部通知・論点書・返却帳票は発行元の番号を使う。Winslowの追加通知は `WR-YYYYMM-SPN-連番3桁`、菅原の論点書は `HCC-YYYYMM-ISS-連番3桁`、大和田の返却帳票は `OW-YYYYMM-RTN-連番3桁`。
 - 紫灰色と銅色の文書照合ロゴを使う。p14の深緑の木材ロゴ、p03の赤茶の配送矢印、p18の青緑の寸法枠とは配色と形が異なる。
 
@@ -166,21 +166,30 @@ Fairview案件の法務共有用の合意条件要旨と、3月18日の紙の点
 - 紙で回す終了記録の原紙は `toto-review-sheet.cls` で組み、`\ReviewMatter{文書保全期限見直し}` を指定する。区分、予定と実施根拠、確認日・確認者、9月10日の点検事項を原稿に従って記し、内容のある原紙PDFを `bin/scan` に通す。
 - 9月21日の月次会議は `toto-legal-brief.pptx` を開き、3区分の解除完了を説明する。委託審査の未回答2件は別の継続報告欄に置く。面談控えは初回整理の平均4日から3日への目標を記す。部署の回答はJSTの送受信日時と返信先のMessage-IDを保ったEMLにする。
 
+## 2025年5月の開示相談受付改訂
+
+- 旧受付票は `toto-instruction.docx` を開き、旧版の管理欄と七問を原稿に合わせて組む。増田の指摘を反映した質問案は `toto-review.docx` を使い、質問の変更と判断の理由を読めるようにする。赤字や取り消し線は原稿で修正を示す箇所に付ける。支援担当の応答例と5月19日の打合せ記録は `toto-consultation.docx` を開き、応答例の見出しは「場面」「応答」「照合結果」「法務への引継ぎ」に置き換える。打合せの決定事項は記録した時点に合わせる。
+- 質問と判断用途の対照表は `toto-decision-comparison.xlsx` を開く。A6:H6は「No.／旧票の質問／旧票で確かめた事実／照合先と照合条件／改訂での判断用途／扱い／法務への相談条件／注記」、幅は順に `11, 25, 22, 26, 26, 13, 26, 22` を起点にする。6行目は34pt、明細は42ptを起点に調整する。A列に `TD Number`、B〜G列に `TD Text`、H列に `TD Note` を当てる。対象の七問を同じ表に置き、残す四問は扱い欄で分かるようにする。管理欄の結合と印刷設定は「Excelの成形」に従う。
+- 紙の承認票と窓口用の配布手順は `toto-review-sheet.cls` を開き、`\ReviewMatter{開示相談受付改訂}` を指定する。承認票の原紙はCHK番号で組み、`\ReviewDecision` に河野の判断を記してから `bin/scan` に通す。窓口の手順はINS番号のテキストPDFで、四問を使う場面、回答を照合できる範囲、判断が残る場合の法務への相談条件を節で分ける。
+- 応答練習メモは聞き過ぎた発言と代わりの応答をTXTに、社内説明ページは題・発行部署・日付・本文をHTMLに保存する。増田への回答は原稿の送受信者・日時（JST）・件名・本文をEMLに保存する。返信元がある場合はそのMessage-IDを参照する。
+
 ## 見本と検証
 
-今回の作業先は `scratch/p13-corporate-privacy-counsel/b009/work/templates-0002/`。見本は [examples](../../scratch/p13-corporate-privacy-counsel/b009/work/templates-0002/examples/)、全頁画像は [render](../../scratch/p13-corporate-privacy-counsel/b009/work/templates-0002/render/) 内の見本名と同じフォルダにある。TeXは各原稿と同名のPDFをレンダリングした。見本の文書番号・明細数・実施確認日は印刷確認用。成果物の管理欄と日付・数値は計画と原稿に従う。
+見本と全頁画像は今回の作業フォルダにある。TeXは各原稿と同名のPDFをレンダリングした。見本の文書番号・質問文・明細数・日付は印刷確認用。成果物の管理欄と内容は計画と原稿に従う。 [見本](../../scratch/p13-corporate-privacy-counsel/b010/work/templates-0002/examples/)・[全頁画像](../../scratch/p13-corporate-privacy-counsel/b010/work/templates-0002/render/)
 
 | 確認した型・用途 | 見本ファイル |
 |---|---|
-| Word社内相談・実施指示・判断資料 | `toto-consultation.docx`、`toto-instruction.docx`、`toto-review.docx` |
-| 宮坂・野田の回答とFairviewの証明明細 | `miyasaka-noda-advice.docx`、`fairview-transfer-record.docx` |
-| Excel追跡表・判断比較表の少量と続頁 | `toto-hold-register-3.xlsx`、`toto-hold-register-23.xlsx`、`toto-decision-comparison-3.xlsx`、`toto-decision-comparison-23.xlsx` |
+| Word社内相談・実施指示・判断資料 | `toto-consultation.docx`、`toto-instruction.docx`、`toto-review.docx`、`toto-review-continuation.docx` |
+| 宮坂・野田の回答とFairviewの証明明細 | `miyasaka-noda-advice.docx`、`fairview-transfer-record.docx`、`fairview-transfer-record-continuation.docx` |
+| Excel追跡表・判断比較表の少量と続頁、開示相談の七問の対照 | `toto-hold-register-3.xlsx`、`toto-hold-register-23.xlsx`、`toto-decision-comparison-3.xlsx`、`toto-decision-comparison-23.xlsx`、`toto-disclosure-question-comparison.xlsx` |
 | PowerPointの5レイアウト | `toto-legal-brief.pptx` |
-| TeXの終了確認票とスキャン | `toto-review-sheet-3.tex`、`toto-review-sheet-35.tex` と各PDF、`toto-review-sheet-scan.pdf` |
+| TeXの確認票・開示相談の承認票と配布手順 | `toto-review-sheet-3.tex`、`toto-review-sheet-35.tex`、`toto-review-sheet-approval.tex`、`toto-review-sheet-procedure.tex` と各PDF、承認票の `toto-review-sheet-scan.pdf` |
 | TeXの棚卸し論点表と大和田返却明細の少量と続頁 | `toto-retention-issues-3.tex`、`toto-retention-issues-35.tex`、`owada-return-record-3.tex`、`owada-return-record-35.tex` と各PDF |
 | 外部の英文通知・契約論点書 | `winslow-subprocessor-notice.tex`、`haruka-contract-issues.tex` と各PDF |
 
-[render-results.json](../../scratch/p13-corporate-privacy-counsel/b009/work/templates-0002/render-results.json) に全見本の画像パスと数式の検算結果を記録した。OfficeとPDFの完成ファイルは、`bin/stamp --author "<原稿の作成者>" --date "<原稿の日付>" --timezone Asia/Tokyo <ファイル>` で内部属性を合わせる。更新者や初版日が異なるときは `--modified-by` と `--created` を指定する。
+全見本の画像パスと数式の検算結果を記録した。 [render-results.json](../../scratch/p13-corporate-privacy-counsel/b010/work/templates-0002/render-results.json)
+
+OfficeとPDFの完成ファイルは、`bin/stamp --author "<原稿の作成者>" --date "<原稿の日付>" --timezone Asia/Tokyo <ファイル>` で内部属性を合わせる。更新者や初版日が異なるときは `--modified-by` と `--created` を指定する。
 
 ## 保存した社内ページ・メール・図
 

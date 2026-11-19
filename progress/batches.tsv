@@ -145,5 +145,9 @@ p20-investigative-journalist	b005	2026-11-19	33	7	11	2	0	done	7999.34
 p02-site-reliability-engineer	b007	2026-11-19	32	7	2	6	4	accepted	4309.95
 p18-manufacturing-quality-engineer	b006	2026-11-19	28	6	4	0	0	done	8430.58
 p09-ux-researcher	b007	2026-11-19	46	37	3	32	0	done	6300.86
-p13-corporate-privacy-counsel	b010	2026-11-19	23	0	2	0	0	done	4503.14
+p13-corporate-privacy-counsel	b010	2026-11-19	23	0	2	0	0	accepted	4503.14
 p15-recruiter-people-ops	b009	2026-11-19	31	3	1	0	0	done	7792.06
+p11-account-executive	b007	2026-11-19	33	0	0	0	0	failed	2360.74
+p07-humanities-researcher	b005	2026-11-19	35	7	5	0	0	failed	6761.15
+p03-security-grc-analyst	b007	2026-11-19	33	14	0	5	0	failed	6168.28
+p05-bi-data-analyst	b007	2026-11-19	35	10	2	5	0	failed	5081.56
