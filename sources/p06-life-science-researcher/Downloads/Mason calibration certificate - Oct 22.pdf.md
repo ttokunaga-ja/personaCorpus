@@ -1,0 +1,27 @@
+---
+path: Downloads/Mason calibration certificate - Oct 22.pdf
+kind: tex:mason-service-record.cls
+author: Christopher Medina
+derived_from:
+---
+
+# Calibration service record
+MLM-2024-1022-SV-014 | Service date: Oct 22, 2024 | Issued by: Christopher Medina
+
+## Customer and equipment
+Bennett Cell Evaluation Inc, attention Melissa Watkins. Reader asset tag: CE-Reader-2. Manufacturer serial: LXR-4187.
+
+## Reference point and results
+Reference: 5.00 ng/mL. Check band: ±0.05 ng/mL. Deviation is mean indication minus reference.
+
+| Service phase | Mean indication | Signed deviation | Band result |
+|---|---:|---:|---|
+| As-found | 5.12 ng/mL | +0.12 ng/mL | Outside, high side |
+| As-left | 5.01 ng/mL | +0.01 ng/mL | Within band |
+
+## Service status
+Calibration completed Oct 22, 2024, 11:18 EDT. The as-left check is within the stated band at the reference point. This record reports equipment status at completion; disposition of earlier study results is for Bennett to determine.
+
+Issued Oct 22, 2024, by Mason Laboratory Maintenance.
+
+Signed: Christopher Medina, service technician

@@ -2,12 +2,13 @@
 \ProvidesClass{mason-service-record}[2024/04/01 Mason field service record]
 \LoadClass[11pt,letterpaper]{article}
 \RequirePackage[margin=.9in, top=.8in]{geometry}
-\RequirePackage{fontspec,xcolor,fancyhdr,tikz,ragged2e}
+\RequirePackage{fontspec,xcolor,fancyhdr,tikz}
 \setmainfont{Liberation Mono}
 \definecolor{MasonInk}{HTML}{26291F}
 \definecolor{MasonOlive}{HTML}{515A34}
 \definecolor{MasonPaper}{HTML}{F0EDDF}
-\AtBeginDocument{\color{MasonInk}\RaggedRight}
+% Allow the unused space at the right of each monospaced line to stretch.
+\AtBeginDocument{\color{MasonInk}\raggedright}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{7pt}
 \pagestyle{fancy}

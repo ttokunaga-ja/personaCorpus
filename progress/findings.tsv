@@ -1850,3 +1850,30 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-19	p05-bi-data-analyst	b004	coordinator	0	other	Downloads/2026-04-01_売上概況のヘルプ.html	統括の抜き取りで不合格
 2026-11-19	p19-educator-instructional-designer	b003	coordinator	0	other	Google Drive/My Drive/Teaching/根拠から組む提案/Four replacements - Yusuf's comments.docx	統括の抜き取りで不合格
 2026-11-19	p19-educator-instructional-designer	b003	coordinator	0	other	Google Drive/My Drive/Teaching/根拠から組む提案/When neither route is available.pptx	統括の抜き取りで不合格
+2026-11-19	p08-product-manager	b005	templates-review	0	other	README.md	「組版見本と検証先」が参照する scratch/p08-product-manager/b004/work/templates-0004/ の examples/、render/、commands.json、structure.json が存在せず、一覧の見本・比較画像・検証記録を開けない。
+2026-11-19	p08-product-manager	b005	draft-review	0	D9	Documents/オルタ巡回チェック/利用定着/8月14日_説明図の匿名回答.csv	8人の回答・判定は各問7・6・7人、全問5人と整合するが、表直後の本文に「表の各セルをCSVの列として出力する」という成形指示が混在している。
+2026-11-19	p08-product-manager	b005	draft-review	0	D1	Desktop/8月14日_図を見ながら答えてもらう.pptx	1枚目の発表者ノートに聞き手・記録役と「1人ずつ実施」はあるが、計画で指定された「巡回チェックで日常的に起票する利用者8人」がノート・本文のいずれにも明記されていない。
+2026-11-19	p08-product-manager	b005	draft-review	0	D10	Documents/オルタ巡回チェック/利用定着/若松で見ること_入口と閲覧の切り分け.docx	先頭設定の derived_from が空欄で、計画の「先に要るもの」に明記された派生元 Desktop/若松の観察項目_岡本さんのコメント.docx が記載されていない。
+2026-11-19	p08-product-manager	b005	build-review	0	V1	Documents/オルタ巡回チェック/利用定着/若松の試行_11.2パーセントの分母.xlsx	週別集計のD11は原稿指定の8.8ポイントを表示すべきところ、パーセント書式のため印刷でも8.8%と表示される。
+2026-11-19	p08-product-manager	b005	build-review	0	V5	Desktop/7月8日_新規から探したのか開けなかったのか.pptx	2枚目の棒グラフで軸の0ラベルが横軸左端と両棒の起点から約44ピクセル右にずれ、棒が0より左から始まる表示になっている。
+2026-11-19	p08-product-manager	b005	build-review	0	V2	Documents/オルタ巡回チェック/利用定着/8月14日_説明図の設問別集計.xlsx	「回答明細」シートは1行目から明細の列見出しが始まり、文書番号 OFS-202508-KM-001・版 v1.0・実施日 2025-08-14・作成者 岡本 麻紀の各ラベルと値がシート上にも印刷2ページ目にもない。
+2026-11-19	p08-product-manager	b005	build-review	1	V1	Documents/オルタ巡回チェック/利用定着/若松の試行_11.2パーセントの分母.xlsx	「週別集計」D11の表示書式が「8.8ポイント」の固定文字列で、検証用の複製でE10を21.0%に変更すると数式の結果は9.8ポイントになったが、印刷には8.8ポイントが残った。
+2026-11-19	p08-product-manager	b005	build-review	2	V1	Documents/オルタ巡回チェック/利用定着/若松の試行_11.2パーセントの分母.xlsx	「週別集計」のD11は数式を保持しているが表示書式「;;;」で非表示になり、原稿では空欄のE11（想定率列）にポイント差が表示されるため、印刷上の表示位置が原稿およびG11の注記と一致しない。
+2026-11-19	p08-product-manager	b005	build-review	0	V3	Documents/オルタ巡回チェック/利用定着/若松で見ること_入口と閲覧の切り分け.docx	1ページ目「操作中に記録すること」の表の順2・「操作中の記録」欄で、「見ていた場所・止まった動き：」に続く記入用下線4文字が行末の1文字と次行頭の3文字に分断され、連続した記入欄として使えない。
+2026-11-19	p06-life-science-researcher	b002	build-review	0	V2	Documents/Quality/Deviations/October measurement dates and hold scope.xlsx	Results（印刷2～3ページ）と Run crosswalk（4ページ）に、Bennett型の Document・Prepared by・Review date・Metric のラベルと値がシート上にも印刷面にもなく、社名と列見出しだけが表示される。
+2026-11-19	p11-account-executive	b003	templates-review	0	other	README.md	「見本とレンダリング」が参照する scratch/p11-account-executive/b002/work/templates-0004/ の samples と render がいずれも存在せず、表に列挙された見本と画像を開けない。
+2026-11-19	p11-account-executive	b003	templates-review	1	other	hollis-pilot-result.cls	README.mdの「共通の体裁と文書番号」はフッタを紺243752と指定するが、短・長見本の全ページで左下のIT Operationsと右下のページ番号が黒000000で出力される。
+2026-11-19	p11-account-executive	b003	draft-review	0	D1	OneDrive - Halstead/My-meeting-packs/Hollis first morning - administrator run-through.pptx	宛先が誤っていれば次の送信を止めてLawrenceに戻す指示はスライド3の右欄と4の図にあるが、計画がその指示を残すよう求めた発表者メモには記載がない。
+2026-11-19	p11-account-executive	b003	check	0	source	Documents/Accounts/Hollis/Hollis - Jonathan's order wording.docx	body token overlap 0.593 < 0.6
+2026-11-19	p11-account-executive	b003	build-review	0	V2	Documents/Accounts/Hollis/Hollis - March 18 adoption order.pdf	1ページ目の表題直下の管理欄が指定型の2列2行に対して縦1列で、Order terms表の180 seatsとUSD 82,000が左寄せになり、試行報告の参照は指定型の表外注記ではなく独立節になっている。
+2026-11-19	p11-account-executive	b003	build-review	0	V2	Documents/Accounts/Hollis/Hollis pilot - launch checks.pdf	1ページ目の表題直下で文書番号と発行日がラベルなしの縦並びになり、Workshop Record型の作成者と対になるAccount欄が宛名行にまとめられている。
+2026-11-19	p11-account-executive	b003	build-review	0	V2	Documents/Accounts/Hollis/March pilot - review counts.xlsx	Seat detailシートはA1:D1が列見出しで、Document no.・Review date・Prepared byのラベルと値がシートにも印刷2ページ目にもない。
+2026-11-19	p11-account-executive	b003	build-review	0	V2	Documents/Accounts/Hollis/Feb 13 - what needs to be ready.docx	1ページ目の題直下で、Workshop Recordの管理欄に必要な「Document no.」「Issued」のラベルおよび「Account Hollis Medical Supply Inc」の欄が欠けている。
+2026-11-19	p11-account-executive	b003	check	1	source	Documents/Accounts/Hollis/Hollis - Jonathan's order wording.docx	body token overlap 0.593 < 0.6
+2026-11-19	p11-account-executive	b003	check	2	source	Documents/Accounts/Hollis/Hollis - Jonathan's order wording.docx	body token overlap 0.593 < 0.6
+2026-11-19	p11-account-executive	b003	check	0	email-attachments	Documents/Mail/Hollis/Lawrence - March pilot results and seat detail.eml	missing or empty MIME attachments: Hollis IT - March pilot results.pdf; Hollis pilot activity - week of Mar 10.csv
+2026-11-19	p11-account-executive	b003	check	1	email-attachments	Documents/Mail/Hollis/Lawrence - March pilot results and seat detail.eml	missing or empty MIME attachments: Hollis IT - March pilot results.pdf; Hollis pilot activity - week of Mar 10.csv
+2026-11-19	p11-account-executive	b003	check	2	email-attachments	Documents/Mail/Hollis/Lawrence - March pilot results and seat detail.eml	missing or empty MIME attachments: Hollis IT - March pilot results.pdf; Hollis pilot activity - week of Mar 10.csv
+2026-11-19	p06-life-science-researcher	b002	coordinator	0	other	Desktop/Anthony's marked October scope page.pdf	統括の抜き取りで不合格
+2026-11-19	p06-life-science-researcher	b002	coordinator	0	other	Desktop/October reader impact - for Anthony.docx	統括の抜き取りで不合格
+2026-11-19	p06-life-science-researcher	b002	coordinator	0	other	Documents/Quality/Deviations/October reader impact assessment.docx	統括の抜き取りで不合格
