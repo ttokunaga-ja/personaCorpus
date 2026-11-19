@@ -1015,3 +1015,60 @@ fn an_answer_can_allow_the_next_merge_to_delete_more_than_three_files() {
         "kept until a merge succeeds"
     );
 }
+fn limit_failure(f: &Fixture, job: &str) {
+    let dir = f.r.join(format!("ops/jobs/personaCorpus/{job}"));
+    fs::create_dir_all(&dir).unwrap();
+    fs::write(
+        dir.join("log"),
+        "ERROR: You've hit your usage limit. Visit https://example/usage or try again at 8:35 PM.\n",
+    )
+    .unwrap();
+    f.job(job, "failed");
+}
+fn expire_limit(f: &Fixture) {
+    let mut s = f.state();
+    s["limit_until"] = json!(0.0);
+    atomic(&f.r.join("scratch/autopilot/state.json"), &s);
+}
+#[test]
+fn usage_limit_pauses_the_coordinator_without_using_its_attempts() {
+    let f = Fixture::new();
+    hold_row(&f);
+    f.once();
+    for round in 0..4 {
+        let job = f.state()["coordinator"]["job"]
+            .as_str()
+            .unwrap()
+            .to_string();
+        limit_failure(&f, &job);
+        f.once();
+        f.once();
+        assert_eq!(
+            coordinator_briefs(&f).len(),
+            round + 1,
+            "paused while limited"
+        );
+        assert!(f.cli(&["status"]).contains("利用上限"));
+        expire_limit(&f);
+        f.once();
+    }
+    assert_eq!(coordinator_briefs(&f).len(), 5);
+    assert!(!f.cli(&["status"]).contains("手が要るもの: hold"));
+}
+#[test]
+fn usage_limit_does_not_turn_a_failed_audit_into_a_hold() {
+    let f = Fixture::new();
+    f.done();
+    f.once();
+    for _ in 0..3 {
+        let job = f.state()["batches"]["p01-test/b001"]["audit"]["job"]
+            .as_str()
+            .unwrap()
+            .to_string();
+        limit_failure(&f, &job);
+        f.once();
+        expire_limit(&f);
+        f.once();
+    }
+    assert!(!f.holds().contains("| b001 |"), "{}", f.holds());
+}

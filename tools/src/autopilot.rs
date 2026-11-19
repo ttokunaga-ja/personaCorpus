@@ -445,6 +445,32 @@ impl Pilot {
         }
         n
     }
+    /// A Codex job that ended on the usage limit (its log says so).
+    fn limited(&self, job: &str) -> bool {
+        let home = std::env::var_os("AGENT_OPS_HOME")
+            .map(PathBuf::from)
+            .unwrap_or_else(|| self.root.join("ops"));
+        let log = home.join("jobs/personaCorpus").join(job).join("log");
+        let text = fs::read(&log).unwrap_or_default();
+        let tail = String::from_utf8_lossy(&text[text.len().saturating_sub(8192)..]).into_owned();
+        regex(r"(?i)利用上限|usage limit|rate limit|\b429\b|\bquota\b").is_match(&tail)
+    }
+    /// Stop launching Codex for 30 minutes after a job hit the usage limit.
+    fn note_limit(&mut self, job: &str) -> Result<()> {
+        if !self.paused() {
+            self.log(
+                "limit",
+                "",
+                "",
+                &format!("{job}: Codex の利用上限。30 分待つ"),
+            )?;
+        }
+        self.state["limit_until"] = json!(epoch() + 1800.);
+        self.store()
+    }
+    fn paused(&self) -> bool {
+        epoch() < self.state["limit_until"].as_f64().unwrap_or(0.)
+    }
     fn names(&self) -> Result<Vec<String>> {
         let mut names = list(&self.root.join("personas"))
             .into_iter()
@@ -533,6 +559,9 @@ impl Pilot {
         }
         if self.state["push_failures"].as_i64().unwrap_or(0) >= 3 {
             reasons.push("push連続失敗".into())
+        }
+        if self.paused() {
+            reasons.push("Codex の利用上限（30 分ごとに試す）".into())
         }
         Ok(reasons)
     }
@@ -970,7 +999,8 @@ impl Pilot {
             return self.store();
         }
         let audit = rec.get("audit").cloned().unwrap_or(json!({}));
-        let name = audit["job"].as_str().unwrap_or("");
+        let name_owned = audit["job"].as_str().unwrap_or("").to_string();
+        let name = name_owned.as_str();
         if self
             .jobs
             .get(name)
@@ -993,6 +1023,17 @@ impl Pilot {
         let (verdict, drops) = match result {
             Ok(v) => v,
             Err(e) => {
+                let mut audit = audit;
+                if self.jobs.get(name).map(String::as_str) == Some("failed") && self.limited(name) {
+                    self.note_limit(name)?;
+                    audit["attempts"] = json!((audit["attempts"].as_i64().unwrap_or(1) - 1).max(0));
+                    rec["audit"] = audit;
+                    self.state["batches"][&key] = rec;
+                    return self.store();
+                }
+                if self.paused() {
+                    return Ok(());
+                }
                 if audit["attempts"].as_i64().unwrap_or(0) >= 2 {
                     self.hold(p, b, &format!("監査の書式・実行エラー: {e}"))?;
                 } else {
@@ -1746,6 +1787,32 @@ impl Pilot {
         if active {
             return Ok(());
         }
+        let job = self.state["coordinator"]["job"]
+            .as_str()
+            .unwrap_or("")
+            .to_string();
+        if self.state["coordinator"]["applied"] == json!(false)
+            && self.jobs.get(&job).map(String::as_str) == Some("failed")
+            && self.limited(&job)
+        {
+            self.state["coordinator"]["applied"] = json!(true);
+            for item in self.state["coordinator"]["agenda"]
+                .as_array()
+                .cloned()
+                .unwrap_or_default()
+                .iter()
+                .filter_map(Value::as_str)
+            {
+                let n = self.state["coordinator"]["attempts"][item]
+                    .as_i64()
+                    .unwrap_or(1);
+                self.state["coordinator"]["attempts"][item] = json!((n - 1).max(0));
+            }
+            self.note_limit(&job)?;
+        }
+        if self.paused() {
+            return self.store();
+        }
         if self.state["coordinator"]["applied"] == json!(false) {
             self.apply()?;
             self.push_attempted = false;
@@ -1844,6 +1911,7 @@ impl Pilot {
                 + "\n",
         )?;
         self.state["coordinator"]["job"] = json!(name);
+        self.state["coordinator"]["agenda"] = json!(open);
         self.state["coordinator"]["launched"] = json!(now());
         self.state["coordinator"]["applied"] = json!(false);
         self.store()?;
