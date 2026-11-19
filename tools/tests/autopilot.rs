@@ -1731,3 +1731,26 @@ fn sessions_started_under_the_old_login_are_ignored_even_when_they_write_later()
     assert_eq!(f.called("batch", "start"), 1);
     assert!(f.cli(&["usage"]).contains("週 1%"));
 }
+
+#[test]
+fn an_account_switch_ends_the_usage_limit_wait_and_drops_old_readings() {
+    let f = Fixture::new();
+    f.roadmap(None);
+    fs::write(f.r.join("scratch/auth.json"), "{}").unwrap();
+    f.once();
+    // The first account hit its limit: new Codex jobs wait.
+    let mut state = f.state();
+    state["limit_until"] = json!(4_000_000_000.0);
+    f.save_state(&state);
+    f.cli(&["usage", "--recheck"]);
+    assert!(f.cli(&["status", "--target", "30"]).contains("利用上限"));
+    // Logging in to another account resumes at once.
+    std::thread::sleep(std::time::Duration::from_millis(1100));
+    fs::write(f.r.join("scratch/auth.json"), "{\"other\":1}").unwrap();
+    f.once();
+    assert!(f.state()["limit_until"].as_f64().unwrap_or(0.0) < 1.0);
+    assert!(!f.r.join("scratch/autopilot/usage-since").exists());
+    let log = fs::read_to_string(f.r.join("scratch/autopilot/log.tsv")).unwrap();
+    assert!(log.contains("account-switch"), "{log}");
+    assert!(!f.cli(&["status", "--target", "30"]).contains("利用上限"));
+}

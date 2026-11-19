@@ -107,6 +107,16 @@ impl Window {
             .unwrap_or("不明".into())
     }
 }
+/// When the Codex login last changed: the mtime of auth.json next to the
+/// sessions (Unix seconds, 0 when absent). Only the time is read.
+fn login_time() -> f64 {
+    codex_sessions()
+        .parent()
+        .map(|d| d.join("auth.json"))
+        .and_then(|p| p.metadata().and_then(|m| m.modified()).ok())
+        .and_then(|t| t.duration_since(UNIX_EPOCH).ok())
+        .map_or(0., |d| d.as_secs_f64())
+}
 fn codex_sessions() -> PathBuf {
     if let Ok(d) = std::env::var("AUTOPILOT_CODEX_SESSIONS") {
         return d.into();
@@ -716,11 +726,7 @@ impl Pilot {
     /// by `usage --recheck`: the Codex login (auth.json) changed, or the user
     /// asked to wait for a fresh reading.
     fn usage_cutoff(&self) -> i64 {
-        let auth = codex_sessions()
-            .parent()
-            .map(|d| d.join("auth.json"))
-            .and_then(|p| p.metadata().and_then(|m| m.modified()).ok())
-            .map_or(0, |t| chrono::DateTime::<chrono::Utc>::from(t).timestamp());
+        let auth = login_time() as i64;
         let since = read(&self.home.join("usage-since"))
             .ok()
             .and_then(|t| t.trim().parse::<i64>().ok())
@@ -1625,6 +1631,26 @@ impl Pilot {
         {
             bail!("自動運転は main で実行する")
         }
+        // Another Codex account: its limits replace the old account's. A wait
+        // for the old account's usage limit and a recheck mark no longer apply.
+        let login = login_time();
+        if self.state["codex_login"]
+            .as_f64()
+            .is_some_and(|known| known != login)
+        {
+            self.state["limit_until"] = json!(0);
+            let since = self.home.join("usage-since");
+            if since.exists() {
+                fs::remove_file(since)?;
+            }
+            self.log(
+                "account-switch",
+                "",
+                "",
+                "Codex のログインが変わった。前の利用枠の待ちと記録を使わない",
+            )?;
+        }
+        self.state["codex_login"] = json!(login);
         if let Some(next) = self.state["next_target"].as_i64() {
             let mut ready = next > self.target;
             for p in self.names()? {
