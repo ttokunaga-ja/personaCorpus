@@ -1,0 +1,27 @@
+---
+path: Documents/Mail/JDH/Janet - names by Friday.eml
+kind: text
+author: Janet Morales
+derived_from:
+---
+
+From: Janet Morales <janet@jdh-route.example>
+To: Michelle Whitaker <michelle@halstead-branch.example>
+Cc:
+Date: Tue, 23 Apr 2024 09:12:00 -0600
+Subject: Re: JDH seat review and next steps
+Message-ID: <1c67e5ed-c6b0-4b50-92f0-831b08d6b872@jdh-route.example>
+In-Reply-To: <c492efb1-3927-4db9-93d8-0d577a358bc9@halstead-branch.example>
+References: <c492efb1-3927-4db9-93d8-0d577a358bc9@halstead-branch.example>
+Attachments: none
+
+Hi Michelle,
+
+I can get you the department contact candidates by Friday, April 26. For Field Operations I'll look for someone who can also speak with the night shift, so we can understand the handoff beyond the daytime team. I'll send the names once I've checked internally.
+
+Thanks for holding the seat-add discussion while we sort through the existing seats.
+
+Janet
+
+On April 22, 2024, at 3:16 PM, Michelle Whitaker wrote:
+> As agreed, you will gather candidates for a contact in each department by Friday, April 26. I will confirm a time with Darren to discuss support options by Monday, April 29.

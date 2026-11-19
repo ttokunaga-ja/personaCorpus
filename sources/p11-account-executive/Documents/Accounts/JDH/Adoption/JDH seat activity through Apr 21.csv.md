@@ -1,0 +1,430 @@
+---
+path: Documents/Accounts/JDH/Adoption/JDH seat activity through Apr 21.csv
+kind: text
+author: Michelle Whitaker
+derived_from:
+---
+
+```csv
+Seat ID,Department,Assignment status,Last business use date
+JDH-001,Dispatch,Reassigned,2024-04-20
+JDH-002,Dispatch,Assigned,2024-04-03
+JDH-003,Dispatch,Assigned,2024-04-15
+JDH-004,Dispatch,Reassigned,2024-03-28
+JDH-005,Dispatch,Assigned,2024-04-01
+JDH-006,Dispatch,Assigned,2024-03-28
+JDH-007,Dispatch,Assigned,2024-03-24
+JDH-008,Dispatch,Assigned,2024-04-01
+JDH-009,Dispatch,Reassigned,2024-04-10
+JDH-010,Dispatch,Reassigned,2024-03-28
+JDH-011,Dispatch,Assigned,2024-04-05
+JDH-012,Dispatch,Assigned,2024-04-10
+JDH-013,Dispatch,Unassigned,
+JDH-014,Dispatch,Assigned,2024-03-23
+JDH-015,Dispatch,Assigned,2024-03-02
+JDH-016,Dispatch,Reassigned,2024-02-19
+JDH-017,Dispatch,Assigned,2024-04-14
+JDH-018,Dispatch,Assigned,2024-03-30
+JDH-019,Dispatch,Assigned,
+JDH-020,Dispatch,Assigned,2024-03-31
+JDH-021,Dispatch,Assigned,2024-03-31
+JDH-022,Dispatch,Assigned,2024-04-01
+JDH-023,Dispatch,Unassigned,
+JDH-024,Dispatch,Assigned,2024-04-03
+JDH-025,Dispatch,Assigned,2024-04-12
+JDH-026,Dispatch,Assigned,2024-03-25
+JDH-027,Dispatch,Assigned,2024-04-12
+JDH-028,Dispatch,Assigned,
+JDH-029,Dispatch,Assigned,2024-03-25
+JDH-030,Dispatch,Assigned,2024-03-27
+JDH-031,Dispatch,Assigned,2024-04-04
+JDH-032,Dispatch,Assigned,2024-03-25
+JDH-033,Dispatch,Assigned,2024-04-15
+JDH-034,Dispatch,Unassigned,
+JDH-035,Dispatch,Assigned,2024-04-12
+JDH-036,Dispatch,Assigned,2024-03-31
+JDH-037,Dispatch,Assigned,
+JDH-038,Dispatch,Assigned,2024-04-02
+JDH-039,Dispatch,Assigned,2024-03-27
+JDH-040,Dispatch,Assigned,2024-03-29
+JDH-041,Dispatch,Reassigned,2024-04-12
+JDH-042,Dispatch,Assigned,2024-04-10
+JDH-043,Dispatch,Unassigned,
+JDH-044,Dispatch,Assigned,2024-04-21
+JDH-045,Dispatch,Assigned,2024-03-28
+JDH-046,Dispatch,Reassigned,2024-03-31
+JDH-047,Dispatch,Assigned,2024-04-21
+JDH-048,Dispatch,Assigned,2024-04-15
+JDH-049,Dispatch,Assigned,2024-03-26
+JDH-050,Dispatch,Assigned,2024-04-16
+JDH-051,Dispatch,Assigned,2024-03-27
+JDH-052,Dispatch,Assigned,2024-03-24
+JDH-053,Dispatch,Reassigned,2024-03-26
+JDH-054,Dispatch,Assigned,2024-03-25
+JDH-055,Dispatch,Assigned,2024-04-06
+JDH-056,Dispatch,Assigned,2024-04-05
+JDH-057,Dispatch,Assigned,2024-02-16
+JDH-058,Dispatch,Assigned,2024-02-01
+JDH-059,Dispatch,Assigned,2024-02-21
+JDH-060,Dispatch,Assigned,2024-04-10
+JDH-061,Dispatch,Assigned,2024-03-28
+JDH-062,Dispatch,Assigned,2024-04-18
+JDH-063,Dispatch,Unassigned,
+JDH-064,Dispatch,Assigned,2024-03-24
+JDH-065,Dispatch,Reassigned,2024-03-30
+JDH-066,Dispatch,Assigned,2024-04-06
+JDH-067,Dispatch,Assigned,2024-04-02
+JDH-068,Dispatch,Assigned,2024-04-05
+JDH-069,Dispatch,Assigned,2024-04-15
+JDH-070,Dispatch,Assigned,2024-04-01
+JDH-071,Dispatch,Assigned,2024-03-30
+JDH-072,Dispatch,Assigned,2024-03-29
+JDH-073,Dispatch,Assigned,2024-02-24
+JDH-074,Dispatch,Assigned,2024-04-08
+JDH-075,Dispatch,Assigned,2024-03-13
+JDH-076,Dispatch,Assigned,2024-04-12
+JDH-077,Dispatch,Assigned,2024-03-31
+JDH-078,Dispatch,Assigned,2024-04-17
+JDH-079,Dispatch,Assigned,2024-04-01
+JDH-080,Dispatch,Assigned,2024-04-08
+JDH-081,Dispatch,Assigned,2024-04-09
+JDH-082,Dispatch,Assigned,2024-03-31
+JDH-083,Dispatch,Unassigned,2024-01-27
+JDH-084,Dispatch,Assigned,2024-04-17
+JDH-085,Dispatch,Reassigned,2024-04-04
+JDH-086,Dispatch,Assigned,2024-04-13
+JDH-087,Dispatch,Assigned,2024-03-29
+JDH-088,Dispatch,Reassigned,2024-04-11
+JDH-089,Dispatch,Assigned,2024-04-17
+JDH-090,Dispatch,Reassigned,2024-04-17
+JDH-091,Dispatch,Reassigned,2024-03-24
+JDH-092,Dispatch,Assigned,2024-04-01
+JDH-093,Dispatch,Assigned,2024-04-09
+JDH-094,Dispatch,Assigned,2024-04-07
+JDH-095,Dispatch,Assigned,2024-03-31
+JDH-096,Dispatch,Assigned,2024-04-01
+JDH-097,Dispatch,Reassigned,2024-03-31
+JDH-098,Dispatch,Unassigned,2024-02-03
+JDH-099,Dispatch,Reassigned,2024-04-07
+JDH-100,Dispatch,Reassigned,2024-03-25
+JDH-101,Dispatch,Reassigned,2024-03-30
+JDH-102,Dispatch,Unassigned,2024-02-18
+JDH-103,Dispatch,Assigned,2024-04-14
+JDH-104,Dispatch,Assigned,2024-04-06
+JDH-105,Dispatch,Assigned,2024-04-16
+JDH-106,Dispatch,Assigned,2024-04-03
+JDH-107,Dispatch,Assigned,2024-04-15
+JDH-108,Dispatch,Assigned,2024-04-09
+JDH-109,Dispatch,Assigned,2024-04-09
+JDH-110,Dispatch,Reassigned,2024-04-20
+JDH-111,Dispatch,Assigned,2024-04-21
+JDH-112,Dispatch,Assigned,2024-03-23
+JDH-113,Dispatch,Assigned,2024-04-17
+JDH-114,Dispatch,Assigned,2024-04-19
+JDH-115,Dispatch,Assigned,2024-03-05
+JDH-116,Dispatch,Assigned,2024-04-10
+JDH-117,Dispatch,Assigned,2024-04-08
+JDH-118,Dispatch,Assigned,2024-03-23
+JDH-119,Dispatch,Reassigned,2024-04-02
+JDH-120,Dispatch,Assigned,2024-04-18
+JDH-121,Dispatch,Assigned,2024-02-23
+JDH-122,Dispatch,Assigned,2024-04-13
+JDH-123,Dispatch,Assigned,2024-04-19
+JDH-124,Dispatch,Assigned,2024-04-16
+JDH-125,Dispatch,Assigned,2024-04-05
+JDH-126,Dispatch,Assigned,2024-04-12
+JDH-127,Dispatch,Assigned,2024-03-23
+JDH-128,Dispatch,Assigned,2024-03-24
+JDH-129,Dispatch,Assigned,2024-03-31
+JDH-130,Dispatch,Reassigned,2024-04-10
+JDH-131,Dispatch,Assigned,2024-03-29
+JDH-132,Dispatch,Assigned,2024-04-19
+JDH-133,Dispatch,Unassigned,
+JDH-134,Dispatch,Assigned,2024-03-28
+JDH-135,Dispatch,Assigned,2024-01-21
+JDH-136,Dispatch,Assigned,2024-04-16
+JDH-137,Dispatch,Assigned,2024-04-06
+JDH-138,Dispatch,Assigned,2024-04-21
+JDH-139,Dispatch,Assigned,
+JDH-140,Dispatch,Assigned,2024-04-09
+JDH-141,Dispatch,Assigned,2024-04-19
+JDH-142,Dispatch,Assigned,2024-04-06
+JDH-143,Dispatch,Assigned,2024-04-01
+JDH-144,Dispatch,Assigned,2024-03-29
+JDH-145,Dispatch,Reassigned,2024-04-08
+JDH-146,Dispatch,Assigned,2024-03-30
+JDH-147,Dispatch,Assigned,2024-04-18
+JDH-148,Dispatch,Unassigned,
+JDH-149,Dispatch,Assigned,2024-04-19
+JDH-150,Dispatch,Assigned,2024-04-07
+JDH-151,Field Operations,Assigned,2024-04-11
+JDH-152,Field Operations,Assigned,2024-04-08
+JDH-153,Field Operations,Reassigned,2024-04-17
+JDH-154,Field Operations,Assigned,2024-04-06
+JDH-155,Field Operations,Assigned,2024-04-06
+JDH-156,Field Operations,Assigned,2024-01-31
+JDH-157,Field Operations,Assigned,2024-04-02
+JDH-158,Field Operations,Reassigned,2024-04-05
+JDH-159,Field Operations,Assigned,2024-03-23
+JDH-160,Field Operations,Assigned,2024-04-20
+JDH-161,Field Operations,Assigned,2024-03-29
+JDH-162,Field Operations,Unassigned,
+JDH-163,Field Operations,Assigned,2024-04-13
+JDH-164,Field Operations,Assigned,2024-03-30
+JDH-165,Field Operations,Unassigned,2024-03-02
+JDH-166,Field Operations,Unassigned,2024-02-20
+JDH-167,Field Operations,Assigned,2024-03-30
+JDH-168,Field Operations,Assigned,2024-04-01
+JDH-169,Field Operations,Unassigned,
+JDH-170,Field Operations,Assigned,2024-03-27
+JDH-171,Field Operations,Reassigned,2024-04-15
+JDH-172,Field Operations,Assigned,2024-04-01
+JDH-173,Field Operations,Assigned,2024-04-17
+JDH-174,Field Operations,Assigned,
+JDH-175,Field Operations,Assigned,2024-04-17
+JDH-176,Field Operations,Assigned,2024-03-24
+JDH-177,Field Operations,Unassigned,
+JDH-178,Field Operations,Assigned,2024-03-23
+JDH-179,Field Operations,Assigned,2024-04-14
+JDH-180,Field Operations,Assigned,2024-04-13
+JDH-181,Field Operations,Assigned,2024-03-24
+JDH-182,Field Operations,Assigned,2024-04-02
+JDH-183,Field Operations,Assigned,2024-01-17
+JDH-184,Field Operations,Assigned,2024-04-19
+JDH-185,Field Operations,Assigned,2024-03-06
+JDH-186,Field Operations,Assigned,2024-04-11
+JDH-187,Field Operations,Assigned,2024-04-15
+JDH-188,Field Operations,Assigned,2024-03-28
+JDH-189,Field Operations,Assigned,2024-04-20
+JDH-190,Field Operations,Assigned,2024-03-28
+JDH-191,Field Operations,Assigned,2024-01-12
+JDH-192,Field Operations,Assigned,2024-04-20
+JDH-193,Field Operations,Reassigned,2024-03-25
+JDH-194,Field Operations,Assigned,2024-04-08
+JDH-195,Field Operations,Assigned,2024-03-26
+JDH-196,Field Operations,Assigned,2024-02-23
+JDH-197,Field Operations,Assigned,2024-04-02
+JDH-198,Field Operations,Assigned,2024-04-21
+JDH-199,Field Operations,Assigned,2024-04-11
+JDH-200,Field Operations,Assigned,2024-04-15
+JDH-201,Field Operations,Reassigned,2024-03-26
+JDH-202,Field Operations,Assigned,2024-04-07
+JDH-203,Field Operations,Assigned,2024-04-03
+JDH-204,Field Operations,Assigned,2024-04-16
+JDH-205,Field Operations,Assigned,2024-04-06
+JDH-206,Field Operations,Assigned,2024-03-23
+JDH-207,Field Operations,Assigned,2024-04-05
+JDH-208,Field Operations,Unassigned,
+JDH-209,Field Operations,Assigned,2024-04-12
+JDH-210,Field Operations,Assigned,2024-04-20
+JDH-211,Field Operations,Unassigned,2024-02-17
+JDH-212,Field Operations,Assigned,2024-03-21
+JDH-213,Field Operations,Assigned,2024-03-28
+JDH-214,Field Operations,Assigned,2024-04-06
+JDH-215,Field Operations,Assigned,2024-04-18
+JDH-216,Field Operations,Assigned,2024-02-05
+JDH-217,Field Operations,Assigned,2024-04-19
+JDH-218,Field Operations,Assigned,2024-04-10
+JDH-219,Field Operations,Assigned,2024-04-06
+JDH-220,Field Operations,Unassigned,
+JDH-221,Field Operations,Assigned,2024-04-02
+JDH-222,Field Operations,Unassigned,2024-03-04
+JDH-223,Field Operations,Assigned,2024-03-25
+JDH-224,Field Operations,Reassigned,2024-03-06
+JDH-225,Field Operations,Assigned,2024-04-11
+JDH-226,Field Operations,Unassigned,
+JDH-227,Field Operations,Assigned,2024-03-27
+JDH-228,Field Operations,Assigned,2024-03-31
+JDH-229,Field Operations,Assigned,2024-04-17
+JDH-230,Field Operations,Assigned,2024-03-23
+JDH-231,Field Operations,Assigned,2024-04-02
+JDH-232,Field Operations,Assigned,2024-04-03
+JDH-233,Field Operations,Assigned,2024-04-17
+JDH-234,Field Operations,Assigned,2024-04-04
+JDH-235,Field Operations,Assigned,2024-03-31
+JDH-236,Field Operations,Assigned,2024-04-03
+JDH-237,Field Operations,Assigned,2024-01-10
+JDH-238,Field Operations,Unassigned,
+JDH-239,Field Operations,Assigned,2024-04-08
+JDH-240,Field Operations,Unassigned,
+JDH-241,Field Operations,Assigned,2024-02-01
+JDH-242,Field Operations,Unassigned,
+JDH-243,Field Operations,Assigned,2024-04-02
+JDH-244,Field Operations,Assigned,2024-04-19
+JDH-245,Field Operations,Assigned,
+JDH-246,Field Operations,Assigned,2024-01-08
+JDH-247,Field Operations,Assigned,2024-04-16
+JDH-248,Field Operations,Reassigned,2024-02-22
+JDH-249,Field Operations,Assigned,2024-04-11
+JDH-250,Field Operations,Assigned,2024-03-27
+JDH-251,Field Operations,Assigned,2024-04-18
+JDH-252,Field Operations,Assigned,
+JDH-253,Field Operations,Assigned,2024-04-09
+JDH-254,Field Operations,Assigned,2024-04-10
+JDH-255,Field Operations,Assigned,2024-04-14
+JDH-256,Field Operations,Assigned,2024-04-17
+JDH-257,Field Operations,Assigned,2024-04-02
+JDH-258,Field Operations,Assigned,
+JDH-259,Field Operations,Assigned,2024-04-09
+JDH-260,Field Operations,Assigned,2024-04-17
+JDH-261,Field Operations,Assigned,2024-03-23
+JDH-262,Field Operations,Assigned,2024-03-30
+JDH-263,Field Operations,Assigned,2024-02-03
+JDH-264,Field Operations,Assigned,2024-04-08
+JDH-265,Field Operations,Assigned,2024-04-16
+JDH-266,Field Operations,Assigned,2024-04-18
+JDH-267,Field Operations,Assigned,2024-04-21
+JDH-268,Field Operations,Assigned,2024-02-13
+JDH-269,Field Operations,Assigned,2024-03-30
+JDH-270,Field Operations,Unassigned,
+JDH-271,Field Operations,Reassigned,2024-03-30
+JDH-272,Field Operations,Assigned,2024-03-27
+JDH-273,Field Operations,Assigned,2024-04-10
+JDH-274,Field Operations,Assigned,2024-03-24
+JDH-275,Field Operations,Assigned,2024-04-07
+JDH-276,Field Operations,Assigned,2024-03-28
+JDH-277,Field Operations,Assigned,2024-03-24
+JDH-278,Field Operations,Reassigned,2024-01-24
+JDH-279,Field Operations,Assigned,2024-04-03
+JDH-280,Field Operations,Assigned,2024-04-19
+JDH-281,Field Operations,Assigned,2024-03-25
+JDH-282,Field Operations,Assigned,2024-03-28
+JDH-283,Field Operations,Reassigned,2024-04-02
+JDH-284,Field Operations,Assigned,2024-04-16
+JDH-285,Field Operations,Assigned,2024-04-15
+JDH-286,Field Operations,Assigned,2024-04-07
+JDH-287,Field Operations,Assigned,2024-03-24
+JDH-288,Field Operations,Assigned,2024-04-01
+JDH-289,Field Operations,Assigned,2024-04-02
+JDH-290,Field Operations,Reassigned,2024-01-17
+JDH-291,Customer Care,Assigned,2024-04-08
+JDH-292,Customer Care,Assigned,2024-02-01
+JDH-293,Customer Care,Assigned,2024-04-21
+JDH-294,Customer Care,Assigned,2024-04-01
+JDH-295,Customer Care,Unassigned,
+JDH-296,Customer Care,Assigned,2024-04-18
+JDH-297,Customer Care,Reassigned,2024-03-27
+JDH-298,Customer Care,Assigned,2024-03-30
+JDH-299,Customer Care,Assigned,2024-04-17
+JDH-300,Customer Care,Assigned,2024-03-29
+JDH-301,Customer Care,Unassigned,2024-02-27
+JDH-302,Customer Care,Assigned,2024-04-16
+JDH-303,Customer Care,Assigned,2024-04-13
+JDH-304,Customer Care,Assigned,2024-03-15
+JDH-305,Customer Care,Assigned,2024-03-10
+JDH-306,Customer Care,Assigned,2024-04-07
+JDH-307,Customer Care,Assigned,2024-04-08
+JDH-308,Customer Care,Assigned,2024-04-13
+JDH-309,Customer Care,Assigned,2024-04-03
+JDH-310,Customer Care,Assigned,2024-04-10
+JDH-311,Customer Care,Assigned,2024-04-02
+JDH-312,Customer Care,Assigned,2024-04-05
+JDH-313,Customer Care,Assigned,2024-04-20
+JDH-314,Customer Care,Assigned,2024-04-05
+JDH-315,Customer Care,Assigned,2024-04-02
+JDH-316,Customer Care,Assigned,2024-02-09
+JDH-317,Customer Care,Reassigned,2024-03-30
+JDH-318,Customer Care,Assigned,2024-04-06
+JDH-319,Customer Care,Reassigned,
+JDH-320,Customer Care,Assigned,2024-04-20
+JDH-321,Customer Care,Assigned,2024-03-24
+JDH-322,Customer Care,Unassigned,2024-02-04
+JDH-323,Customer Care,Assigned,2024-04-19
+JDH-324,Customer Care,Assigned,2024-04-20
+JDH-325,Customer Care,Assigned,2024-04-20
+JDH-326,Customer Care,Assigned,2024-04-10
+JDH-327,Customer Care,Assigned,2024-04-12
+JDH-328,Customer Care,Reassigned,2024-01-17
+JDH-329,Customer Care,Assigned,2024-03-24
+JDH-330,Customer Care,Assigned,2024-03-28
+JDH-331,Customer Care,Assigned,2024-04-04
+JDH-332,Customer Care,Assigned,2024-04-09
+JDH-333,Customer Care,Reassigned,2024-04-21
+JDH-334,Customer Care,Assigned,2024-03-28
+JDH-335,Customer Care,Assigned,2024-04-19
+JDH-336,Customer Care,Assigned,2024-04-01
+JDH-337,Customer Care,Reassigned,2024-04-15
+JDH-338,Customer Care,Assigned,2024-04-18
+JDH-339,Customer Care,Assigned,2024-04-17
+JDH-340,Customer Care,Reassigned,2024-03-23
+JDH-341,Customer Care,Assigned,2024-03-27
+JDH-342,Customer Care,Assigned,2024-04-09
+JDH-343,Customer Care,Assigned,2024-04-09
+JDH-344,Customer Care,Assigned,2024-04-18
+JDH-345,Customer Care,Assigned,2024-04-15
+JDH-346,Customer Care,Assigned,2024-02-22
+JDH-347,Customer Care,Assigned,2024-04-20
+JDH-348,Customer Care,Assigned,2024-03-26
+JDH-349,Customer Care,Assigned,2024-04-04
+JDH-350,Customer Care,Assigned,2024-04-19
+JDH-351,Customer Care,Assigned,2024-03-30
+JDH-352,Customer Care,Assigned,2024-04-21
+JDH-353,Customer Care,Assigned,2024-04-19
+JDH-354,Customer Care,Reassigned,2024-02-25
+JDH-355,Customer Care,Unassigned,
+JDH-356,Customer Care,Assigned,2024-03-27
+JDH-357,Customer Care,Assigned,2024-04-08
+JDH-358,Customer Care,Assigned,2024-01-10
+JDH-359,Customer Care,Assigned,2024-04-02
+JDH-360,Customer Care,Assigned,2024-03-24
+JDH-361,Customer Care,Assigned,2024-04-17
+JDH-362,Customer Care,Assigned,2024-04-04
+JDH-363,Customer Care,Assigned,2024-04-10
+JDH-364,Customer Care,Assigned,2024-04-16
+JDH-365,Customer Care,Reassigned,2024-02-14
+JDH-366,Customer Care,Unassigned,
+JDH-367,Customer Care,Assigned,2024-04-21
+JDH-368,Customer Care,Assigned,2024-04-11
+JDH-369,Customer Care,Unassigned,
+JDH-370,Customer Care,Assigned,2024-04-12
+JDH-371,Billing,Unassigned,2024-02-16
+JDH-372,Billing,Assigned,2024-04-18
+JDH-373,Billing,Assigned,2024-01-23
+JDH-374,Billing,Assigned,2024-04-19
+JDH-375,Billing,Assigned,2024-03-24
+JDH-376,Billing,Assigned,2024-04-16
+JDH-377,Billing,Assigned,2024-02-17
+JDH-378,Billing,Assigned,2024-04-21
+JDH-379,Billing,Unassigned,
+JDH-380,Billing,Reassigned,2024-01-16
+JDH-381,Billing,Assigned,2024-01-10
+JDH-382,Billing,Assigned,2024-04-15
+JDH-383,Billing,Assigned,2024-04-08
+JDH-384,Billing,Assigned,2024-02-07
+JDH-385,Billing,Assigned,2024-03-17
+JDH-386,Billing,Assigned,2024-04-06
+JDH-387,Billing,Unassigned,
+JDH-388,Billing,Assigned,2024-04-14
+JDH-389,Billing,Reassigned,2024-03-31
+JDH-390,Billing,Unassigned,2024-01-16
+JDH-391,Billing,Assigned,2024-04-10
+JDH-392,Billing,Reassigned,2024-04-04
+JDH-393,Billing,Assigned,2024-03-01
+JDH-394,Billing,Assigned,2024-04-04
+JDH-395,Billing,Assigned,2024-02-15
+JDH-396,Billing,Unassigned,
+JDH-397,Billing,Assigned,2024-03-25
+JDH-398,Billing,Assigned,2024-02-19
+JDH-399,Billing,Assigned,2024-02-28
+JDH-400,Billing,Assigned,2024-04-12
+JDH-401,Billing,Unassigned,
+JDH-402,Billing,Assigned,2024-03-27
+JDH-403,Billing,Assigned,
+JDH-404,Billing,Reassigned,2024-04-09
+JDH-405,Billing,Unassigned,
+JDH-406,Billing,Assigned,2024-03-23
+JDH-407,Billing,Assigned,2024-03-13
+JDH-408,Billing,Assigned,
+JDH-409,Billing,Unassigned,
+JDH-410,Billing,Unassigned,
+JDH-411,Billing,Unassigned,2024-03-18
+JDH-412,Billing,Assigned,
+JDH-413,Billing,Assigned,2024-01-30
+JDH-414,Billing,Assigned,2024-03-26
+JDH-415,Billing,Assigned,2024-04-17
+JDH-416,Billing,Assigned,2024-04-18
+JDH-417,Billing,Reassigned,2024-01-28
+JDH-418,Billing,Assigned,
+JDH-419,Billing,Assigned,2024-02-16
+JDH-420,Billing,Reassigned,2024-04-15
+```

@@ -1120,3 +1120,200 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-19	p18-manufacturing-quality-engineer	b002	build-review	0	V3	Documents/是正と効果/NCR-026/NCR-026_是正処置効果確認書_監視条件付き決裁.pdf	表の列幅が狭く、1ページ目の両社の測定日・範囲列で最初の2ロットの単位「mm」が単独で次行に落ち、2ページ目のFJ-04点検記録の担当欄では「工藤英理」の「理」だけが次行に落ちている。
 2026-11-19	p18-manufacturing-quality-engineer	b002	build-review	1	V3	Documents/是正と効果/NCR-026/NCR-026_是正処置効果確認書_監視条件付き決裁.pdf	1ページ目の測定範囲は数値とmmが同じ行に収まり、2ページ目の担当名「工藤英理」も一行に収まったが、同じ行の「項目」列が狭く、「FJ-04の点検記録」の末尾「録」だけが次行に落ちている。
 2026-11-19	p08-product-manager	b002	coordinator	0	other	Desktop/6月末の並べ順_まだ工数なし.xlsx	統括の抜き取りで不合格
+2026-11-19	p17-construction-project-manager	b010	templates-review	0	other	minatoryo-earthwork-section.cls	README 122行目は当初線を破線とするが、クラス16行目のearthwork existingを指定すると見本1ページ目の当初断面と凡例が青灰の実線になる。A4横の3ページで管理欄・反復見出し・フッタは確認できた。
+2026-11-19	p17-construction-project-manager	b010	draft-review	0	D4	Pictures/楡岡北倉庫屋根更新/2024-09-26/2024-09-26_X4_Y2-Y3_B3の東端を閉じた時.jpg	本文で「X4側から西寄りに向け」てB3東端を手前に撮り、「奥のX4より東側」にB4が続くとしているが、契約範囲図ZP-001ではB3がX4の西、B4が東にあり、指定の向きと前後関係が合わない。
+2026-11-19	p17-construction-project-manager	b010	draft-review	0	D10	Documents/楡岡北倉庫屋根更新/工程/0830_着工から10月末まで_当初工程.xlsx	原稿11〜12行目には基準日・文書番号・版・作成者と配布先の竹内美加・青木美紀子があるが、minatoryo-change-schedule.xlsxの管理欄F3「確認者」に対応するG3の氏名が原稿に示されていない。
+2026-11-19	p17-construction-project-manager	b010	draft-review	0	D10	Documents/楡岡北倉庫屋根更新/散水/1107_散水12区画の記録.xlsx	A1〜C4の12行とE5:E16の実測合計0件は一致するが、原稿12行目は屋根側・屋内側の立会分担と位置図番号のみで、型の管理欄G3に入れる帳票の確認者が指定されていない。
+2026-11-19	p17-construction-project-manager	b010	check	0	source	Documents/楡岡北倉庫屋根更新/契約/0808_契約範囲_南の庇は別.pdf	body token overlap 0.567 < 0.8
+2026-11-19	p17-construction-project-manager	b010	build-review	0	V2	Desktop/1107_金子さんへ_散水を見たあとの引渡し説明.pptx	1枚目は原稿指定の「表紙」レイアウトを使わず、実際は「図」レイアウトで題が見本より上に出る。5枚目の書類一覧も型指定の青灰地・白字の見出しが淡色地・濃色字になっている。
+2026-11-19	p17-construction-project-manager	b010	build-review	0	V2	Documents/楡岡北倉庫屋根更新/引渡し/1107_北倉庫の引渡し書類送付控え.pdf	1ページ目の書類一覧が白地の見出しと黒い全面罫線になっており、minatoryo-handover.docxのSite Tableと見本で指定される青灰地・白太字の見出しおよび細い灰罫線が再現されていない。
+2026-11-19	p17-construction-project-manager	b010	build-review	0	V2	Documents/楡岡北倉庫屋根更新/工程/0930_金子さんに日付を頼む前の下書き.docx	1ページ目の題が型の固定題「変更説明・協議記録」から相談案の題に置き換わり、題下の文書番号・宛先など5段落も型のSite Metadata 9ptではなく本文のNormal 10.5ptで組まれている。
+2026-11-19	p17-construction-project-manager	b010	build-review	0	V2	Documents/楡岡北倉庫屋根更新/養生/1003_B3から戻した朝の記録.docx	1ページ目の「確認箇所／担当／朝の所見」表が自社のSite TableではなくTable Gridで、見本の青灰地・白字の見出しが白地・黒字になり、題下の管理情報もSite Metadata 9ptではなくNormal 10.5ptになっている。
+2026-11-19	p17-construction-project-manager	b010	build-review	0	V3	Pictures/図と画面/1105_楡岡北倉庫_散水と屋内を見る位置.png	第1列で屋根C1・B1・A1から屋内の各観察点への対応線が同じ縦線上で重なり、線が途中の観察点を貫いて続くため、各屋根区画から対応する点までの1対1の経路を個別に追えない。
+2026-11-19	p17-construction-project-manager	b010	check	1	source	Documents/楡岡北倉庫屋根更新/契約/0808_契約範囲_南の庇は別.pdf	body token overlap 0.567 < 0.8
+2026-11-19	p17-construction-project-manager	b010	build-review	1	V2	Documents/楡岡北倉庫屋根更新/養生/1003_B3から戻した朝の記録.docx	1ページ目の確認表とSite Metadata 9ptの管理欄は修正済みだが、型と見本の固定題「工事日報」が「現場日報　B3からの再開」に置き換わっている。
+2026-11-19	p17-construction-project-manager	b010	build-review	1	V3	Pictures/図と画面/1105_楡岡北倉庫_散水と屋内を見る位置.png	第1列の同じ縦線への重なりは解消したが、屋根A4から屋内A4への曲線が途中で屋内B3の橙色の観察点を貫き、B3で終わる線とA4まで続く線を観察点で区別できない。
+2026-11-19	p17-construction-project-manager	b010	build-review	1	V2	Documents/楡岡北倉庫屋根更新/引渡し/1107_北倉庫の引渡し書類送付控え.pdf	1ページ目の添付一覧は青灰地・白太字と細い灰罫線に修正済みだが、固定題「引渡し書類送付書」の前に工事名を組み込み、題下の文書番号・日付・宛先・差出人も型の9pt管理欄ではなく本文と同じ書式になっている。
+2026-11-19	p17-construction-project-manager	b010	check	2	source	Documents/楡岡北倉庫屋根更新/契約/0808_契約範囲_南の庇は別.pdf	body token overlap 0.567 < 0.8
+2026-11-19	p17-construction-project-manager	b010	build-review	2	V3	Pictures/図と画面/1105_楡岡北倉庫_散水と屋内を見る位置.png	屋内図のB3観察点の直上で、B3への対応線とA4へ続く対応線がともに途切れ、A4への線はB3の点の直下から再び現れるため、B3で終わる線とA4へ続く線を連続して追えない。
+2026-11-19	p05-bi-data-analyst	b002	draft-review	0	D10	Documents/営業会議/2026/07/2026-07-15_割引を広げない判断の控え.pdf	原稿10〜14行の管理欄から前回記載のあった本書の確認状況「未確認」がなくなり、oriba-analysis.clsの「作成・確認」欄に入れる本書の確認者または確認状況がない。岡田は宛先・施策の判断者、前田はGMVの照合者として記載されている。
+2026-11-19	p05-bi-data-analyst	b002	check	0	source	Documents/営業会議/2026/07/2026-07-06_営業会議_週締めと7月欄.pdf	body token overlap 0.482 < 0.5
+2026-11-19	p05-bi-data-analyst	b002	check	1	source	Documents/営業会議/2026/07/2026-07-06_営業会議_週締めと7月欄.pdf	body token overlap 0.482 < 0.5
+2026-11-19	p05-bi-data-analyst	b002	check	2	source	Documents/営業会議/2026/07/2026-07-06_営業会議_週締めと7月欄.pdf	body token overlap 0.482 < 0.5
+2026-11-19	p11-account-executive	b001	draft-review	0	D3	Documents/Accounts/JDH/Adoption/JDH seat activity through Apr 21.csv	ID範囲表ではDispatchの稼働126席すべてに4月15日、Field Operationsの稼働106席すべてに4月18日を付け、残る2部門や割当済み未稼働席でも部門・区分ごとに同じ1日を一律に付けているため、個席の最後の業務利用を記録したシステム明細として実態がない。
+2026-11-19	p11-account-executive	b001	draft-review	0	D4	Documents/Accounts/JDH/Adoption/Jul 12 workshop decisions.docx	「Department owners and actions」表は締切を列見出しで一律7月26日としているが、Janet行の同じ欄には7月30日とあり、4部門の提出期限とJanetの集約期限を分けた計画・台帳と食い違う。
+2026-11-19	p11-account-executive	b001	draft-review	0	D1	Documents/Pricing-approvals/JDH May package - price release request.pdf	「Price validity」行は4月18日17:00 Denverを顧客の承諾期限としてのみ説明しており、計画・台帳およびDonaldの承認メールが定める価格を提示できる期限が申請票に明記されていない。
+2026-11-19	p11-account-executive	b001	build-review	0	V2	OneDrive - Halstead/My-meeting-packs/JDH September check - what we can count.pptx	第2枚の部門別証拠表はTwo Columns、第3枚の比較表はTitle and Bodyを使用しており、原稿と見本が指定するTableのレイアウトとキャプション欄を使っていない。第3枚はマスター図形を非表示にして、Halsteadの共通要素をスライド上に個別配置している。
+2026-11-19	p17-construction-project-manager	b010	check	0	source	Documents/楡岡北倉庫屋根更新/契約/0808_契約範囲_南の庇は別.pdf	body token overlap 0.562 < 0.8
+2026-11-19	p17-construction-project-manager	b010	build-review	0	V3	Pictures/図と画面/1105_楡岡北倉庫_散水と屋内を見る位置.png	前回のB3・A4の対応線の途切れは解消したが、屋内図上端の芯間寸法X1–X2の10、X2–X3の10、X4–X5の8に、それぞれB1・B2・B4への縦の対応線が重なり、数字の字形を横切っている。
+2026-11-19	p17-construction-project-manager	b010	check	1	source	Documents/楡岡北倉庫屋根更新/契約/0808_契約範囲_南の庇は別.pdf	body token overlap 0.562 < 0.8
+2026-11-19	p17-construction-project-manager	b010	check	2	source	Documents/楡岡北倉庫屋根更新/契約/0808_契約範囲_南の庇は別.pdf	body token overlap 0.549 < 0.8
+2026-11-19	p20-investigative-journalist	b001	templates-review	0	other	README.md	型7件と記入見本の参照先23件の実在は確認したが、TeX節の「本文に書いた日付で内部メタデータを揃える」は記載手順と一致せず、両クラスの bin/tex 出力に CreationDate・ModDate が含まれない。
+2026-11-19	p20-investigative-journalist	b001	templates-review	0	other	acn-editorial-brief.pptx	全5レイアウトでマストヘッド・表・図・表紙の管理欄は正常に表示されたが、型の docProps/core.xml の文書説明に「generated using python-pptx」という制作注記が残る。
+2026-11-19	p20-investigative-journalist	b001	templates-review	0	other	acn-records-letter.cls	6行見本と36行見本で管理欄・明細の間隔・継続ページの列見出しを確認したが、36行見本では DeskSign の氏名が2ページ目、所属が3ページ目に分かれて、所属だけの余分なページが生じる。
+2026-11-19	p20-investigative-journalist	b001	templates-review	1	other	README.md	型7件と記入見本10組の参照先は実在するが、19行目の表の帯色と罫線色を28行目・61行目の手順で再現できず、WordのDesk Evidence見出しは白地、TeXのDeskSchedule罫線は墨色になる。
+2026-11-19	p20-investigative-journalist	b001	templates-review	1	other	acn-outline.docx	Letter縦の3節・共通ヘッダとページ番号は確認できたが、outline-tableの1ページ目でDesk Evidence見出しにREADME指定の淡い赤み#F6EFEBが付かず白地になる。
+2026-11-19	p20-investigative-journalist	b001	templates-review	1	other	acn-pitch.docx	取材の問いが先頭にあり、18行の表では2ページ目に見出しが繰り返されたが、pitch-longの両ページとpitch-shortでDesk Evidence見出しにREADME指定の淡い赤み#F6EFEBが付かず白地になる。
+2026-11-19	p20-investigative-journalist	b001	templates-review	1	other	acn-records-letter.cls	6種の短い請求と36行の区画明細で管理欄・見出し再掲・一体の署名を確認したが、36〜43行目のDeskScheduleの横罫がREADME指定のえんじ#792C3Dではなく墨色で描画される。
+2026-11-19	p20-investigative-journalist	b001	templates-review	1	other	acn-records-scope.xlsx	両シートで規定桁の番号と日付が1行で収まり、64と隣の64-page notice packetは分離し、明細の追加・COUNT集計・見出し再掲も機能したが、型のdocProps/core.xmlにファイル更新時刻と同秒の制作時刻2026-11-19T07:46:18Zが残る。
+2026-11-19	p20-investigative-journalist	b001	templates-review	1	other	acn-scope-memo.docx	Letter縦の対象範囲・必要資料・対応の3節とページ番号は確認できたが、scope-memo-tableの1ページ目でDesk Evidence見出しにREADME指定の淡い赤み#F6EFEBが付かず白地になる。
+2026-11-19	p20-investigative-journalist	b001	draft-check	0	trace	Documents/Stories/Road-contracts/Checks/Resurfacing scope before filing.xlsx	制作の痕跡
+2026-11-19	p20-investigative-journalist	b001	draft-review	0	D10	Documents/Stories/Road-contracts/Records/Mapleton Falls resurfacing bid and award archive.html	冒頭の「Select a notice title to view the bid and award notice」は個別公示への移動を案内するが、Notice link列の18件には表示名しかなくリンク先が指定されていない。
+2026-11-19	p20-investigative-journalist	b001	draft-review	0	D1	Pictures/Reporting/Mill Road - Stone Culvert marker.jpg	「the end used to orient the segment」ではStone Culvertがどちらの端か区別できず、計画と関連手帳が示すStone Culvertを起点、Pump House Laneを終点とする整理のうち起点の明示がない。
+2026-11-19	p07-humanities-researcher	b001	draft-check	0	frontmatter	Desktop/First morning - box 12.txt	frontmatter path/kind が計画と違う
+2026-11-19	p07-humanities-researcher	b001	draft-check	0	frontmatter	Documents/Administration/02 July - room key for Thursday.eml	frontmatter path/kind が計画と違う
+2026-11-19	p07-humanities-researcher	b001	draft-check	0	frontmatter	Documents/Archive/Box-14/Carton 14 - inventaire des dispenses et horaires.pdf	frontmatter path/kind が計画と違う
+2026-11-19	p07-humanities-researcher	b001	draft-check	0	frontmatter	Documents/Archive/Box-14/Paper copies in the return envelope.txt	frontmatter path/kind が計画と違う
+2026-11-19	p07-humanities-researcher	b001	draft-check	0	frontmatter	Documents/Archive/Other-boxes/Carton 12 - inventaire des cotisations.pdf	frontmatter path/kind が計画と違う
+2026-11-19	p07-humanities-researcher	b001	draft-check	0	frontmatter	Documents/Archive/Other-boxes/Carton 13 - inventaire des accès.pdf	frontmatter path/kind が計画と違う
+2026-11-19	p07-humanities-researcher	b001	draft-check	0	frontmatter	Documents/Archive/Other-boxes/Reading request - boxes 12 to 14.docx	frontmatter path/kind が計画と違う
+2026-11-19	p07-humanities-researcher	b001	draft-check	0	frontmatter	Downloads/Salle de lecture - préparer sa visite.html	frontmatter path/kind が計画と違う
+2026-11-19	p07-humanities-researcher	b001	draft-check	0	frontmatter	Pictures/Archive-visits/23 July - box 13 at the reading table.jpg	frontmatter path/kind が計画と違う
+2026-11-19	p07-humanities-researcher	b001	draft-review	0	other	Documents/Archive/Other-boxes/Three mornings at Saint-Aubin.md	判定なし
+2026-11-19	p07-humanities-researcher	b001	draft-review	0	D4	Documents/Book/Appendices/Saint-Aubin missing leaves.csv	第2節の「A single remittance covered three members, while the total had been entered under the duty attendant’s name」は今回の入金総額を当番名義で記帳したと読めるが、CR/12/B・040の第1段落では当番が取り次いだ場合の従来の方法が記され、今回の記帳名義は明示されていない。
+2026-11-19	p07-humanities-researcher	b001	draft-review	0	other	Documents/Book/Chapter-2/July - what the copies can support.pdf	判定なし
+2026-11-19	p07-humanities-researcher	b001	draft-review	0	D10	Documents/Book/Other-chapters/Book outline - Roger's comments.docx	先頭設定7行目の derived_from が空欄で、計画の「先に要るもの」にある同じ構成案の v0.1（Documents/Book/Other-chapters/Book outline - print first.docx）を指していない。v0.1 と章本文が一致し、差分は管理欄の v0.2 と第2章・第5章に付いた Roger のコメント2件。
+2026-11-19	p07-humanities-researcher	b001	draft-review	0	D10	Documents/Book/Other-chapters/Book outline - dues moved up.docx	管理欄に LHT-20240425-OUT-001 v0.3 と6章の改稿本文があるが、計画が改稿元とする v0.2（Book outline - Roger's comments.docx）に対して先頭の derived_from が空欄。
+2026-11-19	p07-humanities-researcher	b001	build-review	0	V3	Pictures/Reading-diagrams/From admission rule to recorded visit.png	図中央でRemission lettersからCollection receiptsへ伸びる縦の破線が、照合の注意書き「not proof of identity or attendance」の「of」に重なる。
+2026-11-19	p07-humanities-researcher	b001	build-review	0	V2	Documents/Archive/Box-14/Saint-Aubin - leaves and permissions.xlsx	Leaf registerシートの管理欄Date（F3:G3）は実日付を入れる型指定だが、F3の「26 July 2024」は文字列として保存され、見本のようなExcelの日付値になっていない。
+2026-11-19	p03-security-grc-analyst	b002	templates-review	0	other	README.md	「見本と検証の置き場所」（70〜81行）が参照する scratch/p03-security-grc-analyst/b001/work/templates-0001/ が存在せず、掲載した見本と画像にたどれない。
+2026-11-19	p03-security-grc-analyst	b002	templates-review	0	other	chukyo-checklist.xlsx	A4横で文書番号と日付は1行に収まり、3行・42行の明細と合計を生成できるが、両見本の1頁目でD7の右寄せ「64」とE7の左寄せ「64件を照合」が列の境で接し、一続きの値に見える。
+2026-11-19	p03-security-grc-analyst	b002	templates-review	0	other	chukyo-evidence.xlsx	A4横で文書番号と日付は1行に収まり、3行・42行の明細と合計を生成できるが、両見本の1頁目でG7の右寄せ「64」とH7の左寄せ「64件を照合」が列の境で接し、一続きの値に見える。
+2026-11-19	p03-security-grc-analyst	b002	draft-review	0	D1	Documents/リスク/RISK-031/購買台帳_7月末の対象拠点と担当.xlsx	「対象と窓口」シートの17〜19行目は、全3行の「所在確認・入手見込み」欄が「確認し回収予定」にとどまり、7月31日時点での対象別の入手見込みや見込み未定時の照会予定が分からない。末尾の9月30日は共通の回収期限で、入手見込みの記載ではない。
+2026-11-19	p03-security-grc-analyst	b002	draft-review	0	D1	OneDrive - 中京文書/管理会議/0825_月次是正会議_期限超過と閉じ方.pptx	2枚目「本日の確認」と5枚目「会議で決めたいこと」に期限超過候補5件を照合する旨はあるが、資料内に候補別の元期限・当時の状態も、その明細を開くための参照先もなく、木村が会議で照合する対象を特定できない。
+2026-11-19	p03-security-grc-analyst	b002	draft-review	0	D3	Documents/リスク/RISK-031/日高_保管区画点検票_橋本松本署名.pdf	12〜14行の管理情報と18〜19行の明細には点検日・受領日と東西2区画はあるが、7月22日の提出要領が署名票に併記するよう求めた対象期間がなく、どの期間の点検として提出した票か確認できない。
+2026-11-19	p03-security-grc-analyst	b002	draft-review	0	D3	Documents/リスク/RISK-031/日高_返却箱の受渡照合票_署名あり.pdf	12〜14行に9月22日の照合日、9月25日の受領日と受渡台帳12件はあるが、7月22日の提出要領が署名票に求めた対象期間がなく、票単体ではどの期間の受渡記録を照合したか確認できない。
+2026-11-19	p03-security-grc-analyst	b002	draft-review	0	D10	Desktop/RISK-031_池田さんへの是正報告_赤字戻し.docx	計画は「送る前.docx」のv0を複製した改訂版を指定しているが、v0.1原稿の先頭のderived_fromが空欄で、計画にある複製元の相対パスが欠けている。
+2026-11-19	p03-security-grc-analyst	b002	build-review	0	V3	OneDrive - 中京文書/管理会議/1007_委託先点検_完了2件と継続1件の案.pptx	4枚目「受領から書面判断まで」で、照合の箱から不足資料の箱に下りる縦の分岐線が「不足がある場合 ↓ 決裁に進めない」の文字に重なっている。
+2026-11-19	p03-security-grc-analyst	b002	build-review	0	V2	Documents/年次審査/2025/依頼と回答/1007_池田さんへ出した資料の控え.xlsx	「提出資料」A11の集計ラベル「資料数」がB11の数値と同じ右寄せ・インデントなしで、型のREADMEと実例が指定する左寄せ・インデント1が適用されていない。
+2026-11-19	p10-management-consultant	b001	templates-review	0	other	README.md	型6件・見本/画像の参照先は実在し明細・合計を可変行数で作れたが、PowerPointの表の成形手順に配色の適用操作がなく、記載どおり配置した既定表の見出しは指定の紫灰ではなく茶赤、明細も指定の薄い茶灰と白にならない。
+2026-11-19	p10-management-consultant	b001	templates-review	0	other	holt-diagnosis.pptx	16:9の5レイアウト、共通ロゴ、上下の罫線と管理情報は確認したが、Evidence Tableに追加した既定表は見出しが茶赤で明細も指定の薄い茶灰と白にならず、docProps/core.xmlのlastModifiedByに型の組織・担当と無関係なSteve Cannyが残る。
+2026-11-19	p10-management-consultant	b001	templates-review	0	other	holt-process-timings.xlsx	A4横の3行版と34行版ではHRA-WHI-DIAG-TIM-2024-001と26 Jun 2024が一行に収まり、割合と64件の間隔、明細・合計、続頁見出しも確認したが、型のdocProps/core.xmlのmodifiedにファイルの実際の制作時刻2026-11-19T07:46:38Zが残る。
+2026-11-19	p10-management-consultant	b001	templates-review	1	other	README.md	型6件と記載の見本・画像ディレクトリは実在するが、PowerPoint の Process Figure 節には約1.84:1の画像枠に合わせる条件や切らずに配置する手順がなく、記載どおり3.42:1の横長図を挿入すると両端の工程名が欠ける。
+2026-11-19	p10-management-consultant	b001	templates-review	1	other	holt-diagnosis.pptx	16:9の全5レイアウトと表の続き、共通ロゴ・管理フッタは描画できたが、5枚目の Process Figure で画像枠1に入れた横長工程図が左右各23.2%トリミングされ、Ready for review と Review begins の工程名と枠が切れる。
+2026-11-19	p10-management-consultant	b001	draft-check	0	trace	Desktop/03 Jul - Is keying holding up payment v0.2.pptx	制作の痕跡
+2026-11-19	p10-management-consultant	b001	draft-check	0	trace	Documents/Clients/Whitfield/Diagnosis/03 Jun - What makes a hand-off ready.docx	制作の痕跡
+2026-11-19	p10-management-consultant	b001	draft-check	0	frontmatter	Documents/Clients/Whitfield/Diagnosis/07 Jun - What the event labels actually mean.docx	frontmatter path/kind が計画と違う
+2026-11-19	p10-management-consultant	b001	draft-check	0	trace	Documents/Clients/Whitfield/Diagnosis/12 Jul - Which queue to take first.xlsx	制作の痕跡
+2026-11-19	p10-management-consultant	b001	draft-check	0	frontmatter	Documents/Clients/Whitfield/Diagnosis/12 Jun - Pairs we can use.xlsx	frontmatter path/kind が計画と違う
+2026-11-19	p10-management-consultant	b001	draft-check	0	frontmatter	Documents/Clients/Whitfield/Diagnosis/19 Jun - Same invoice on two clocks.pptx	frontmatter path/kind が計画と違う
+2026-11-19	p10-management-consultant	b001	draft-check	0	frontmatter	Documents/Clients/Whitfield/Diagnosis/26 Jun - Time by payment step.xlsx	frontmatter path/kind が計画と違う
+2026-11-19	p10-management-consultant	b001	draft-check	0	frontmatter	Documents/Clients/Whitfield/Diagnosis/26 Jun - Working and waiting by case.xlsx	frontmatter path/kind が計画と違う
+2026-11-19	p10-management-consultant	b001	draft-check	0	trace	Documents/Clients/Whitfield/Diagnosis/Japan Finance - Supplier payment procedure.pdf	制作の痕跡
+2026-11-19	p10-management-consultant	b001	draft-check	0	frontmatter	Documents/Clients/Whitfield/Diagnosis/Japan payment events - cleared extract.csv	frontmatter path/kind が計画と違う
+2026-11-19	p10-management-consultant	b001	draft-check	0	trace	Documents/Clients/Whitfield/Meetings/17 Jul - Decisions from the payments readout.docx	制作の痕跡
+2026-11-19	p10-management-consultant	b001	draft-check	0	trace	Documents/Clients/Whitfield/Meetings/17 Jul - Japan payments diagnosis.pptx	制作の痕跡
+2026-11-19	p10-management-consultant	b001	draft-check	0	frontmatter	Documents/Clients/Whitfield/Meetings/26 Jun - Timing review and limitations.docx	frontmatter path/kind が計画と違う
+2026-11-19	p10-management-consultant	b001	draft-check	0	trace	Documents/Clients/Whitfield/Meetings/29 May - Ready for approval.docx	制作の痕跡
+2026-11-19	p10-management-consultant	b001	draft-check	0	trace	Documents/Internal-review/12 Jul - Keep the controls and test the explanation.pptx	制作の痕跡
+2026-11-19	p10-management-consultant	b001	draft-check	0	frontmatter	Documents/Practice-notes/Friday queue starts before Friday.txt	frontmatter path/kind が計画と違う
+2026-11-19	p10-management-consultant	b001	draft-check	0	frontmatter	Documents/Team-development/03 Jun - Keep Oliver's interview debrief.txt	frontmatter path/kind が計画と違う
+2026-11-19	p10-management-consultant	b001	draft-check	0	frontmatter	Pictures/28 Jun - Japan payments route and queues.png	frontmatter path/kind が計画と違う
+2026-11-19	p10-management-consultant	b001	draft-review	0	D4	Documents/Clients/Whitfield/Diagnosis/10 May - Mailbox dates first pass.xlsx	7〜18行目の4件は全て承認完了が6月12日「Pairs we can use」の同じ案件の消込完了より後で、例えばWB-0401の12承認完了は4月11日12:00 JST、消込完了は4月9日12:36 JSTである。D5にも該当し、WB-0403の07は受領から完了まで4.0時間しかないのに、6月26日「Working and waiting by case」の同じ完備後の待ちだけで8.5時間ある。
+2026-11-19	p10-management-consultant	b001	draft-review	0	D1	Documents/Clients/Whitfield/Diagnosis/22 May - Returned invoice walk-through.docx	「Why the ownership matters」でAP側の説明は差戻し後にAPが持つと示す一方、費用責任者側の説明は再審査に訂正済みの説明が必要と述べるだけで誰が持つと考えていたかがなく、計画にある両者の認識のずれを確認できない。
+2026-11-19	p10-management-consultant	b001	draft-check	1	trace	Desktop/03 Jul - Is keying holding up payment v0.2.pptx	制作の痕跡
+2026-11-19	p10-management-consultant	b001	draft-check	1	trace	Documents/Clients/Whitfield/Diagnosis/03 Jun - What makes a hand-off ready.docx	制作の痕跡
+2026-11-19	p10-management-consultant	b001	draft-check	1	trace	Documents/Clients/Whitfield/Diagnosis/07 Jun - What the event labels actually mean.docx	制作の痕跡
+2026-11-19	p10-management-consultant	b001	draft-check	1	trace	Documents/Clients/Whitfield/Diagnosis/12 Jul - Which queue to take first.xlsx	制作の痕跡
+2026-11-19	p10-management-consultant	b001	draft-check	1	trace	Documents/Clients/Whitfield/Diagnosis/26 Jun - Time by payment step.xlsx	制作の痕跡
+2026-11-19	p10-management-consultant	b001	draft-check	1	trace	Documents/Clients/Whitfield/Diagnosis/Japan Finance - Supplier payment procedure.pdf	制作の痕跡
+2026-11-19	p10-management-consultant	b001	draft-check	1	trace	Documents/Clients/Whitfield/Meetings/17 Jul - Japan payments diagnosis.pptx	制作の痕跡
+2026-11-19	p10-management-consultant	b001	draft-check	1	trace	Documents/Clients/Whitfield/Meetings/29 May - Ready for approval.docx	制作の痕跡
+2026-11-19	p10-management-consultant	b001	draft-check	1	trace	Pictures/28 Jun - Japan payments route and queues.png	制作の痕跡
+2026-11-19	p06-life-science-researcher	b001	templates-review	0	other	bennett-bench-record.cls	短い見本と長い見本の両ページで、表の Reference 見出しだけが No.・Review status・Observation より約1行上にずれており、反復見出しの段がそろわない。
+2026-11-19	p06-life-science-researcher	b001	templates-review	0	other	bennett-culture-day.xlsx	3行版と24行版の全ページで文書番号と日付は1行に収まり、隣接する数値と文字の間隔・合計・反復見出しは良好だが、docProps/core.xml の modified に制作時刻 2026-11-19T07:45:14Z が残っている。
+2026-11-19	p06-life-science-researcher	b001	templates-review	0	other	bennett-director-brief.pptx	5レイアウトは描画できたが、docProps/core.xml の説明に generated using python-pptx が残り、各レイアウトの日付フィールドに仮の日付 1/27/13 があるほか、継承されるページ番号欄は右端ではなく左から約7.17インチに配置されている。
+2026-11-19	p06-life-science-researcher	b001	templates-review	0	other	bennett-findings.docx	初見・日別確認の節分けと2ページ目の根拠表の見出しは良好だが、docProps/core.xml の説明に generated by python-docx が残っている。
+2026-11-19	p06-life-science-researcher	b001	templates-review	0	other	bennett-lab-minutes.docx	四節と横罫の対応表を1ページで確認したが、docProps/core.xml の説明に generated by python-docx が残っている。
+2026-11-19	p06-life-science-researcher	b001	templates-review	0	other	bennett-study-plan.docx	草案と承認PDFで四節・版番号の収まりを確認したが、元の型の docProps/core.xml の説明に generated by python-docx が残っている。
+2026-11-19	p06-life-science-researcher	b001	templates-review	1	other	bennett-director-brief.pptx	5レイアウトで社章・左帯・下罫線・右下のスライド番号は表示されるが、BCE Coverの番号・日付・作成者欄がa:lstStyleのtx1へのtintを継承し、指定の濃紫#362742より薄い灰色で描画される。
+2026-11-19	p06-life-science-researcher	b001	templates-review	1	other	mason-service-record.cls	1ページ目のSERVICE SCOPE本文の1行目が右の本文余白を越える。Liberation Monoの通常の英文で再現し、LuaLaTeXのログで15.19069 ptのOverfull hboxを確認した。
+2026-11-19	p06-life-science-researcher	b001	draft-review	0	D10	Pictures/Cultures/2024-07-10 Date card at front of rack.jpg	本文の「together with position labels」で写す位置ラベルについて、どの番号が画角に入り、どの文字が読めるかが記載されておらず、「Jul 10」のカードと併せて写す文字を確定できない。
+2026-11-19	p06-life-science-researcher	b001	draft-review	0	D4	Downloads/2024-07-11 July readout events.csv	計画どおりの時刻と24件の記録はあるが、全3行は装置の稼働イベント（開始・完了・出力）で測定値を含まず、人物定義「形式の目安」の装置出力を測定値だけに限る規定と食い違う。
+2026-11-19	p06-life-science-researcher	b001	draft-check	1	source	Downloads/2024-07-11 July readout events.csv	/home/ttokunaga-ja/dev/github.com/ttokunaga-ja/personaCorpus/sources/p06-life-science-researcher/Downloads/2024-07-11 July readout events.csv.md: No such file or directory (os error 2)
+2026-11-19	p06-life-science-researcher	b001	draft-review	2	D4	Downloads/2024-07-11 July readout events.csv	本文の3行は装置から出力した開始・完了・出力イベントで、11:36と11:42の24は処理件数。時刻・ラン参照・件数は計画・台帳・測定CSVと整合するが、測定値を含まないため、人物定義「形式の目安」の「装置出力は表として読める測定値だけとする」に抵触し、前回のD4は未解消。
+2026-11-19	p06-life-science-researcher	b001	draft-review	0	D10	Documents/Lab-book/2024/07/July 11 findings - after the date split.docx	先頭でR00をderived_fromに指定しているが、本文のFirst look節にR00の段落と表をそのまま再掲し、R00のNext check節の削除・置換も差分として指定していないため、派生元の本文を引き継いで指定差分だけを反映する指示として成立していない。
+2026-11-19	p09-ux-researcher	b001	draft-review	0	D1	Downloads/Dispatch Planning Screen Reference.pdf	「Example: selected route」は便一覧とStopsの値を別々の表に載せているが、上段でR-214を選ぶと下段にStopsと停車行のNoteが出る関係を示す、計画指定の画面図がない。
+2026-11-19	p09-ux-researcher	b001	draft-review	0	D10	Documents/配車の見通し調査/Planning/2024-04-22 Four ways a handoff can break.pptx	スライド3の図は「Three connected boxes」としながら4つのラベルを2組の矢印で示し、「Handoff: earlier window?」が箱か矢印上の文言か、旧値から受け手までの経路をどう接続するかが定まらない。
+2026-11-19	p09-ux-researcher	b001	draft-review	0	D10	Documents/配車の見通し調査/Planning/2024-04-25 Dispatch handoff observation plan.docx	先頭7行目の derived_from が空欄で、計画が改訂元に指定する4月23日 Patrick notes（同じ文書番号のv0.2）との派生関係が設定にない。v1.0の番号・版・日付・作成者と4場面の表は揃っている。
+2026-11-19	p09-ux-researcher	b001	draft-review	0	D3	Documents/配車の見通し調査/Planning/2024-07-11 配車引継ぎ 進行台本.docx	発問9（46行目）の「その情報」は発問8の変更情報を指すが、48行目の合図は変更がないときに8だけを飛ばすため、9の照合対象がなくなる。また導入16〜18行目は「記録」の可否だけを尋ね、6月4日の記録判断で決めた録音対象の事前説明と不承諾時に録音せず続ける手順がない。
+2026-11-19	p09-ux-researcher	b001	build-review	0	V1	Documents/配車の見通し調査/Planning/2024-04-23 Dispatch handoff observation Patrick notes.docx	観察表のHeld行で、第1コメントのアンカーが原稿指定の「the first person or source they approach to learn the reason」ではなく、前後の「What is visible, …」と「Record what was learned.」を含む挿入段落全体に設定されている。
+2026-11-19	p09-ux-researcher	b001	build-review	0	V1	Documents/配車の見通し調査/Planning/2024-05-03 Handoff evidence coding.csv	4列の見出しと8件の明細は原稿と一致するが、末尾にあるBrianからJenniferへの備考（観察をコードに添え、解釈は別に記し、参加者数の集計に使わない）がCSVに収録されていない。
+2026-11-19	p09-ux-researcher	b001	build-review	0	V1	Documents/配車の見通し調査/Planning/2024-07-10 Read-through timing by section.csv	4列6明細は一致するが、原稿末尾の実測合計51分（言い直しの中断を含む）、次回配分合計45分、および参加者の成績指標に使わないという用途の注記が収録されていない。
+2026-11-19	p09-ux-researcher	b001	build-review	0	V2	Documents/配車の見通し調査/Planning/2024-07-11 Dispatch prompts EN-JA.xlsx	Removedシートの印刷フッタが未設定で、3頁目の下端に型の社名と現在頁／総頁が出ない。
+2026-11-19	p09-ux-researcher	b001	check	1	opens	Documents/配車の見通し調査/Planning/2024-05-03 Handoff evidence coding.csv	Error: CSV error: record 9 (line: 9, byte: 1573): found record with 1 fields, but the previous record has 4 fields
+2026-11-19	p09-ux-researcher	b001	check	1	opens	Documents/配車の見通し調査/Planning/2024-07-10 Read-through timing by section.csv	Error: CSV error: record 7 (line: 7, byte: 537): found record with 1 fields, but the previous record has 4 fields
+2026-11-19	p09-ux-researcher	b001	build-review	1	V1	Documents/配車の見通し調査/Planning/2024-07-11 Dispatch prompts EN-JA.xlsx	Removed シートの A13:F19 に原稿にない採用質問7件（旧09・11・12・14・15・17・18）が残り、A20:B20 に採用件数の集計式とラベルもある。印刷範囲外だが、行は非表示になっていない。
+2026-11-19	p16-clinical-researcher	b001	draft-review	0	D1	Documents/統計相談/0620_空表を読む順番.xlsx	シート「読む順番」の6行目と明細7〜18行に計画指定の項目内の確認欄がなく、注記に照合式を記すだけで項目ごとの照合結果を記入する箇所がない。
+2026-11-19	p16-clinical-researcher	b001	draft-review	0	D4	OneDrive - かつら川臨床研究/研究会議/0625_統計相談の前に決めたこと.docx	「確認事項」の「対象内で確認して記録した0は記録ありと区別する」が、記録済みの0を記録ありに含める台帳・6月14日版空表・同日の打合せスライド3枚目と矛盾する。
+2026-11-19	p16-clinical-researcher	b001	draft-review	0	D1	Desktop/0717_統計相談で聞く順番.pptx	予定48例で記録できる範囲と途切れる箇所を確かめるという目的が表紙の発表者メモにだけあり、計画が求める聴衆向けのスライド本文・図表には48例も目的も示されていない。
+2026-11-19	p16-clinical-researcher	b001	draft-review	0	D3	Documents/統計相談/0604_理由欄に渡す候補.csv	「原記録なし」行の使う条件は取得が行われなかったと確認した場合も含み、「未実施」行と重なるため、未実施で原記録も存在しない同じ項目をどちらの理由に分類するか決められない。
+2026-11-19	p16-clinical-researcher	b001	draft-review	0	D3	Pictures/0611_記録票から空表まで.png	「回答後に根拠を確認・再判定」から対象判定と理由確認へ戻す矢印に条件の区別がなく、再判定で対象外や記録ありになっても理由別欠測数へ進める経路が残る。
+2026-11-19	p16-clinical-researcher	b001	draft-review	0	D3	OneDrive - かつら川臨床研究/研究会議/0722_空表を埋める前に読むこと.pdf	「判定の順番」第2項では原記録がない場合に「原記録なし」と分類するよう指示するが、原記録が未着・所在確認中で理由を確定できないときは第3項と6月4日の理由一覧に従い「確認待ち」に置く必要があり、原記録がないことの確認を第2項の条件にしていない。
+2026-11-19	p16-clinical-researcher	b001	draft-review	0	D10	Documents/Study-評価物質の低用量観察研究/計画と審査/0426_低用量観察の計画_目的の赤字.docx	先頭7行目の derived_from が空欄で、計画で指定された4月25日版v0.1を田中が17:02に赤字修正した稿なのに元の相対パスがなく、本文も元稿との差分と共通部分をまとめて再掲している。
+2026-11-19	p16-clinical-researcher	b001	draft-review	0	D10	Documents/統計相談/0719_分母と欠測理由の空表.xlsx	先頭7行目の derived_from が空欄で、計画では6月14日版v0.1を更新した同番号のv0.2だが、元の相対パスがなく、18〜29行目の共通の明細も差分と分けず再掲している。
+2026-11-19	p16-clinical-researcher	b001	draft-review	0	D10	Documents/Study-評価物質の低用量観察研究/計画と審査/0501_低用量観察の計画_目的を修正.docx	表紙の管理欄に必須の文書番号 KRC-LDO-20240425-PRO-001 が5月1日版の原稿に明記されておらず、冒頭の管理欄の変更指示では「文書番号と作成者はそのまま」とだけ記している。
+2026-11-19	p16-clinical-researcher	b001	build-review	0	V2	Desktop/0522_記録の数え方_石川さんと見る.xlsx	追加シート「入力規則の確認」で型にある1〜6行の印刷タイトルとC7のウィンドウ枠固定が欠落している。
+2026-11-19	p16-clinical-researcher	b001	build-review	0	V3	Pictures/0611_記録票から空表まで.png	中央の「記録なし」の文字を矢印の縦線が横切り、上側の矢尻も「記録あり」枠内の括弧に重なる。加えて「回答後に根拠を確認・再判定」への矢印は「照会」への入力線から分岐しており、照会後に再判定へ進む原稿の順序を図に再現していない。
+2026-11-19	p16-clinical-researcher	b001	build-review	0	V1	Documents/メール保存/低用量観察/0701_Request for statistical review.eml	テキスト本文の冒頭で原稿の「Dear Koichi,」が抜けている。また添付XLSXはセル値が指定ファイルと同じだが、指定ファイルでは同一頁にある注記が添付版では2頁目に分かれている。
+2026-11-19	p16-clinical-researcher	b001	build-review	0	V1	Desktop/0717_統計相談で聞く順番.pptx	4枚目の手続図で「理由確認」から「確認待ち／照会」へ直接つながり、原稿の「理由未確定」のときだけ進む条件が示されていない。全6枚の題は型の赤紫742747から墨302830に上書きされている（V2）。
+2026-11-19	p02-site-reliability-engineer	b001	templates-review	0	other	brt-error-budget.xlsx	docProps/core.xmlのmodifiedが型の制作時刻2026-11-19T07:44:05Zと一致し、createdの2026-07-14T09:00:00Zと異なる。印刷見本全3ページでは完全な番号と日付が各一行に収まり、数値と右隣の文字の間隔、繰返し見出し、青い集計罫線を確認した。
+2026-11-19	p02-site-reliability-engineer	b001	templates-review	0	other	brt-reliability-briefing.pptx	docProps/core.xmlのdescriptionに制作用の既定文「generated using python-pptx」が残っている。見本では16:9の全5レイアウトに社名と段形マーク、上下の橙罫線、社内表示が出ることを確認した。
+2026-11-19	p02-site-reliability-engineer	b001	templates-review	1	other	README.md	7 型の用途・ファイル名と見本リンク 22 件の実在を確認したが、PowerPoint の番号欄に示す x=12.12 インチを左端にすると 10 pt の完全な番号 BRT-RB-20260714-001 が右端で切れ、配置の基準点・必要幅・右余白が手順にない。
+2026-11-19	p02-site-reliability-engineer	b001	draft-review	0	D4	Documents/Incidents/2026/2026-07-13/Faregate incident review working copy.docx	「Open point」の37行目で「Claire is preparing the Westbury explanation」としているが、この v0.1 は7月13日15:42 UTC の保存で、台帳・計画では Claire は同日14:05 UTC に案内を発行し14:15 UTC に Stephen と写しの Daniel へ送付済み。
+2026-11-19	p02-site-reliability-engineer	b001	draft-review	0	D10	Documents/Incidents/2026/2026-07-13/Faregate incident review Matthew comments.docx	先頭7行目のderived_fromが空欄で、計画が指定するFaregate incident review working copy.docxを変更履歴の元として指定していない。本文の08:29行は置換後の文言で、末尾の削除指定とDanielの元コメントは元版の「rollback confirmed」を対象としている。
+2026-11-19	p12-support-success-lead	b002	draft-review	0	D4	Documents/顧客会議/露原機材/9月17日QBR_議事録.docx	議題1の「8月21日に12件の業務復旧を確認し」は復旧確認の時点を報告日に置いているが、8月20日16:36の点検表では12件の復旧確認と解決日の記録が済んでおり、21日10:00の電話ではその12件を谷口に報告し、残る5件の代替作業に合意した。
+2026-11-19	p12-support-success-lead	b002	draft-review	0	D1	Documents/エスカレーション/柴田さんへ_業務側で残っている6件.docx	「事実」の045・046は症状と今後の再試行だけで、045で既にどの引継ぎ先・通知条件を確認したか、046でどの候補照合・表示条件まで確認したかが書かれておらず、計画が求める案件別の確認済み条件が欠けている。
+2026-11-19	p12-support-success-lead	b002	draft-review	0	D3	Pictures/露原機材_返却分だけ順に回す.png	判定「受付番号は一致？」の直前の箱は「返却分の受付番号を1件確認」までで、どの一覧・記録の番号とどの画面・対象の番号を照合するかが示されず、谷口が図だけで手動設定へ進む条件を判断できない。
+2026-11-19	p12-support-success-lead	b002	draft-review	0	D10	Documents/顧客会議/露原機材/9月のQBRで聞くこと_森田さんの赤字.docx	10行目の管理欄は9月11日に森田へ回した元版と同じ「版：論点案」で、計画・台帳が指定する9月14日の当該文書自身の「確認版」の値がない。
+2026-11-19	p12-support-success-lead	b002	draft-review	0	D3	Documents/メール保存/0814_谷口さん_返却班で3件受け取れました.eml	8月12日の依頼は担当一覧で受け取れた受付番号の報告を求めているが、返信本文の「担当者が3件とも一覧で受け取れた」には3件の番号がなく、上田がどの受付を受領確認済みとして記録すべきか特定できない。
+2026-11-19	p12-support-success-lead	b002	build-review	0	V2	Documents/キュー/2026/08/露原機材_閉じる根拠を確認.xlsx	「17件点検」の印刷2ページ目で、集計ラベルA23:A25が右寄せ・インデント0になっており、型の成形手順と見本が指定する左寄せ・左インデント1が適用されていない。
+2026-11-19	p13-corporate-privacy-counsel	b002	templates-review	0	other	README.md	一覧の8型と成形コマンドは実在するが、「見本と検証」が参照する b001/work/templates-0001/ と b001/work/templates-0003/ が現在の作業環境に存在せず、見本・画像・検査結果のパスをたどれない。
+2026-11-19	p13-corporate-privacy-counsel	b002	templates-review	0	other	miyasaka-noda-advice.docx	A4縦の見本で天秤ロゴ・青灰色の見出し・明朝体・頁番号を確認したが、型の docProps/core.xml の説明欄に既定の制作注記「generated by python-docx」が残る。
+2026-11-19	p13-corporate-privacy-counsel	b002	templates-review	0	other	toto-consultation.docx	見本で相談の4節・自社ロゴ・法務部フッタ・CON番号の収まりを確認したが、型の docProps/core.xml の説明欄に既定の制作注記「generated by python-docx」が残る。
+2026-11-19	p13-corporate-privacy-counsel	b002	templates-review	0	other	toto-decision-comparison.xlsx	3行・28行見本でCMP番号と日付が1行に収まる一方、1頁目のE7「64」とF7「64件を確認」が「64 64件を確認」とひと続きに見え、明細列の境界を判別しにくい。型の作成者欄には openpyxl が残る。
+2026-11-19	p13-corporate-privacy-counsel	b002	templates-review	0	other	toto-hold-register.xlsx	3行・28行見本でREG番号と日付は1行に収まり、集計も3・28となるが、1頁目のE7「64」とF7「64件を確認」が「64 64件を確認」とひと続きに見える。型の作成者欄には openpyxl が残る。
+2026-11-19	p13-corporate-privacy-counsel	b002	templates-review	0	other	toto-instruction.docx	見本で宛先・実施内容・担当と期限・報告方法の4節と社名ヘッダを確認したが、型の docProps/core.xml の説明欄に既定の制作注記「generated by python-docx」が残る。
+2026-11-19	p13-corporate-privacy-counsel	b002	templates-review	0	other	toto-legal-brief.pptx	1マスター・5レイアウト・0スライドの型から5枚を作り全頁で共通意匠を確認したが、型の docProps/core.xml に既定の制作注記「generated using python-pptx」と既定の最終更新者名が残る。
+2026-11-19	p13-corporate-privacy-counsel	b002	templates-review	0	other	toto-review.docx	見本で紫灰色の4節・罫線表・赤字訂正・頁番号を確認したが、型の docProps/core.xml の説明欄に既定の制作注記「generated by python-docx」が残る。
+2026-11-19	p13-corporate-privacy-counsel	b002	draft-review	0	D10	Documents/相談控え/2024/4月23日_部署回答の突合せ.docx	原稿8行目の管理行には宛先「参加者各位」までしかなく、toto-consultation.docxの見本にある確認者欄へ入れる氏名または確認状態が原稿にない。
+2026-11-19	p13-corporate-privacy-counsel	b002	draft-review	0	D3	Documents/Matters/文書保全期限見直し/保存方針/4月26日_保存目的の棚卸し.xlsx	表のNo.3〜6、9〜12、15〜18、21〜23、26〜28は「条件整理」だが、根拠欄に用途や処理の言い換えが並び、例えばNo.3では「部署説明：依頼時の対象と条件を回答案に照合」だけで、どの記録・欄を突合し、なぜ回答確定まで受付票の原記録が要るかを部署説明から検証できない。
+2026-11-19	p13-corporate-privacy-counsel	b002	draft-review	0	D10	Documents/Matters/文書保全期限見直し/保存方針/4月30日_棚卸しの結果と持ち越し.docx	原稿8行目の管理行には宛先の河野部長までしかなく、toto-instruction.docxの見本にある確認者欄へ入れる氏名または確認状態が原稿にない。
+2026-11-19	p13-corporate-privacy-counsel	b002	draft-review	0	D10	Desktop/4月22日_会議の説明案_藤本さん赤字.docx	題の直下の管理行は旧版からの「確認依頼先：藤本美佳」だけを引き継いでおり、toto-review.docxの管理行に必要な返却版の宛先（高田）と確認者欄の記載がない。
+2026-11-19	p13-corporate-privacy-counsel	b002	check	0	source	Desktop/4月22日_会議の説明案_藤本さん赤字.docx	body token overlap 0.477 < 0.6
+2026-11-19	p13-corporate-privacy-counsel	b002	check	1	source	Desktop/4月22日_会議の説明案_藤本さん赤字.docx	body token overlap 0.477 < 0.6
+2026-11-19	p13-corporate-privacy-counsel	b002	check	2	source	Desktop/4月22日_会議の説明案_藤本さん赤字.docx	body token overlap 0.477 < 0.6
+2026-11-19	p19-educator-instructional-designer	b001	templates-review	0	other	elmwood-classroom.pptx	16:9の全5レイアウトで共通ロゴ・上下罫線・フッタ、表紙の管理欄と表・図の収まりを確認したが、型自体の文書プロパティ docProps/core.xml の dc:description に既定の制作注記「generated using python-pptx」が残っている。
+2026-11-19	p19-educator-instructional-designer	b001	templates-review	0	other	elmwood-design-decision.docx	Letter縦の見本で共通ヘッダ、管理欄、3節、横罫表とページ番号を確認したが、型自体の文書プロパティ docProps/core.xml の dc:description に既定の制作注記「generated by python-docx」が残っている。
+2026-11-19	p19-educator-instructional-designer	b001	templates-review	0	other	elmwood-item-review.docx	Letter縦の見本で共通ヘッダ、管理欄、試行・改訂・次回の3節とページ番号を確認したが、型自体の文書プロパティ docProps/core.xml の dc:description に既定の制作注記「generated by python-docx」が残っている。
+2026-11-19	p19-educator-instructional-designer	b001	templates-review	0	other	elmwood-lesson-plan.docx	Letter縦の見本で青紫の題、金茶のヘッダ罫線、管理欄、授業案の3節とページ番号を確認したが、型自体の文書プロパティ docProps/core.xml の dc:description に既定の制作注記「generated by python-docx」が残っている。
+2026-11-19	p19-educator-instructional-designer	b001	draft-review	0	D4	Google Drive/My Drive/Assessment/Moderation/Retire the booked option.docx	「Evidence from the trial」はQ07を「collected at 4:20」と記録しているが、7月16日の冊子では16:20は来訪時刻であり、引き渡すかどうかが設問だった。
+2026-11-19	p19-educator-instructional-designer	b001	draft-review	0	D4	Google Drive/My Drive/Teaching/条件を読む仕事術/Previous/Four reasons to put in writing.pdf	R2冒頭の「The same booked item is collected at 4:20 p.m.」が引渡し済みと述べており、確認16:05なら次営業日に回すというカードB第2・3節と講師用手引きのR2に反する。
+2026-11-19	p19-educator-instructional-designer	b001	draft-review	0	D4	Google Drive/My Drive/Teaching/条件を読む仕事術/Previous/When the confirmation is missing.pptx	3枚目の図は第2節による引渡しの上限を「before 5:30」として17:30ちょうどを除くが、Brookdale通知第2節は「up to 17:30」とし、17:30ちょうども含める。
+2026-11-19	p19-educator-instructional-designer	b001	draft-review	0	D4	Google Drive/My Drive/Teaching/条件を読む仕事術/Previous/The rule on the counter and in the memo.pdf	Document B第3節（原稿26行目）はBSC-OPS-2024-014の本文として出典を付けているが、原通知20行目の持越し記録項目と結果の記録・来訪者への連絡を省き、確認ログの文も言い換えており、第3節の抜粋・要約である表示がない。
+2026-11-19	p19-educator-instructional-designer	b001	draft-review	0	D1	Google Drive/My Drive/Teaching/条件を読む仕事術/Previous/Who can clear the dispatch hold.pptx	スライド3の解除分岐（原稿20～21行目）は再測定を記録する当番と14:30の期限を示すが、解除を判断・実行する担当を示しておらず、表紙の問い「Who can clear the dispatch hold?」と計画の解除権限の説明が本文・講師ノートにない。
+2026-11-19	p19-educator-instructional-designer	b001	draft-review	0	D3	Google Drive/My Drive/Teaching/条件を読む仕事術/Previous/July reading check - twelve questions.pdf	Q10の設問文には来訪が金曜であることも15:40の確認者が監督者であることも明記されず、正答キーBの引渡しをDocument Aの第2節から確定できない。
+2026-11-19	p19-educator-instructional-designer	b001	draft-review	0	D9	My files/Downloads/July reading check - anonymised responses.csv	正答数は全問一致するが、全12問で誤答者がキー順の連続区間（K24の次をK01とする場合を含む）に並び、Q08のK04〜K12はB・C・Aを3巡、Q12のK16〜K23はC・A・Bを反復するなど、集計値を割り付けた規則性が回収個票に残っている。
+2026-11-19	p19-educator-instructional-designer	b001	build-review	0	V2	Google Drive/My Drive/Assessment/Moderation/What the July check actually told us.xlsx	Alignmentの印刷設定が型とREADME指定の横1ページ・縦自動（fitToHeight=0）から、縦1ページ固定（fitToHeight=1）に変更されている。管理欄と注記は印刷内にあり、F7:F18の数式と結果は原稿どおり。
+2026-11-19	p19-educator-instructional-designer	b001	build-review	0	V3	My files/Pictures/説明図/Booked and confirmed are separate checks.png	「Confirmed before 4:00?」の左で「Record not at hand」の往路と「Time found」の復路が同じ水平線に重なり、確認ログへ向かう矢印と判定枠へ戻る矢印の経路を区別できない。
+2026-11-19	p19-educator-instructional-designer	b001	build-review	0	V2	Google Drive/My Drive/Teaching/条件を読む仕事術/Previous/When the confirmation is missing.pptx	全5枚のタイトルがスライド側の指定で墨色（#29283A）・30 ptに上書きされ、型の青紫（#393967）・表紙46 pt／本文見出し34 ptと異なる。15:40・16:05の図と講師ノートは原稿どおり。
+2026-11-19	p19-educator-instructional-designer	b001	build-review	0	V3	Google Drive/My Drive/Teaching/条件を読む仕事術/Previous/Who can clear the dispatch hold.pptx	全4枚の右下で通し番号1〜4の上端が下罫線に重なっている。
+2026-11-19	p19-educator-instructional-designer	b001	build-review	0	V2	Google Drive/My Drive/Teaching/条件を読む仕事術/Previous/July reading check - twelve questions.pdf	1ページ目のDocument A〜Cの抜粋本文が白地に直接組まれ、elmwood-reading.clsと見本の金茶の淡色抜粋欄が使われていない。
+2026-11-19	p19-educator-instructional-designer	b001	build-review	0	V1	Google Drive/My Drive/Teaching/条件を読む仕事術/Previous/The rule on the counter and in the memo.pdf	1ページ目のDocument B第2節で、原稿とBrookdale元通知の「supervisor’s confirmation」2箇所が「supervisor’ s confirmation」に変わり、引用内の所有格が分断されている。
+2026-11-19	p15-recruiter-people-ops	b002	templates-review	0	other	README.md	68行目のTeX手順どおりにp列とr列を混在させて各セル先頭に色指定だけを置くと、見本の両ページでp列の見出しがr列より約1行下がるため、各セルで色指定前に横モードへ入る方法の追記が必要（\leavevmode\color{white}で両ページの同一行を確認、ファイル参照先は実在）。
+2026-11-19	p15-recruiter-people-ops	b002	draft-review	0	D4	Documents/人員計画/2024年度/運営の仮当番_10月初動.xlsx	「10月初動」シート9・10行目（第3・第4週）の「既存担当」欄に講師変更の判断を割り付けており、第1・第2週および末尾の注記と事実の台帳が判断を運営課長の山本に置いていることと矛盾する。
+2026-11-19	p15-recruiter-people-ops	b002	build-review	0	V2	Documents/人員計画/2024年度/承認前に使う月単価.xlsx	「月単価」の印刷範囲に、原稿の4列（A～D）の見出しに続いて、型の見出し書式を残した空欄E6・F6が入り、右側に見出しだけの空の2列が見える。
+2026-11-19	p15-recruiter-people-ops	b002	build-review	0	V3	Documents/人員計画/2024年度/年度内費用_中村さん確認.xlsx	「費用照合」の印刷見出しE6・G6・I6の列幅が狭く、E6は閉じかっこだけが次行に落ち、G6・I6は単位「万円」が「万」と「円」に分かれている。
+2026-11-19	p15-recruiter-people-ops	b002	build-review	0	V2	Documents/人員計画/2024年度/受けた要望と締切の確認.xlsx	受付確認シートのA15・E15（合計12枠）と集計シートのA11・B11（全要望12枠）に型指定のMW Totalがなく、両ページで淡色背景・太字・上罫線・下二重罫線による合計行の区別が失われている。
+2026-11-19	p15-recruiter-people-ops	b002	build-review	0	V2	Documents/人員計画/2024年度/4月24日_渡辺さんと決めたこと.docx	1ページ上端の用途欄に型の「採用枠・報酬帯の承認」が残り、2024年度の募集準備順を記録する協議文書の用途に置き換わっていない。
+2026-11-19	p15-recruiter-people-ops	b002	build-review	0	V2	Documents/人員計画/2024年度/翌月に渡す確認事項.xlsx	「5月17日までの照会」のF6に空の見出しセルの塗りが残り、印刷でも原稿の5列目「次の判断」の右に余分な見出し帯が伸びている。
+2026-11-19	p15-recruiter-people-ops	b002	build-review	1	V2	Documents/人員計画/2024年度/受けた要望と締切の確認.xlsx	両シートの合計セルにMW Totalが戻ったが、受付確認A6:G6と集計A6:B6の見出しが型指定の左寄せ・左インデント1に対して中央寄せで、集計のフィルターA6:F13には見出しが空のC:F列も含まれる。
+2026-11-19	p15-recruiter-people-ops	b002	build-review	1	V2	Documents/人員計画/2024年度/承認前に使う月単価.xlsx	印刷の見出し帯は4列に戻ったが、月単価A6:D6が型指定の左寄せ・左インデント1に対して中央寄せで、フィルターA6:F14には見出しが空のE:F列も含まれる。
+2026-11-19	p15-recruiter-people-ops	b002	build-review	1	V2	Documents/人員計画/2024年度/年度内費用_中村さん確認.xlsx	費用照合E6・G6・I6の括弧と単位は1行に収まったが、A6:K6の見出しが型・見本の左寄せ・左インデント1に対して中央寄せになっている。
+2026-11-19	p08-product-manager	b003	templates-review	0	other	README.md	「組版見本と検証先」が参照する scratch/p08-product-manager/b002/work/templates-0002/ が存在せず、見本・全頁画像・commands.json・structure.json の参照が切れている。
+2026-11-19	p08-product-manager	b003	draft-review	0	D10	Documents/オルタ拠点ボード/試行/データ受領前に止めるところ.pdf	EX-002の冒頭には発行日と対象四半期があるが、経営会議向けでない確認票に使う olta-extract.cls の OFRecord に必要な基準日と出力日時が原稿にない。
+2026-11-19	p08-product-manager	b003	draft-review	0	D5	Documents/オルタ拠点ボード/試行/元表の締めと集計の突合例.docx	「固定する条件」節の表で「集計に入れる数」に、除外する締め後1件と取消2件を−1・−2件、除外前の全件を17件と記載しており、列名が示す採用件数と除外差分が食い違う。本文の照合対象14件は元表17件からの差引後の件数。
+2026-11-19	p18-manufacturing-quality-engineer	b002	draft-check	0	duplicate	Downloads/BR-2410_09月07日_切替初回の高さ.csv	duplicate: identical normalized shingles: Downloads/BR-2410_09月09日_2便の高さ.csv
+2026-11-19	p18-manufacturing-quality-engineer	b002	draft-check	0	duplicate	Downloads/BR-2410_09月09日_2便の高さ.csv	duplicate: identical normalized shingles: Downloads/BR-2410_09月07日_切替初回の高さ.csv
+2026-11-19	p18-manufacturing-quality-engineer	b002	draft-check	0	duplicate	Downloads/BR-2410_09月11日_最終便の高さ.csv	duplicate: identical normalized shingles: Downloads/BR-2410_09月07日_切替初回の高さ.csv
+2026-11-19	p18-manufacturing-quality-engineer	b002	build-review	0	V1	Documents/是正と効果/NCR-026/NCR-026_是正後ロットと測定条件の対応.xlsx	是正後ロット・測定条件対応表のF9（BR260909）は原稿の「長辺外縁から約5 mm内側」を「長辺外縁から5 mm内側」と記し、測定点の近似指定が抜けている。
