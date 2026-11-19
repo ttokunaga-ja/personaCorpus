@@ -1546,3 +1546,79 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-19	p13-corporate-privacy-counsel	b003	coordinator	0	other	Documents/Matters/文書処理委託審査/委託先審査/10月21日_Winslow追加審査の回覧控え.pdf	統括の抜き取りで不合格
 2026-11-19	p13-corporate-privacy-counsel	b003	coordinator	0	other	Documents/メール/2024-10-18_Andrea_Third subprocessor pending.eml	統括の抜き取りで不合格
 2026-11-19	p13-corporate-privacy-counsel	b003	coordinator	0	other	Documents/メール/2024-10-21_村田さんへ_3番目の手配は止めたまま.eml	統括の抜き取りで不合格
+2026-11-19	p05-bi-data-analyst	b003	templates-review	0	other	oriba-matching.xlsx	README「Excelの行・式・印刷」手順3の上揃えを列見出しにも適用すると、A6:F6が縦中央揃えで説明と不一致。A4横の1ページで文書番号・日付の1行表示、E8の64とF8の64件…の間隔、追加した合計の表示は確認済み。
+2026-11-19	p05-bi-data-analyst	b003	templates-review	0	other	oriba-weekly.xlsx	README「Excelの行・式・印刷」手順3の上揃えを列見出しにも適用すると、b003用に見出し名を設定したA6:F6が縦中央揃えで説明と不一致。A4横の全2ページで文書番号・日付の1行表示、E7の64とF7の64件…の間隔、繰返し見出しと追加した合計の表示は確認済み。
+2026-11-19	p05-bi-data-analyst	b003	draft-review	0	D1	Documents/通販/返品と取消/2024-07-25_返金費目を混ぜない.xlsx	費目の範囲シートのD8〜D10が一律に「商品代金とは別費目。受領表から実額は取得できない。」で、送料・返送費・返金手数料を商品返金額から分ける費目ごとの根拠が書かれていない。
+2026-11-19	p05-bi-data-analyst	b003	draft-review	0	D4	Documents/通販/返品と取消/2024-07-30_月別表に使う列.tsv	TSVの「受領表の列」第2・第4データ行の「元売上日」「返金処理番号」が、参照先の受領時点CSVの実見出し「売上日」「処理番号」と一致せず、列対応の引継ぎで照合できない。
+2026-11-19	p05-bi-data-analyst	b003	draft-review	0	D3	Documents/通販/返品と取消/2024-07-24_いつの月に数えるか_石井赤字.docx	「7月返金完了分（23日終了時点）の置き方（案）」の本文21行目では、赤字適用後も両日付を同じ欄に置く指示が残り、売上日基準は別列という追記と矛盾するうえ、返金完了分と改題した7月欄に売上日集計の272件4,754,000円を記しており、どの基準を7月欄に使うか確定できない。
+2026-11-19	p05-bi-data-analyst	b003	draft-review	0	D10	Documents/通販/返品と取消/2024-07-24_売上日と返金日の日別照合.xlsx	原稿15〜29行「受領明細」の286行は7群の展開規則だけで、制作手順の「原稿」が求める代表10行の具体値がこのXLSX原稿にない。展開した全行の日計と7月小計は受領CSV・台帳に一致する。
+2026-11-19	p05-bi-data-analyst	b003	check	0	source	Documents/通販/返品と取消/2024-07-24_いつの月に数えるか_石井赤字.docx	body token overlap 0.524 < 0.6
+2026-11-19	p05-bi-data-analyst	b003	build-review	0	V2	Documents/営業会議/2024/07/2024-07-29_営業会議_通販返品の月の見方.pptx	スライド5のグラフ画像が図レイアウトの指定領域を上下にはみ出す。型の図領域は上端2.00・下端6.50インチだが、実測は上端1.65・下端6.55インチで、図中の見出しも指定領域の上に出ている。
+2026-11-19	p05-bi-data-analyst	b003	build-review	0	V3	Documents/通販/返品と取消/2024-07-24_売上日と返金日の日別照合.xlsx	印刷1〜16頁の受領明細D6、17〜18頁の受領日計C6、19〜20頁の日別照合D6:E6で列幅が足りず、件・円の単位に付く閉じ括弧が単独で次行へ落ちる。日別照合シートの社名結合もB1:F1のままでI列までの表幅に揃っていない（V2）。
+2026-11-19	p05-bi-data-analyst	b003	build-review	0	V3	Pictures/会議用グラフ/2024-07-26_返品額をどちらの月で読むか.png	図の中央で差額268,900円の注記枠が左右両方の棒に重なり、300万〜330万円付近で左棒の右辺と右棒の左辺を白く欠けさせている。
+2026-11-19	p05-bi-data-analyst	b003	build-review	0	V2	Documents/通販/返品と取消/2024-07-24_返品を売上日に置いた朝の表.xlsx	「朝の集計」A30の合計行ラベル「7月欄」が印刷2ページ目で右寄せになっており、oriba-weekly.xlsxの成形指定である左寄せ・左インデント1が設定されていない。
+2026-11-19	p05-bi-data-analyst	b003	check	1	source	Documents/通販/返品と取消/2024-07-24_いつの月に数えるか_石井赤字.docx	body token overlap 0.524 < 0.6
+2026-11-19	p05-bi-data-analyst	b003	check	2	source	Documents/通販/返品と取消/2024-07-24_いつの月に数えるか_石井赤字.docx	body token overlap 0.524 < 0.6
+2026-11-19	p05-bi-data-analyst	b003	check	0	source	Documents/営業会議/2024/07/2024-07-29_営業会議_通販返品の月の見方.pdf	body token overlap 0.494 < 0.5
+2026-11-19	p05-bi-data-analyst	b003	check	1	source	Documents/営業会議/2024/07/2024-07-29_営業会議_通販返品の月の見方.pdf	body token overlap 0.494 < 0.5
+2026-11-19	p05-bi-data-analyst	b003	check	2	source	Documents/営業会議/2024/07/2024-07-29_営業会議_通販返品の月の見方.pdf	body token overlap 0.494 < 0.5
+2026-11-19	p06-life-science-researcher	b002	templates-review	0	other	mason-service-record.cls	見本1ページ目のSERVICE FINDINGS第1行末のsignedがREADME指定の右0.9インチの余白に約8.6 ptはみ出し、同じ原稿でLuaLaTeXのOverfull hboxを再現した。
+2026-11-19	p06-life-science-researcher	b002	draft-check	0	trace	Documents/Lab-share/Oct 24 reader scope review.docx	制作の痕跡
+2026-11-19	p06-life-science-researcher	b002	draft-check	0	duplicate	Downloads/2024-10-21 Reader results.csv	duplicate: identical normalized shingles: Downloads/2024-10-22 First readings after service.csv
+2026-11-19	p06-life-science-researcher	b002	draft-check	0	duplicate	Downloads/2024-10-22 First readings after service.csv	duplicate: identical normalized shingles: Downloads/2024-10-21 Reader results.csv
+2026-11-19	p06-life-science-researcher	b002	draft-check	0	duplicate	Downloads/Oct 8 through 17 - original reader results.csv	duplicate: identical normalized shingles: Downloads/2024-10-21 Reader results.csv
+2026-11-19	p06-life-science-researcher	b002	draft-check	1	duplicate	Downloads/2024-10-21 Reader results.csv	duplicate: identical normalized shingles: Downloads/2024-10-22 First readings after service.csv
+2026-11-19	p06-life-science-researcher	b002	draft-check	1	duplicate	Downloads/2024-10-22 First readings after service.csv	duplicate: identical normalized shingles: Downloads/2024-10-21 Reader results.csv
+2026-11-19	p06-life-science-researcher	b002	draft-check	1	duplicate	Downloads/Oct 8 through 17 - original reader results.csv	duplicate: identical normalized shingles: Downloads/2024-10-21 Reader results.csv
+2026-11-19	p06-life-science-researcher	b002	draft-check	2	duplicate	Downloads/2024-10-21 Reader results.csv	duplicate: identical normalized shingles: Downloads/2024-10-22 First readings after service.csv
+2026-11-19	p06-life-science-researcher	b002	draft-check	2	duplicate	Downloads/2024-10-22 First readings after service.csv	duplicate: identical normalized shingles: Downloads/2024-10-21 Reader results.csv
+2026-11-19	p06-life-science-researcher	b002	draft-check	2	duplicate	Downloads/Oct 8 through 17 - original reader results.csv	duplicate: identical normalized shingles: Downloads/2024-10-21 Reader results.csv
+2026-11-19	p06-life-science-researcher	b002	draft-check	0	trace	Documents/Quality/Deviations/October measurement dates and hold scope.xlsx	制作の痕跡
+2026-11-19	p06-life-science-researcher	b002	draft-review	0	D10	Documents/Quality/Deviations/October reader impact assessment.docx	先頭のderived_fromが空欄で、計画がR01の改訂元に指定するDesktop/October reader impact - for Anthony.docx（BCE-CE-2024-REV-002-R00）が設定に記録されていない。
+2026-11-19	p06-life-science-researcher	b002	check	0	trace	Desktop/October reader scope - Thursday review.pptx	production trace: scope BCE-CE-2024-BRF-002-R00
+2026-11-19	p06-life-science-researcher	b002	build-review	0	V2	Documents/Lab-book/2024/10/2024-10-08 Reader check before the morning run.pdf	1ページ目の Morning check 表に黒い外枠と縦罫があり、Bennett の印刷見本のアイリス色の見出し帯と表末尾の横罫で構成する書式と異なる。原稿指定の Time・Observation の記入は読める。
+2026-11-19	p06-life-science-researcher	b002	build-review	0	V5	Pictures/Instrument-checks/2024-10-22 As-found display.jpg	5.12 ng/mL とタグは読めるが、装置の前面が傾斜した画面付きで上開きの構造になっており、前日の同じ CE-Reader-2 の写真に写る画面のない前面と横長の引き出し形状と一致しない。
+2026-11-19	p06-life-science-researcher	b002	build-review	0	V2	Documents/Lab-book/2024/10/2024-10-22 Reader check with Lauren's notes.pdf	1ページ目の用紙が441.2 × 570.4 ptで、Bennettの型・スキャン見本のUS Letter（612 × 792 pt）と異なる。紙面の3件の手書き注記と署名は読める。
+2026-11-19	p06-life-science-researcher	b002	build-review	0	V2	Documents/Lab-book/2024/10/2024-10-23 Oct 21 date confirmation.pdf	1ページ目の印刷表で、型と見本の固定列名 Reference／Review status／Observation が原稿の Run / reader／Acquisition date／Result IDs に置き換わっている。
+2026-11-19	p06-life-science-researcher	b002	check	1	trace	Desktop/October reader scope - Thursday review.pptx	production trace: scope BCE-CE-2024-BRF-002-R00
+2026-11-19	p06-life-science-researcher	b002	check	2	trace	Desktop/October reader scope - Thursday review.pptx	production trace: scope BCE-CE-2024-BRF-002-R00
+2026-11-19	p06-life-science-researcher	b002	build-review	0	V2	Documents/Quality/Deviations/October reader impact assessment.docx	1ページ目の本文はNormalが9.5 ptで型とREADMEの指定10.5 ptから縮小され、表題直下の管理欄もCaptionが型の9 ptから8 ptに縮小されている。
+2026-11-19	p06-life-science-researcher	b002	check	2	plan	Documents/Quality/Deviations/October measurement dates and hold scope.xlsx	plan: planned file missing。成形の最終出力：対象の照合 XLSX は作成できませんでした。計画は保存済みの測定結果 CSV 3件の逐語取込を指定していますが、3件とも計画上で破棄済みで、指定先にも存在しません。 原稿には54行のデータが記載されていますが、元の保存ファイルとの一致を確認できないため、取込条件を満たせません。8行の crosswalk は存在することを確認しました。 対象成果物は作成していません。stage・commit・push も行っていません。
+2026-11-19	p07-humanities-researcher	b002	templates-review	0	other	README.md	型8件へのリンクは実在するが、「見本と画像」が参照する scratch/p07-humanities-researcher/b001/work/templates-0001/ 自体がなく、一覧の見本と検査画像を開けない。
+2026-11-19	p07-humanities-researcher	b002	draft-review	0	D4	Documents/Letters/04 September - Copies de lettres pour la transcription.eml	冒頭の「Après notre visite de juillet, Julie Perrin et moi」はJulieも7月に来館したと読めるが、台帳の7月22〜24日の来館記録と7月の閲覧申請・予約返信はJudith個人の来館としている。
+2026-11-19	p07-humanities-researcher	b002	draft-review	0	D10	Documents/Archive/Box-14/Carton 14 - la date au bout de la ligne ff172-173.pdf	末尾は172rの追記と173rで「jusqu’au」の続け字を比べるよう指定するが、172rの追記は「Réunion fixée au 2 février.」で、172rの本文にもjusqu’auがなく、指定の比較を成形できない。
+2026-11-19	p07-humanities-researcher	b002	draft-review	0	D4	Documents/Book/Chapter-2/24 October - after reading with Julie.md	186rの項で館内閲覧の許可を「in the preceding sentence」とするが、徴収指示の7行目の直前にある5–6行は持出し希望時の精算指示で、館内閲覧を認める文は3–4行にある。
+2026-11-19	p07-humanities-researcher	b002	draft-review	0	D10	Documents/Book/Chapter-2/What payment controlled - after the French check.docx	管理欄に LHT-20241016-PAP-001 v0.2 と発行日・著者・宛先はそろうが、原稿先頭の derived_from が空欄で、計画が改訂元に指定する Documents/Book/Chapter-2/What payment might have controlled.docx（同番号 v0.1）が派生元として設定されていない。
+2026-11-19	p07-humanities-researcher	b002	check	0	empty-scan	Documents/Archive/Box-14/Carton 14 - argent de la lampe ff201-202.pdf	OCR contains fewer than 20 non-whitespace characters
+2026-11-19	p07-humanities-researcher	b002	check	0	source	Documents/Archive/Box-14/Carton 14 - argent de la lampe ff201-202.pdf	body token overlap 0.000 < 0.3
+2026-11-19	p07-humanities-researcher	b002	check	0	source	Documents/Archive/Box-14/Carton 14 - la date au bout de la ligne ff172-173.pdf	body token overlap 0.139 < 0.3
+2026-11-19	p07-humanities-researcher	b002	check	0	source	Documents/Archive/Box-14/Carton 14 - le poêle et le prêt ff182 et 186.pdf	body token overlap 0.270 < 0.3
+2026-11-19	p07-humanities-researcher	b002	check	0	source	Documents/Archive/Other-boxes/Carton 12 - enveloppes et écritures ff036-037.pdf	body token overlap 0.225 < 0.3
+2026-11-19	p07-humanities-researcher	b002	check	0	source	Documents/Archive/Other-boxes/Carton 12 - écritures du terme ff023-024.pdf	body token overlap 0.144 < 0.3
+2026-11-19	p07-humanities-researcher	b002	check	0	source	Documents/Archive/Other-boxes/Carton 13 - deux mains autour de l'invitation ff084-085.pdf	body token overlap 0.201 < 0.3
+2026-11-19	p07-humanities-researcher	b002	build-review	0	V3	Pictures/Reading-diagrams/Who is to take the money - 182r and 186r.png	右欄の186rの7行目で「Avant de laisser sortir le livre」を囲う枠の右辺が、livre直後のコンマに重なっている。
+2026-11-19	p07-humanities-researcher	b002	build-review	0	V4	Documents/Book/Chapter-2/What payment might have controlled.docx	1頁の085r・186rの段落末にある¹は本文の文字で、計画が脚注に置くよう指定した来室実績の留保は直後の「Note」節の通常段落にあり、Wordの脚注参照と脚注がない。
+2026-11-19	p07-humanities-researcher	b002	build-review	0	V3	Pictures/Reading-diagrams/What follows libre and jusqu'au.png	下段の173rで矢印の縦線が5行目の「février」と6行目の「date」に重なり、日付と督促猶予の仏文を横切っている。
+2026-11-19	p07-humanities-researcher	b002	check	1	source	Documents/Archive/Box-14/Carton 14 - argent de la lampe ff201-202.pdf	body token overlap 0.201 < 0.3
+2026-11-19	p07-humanities-researcher	b002	check	1	source	Documents/Archive/Box-14/Carton 14 - la date au bout de la ligne ff172-173.pdf	body token overlap 0.157 < 0.3
+2026-11-19	p07-humanities-researcher	b002	check	1	source	Documents/Archive/Box-14/Carton 14 - le poêle et le prêt ff182 et 186.pdf	body token overlap 0.292 < 0.3
+2026-11-19	p07-humanities-researcher	b002	check	1	source	Documents/Archive/Other-boxes/Carton 12 - enveloppes et écritures ff036-037.pdf	body token overlap 0.172 < 0.3
+2026-11-19	p07-humanities-researcher	b002	check	1	source	Documents/Archive/Other-boxes/Carton 12 - écritures du terme ff023-024.pdf	body token overlap 0.214 < 0.3
+2026-11-19	p07-humanities-researcher	b002	check	2	source	Documents/Archive/Box-14/Carton 14 - la date au bout de la ligne ff172-173.pdf	body token overlap 0.165 < 0.3
+2026-11-19	p07-humanities-researcher	b002	check	2	source	Documents/Archive/Box-14/Carton 14 - le poêle et le prêt ff182 et 186.pdf	body token overlap 0.230 < 0.3
+2026-11-19	p07-humanities-researcher	b002	check	2	source	Documents/Archive/Other-boxes/Carton 12 - enveloppes et écritures ff036-037.pdf	body token overlap 0.053 < 0.3
+2026-11-19	p07-humanities-researcher	b002	check	2	source	Documents/Archive/Other-boxes/Carton 12 - écritures du terme ff023-024.pdf	body token overlap 0.181 < 0.3
+2026-11-19	p07-humanities-researcher	b002	build-review	0	V2	Documents/Book/Chapter-2/Seven passages - Julie's comments.docx	1頁の023r・037r・085rと2頁の173r・182r・186r・202rの対訳表直下で、注記の文字書式が型の LHT Note の斜体を上書きし、立体で表示されている。
+2026-11-19	p07-humanities-researcher	b002	build-review	0	V2	Documents/Book/Chapter-2/What payment controlled - after the French check.docx	1頁下部の脚注1に、型が典拠注に指定する LHT Note（10 pt）が適用されず、既定の Normal（11.5 pt）で組まれている。
+2026-11-19	p07-humanities-researcher	b002	check	2	plan	Documents/Letters/22 October - Julie returns the passages.eml	plan: planned file missing。成形の最終出力：- **22 October - Julie returns the passages.eml**：`Seven passages - Julie's comments.docx` が未作成です。
+2026-11-19	p07-humanities-researcher	b002	check	2	plan	Documents/Letters/29 October - Two changes to Chapter 2.eml	plan: planned file missing。成形の最終出力：- **29 October - Two changes to Chapter 2.eml**：`What payment controlled - after the French check.docx` が未作成です。もう一方の添付PDFは存在します。 指定外の行や原稿は変更していません。stage・commit・push はしていません。
+2026-11-19	p09-ux-researcher	b002	templates-review	0	other	carver-prompt-review.xlsx	1頁目の CWR-DR-20240711-XLT-01 と日付は一行に収まり、2頁目の数値と右隣の文字も離れているが、README.md指定の bin/recalc → bin/render では2頁目に1〜6行が反復されず列見出しが消える。再計算前の対照も bin/render の画像では同じ。型の内部更新日時にも2026-11-19T07:44:03Zが残る。
+2026-11-19	p09-ux-researcher	b002	templates-review	1	other	oakridge-screen-reference.cls	1頁目の和文節見出し「停車行の注記」をREADMEどおりにOakHeadingで組むと、指定のNoto Sans CJK JPではなくNoto Serif CJK JP Boldで出力されることを画像とPDFのフォント情報で確認した。
+2026-11-19	p09-ux-researcher	b002	draft-review	0	D4	Documents/Night-shift/2024-09-27 After the readout.txt	10行目で送付した2点のファイル名を Finding the place again.pdf と Where the count picks up.pptx としているが、台帳と9月26日の計画上の添付名はいずれも先頭に 2024-09-26 が付く。
+2026-11-19	p09-ux-researcher	b002	draft-review	0	D4	Documents/Team-and-expenses/2024-08-30 Small room after Labor Day.eml	Fromのcarolyn.davis@carver-workplace.exampleとToのayesha.siddiqui@carver-workplace.exampleが、同じ両者の6月6日付Headset back in the small room.eml原稿のcarolyn@carver-workplace.exampleおよびayesha@carver-workplace.exampleと食い違い、変更や別名の設定も見当たらない。
+2026-11-19	p09-ux-researcher	b002	draft-review	0	D1	Documents/Night-shift/2024-09-17 Which cue came first.pptx	スライド2の場面対応表に計画が指定する分類別の集計値（紙3・同僚2・棚札1）がなく、数値は発表者ノートにだけ記載されている。
+2026-11-19	p09-ux-researcher	b002	draft-review	0	D10	Documents/Night-shift/2024-08-27 Before the count breaks Patrick notes.docx	先頭設定7行目のderived_fromが空欄で、計画が改訂元に指定したDocuments/Night-shift/2024-08-23 Before the count breaks.docx（同じ文書番号のv0.1）を参照していない。
+2026-11-19	p09-ux-researcher	b002	build-review	0	V5	Pictures/Field-visits/2024-09-04 Count desk between rounds.jpg	机の左手前でクリップボードに白い用紙が1枚挟まっており、原稿指定の空のクリップボードが写っていない。
+2026-11-19	p09-ux-researcher	b002	build-review	0	V4	Documents/Night-shift/2024-09-05 D aisle order on paper.pdf	1ページ目の方眼紙を囲む四辺に木目の天板が写り、紙の縁が天板に影を落としているため、指定の紙スキャンの体裁を満たさず、机上のメモを撮った写真に見える。
+2026-11-19	p09-ux-researcher	b002	build-review	0	V3	Pictures/Analysis/2024-09-20 One line above the count list.png	図の右側でD-04行から出る曲線が上側のD-03表示への矢印に接続せず、下側のSave注記の矢印と交差しており、D-04から表示欄を指す引出線が途切れている。
+2026-11-19	p16-clinical-researcher	b002	coordinator	0	other	Documents/Study-評価物質の低用量観察研究/計画と審査/1010_添付候補の照合_同じ名前が二つ.csv	統括の抜き取りで不合格
