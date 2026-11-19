@@ -1,0 +1,51 @@
+From: Angela Price <angela@caldwell-assay.example>
+To: Melissa Watkins <melissa@bennett-cell.example>
+Date: Tue, 14 Apr 2026 11:12:00 -0400
+Subject: Caldwell export before the call
+Message-ID: <d2adf705-182b-4f56-b682-e078e54941e1@caldwell-assay.example>
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="===============1793481208287124691=="
+
+--===============1793481208287124691==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hi Melissa,
+
+I've attached the Caldwell readings saved at 11:03. All 30 rows retain the sh=
+ared label and our Caldwell accession. Let's start with the shared labels at =
+13:30, then check the corresponding IDs and readings together.
+
+Thanks,
+Angela
+
+--===============1793481208287124691==
+Content-Type: text/csv
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment;
+ filename="2026-04-14 Caldwell revised method readings.csv"
+MIME-Version: 1.0
+
+ZmFjaWxpdHlfaWQsc2hhcmVkX2xhYmVsLG1lYXN1cmVtZW50X2RhdGUsY29uY2VudHJhdGlvbl9u
+Z19tTApDQS0yNjA0MTQtMDEsTUMzMC0wMSwyMDI2LTA0LTE0LDIuNTIKQ0EtMjYwNDE0LTAyLE1D
+MzAtMDIsMjAyNi0wNC0xNCwyLjY4CkNBLTI2MDQxNC0wMyxNQzMwLTAzLDIwMjYtMDQtMTQsMi44
+MgpDQS0yNjA0MTQtMDQsTUMzMC0wNCwyMDI2LTA0LTE0LDIuOTgKQ0EtMjYwNDE0LTA1LE1DMzAt
+MDUsMjAyNi0wNC0xNCwzLjExCkNBLTI2MDQxNC0wNixNQzMwLTA2LDIwMjYtMDQtMTQsMy4xNQpD
+QS0yNjA0MTQtMDcsTUMzMC0wNywyMDI2LTA0LTE0LDMuMzUKQ0EtMjYwNDE0LTA4LE1DMzAtMDgs
+MjAyNi0wNC0xNCwzLjM5CkNBLTI2MDQxNC0wOSxNQzMwLTA5LDIwMjYtMDQtMTQsMy42MApDQS0y
+NjA0MTQtMTAsTUMzMC0xMCwyMDI2LTA0LTE0LDMuNzUKQ0EtMjYwNDE0LTExLE1DMzAtMTEsMjAy
+Ni0wNC0xNCwzLjkwCkNBLTI2MDQxNC0xMixNQzMwLTEyLDIwMjYtMDQtMTQsNC4wNQpDQS0yNjA0
+MTQtMTMsTUMzMC0xMywyMDI2LTA0LTE0LDQuMjAKQ0EtMjYwNDE0LTE0LE1DMzAtMTQsMjAyNi0w
+NC0xNCw0LjEyCkNBLTI2MDQxNC0xNSxNQzMwLTE1LDIwMjYtMDQtMTQsNC4yOApDQS0yNjA0MTQt
+MTYsTUMzMC0xNiwyMDI2LTA0LTE0LDQuNDIKQ0EtMjYwNDE0LTE3LE1DMzAtMTcsMjAyNi0wNC0x
+NCw0LjU4CkNBLTI2MDQxNC0xOCxNQzMwLTE4LDIwMjYtMDQtMTQsNC42NApDQS0yNjA0MTQtMTks
+TUMzMC0xOSwyMDI2LTA0LTE0LDQuNjYKQ0EtMjYwNDE0LTIwLE1DMzAtMjAsMjAyNi0wNC0xNCw0
+LjgwCkNBLTI2MDQxNC0yMSxNQzMwLTIxLDIwMjYtMDQtMTQsNi4xOApDQS0yNjA0MTQtMjIsTUMz
+MC0yMiwyMDI2LTA0LTE0LDYuMzAKQ0EtMjYwNDE0LTIzLE1DMzAtMjMsMjAyNi0wNC0xNCw2LjQy
+CkNBLTI2MDQxNC0yNCxNQzMwLTI0LDIwMjYtMDQtMTQsNi40NQpDQS0yNjA0MTQtMjUsTUMzMC0y
+NSwyMDI2LTA0LTE0LDYuNjEKQ0EtMjYwNDE0LTI2LE1DMzAtMjYsMjAyNi0wNC0xNCw2Ljc0CkNB
+LTI2MDQxNC0yNyxNQzMwLTI3LDIwMjYtMDQtMTQsNi43NgpDQS0yNjA0MTQtMjgsTUMzMC0yOCwy
+MDI2LTA0LTE0LDYuOTcKQ0EtMjYwNDE0LTI5LE1DMzAtMjksMjAyNi0wNC0xNCw3LjA1CkNBLTI2
+MDQxNC0zMCxNQzMwLTMwLDIwMjYtMDQtMTQsNi42Mgo=
+
+--===============1793481208287124691==--

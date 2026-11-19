@@ -3416,3 +3416,13 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-19	p15-recruiter-people-ops	b010	coordinator	0	other	Documents/研修/新任管理者受入/5月26日_吉田さんへ_補講の二枠.eml	統括の抜き取りで不合格
 2026-11-19	p15-recruiter-people-ops	b010	coordinator	0	other	Documents/研修/新任管理者受入/5月27日_加藤さんへ_補講は個別で.eml	統括の抜き取りで不合格
 2026-11-19	p15-recruiter-people-ops	b010	coordinator	0	other	Documents/研修/新任管理者受入/第2回のあと_事情を聞く場所.docx	統括の抜き取りで不合格
+2026-11-19	p11-account-executive	b007	draft-check	0	trace	Documents/Pricing-approvals/JDH - check before sending Friday.xlsx	制作の痕跡
+2026-11-19	p11-account-executive	b007	draft-check	1	trace	Documents/Pricing-approvals/JDH - check before sending Friday.xlsx	制作の痕跡
+2026-11-19	p11-account-executive	b007	draft-check	2	trace	Documents/Pricing-approvals/JDH - check before sending Friday.xlsx	制作の痕跡
+2026-11-19	p11-account-executive	b007	build-review	0	V2	Downloads/JDH purchasing confirmation - August annual renewal.docx	1ページ目の「Purchase item / Confirmed terms」表に JDH の Account Table が適用されず、黒い格子の Table Grid と生成りの見出し行になっている。型の焦茶地に白文字の見出しと生成りの明細帯がなく、繰り返し見出しと行分割禁止の設定も欠けている。
+2026-11-19	p11-account-executive	b007	check	1	source	Documents/Pricing-approvals/August terms - Jonathan's signature edits.docx	body token overlap 0.589 < 0.6
+2026-11-19	p11-account-executive	b007	check	2	source	Documents/Pricing-approvals/August terms - Jonathan's signature edits.docx	body token overlap 0.589 < 0.6
+2026-11-19	p06-life-science-researcher	b007	coordinator	0	other	Documents/Correspondence/2026-07-23 A-24 result and the calculation sheet.eml	統括の抜き取りで不合格
+2026-11-19	p06-life-science-researcher	b007	coordinator	0	other	Documents/Lab-share/April 20 low range discussion.docx	統括の抜き取りで不合格
+2026-11-19	p06-life-science-researcher	b007	coordinator	0	other	Documents/Lab-share/July 27 A-24 review and filing.docx	統括の抜き取りで不合格
+2026-11-19	p06-life-science-researcher	b007	coordinator	0	other	Documents/上清測定再現性試験/A-24/A-24 July 21 result for Robert.docx	統括の抜き取りで不合格

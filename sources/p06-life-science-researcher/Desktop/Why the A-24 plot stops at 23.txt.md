@@ -1,0 +1,11 @@
+---
+path: Desktop/Why the A-24 plot stops at 23.txt
+kind: text
+author: Melissa Watkins
+derived_from:
+---
+Jul 21 — A-24 first plot
+
+The fixed range was 24 rows including the header. That leaves only 23 reading rows in the chart, so A24-24 falls outside the plotted range. This is a chart selection error, not a missing measurement: Lauren's paper sheet records 24 readings and the original CSV contains A24-01 through A24-24.
+
+For the run summary, import the CSV as a table and include all rows. Check the count is 24 before calculating the mean and sample SD, then check that the chart includes the final ID as well. Keep the first plot as a working copy; it is not the figure for Robert.

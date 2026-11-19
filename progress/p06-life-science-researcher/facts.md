@@ -136,3 +136,29 @@
 - Mason issues MLM-2026-0128-SV-003 on Jan 28 for Apr 22, 2026, 09:30–11:30 EDT (UTC−04:00); the actual handback is to be recorded on the visit day. January records and mail use EST (UTC−05:00).
 - Jan 21 10:04 EST, Melissa → Christopher, Cc Anthony, “CE-Reader-2 interval question”, opens the thread without attachments and asks to hold April. Jan 28 09:15 EST, Christopher → Melissa, Cc Anthony, “Re: CE-Reader-2 interval question”, quotes the request and attaches the actual Mason schedule PDF.
 - Jan 28 14:12 EST, Melissa → Lauren and Benjamin, Cc Anthony and Robert, “April reader window for the lab”, opens a new thread attaching the issued DEC-001-R00 PDF and the separate TBL-001-R00 XLSX.
+
+## Revised-method comparison — April 14 matched readings
+
+- April through July records use Philadelphia local time, EDT (UTC−04:00). The Apr 7 matching plan is BCE-CE-2026-PLN-001-R00. The Apr 14 13:30 comparison is between Melissa Watkins and Angela Price, using 30 new paired samples with one reading per site. The January 2025 comparison of 18 pairs and its 10% criterion retain their original scope.
+- Match MC30-01–30 to BN-260414-01–30 and CA-260414-01–30 by the shared label, with the same suffix at both sites. The Apr 14 Bennett export is saved at 10:46 and refers to Lauren's paper record BCE-CE-2026-LAB-004-R00. Caldwell saves its export at 11:03.
+- Group by the Bennett concentration in ng/mL: <3.00 (01–08, n=8), 3.00 to <5.00 (09–20, n=12), and ≥5.00 (21–30, n=10). Bennett band means are 2.25, 4.05 and 6.55 ng/mL. Caldwell means for those same labels are 3.00, 4.25 and 6.61 ng/mL.
+- Signed difference is Caldwell minus Bennett in ng/mL. Band means of the paired differences are +0.75, +0.20 and +0.06; the unweighted mean across the 30 pairs is +0.30. MC30-30 has Bennett 6.80 and Caldwell 6.62, a signed difference of −0.18.
+- On Apr 15 Melissa saves the concentration-band workbook BCE-CE-2026-TBL-004-R00. The final point plot uses those same 30 pairs; the Apr 14 draft shows only the overall mean. Angela's Apr 16 comparison note is CAS-2026-0416-CMP-001 and identifies the low band for follow-up.
+- Apr 8 10:18 Melissa → Angela, “April pairing sheet and call time”, asks for the export by Apr 14 11:30, no attachment. Apr 14 11:12 Angela → Melissa, “Caldwell export before the call”, is a separate thread with the actual Caldwell CSV.
+- Note thread in order: Apr 16 10:07 Angela → Melissa, “Angela's notes on the low band”, with the actual Caldwell PDF attached; Apr 17 11:04 Melissa → Angela, “Re: Angela's notes on the low band”, quotes the band-boundary question and attaches the actual TBL-004-R00 XLSX.
+
+## Low-concentration follow-up — scope and open actions
+
+- Melissa's Apr 15 working findings are BCE-CE-2026-REV-002-R00. Anthony marks the claim of comparability across the range on Apr 16. Melissa's Apr 17 R01 keeps the results descriptive and calls for follow-up limited to the low band.
+- Apr 20 10:00 discussion (BCE-CE-2026-MIN-002-R00): Robert Nguyen, Melissa, Lauren Brooks and Anthony Mendoza. Robert authorizes preparation only. Melissa discusses candidate count and timing with Angela; Lauren checks label traceability.
+- The Apr 30 follow-up draft keeps the count and date open. At Jul 31 close the new count, date and results remain unset. The Apr 14 30 paired samples and the Jul 21 Bennett A-24 24 samples remain in separate records.
+
+## A-24 — Bennett run and quality confirmation
+
+- Robert approves BCE-CE-2026-PLN-003-R00 on Jul 13 at 14:15. A-24 is a standalone Bennett run of 24 separate nonclinical samples with one retained concentration per sample. For A-24, CV is the sample standard deviation divided by the mean of the 24 readings, with a run criterion of ≤15.0%. The 2024 approved study's within-sample CV criterion keeps its original scope.
+- On Jul 21 at 09:05 Benjamin Ortiz hands Lauren all 24, in two racks (A24-01–12, A24-13–24). Lauren turns a card at the near end of the second rack to face forward and marks it on signed sheet BCE-CE-2026-LAB-005-R00. The 09:19 photo and observation note refer to condensation at the corner of that rack's closed cover.
+- Lauren measures on CE-Reader-2 on Jul 21 from 09:32 to 11:34 and saves the original CSV at 11:41. The signed measurement sheet BCE-CE-2026-LAB-006-R00 links that export to the run, date, instrument, both ID ranges and 24 readings. No repeat, exclusion, missing value or duplicate ID.
+- Melissa's first plotting range includes the header and drops A24-24 from the chart only. The retained CSV and the 14:04 workbook BCE-CE-2026-TBL-005-R00 contain all 24. Rounded display: mean 6.8 ng/mL and CV 9.4%; divide unrounded sample SD by unrounded mean.
+- Anthony issues BCE-CE-2026-QCF-001-R00 on Jul 21 at 15:24. He checks the signed measurement sheet against CSV run/date and ID ranges, verifies the 24 unique complete readings and calculation scope, and recomputes mean and CV against the approved run criterion. His check covers the Bennett run and its records only, with no individual CV, other facility or low-band follow-up assessment.
+- Melissa's report BCE-CE-2026-REV-003-R00 (Jul 22) records Anthony's scope and is exported unchanged on Jul 23. Jul 23 09:47 Melissa → Robert, Cc Lauren and Anthony, “A-24 result and the calculation sheet”, attaches the actual report PDF and the separate TBL-005-R00 XLSX.
+- At Jul 27 10:00 (BCE-CE-2026-MIN-003-R00), Robert, Melissa, Lauren and Anthony agree to file the 24 readings as the Bennett run record. Lauren checks and indexes the linked evidence by Jul 30; Melissa retains the separate open action on the Caldwell low-band follow-up.
