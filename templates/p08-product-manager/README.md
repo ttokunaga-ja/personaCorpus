@@ -2,22 +2,30 @@
 
 オルタ現場システムズ株式会社（104人）のプロダクト企画と、取引先から受領する文書の書式。Officeの型を開き、別名保存して使う。型には組織表示・節見出し・書式だけを持ち、案件本文・仮番号・記入例・明細・合計は入れていない。
 
+### オルタ現場システムズの型
+
 | 名前 | 組織・利用者と用途 | 実際のファイル名 | 見た目 |
 |---|---|---|---|
 | 公開後報告・判断記録 | オルタ、石田。申請再利用の要件、店舗権限の例外条件、判断理由、指標の定義と公開後報告 | `olta-report.docx` | A4縦、表紙なし。巡回経路ロゴ、青緑の題、4節、細い罫線表 |
 | 打合せ記録 | オルタ、石田。小野との受付観察、社内の見積り確認と決定 | `olta-minutes.docx` | 共通便箋。日時と参加者・確認事実・決定・担当と期限の4節 |
 | 管理者へのご案内 | オルタ、石田・中川。若松の管理者説明会への案内・準備連絡 | `olta-guidance.docx` | 共通便箋、3節。発信元がオルタのため自社ロゴを使う |
 | 指標の定義・集計 | オルタ、三浦・石田。期間・分母・分子と採用率の照合 | `olta-metrics.xlsx` | A4横、青緑白抜き見出し。7列、分母・分子・比率・目標を分離 |
-| 要望と工数の照合 | オルタ、石田・太田。要望の出所、見積人週、依存工程、公開時の扱いを要望番号単位で照合 | `olta-requests.xlsx` | A4横、青緑白抜き見出し。先頭に順位と要望番号、工数の右に依存工程 |
+| 要望と工数の照合・海外要望の採否 | オルタ、石田・太田。要望の出所、工数、公開時の扱い、海外販売で伝える範囲と判断根拠を要望番号単位で照合 | `olta-requests.xlsx` | A4横、青緑白抜き見出し。先頭に照合順と要望番号。海外要望では採否・根拠・英語の説明範囲を別列にする |
 | 公開までの依存工程 | オルタ、石田・太田・松田。工程の前後関係と再判定に必要な証跡を担当別に照合 | `olta-dependencies.xlsx` | A4横、青緑白抜き見出し。工程順・先行工程・確認予定日を分け、右側に公開条件と対応を置く |
 | 拠点別の利用確認 | オルタ、石田・中川。12拠点の利用と教育を区別して整理 | `olta-sites.xlsx` | A4横、共通書式。7列、教育状況と利用状況を別列にする |
 | 投資回収の前提比較 | オルタ、中野・石田。有償社数、月次寄与、初期費用を条件別に置き、回収月数と未確認事項を比較 | `olta-payback.xlsx` | A4横、共通書式。7列、金額と回収月数を右揃え、右隣の未確認事項は字下げ |
 | 説明図の読み取り・設問別集計 | オルタ、岡本・石田。匿名回答を設問ごとに集計し、人数と判断根拠を照合 | `olta-reading-results.xlsx` | A4横、青緑白抜き見出し。7列、判定人数と割合のあとに読み取り課題・判定基準 |
 | 企画・公開範囲の説明 | オルタ、石田・原田。開発案の比較、営業への説明、公開後報告、投資案、承認担当者向けの演習、利用者への読み取り課題と社内の結果説明 | `olta-review.pptx` | 16:9、白地、上左の巡回経路ロゴと社名、青緑の題、下罫線。1マスター・5レイアウト、スライド0枚 |
 | 利用状況の出力・経営会議資料・手引き・日程変更通知 | オルタ、石田。利用記録、経営会議への提出資料、承認担当者の手引き、巡回チェック利用者への配布資料、公開日程変更通知を直接PDFにする | `olta-extract.cls` | LuaLaTeX、A4縦、共通ロゴ、用途別の右ヘッダ、青緑見出しと表ヘッダ、繰返しヘッダ・自動頁 |
+
+### 社外の型
+
+| 名前 | 組織・利用者と用途 | 実際のファイル名 | 見た目 |
+|---|---|---|---|
 | 拠点確認書 | 若松設備管理、小野。顧客発の拠点確認と正式な添付回答 | `wakamatsu-confirmation.docx` | A4縦、表紙なし。屋根と幹の図形、灰緑・明朝、控えめな事務用紙 |
 | 依頼受付の手順 | 若松設備管理、管理部の小野。依頼受付の流れを案内する直接出力のテキストPDF | `wakamatsu-intake.cls` | LuaLaTeX、A4縦。屋根と幹の図形、灰緑の細い上罫、明朝体、管理部と自動頁 |
 | 店舗別の役割・閲覧範囲 | ひかり店舗管理、管理担当の竹内。18店舗の役割・閲覧範囲・承認条件をオルタへ送る | `hikari-store-roles.xlsx` | A4横。えんじ色のひさし形と社名、生成りの管理ラベル、6列のえんじ色見出し |
+| Partner Request Brief | Dalton Distribution Partners、Nathan Hammond。海外販売窓口に届いた要望の用途と照会事項をオルタへ送る | `dalton-request-brief.cls` | LuaLaTeX、US Letter縦、表紙なし。斜線2本と英語社名、銅色の上罫、セリフ体の題と本文。続頁に表見出しを再掲 |
 
 受付観察は `olta-minutes.docx`、再利用要件は `olta-report.docx` を使う。開発向け比較と営業向け説明は共通の `olta-review.pptx` から別々に作る。DOCXと同内容のPDFは完成したDOCXから `bin/office-pdf` で出し、小野から届く受付手順は若松の `wakamatsu-intake.cls` で組む。
 
@@ -33,6 +41,8 @@
 
 2026年5月の拠点ボード月次判定では、集計範囲の決定に `olta-report.docx`、照合に `olta-sites.xlsx`、経営向け説明に `olta-review.pptx`、会議配付用のテキストPDFに `olta-extract.cls` を使う。5月5日の照合結果は、抽出候補47拠点、報告対象44拠点、権限確認待ち3拠点に分ける。候補CSVに三浦の抽出時点が追える記録を添え、松田の確認項目・根拠と再判定条件は原稿に従って記す。画面PNGは絞り込み条件が読める状態、旧HTMLは差し替え前の表示で残す。
 
+2026年9月の海外販売提案は、Nathan発の英文要望PDFに `dalton-request-brief.cls`、石田の要望照合に `olta-requests.xlsx`、福田への和文判断案に `olta-report.docx` を使う。判断案の節は対象と前提、採否の根拠、販売説明の範囲、保留と再確認条件に調整する。販売窓口向けの英文説明と福田向けの和文説明は `olta-review.pptx` からそれぞれ作る。16件中の採用4件は、用途、選んだ根拠、英語で案内する条件が突き合わせられるようにする。保留中の要望は再確認条件まで記録し、拠点ボードの一斉展開の確約は案内から外す。判断案・説明資料・決定EMLでは暦年2026年Q4／FY2026 Q3（英語では Calendar Q4 2026 / FY2026 Q3）を併記する。
+
 ## 組織の識別と管理項目
 
 - 自社ロゴは、下を回って右へ上がる青緑の巡回経路と、右上の黄土の矢印、その右の社名。青緑 `006D77`、黄土 `D69E36`、本文の墨 `283C40` の3色。Officeのテーマにも同じ配色を登録している。淡青緑 `EAF3F3` は主色の背景用濃淡。Word・Excelは図形部分を内部に埋め込み、社名は編集可能な文字。PowerPointのマスターとTeXは図形で持つ。外部画像依存はない。
@@ -41,6 +51,7 @@
 - 文書番号は `OFS-YYYYMM-用途-連番3桁`。用途は `RP`（報告・定義・判断）、`MT`（議事録）、`NT`（案内）、`KM`（指標集計・試算）、`ST`（拠点表）、`RQ`（要望と工数の照合・依存工程の点検）、`BR`（スライド）、`EX`（直接出力PDF）。実際の番号・版は計画と事実台帳で決める。同じDOCXとPDFは同じ番号・同じ版。全ての正式文書に日付・作成者・版を添える。期間や基準日と発行日・出力日時を混同しない。
 - 若松のロゴは屋根形と垂直な幹、下の水平線。灰緑 `52644C` と墨 `283C40`、白地。Wordは日本語・欧文とも Noto Serif CJK JP。ヘッダに正式社名、フッタに管理部・社名・自動頁。若松発の正式な確認書は `WSK-YYYYMM-CF-連番3桁`、受付手順は `WSK-YYYYMM-PR-連番3桁`。受領側は発行元の番号を保持する。
 - ひかりのロゴは店頭のひさしとカウンター、右に正式社名。えんじ `87394C`、生成り `F6ECE5`、墨 `302B2D`。日本語・欧文とも Noto Sans CJK JP を使い、ExcelのNormal・管理欄・表にも設定する。印刷ヘッダに店舗運営、フッタに社名・管理担当・現在頁／総頁。ひかりの役割表の管理番号は `HKM-YYYYMM-RL-連番3桁`。作成日・版・担当を併記し、受領側でも発行元の番号を保持する。
+- Daltonのロゴは右上がりの平行四辺形2本と正式社名。濃紺 `20314C` は本文・社名・表見出し背景、銅色 `9B472F` は上罫・節見出し・管理ラベル文字、淡い石色 `F0EBE5` は管理ラベルの地色。英語本文は Liberation Serif、ヘッダ・管理欄・節見出しは Liberation Sans。右上に用途、フッタに Partner Sales と現在頁／総頁。発行元の管理番号は `DDP-YYYYMM-RQ-連番3桁` とし、発行日は `DD Mon YYYY`、版・作成者・販売対象期間を添える。
 - オルタの識別には青緑の巡回経路を使う。織庭の藍と織り目、湊梁建設の橙と柱梁とは、図形と配色で判別できる。
 
 ## Wordで中身を入れる
@@ -110,6 +121,10 @@ for index, row in enumerate(table.rows):
 
 余力試算は `olta-metrics.xlsx` を開き、A2を「四半期の開発余力試算」にする。A6:G6を「試算条件」「対象工数（人週）」「既定作業（人週）」「配分前余力（人週）」「既存課題枠（人週）」「確保率」「前提・扱い」に変更する。列幅は順に20、18、18、20、20、13、28、見出し行高は30pt。管理番号は `KM`。A・Gは `OF Text`、B〜Eは `OF Number` と同じフォント・配置・罫線に小数1桁（`0.0`）を指定し、Fは `OF Percent`。明細の行高は36ptを目安にする。見本のD7は `=B7-C7`、E7は `=D7*F7`。承認した確保率は0.30で入力し、既定作業を引いた配分前余力を基準にする。期間・既定作業の範囲と先送りする仕事はG列または末尾の注記で示す。比較用の行は別々の試算条件として扱う。両表とも管理欄・フィルタ・印刷設定は共通手順に従う。
 
+### 海外要望の採否と販売説明
+
+`olta-requests.xlsx` のA2に表題と対象四半期を入れ、管理番号の用途は `RQ` とする。A6:G6を照合順、要望番号、利用場面・要望、採否、採否の根拠、販売説明の範囲（英語）、保留・再確認条件に変更する。列幅は順に10、16、25、10、28、31、28、見出し行高は30pt。Aは `OF Number`、B〜Gは `OF Text`。要望番号は発行元の番号を文字列で保持し、要望1件につき1行を作る。明細行高は56ptを目安にして、英語の説明と日本語の根拠が読める高さに調整する。集計を示す場合は末尾に対象と採否の内訳を `OF Note` で記す。フィルタ・印刷範囲と管理欄は共通手順に従う。
+
 ## PowerPointで説明資料を作る
 
 `Presentation(型のパス)` で開き、実レイアウトを選ぶ。index 0は表紙、1は見出しと本文、2は2段、3は表、4は図。型はスライド0枚で、例文はない。題のplaceholderはidx=0、本文・図表領域はidx=1、2段右はidx=2。表紙題34pt、その他題28pt、本文20pt、表・図18pt以上。表紙副題へ文書番号・版・日付・作成者・対象四半期を入れる。
@@ -138,38 +153,17 @@ for index, row in enumerate(table.rows):
 
 `wakamatsu-intake.cls` も原稿と同じディレクトリへコピーし、`\documentclass{wakamatsu-intake}` で読み込む。`\WSKRecord{題}{文書番号}{版}{発行日}{作成者}` に送付元の値を入れ、手順の区切りを `\WSKStep{見出し}` で示す。日本語は Noto Serif CJK JP、欧文は Liberation Serif、本文11pt・墨、題と見出しは灰緑。必要に応じて上と同じ方法で表を置き、見出し行は `\rowcolor{WSKgreen}` と `\WSKHead{列名}` を使う。出力PDFはテキストを選択できることを確認する。
 
+`dalton-request-brief.cls` を原稿と同じディレクトリへコピーし、`\documentclass{dalton-request-brief}` で読み込む。`\DDPRecord{題}{管理番号}{版}{発行日}{作成者}{販売対象期間}` に発行元の実値を入れ、節には `\DDPSection{見出し}` を使う。Letter縦、左右22mm・上35mm・下24mm。本文11pt、題25pt。要望表は `DDPRequests` 環境内に `番号 & 要望名 & 用途・照会事項 \\[4pt]` の形で原稿の行を入れる。番号を右寄せにし、要望名との間隔を確保する。列見出しと続頁の再掲は型に含まれる。受領資料の照会事項は発行時点に合わせる。オルタで検討した採否や提供条件は石田の照合表と判断案へ記録する。`bin/tex` の出力は `bin/render` で全ページを見て、管理ラベルと対応値が同じ行にそろい、番号全文が読めること、明細の折返し、次頁の見出しを確認する。`pdftotext -layout` でも管理ラベルと対応値が同じ行に並び、本文を抽出できることを確かめる。
+
 ## 型を使わない記録
 
 CSVは原稿の素の列と値だけを出し、ロゴ・管理行を混入させない。EMLは送受信ヘッダと本文・引用・実添付。公開範囲の決定メールには対象四半期を記す。石田の翌朝の書き直しメモはMarkdownやTXTで、会社の便箋にしない。画面スクリーンショットはアプリの表示として作り、Officeの紙面へ貼り替えない。製品名、期間、画面に表示する集計値は計画と台帳に従う。写真・手書き画像を制作する段階ではimagegen skillを読む。
 
-## 組版見本と検証先
+## Dalton の組版見本
 
-見本は `scratch/p08-product-manager/b008/work/templates-0002/examples/`、レンダリング画像は同じ作業フォルダの `render/`。見本の文書番号・拠点コード・確認項目・明細・設問・試算値は組版確認用。成形時には計画・台帳・原稿の値を使う。
+作業フォルダは `scratch/p08-product-manager/b009/work/templates-0004/`。見本の管理番号・明細・照会内容は組版確認用。成形には計画・台帳・原稿の値を使う。
 
-| 型 | examples以下の見本 | render以下の全ページ一覧 |
+| 要望件数 | `examples/` 内の原稿と PDF | `render/` 内のページ画像 |
 |---|---|---|
-| `olta-guidance.docx` | `olta-guidance-short.docx`・`olta-guidance-long.docx` | `olta-guidance.jpg` |
-| `olta-minutes.docx` | `olta-minutes-short.docx`・`olta-minutes-long.docx` | `olta-minutes.jpg` |
-| `olta-report.docx` | `olta-report-short.docx`・`olta-report-long.docx` | `olta-report.jpg` |
-| `wakamatsu-confirmation.docx` | `wakamatsu-confirmation-short.docx`・`wakamatsu-confirmation-long.docx` | `wakamatsu-confirmation.jpg` |
-| `olta-metrics.xlsx` | `olta-metrics-3.xlsx`・`olta-metrics-23.xlsx` | `olta-metrics.jpg` |
-| `olta-sites.xlsx` | `olta-sites-3.xlsx`・`olta-sites-23.xlsx` | `olta-sites.jpg` |
-| `olta-sites.xlsx`（月次判定） | `olta-monthly-summary.xlsx`・`olta-monthly-detail.xlsx` | `olta-monthly.jpg` |
-| `olta-requests.xlsx` | `olta-requests-3.xlsx`・`olta-requests-23.xlsx` | `olta-requests.jpg` |
-| `olta-payback.xlsx` | `olta-payback-3.xlsx`・`olta-payback-23.xlsx` | `olta-payback.jpg` |
-| `olta-reading-results.xlsx` | `olta-reading-results-3.xlsx`・`olta-reading-results-23.xlsx` | `olta-reading-results.jpg` |
-| `hikari-store-roles.xlsx` | `hikari-store-roles-3.xlsx`・`hikari-store-roles-23.xlsx` | `hikari-store-roles.jpg` |
-| `olta-dependencies.xlsx` | `olta-dependencies-3.xlsx`・`olta-dependencies-23.xlsx` | `olta-dependencies.jpg` |
-| `olta-requests.xlsx`（優先順位途中表） | `olta-priorities-3.xlsx`・`olta-priorities-23.xlsx` | `olta-priorities.jpg` |
-| `olta-metrics.xlsx`（開発余力試算） | `olta-capacity-3.xlsx`・`olta-capacity-23.xlsx` | `olta-capacity.jpg` |
-| `olta-review.pptx` | `olta-review.pptx`（月次説明・全5レイアウト）・`olta-allocation-brief.pptx`（承認後） | `olta-review.jpg`・`olta-allocation-brief.jpg` |
-| `olta-extract.cls`（利用状況） | `olta-extract-short.tex`・`olta-extract-long.tex` と `olta-extract-short.pdf`・`olta-extract-long.pdf` | `olta-extract.jpg` |
-| `olta-extract.cls`（経営会議） | `olta-meeting-short.tex`・`olta-meeting-long.tex` と `olta-meeting-short.pdf`・`olta-meeting-long.pdf` | `olta-meeting.jpg` |
-| `olta-extract.cls`（月次配付） | `olta-monthly-short.tex`・`olta-monthly-long.tex` と `olta-monthly-short.pdf`・`olta-monthly-long.pdf` | `olta-monthly-pdf.jpg` |
-| `olta-extract.cls`（承認担当者向け手引き） | `olta-guide-short.tex`・`olta-guide-long.tex` と `olta-guide-short.pdf`・`olta-guide-long.pdf` | `olta-guide.jpg` |
-| `olta-extract.cls`（利用者向け配布資料） | `olta-handout-short.tex`・`olta-handout-long.tex` と `olta-handout-short.pdf`・`olta-handout-long.pdf` | `olta-handout.jpg` |
-| `olta-extract.cls`（公開日程変更通知） | `olta-schedule-notice-short.tex`・`olta-schedule-notice-long.tex` と `olta-schedule-notice-short.pdf`・`olta-schedule-notice-long.pdf` | `olta-schedule-notice.jpg` |
-| `olta-extract.cls`（承認範囲の共有） | `olta-allocation-notice-short.tex`・`olta-allocation-notice-long.tex` と `olta-allocation-notice-short.pdf`・`olta-allocation-notice-long.pdf` | `olta-allocation-notice.jpg` |
-| `wakamatsu-intake.cls` | `wakamatsu-intake-short.tex`・`wakamatsu-intake-long.tex` と `wakamatsu-intake-short.pdf`・`wakamatsu-intake-long.pdf` | `wakamatsu-intake.jpg` |
-
-各ページのPNGは `render/` にある見本と同じ拡張子なしの名前のフォルダに格納。作業フォルダ内の `commands.json` にレンダリング結果、`recalculation.json` に数式の再計算結果、`structure.json` に型と見本の検査結果を記録した。
+| 3件・1頁 | `dalton-request-brief-short.tex`・`dalton-request-brief-short.pdf` | `dalton-request-brief-short/dalton-request-brief-short-1.png` |
+| 16件・2頁 | `dalton-request-brief-long.tex`・`dalton-request-brief-long.pdf` | `dalton-request-brief-long/dalton-request-brief-long-1.png`・`dalton-request-brief-long/dalton-request-brief-long-2.png` |
