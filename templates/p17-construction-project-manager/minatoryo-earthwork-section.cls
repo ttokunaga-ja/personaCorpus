@@ -13,7 +13,7 @@
 }
 \tikzset{
   earthwork axis/.style={MBInk,thin,densely dashed},
-  earthwork existing/.style={MBNavy,thick},
+  earthwork existing/.style={MBNavy,thick,dashed},
   earthwork revised/.style={MBOrange,very thick},
   earthwork dimension/.style={MBInk,{Stealth[length=2mm]}-{Stealth[length=2mm]}}
 }

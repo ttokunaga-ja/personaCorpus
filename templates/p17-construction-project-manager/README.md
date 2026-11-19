@@ -1,6 +1,6 @@
 # 坂本修一郎の文書の型
 
-湊梁建設の現場書類と、汐葛食品・海田流通・白島設計室・Merecairn Equipment Ltdから受領する文書の型を収録する。普通のDOCX・XLSX・PPTXを開き、別名で保存して使う。型は組織の識別、固定の文書種別、スタイル、列見出しだけを持つ。案件の事実・文書番号・是正内容は計画と原稿から入れる。
+湊梁建設の現場書類と、汐葛食品・海田流通・白島設計室・Merecairn Equipment Ltd・篠垣防水・楡岡倉庫から受領する文書の型を収録する。普通のDOCX・XLSX・PPTXを開き、別名で保存して使う。型は組織の識別、固定の文書種別、スタイル、列見出しだけを持つ。案件の事実・文書番号・是正内容は計画と原稿から入れる。
 
 ## 一覧
 
@@ -117,7 +117,7 @@ PDFで保管する引継ぎ案内・施主確認書は、それぞれのWord型�
 
 | 名前 | 組織・利用者と用途 | 実際のファイル名 | 見た目 |
 |---|---|---|---|
-| 掘削断面・数量照合図 | 湊梁建設、坂本・藤井。断面形状、測点、拾いの差を図と表で説明する直接PDF | `minatoryo-earthwork-section.cls` | A4横。自社の梁ロゴ、橙のヘッダ罫線、工事部とページ。青灰の当初線、橙の再計算線、墨の測点・寸法線。和文 Noto Sans CJK JP、欧文 Liberation Sans。見出しを繰り返す断面別比較表 |
+| 掘削断面・数量照合図 | 湊梁建設、坂本・藤井。断面形状、測点、拾いの差を図と表で説明する直接PDF | `minatoryo-earthwork-section.cls` | A4横。自社の梁ロゴ、橙のヘッダ罫線、工事部とページ。青灰の破線が当初、橙の実線が再計算、墨が測点・寸法線。和文 Noto Sans CJK JP、欧文 Liberation Sans。見出しを繰り返す断面別比較表 |
 
 - **断面図・図付き数量根拠**は `tex:minatoryo-earthwork-section.cls`。`\EarthworkHeading{題}{文書番号}{工事名}{実施日}{作成者}{版・資料区分・縮尺}` を使い、文書番号は自社のQT系列を用いる。管理欄の版と縮尺に続き、原稿で確定した測点・通り芯、基準高、幅・深さ、断面間距離、旧新の形状をTikZで描く。`earthwork axis`、`earthwork existing`、`earthwork revised`、`earthwork dimension` が使える。旧線は破線、再計算線は実線とし、凡例と単位を付ける。縮尺を持たない資料には「模式図」と記す。図枠を設計者の発行図として転用しない。
 - **断面別比較表**は同クラスの `EarthworkTable` に、先頭番号、断面・通り芯、当初、再計算、増減、根拠・再確認事項を `&` 区切りで入れ、行末を `\\\hline` にする。数量はm³で右寄せ、合計は集計対象を確定できる資料に設ける。対象範囲、元図・測定の版、途中差異と再確認結果を `\SiteSection` と `\SiteNote` で記録する。
@@ -128,19 +128,17 @@ PDFで保管する引継ぎ案内・施主確認書は、それぞれのWord型�
 
 ## 見本と画像
 
-参照先は `scratch/p17-construction-project-manager/b007/work/templates-0004/` からの相対パス。管理欄・断面別内訳・単価などは書式確認用。実際の制作値は計画と原稿を使う。海田流通の承認控えは2026年のCO-014の書式見本。
+参照先は `scratch/p17-construction-project-manager/b010/work/templates-0002/` からの相対パス。管理欄・断面別内訳・単価などは書式確認用。実際の制作値は計画と原稿を使う。海田流通の承認控えは2026年のCO-014の書式見本。
 
 | 対象 | 見本（samples/） | 画像（render/） |
 |---|---|---|
 | Word 7型 | 各型と同名のDOCX | 拡張子を除いた同名フォルダ |
 | PowerPointの5レイアウト | `minatoryo-site-brief.pptx` | `minatoryo-site-brief/` |
-| TeX 5型 | `minatoryo-field-sheet`、`hakushima-drainage`、`minatoryo-earthwork-section`、`minatoryo-zone-plan`、`merecairn-equipment-sheet` の各 `.tex` と `.pdf` | 同名フォルダ |
+| TeX 7型 | `minatoryo-field-sheet`、`hakushima-drainage`、`minatoryo-earthwork-section`、`minatoryo-zone-plan`、`merecairn-equipment-sheet`、`shinogaki-roof-report`、`nireoka-receipt` の各 `.tex` と `.pdf` | 同名フォルダ |
 | Excel 4型 | 各型の拡張子を除いた名前に `-3.xlsx`、`-38.xlsx` を付けた各ブック | 拡張子を除いた同名フォルダ |
-| 書類照合表を8列に変更した場合 | `minatoryo-document-index-columns-3.xlsx`、`minatoryo-document-index-columns-38.xlsx` | 拡張子を除いた同名フォルダ |
-| 掘削数量照合へ転用した場合 | `minatoryo-earthwork-quantity-3.xlsx`、`minatoryo-earthwork-quantity-38.xlsx` | 拡張子を除いた同名フォルダ |
-| 搬送設備の寸法・案比較と確認事項へ転用した場合 | `minatoryo-equipment-fit-cost-3.xlsx`、`minatoryo-equipment-fit-cost-38.xlsx`、`minatoryo-equipment-fit-punch-3.xlsx`、`minatoryo-equipment-fit-punch-38.xlsx` | 拡張子を除いた同名フォルダ |
-| 協議録の複数ページ | `minatoryo-change-note-49.docx` | `minatoryo-change-note-49/` |
+| 散水記録へ転用した場合 | `minatoryo-roof-water-check-3.xlsx`、`minatoryo-roof-water-check-12.xlsx` | 拡張子を除いた同名フォルダ |
 | 設備取合い確認票・断面別比較表の複数ページ | `minatoryo-field-sheet-long`、`minatoryo-earthwork-section-long` の各 `.tex` と `.pdf` | 同名フォルダ |
+| 篠垣防水の提出票・楡岡倉庫の受領票の複数ページ | `shinogaki-roof-report-long`、`nireoka-receipt-long` の各 `.tex` と `.pdf` | 同名フォルダ |
 
 ## 海田研修棟の段階施工
 
@@ -172,3 +170,17 @@ PDFで保管する引継ぎ案内・施主確認書は、それぞれのWord型�
 - 小野の返却回答は `tex:hakushima-drainage.cls`。図番・版欄を回答番号・版として使い、「状態・縮尺」欄には初回回答・再回答・保留通知などの状態を記し、図示がなければ縮尺対象外とする。自社番号は従来の海田研修棟系列に MA（材料台帳）・MS（材料提出資料）を加え、協議・依頼は MT、確認票は CK。M-番号は材料の照合番号で、文書番号・版とは別に扱う。
 - 紙の見本確認票は `scan:tex:minatoryo-field-sheet.cls`。原紙をwork内で組み、レンダリング画像に手書きだけを加えてから `bin/scan` に通す。坂本の野帳は `scan:handwriting`。原紙が配布物にない場合は原稿に印字と筆記の内容をそれぞれ記載する。
 - `photo`（見本台の比較写真）、`text`（EML・提出一覧のCSV出力）、`scan:handwriting`（個人手帳）は型なし。見本写真は撮影日と対象室の通り芯で整理し、置き見本や端材を写す。施工面を写す完成記録への流用はしない。
+
+## 楡岡北倉庫の屋根更新
+
+| 名前 | 組織・利用者と用途 | 実際のファイル名 | 見た目 |
+|---|---|---|---|
+| 屋根工事提出票 | 篠垣防水、竹内。雨天養生計画・施工報告を坂本へ提出 | `shinogaki-roof-report.cls` | A4縦。深緑 `24574C` の斜材二本と社名、淡緑 `E5EFEB` の管理ラベル・表見出し、本文の墨 `252F2D`。和文 Noto Sans CJK JP、欧文 Liberation Sans。ヘッダ右に施工部、フッタに社名とページ |
+| 工事引渡し受領票 | 楡岡倉庫、金子。受領した工事書類と照合結果を施設課で記録する原紙 | `nireoka-receipt.cls` | A4縦。中央に棚を表す茶色の枠と社名、中央題、細い茶の罫線。主色 `544437`、罫線 `8E7969`、本文 `282725`。和文 Noto Serif CJK JP、欧文 Liberation Serif。フッタに施設課とページ |
+
+- 篠垣防水の提出物は `\RoofHeading{題}{工事名}{文書番号}{発行日}{作成者}{版}` と `\RoofSection{見出し}` を使う。番号は `SG-NK-YYYY-用途-連番`、養生計画は `WP`、施工報告は `RP`、連番は3桁。明細を入れる場合は `RoofWorkTable` に番号・区画位置・作業確認・処置記録を `&` 区切り、行末 `\\` で入れる。列見出しは改ページ時に反復する。
+- 楡岡倉庫の受領原紙は `scan:tex:nireoka-receipt.cls`。 `\ReceiptHeading{題}{受領番号}{工事名}{受領日}{受領担当}{提出者}` と `\ReceiptSection{見出し}` を使う。番号は `NW-NK-YYYY-RC-連番`、連番は3桁。受領書類を列挙する場合は `ReceiptList` に番号・品目・文書番号と版を `&` 区切り、行末 `\\` で入れる。手書きの受領記載がある場合は原稿の指示に従って原紙に加え、`bin/scan` に通す。
+- 湊梁建設の番号は `MB-NK-YYYY-用途-連番`、連番は3桁。契約範囲図は `minatoryo-zone-plan.cls`（ZP）、散水結果は `minatoryo-field-sheet.cls`（IN）を使う。引渡し書類送付控えは `minatoryo-handover.docx`（HO）から書き出す。養生の協議と引渡しの議事録は `minatoryo-change-note.docx`（MT）、工程変更の説明案は同型（BR）、再開時の記録は `minatoryo-daily.docx`（DR）。着工打合せと引渡し説明は `minatoryo-site-brief.pptx`（BR）を開く。
+- 面積拾い（QT）は `minatoryo-change-cost.xlsx`、工程（SC）は `minatoryo-change-schedule.xlsx` を開く。面積拾いでは単価・金額の列を長さ・幅・面積や根拠など実際の明細に合わせて組み直し、m²の合計を出す。工程の基準日・版は各工程表の時点に合わせる。契約、着工、中断、再開、引渡しの日はそれぞれの区分で記す。
+- 散水記録（IN）は `minatoryo-punch-list.xlsx` のB1と4行目を変更し、番号、区画・位置、屋内確認箇所、立会者、漏水件数、判定、確認根拠を置く。列幅の目安は12・25・30・17・15・18・36。A・E列を `MB Number`、B・C・D・F列を `MB Text`、G列を `MB Note` とする。E列の実測件数と合計だけ表示形式を `#,##0` にし、0件を数字で示す。集計は明細末尾の次の行のE列で `SUM`、B列に「漏水件数 合計」。散水位置図、表、散水結果PDFには同じ区画番号を使い、12区画を同じ明細表で追う。印刷では管理欄と列見出しを反復させる。
+- JPG・手書き割付・野帳は型なしで、原稿の日時と場所に従う。PNGの養生区画図・散水位置図は参照元の図と同じ区画番号で描く。EMLの添付・引用には対応する版を使う。着工日や中断した区画の確定は計画で行う。
