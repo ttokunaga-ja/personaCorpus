@@ -3426,3 +3426,58 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-19	p06-life-science-researcher	b007	coordinator	0	other	Documents/Lab-share/April 20 low range discussion.docx	統括の抜き取りで不合格
 2026-11-19	p06-life-science-researcher	b007	coordinator	0	other	Documents/Lab-share/July 27 A-24 review and filing.docx	統括の抜き取りで不合格
 2026-11-19	p06-life-science-researcher	b007	coordinator	0	other	Documents/上清測定再現性試験/A-24/A-24 July 21 result for Robert.docx	統括の抜き取りで不合格
+2026-11-19	p20-investigative-journalist	b005	build-review	0	V2	Documents/Stories/Library-purchases/Purchasing intake - counter equipment.pdf	通し32〜34頁では青帯の直下が明細表になり、型にある独立したReference（LP-25-04）とDateの管理欄がない。32頁の2月7日印はQ01・Q02の各セルに収まっている。
+2026-11-19	p20-investigative-journalist	b005	build-review	0	V2	Documents/Stories/Library-purchases/Service terms from the paper jacket.pdf	通し40・43・45・47〜51頁は見積元・日付・Q番号を区切り線で連ね、型の独立したReferenceとDateのラベル・値がない。41・46頁もReferenceのみでDate欄がない。
+2026-11-19	p20-investigative-journalist	b005	build-review	0	V2	Documents/Stories/Library-purchases/Selection routing jacket.pdf	通し71・73頁の回付票は青帯の直下から明細表が始まり、LP-25-04はAgenda referenceの明細内、日付はRouting dateとMeetingの明細内にあり、型の独立したReference・Date管理欄がない。
+2026-11-19	p20-investigative-journalist	b005	build-review	0	V2	Downloads/March 18 library committee - meeting notice.html	Chromiumで3月12日の掲載日、3月18日18時の会議および議題4を確認した。ヘッダーに円形の庁舎章がなく、見出しと本文は青・濃灰のサンセリフ指定に反して既定の黒いセリフ体で表示される。
+2026-11-19	p20-investigative-journalist	b005	build-review	0	V2	Downloads/April 8 council - agenda notice.html	Chromiumで4月2日の掲載日、4月8日19時の会議および購買事項7Bを確認した。ヘッダーに円形の庁舎章がなく、見出しと本文は青・濃灰のサンセリフ指定に反して既定の黒いセリフ体で表示される。
+2026-11-19	p20-investigative-journalist	b005	build-review	0	V2	Documents/Stories/Library-purchases/Nine submitted quotes.pdf	通し13頁の交付側管理欄で、型のReference欄から交付番号MFB-PRO-20260112-001が外れ、独立したDate欄がなく、交付番号とJanuary 12, 2026がRelease行に連結されている。
+2026-11-19	p20-investigative-journalist	b005	build-review	0	V2	Documents/Stories/Library-purchases/Staff evaluation and recommendation.pdf	通し59頁の比較額明細表で、型が指定するBoroughBlue（#234C69）の横罫が淡い青灰色（画像で#B2C0CA）になっている。
+2026-11-19	p20-investigative-journalist	b005	check	1	source	Downloads/April 8 council - agenda notice.html	body token overlap 0.456 < 0.8
+2026-11-19	p20-investigative-journalist	b005	check	1	source	Downloads/March 18 library committee - meeting notice.html	body token overlap 0.373 < 0.8
+2026-11-19	p20-investigative-journalist	b005	build-review	2	V2	Downloads/March 18 library committee - meeting notice.html	Chromiumで3月12日の掲載日、3月18日18時の会議と議題4のLP-25-04を確認したが、ページ上部のMapleton Falls Boroughのヘッダーに円形の庁舎章がなく、見出しと本文が指定の青・濃灰のサンセリフ体ではなく黒のTimes New Romanで表示される。
+2026-11-19	p20-investigative-journalist	b005	build-review	2	V2	Downloads/April 8 council - agenda notice.html	Chromiumで4月2日の掲載日、4月8日19時の会議と購買事項7BのLP-25-04を確認したが、ページ上部のMapleton Falls Boroughのヘッダーに円形の庁舎章がなく、見出しと本文が指定の青・濃灰のサンセリフ体ではなく黒のTimes New Romanで表示される。
+2026-11-19	p07-humanities-researcher	b005	check	0	empty-scan	Documents/Archive/Box-14/153 and 154 - two different deadlines.pdf	OCR contains fewer than 20 non-whitespace characters
+2026-11-19	p07-humanities-researcher	b005	check	0	source	Documents/Archive/Box-14/153 and 154 - two different deadlines.pdf	body token overlap 0.000 < 0.3
+2026-11-19	p07-humanities-researcher	b005	check	0	source	Documents/Archive/Box-14/Carton 14 - visa de réception ff157-158.pdf	body token overlap 0.131 < 0.3
+2026-11-19	p07-humanities-researcher	b005	check	1	source	Documents/Archive/Box-14/153 and 154 - two different deadlines.pdf	body token overlap 0.035 < 0.3
+2026-11-19	p07-humanities-researcher	b005	check	1	source	Documents/Archive/Box-14/Carton 14 - visa de réception ff157-158.pdf	body token overlap 0.162 < 0.3
+2026-11-19	p07-humanities-researcher	b005	check	2	source	Documents/Archive/Box-14/153 and 154 - two different deadlines.pdf	body token overlap 0.032 < 0.3
+2026-11-19	p07-humanities-researcher	b005	check	2	source	Documents/Archive/Box-14/Carton 14 - visa de réception ff157-158.pdf	body token overlap 0.147 < 0.3
+2026-11-19	p07-humanities-researcher	b005	check	2	plan	Documents/Archive/Box-14/Carton 14 - avis du mercredi ff193-194.pdf	plan: planned file missing。成形の最終出力：- **Carton 14 - avis du mercredi ff193-194.pdf**：印刷原紙と手書きの透明画像を用意しましたが、「registre」と「table」の2地点に筆線を交差させながら、他の追記と活字を原稿どおり判読できる配置にはできていません。成果物は保存していません。
+2026-11-19	p07-humanities-researcher	b005	check	2	plan	Documents/Letters/24 October - Les huit reprises.eml	plan: planned file missing。成形の最終出力：- **24 October - Les huit reprises.eml**：上記PDFを実際に添付できないため、保存していません。他の指定添付4点の存在は確認しました。 手書き画像には組み込みの imagegen を使い、「1868年秋のフランスの鉛筆書きとして、指定された仏語の追記を透明背景に3行で生成する」と指示しました。生成画像は確認しましたが、成果物への配置は未完了です。 stage・commit・push は行っていません。
+2026-11-19	p13-corporate-privacy-counsel	b011	templates-review	0	other	README.md	「見本と検証」のb010参照先 examples/・render/・render-results.json の3件が存在せず、b011の外部所見に対応する高瀬労務相談室の型・用途も一覧にない。
+2026-11-19	p13-corporate-privacy-counsel	b011	draft-review	0	D2	Documents/人事と事務の控え/2024-08-09_小島さん_西側の複合機は昼まで停止.eml	本文15〜16行の「点検による停止と終了時刻→別の複合機で出力→放置せず回収」は、既存の2026-05-08_小島さん_書庫側の複合機を使ってください.eml.mdの17〜19行と同じ用件・文の骨組みで、日時・機器の場所・宛先の差し替えにとどまる。
+2026-11-19	p13-corporate-privacy-counsel	b011	draft-review	0	D10	Documents/Matters/従業員通知改訂/18項目_目的と説明時点の対照.xlsx	原稿末尾の集計セル指定はラベルがA25・F25、式がB25・G25で、従業員通知用の型の取扱説明が求めるラベルB25・E25、式C25・F25と両立しない。明細と集計値（18項目、修正候補4件）は現行通知・台帳と一致。
+2026-11-19	p13-corporate-privacy-counsel	b011	draft-review	0	D1	Documents/メール/2024-08-02_千葉さんへ_どの時点の説明か見てください.eml	本文20行目は説明時点の検討案も添えたと明記し、添付先のCMP-001版0.9にも「採用時に説明する事項」「在職中に補う事項」「扱い」「照合・補足」が実際にあるため、計画11行目の「文言と用途だけを載せた」対照表を送るという条件と一致しない。
+2026-11-19	p13-corporate-privacy-counsel	b011	draft-check	1	source	Documents/メール/2024-08-02_千葉さんへ_どの時点の説明か見てください.eml	/home/ttokunaga-ja/dev/github.com/ttokunaga-ja/personaCorpus/sources/p13-corporate-privacy-counsel/Documents/メール/2024-08-02_千葉さんへ_どの時点の説明か見てください.eml.md: No such file or directory (os error 2)
+2026-11-19	p13-corporate-privacy-counsel	b011	draft-review	2	D1	Documents/メール/2024-08-02_千葉さんへ_どの時点の説明か見てください.eml	前回のD1は未解消。メール原稿19行目は説明時点の案も添付表に記したと述べ、28行目で添付するCMP-001版0.9の原稿20〜39行目には「採用時に説明する事項」「在職中に補う事項」等の列と記載がある。計画11行目の「文言と用途だけを載せた」添付条件は、同じ表に説明時点を載せる計画8行目の指定とも食い違う。
+2026-11-19	p13-corporate-privacy-counsel	b011	build-review	0	other	Documents/Matters/従業員通知改訂/8月末_小島さんと揃えた窓口の返し方.docx	判定なし
+2026-11-19	p13-corporate-privacy-counsel	b011	build-review	0	V2	OneDrive - 東都文書データ/法務共有/8月19日から_人事で案内する二つの通知.pptx	全5枚の題が型・見本の紫灰色 #563F58 を継承せず墨色 #302F33 で表示され、表紙題は型の32ptに対し30pt、スライド2・4の本文は型の20ptに対し22pt・23ptです。スライド5には原稿指定の「本文」と異なる「図」レイアウトが適用されています。
+2026-11-19	p13-corporate-privacy-counsel	b011	build-review	0	V1	Documents/メール/2024-08-01_小島さん_いまは同じ通知を渡しています.eml	MIME復号後、添付「小島さんから_いま渡している従業員通知.docx」（38,920対38,907バイト）と「18項目_目的と説明時点の対照.xlsx」（10,183対10,351バイト）がともに指定保存版と不一致で、両方のdocPropsに作成者・更新者・日時・アプリ情報の差がある。
+2026-11-19	p13-corporate-privacy-counsel	b011	build-review	0	V2	Downloads/高瀬労務相談室_従業員通知の所見.pdf	1頁の所見明細で、takase-notice-review.clsと見本が指定する右寄せの独立したNo.列がなく、04・08・12・16が各「項目・旧文言」の先頭に入った2列組みになっている。
+2026-11-19	p13-corporate-privacy-counsel	b011	build-review	1	V2	OneDrive - 東都文書データ/法務共有/8月19日から_人事で案内する二つの通知.pptx	スライド2〜5の題が型の30ptに対して28pt、全5枚の右下の頁番号が型の10ptに対して9ptで、各スライドのXMLに上書きがある。前回指摘の題色、表紙題、スライド2・4本文のサイズとスライド5の「見出しと本文」レイアウトは解消した。
+2026-11-19	p13-corporate-privacy-counsel	b011	build-review	2	V2	OneDrive - 東都文書データ/法務共有/8月19日から_人事で案内する二つの通知.pptx	全5枚の右下の頁番号は10ptに修正済みだが、番号枠の左・上・幅・高さは12.2・7.13・0.5・0.2インチで、型のREADMEと見本の12・7.05・0.6・0.3インチと異なり、レンダリングでも見本より右下に寄っている。
+2026-11-19	p13-corporate-privacy-counsel	b011	check	2	plan	Documents/メール/2024-08-16_小島さんへ_月曜から添付を分けてください.eml	plan: planned file missing。成形の最終出力：対象のメールは未作成です。指定された添付3件のうち、採用時通知と在職中通知のPDFが指定場所に存在しません。説明用PPTXは存在します。 PDFの2件は今回の対象行に含まれないため作成できず、実ファイルを添付する条件を満たせませんでした。stage・commit・push は行っていません。
+2026-11-19	p09-ux-researcher	b007	check	0	source	Music/Research-interviews/2026-07-06 UX-168 Handoff notebook.m4a	body token overlap 0.000 < 0.8
+2026-11-19	p09-ux-researcher	b007	check	0	source	Music/Research-interviews/2026-07-07 UX-172 Yard call.m4a	body token overlap 0.000 < 0.8
+2026-11-19	p09-ux-researcher	b007	check	0	source	Music/Research-interviews/2026-07-08 UX-176 便番号の復唱.m4a	body token overlap 0.000 < 0.8
+2026-11-19	p09-ux-researcher	b007	check	0	source	Music/Research-interviews/2026-07-09 UX-179 時間帯の差し戻し.m4a	body token overlap 0.000 < 0.8
+2026-11-19	p09-ux-researcher	b007	check	0	source	Music/Research-interviews/2026-07-14 UX-184 Adam held routes.m4a	body token overlap 0.000 < 0.8
+2026-11-19	p09-ux-researcher	b007	check	0	source	Music/Research-interviews/2026-07-16 UX-188 Dispatch board and call.m4a	body token overlap 0.000 < 0.8
+2026-11-19	p09-ux-researcher	b007	check	1	source	Music/Research-interviews/2026-07-06 UX-168 Handoff notebook.m4a	body token overlap 0.000 < 0.8
+2026-11-19	p09-ux-researcher	b007	check	1	source	Music/Research-interviews/2026-07-07 UX-172 Yard call.m4a	body token overlap 0.000 < 0.8
+2026-11-19	p09-ux-researcher	b007	check	1	source	Music/Research-interviews/2026-07-08 UX-176 便番号の復唱.m4a	body token overlap 0.000 < 0.8
+2026-11-19	p09-ux-researcher	b007	check	1	source	Music/Research-interviews/2026-07-09 UX-179 時間帯の差し戻し.m4a	body token overlap 0.000 < 0.8
+2026-11-19	p09-ux-researcher	b007	check	1	source	Music/Research-interviews/2026-07-14 UX-184 Adam held routes.m4a	body token overlap 0.000 < 0.8
+2026-11-19	p09-ux-researcher	b007	check	1	source	Music/Research-interviews/2026-07-16 UX-188 Dispatch board and call.m4a	body token overlap 0.000 < 0.8
+2026-11-19	p09-ux-researcher	b007	check	2	source	Music/Research-interviews/2026-07-06 UX-168 Handoff notebook.m4a	body token overlap 0.000 < 0.8
+2026-11-19	p09-ux-researcher	b007	check	2	source	Music/Research-interviews/2026-07-07 UX-172 Yard call.m4a	body token overlap 0.000 < 0.8
+2026-11-19	p09-ux-researcher	b007	check	2	source	Music/Research-interviews/2026-07-08 UX-176 便番号の復唱.m4a	body token overlap 0.000 < 0.8
+2026-11-19	p09-ux-researcher	b007	check	2	source	Music/Research-interviews/2026-07-09 UX-179 時間帯の差し戻し.m4a	body token overlap 0.000 < 0.8
+2026-11-19	p09-ux-researcher	b007	check	2	source	Music/Research-interviews/2026-07-14 UX-184 Adam held routes.m4a	body token overlap 0.000 < 0.8
+2026-11-19	p09-ux-researcher	b007	check	2	source	Music/Research-interviews/2026-07-16 UX-188 Dispatch board and call.m4a	body token overlap 0.000 < 0.8
+2026-11-19	p13-corporate-privacy-counsel	b011	build-review	0	V2	OneDrive - 東都文書データ/法務共有/8月19日から_人事で案内する二つの通知.pptx	前回指摘の頁番号枠は全5枚で左12・上7.05・幅0.6・高さ0.3インチ、10ptに一致したが、表紙の副題が型の18ptに対して20pt、2・3枚目の左右本文が型の20ptに対して18ptで、見本と文字の大きさが異なる。
+2026-11-19	p13-corporate-privacy-counsel	b011	build-review	0	V1	Documents/メール/2024-08-16_小島さんへ_月曜から添付を分けてください.eml	添付「8月19日から_人事で案内する二つの通知.pptx」はMIME復号後33,044バイト、指定保存版は32,637バイトで、文書プロパティの最終更新者・作成／更新日時・アプリ名と版、およびXMLの直列化に差がある。本文と通知PDF 2件は一致。
+2026-11-19	p13-corporate-privacy-counsel	b011	build-review	1	V1	Documents/メール/2024-08-16_小島さんへ_月曜から添付を分けてください.eml	本文・通知PDF2件は一致したが、添付「8月19日から_人事で案内する二つの通知.pptx」はMIME復号後33,064バイト、指定保存版は32,661バイトで、最終更新者・作成／更新日時・アプリ名と版、およびXMLの直列化が異なる。
+2026-11-19	p13-corporate-privacy-counsel	b011	coordinator	0	other	Documents/Matters/従業員通知改訂/8月15日_二つの通知を突き合わせた紙.pdf	統括の抜き取りで不合格

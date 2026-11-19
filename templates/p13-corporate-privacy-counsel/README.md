@@ -8,7 +8,7 @@
 |---|---|---|---|
 | 方針案・判断資料・取締役会の説明草稿 | 東都文書データサービス、高田から河野へ。標準保存方針の提案・改訂履歴、区分ごとの判断資料、報告する集計と訂正箇所 | `toto-review.docx` | A4縦、紫灰色の題・見出し、文書照合ロゴ、小さな社名ヘッダ、銅色を含むロゴ、罫線表。既定は目的・前提・判断・実施確認の4節 |
 | 相談記録・想定問答 | 同社、高田。藤本や岩崎との相談の経過、前提と留保、河野と確認する取締役会向けの回答案 | `toto-consultation.docx` | 共通用紙、日時・前提・回答・次の対応の4節。想定問答では見出しを質問に差し替える |
-| 実施指示・状況報告・部署照会案 | 同社、高田・藤本・各担当部署。期限と担当の伝達、延長申出、実施報告、保存目的の照会 | `toto-instruction.docx` | 共通用紙、宛先・内容・担当と期限・報告方法の4節。用途に応じ節名を変更 |
+| 実施指示・状況報告・部署照会案・従業員通知 | 同社、高田・藤本・小島・各担当部署。期限と担当の伝達、延長申出、実施報告、保存目的の照会、採用時と在職中の通知 | `toto-instruction.docx` | 共通用紙、宛先・内容・担当と期限・報告方法の4節。用途に応じ節名とフッタの部門名を変更 |
 | 保全区分台帳・棚卸表・委託先質問票・審査一覧 | 同社、藤本・高田・購買。期限確認の担当や代行、保存目的、委託先への質問と審査依頼を管理 | `toto-hold-register.xlsx` | A4横、8列、紫灰色の白抜き見出し、上部に社名と管理欄 |
 | 判断比較表・回答担当対照表・集計条件点検表 | 同社、高田・村田。判断根拠と回答分担を対照し、取締役会報告前の算入条件を点検 | `toto-decision-comparison.xlsx` | 台帳と共通のA4横。既定では長文用のD・E列は各29幅 |
 | 再審査の説明・取締役会の訂正報告 | 同社、高田から河野・藤本または取締役会へ。再審査や、訂正箇所と継続報告を説明 | `toto-legal-brief.pptx` | 16:9、白地、左端の紫灰色帯、小さな社名ロゴ、銅色の下罫線。1マスター、5実レイアウト、スライド0枚 |
@@ -19,6 +19,7 @@
 | 英文再委託先追加通知 | Winslow Records Services、Andrea Powellから東都へ。文書処理を支援する再委託先の追加を通知 | `winslow-subprocessor-notice.cls` | Letter縦、左上の3本のファイル背表紙と社名、青の大見出し、緑青の横罫。下部に英文社名と頁数 |
 | 契約論点書・条項の比較意見 | はるか契約コンサルティング合同会社、菅原美江子から高田へ。再委託先の事前承認や委託終了時の証明条項について助言 | `haruka-contract-issues.cls` | A4縦、右上に向かい合う角括弧と社名、明朝体、臙脂の題と黄土の節目印。下部に細罫と頁数 |
 | 保管箱返却明細・返却控え | 大和田文書保管株式会社、久保正之から東都へ。保管箱の引渡し・受領を確認する明細と紙の控え | `owada-return-record.cls` | A4縦、積み重ねた保管箱の線画と社名、深緑の罫線、淡緑の列見出し。続頁にも列見出し、下部に返却記録・頁数 |
+| 従業員通知の点検所見 | 高瀬労務相談室、千葉京子から東都法務へ。採用時と在職中の利用目的の説明を点検する外部所見と、同室が発行する紙の控え | `takase-notice-review.cls` | A4縦、左上に淡青の吹き出しと室名、右上に所見番号・発行日。青の見出しに細い縦線、淡青の明細見出しを続頁で繰り返し、下部に室名・取扱い・頁数 |
 
 2024年4月の棚卸しでは、高田と藤本が4月10日に整理した28種について、原記録を参照する業務、必要な時点・終期の条件、部署の説明と裏付けを突き合わせる。目的が不明の5種は恒久保存を認めず、照会案に期限を判断するための質問を残す。5種の期限欄は回答と根拠が得られるまで未確定とする。2026年の保全区分台帳とは別の文書番号で管理する。
 
@@ -29,6 +30,7 @@
 - Winslow：3本の背表紙と英文社名。深青 `234B69`、緑青 `16736C`、本文 `252E35`。欧文は `Liberation Sans`。
 - はるか契約コンサルティング：向かい合う角括弧と社名。臙脂 `713539`、黄土 `AE7849`、本文 `342D29`。日本語は `Noto Serif CJK JP`、欧文は `Liberation Serif`。
 - 大和田文書保管：積み重ねた保管箱の線画と社名。深緑 `284E3C`、淡緑 `E5ECE5`、本文 `282D2A`。日本語は `Noto Sans CJK JP`、欧文は `Liberation Sans`。
+- 高瀬労務相談室：小さな吹き出しと室名。青 `29586E` をロゴの線・題・見出し・フッタに、淡青 `E8F1F5` をロゴの地と表見出しに、墨 `253239` を本文と発行情報の値に使う。日本語は `Noto Sans CJK JP`、欧文は `Liberation Sans`。所見番号は `TKR-YYYYMM-ADV-連番3桁`。発行月と実番号は計画に従う。
 - Fairview：段違いの3本の転送タブと英文社名。紺 `173553`、琥珀 `D69239`、本文 `293743`。欧文 `Liberation Sans`、和文 `Noto Sans CJK JP`。WordのNormal、段落・表スタイルとテーマにも設定する。
 - 自社Officeは日本語・欧文とも `Noto Sans CJK JP`、宮坂・野田のWordは日本語・欧文とも `Noto Serif CJK JP`。TeXは日本語 `Noto Sans CJK JP`、欧文 `Liberation Sans`。既定Normal、見出し、表、入力用管理セルにも実設定し、Officeテーマのフォントと主色も設定した。
 - Wordは社名ヘッダと組織・部門／用途・自動頁番号のフッタ。Excelは社名上段と社名・法務部・頁数の印刷フッタ。PPTXはマスター上のロゴ・社名・罫線・部門表記。東都のTeXは社名ヘッダと部門・現在頁／総頁のフッタ、案件名は文書ごとに指定できる。
@@ -173,21 +175,31 @@ Fairview案件の法務共有用の合意条件要旨と、3月18日の紙の点
 - 紙の承認票と窓口用の配布手順は `toto-review-sheet.cls` を開き、`\ReviewMatter{開示相談受付改訂}` を指定する。承認票の原紙はCHK番号で組み、`\ReviewDecision` に河野の判断を記してから `bin/scan` に通す。窓口の手順はINS番号のテキストPDFで、四問を使う場面、回答を照合できる範囲、判断が残る場合の法務への相談条件を節で分ける。
 - 応答練習メモは聞き過ぎた発言と代わりの応答をTXTに、社内説明ページは題・発行部署・日付・本文をHTMLに保存する。増田への回答は原稿の送受信者・日時（JST）・件名・本文をEMLに保存する。返信元がある場合はそのMessage-IDを参照する。
 
+## 2024年8月の従業員通知改訂
+
+- 小島の現行通知と、配布用の採用時通知・在職者通知は `toto-instruction.docx` を開く。先頭に実題と管理行を追加し、発行部署を人事部とする。フッタの部門名も人事部に置き換え、社名と自動頁番号を保持する。見出しは対象、利用目的、確認・変更の手続、問い合わせ窓口を起点に原稿に合わせる。配布用PDFは完成したWordから出力する。対象を取り違えた旧案と赤字案は `toto-review.docx` を使う。修正を段落で示すときは `TD Redline`、段落の一部なら該当する文字に同じ赤 `B02032` を当て、取り消す文字に取り消し線を付ける。
+- 目的別対照表は `toto-decision-comparison.xlsx` を開く。A6:H6は「No.／通知項目／旧文案／具体的な利用目的／採用時に説明する事項／在職中に補う事項／扱い／照合・補足」、列幅は順に `9, 21, 24, 27, 29, 29, 13, 20` を起点にする。6行目は34pt、明細は42ptを起点に調整し、A列は `TD Number`、B〜G列は `TD Text`、H列は `TD Note`。18項目を同じ表に置き、目的を改める4項目は扱い欄から見分けられるようにする。集計を置く場合は最終明細の次のB・E列にラベル、C・F列にそれぞれA列の `COUNT` とG列の該当する扱いの `COUNTIF` を入れ、`TD Total` でラベルを左寄せ、数値を右寄せし、左右ともインデントを1にする。管理欄と印刷は「Excelの成形」に従う。
+- 千葉が発行する所見は `\documentclass{takase-notice-review}` を使う。本文冒頭に `\TakaseReview{題}{所見番号}{和文発行日}{担当相談員}{受領組織・部署}` を置く。宛先の「御中」は型が付ける。本文は11pt、左右22mm、上33mm、下24mm。節は `\TakaseSection{見出し}`。明細が必要なら `TakasePoints` 環境に「右寄せの番号 & 照会箇所 & 所見・確認事項」の行を追加し、各行を `\\\hline` で閉じる。セルの左右各8ptの余白で番号と照会箇所を離す。
+- 紙の確認控えは、東都が照合結果を記録した控えなら `toto-review-sheet.cls` と `\ReviewMatter{従業員通知改訂}`、千葉が発行した所見の紙控えなら `takase-notice-review.cls` を使う。原稿にある照合対象・結果を原紙に入れてから `bin/scan` に通す。所見本文と社内の配布判断は発行元に応じて記録する。
+- 人事担当向けの説明は `toto-legal-brief.pptx` の2段で採用時・在職中の案内を対照し、問い合わせの受付と引継ぎは本文または図のレイアウトで示す。社内掲示の保存HTMLには題・発行部署・掲載日・対象別の案内と原稿中の参照先を載せる。手元の論点メモは原稿の問いと確認先をTXTまたはMarkdownに保存する。
+
 ## 見本と検証
 
-見本と全頁画像は今回の作業フォルダにある。TeXは各原稿と同名のPDFをレンダリングした。見本の文書番号・質問文・明細数・日付は印刷確認用。成果物の管理欄と内容は計画と原稿に従う。 [見本](../../scratch/p13-corporate-privacy-counsel/b010/work/templates-0002/examples/)・[全頁画像](../../scratch/p13-corporate-privacy-counsel/b010/work/templates-0002/render/)
+見本の文書番号・本文・明細数・日付は印刷確認用。成果物の管理欄と内容は計画と原稿に従う。TeXの原稿名とPDF名は拡張子以外は共通。 [b011の見本](../../scratch/p13-corporate-privacy-counsel/b011/work/templates-0002/examples/)・[全頁画像](../../scratch/p13-corporate-privacy-counsel/b011/work/templates-0002/render/)
 
 | 確認した型・用途 | 見本ファイル |
 |---|---|
-| Word社内相談・実施指示・判断資料 | `toto-consultation.docx`、`toto-instruction.docx`、`toto-review.docx`、`toto-review-continuation.docx` |
-| 宮坂・野田の回答とFairviewの証明明細 | `miyasaka-noda-advice.docx`、`fairview-transfer-record.docx`、`fairview-transfer-record-continuation.docx` |
-| Excel追跡表・判断比較表の少量と続頁、開示相談の七問の対照 | `toto-hold-register-3.xlsx`、`toto-hold-register-23.xlsx`、`toto-decision-comparison-3.xlsx`、`toto-decision-comparison-23.xlsx`、`toto-disclosure-question-comparison.xlsx` |
+| Wordの社内相談・実施指示・判断資料と従業員通知2種 | `toto-consultation.docx`、`toto-instruction.docx`、`toto-review-short.docx`、`toto-review.docx`、`toto-employee-notice-001.docx`、`toto-employee-notice-002.docx` |
+| 宮坂・野田の回答とFairviewの証明明細 | `miyasaka-noda-advice.docx`、`fairview-transfer-record-short.docx`、`fairview-transfer-record.docx` |
+| Excelの追跡表・判断比較表の少量と続頁 | `toto-hold-register-3.xlsx`、`toto-hold-register-23.xlsx`、`toto-decision-comparison-3.xlsx`、`toto-decision-comparison-23.xlsx` |
+| 従業員通知の目的別対照表の少量と続頁 | `toto-employee-notice-comparison-4.xlsx`、`toto-employee-notice-comparison-18.xlsx` |
 | PowerPointの5レイアウト | `toto-legal-brief.pptx` |
-| TeXの確認票・開示相談の承認票と配布手順 | `toto-review-sheet-3.tex`、`toto-review-sheet-35.tex`、`toto-review-sheet-approval.tex`、`toto-review-sheet-procedure.tex` と各PDF、承認票の `toto-review-sheet-scan.pdf` |
-| TeXの棚卸し論点表と大和田返却明細の少量と続頁 | `toto-retention-issues-3.tex`、`toto-retention-issues-35.tex`、`owada-return-record-3.tex`、`owada-return-record-35.tex` と各PDF |
+| TeXの確認票と従業員通知の紙控え | `toto-review-sheet-3.tex`、`toto-review-sheet-39.tex`、`toto-employee-notice-paper.tex` と各PDF、紙控えの `toto-employee-notice-paper-scan.pdf` |
+| TeXの棚卸し論点表と大和田返却明細の少量と続頁 | `toto-retention-issues-3.tex`、`toto-retention-issues-39.tex`、`owada-return-record-3.tex`、`owada-return-record-39.tex` と各PDF |
 | 外部の英文通知・契約論点書 | `winslow-subprocessor-notice.tex`、`haruka-contract-issues.tex` と各PDF |
+| 高瀬労務相談室の所見の少量と続頁 | `takase-notice-review-4.tex`、`takase-notice-review-18.tex` と各PDF |
 
-全見本の画像パスと数式の検算結果を記録した。 [render-results.json](../../scratch/p13-corporate-privacy-counsel/b010/work/templates-0002/render-results.json)
+見本ごとの画像パスとExcelの検算結果。 [render-results.json](../../scratch/p13-corporate-privacy-counsel/b011/work/templates-0002/render-results.json)
 
 OfficeとPDFの完成ファイルは、`bin/stamp --author "<原稿の作成者>" --date "<原稿の日付>" --timezone Asia/Tokyo <ファイル>` で内部属性を合わせる。更新者や初版日が異なるときは `--modified-by` と `--created` を指定する。
 
