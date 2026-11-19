@@ -1,0 +1,11 @@
+---
+path: Documents/Change-decisions/SVC-17 queue at the April review.csv
+kind: text
+author: Matthew Pickering
+derived_from:
+---
+Feature,Affected surface,Decision needed,Pre-meeting status,User-visible acceptance question
+Checkout saved-card prompt,Checkout saved-card selection,Whether to schedule for production,Awaiting decision,Does the prompt label the saved card clearly enough to distinguish the card being selected?
+Receipt resend link,Receipt view,Whether to schedule for production,Awaiting decision,Does the resend link lead the customer to the right receipt destination?
+Pending-payment banner,Payment status view,Whether to schedule for production,Awaiting decision,Does the banner wording remain accurate while the payment outcome is delayed?
+Wallet button placement,Checkout payment choices,Whether to schedule for production,Awaiting decision,Are wallet and other payment choices presented in the intended order?

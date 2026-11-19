@@ -148,3 +148,27 @@
 - BRT-TC-20250915-001 is dated 15 September: v0.1 on the printout and the hand-marked scan, v1.0 on the issued DOCX and its PDF. Claire's notice points to v1.0. Hannah holds the one receipt list and phones only the missing desks after three minutes.
 - The card distinguishes “Exercise only: switch to the continuity procedure for the exercise booking. Keep serving live customers as usual.” from the live cue “Switch to the ticket office continuity procedure now. Keep issuing staffed tickets under the local procedure until Fairfield Operations gives the all-clear.” Hannah only gives the live cue after Fairfield Operations authorises the switch. The matching receipt phrases are “exercise switch received” and “switch received”.
 - “Fairfield desk card for the folders”, 15 September 15:53 BST, Claire → Hannah, Cc Daniel, standalone with Fairfield staffed desk switch card.pdf and September desk readbacks.csv as separate attachments. The PDF goes at the desks; the CSV stays with the exercise records.
+
+## Fare Payments Q4 availability readout, 14 January 2025
+
+- BRT Fare Payments elapsed-time availability covers 1 October 2024 00:00 to 1 January 2025 00:00 UTC, start inclusive and end exclusive. Oct/Nov/Dec eligible seconds are 2,678,400 / 2,592,000 / 2,678,400; unavailable seconds are 552 / 2,520 / 1,728.
+- Two distinct Faregate interruptions contributed 2,520 seconds (42:00) in November and 1,368 (22:48) in December. They were counted once each and total 3,888 seconds, 81% of the 4,800 unavailable seconds; the other interruptions account for 912 seconds (15:12).
+- Q4 availability is 99.94% rounded, from 1 − 4,800 / 7,948,800. Take the ratio across the whole window; the 81% uses unavailable seconds as its denominator. The service's 99.9% target is monthly.
+- On 14 January at 11:00 UTC Daniel Jennings reports to Anjali Shah with Matthew Pickering present. Anjali prioritises Matthew's previous-route rehearsal by 24 January, then Daniel's checkout watch check by 31 January, deferring broader work. BRT-MT-20250114-001 is the issued readout/report and its unchanged PDF.
+- “Q4 Faregate windows for the Tuesday report” thread, GMT: (1) 13 January 14:06 Daniel → Matthew, requests confirmation by 14 January 09:30 UTC; (2) 14 January 08:47 Matthew → Daniel, “Re: Q4 Faregate windows for the Tuesday report”, quotes (1). Neither message has attachments.
+- “Q4 Fare Payments report and monthly figures”, 14 January 12:32 GMT, Daniel → Anjali, Cc Matthew, standalone with Fare Payments availability - October to December.pdf and Fare Payments availability Oct to Dec 2024.csv attached.
+
+## Fare Payments change closeout evidence review, 9 July 2025
+
+- Daniel Jennings and Matthew Pickering review 14 checks at 10:00 UTC on 9 July. The retained change material supports 11; the three unlocated completion records concern fallback route confirmation, the first watched checkout outcome and the second engineer's closeout readback. Execution of those three is undetermined.
+- BRT-MT-20250709-001 records the review. The historical rollout end stamp is present and remains separate from verification; the two engineers leave the three gaps open. The Bristol board photo is Daniel's at 11:36 BST.
+- Daniel's 8 July wording accepts the spoken all-clear. The guidance issued 9 July requires a time and observed result for the fallback/checkout checks and a named, timed second-engineer readback; while anything is outstanding, duty carries a named owner and next check with closeout open.
+- “Three gaps for Wednesday”, 8 July 16:02 BST, Matthew → Daniel, standalone with no attachment. “Fare Payments closeout from the next change”, 9 July 15:37 BST, Daniel → Matthew and Carys Morgan, standalone with When a payments change is complete.md attached.
+
+## SVC-17 feature deferral, 7 April 2026
+
+- BRT-EB-20260407-001 covers 1 April 00:00 to 7 April 08:00 UTC, end exclusive. Cumulative Fare Payments allowance at 99.9% is 600 failures on 600,000 eligible attempts; 570 used, 30 remaining (5.0%). This month-to-date attempt-based balance excludes the rest of April.
+- Daniel Jennings presents BRT-RB-20260407-001 to Anjali Shah and Matthew Pickering at the 7 April 10:00 UTC review. SVC-17 is the review reference. The four proposals are Checkout saved-card prompt, Receipt resend link, Pending-payment banner and Wallet button placement.
+- Anjali's issued BRT-CD-20260407-001 and its unchanged PDF defer all four from April–May production scheduling until a June review on the budget evidence. Preparation outside production can continue.
+- At the scheduled 2 June 10:00 UTC checkpoint Daniel is to bring a fresh budget balance and Matthew the queue and evidence plan. A further recorded Operations decision is required for production scheduling; the checkpoint sets no release date.
+- “SVC-17 - approved deferral to June review”, 7 April 12:44 BST, Anjali → Daniel and Matthew, Cc Claire Hutchinson, standalone with SVC-17 - April deferral decision.pdf and April budget before SVC-17.xlsx attached. Claire's 8 April notice keeps launch wording and customer training dates open.

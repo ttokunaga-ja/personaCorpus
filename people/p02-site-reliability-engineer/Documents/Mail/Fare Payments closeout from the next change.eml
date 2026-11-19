@@ -1,0 +1,77 @@
+From: Daniel Jennings <daniel@brt-booking.example>
+To: Matthew Pickering <matthew@brt-booking.example>,
+ Carys Morgan <carys@brt-booking.example>
+Date: Wed, 09 Jul 2025 15:37:00 +0100
+Subject: Fare Payments closeout from the next change
+Message-ID: <b8df973092ea4d3ca50e7f693c75dd2f@brt-booking.example>
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="===============8547435909854715810=="
+
+--===============8547435909854715810==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hi Matthew and Carys,
+
+I've attached the closeout wording for the next Fare Payments change. At this=
+ morning's review Matthew and I could find records for 11 of the 14 checks, b=
+ut not completion records for the fallback route confirmation, first watched =
+checkout outcome or second engineer's readback. We cannot tell from the missi=
+ng records whether those checks happened, so the historical gaps remain open.
+
+For the next change, please have the change owner record the confirmed fallba=
+ck route and confirmation time, and the time and observed outcome of the firs=
+t watched checkout. The second engineer should enter their own name, readback=
+ time and what they confirmed in the change record. A spoken all-clear is not=
+ enough to close it.
+
+Keep rollout end as its own timestamp. If either entry is still awaited, or a=
+ny other required evidence is missing, leave verification and closeout open a=
+nd hand over the outstanding item to duty with a named owner and next check t=
+ime. That gives the next engineer someone to follow up with.
+
+Thanks,
+Daniel
+
+--===============8547435909854715810==
+Content-Type: text/markdown
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment;
+ filename="When a payments change is complete.md"
+MIME-Version: 1.0
+
+IyBXaGVuIGEgRmFyZSBQYXltZW50cyBjaGFuZ2UgaXMgY29tcGxldGUKCjkgSnVseSAyMDI1IMK3
+IERhbmllbCBKZW5uaW5ncwoKRm9yIE1hdHRoZXcgYW5kIHRoZSBkdXR5IGVuZ2luZWVycywgZnJv
+bSB0aGUgbmV4dCBjaGFuZ2UuCgojIyBSb2xsb3V0IGFuZCBoYW5kb3ZlcgoKV2hlbiByb2xsb3V0
+IGVuZHMsIHRoZSBjaGFuZ2Ugb3duZXIgcmVjb3JkcyB0aGUgcm9sbG91dCBlbmQgdGltZSBzZXBh
+cmF0ZWx5LiBUZWxsIGR1dHkgd2hhdCBjaGFuZ2VkLCB0aGUgcm91dGUgYXZhaWxhYmxlIGlmIHdl
+IG5lZWQgdG8gZ28gYmFjayBhbmQgd2hhdCB0aGUgd2F0Y2ggY292ZXJzLiBIYW5kIG92ZXIgYW55
+IGlzc3VlIHN0aWxsIGJlaW5nIHdhdGNoZWQgdG8gdGhlIGR1dHkgZW5naW5lZXIuIEFuIGVuZCBz
+dGFtcCBzYXlzIHdoZW4gcm9sbG91dCBlbmRlZDsgaXQgZG9lcyBub3QgZXN0YWJsaXNoIHRoYXQg
+dmVyaWZpY2F0aW9uIG9yIHRoZSBjaGFuZ2UgaXMgY29tcGxldGUuCgojIyBSZWNvcmQgYmVmb3Jl
+IGNsb3Nlb3V0CgpUaGUgY2hhbmdlIG93bmVyIHB1dHMgdGhlIGZvbGxvd2luZyBpbiB0aGUgY2hh
+bmdlIHJlY29yZDoKCi0gVGhlIGZhbGxiYWNrIHJvdXRlIGNvbmZpcm1lZCBmb3IgdGhlIGNoYW5n
+ZSBhbmQgdGhlIHRpbWUgb2YgdGhhdCBjb25maXJtYXRpb24uCi0gVGhlIHRpbWUgb2YgdGhlIGZp
+cnN0IHdhdGNoZWQgY2hlY2tvdXQgYW5kIGl0cyBvYnNlcnZlZCBvdXRjb21lLgoKVGhlIHNlY29u
+ZCBlbmdpbmVlciByZWNvcmRzIHRoZWlyIG93biBuYW1lLCB0aGUgdGltZSBvZiB0aGVpciBjbG9z
+ZW91dCByZWFkYmFjayBhbmQgd2hhdCB0aGV5IGNvbmZpcm1lZC4gQSBzcG9rZW4gYWxsLWNsZWFy
+IG9uIHRoZSBjYWxsIGlzIG5vdCBhIHN1YnN0aXR1dGUgZm9yIHRoYXQgcmVjb3JkLiBPbmNlIHRo
+ZSByZXF1aXJlZCBldmlkZW5jZSBpcyBwcmVzZW50LCByZWNvcmQgY2hhbmdlIGNvbXBsZXRpb24g
+c2VwYXJhdGVseSBmcm9tIHJvbGxvdXQgZW5kLgoKSWYgYW55IHJlY29yZCBpcyBhYnNlbnQsIGxl
+YXZlIHZlcmlmaWNhdGlvbiBhbmQgY2xvc2VvdXQgb3Blbi4gVGhlIGhhbmRvdmVyIHRvIGR1dHkg
+bXVzdCBpZGVudGlmeSB0aGUgb3V0c3RhbmRpbmcgaXRlbSwgYSBuYW1lZCBvd25lciBhbmQgdGhl
+IG5leHQgY2hlY2sgdGltZSwgc28gdGhhdCB0aGUgcmVjZWl2aW5nIGVuZ2luZWVyIGtub3dzIHdo
+byB3aWxsIGZvbGxvdyBpdCB1cC4gQSBtaXNzaW5nIHJlY29yZCBkb2VzIG5vdCBieSBpdHNlbGYg
+c2hvdyB0aGF0IGEgY2hlY2sgd2FzIG5vdCBwZXJmb3JtZWQuCgojIyBFdmlkZW5jZSBmb3VuZCBs
+YXRlcgoKRW50ZXIgYSBsYXRlIHJlY29yZCB3aXRoIHRoZSBkYXRlIGFuZCB0aW1lIGl0IGlzIGFj
+dHVhbGx5IHJlY29yZGVkLCBpZGVudGlmeWluZyB0aGUgZXZpZGVuY2UgcmVjb3ZlcmVkIGFuZCBp
+dHMgc291cmNlLiBJbmNsdWRlIHRoZSBvcmlnaW5hbCBjaGVjayB0aW1lIG9ubHkgaWYgdGhlIGV2
+aWRlbmNlIHN1cHBvcnRzIGl0LiBEbyBub3QgdXNlIHRoZSByb2xsb3V0IGVuZCBvciBjYWxsIHRp
+bWUgYXMgYSBndWVzc2VkIGNvbXBsZXRpb24gdGltZSwgYW5kIGRvIG5vdCBiYWNrZmlsbCBhbiB1
+bnN1cHBvcnRlZCBjaGFuZ2UgY29tcGxldGlvbiB0aW1lLiBMZWF2ZSBhbnkgc3RpbGwgdW5zdXBw
+b3J0ZWQgdmVyaWZpY2F0aW9uIG9wZW4gd2l0aCBhbiBvd25lciBhbmQgbmV4dCBjaGVjay4KClRo
+ZSA5IEp1bHkgcmV2aWV3IGxlZnQgdGhlIHRocmVlIGhpc3RvcmljYWwgdmVyaWZpY2F0aW9uIHJl
+Y29yZHMgdW5yZXNvbHZlZDsgdGhpcyBndWlkYW5jZSBkb2VzIG5vdCBjbG9zZSB0aG9zZSBnYXBz
+Lgo=
+
+--===============8547435909854715810==--

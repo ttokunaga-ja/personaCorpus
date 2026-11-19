@@ -1,0 +1,8 @@
+Payments change — wording to take to Matthew
+8 July 2025
+
+When the rollout ends, the change owner should tell duty what was changed, the route available if we need to go back and what the watch is covering. The owner hands over any issue still being watched to the duty engineer.
+
+Close after the second engineer gives the all-clear on the call. The change owner can then pass the handover to duty with the end time and any remaining observation.
+
+Question for Matthew: if the readback is only spoken, where can duty recover what the second engineer actually confirmed the following morning?
