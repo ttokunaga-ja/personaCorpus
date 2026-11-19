@@ -164,3 +164,11 @@ PDFで保管する引継ぎ案内・施主確認書は、それぞれのWord型�
 - 小野の配置図は既存の `tex:hakushima-drainage.cls`、坂本の照会・配置図は `tex:minatoryo-zone-plan.cls`、西村の確認票は `tex:minatoryo-field-sheet.cls` を使う。英文照会図は自社の図枠のまま、図題・寸法注記・凡例・質疑を英語で記載する。
 - 照合ブックは `minatoryo-punch-list.xlsx`（現況・確認事項）と `minatoryo-change-cost.xlsx`（寸法・案比較）を開く。B1の題・4行目の列名・列幅・印刷範囲を文書の用途に合わせ、寸法差はmmの数値と式で入れる。協議録・採用理由は `minatoryo-change-note.docx`、現場日報は `minatoryo-daily.docx` を使う。
 - 自社の題・文書番号・版・日付・作成者は計画と台帳に従う。型なしの `text`、`photo`、`diagram`、`scan:handwriting` は上記の作り方による。小野の旧配置図に赤字を加える場合は `scan:tex:hakushima-drainage.cls` とし、元PDFを保持して赤字のみ加える。
+
+## 海田研修棟の材料承認
+
+- 太田の提出一覧・受領控えは `minatoryo-document-index.xlsx`、仕様照合・差戻し・購買管理は `minatoryo-punch-list.xlsx`。B1の帳票名と4行目の列を用途に合わせ、管理欄と反復見出しを残す。提出日・返却日・期限・再回答日には実日付を使い、未着の返却日や回答日を空欄にする。受付、設計判定、手配状態を別項目にする。
+- 自社の協議録・再提出依頼は `minatoryo-change-note.docx`。配布PDFは同版のWordから書き出す。三篠電設分も、田村の仕様値を西村が取りまとめて湊梁建設から出す提出表紙に載せる場合は自社帳票。材料提出資料と持出し票は `tex:minatoryo-field-sheet.cls` の管理欄を使い、設計要求・提出値・判定根拠の対応が表で読めるように組む。
+- 小野の返却回答は `tex:hakushima-drainage.cls`。図番・版欄を回答番号・版として使い、「状態・縮尺」欄には初回回答・再回答・保留通知などの状態を記し、図示がなければ縮尺対象外とする。自社番号は従来の海田研修棟系列に MA（材料台帳）・MS（材料提出資料）を加え、協議・依頼は MT、確認票は CK。M-番号は材料の照合番号で、文書番号・版とは別に扱う。
+- 紙の見本確認票は `scan:tex:minatoryo-field-sheet.cls`。原紙をwork内で組み、レンダリング画像に手書きだけを加えてから `bin/scan` に通す。坂本の野帳は `scan:handwriting`。原紙が配布物にない場合は原稿に印字と筆記の内容をそれぞれ記載する。
+- `photo`（見本台の比較写真）、`text`（EML・提出一覧のCSV出力）、`scan:handwriting`（個人手帳）は型なし。見本写真は撮影日と対象室の通り芯で整理し、置き見本や端材を写す。施工面を写す完成記録への流用はしない。
