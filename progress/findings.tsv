@@ -1838,3 +1838,12 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-19	p19-educator-instructional-designer	b003	build-review	1	V3	Google Drive/My Drive/Teaching/根拠から組む提案/Which change flips the recommendation.pptx	表紙の青紫46 ptは型と一致するが、1〜5枚目すべてで右下の通し番号の上端がフッタ罫線と重なる。見本の番号は罫線の下に離れている。
 2026-11-19	p16-clinical-researcher	b003	coordinator	0	other	Documents/Study-評価物質の低用量観察研究/実施状況/0121_六件で見てほしいところ.pdf	統括の抜き取りで不合格
 2026-11-19	p16-clinical-researcher	b003	coordinator	0	other	Documents/事務局メモ/0124_先に付箋を貼ったら.txt	統括の抜き取りで不合格
+2026-11-19	p12-support-success-lead	b005	templates-review	0	other	README.md	「組版の確認見本」が参照する scratch/p12-support-success-lead/b004/work/templates-0006/ が存在せず、記載された samples/ と render/ の見本を開けない。型一覧の10ファイルと bin/tex・bin/recalc は実在する。
+2026-11-19	p12-support-success-lead	b005	draft-review	0	D4	Documents/支援品質/公開後に開き直した3ページ.csv	「末尾の停止条件」欄の13:12行は「対象の受付や照合した値を確認できないとき」とするが、該当HTML末尾は連絡と一致する受付番号を確認できない場合を指す。13:21行は「現担当や引受を確認できないとき」とするが、該当HTML末尾は当番から返事がないか、復唱した受付番号・残作業が一致しない場合を指し、現担当の確認は途中の別節にある。
+2026-11-19	p12-support-success-lead	b005	draft-review	0	D4	Documents/エスカレーション/24日_試せなかったところ.md	13「所属変更前の受付」で変更前の役割・所属の記録を「現在の設定を見る前提として必要」としているが、2月の現行案内では現在の役割・所属は利用者一覧で確認でき、台帳と確認表で不足している記録は変更前後の閲覧範囲を比較するためのもの。
+2026-11-19	p12-support-success-lead	b005	draft-review	0	D10	Documents/ナレッジ改訂/一覧と通知で困ったとき_工藤さんの指摘.docx	原稿9行目は第0.1版と記し、12〜14行目のコメント対象も旧稿と一致するが、指摘入り控え自身の管理欄に入れる文書番号TS-CS-202504-ANS-001がこの原稿に記載されていない（派生元原稿8行目にのみ記載）。
+2026-11-19	p12-support-success-lead	b005	build-review	0	V3	Pictures/交替前の通知を見たら現在の担当を開く.png	左の通知と中央の個別受付を結ぶ琥珀色の線が左枠内の空白から中央見出し「個別受付」の「個」の下部に重なり、原稿で指定された両枠の受付番号3114を結んでいない。
+2026-11-19	p05-bi-data-analyst	b004	build-review	0	V1	OneDrive - 織庭生活雑貨/指標辞典/MTR-09_GMVの定義.docx	1ページ目「例：4月2日受注、4月7日10:00時点」の表で、原稿の表組みが右揃えを指定する「GMV（受注額）」列のA行0円とB行8,800円が左揃えになっている。
+2026-11-19	p05-bi-data-analyst	b004	build-review	0	V2	Documents/通販/返品と取消/2026-04-06_返品まで受注から引いてみた.xlsx	「引き算の試し」のD7・E7・C8・E8が印刷1ページ目で「0」と表示され、oriba-weekly.xlsxのOR Amountが定めるゼロ表示「—」を使っていない。
+2026-11-19	p05-bi-data-analyst	b004	build-review	0	V2	Documents/営業会議/2026/04/2026-04-07_MTR-09の書きかけ.docx	1ページ目「5件で確かめること」の明細A〜Eで、原稿の表が右寄せを指定する「GMV候補」と「出荷額−返金完了額」の2列が左寄せで組まれている。
+2026-11-19	p05-bi-data-analyst	b004	build-review	0	V2	Documents/営業会議/2026/04/2026-04-07_MTR-09_石井さんの赤字.docx	1ページ目「5件で確かめること」の明細A〜Eで、原稿の表が右寄せを指定する「GMV候補」と「出荷額−返金完了額」の2列が左寄せで組まれている。
