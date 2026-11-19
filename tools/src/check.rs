@@ -607,6 +607,38 @@ fn print_source(parent: &str, body: &str, request: &str) -> String {
     body.to_owned()
 }
 
+// A Word revision can supply complete replacement text under the draft's headings.
+// Keep inherited text outside those sections, including the document control block.
+fn revised_word_source(parent: &str, changes: &str) -> String {
+    let mut headings = HashSet::new();
+    let mut replacements = false;
+    let mut current = None;
+    for line in changes.lines().map(str::trim) {
+        if line.contains("それぞれの本文を以下で差し替える。") {
+            replacements = true;
+        } else if line.starts_with('#') {
+            current = replacements
+                .then_some(line)
+                .filter(|s| s.starts_with("## "));
+        } else if !line.is_empty() {
+            if let Some(heading) = current.take() {
+                headings.insert(heading);
+            }
+        }
+    }
+    let mut replaced = false;
+    let retained = parent
+        .lines()
+        .filter(|line| {
+            if line.trim_start().starts_with('#') {
+                replaced = headings.contains(line.trim());
+            }
+            !replaced
+        })
+        .collect::<Vec<_>>()
+        .join("\n");
+    retained + "\n" + changes
+}
 fn source(
     root: &Path,
     rel: &str,
@@ -653,6 +685,8 @@ fn source(
             } else {
                 printed + "\n" + &body
             }
+        } else if rel.ends_with(".docx") && parent.ends_with(".docx") {
+            revised_word_source(&parent_body, &body)
         } else {
             parent_body + "\n" + &body
         };
@@ -2865,5 +2899,40 @@ mod workbook_manuscript_tests {
                 .contains(missing)
             );
         }
+    }
+}
+
+#[cfg(test)]
+mod derived_word_tests {
+    use super::*;
+
+    #[test]
+    fn explicit_section_replacement_excludes_only_superseded_prose() {
+        let dir = tempfile::tempdir().unwrap();
+        let parent = "# Draft\nIssuer: BRT\n## Scope\nRetired draft wording.\n## Contacts\nContact Operations.";
+        let child = "既存の節の見出しを使い、それぞれの本文を以下で差し替える。\n\n## Scope\nOnly the confirmed point is covered.";
+        for (name, from, body) in [("draft", "", parent), ("issue", "draft.docx", child)] {
+            std::fs::write(dir.path().join(format!("{name}.docx.md")),
+                format!("---\npath: {name}.docx\nkind: sample.docx\nauthor: Editor\nderived_from: {from}\n---\n{body}")).unwrap();
+        }
+        let resolve = || source(dir.path(), "issue.docx", &mut Vec::new()).unwrap().1;
+        let expected = resolve();
+        assert!(!expected.contains("Retired draft wording."));
+        for kept in [
+            "Issuer: BRT",
+            "Contact Operations.",
+            "Only the confirmed point is covered.",
+        ] {
+            assert!(expected.contains(kept));
+        }
+        let file = dir.path().join("issue.docx.md");
+        std::fs::write(
+            &file,
+            read(&file)
+                .unwrap()
+                .replace("それぞれの本文を以下で差し替える", "コメントを追加する"),
+        )
+        .unwrap();
+        assert!(resolve().contains("Retired draft wording."));
     }
 }
