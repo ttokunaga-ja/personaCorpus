@@ -40,7 +40,7 @@
 - CR/12/A 023r 4–6行、1861-03-04。書記→会員、会計係へ四半期会費1フラン50を払うよう督促。期限経過と別会計のランプ寄付の間にある `cotisation du trimestre` を「donation」から「quarterly subscription」へ。
 - CR/12/B 037r 6–8行、1863-02-16。会計係→当番、石炭用の封筒に入った寄付2フランを自分に渡すよう依頼。`offrande pour le charbon` と次行の別建ての会費記帳から「subscription instalment」→「gift for coal」。
 - CR/13/A 085r 3–5行、1862-10-28。書記→会員、会員1人につき同伴者1人を案内し、暖房への寄付を会員・客の任意とする。`offrande libre` と寄付なしでも迎える次文から「admission charge」→「voluntary gift」。
-- CR/14/A 173r 5–7行、1866-01-29。委員会を代理する書記→会計係、ある会員の会費を2月12日より前に請求せず、以後は通常の催促に戻す。`dispense jusqu'au 12 février` を「waiver of dues」から「deferment of collection」へ。金額と利用条件は記載なし。
+- CR/14/A 173r 5–7行、1866-01-29。委員会を代理する書記→会計係、ある会員の会費を2月12日より前に請求せず、12日の後に通常の催促に戻す。`dispense jusqu'au 12 février` を「waiver of dues」から「deferment of collection」へ。金額と利用条件は記載なし。
 - CR/14/A 182r 4–6行、1866-02-15。会員→書記、ストーブ用として申し出た1フランを受け取ってほしいと頼む。前文の会費未納と後文の金曜持参予定から「subscription instalment」→「gift for the stove」。
 - CR/14/A 186r 7–9行、1866-03-19。書記→当番、未納会員から館外へ本を持ち出す前に未払の会費を受け取るよう指示。前文が館内閲覧を認め、後文が会計係への引渡しを指示するため「charge at the door」→「subscription arrears before borrowing」。
 - CR/14/B 202r 3–5行、1868-10-13。当番→会計係、木曜のランプ用に預かった未使用の75サンチームを差出人へ返すため自分に戻すよう依頼。前後の預りと返却先の記述から「rebate of dues」→「return of the unused gift」。
@@ -50,3 +50,30 @@
 - 訳稿メール② 2024-10-22 14:48 BST、Julie → Judith、件名「Re: Seven passages for Thursday」。①の作業依頼を引用し、コメント付き v0.2 の DOCX を添付。Word のコメント日時は同日14:21 BST。
 - 章稿メール① 2024-10-29 15:41 GMT、Judith → Roger Hewitt、件名「Chapter 2: two changes after the French check」。考察 v0.2 の DOCX と10月25日の対訳PDFを添付。
 - 章稿メール② 2024-10-30 11:32 GMT、Roger → Judith、件名「Re: Chapter 2: two changes after the French check」。①の章への反映を引用し、両訂正を残して7月の留保を維持するよう指示。添付なし。
+
+## 1月の地名照合と原綴りによる索引
+
+- 2025-01-08、Camille Laurent から閲覧用追加紙複写12葉が York に到着。CR/12/A 014–015、CR/12/B 041–042、CR/13/A 089–090、CR/13/B 124–125、CR/14/A 176–177、CR/14/B 205–206。公表許諾は含まない。
+- 1月15日10:00–11:35 GMT、York で Judith Morris と Stefan Albrecht がこの紙束の地名の異綴り46出現箇所を照合（箱12は12、箱13は14、箱14は20）。38箇所を同定し、8箇所は原綴りから引く独立行として残す。地点数・人物数には換算せず、未同定の参照先欄は空欄。
+- 同定の例は CR/13/A f. 089r l. 3 の「Clairpré」（1862-11-04）と f. 090r l. 3 の「Clerpré」（11-06）。後者は4日付案内の石橋脇の集合時刻だけを訂正する。両行の索引見出しは Clairpré。
+- 箱12の未同定は「le Pré des Ormes」CR/12/A f. 014r l. 4 と「les Hautes Bornes」CR/12/B f. 042r l. 6。前者は納付の受付、後者は明細受渡しの目印で、区や町が示されない。
+- 箱13の未同定は「Bas-Maret」CR/13/A f. 089r l. 7 と「la Combe aux Joncs」CR/13/B f. 125r l. 5。前者は集合通知の便の出発地、後者は引継ぎの待合せ場所で、所在を裏付ける記述がない。
+- 箱14の未同定は「Val d’Erne」CR/14/A f. 176r l. 4 と「la Côte aux Ifs」CR/14/A f. 177r l. 6、「Brévalette」CR/14/B f. 205r l. 5 と「le Clos Nerlin」CR/14/B f. 206r l. 4。
+- Val d’Erne は回付控えの宛先。176r 本文2行目の「Vu」と8行目の「Berger」の頭文字を比較して V の読みを索引に採った。住所裏書や中継先がなく、地理上の比定は見送った。
+- 残りの同定例36行は、この紙束のうち保存スキャンに写る面以外の出現箇所から採り、地名の形の類似に加えて明示的な参照や同じ受渡し条件を根拠にする。葉の表裏・行番号は9月の転記と同じ規則。
+- 照合の連絡は 2025-01-14 15:36 GMT、Stefan Albrecht <stefan@langley-history.example> → Judith Morris、件名「Place names at the long table」。翌朝10時の打合せを指定、添付なし。
+
+## 第2章の提出と Ainsworth の査読
+
+- 2025-01-24 の論証メモ LHT-20250124-EVD-001 v0.1 は Roger 宛。1月29日14:12 GMT のコメントを含む v0.2 は来室頻度への推論を留保。085r の任意寄付と186r の館外貸出前の未納徴収は別々の段落で扱う。
+- 第2章「Dues and participation」LHT-20250212-CHP-001 v1.0 は2月12日提出の本文8,000語。2月26日の v1.1 は同番号の改稿。§1 比較範囲、§2 会費規定と徴収、§3 招待と寄付、§4 館内閲覧と館外貸出、§5 地名の読み、§6 比較の限界の順を保つ。
+- ASP-2025-REV-001 は2月21日に Edward Fairclough が匿名査読者の意見をまとめた査読票で、対象は上記 v1.0。締切は2月28日。LHT-20250227-PAP-001 v1.0 は Judith の別番号の著者回答で、査読票と改稿 v1.1 の両方を参照する。
+- R01 比較単位を §1 第1段落で史料に記録された条件に限定。R02 は §2 冒頭の規定と徴収を分け、023r の督促を支払記録として数えない旨を加える。
+- R03 は §3 の085rの事例に、寄付なしでも歓迎する後続文を補う。R04 は §4 の186rの事例に館内での閲覧を許す前段を補い、館外貸出時の徴収条件と区別する。
+- R05 は §2 の猶予段落で173rの2月12日の後に通常の催促に戻す徴収猶予を免除と区別。R06 は §1 の史料範囲の注に欠落19葉と複写可能216葉の区別を加える。
+- R07 は §5 の照合例に089rの案内を参照する090rの訂正の根拠を補う。R08 は §5 の索引説明で未同定8件を原綴りと葉・行から引く手順を示す。R09 は §6 結論で規定・徴収行為・実際の利用に必要な証拠を言い分ける。
+- R10（§6）は支払済み／未納の来室率比較を見送る。同じ期間・同じ主体で支払状態と結合できる独立した来室記録がなく、分母も得られない。本文では規定や個別の利用条件までを扱う。
+- R11（§5）は Val d’Erne の位置・受渡し経路の図示を見送る。176rの宛先に対応する同時代の所在記述や中継先を欠く。本文と回答では原綴りと葉・行を示す。
+- Edward のアドレスは `edward@ainsworth-scholarly.example`。案件の送付順① 2025-02-12 14:27 GMT、Judith → Edward、件名「Dues and participation for review」。v1.0 の DOCX を添付。
+- 送付順② 2025-02-21 10:24 GMT、Edward → Judith、件名「Reader’s report on Dues and participation」。編集部からの新規通知で①の引用なし。査読票PDFを添付。
+- 送付順③ 2025-02-27 15:05 GMT、Judith → Edward、件名「Revised chapter and response」。新規送付で②の引用なし。改稿 v1.1 DOCX と著者回答PDFを添付。閲覧用複写画像は①・③とも未添付。

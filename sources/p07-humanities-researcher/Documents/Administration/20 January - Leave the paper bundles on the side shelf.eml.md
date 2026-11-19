@@ -1,0 +1,22 @@
+---
+path: Documents/Administration/20 January - Leave the paper bundles on the side shelf.eml
+kind: text
+author: Frances Dixon
+derived_from:
+---
+
+From: Frances Dixon <frances@langley-history.example>
+To: Judith Morris <judith@langley-history.example>
+Cc:
+Date: Mon, 20 Jan 2025 09:41:00 +0000
+Subject: Leave the paper bundles on the side shelf
+Message-ID: <4f6617ba-3275-4bcb-8a79-865459085c6d@langley-history.example>
+
+Hi Judith,
+
+Could you move your working bundles off the long table and onto the shelf by the window by ten tomorrow, please? We need the table for the inventory on Tuesday morning. Leave the envelopes as they are; there's no need to open them or sort the papers. We'll put the table back for you at lunchtime.
+
+Thanks,
+Frances
+
+Attachments: none
