@@ -1060,7 +1060,11 @@ fn word_revision_source(body: &str, path: &Path, zone: chrono_tz::Tz) -> Result<
         r"対象の文[:：][ \t]*([^\r\n]+?)[ \t]*[;／][ \t]*",
         r"新しい文[:：][ \t]*([^\r\n]+)\r?$",
     ));
-    if !instruction.is_match(body) && !labeled.is_match(body) {
+    let comment = re(concat!(
+        r"(?m)^[-*] 種類：コメント。人物：([^。\n]+)。日時：(\d{4}-\d\d-\d\d \d\d:\d\d [A-Z]{2,6})。",
+        r"対象：([^。\n]+)。内容：([^\r\n]+)\r?$",
+    ));
+    if !instruction.is_match(body) && !labeled.is_match(body) && !comment.is_match(body) {
         return Ok(body.to_string());
     }
     let parts = zip_parts(path)?;
@@ -1104,6 +1108,22 @@ fn word_revision_source(body: &str, path: &Path, zone: chrono_tz::Tz) -> Result<
             result.replace_range(date.range(), "");
         }
     }
+    let result = comment.replace_all(&result, |row: &regex::Captures<'_>| {
+        if let Some(index) = labeled_records
+            .iter()
+            .position(|(kind, author, date, text)| {
+                *kind == "コメント"
+                    && author == &row[1]
+                    && date.format("%Y-%m-%d %H:%M %Z").to_string() == row[2]
+                    && text == &row[4]
+            })
+        {
+            labeled_records.swap_remove(index);
+            format!("{} {}", &row[3], &row[4])
+        } else {
+            row[0].to_owned()
+        }
+    });
     // A tracked edit stores its payload once in OOXML. Keep the target in the
     // manuscript comparison after verifying the actual revision or comment.
     Ok(labeled
@@ -2058,9 +2078,7 @@ fn inspect(
                             }
                             let body = if ext == "html" {
                                 html_source_labels(&body, &raw)?
-                            } else if ext == "docx"
-                                && scfg.get("derived_from").is_none_or(String::is_empty)
-                            {
+                            } else if ext == "docx" {
                                 word_revision_source(&body, p, persona_timezone(cfg)?)?
                             } else {
                                 body
@@ -3124,6 +3142,25 @@ mod handout_and_revision_tests {
             word_revision_source(&body, file.path(), zone).unwrap(),
             format!("Remove this sentence.\nActivation\nreply\n{comment}")
         );
+        let localized = "- 種類：コメント。人物：Editor Name。日時：2025-03-18 13:17 MDT。対象：Q24 の修正文。内容：Add the reply date.";
+        assert_eq!(
+            word_revision_source(localized, file.path(), zone).unwrap(),
+            "Q24 の修正文 Add the reply date."
+        );
+        for wrong in ["MST", "Add the date."] {
+            let unmatched = localized.replace(
+                if wrong == "MST" {
+                    "MDT"
+                } else {
+                    "Add the reply date."
+                },
+                wrong,
+            );
+            assert_eq!(
+                word_revision_source(&unmatched, file.path(), zone).unwrap(),
+                unmatched
+            );
+        }
         let literal = "- 種類：削除／人物：Editor Name／日時：2025-03-18 13:17／対象の文：“Filing held.”／新しい文：なし";
         assert_eq!(
             word_revision_source(literal, file.path(), zone).unwrap(),
