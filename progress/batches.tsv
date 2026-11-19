@@ -42,7 +42,7 @@ p08-product-manager	b002	2026-11-19	36	2	4	2	1	accepted	6290.30
 p18-manufacturing-quality-engineer	b002	2026-11-19	36	7	13	2	1	accepted	23631.85
 p17-construction-project-manager	b010	2026-11-19	36	3	6	3	3	accepted	10109.83
 p11-account-executive	b001	2026-11-19	34	3	1	0	0	accepted	6465.83
-p20-investigative-journalist	b001	2026-11-19	36	3	7	4	4	done	11622.76
+p20-investigative-journalist	b001	2026-11-19	36	3	7	4	0	accepted	11622.76
 p07-humanities-researcher	b001	2026-11-19	35	14	2	0	0	accepted	7770.48
 p03-security-grc-analyst	b002	2026-11-19	34	5	3	1	1	accepted	7542.73
 p10-management-consultant	b001	2026-11-19	35	20	2	4	0	done	15506.50
