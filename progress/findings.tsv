@@ -2077,3 +2077,6 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-19	p07-humanities-researcher	b003	check	2	source	Documents/Archive/Other-boxes/Cahier de service rendu à la Combe aux Joncs f125.pdf	body token overlap 0.205 < 0.3
 2026-11-19	p07-humanities-researcher	b003	check	2	source	Documents/Archive/Other-boxes/Remise du bordereau aux Hautes Bornes f042.pdf	body token overlap 0.216 < 0.3
 2026-11-19	p07-humanities-researcher	b003	check	2	plan	Documents/Book/Chapter-2/Response to the reader on Dues and participation.pdf	plan: planned file missing。成形の最終出力：対象の著者回答 PDF は作成できませんでした。 計画では改稿 v1.1 の DOCX を先に用意する必要がありますが、その成果物と対応する原稿はいずれも存在せず、計画上も破棄されています。回答原稿は v1.1 の節・段落・注に修正を加えたと述べているため、参照先との整合を確認できません。査読票 PDF の存在は確認しました。 原稿や他のファイルは変更していません。
+2026-11-19	p13-corporate-privacy-counsel	b006	templates-review	0	other	README.md	「見本と検証」が参照する scratch/p13-corporate-privacy-counsel/b005/work/templates-0002/ が存在せず、掲載の見本、全頁画像、render-results.json を参照できない。
+2026-11-19	p13-corporate-privacy-counsel	b006	templates-review	1	other	toto-legal-brief.pptx	5レイアウトの見本は16:9で表示され、ロゴ・紫灰色帯・銅色罫・法務部表記も揃うが、元のppt/presentation.xmlのp:sldSzにあるサイズ種別がscreen4x3と宣言され、READMEの16:9と不一致。
+2026-11-19	p13-corporate-privacy-counsel	b006	templates-review	2	other	owada-return-record.cls	38行見本の2ページ目上部で、続頁の表見出しの上罫線が社名ヘッダの深緑の罫線と重なり、同じ位置で墨色と深緑がつながって見える。
