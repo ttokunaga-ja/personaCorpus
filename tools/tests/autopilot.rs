@@ -1833,3 +1833,18 @@ fn sessions_without_a_reading_do_not_hide_the_latest_usage() {
         f.cli(&["usage"])
     );
 }
+
+#[test]
+fn a_recheck_after_a_reset_ticket_ends_the_usage_limit_wait() {
+    let f = Fixture::new();
+    f.roadmap(None);
+    f.once();
+    let mut state = f.state();
+    state["limit_until"] = json!(4_000_000_000.0);
+    f.save_state(&state);
+    assert!(f.cli(&["status", "--target", "30"]).contains("利用上限"));
+    std::thread::sleep(std::time::Duration::from_millis(1100));
+    f.cli(&["usage", "--recheck"]);
+    f.once();
+    assert!(!f.cli(&["status", "--target", "30"]).contains("利用上限"));
+}

@@ -1664,6 +1664,15 @@ impl Pilot {
             )?;
         }
         self.state["codex_login"] = json!(login);
+        // A recheck after a reset ticket on the same account ends the wait too.
+        let since = read(&self.home.join("usage-since"))
+            .ok()
+            .and_then(|t| t.trim().parse::<i64>().ok());
+        if since.is_some_and(|s| Some(s) != self.state["recheck_seen"].as_i64()) {
+            self.state["limit_until"] = json!(0);
+            self.state["recheck_seen"] = json!(since);
+            self.log("usage-recheck", "", "", "利用上限の待ちを解いた")?;
+        }
         if let Some(next) = self.state["next_target"].as_i64() {
             let mut ready = next > self.target;
             for p in self.names()? {
