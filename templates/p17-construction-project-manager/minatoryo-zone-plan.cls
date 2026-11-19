@@ -13,7 +13,7 @@
 }
 \tikzset{
   zone grid/.style={MBInk,thin,densely dashed},
-  zone wall/.style={MBInk,thick},
+  zone wall/.style={draw=MBInk,thick},
   zone work/.style={pattern=north east lines,pattern color=MBOrange},
   zone open/.style={fill=MBRoom},
   zone buffer/.style={fill=MBBuffer},
