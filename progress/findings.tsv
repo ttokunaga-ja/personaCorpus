@@ -999,3 +999,77 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-19	p17-construction-project-manager	b008	coordinator	0	other	Documents/海田研修棟改修/材料承認/0420_差替え三件の再提出.pdf	統括の抜き取りで不合格
 2026-11-19	p17-construction-project-manager	b008	coordinator	0	other	Documents/海田研修棟改修/材料承認/0422_期限に揃わなかったもの.xlsx	統括の抜き取りで不合格
 2026-11-19	p17-construction-project-manager	b008	coordinator	0	other	Documents/海田研修棟改修/材料承認/0423_布と配線箱_未着資料の照会.pdf	統括の抜き取りで不合格
+2026-11-19	p17-construction-project-manager	b009	draft-review	0	D10	Pictures/海田西配送棟増築/2026-09-14/2026-09-14_X7-Y4_M2蓋の座を直した後.jpg	本文のM2蓋の撮影記述に、型一覧の「設計図枠と型なし記録」が原稿に明記するよう求める撮影日時（9月14日10:16）がない。
+2026-11-19	p17-construction-project-manager	b009	draft-review	0	D10	Pictures/海田西配送棟増築/2026-09-14/2026-09-14_X7-Y2_検品通路の柵の返し.jpg	本文のX7-Y2東寄りの仮柵の撮影記述に、型一覧が原稿への明記を求める撮影日時（9月14日13:48）がない。
+2026-11-19	p17-construction-project-manager	b009	draft-review	0	D10	Pictures/海田西配送棟増築/2026-09-14/2026-09-14_X6-X7_Y3_鋼製扉下の充填残り.jpg	撮影記述の「充填が残っている部分」と「未充填のまま」では同じ下端に写す充填材の状態が定まらず、型一覧が原稿への明記を求める撮影日時（9月14日14:16）もない。
+2026-11-19	p17-construction-project-manager	b009	draft-review	0	D10	Pictures/海田西配送棟増築/2026-09-14/2026-09-14_X4-Y4_M3の外に残ったくぼみ.jpg	本文のM3蓋外の舗装復旧面の撮影記述に、型一覧が原稿への明記を求める撮影日時（9月14日14:48）がない。
+2026-11-19	p17-construction-project-manager	b009	draft-review	0	D4	Desktop/0914_指摘一覧_立会い直後.xlsx	15:25保存のRev0でF23のKN-19の根拠に「後撮写真」が入っているが、対応するキャップ写真は15:41撮影であり、保存時に存在した根拠は立会い中の現認。
+2026-11-19	p17-construction-project-manager	b009	draft-review	0	D10	Pictures/海田西配送棟増築/2026-09-14/2026-09-14_X6-Y3_保護管口にキャップ.jpg	本文末尾の「立会い中の現認後」では、型一覧が原稿への明記を求める撮影日時（9月14日15:41）が特定できない。
+2026-11-19	p17-construction-project-manager	b009	draft-review	0	D10	Pictures/海田西配送棟増築/2026-09-14/2026-09-14_X5-X6_Y2_柵脚を線の内側へ.jpg	本文の移動後の柵脚の撮影記述に、型一覧が原稿への明記を求める撮影日時（9月14日16:18）がない。
+2026-11-19	p17-construction-project-manager	b009	draft-review	0	D10	Documents/海田西配送棟増築/施工記録/0914_青木日報_既存側を止めずに一周.docx	日報の管理情報に作成者の青木と宛先の坂本はあるが、Word型の管理情報に入れる日報自体の確認者または確認待ちの記載がない。
+2026-11-19	p17-construction-project-manager	b009	draft-review	0	D3	Documents/海田西配送棟増築/施工記録/0915_写真で見た所と原本を見た所.xlsx	KN-21の保管先が「施工記録の対応する保管原本」だけで接地端子記録を引けず、KN-10・11・17の原本も同じ表記で、太田が参照すべき記録を特定できない。
+2026-11-19	p17-construction-project-manager	b009	draft-review	0	D10	Documents/海田西配送棟増築/引渡し準備/0918_期限の前に呼ぶ人.xlsx	冒頭の管理欄が「確認者 空欄」となっており、minatoryo-punch-list.xlsxのF3「確認者」に対応するG3へ入れる氏名がない。
+2026-11-19	p17-construction-project-manager	b009	draft-review	0	D10	Documents/海田西配送棟増築/施工記録/0903_立会い前にそろえる根拠.xlsx	DX-021 Rev0のシート冒頭に型のG3「確認者」に入れる値がなく、末尾の中野宛ての不足連絡依頼にも本表の確認者としての指定や確認待ちの記載がない。
+2026-11-19	p17-construction-project-manager	b009	draft-review	1	D3	Documents/海田西配送棟増築/施工記録/0915_写真で見た所と原本を見た所.xlsx	KN-10・11・17・21の原本は特定できるようになったが、D列のKN-01・02・04等が所在として挙げるIN-021 Rev0は9月10日の持出し用原紙で、巾木端部・間仕切り端の留め・開口枠の固定の明細がなく、太田が該当する現認記録を引けない。
+2026-11-19	p17-construction-project-manager	b009	draft-review	2	D10	Documents/海田西配送棟増築/施工記録/0915_写真で見た所と原本を見た所.xlsx	前回指摘のKN-01・02・04等の所在は持出し原紙からPL-021 Rev1の各指摘行に変更済みだが、指定の型のG3「確認者」に入れる値が原稿冒頭にない。太田知美は宛先としてのみ記載され、明細の確認者は個々の指摘の確認者である。
+2026-11-19	p17-construction-project-manager	b009	draft-review	0	D4	Documents/海田西配送棟増築/引渡し準備/0914_原田さんと照合した指摘一覧.xlsx	指摘一覧KN-20のF欄は16:00〜16:35の貫通端部の現認者を青木・中野と記すが、中野の根拠照合表DX-022のKN-20行では同じ現認の確認者に西村も入っており、現認者の記録がそろっていない。
+2026-11-19	p17-construction-project-manager	b009	draft-review	0	D1	OneDrive - 湊梁建設/定例会議/0914_中間検査議事録_回覧.pdf	派生元MT-021 Rev0の「17:00照合」では16:00〜16:35のKN-24〜26の確認者だけを明記し、同時刻に確認したKN-14・15・20・21の実地確認・原本照合の担当者が分からず、同版回覧で確認者を読み返すという計画を満たさない。
+2026-11-19	p17-construction-project-manager	b009	draft-check	1	source	OneDrive - 湊梁建設/定例会議/0914_中間検査議事録_回覧.pdf	/home/ttokunaga-ja/dev/github.com/ttokunaga-ja/personaCorpus/sources/p17-construction-project-manager/OneDrive - 湊梁建設/定例会議/0914_中間検査議事録_回覧.pdf.md: No such file or directory (os error 2)
+2026-11-19	p17-construction-project-manager	b009	draft-review	2	D1	OneDrive - 湊梁建設/定例会議/0914_中間検査議事録_回覧.pdf	回覧原稿は派生元から「違いなし」だが、MT-021 Rev0の「17:00照合」は16:00〜16:35のKN-24〜26の確認者だけを明記し、同時間帯にKN-20を現認しKN-14・15・21の原本を照合した青木・中野・西村を記載していないため、同版の回覧で確認者を読み返すという計画を満たさない。
+2026-11-19	p17-construction-project-manager	b009	check	0	email-attachments	Documents/メール/海田流通/0917_原田さん返信_検品通路はそのまま.eml	missing or empty MIME attachments: 0915_残工事中も既存の動線を残す条件.pdf, 0916_中間検査で確認できた範囲.pdf
+2026-11-19	p17-construction-project-manager	b009	check	0	source	Documents/海田西配送棟増築/図面と質疑/0901_立会いは増築側から回る.pdf	body token overlap 0.790 < 0.8
+2026-11-19	p17-construction-project-manager	b009	check	0	source	Documents/海田西配送棟増築/引渡し準備/0915_五箇所の作業区画と残す動線.pdf	body token overlap 0.604 < 0.8
+2026-11-19	p17-construction-project-manager	b009	build-review	0	V5	Pictures/海田西配送棟増築/2026-09-14/2026-09-14_X4-Y3_見切り端を押さえた後.jpg	戸枠脇の見切りが、8日に浮いていた薄い曲げ材の開いた断面から、幅広い勾配材の閉じた端面に変わっており、固定後に同じ先端の隙間が消えたことを比較できない。
+2026-11-19	p17-construction-project-manager	b009	build-review	0	V5	Pictures/海田西配送棟増築/2026-09-14/2026-09-14_X7-Y4_M2蓋の座を直した後.jpg	8日はアスファルト上の銀色受枠と格子模様の蓋で、14日は砕石に囲まれた黒い受枠と千鳥模様の蓋になっており、同じM2蓋の座を調整した箇所をたどれない。
+2026-11-19	p17-construction-project-manager	b009	build-review	0	V2	Desktop/0914_指摘一覧_立会い直後.xlsx	指摘一覧シートのA4:G31に、型の使用手順と見本で指定されるオートフィルタが設定されておらず、27件を見出しから絞り込めない。
+2026-11-19	p17-construction-project-manager	b009	build-review	0	V1	Documents/海田西配送棟増築/引渡し準備/0914_原田さんと照合した指摘一覧.xlsx	指摘一覧シートの集計表直前（A32の注記とA33:D33の列見出しの間）に、原稿の節見出し「区分別集計」がなく、印刷3ページ目にも表示されない。集計式と結果は原稿どおり。
+2026-11-19	p17-construction-project-manager	b009	build-review	0	V3	OneDrive - 湊梁建設/定例会議/0928_原田さん定例_中間検査で残した五箇所.pptx	3枚目「動線と五箇所」の右下で、既存検品者通路の折れを示す縦の実線が「27 仮柵返し内」ラベルの文字に重なっている。
+2026-11-19	p17-construction-project-manager	b009	build-review	0	V2	Documents/海田西配送棟増築/引渡し準備/0930_月末で確認が残った五件.xlsx	2ページ目「件数確認」の第9行に明細書式と85ptの行高を持つ空行が残り、「27件との照合」と結果注記の間に大きな空白が印刷される。
+2026-11-19	p17-construction-project-manager	b009	check	1	email-attachments	Documents/メール/海田流通/0917_原田さん返信_検品通路はそのまま.eml	missing or empty MIME attachments: 0915_残工事中も既存の動線を残す条件.pdf, 0916_中間検査で確認できた範囲.pdf
+2026-11-19	p17-construction-project-manager	b009	check	1	source	Documents/海田西配送棟増築/引渡し準備/0915_五箇所の作業区画と残す動線.pdf	body token overlap 0.672 < 0.8
+2026-11-19	p17-construction-project-manager	b009	build-review	1	V3	Documents/海田西配送棟増築/図面と質疑/0901_立会いは増築側から回る.pdf	1ページの模式平面で、X6の縦の破線が「② Y3 内装・支持部」の末尾「部」に重なっている。
+2026-11-19	p17-construction-project-manager	b009	build-review	1	V3	OneDrive - 湊梁建設/定例会議/0928_原田さん定例_中間検査で残した五箇所.pptx	3枚目の検品者通路の縦線は「27 仮柵返し内」から離れたが、改版で作業区画の橙の斜線が「22 盤前」「27 仮柵返し内」の数字の下部に重なった。
+2026-11-19	p17-construction-project-manager	b009	check	2	email-attachments	Documents/メール/海田流通/0917_原田さん返信_検品通路はそのまま.eml	missing or empty MIME attachments: 0915_残工事中も既存の動線を残す条件.pdf, 0916_中間検査で確認できた範囲.pdf
+2026-11-19	p17-construction-project-manager	b009	check	2	source	Documents/海田西配送棟増築/引渡し準備/0915_五箇所の作業区画と残す動線.pdf	body token overlap 0.672 < 0.8
+2026-11-19	p17-construction-project-manager	b009	build-review	2	V3	OneDrive - 湊梁建設/定例会議/0928_原田さん定例_中間検査で残した五箇所.pptx	3枚目の「22 盤前」「27 仮柵返し内」に斜線は重ならなくなったが、図の左上で「16 M3 蓋外」の枠上辺が通り芯ラベル「X4」の下端に重なり、文字の下端を隠している。
+2026-11-19	p17-construction-project-manager	b009	check	0	source	Documents/海田西配送棟増築/施工記録/0914_持出し票に書いた現場控え.pdf	body token overlap 0.130 < 0.3
+2026-11-19	p05-bi-data-analyst	b002	templates-review	0	other	README.md	一覧の実ファイル7件と道具・見本の参照先は実在するが、冒頭の「FY26の資料には広げない」が本依頼のFY26 Q3の営業会議資料と食い違い、7月の計画・実績照合に使う型の適用範囲が確認できない。
+2026-11-19	p05-bi-data-analyst	b002	templates-review	0	other	oriba-analysis.cls	bin/texでA4縦・余白21mm、指定の2書体、織り目と社名、表、社内資料とページ番号を確認したが、README共通意匠の本文色303A42の指定が型になく、見本PDFの本文が000000で出力される。
+2026-11-19	p05-bi-data-analyst	b002	templates-review	1	other	README.md	型7件・見本・画像の参照先と明細・合計の追加手順は確認できたが、81行目の型の日付2025-10-01に対し、両XLSXの内部更新日は2026-11-17で、日付の説明が実物と一致しない。
+2026-11-19	p05-bi-data-analyst	b002	templates-review	1	other	oriba-matching.xlsx	3・25明細の全ページで管理欄の番号と日付が1行に収まり、重複額と右隣の照合結果の間隔や合計・繰返し見出しを確認したが、docProps/core.xmlの更新日時2026-11-17T17:02:26ZがREADMEの型の日付2025-10-01と一致しない。
+2026-11-19	p05-bi-data-analyst	b002	templates-review	1	other	oriba-weekly.pptx	全5レイアウトは16:9で描画され、ロゴ・藍帯・表と図・ページ番号が収まったが、ppt/presentation.xmlのスライドサイズ種別p:sldSz/@typeがscreen4x3で、READMEの16:9および実寸と食い違う。
+2026-11-19	p05-bi-data-analyst	b002	templates-review	1	other	oriba-weekly.xlsx	3・25明細の全ページで管理欄の番号と日付が1行に収まり、計画比と右隣の照合根拠の間隔や合計・繰返し見出しを確認したが、docProps/core.xmlの更新日時2026-11-17T17:02:26ZがREADMEの型の日付2025-10-01と一致しない。
+2026-11-19	p05-bi-data-analyst	b002	templates-review	2	other	oriba-weekly.pptx	READMEの共通意匠はヘッダに会社と文書種別を指定しているが、マスター上部と全5レイアウトのレンダリングでは織り目と社名だけで、営業会議週報の種別表示がない。
+2026-11-19	p17-construction-project-manager	b009	check	0	source	Documents/海田西配送棟増築/引渡し準備/0915_五箇所の作業区画と残す動線.pdf	body token overlap 0.672 < 0.8
+2026-11-19	p17-construction-project-manager	b009	build-review	0	V3	OneDrive - 湊梁建設/定例会議/0928_原田さん定例_中間検査で残した五箇所.pptx	3枚目の模式図で、前回指摘の「X4」は読めるが、「16 M3 蓋外」の枠の左辺が通り芯ラベル「Y4」の「4」の右端に重なり、数字の横棒の先端を隠している。
+2026-11-19	p17-construction-project-manager	b009	check	1	source	Documents/海田西配送棟増築/引渡し準備/0915_五箇所の作業区画と残す動線.pdf	body token overlap 0.694 < 0.8
+2026-11-19	p17-construction-project-manager	b009	check	2	source	Documents/海田西配送棟増築/引渡し準備/0915_五箇所の作業区画と残す動線.pdf	body token overlap 0.715 < 0.8
+2026-11-19	p17-construction-project-manager	b009	check	0	source	Documents/海田西配送棟増築/引渡し準備/0915_五箇所の作業区画と残す動線.pdf	body token overlap 0.700 < 0.8
+2026-11-19	p17-construction-project-manager	b009	check	1	source	Documents/海田西配送棟増築/引渡し準備/0915_五箇所の作業区画と残す動線.pdf	body token overlap 0.704 < 0.8
+2026-11-19	p17-construction-project-manager	b009	check	2	source	Documents/海田西配送棟増築/引渡し準備/0915_五箇所の作業区画と残す動線.pdf	body token overlap 0.704 < 0.8
+2026-11-19	p08-product-manager	b002	templates-review	0	other	README.md	型一覧の8ファイルと道具の参照先は実在するが、「組版見本と検証先」の scratch/p08-product-manager/b001/work/templates-0001 がなく、見本・画像・検証記録を参照できず、「今回の範囲」に記された2026年7〜8月も現行依頼の2024年4〜7月と一致しない。
+2026-11-19	p08-product-manager	b002	templates-review	0	other	olta-guidance.docx	A4縦の見本でオルタのロゴ・案内3節・NT番号・自動頁は正常だが、型の docProps/core.xml の説明欄に制作用の文言「generated by python-docx」が残る。
+2026-11-19	p08-product-manager	b002	templates-review	0	other	olta-metrics.xlsx	3行・16行見本では文書番号・日付は1行に収まり、明細と合計を追加できたが、F7の目標64とG7の説明冒頭64件が罫線や十分な余白なしに並んで「64 64件」が一続きに見え、テーマのmajor/minorも説明と異なるCambria/Calibriのまま。
+2026-11-19	p08-product-manager	b002	templates-review	0	other	olta-minutes.docx	A4縦の見本でオルタの共通便箋・記録4節・MT番号・自動頁は正常だが、型の docProps/core.xml の説明欄に制作用の文言「generated by python-docx」が残る。
+2026-11-19	p08-product-manager	b002	templates-review	0	other	olta-report.docx	A4縦の見本で巡回経路ロゴ・報告4節・RP番号・細罫線の表・自動頁は正常だが、型の docProps/core.xml の説明欄に制作用の文言「generated by python-docx」が残る。
+2026-11-19	p08-product-manager	b002	templates-review	0	other	olta-review.pptx	全5レイアウトの見本で16:9、共通マスター、青緑の題、下罫線を確認したが、型の docProps/core.xml に制作ツールの説明と既定の最終更新者 Steve Canny が残り、docProps/app.xml の PresentationFormat も4:3のまま。
+2026-11-19	p08-product-manager	b002	templates-review	0	other	olta-sites.xlsx	3行・16行見本では番号・日付は1行に収まり、明細を可変行数で追加できたが、C7の利用64とD7の教育欄冒頭64件が罫線や十分な余白なしに並んで「64 64件」が一続きに見え、テーマのmajor/minorも説明と異なるCambria/Calibriのまま。
+2026-11-19	p08-product-manager	b002	templates-review	0	other	wakamatsu-confirmation.docx	A4縦の見本で若松の屋根と幹のロゴ・灰緑の明朝体・WSK番号・管理部と自動頁は正常だが、型の docProps/core.xml の説明欄に制作用の文言「generated by python-docx」が残る。
+2026-11-19	p08-product-manager	b002	draft-check	0	source	Documents/四半期計画/2024/Q3/要望と見積り_7月25日決定.xlsx	/home/ttokunaga-ja/dev/github.com/ttokunaga-ja/personaCorpus/sources/p08-product-manager/Documents/四半期計画/2024/Q3/要望と見積り_7月25日決定.xlsx.md: No such file or directory (os error 2)
+2026-11-19	p08-product-manager	b002	draft-review	0	D10	Desktop/受付を増やす前に_若松で見たこと.pptx	スライド2は受付担当の帯1本と⑤の連絡矢印のみで、点検担当側の帯と連絡先の配置が未指定のため担当者別の帯を成形できず、スライド3は3案の表だけで計画にある比較図の中身がない。
+2026-11-19	p08-product-manager	b002	draft-review	1	D1	Documents/四半期計画/2024/Q3/要望と見積り_7月25日決定.xlsx	D列のR-01〜R-03、R-05など26件は「7月15日締め出所整理（区分のみ、個別控え未照合）」の共通記載にとどまり、参照先の原田の報告にも区分と番号範囲しかないため、計画で求める要望別の根拠の控え（面談日と記録箇所、相談番号、商談控え等）を照合できない。
+2026-11-19	p08-product-manager	b002	draft-review	2	D1	Documents/四半期計画/2024/Q3/要望と見積り_7月25日決定.xlsx	D列の共通記載は行別の参照に置き換わったが、R-32（原稿49行目）が指す6月14日の「受付時に条件を指定して探す」は藤原の同日報告の候補8件に見当たらず、原田の整理報告も番号範囲までのため、検索条件の根拠を照合できない。R-28（46行目）も要望欄の「一覧から詳細へ戻る」に対し、根拠欄のS-240618は「確認後に元の一覧へ戻る」と遷移が逆。
+2026-11-19	p08-product-manager	b002	build-review	0	V2	Documents/四半期計画/2024/Q3/7月15日締め_要望の出所の整理.docx	1ページ目「一次出所」の表が Table Grid の白地・黒罫線で、olta-report.docx の OF Table による青緑地・白字の見出しと繰り返し見出し行が適用されていない。
+2026-11-19	p08-product-manager	b002	build-review	0	V1	Desktop/7月5日_受付を早くする案の並べ替え.pptx	スライド2の工程図で「一覧を持ち出す」の線が「受付台帳に登録」の箱の直下から伸びており、原稿が指定する「受付済みの確認」からの分岐が図にない。
+2026-11-19	p08-product-manager	b002	build-review	0	V3	Documents/顧客の声/若松設備/4月11日_受付を見せてもらった記録.docx	1頁「確認した事実」の表で、丸数字1文字ずつの「順」列が表幅の3分の1（約55 mm）を占め、作業内容を記す「参照・作業」列も同幅のため、④の説明が3行に折り返され「点検箇所」が行末で分断されている。
+2026-11-19	p08-product-manager	b002	build-review	0	V1	Desktop/受付を増やす前に_若松で見たこと.pptx	スライド2で、原稿指定の②受付台帳から④依頼票への別矢印が両工程の箱につながらず、下方に浮いた水平線として③→④の週14回の引き出し線と交差している。
+2026-11-19	p17-construction-project-manager	b009	coordinator	0	other	Documents/メール/海田流通/0916_原田さんへ_検査結果と残工事条件.eml	統括の抜き取りで不合格
+2026-11-19	p17-construction-project-manager	b009	coordinator	0	other	Documents/メール/海田流通/0917_原田さん返信_検品通路はそのまま.eml	統括の抜き取りで不合格
+2026-11-19	p17-construction-project-manager	b009	coordinator	0	other	Documents/海田西配送棟増築/引渡し準備/0914_原田さんと照合した指摘一覧.xlsx	統括の抜き取りで不合格
+2026-11-19	p17-construction-project-manager	b009	coordinator	0	other	Documents/海田西配送棟増築/引渡し準備/0915_残工事中も既存の動線を残す条件.pdf	統括の抜き取りで不合格
+2026-11-19	p17-construction-project-manager	b009	coordinator	0	other	Documents/海田西配送棟増築/引渡し準備/0918_期限の前に呼ぶ人.xlsx	統括の抜き取りで不合格
+2026-11-19	p17-construction-project-manager	b009	coordinator	0	other	Documents/海田西配送棟増築/施工記録/0916_中間検査で確認できた範囲.pdf	統括の抜き取りで不合格
+2026-11-19	p17-construction-project-manager	b009	coordinator	0	other	OneDrive - 湊梁建設/定例会議/0914_原田さんとの中間検査議事録.docx	統括の抜き取りで不合格
+2026-11-19	p17-construction-project-manager	b009	coordinator	0	other	OneDrive - 湊梁建設/定例会議/0928_原田さん定例_中間検査で残した五箇所.pptx	統括の抜き取りで不合格
+2026-11-19	p17-construction-project-manager	b009	coordinator	0	other	Pictures/海田西配送棟増築/2026-09-08/2026-09-08_X7-Y4_M2蓋の当たり跡.jpg	統括の抜き取りで不合格
+2026-11-19	p17-construction-project-manager	b009	coordinator	0	other	Pictures/海田西配送棟増築/2026-09-14/2026-09-14_X7-Y4_M2蓋の座を直した後.jpg	統括の抜き取りで不合格
