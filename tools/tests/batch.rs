@@ -1808,3 +1808,15 @@ fn coordinator_selects_sol_before_the_request_is_tracked() {
     assert!(read(&f.scratch().join("prompts.jsonl")).contains(&judgment));
     assert_eq!(f.state()["producer"], "gpt-6.2-sol");
 }
+
+#[test]
+fn versioned_support_scope_reference() {
+    let f = Fixture::new();
+    f.overrides(json!({
+        FIRST: {"body": "Match the accompanying support scope HBC-JDH-20260716-SVC-01 v1.0 before issuing the renewal."},
+        SECOND: {"body": "Check support scope X17 before issuing the renewal."}
+    }));
+    f.run("ok", true);
+    assert!(f.state()["draft_failures"].get(FIRST).is_none());
+    assert!(string(&f.state()["draft_failures"][SECOND]).contains("制作の痕跡"));
+}

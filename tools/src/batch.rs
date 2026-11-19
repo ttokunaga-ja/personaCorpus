@@ -27,7 +27,7 @@ const COLUMNS: [&str; 6] = ["パス", "日付", "作り方", "内容", "関連",
 const EXT: &str = "docx pdf xlsx csv tsv pptx txt md log eml html png jpg json xml wav mp3 m4a zip";
 const BAD_PATH: &str = r"foundation|visual|source-art|full|(?<![a-z0-9])m1(?![a-z0-9])|primary|secondary|pdf_scan|pdf_text|txt_log|csv_tsv|html_eml|structured_text|domain_binary|imagegen";
 const SOL_REBUILD: &str = "- 再制作の担当：gpt-6.2-sol";
-const TRACE: &str = r"(?<!\w)(?:kio(?:-eval)?|personacorpus|persona|corpus|fixture|content\s+spine|synthetic|fictional|not\s+a\s+real|artifact\s+id|source\s+id|batch|scope\s+(?=[\w-]*\d)[\w-]+|p\d{2}-[\w-]+|lorem\s+ipsum|placeholder)(?!\w)|/Users/|scratch/";
+
 fn text(v: &Value) -> &str {
     v.as_str().unwrap_or("")
 }
@@ -1373,7 +1373,7 @@ impl Batch {
                     .collect::<Vec<_>>()
             })
             .collect();
-        fancy_regex::Regex::new(&format!("(?i){TRACE}"))
+        fancy_regex::Regex::new(crate::check::TRACE)
             .unwrap()
             .find_iter(body)
             .filter_map(|r| r.ok())

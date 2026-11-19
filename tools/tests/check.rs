@@ -1588,3 +1588,19 @@ fn word_revision_timestamp_checks_the_same_instant() {
         present(&f, "review.docx", "source");
     }
 }
+
+#[test]
+fn versioned_support_scope_reference() {
+    let f = Fixture::new();
+    f.put("terms.txt", "Match the accompanying support scope HBC-JDH-20260716-SVC-01 v1.0 before issuing the renewal.");
+    absent(&f, "terms.txt", "trace");
+    for body in [
+        "Check support scope X17.",
+        "Check scope HBC-JDH-20260716-SVC-01 v1.0.",
+        "Check support scope HBC-JDH-20260716-SVC-01 without an issue version.",
+        "Check support scope HBC-JDH-20260716-SVC-01 v1.0 and scope X17.",
+    ] {
+        f.put("internal.txt", body);
+        present(&f, "internal.txt", "trace");
+    }
+}

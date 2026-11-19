@@ -17,7 +17,12 @@ use unicode_casefold::UnicodeCaseFold;
 use unicode_normalization::UnicodeNormalization;
 
 const EXT: &str = "docx pdf xlsx csv tsv pptx txt md log eml html png jpg json xml wav mp3 m4a zip";
-const TRACE: &str = r"(?i)(?<!\w)(?:kio(?:-eval)?|personacorpus|persona|corpus|fixture|content\s+spine|synthetic|fictional|not\s+a\s+real|artifact\s+id|source\s+id|batch|scope\s+(?=[\w-]*\d)[\w-]+|p\d{2}-[\w-]+|lorem\s+ipsum|placeholder)(?!\w)|/Users/|scratch/";
+pub(crate) const TRACE: &str = concat!(
+    r"(?i)(?<!\w)(?:kio(?:-eval)?|personacorpus|persona|corpus|fixture|content\s+spine|synthetic|fictional|not\s+a\s+real|artifact\s+id|source\s+id|batch|",
+    // A versioned support scope cites the service document in customer correspondence.
+    r"(?!(?<=\bsupport )scope[ \t]+(?-i:[A-Z]+-[A-Z]+-[0-9]{8}-SVC-[0-9]{2})[ \t]+v[0-9]+\.[0-9]+\b)",
+    r"scope\s+(?=[\w-]*\d)[\w-]+|p\d{2}-[\w-]+|lorem\s+ipsum|placeholder)(?!\w)|/Users/|scratch/",
+);
 const SECRET: &str = r"(?:AKIA|ASIA)[0-9A-Z]{16}|(?:ghp|gho|ghu|ghs|ghr)_[A-Za-z0-9]{36,}|github_pat_[A-Za-z0-9_]{20,}|(?:xox[baprs]|xapp)-[A-Za-z0-9-]{10,}|(?:hvs\.|hvb\.|s\.)[A-Za-z0-9_-]{20,}|-----BEGIN (?:RSA |EC |DSA |OPENSSH |ENCRYPTED |PGP )?PRIVATE KEY(?: BLOCK)?-----|sk-[A-Za-z0-9_-]{20,}|eyJ[A-Za-z0-9_-]+\.eyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+|/ASCII85Decode";
 fn re(s: &str) -> Regex {
     static CACHE: std::sync::LazyLock<std::sync::Mutex<HashMap<String, Regex>>> =
@@ -1104,10 +1109,10 @@ fn word_revision_source(body: &str, path: &Path, zone: chrono_tz::Tz) -> Result<
         r"(?m)^[-*] (削除|挿入|コメント) *\| *([^|\n]+?) *\| *(\d{4}-\d\d-\d\d \d\d:\d\d [+-]\d{4}) *\|",
     );
     let labeled = re(concat!(
-        r"(?m)^[-*][ \t]+種類[:：][ \t]*(削除|挿入|コメント)[ \t]*[;／][ \t]*",
-        r"人物[:：][ \t]*([^\r\n]+?)[ \t]*[;／][ \t]*",
-        r"日時[:：][ \t]*(\d{4}-\d\d-\d\d \d\d:\d\d)(?: ([A-Z]{2,6}|[+-]\d{4}))?[ \t]*[;／][ \t]*",
-        r"対象の文[:：][ \t]*([^\r\n]+?)[ \t]*[;／][ \t]*",
+        r"(?m)^[-*][ \t]+種類[:：][ \t]*(削除|挿入|コメント)[ \t]*[;／|][ \t]*",
+        r"人物[:：][ \t]*([^\r\n]+?)[ \t]*[;／|][ \t]*",
+        r"日時[:：][ \t]*(\d{4}-\d\d-\d\d \d\d:\d\d)(?: ([A-Z]{2,6}|[+-]\d{4}))?[ \t]*[;／|][ \t]*",
+        r"対象(?:の文)?[:：][ \t]*([^\r\n]+?)[ \t]*[;／|][ \t]*",
         r"新しい文[:：][ \t]*([^\r\n]+)\r?$",
     ));
     let comment = re(concat!(
@@ -3229,6 +3234,20 @@ mod handout_and_revision_tests {
         assert_eq!(
             word_revision_source(literal, file.path(), zone).unwrap(),
             "“Filing held.”"
+        );
+        let pipes = insert
+            .replace("; 人物", " | 人物")
+            .replace("; 日時", " | 日時")
+            .replace("; 対象の文", " | 対象")
+            .replace("; 新しい文", " | 新しい文");
+        assert_eq!(
+            word_revision_source(&pipes, file.path(), zone).unwrap(),
+            "Activation"
+        );
+        let wrong = pipes.replace("Send the roster", "Send the contract");
+        assert_eq!(
+            word_revision_source(&wrong, file.path(), zone).unwrap(),
+            wrong
         );
         let offset = insert.replace("MDT", "-0600");
         assert_eq!(
