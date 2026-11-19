@@ -1,0 +1,65 @@
+---
+path: Documents/On-call/March pages - calls and repeats.csv
+kind: text
+author: Daniel Jennings
+derived_from:
+---
+# March delivery reconciliation for Anjali
+
+The CSV records each delivery once, in UTC order, across the eight-person rota for March 2024. The references belong to this reconciliation. The last column is blank for a first call. For a repeat it points directly to the first delivery for the same still-open item.
+
+```csv
+Delivery reference,Observed UTC,Classification,First delivery reference
+M01,2024-03-01 00:14,First call,
+M02,2024-03-01 00:19,Reminder repeat,M01
+M03,2024-03-03 03:20,First call,
+M04,2024-03-05 01:00,First call,
+M05,2024-03-05 01:07,Reminder repeat,M04
+M06,2024-03-06 23:22,First call,
+M07,2024-03-06 23:23,Parallel-route repeat,M06
+M08,2024-03-06 23:28,Reminder repeat,M06
+M09,2024-03-08 02:10,First call,
+M10,2024-03-08 02:13,First call,
+M11,2024-03-09 00:31,First call,
+M12,2024-03-09 00:35,Reminder repeat,M11
+M13,2024-03-10 02:22,First call,
+M14,2024-03-10 02:23,Parallel-route repeat,M13
+M15,2024-03-11 01:11,First call,
+M16,2024-03-12 03:34,First call,
+M17,2024-03-12 03:38,Reminder repeat,M16
+M18,2024-03-13 00:42,First call,
+M19,2024-03-14 02:24,First call,
+M20,2024-03-14 02:25,Parallel-route repeat,M19
+M21,2024-03-15 04:08,First call,
+M22,2024-03-16 01:30,First call,
+M23,2024-03-17 23:58,First call,
+M24,2024-03-18 00:03,Reminder repeat,M23
+M25,2024-03-18 02:11,First call,
+M26,2024-03-18 02:12,Parallel-route repeat,M25
+M27,2024-03-19 03:27,First call,
+M28,2024-03-19 03:32,Reminder repeat,M27
+M29,2024-03-20 00:18,First call,
+M30,2024-03-20 00:19,Parallel-route repeat,M29
+M31,2024-03-21 04:04,First call,
+M32,2024-03-22 01:12,First call,
+M33,2024-03-22 02:06,First call,
+M34,2024-03-22 02:11,Reminder repeat,M33
+M35,2024-03-23 00:47,First call,
+M36,2024-03-23 00:48,Parallel-route repeat,M35
+M37,2024-03-24 02:34,First call,
+M38,2024-03-25 03:16,First call,
+M39,2024-03-25 03:21,Reminder repeat,M38
+M40,2024-03-26 01:52,First call,
+M41,2024-03-26 01:53,Parallel-route repeat,M40
+M42,2024-03-27 00:26,First call,
+M43,2024-03-28 04:09,First call,
+M44,2024-03-28 04:14,Reminder repeat,M43
+M45,2024-03-30 02:37,First call,
+M46,2024-03-30 02:38,Parallel-route repeat,M45
+```
+
+Reconciliation notes outside the CSV:
+
+- M23 was still open at midnight, so M24 points to it across the change of date. The recorded clearance between M32 and M33 separates the two openings despite their identical display labels. M34 belongs to the second opening.
+- M05 is the reminder for M04, still open seven minutes later. M10 opened independently of M09, three minutes after it.
+- Counting the classification column gives 28 first calls, 10 reminder repeats and 8 parallel-route repeats. That is 46 deliveries including 18 repeats. A first call is the first delivery for an opening and does not establish a distinct incident.

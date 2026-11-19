@@ -1,0 +1,34 @@
+---
+path: Documents/Mail/Re Please check the four June Friday exchanges - Andrew.eml
+kind: text
+author: Andrew Cartwright
+derived_from:
+---
+
+From: Andrew Cartwright <andrew@brt-booking.example>
+To: Daniel Jennings <daniel@brt-booking.example>
+Cc: Sanjay Mehta <sanjay@brt-booking.example>, Matthew Pickering <matthew@brt-booking.example>
+Date: Fri, 09 May 2025 14:02:00 +0100
+Subject: Re: Please check the four June Friday exchanges
+Message-ID: <73f9aa7b-fd84-4525-895a-186eb5ab4a2e@brt-booking.example>
+In-Reply-To: <bdeb11e6-e978-4a21-853f-0057160997d1@brt-booking.example>
+References: <bdeb11e6-e978-4a21-853f-0057160997d1@brt-booking.example>
+
+Hi Daniel,
+
+I can take both of yours. I've checked Friday 6 June at 22:00 BST through Saturday 7 June at 07:00 BST, and Friday 20 June at 22:00 BST through Saturday 21 June at 07:00 BST.
+
+Could you keep the 7th and the 21st visible as the end dates in the rota? I want the Saturday morning cover to be clear when someone reads the entry back. I'll leave the other two rows for Sanjay to confirm.
+
+Andrew
+
+On Fri, 9 May 2025 at 13:26 BST, Daniel Jennings wrote:
+
+> Hi Andrew, Sanjay and Matthew,
+>
+> Attached is the four-row June exchange sheet from this morning's discussion. Andrew, please read back 6 and 20 June; Sanjay, 13 and 27 June; Matthew, please check the two rows moving from you. Please include the Saturday end date and 07:00 BST end time when you confirm your own rows.
+>
+> Could each of you confirm by 16:00 BST today? Once all three have acknowledged, I'll make the four rota edits together. The other June assignments stay as they are.
+>
+> Thanks,
+> Daniel

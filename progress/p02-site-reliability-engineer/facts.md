@@ -55,3 +55,29 @@
 - Daniel monitors headroom against 2,800/min using p95 one-minute rates over a trailing 15-minute window. Preflight requires at least 25%; Matthew owns start/stop and stops below that floor or on any output discrepancy or customer-facing regression.
 - The normal reconciliation release and next Faregate rollout tranche stay held under BRT-CD-20260713-001; the shadow approval does not extend to them. Operations reviews observations or the stand-down reason at 11:00 UTC (12:00 BST) on 19 August; expansion requires a further decision by Anjali.
 - “Approval for 19 August reconciliation shadow window”: 18 August 13:32 BST, Anjali → Matthew and Daniel, Cc Claire Hutchinson, standalone dispatch with August reconciliation shadow approval.pdf attached.
+
+## March night pages and April handover review
+
+- March 2024 observation period, UTC: eight rota engineers received 46 night-call deliveries, comprising 28 first calls, 10 reminder repeats and 8 parallel-route repeats. A repeat points to the same still-open item; a first call counts a delivery, rather than establishing a unique incident.
+- Borderline examples: 17 March 23:58 → 18 March 00:03 UTC is one item still open, so the second delivery is a repeat. The same label at 01:12 and 02:06 UTC on 22 March refers to two openings separated by a recorded clearance.
+- Andrew's BRT-NH-20240408-001 covers Daniel's 8–9 April watch, 22:00–07:00 BST. The old sheet groups the Fare Payments repeat (last seen 15:40 UTC) and pending Support receipt query (15:52 UTC) under a shared instruction and a single untimed tick; Anjali comments on the same issue on 9 April without reissuing it.
+- Daniel and Anjali meet on 9 April at 13:00 UTC (14:00 BST). BRT-MT-20240409-001 keeps reminders in place while Daniel and Andrew trial a named owner, next check and item-level acknowledgement, with unacknowledged items left visible.
+- “April night review: handover first” is standalone, 9 April 15:48 BST, Daniel → Andrew, Cc Anjali, with April night handover review decisions.pdf attached. Message-ID: `<209eb2c7-a466-4336-bf25-598e98e0c067@brt-booking.example>`.
+
+## May rota review and June Friday exchanges
+
+- Daniel's 7 April–4 May 2025 readback counts 25 distinct answered night calls for eight rota engineers: Daniel 9, Matthew 8, other six 8 combined. Attribute by actual responder; Matthew answered the 25 April 01:42 BST call on Daniel's planned watch.
+- Daniel and Andrew meet 9 May at 11:00 BST. BRT-MT-20250509-001 records the change and readback requirement. The board order is incoming primary → named cover if no answer → Anjali if still unclaimed, with owner and next check read back.
+- BRT-OX-20250509-001, issued 9 May by Daniel: 6 and 20 June Daniel → Andrew; 13 and 27 June Matthew → Sanjay. All four watches start at 22:00 Friday and end at 07:00 Saturday, Europe/London (BST); all other June assignments stay in place.
+- “Please check the four June Friday exchanges” thread, 9 May BST: (1) 13:26 Daniel → Andrew, Sanjay and Matthew, attaches June Friday night exchanges.xlsx and asks for readback by 16:00; (2) 14:02 Andrew → Daniel, Cc Sanjay and Matthew; (3) 14:37 Sanjay → Daniel, Cc Andrew and Matthew. Both replies use “Re: Please check the four June Friday exchanges”, quote (1) and carry no new attachments.
+- Thread Message-IDs in order: `<bdeb11e6-e978-4a21-853f-0057160997d1@brt-booking.example>`, `<73f9aa7b-fd84-4525-895a-186eb5ab4a2e@brt-booking.example>`, `<b63ddd66-2b10-4e05-81de-fe5994d301c1@brt-booking.example>`.
+- Matthew gives Daniel a spoken readback at 15:48 BST on 9 May. Daniel records the four changes as entered and checked at 16:19 BST after the other two confirmations.
+
+## November mock handover and supervised duty entry
+
+- Daniel teaches and Andrew observes on 4 November 2025 at 10:00 GMT. Carys Morgan, Owen Price and Megan Davies make two routing decisions each. BRT-RB-20251103-001 is Daniel's training deck, issued on 3 November before the exercise.
+- First exercise: 4 of 6 correct. Carys sends a single missing receipt after a completed payment to Matthew instead of Claire Hutchinson. Megan sends a cluster of failed Fare Payments to Claire instead of Matthew Pickering. Owen routes both items correctly.
+- All three repeat the exercise on 6 November at 10:00 GMT; the entry gate is two correct destinations and a complete owner/next-check readback for both prompts per trainee, without coaching. Andrew records six correct destinations and six complete readbacks; Daniel records supervised entry in BRT-TR-20251106-001.
+- Carys, Owen and Megan start their first supervised watches on 10, 12 and 14 November respectively, each 22:00–07:00 GMT with Andrew as named cover. Carys records her first morning readback on 11 November for a single receipt-status query owned by Claire, next check 09:00 GMT.
+- “November trainees cleared for supervised duty” is standalone, 6 November 13:24 GMT, Daniel → Anjali and Andrew, with November handover refresher record.pdf attached. Message-ID: `<7d6a3fe0-4065-4ea5-9409-3958954856d3@brt-booking.example>`.
+- Internal addresses for the rota and training correspondence use `@brt-booking.example` with local parts `daniel`, `anjali`, `andrew`, `matthew` and `sanjay`.

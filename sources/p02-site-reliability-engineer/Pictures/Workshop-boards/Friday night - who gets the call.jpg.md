@@ -1,0 +1,20 @@
+---
+path: Pictures/Workshop-boards/Friday night - who gets the call.jpg
+kind: photo
+author: Daniel Jennings
+derived_from:
+---
+
+## Board writing
+
+Friday 22:00 BST
+
+Incoming primary → Named cover if no answer → Anjali if still unclaimed
+
+Read back owner + next check
+
+old owner first
+
+## Photograph
+
+Daniel’s close photograph of the Bristol meeting-room whiteboard at the end of the rota discussion. “Friday 22:00 BST” sits above the handwritten sequence of three steps, connected by right-pointing marker arrows. “Read back owner + next check” sits in its own hand-drawn box below them. Off to the side, “old owner first” is crossed through once and remains legible. The photograph is taken a little off-centre, with a sliver of the board frame visible. All of the writing is readable, and no one is in the frame.
