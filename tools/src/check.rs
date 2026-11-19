@@ -512,6 +512,9 @@ fn slides_without_notes(parent: &str, request: &str) -> bool {
             {
                 return true;
             }
+            if request.trim() == "違いなし" || re(r"(?i)^(?:The [a-z0-9]+ slide faces are unchanged and in the same order\.\s*)?Export the slide faces only; omit speaker notes\.(?:\s*No post-meeting additions\.)?$").is_match(request.trim()) {
+                return true;
+            }
             first.split_inclusive('。').any(|sentence| {
                 matches!(
                     sentence.trim(),
@@ -548,6 +551,7 @@ fn print_source(parent: &str, body: &str, request: &str) -> String {
             .filter(|line| {
                 !line.trim_start().starts_with("発表者メモ：")
                     && !line.trim_start().starts_with("発表者ノート：")
+                    && !line.trim_start().starts_with("Speaker notes:")
             })
             .collect::<Vec<_>>()
             .join("\n");
@@ -763,15 +767,19 @@ fn data_lines(text: &str) -> String {
     }
 }
 // Revision instructions use a local timestamp, while Word commonly stores the instant in UTC.
-fn word_revision_source(body: &str, path: &Path) -> Result<String> {
+fn word_revision_source(body: &str, path: &Path, zone: chrono_tz::Tz) -> Result<String> {
     let instruction = re(
         r"(?m)^[-*] (削除|挿入|コメント) *\| *([^|\n]+?) *\| *(\d{4}-\d\d-\d\d \d\d:\d\d [+-]\d{4}) *\|",
     );
-    if !instruction.is_match(body) {
+    let labeled = re(
+        r"(?m)^[-*] 種類：(削除|挿入|コメント)／人物：([^／\n]+)／日時：(\d{4}-\d\d-\d\d \d\d:\d\d)／対象の文：([^\n]+?)／新しい文：([^\n]+)$",
+    );
+    if !instruction.is_match(body) && !labeled.is_match(body) {
         return Ok(body.to_string());
     }
     let parts = zip_parts(path)?;
     let mut revisions = BTreeSet::new();
+    let mut labeled_records = Vec::new();
     for part in ["word/document.xml", "word/comments.xml"] {
         if let Some(raw) = parts.get(part) {
             visit(&xml(raw)?, &mut |node| {
@@ -786,6 +794,15 @@ fn word_revision_source(body: &str, path: &Path) -> Result<String> {
                     && let Ok(instant) = DateTime::parse_from_rfc3339(date)
                 {
                     revisions.insert((kind, author.clone(), instant));
+                    labeled_records.push((
+                        kind,
+                        author.clone(),
+                        instant
+                            .with_timezone(&zone)
+                            .format("%Y-%m-%d %H:%M")
+                            .to_string(),
+                        units(node),
+                    ));
                 }
             });
         }
@@ -804,7 +821,28 @@ fn word_revision_source(body: &str, path: &Path) -> Result<String> {
             result.replace_range(date.range(), "");
         }
     }
-    Ok(result)
+    // A tracked edit stores its payload once in OOXML. Keep the target in the
+    // manuscript comparison after verifying the actual revision or comment.
+    Ok(labeled
+        .replace_all(&result, |row: &regex::Captures<'_>| {
+            let payload = if &row[1] == "削除" {
+                &row[4]
+            } else {
+                &row[5]
+            };
+            let matched = labeled_records
+                .iter()
+                .position(|(kind, author, date, text)| {
+                    *kind == &row[1] && author == &row[2] && date == &row[3] && text == payload
+                });
+            if let Some(index) = matched.filter(|_| &row[1] != "削除" || &row[5] == "なし") {
+                labeled_records.swap_remove(index);
+                row[4].to_owned()
+            } else {
+                row[0].to_owned()
+            }
+        })
+        .into_owned())
 }
 fn source_reason(
     expected: &str,
@@ -1543,7 +1581,14 @@ fn inspect(
                             } else if ext == "docx"
                                 && scfg.get("derived_from").is_none_or(String::is_empty)
                             {
-                                word_revision_source(&body, p)?
+                                word_revision_source(
+                                    &body,
+                                    p,
+                                    cfg.get("timezone")
+                                        .map(String::as_str)
+                                        .unwrap_or("UTC")
+                                        .parse()?,
+                                )?
                             } else {
                                 body
                             };
@@ -2366,5 +2411,58 @@ mod print_scope_tests {
             print_source("a.pptx", slides, "発表者メモを付ける。"),
             slides
         );
+    }
+}
+
+#[cfg(test)]
+mod handout_and_revision_tests {
+    use super::*;
+
+    #[test]
+    fn slide_face_exports_exclude_only_marked_note_lines() {
+        let body = "Sales\nSpeaker notes: private\n発表者メモ：補足\nCosts";
+        for request in [
+            "違いなし",
+            "The eight slide faces are unchanged and in the same order. Export the slide faces only; omit speaker notes. No post-meeting additions.",
+        ] {
+            assert_eq!(print_source("deck.pptx", body, request), "Sales\nCosts");
+        }
+        assert_eq!(
+            print_source("deck.pptx", body, "Include speaker notes."),
+            body
+        );
+    }
+
+    #[test]
+    fn labeled_revision_keeps_the_target_and_checks_word_evidence() {
+        use std::io::Write;
+        let file = tempfile::NamedTempFile::new().unwrap();
+        let mut zip = zip::ZipWriter::new(file.reopen().unwrap());
+        zip.start_file(
+            "word/document.xml",
+            zip::write::SimpleFileOptions::default(),
+        )
+        .unwrap();
+        zip.write_all(r#"<document><ins author="石井" date="2024-07-24T06:21:00Z"><t>新しい見出し</t></ins></document>"#.as_bytes()).unwrap();
+        zip.finish().unwrap();
+        let line = "- 種類：挿入／人物：石井／日時：2024-07-24 15:21／対象の文：旧見出し／新しい文：新しい見出し";
+        assert_eq!(
+            word_revision_source(line, file.path(), chrono_tz::Asia::Tokyo).unwrap(),
+            "旧見出し"
+        );
+        for wrong in ["別の人", "15:22", "違う見出し"] {
+            let bad = line.replace(
+                match wrong {
+                    "別の人" => "石井",
+                    "15:22" => "15:21",
+                    _ => "新しい見出し",
+                },
+                wrong,
+            );
+            assert_eq!(
+                word_revision_source(&bad, file.path(), chrono_tz::Asia::Tokyo).unwrap(),
+                bad
+            );
+        }
     }
 }
