@@ -2,3 +2,5 @@
 
 | persona | batch | 理由 | 日時 |
 |---|---|---|---|
+| p19-educator-instructional-designer | b005 | 監査 hold: progress/p19-educator-instructional-designer/b005.audit.md | 2026-11-19T18:14:14.549249+00:00 |
+| p20-investigative-journalist | b004 | resume 後に再失敗: batch 外の検査不合格: ["Documents/Stories/Road-contracts/Checks/.~lock.Do we need to ask for the date again.docx#"]  | 2026-11-19T18:14:14.598922+00:00 |
