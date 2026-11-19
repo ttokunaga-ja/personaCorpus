@@ -10,6 +10,7 @@ Bennett Cell Evaluation Inc の Cell Evaluation Laboratory が、非臨床の測
 | Findings review | Bennett、Melissa が集計結果、培養日別・保存時間群別の解釈、次の提案を説明する | `bennett-findings.docx` | US Letter 縦。表紙なし。初見と群別確認を別の見出しに置き、根拠表の見出しを次ページにも出せる |
 | Laboratory review minutes | Bennett、Melissa が Robert・Lauren らとの検討で照合した記録、判断、担当を残す | `bennett-lab-minutes.docx` | US Letter 縦。表紙なし。会議・参照記録・判断・対応の4節と横罫の対応表 |
 | Culture-date comparison | Bennett、Melissa が培養日×条件で測定群を比較する | `bennett-culture-day.xlsx` | US Letter 横。淡藤の管理欄とアイリス色の列見出し。左上に社章があり、続きのページにも管理欄と見出しを印刷 |
+| Equipment review | Bennett、Melissa と Anthony が装置ごとの校正履歴、稼働時間、点検予定を整理する | `bennett-equipment-review.xlsx` | US Letter 横。Bennett の社章、淡藤の文書管理欄、アイリス色の7列見出し。日付・校正記録番号・単位を横並びで確認できる |
 | Interlaboratory comparison | Bennett、Melissa が Bennett と Caldwell の原記録 ID・測定値を試料単位で照合する | `bennett-facility-comparison.xlsx` | US Letter 横。Bennett の社章・管理欄・反復見出しを継承。両施設の ID と数値を隣接させ、数値の次の文字列には左インデントを取る |
 | Storage study sample disposition | Bennett、Melissa が保存時間試験の試料と原記録を照合し、Anthony の採否判定を反映する | `bennett-storage-disposition.xlsx` | US Letter 横。Bennett の管理欄とアイリス色の7列見出しを反復。予定時間を右寄せし、右隣の原ラベルは字下げ。集計は最終明細の後に置く |
 | Storage time group summary | Bennett、Melissa が採否確定後の試料で保存時間別の母数・平均・基準比を算出する | `bennett-storage-summary.xlsx` | US Letter 横。群別集計と解析対象の明細を2シートに分け、両シートとも Bennett の社章、淡藤の管理欄とアイリスの7列見出しを反復 |
@@ -42,6 +43,16 @@ Mason は `MLM-YYYY-MMDD-SV-NNN`、Caldwell は `CAS-YYYY-MMDD-CMP-NNN`。年・
 ### Excel
 
 各ブックのテーマ、既定の `Normal`、見出し、管理欄の入力セル、明細の名前付き書式に Bennett の配色と Liberation Sans を使う。
+
+#### 装置レビュー
+
+1. A2 に表題、B4 に正式な文書番号、E4 に作成者、B5 に実日付（表示形式 `mmm d, yyyy`）、E5 に装置タグを入れる。管理欄の結合と書式を保つ。7行目の見出しは原稿に合わせ、使わない列の見出しは消す。明細は8行目から追加し、日付は `Bennett Date`、右揃えの数値は `Bennett Number`、率は `Bennett Percent`、記録番号や所見は左インデント付きの `Bennett Text` を使う。
+2. 校正履歴の見出しは A:G の順に Visit date、Visit type、Service record、As-found、As-left、Result、Note。D・E は `Bennett Number` を適用してから表示形式を `+0.00;-0.00;0.00` にし、F の判定は原稿の基準で計算する。明細行は32 ptを目安にする。校正偏差は合算せず、最終明細の直後の A:G を結合し、`Bennett Note` で基準点・偏差の単位・許容帯を記す。対象外の旧記録は注記に記す。
+3. 稼働明細は A:G の順に Period start、Period end、Source record、Active min、Active hours、Use category、Scope note。A・B は実日付、D は原記録の整数分、E は同じ行の D を60で割る式（例 `=D8/60`）。書式適用後に D を `#,##0`、E を `#,##0.0` にする。明細行は30 ptを目安にする。
+4. 明細全体の合計を載せる場合は、最終明細の直後に1行作る。その行の A:B を結合し、A に「Total active use」、G に集計範囲を記し、A・C・F・G に `Bennett Total Label`、D・E に `Bennett Total` を適用する。D は実際の明細だけを合計（33行目が最終明細なら `=SUM(D8:D33)`）し、E は同行の D を60で割る。書式適用後に D を `#,##0`、E を `#,##0.0` にする。合計行は32 ptを目安にする。注記は次の行の A:G を結合して `Bennett Note` を適用する。
+5. 2期間を比較する場合は、月別明細と別の `Period comparison` シートを作る。型のシートを複製し、社章も複製して両シートの管理欄を埋める（複製時に画像が引き継がれない場合は、同じ型から社章を再挿入する）。月別明細のシート名を `Monthly use` とする。集計シートの A7:G7 は Period start、Period end、Calendar days、Active min、Active hours、Change (%)、Scope。8行目を基準期間、9行目を比較期間にし、A・B に両端を含む実日付、C に日数（例 `=B8-A8+1`）、D に対象期間の明細の合計（b006 の例は `=SUM('Monthly use'!D8:D10)` と `=SUM('Monthly use'!D11:D13)`）、E に同じ行の D を60で割る式、G に基準・比較の別を入れる。A・B・G に `Bennett Total Label`、C:F に `Bennett Total` を適用し、適用後に A・B は `mmm d, yyyy`、D は `#,##0`、E は `#,##0.0` にする。F8:F9 の値は空欄にする。
+6. 集計シートの10行目に差分を置く。A:B を結合して A に「Change vs. baseline」、G に分母の期間を記し、A・C・G に `Bennett Total Label`、D:F に `Bennett Total` を適用する。D に `=D9-D8`、E に `=E9-E8`、F に `=IF(E8=0,"",E10/E8)` を入れ、書式適用後に D は `+#,##0;-#,##0;0`、E は `+#,##0.0;-#,##0.0;0.0`、F は `+0.0%;-0.0%;0.0%` にする。8〜10行目は32 ptを目安にする。11行目の A:G を結合し、`Bennett Note` で集計対象・除外・開始と終了の日付の扱いを記す。b006 では各92日で 14,400 分（240.0 h）と 17,568 分（292.8 h）、差分は +52.8 h、基準期間比の変化は +22.0%。
+7. 各シートの印刷範囲を A1 から最終使用列・行までに更新する。US Letter 横で横1ページ、縦は必要なページ数、1〜7行を各ページで反復する。複製したシートにも、左に `LABORATORY RECORD`、右に `Page &P / &N` の印刷フッタを引き継ぐ。結合した注記は28 ptを目安にし、管理欄・明細・集計も折返しに合わせて高さを調整する。数値列の右隣の文字列には `Bennett Text` または `Bennett Total Label` の左インデントを維持する。
 
 #### 培養日別集計
 
@@ -101,6 +112,9 @@ Storage-study の計画は Study plan を開き、設計の節に 0・24・48 �
 
 | 見本 | 元ファイル | レンダリング |
 |---|---|---|
+| Equipment review・校正履歴4行 | [XLSX](../../scratch/p06-life-science-researcher/b006/work/templates-0004/samples/calibration-history.xlsx) | [1ページ](../../scratch/p06-life-science-researcher/b006/work/templates-0004/render/calibration-history/calibration-history-1.png) |
+| Equipment review・月別明細6行と2期間比較 | [XLSX](../../scratch/p06-life-science-researcher/b006/work/templates-0004/samples/monthly-and-period-comparison.xlsx) | [1ページ](../../scratch/p06-life-science-researcher/b006/work/templates-0004/render/monthly-and-period-comparison/monthly-and-period-comparison-1.png)、[2ページ](../../scratch/p06-life-science-researcher/b006/work/templates-0004/render/monthly-and-period-comparison/monthly-and-period-comparison-2.png) |
+| Equipment review・稼働明細26行（改ページ確認用） | [XLSX](../../scratch/p06-life-science-researcher/b006/work/templates-0004/samples/daily-usage-26-rows.xlsx) | [1ページ](../../scratch/p06-life-science-researcher/b006/work/templates-0004/render/daily-usage-26-rows/daily-usage-26-rows-1.png)、[2ページ](../../scratch/p06-life-science-researcher/b006/work/templates-0004/render/daily-usage-26-rows/daily-usage-26-rows-2.png)、[3ページ](../../scratch/p06-life-science-researcher/b006/work/templates-0004/render/daily-usage-26-rows/daily-usage-26-rows-3.png) |
 | Study plan 草案 | [DOCX](../../scratch/p06-life-science-researcher/b005/work/templates-0004/samples/bennett-study-plan.docx) | [1ページ](../../scratch/p06-life-science-researcher/b005/work/templates-0004/render/bennett-study-plan/bennett-study-plan-1.png) |
 | Study plan 承認版 | [PDF](../../scratch/p06-life-science-researcher/b005/work/templates-0004/samples/bennett-study-approval.pdf) | [1ページ](../../scratch/p06-life-science-researcher/b005/work/templates-0004/render/bennett-study-approval-pdf/bennett-study-approval-1.png) |
 | Findings review・3行 | [DOCX](../../scratch/p06-life-science-researcher/b005/work/templates-0004/samples/bennett-findings-3.docx) | [1ページ](../../scratch/p06-life-science-researcher/b005/work/templates-0004/render/bennett-findings-3/bennett-findings-3-1.png) |

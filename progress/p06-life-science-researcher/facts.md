@@ -112,3 +112,27 @@
 - BCE-CE-2025-MIN-006-R00 records the decision and assigns Melissa same-day issuance, Lauren the Oct 20 desk briefing, and Anthony the timing referrals. Melissa issues BCE-CE-2025-DEC-001-R00 on Oct 16 at 14:06, with Robert as approver.
 - Oct 16 at 14:28 EDT, Melissa → Lauren, Benjamin and Anthony, Cc Robert, “Storage limit for Monday, October 20”, a new thread with the actual issued DEC-001-R00 PDF attached. This follows the pre-read and the decision meeting.
 - Lauren's Oct 20 desk briefing at 09:00 includes Melissa and Benjamin and uses the Oct 17 desk reference. On Oct 22 Lauren removes one Sept 23 worked-examples printout still marked “proposed” from the desk and retains it with the September discussion papers.
+
+## CE-Reader-2 calibration history for interval review
+
+- CE-Reader-2 (serial LXR-4187) uses the 5.00 ng/mL reference and inclusive ±0.05 ng/mL band for the review. Deviations are indication minus reference; each pair below is as-found / as-left in ng/mL.
+- Nov 6, 2024 supplemental return visit after October service: MLM-2024-1106-SV-019, +0.02 / +0.00. Apr 22, 2025 routine: MLM-2025-0422-SV-012, −0.03 / +0.01.
+- Jul 22, 2025 supplemental calibration at a planned preventive visit: MLM-2025-0722-SV-026, +0.04 / +0.01. Oct 22, 2025 routine: MLM-2025-1022-SV-041, +0.03 / −0.01.
+- All four are in range before and after calibration. Supplemental visits leave the routine April/October schedule anchored to the regular visits. Oct 22, 2024 (MLM-2024-1022-SV-014) is prior history, separate from these four and from the current interval decision.
+- Anthony's Jan 8 history is BCE-CE-2026-TBL-002-R00. His Jan 9 range determination is BCE-CE-2026-LAB-002-R00 and reports a maximum absolute as-found deviation of 0.04 ng/mL.
+
+## Active reader use across two equal periods
+
+- Compare Jul 1–Sep 30, 2025 with Oct 1–Dec 31, 2025 inclusive (92 calendar days each, Philadelphia local dates). Count CE-Reader-2 active operating minutes only, excluding setup, idle reservations and Mason service. January falls outside both windows.
+- Jul–Dec monthly active minutes: 4,680; 4,800; 4,920; 5,670; 5,850; 6,048. The subtotals 14,400 and 17,568 min give 240.0 and 292.8 h, an increase of 52.8 h or 22.0% relative to Jul–Sep.
+- Lauren's Oct reservation sheet shows 118.0 h, including setup and unclaimed time. Oct 28 illustrates the mismatch at 3.0 h booked versus 1.5 h active in two sessions. Nov 18 first-pass review keeps booked hours out of the comparison.
+- Lauren saves the monthly export Jan 5 at 09:26 EST and scans her signed close at 15:09 EST. Melissa's comparison workbook is BCE-CE-2026-TBL-001-R00 dated Jan 7.
+
+## January service interval decision and April appointment
+
+- Robert asks about the annual option Nov 5. Melissa's working review BCE-CE-2026-REV-001-R00 is dated Jan 14; Anthony marks it Jan 16 and Melissa issues discussion revision R01 Jan 20, with the cadence still open.
+- Jan 27 at 10:00 EST, Christopher Medina, Anthony Mendoza, Robert Nguyen and Melissa Watkins compare the two bodies of evidence. The four in-band visits include two supplemental visits and give no twelve-month observation; the 22.0% rise in active use weighs against increasing time between checks.
+- Robert retains six months on Jan 27. Melissa files minutes BCE-CE-2026-MIN-001-R00 and issues BCE-CE-2026-DEC-001-R00 that afternoon. Christopher confirms the booking, Lauren prepares the bench handoff and Anthony reassesses active use at the next calibration.
+- Mason issues MLM-2026-0128-SV-003 on Jan 28 for Apr 22, 2026, 09:30–11:30 EDT (UTC−04:00); the actual handback is to be recorded on the visit day. January records and mail use EST (UTC−05:00).
+- Jan 21 10:04 EST, Melissa → Christopher, Cc Anthony, “CE-Reader-2 interval question”, opens the thread without attachments and asks to hold April. Jan 28 09:15 EST, Christopher → Melissa, Cc Anthony, “Re: CE-Reader-2 interval question”, quotes the request and attaches the actual Mason schedule PDF.
+- Jan 28 14:12 EST, Melissa → Lauren and Benjamin, Cc Anthony and Robert, “April reader window for the lab”, opens a new thread attaching the issued DEC-001-R00 PDF and the separate TBL-001-R00 XLSX.
