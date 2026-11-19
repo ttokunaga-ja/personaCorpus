@@ -1,0 +1,14 @@
+---
+path: Desktop/Draw the gap before showing a score.txt
+kind: text
+author: Vanessa Nguyen
+derived_from:
+---
+Thursday, before the 2:00 meeting
+
+Ask Emily before drawing the two windows:
+- Have we made the body budgets equal? First 2,048 versus first 1,536 plus last 1,024 is 2,048 versus 2,560, so what is the comparison actually telling us?
+- At 2,560 tokens or fewer, do the two end segments overlap? How do we ensure the overlapping text is passed only once?
+- What happens to a repair instruction that appears only in the middle when the ends leave a gap?
+
+Draw the gap first. A score without the window beside it will be too easy to misread.

@@ -1,0 +1,13 @@
+miss_pattern,span_end_full_body_percent,records,pattern_denominator,any_miss_denominator
+First 2048 only,0-25 inclusive,0,28,39
+First 2048 only,over 25-50 inclusive,0,28,39
+First 2048 only,over 50-75 inclusive,7,28,39
+First 2048 only,over 75-100 inclusive,21,28,39
+Both ends only,0-25 inclusive,0,2,39
+Both ends only,over 25-50 inclusive,0,2,39
+Both ends only,over 50-75 inclusive,2,2,39
+Both ends only,over 75-100 inclusive,0,2,39
+Both,0-25 inclusive,2,9,39
+Both,over 25-50 inclusive,4,9,39
+Both,over 50-75 inclusive,1,9,39
+Both,over 75-100 inclusive,2,9,39
