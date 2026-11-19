@@ -2294,3 +2294,14 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-19	p20-investigative-journalist	b003	draft-check	1	source	Documents/Interviews/Wheeler - Jan 27 tape transcript.txt	/home/ttokunaga-ja/dev/github.com/ttokunaga-ja/personaCorpus/sources/p20-investigative-journalist/Documents/Interviews/Wheeler - Jan 27 tape transcript.txt.md: No such file or directory (os error 2)
 2026-11-19	p20-investigative-journalist	b003	draft-check	2	source	Documents/Interviews/Wheeler - Jan 27 tape transcript.txt	/home/ttokunaga-ja/dev/github.com/ttokunaga-ja/personaCorpus/sources/p20-investigative-journalist/Documents/Interviews/Wheeler - Jan 27 tape transcript.txt.md: No such file or directory (os error 2)
 2026-11-19	p20-investigative-journalist	b003	build-review	0	V2	Documents/Stories/Road-contracts/Checks/Dates I can't call approvals yet.docx	1ページ目の対照表で、型のREADMEと記入見本が指定する右揃えと右余白0.08インチがNo.列の見出しと明細1〜3に適用されず、左揃えで表示されている。
+2026-11-19	p06-life-science-researcher	b003	draft-check	0	frontmatter	Desktop/January comparison - before Anthony's review.docx	frontmatter path/kind が計画と違う
+2026-11-19	p06-life-science-researcher	b003	draft-review	0	D3	Downloads/2025-01-15 Caldwell comparison observations.pdf	22行目「Interpretation」のMC18-07・08のBennett値5.87・6.79 ng/mLは1月6日のBennett原CSVで確認できるが、再制作後の「Records checked」にはCaldwellの1月7日CSVしか挙がらず、比較相手の2値の出典を所見からたどれない。
+2026-11-19	p06-life-science-researcher	b003	draft-review	0	D10	Desktop/Lauren's comments on the Caldwell plan.docx	先頭の derived_from が空欄で、計画の前提である Caldwell first comparison - for review.docx を指していないうえ、本文に元の R00 全文を再掲しており、Lauren のコメント2件だけを元の文書への差分として記す派生原稿の規則と一致しない。
+2026-11-19	p06-life-science-researcher	b003	build-review	0	V2	Documents/Lab-book/2025/01/2025-01-06 Bennett comparison recording sheet.pdf	1ページ目の原記録一覧の第3列に「Check」と印刷され、bennett-bench-record.clsとスキャン見本、および前回pass時の「Review status」から見出しが変わっている。
+2026-11-19	p06-life-science-researcher	b003	build-review	0	V2	Desktop/Two rows move when I sort Caldwell.xlsx	Matched samples の印刷1ページ目で、管理欄の E5 に原稿どおり「Label check only」が入っているが、対になる D5 のラベルが空欄で、型・見本および前回印刷の管理欄から脱落している。
+2026-11-19	p03-security-grc-analyst	b005	check	0	source	Desktop/退職手続_山口さんの赤字.docx	body token overlap 0.567 < 0.6
+2026-11-19	p13-corporate-privacy-counsel	b006	coordinator	0	other	Desktop/10月16日_委託審査の説明_取消箇所.docx	統括の抜き取りで不合格
+2026-11-19	p13-corporate-privacy-counsel	b006	coordinator	0	other	Documents/Matters/文書処理委託審査/委託先審査/10月17日_返答を待つ間の購買への依頼.docx	統括の抜き取りで不合格
+2026-11-19	p13-corporate-privacy-counsel	b006	coordinator	0	other	Documents/Matters/文書処理委託審査/委託先審査/10月27日_受領連絡を回答欄へ入れない.docx	統括の抜き取りで不合格
+2026-11-19	p13-corporate-privacy-counsel	b006	coordinator	0	other	Documents/取締役会/10月21日_報告後に追加で聞かれたこと.docx	統括の抜き取りで不合格
+2026-11-19	p13-corporate-privacy-counsel	b006	coordinator	0	other	Documents/取締役会/2025年10月_訂正説明の想定問答.docx	統括の抜き取りで不合格
