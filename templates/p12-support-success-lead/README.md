@@ -26,6 +26,8 @@
 
 2026年1月8日の定型返信の点検では、54件のうち解決を確約したと読める7件を `tomorie-triage.xlsx` の採否表にまとめる。英文案は `tomorie-customer-note.docx`、委託先へ送る説明PDFは発行元の `tomorie-partner-brief.cls`、国内当番への例文比較は `tomorie-support.pptx` の2段・表レイアウトを使う。Corleyとの照会と回答は送受信者・日時・引用を持つEMLとして保存する。旧案内HTML、抽出CSV、返信画面の注釈PNGは元の案内、列構成、画面表示に沿って作る。見本の例文・版・番号は組版確認用とし、実文書には計画と原稿の値を使う。
 
+2026年4月の露原機材への支援条件案は `tomorie-customer-note.docx` を開き、見出しを原稿に合わせて差し替える。4月16日の森田の承認を境に、承認前案と谷口への送付版を版と日付で区別する。支援品質に保管する条件説明PDFは `tomorie-guide.cls`、説明会は `tomorie-support.pptx`、営業時間をまたぐ時刻例は `tomorie-queue.xlsx` を使う。案内HTML・時系列図PNGでも、受付、担当者の初回返信、解決確認の時点を分ける。承認と送信はそれぞれのEMLに残す。
+
 ## 灯枝サービスの共通書式
 
 - ロゴは紫の幹から斜めに伸びる枝と、枝先の琥珀色の円（灯）、社名の文字。主色は紫 `514369`、補助は琥珀 `CC963F`、本文は墨 `33313A`。白と淡紫 `F0EDF4` は背景。Word・Excelではこの図形と社名を画像として内部に埋め込み、PowerPointとTeXでは図形で描く。外部画像へのリンクはない。
@@ -57,7 +59,9 @@
 
 回避策の確認表では、取込切り分けの型を開き、シート名と2行目を「回避策の確認」に変更する。5行目に「照合順」「利用作業」「再現条件・試した操作」「確認結果」「確認者」「確認根拠・再確認先」を置き、AからFの列幅は順に12、18、32、16、14、32を目安とする。Aは `TS Number`、B〜Fは `TS Text` を使う。確認済みの根拠は操作後に観察した結果、未確認の根拠欄は試せなかった条件と再確認先を記す。件数を載せる場合はD列の該当状態を `COUNTIF` で集計する。
 
-定型返信の採否表も取込切り分けの型を開き、シート名を「調査中の定型返信」、2行目の題を「調査中の定型返信の点検」にする。A〜Fの見出しは順に「No.」「旧文言」「誤読のおそれ」「採否」「採否の理由・訂正方針」「確認先」、見本の列幅は順に12、30、29、14、36、19。Aは `TS Number`、B〜Fは `TS Text` とし、見本の明細行高49ptを目安に英文の長さに合わせる。B列の左インデント1を保つ。採否の理由には、旧文言が解決の確約と読める箇所と、確認済みの事実または次報に置き換える理由を記す。7件のみを明細に載せる場合はフィルタを `A5:F12` とし、注記を付ける場合だけ印刷範囲をA13の注記行まで広げる。
+定型返信の採否表も取込切り分けの型を開き、シート名を「調査中の定型返信」、2行目の題を「調査中の定型返信の点検」にする。A〜Fの見出しは順に「No.」「旧文言」「誤読のおそれ」「採否」「採否の理由・訂正方針」「確認先」、列幅の目安は順に12、30、29、14、36、19。Aは `TS Number`、B〜Fは `TS Text` とし、明細行高49ptを目安に英文の長さに合わせる。B列の左インデント1を保つ。採否の理由には、旧文言が解決の確約と読める箇所と、確認済みの事実または次報に置き換える理由を記す。7件のみを明細に載せる場合はフィルタを `A5:F12` とし、注記を付ける場合だけ印刷範囲をA13の注記行まで広げる。
+
+初回返信の時刻例は未解決・当番管理の型を開き、シート名を「初回返信の時刻例」、2行目の題を「営業時間をまたぐ初回返信の時刻例」にする。5行目の見出しは「No.」「受付日時」「初回返信日時」「計上分」「解決確認日時」「計上内訳」、列幅の目安は順に12、23、23、13、23、32。A・Dは `TS Number`、B・C・Eは `TS Date` と `yyyy-mm-dd hh:mm`、Fは `TS Text` を設定する。B・Eの左インデント1を保つ。時刻は日本時間で、担当者が返信するまでの平日09:00〜18:00（休業日を除く）の分をD・Fに記す。自動受領通知を初回返信に数えず、解決確認の時刻はEに独立して記録する。解決確認前はEを空欄にする。各行は独立した例のため、計上分を合算する行は設けない。
 
 露原機材販売の書式は茶 `7B4C35` と墨、生成り `F4EFE8`。日本語・英語とも Noto Serif CJK JP。番号は同社が管理する添付に限り `TK-IMP-YYYYMMDD-連番` とし、支援側が受領表に番号を追加しない。ロゴは重なる2つの角枠と社名で、機材販売会社の控えめな事務帳票を想定する。
 
@@ -109,19 +113,18 @@ EMLは送受信ヘッダと本文・引用・必要な実添付を持つ保存�
 
 ## 組版の確認見本
 
-`scratch/p12-support-success-lead/b007/work/templates-0002/` の `samples/` に見本、`render/` に見本と同じベース名のページ画像フォルダがある。Excelの長い見本は改ページ確認用に明細を繰り返している。
+`scratch/p12-support-success-lead/b008/work/templates-0002/` の [`samples/`](../../scratch/p12-support-success-lead/b008/work/templates-0002/samples/) に見本、[`render/`](../../scratch/p12-support-success-lead/b008/work/templates-0002/render/) に見本と同じベース名のページ画像フォルダがある。Excelの23行版は改ページを確認するために例を繰り返している。時刻例の値は組版確認用。
 
 | 型 | 見本（`samples/` 以下） |
 |---|---|
-| 白樺ビルメンテナンスの拠点表 | `shirakaba-site-status-3.xlsx`、`shirakaba-site-status-27.xlsx` |
-| 円山印章の質問表 | `maruyama-permission-questions-3.xlsx`、`maruyama-permission-questions-27.xlsx` |
-| 取込切り分け | `tomorie-triage-3.xlsx`、`tomorie-triage-27.xlsx` |
-| 取込切り分けの型を使った回避策確認表 | `tomorie-triage-workaround-3.xlsx`、`tomorie-triage-workaround-27.xlsx` |
-| 取込切り分けの型を使った定型返信の採否表 | `tomorie-reply-review-7.xlsx`、`tomorie-reply-review-28.xlsx` |
-| 未解決・当番管理 | `tomorie-queue-3.xlsx`、`tomorie-queue-27.xlsx` |
-| 露原機材販売の確認表 | `tsuyuhara-import-3.xlsx`、`tsuyuhara-import-27.xlsx` |
+| 白樺ビルメンテナンスの拠点表 | `shirakaba-site-status-3.xlsx`、`shirakaba-site-status-23.xlsx` |
+| 円山印章の質問表 | `maruyama-permission-questions-3.xlsx`、`maruyama-permission-questions-23.xlsx` |
+| 取込切り分け | `tomorie-triage-3.xlsx`、`tomorie-triage-23.xlsx` |
+| 未解決・当番管理 | `tomorie-queue-3.xlsx`、`tomorie-queue-23.xlsx` |
+| 未解決・当番管理の型を使った初回返信の時刻例 | `tomorie-queue-sla-3.xlsx`、`tomorie-queue-sla-23.xlsx` |
+| 露原機材販売の確認表（取込対象とエラー一覧） | `tsuyuhara-import-3.xlsx`、`tsuyuhara-import-23.xlsx` |
 | 灯枝サービスのWord文書 | `tomorie-escalation.docx`、`tomorie-handover.docx`、`tomorie-customer-note.docx`、`tomorie-qbr-minutes.docx` |
-| お客様へのご案内の型を使った英文案（変更履歴入り） | `tomorie-reply-draft.docx` |
+| お客様へのご案内の型を使った支援条件の承認前案 | `tomorie-support-conditions-draft.docx` |
 | 支援状況の共有（全5レイアウト） | `tomorie-support.pptx` |
 | 問い合わせ記録の出力 | `tomorie-export.pdf` |
 | 配布用のご利用案内 | `tomorie-guide.pdf` |
