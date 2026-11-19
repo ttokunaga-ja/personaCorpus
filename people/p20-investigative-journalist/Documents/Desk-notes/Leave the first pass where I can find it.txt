@@ -1,0 +1,10 @@
+Monday, Oct. 21 — for the next time I sit down with the road files
+
+Leave First pass - which totals move.xlsx in Road-contracts/Checks. That's the Sept. 10 workbook. If Richard asks where the $310,000 came from, I want to be able to open the actual calculation. It compared the work subtotals with totals that included estimated tax. Keep it out of the next chart's source range.
+
+Open these in this order when I pick the story back up.
+
+1. Road-contracts/Checks → Alder and Quarry - same tax basis.xlsx (Oct. 16). Start with Comparison. Both contracts come out even on the work subtotals before tax. Tax basis takes me back to the four printed fields if I need to check a label.
+2. Documents/Mail → Drop the road increase claim.eml (Oct. 16, 4:08 p.m., “Drop the $310,000 road increase”). Read what I told Richard, with Veronica and Miguel copied, before reusing anything from the September opening.
+
+Keep citing the continuous page numbers of the 124-page August 14 release. Use August release - page ranges.csv under Records whenever I've opened a separately saved PDF. Alder CO-02 is the one I'll mix up again: page 3 of that scan gets cited as release p. 48.

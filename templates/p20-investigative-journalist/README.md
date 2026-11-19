@@ -1,6 +1,6 @@
 # Leslie Crawford の文書の型
 
-Allegheny Civic News Cooperative の調査報道デスクと Mapleton Falls Borough の公文書窓口の文書に使う。本文は英語（en-US）、時刻は America/New_York、用紙は US Letter。記入見本の道路名、対象年度、資料名の内訳、文書番号、追加の日付はレイアウト確認用。制作では計画と事実の台帳で確定した値を使う。
+Allegheny Civic News Cooperative の調査報道デスクと Mapleton Falls Borough の公文書窓口の文書に使う。本文は英語（en-US）、時刻は America/New_York、用紙は US Letter。記入見本の道路名、対象年度、資料名の内訳、ページ、金額の内訳、文書番号、追加の日付はレイアウト確認用。制作では計画と事実の台帳で確定した値を使う。
 
 | 名前 | 組織・利用者と用途 | ファイル名 | 見た目 |
 |---|---|---|---|
@@ -8,9 +8,11 @@ Allegheny Civic News Cooperative の調査報道デスクと Mapleton Falls Boro
 | Story outline | 同編集部、Leslie。検討した導入、構成、採否と理由 | `acn-outline.docx` | Letter 縦、表紙なし。マストヘッドの下に三つの編集用見出し |
 | Records scope memo | 同編集部、Leslie・Keith。公開請求の対象と次の対応を共有 | `acn-scope-memo.docx` | Letter 縦、表紙なし。対象範囲、必要な資料、対応を三節に分ける |
 | Records scope workbook | 同編集部、Leslie。契約別の範囲と、年度・区画ごとの請求資料種別を対照 | `acn-records-scope.xlsx` | Letter 横。題と管理欄を上段に置き、淡い赤みの地にえんじの見出し。本文は白地と細い横罫 |
+| Tax basis reconciliation | 同編集部、Leslie が原表の頁と欄を記録し、Miguel が旧額・変更額の税区分を照合 | `acn-tax-reconciliation.xlsx` | Letter 横。原表の表記、含まれる税額、税別換算額を並べ、右端に判定を置く |
 | Editorial brief | 同編集部、Leslie から Richard らへ。編集会議で問い、根拠、区画を説明 | `acn-editorial-brief.pptx` | 16:9。白地、えんじの細い上下罫、左上にマストヘッド。表紙・本文・2 段・表・図の実レイアウト |
 | Public records correspondence | 同編集部、Leslie から Dorothy へ。最初の請求と、対象を絞った再請求の添付 PDF | `acn-records-letter.cls` | Letter 縦。編集部のマストヘッド、管理欄、宛先、本文と署名。必要な場合は明細を添える |
-| Public Records Office reply | Mapleton Falls Borough、Dorothy から Leslie へ。窓口が独立した PDF として出す回答や通知 | `mapleton-falls-records.cls` | Letter 縦。丸い庁舎章と名称の中央組み、青い帯の件名とラベル付きの管理欄。サンセリフ体 |
+| Public Records Office reply | Mapleton Falls Borough、Dorothy から Leslie へ。窓口が独立した PDF として出す回答、通知、開示送付状 | `mapleton-falls-records.cls` | Letter 縦。丸い庁舎章と名称の中央組み、青い帯の件名とラベル付きの管理欄。サンセリフ体 |
+| Public Works contract and change schedule | Mapleton Falls Borough が契約当事者と作成・保管する契約書、変更指示、価格明細 | `mapleton-falls-records.cls` | 同じ庁舎章と青帯。契約参照番号と契約先の欄、金額を右揃えにした明細と繰り返し見出し |
 
 保存した公示 HTML は Mapleton Falls Borough の掲載物として、庁舎章の円と青・濃灰のサンセリフ体を使う。公示の表題、掲載日、発注参照番号、掲示された区画を保存時点の文面で残す。メールは EML のヘッダと本文を使い、差出人・宛先・日付・件名と返信関係を保つ。請求 PDF は Leslie が書く一通の請求につき一つ。手書きの区画メモは原稿に沿って手帳の画像を作り `bin/scan` で組む。掲示写真は現場の掲示物と読める区画表記を画像にする。これらの形式はそれぞれ元資料の外観を使う。
 
@@ -18,7 +20,7 @@ Allegheny Civic News Cooperative の調査報道デスクと Mapleton Falls Boro
 
 - 編集部は、階段状に置いた三つの四角と社名でマストヘッドを作る。欧文は **Liberation Serif**。墨 `#232826` は本文、えんじ `#792C3D` は組織名・見出し・罫、淡い赤みの紙色 `#F6EFEB` は表の帯と強調欄。通常紙面は白。ヘッダにマストヘッド、フッタに Investigations desk。縦文書とワークブックの印刷にはページ番号を付ける。
 - 編集部の番号は `ACN-INV-YYYYMMDD-用途-連番3桁`。用途は企画 `PIT`、構成 `OUT`、範囲メモ `MEM`、照合表 `LOG`、会議資料 `BRF`、請求 `REQ`。例は `ACN-INV-20240725-REQ-001`。日付は文書の日付、連番は同日・同用途内。独立した再請求は自身の文書番号を持ち、本文で初回請求を参照する。単なる書き出しは元文書の番号を引き継ぐ。
-- 区役所は、丸い枠に庁舎の輪郭を描いた章と名称を並べる。欧文は **Liberation Sans**。青 `#234C69` は章、タイトル帯、ラベル、罫。濃灰 `#293942` は本文。フッタは Public Records Office とページ番号。区役所自身の番号は `MFB-PRO-YYYYMMDD-連番3桁`（例 `MFB-PRO-20240726-001`）。照会相手の番号を引用する場合は本文に記す。
+- 区役所は、丸い枠に庁舎の輪郭を描いた章と名称を並べる。欧文は **Liberation Sans**。青 `#234C69` は章、タイトル帯、ラベル、罫。濃灰 `#293942` は本文。フッタは発行部署（Public Records Office または Public Works）とページ番号。区役所自身の番号は `MFB-PRO-YYYYMMDD-連番3桁`（例 `MFB-PRO-20240726-001`）。照会相手の番号を引用する場合は本文に記す。契約書と変更明細の管理欄には、記録自体の契約参照番号（例 `PW-23-03`）と、原表にある変更番号を使う。開示の番号や日時は送付状で管理する。
 - 作成者・日付は管理欄とファイルの内部プロパティを揃える。既定の文書言語は英語。地名・日付・文書番号は行の隣に実際の値を入れて読み合わせる。
 
 ## Word
@@ -35,6 +37,13 @@ Allegheny Civic News Cooperative の調査報道デスクと Mapleton Falls Boro
 4. 件数が必要なときは直後の行で B:F を結合し、A に明細の A 列のみを数える `COUNT` 式、B に件数の意味を記す。A は `Desk Total Number`、B は `Desk Total`、行高 25 pt。脚注を付ける場合は次の行で A:F を結合し、`Desk Note` と折返しに収まる行高を指定する。集計対象が区画×資料種別なら件数は資料行の数として表示する。
 5. フィルターを A6:F の最終明細まで、印刷範囲を A1:F の最終使用行まで設定する。Letter 横、横 1 ページ・縦自動、印刷時に 1〜6 行を各ページで繰り返す。数字と文字、管理値、改ページ後の列見出しを確認する。
 6. 最終保存後に `bin/stamp` で作成者と文書日時を設定する。openpyxl は保存時に内部の更新日時を現在時刻で書き直すため、再保存した場合はスタンプもやり直す。
+
+### 税区分の照合（Tax basis）
+
+1. `acn-tax-reconciliation.xlsx` の Tax basis を開き、`C3` に LOG 番号、`F3` に作成者、`C4` に日付を入れる。F:H の結合セルに作成者を入れる。番号欄は C:D の結合と折返しで全文を表示する。
+2. 7 行目から、原表の各金額につき 1 行を作る。A が照合行番号（`Desk Number`）、B が契約参照番号、C が資料名・開示頁・欄、D が原表で確認した区分（`Included`、`Excluded`、`Unconfirmed`）、H が確認結果。B〜D と H は `Desk Text`（折返しと左インデント 1）。E は原表の金額、F は E に含まれることを確認した税額、G は税別換算額。E〜G に `Desk USD`（USD、小数 2 桁、右寄せ）を指定する。明細行高は 46 pt を目安に本文に合わせる。
+3. 税別額は D が `Excluded` なら E、D が `Included` かつ F が数値なら E−F。原表で確認できない場合は空欄にする。7 行目の式は `=IF(AND(ISNUMBER(E7),D7="Excluded"),E7,IF(AND(ISNUMBER(E7),D7="Included",ISNUMBER(F7)),E7-F7,""))`。換算額が両方確認できた組だけを比較する。原表の税込・税別の混在額を合算しない。異なる資料で同じ額を再掲している場合は重複計上しない。
+4. 注記は A:H を結合し `Desk Note` を適用する。件数を表示する場合は A に `COUNT`、B:H を結合して件数ラベルを置き、`Desk Total Number`／`Desk Total` を指定する。明細末尾までをフィルター、注記・集計を含む最終行までを印刷範囲にする。Letter 横に幅 1 ページ、縦は自動、1〜6 行を繰り返す。文字と金額の間隔、数字・番号の全桁、改ページ後の見出しを確認する。数式は `bin/recalc` で確認し、最終保存後に `bin/stamp` を適用する。
 
 ## PowerPoint
 
@@ -62,9 +71,11 @@ TZ=America/New_York pdfinfo "$pdf"
 - `acn-records-letter` は `\DeskRequest{題}{番号}{日付}{差出人}{宛先}{書き出し}`、必要に応じ `\DeskHeading{見出し}`、末尾に `\DeskSign{署名}`。請求種別や区画の明細を載せるときは `DeskSchedule` 環境内で `番号 & 資料または参照 & 対象範囲 \\` を実際の件数分だけ書く。番号列と文字列の間に 0.17 in の間隔がある。見出しは紙色 `#F6EFEB` の帯に置き、横罫はえんじ `#792C3D`。改ページ後の見出しにも同じ色が適用される。短い請求では一つの一覧、範囲の照合も添える場合は独立した見出しを付けて一覧を分けられる。署名の氏名と所属は同じ `\DeskSign` に入れ、行は `\\` で区切る。署名全体が一つのブロックとして収まるページに置かれる。
 - `mapleton-falls-records` は `\BoroughReply{題}{番号}{日付}{宛先}{差出人}`、本文と任意の `\BoroughSection{小見出し}`、担当者の署名。PDF として発行された行政文書に使い、スレッド内のメールは EML として保存する。
 
+- 区役所が保管する契約・変更記録は `\BoroughContract{題}{契約参照・変更番号}{原記録の日付}{契約先}{発行部署}` を使う。条項・根拠・署名欄は原稿に沿って組む。価格明細は `BoroughPriceSchedule` 内に `番号 & 品目または金額の欄名 & USD額 & 税区分または原表の参照 \\` の順に書く。番号・金額の右に 0.17 in の間隔を取り、列見出しを各ページに繰り返す。未記載の金額は空欄のままにする。紙原本として交付された文書は、組版した PDF を `bin/scan` に通して画像だけの PDF にする。契約書・変更明細の番号と日付は原記録のものを使い、送付状の番号と受領日は開示の記録に残す。
+
 ## 記入見本
 
-下のパスは作業フォルダ `scratch/p20-investigative-journalist/b001/work/templates-0005/` からの相対パス。
+下のパスは作業フォルダ `scratch/p20-investigative-journalist/b002/work/templates-0002/` からの相対パス。
 
 | 決めた書式を確認する箇所 | 記入したファイル | 全ページの画像 |
 |---|---|---|
@@ -77,6 +88,11 @@ TZ=America/New_York pdfinfo "$pdf"
 | 照合表、契約 3 行と資料種別 6 行 | `scope-short.xlsx` | `render/scope-short/` |
 | 照合表、各シートが 2 ページ | `scope-long.xlsx` | `render/scope-long/` |
 | 表紙、本文、2 段、表、図 | `editorial-brief.pptx` | `render/editorial-brief/` |
-| 対象記録 6 種を列挙した請求 | `request-short.tex`、`request-short.pdf` | `render/request-short/` |
-| 区画明細 36 行、継続ページの見出しと署名 | `request-long.tex`、`request-long.pdf` | `render/request-long/` |
-| 区役所からの範囲確認書 | `borough-reply.tex`、`borough-reply.pdf` | `render/borough-reply/` |
+| 原表の確認欄 6 件を列挙した照会 | `request-short.tex`、`request-short.pdf` | `render/request-short/` |
+| 照会明細 36 行、継続ページの見出しと署名 | `request-long.tex`、`request-long.pdf` | `render/request-long/` |
+| 区役所からの初回開示送付状 | `borough-reply.tex`、`borough-reply.pdf` | `render/borough-reply/` |
+| 税照合、旧額と変更額の 1 組 | `tax-short.xlsx` | `render/tax-short/` |
+| 税照合、改ページ後の原表欄と金額欄 | `tax-long.xlsx` | `render/tax-long/` |
+| 区役所の契約書、金額と税区分 | `borough-contract-short.tex`、`borough-contract-short.pdf` | `render/borough-contract-short/` |
+| 区役所の変更明細、管理番号と継続見出し | `borough-contract-long.tex`、`borough-contract-long.pdf` | `render/borough-contract-long/` |
+| 紙原本の変更明細、スキャン PDF | `borough-contract-scan.pdf` | `render/borough-contract-scan/` |
