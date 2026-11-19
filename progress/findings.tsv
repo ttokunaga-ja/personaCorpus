@@ -866,3 +866,89 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-18	p14-finance-controller	b013	coordinator	0	other	Documents/取締役会/2026/Q2/2026-07_Q2報告_想定問答.docx	統括の抜き取りで不合格
 2026-11-19	p14-finance-controller	b014	draft-review	0	D10	Documents/予測/2026/Q2/2026-06_Aoba3棟_検収から回収まで.xlsx	原稿9行目の管理欄はF3を「宛先 千田 真理子」と指定しているが、cedar-reconciliation.xlsxのE3は「確認」でF3は確認者欄のため、確認者または未確認などの確認状態が原稿にない。回収月と集計式は一致し、11月回収0・累計回収162・月末売掛48百万円を確認した。
 2026-11-19	p14-finance-controller	b014	build-review	0	V3	Documents/予測/2026/Q2/2026-06_CFO説明_Aoba3棟と着地見通し.pptx	5枚目「3棟の資金推移」の折れ線で、0百万円の横軸線が7月のデータラベル「−58」と9月の「−45」の文字を横切っている。
+2026-11-18	p17-construction-project-manager	b007	templates-review	0	other	README.md	型17件と見本・画像の参照先は実在するが、冒頭の収録組織にMerecairnがなく、96行目の海田西配送棟の用途コード一覧にはb007で使うDR（日報）・IN（設備取合い確認票）・ZP（配置図）の記載がない。
+2026-11-18	p17-construction-project-manager	b007	draft-review	0	D10	Documents/海田西配送棟増築/施工記録/0725_電源は南から_引回しの見込み.xlsx	管理欄3行目に作成者と宛先はあるが、minatoryo-change-cost.xlsxのG3に必要な確認者の値がなく、宛先の坂本が確認者を兼ねるか原稿に記載がない。
+2026-11-18	p17-construction-project-manager	b007	draft-review	0	D10	Documents/海田西配送棟増築/施工記録/0725_設備側で見た項目と残し.xlsx	管理欄3行目に作成者と宛先2名はあるが、minatoryo-punch-list.xlsxのG3に必要な台帳の確認者が指定されておらず、明細の項目担当とも区別できない。
+2026-11-18	p17-construction-project-manager	b007	draft-review	0	D10	Documents/海田西配送棟増築/施工記録/0731_図は決まった_据付前後の残り.xlsx	管理欄3行目は作成者・宛先・立会い日までで、minatoryo-punch-list.xlsxのG3に入れる台帳の確認者がない。判断欄の西村・坂本には設備と通路それぞれの判断担当しか割り当てられていない。
+2026-11-18	p17-construction-project-manager	b007	draft-review	0	D10	Documents/海田西配送棟増築/施工記録/0731_北通路を開ける前に測るところ.pdf	「平面図」に北壁・固定柵と設備予定外形を現況と予定に描き分ける線種・凡例の指定がなく、計画および区画計画図の型が求める区別を原稿どおりに成形できない。
+2026-11-18	p17-construction-project-manager	b007	draft-review	0	D1	Pictures/図と画面/0722_設備を南向きにした場合.png	平面図の凡例が「破線：固定柵端／ローラー台予定」の1項目で、計画が求める既設の固定柵端と予定のローラー台の区別が凡例にない。
+2026-11-18	p17-construction-project-manager	b007	draft-review	0	D10	Desktop/0722_壁を振るか設備を振るか.xlsx	MB-KN-2025-RF-008 Rev0の管理情報に、minatoryo-change-cost.xlsxのG3に入れる当該ブックの確認者が示されていない。
+2026-11-18	p17-construction-project-manager	b007	draft-review	0	D10	Desktop/0722_設備は回す_協議の取りっ放し.docx	出席者と西村の持ち帰り担当は明記されているが、Site Metadataに入れる協議録Rev0の宛先または配布先と記録の確認者が示されていない。
+2026-11-18	p17-construction-project-manager	b007	draft-review	0	D10	Pictures/海田西配送棟増築/2025-07-23/2025-07-23_X5-X6_間仕切り裏の盤前.jpg	閉じた盤面と壁裏を尺で結ぶ900mmの構図はあるが、写真原稿に明記する撮影時刻（計画は7月23日08:57）がない。
+2026-11-18	p17-construction-project-manager	b007	draft-review	0	D10	Pictures/海田西配送棟増築/2025-07-23/2025-07-23_X5寄り_南へ出せるローラー台の側.jpg	南側の空きと2本の床テープは指定されているが、写真原稿に明記する撮影時刻（計画は7月23日09:06）がない。
+2026-11-18	p17-construction-project-manager	b007	draft-review	0	D10	Documents/海田西配送棟増築/図面と質疑/0723_Kaita West - South-facing layout for comment.pdf	ZP-072 Rev0の「Proposed plan」にx・yの数値はあるが、計画が作図を指定する通り芯X5〜X6・Y3〜Y4と座標の基準芯が示されていない。
+2026-11-18	p17-construction-project-manager	b007	draft-review	0	D10	Pictures/海田西配送棟増築/2025-07-25/2025-07-25_X6寄り_東の柵端と隔離操作の余地.jpg	柵端x=4,500と予定墨x=3,840の間の660mmは整合するが、写真原稿に明記する撮影時刻（計画は7月25日09:08）がない。
+2026-11-18	p17-construction-project-manager	b007	draft-review	0	D10	Pictures/海田西配送棟増築/2025-07-25/2025-07-25_X5側_電源を南へ回す予定線.jpg	南側を回る仮測りのひもと接続予定点は指定されているが、写真原稿に明記する撮影時刻（計画は7月25日09:20）がない。
+2026-11-18	p17-construction-project-manager	b007	draft-review	0	D10	Pictures/図と画面/0722_北の壁を150振る案.png	平面模式図の冒頭でRev B設備の南北端y=1,300・3,340だけを指定しており、X5〜X6内の西端x=1,800と東西外形1,800mm（東端x=3,600）が欠け、原稿から設備外形を平面上に配置できない。
+2026-11-18	p17-construction-project-manager	b007	draft-review	1	D5	Desktop/0722_壁を振るか設備を振るか.xlsx	RF-008 Rev0のG3に確認者は入ったが、「案比較」のG6は「=5420-(B6+100) mm、750に縮小」と式に単位・判定文が続き、そのままでは点検帯を計算するExcel数式として成立しない。
+2026-11-18	p17-construction-project-manager	b007	draft-review	1	D10	Documents/海田西配送棟増築/図面と質疑/0723_Kaita West - South-facing layout for comment.pdf	ZP-072 Rev0の「Proposed plan」にX5〜X6・Y3〜Y4と座標原点は補われたが、計画冒頭が作図を求める床上の南基準墨（台帳のy=1,000）の位置と表示がなく、原稿だけでは基準墨を図に入れられない。
+2026-11-18	p17-construction-project-manager	b007	draft-review	0	D10	Desktop/0722_前の向きだと120足りない.xlsx	新旧幅照合のG3は型でF3「確認者」に対応するが、原稿の指定は「改訂 坂本修一郎」で、Rev1の確認者または未確認の状態が明示されていない。
+2026-11-18	p17-construction-project-manager	b007	draft-review	0	D10	Downloads/0728_小野さん返し_南向き配置_M-42 Rev1.pdf	冒頭の「状態：設計調整図 単位：mm」には、hakushima-drainage.clsの図枠「状態・縮尺」に入れるRev1自身の縮尺値または模式図の指定がない。
+2026-11-19	p17-construction-project-manager	b007	check	0	source	Documents/海田西配送棟増築/図面と質疑/0722_北壁と設備外形の幅合わせ.pdf	missing source values: 3120, 3340, 4420
+2026-11-19	p17-construction-project-manager	b007	check	0	source	Documents/海田西配送棟増築/図面と質疑/0723_Kaita West - South-facing layout for comment.pdf	missing source values: 1300, 3100, 6000
+2026-11-19	p17-construction-project-manager	b007	check	0	source	Documents/海田西配送棟増築/施工記録/0731_北通路を開ける前に測るところ.pdf	missing source values: 1300, 3100, 3840, 4420, 4500
+2026-11-19	p17-construction-project-manager	b007	check	0	source	Downloads/0704_小野さん_搬送設備の旧配置_M-42 Rev0.pdf	missing source values: 1000, 3120, 4420
+2026-11-19	p17-construction-project-manager	b007	check	0	source	Downloads/0728_小野さん返し_南向き配置_M-42 Rev1.pdf	missing source values: 1000, 1300, 3100, 3840, 4420
+2026-11-19	p17-construction-project-manager	b007	check	0	source	Downloads/Transfer Unit - General Arrangement Rev A.pdf	body token overlap 0.582 < 0.8
+2026-11-19	p17-construction-project-manager	b007	check	0	source	Downloads/Transfer Unit - South-facing Transfer Interface Note Rev A.pdf	body token overlap 0.789 < 0.8
+2026-11-19	p17-construction-project-manager	b007	build-review	0	V2	Documents/海田西配送棟増築/図面と質疑/0725_配置協議録_西村確認を追記.docx	1ページ目「7月22日 比較と決定」の北通路の図上幅と壁裏の盤点検帯は、両列の明細6セル（1,080／1,230／1,320 mmと900／750／900 mm）が左寄せで、型の使用規定と協議録見本の数値右寄せに合っていない。
+2026-11-19	p17-construction-project-manager	b007	build-review	0	V2	Desktop/0722_設備は回す_協議の取りっ放し.docx	1ページ目「比較と決定」の北通路の図上幅と壁裏の盤点検帯の6数値セルが左寄せで、Word型の使用説明および同型の数値列見本が指定する右寄せと異なる。
+2026-11-19	p17-construction-project-manager	b007	build-review	0	V5	Pictures/海田西配送棟増築/2025-07-23/2025-07-23_X5-X6_間仕切り裏の盤前.jpg	盤面から壁裏までの尺を拡大すると、10〜20、30〜40、70〜80の各区間に約30の細分があり、900 mmを示すcm表記の尺として1 mm刻みの100等分と整合しない。
+2026-11-19	p17-construction-project-manager	b007	build-review	0	V4	Documents/海田西配送棟増築/施工記録/0723_西口が南に来るか_手帳.pdf	1ページ目の紙の周囲と綴じ穴の内側に木目の天板が写り込み、方眼の手帳を机上で撮った写真に見える。
+2026-11-19	p17-construction-project-manager	b007	build-review	0	V5	Pictures/海田西配送棟増築/2025-07-09/2025-07-09_X5側_Y3内_南の基準墨.jpg	墨と十字の間に置いた300mm尺を拡大すると、50の次や中央の150の前後で数値が崩れ、250相当から300までの区間でも細目盛と数値が対応せず、300mmの確認尺として読めない。
+2026-11-19	p17-construction-project-manager	b007	build-review	0	V5	Pictures/海田西配送棟増築/2025-07-09/2025-07-09_X5-X6_Y3-Y4_北壁の仕上面.jpg	北壁に掛けた当て尺を拡大すると、吊りひも直下と尺中央の両方で数字が潰れたり重複したりし、複数の隣接区間で目盛と連続する数値を対応づけられない。
+2026-11-19	p17-construction-project-manager	b007	build-review	0	V2	Desktop/0722_前の向きだと120足りない.xlsx	型と見本のA4横に対して印刷がA3横で、管理欄E3の作成者名が型で指定する1行表示から2行に変わっている。V4として、印刷注記A9には「最小行と中測点の不足を明示する。」という表の成形指示も露出している。
+2026-11-19	p17-construction-project-manager	b007	build-review	0	V3	Pictures/図と画面/0722_北の壁を150振る案.png	中央の歩行幅1,230mmの縦寸法線が既存壁注記の「北面」に重なり、固定分電盤面の座標注記にも点検帯の寸法矢印が接触している。
+2026-11-19	p17-construction-project-manager	b007	build-review	0	V5	Pictures/図と画面/0722_設備を南向きにした場合.png	下端にX5とY3の原点・6,000mmの芯間は書かれているが、平面内に通り芯または座標軸が描かれておらず、南西角や東柵端の座標を図中の基準線から追えない。
+2026-11-19	p17-construction-project-manager	b007	check	1	source	Documents/海田西配送棟増築/図面と質疑/0722_北壁と設備外形の幅合わせ.pdf	body token overlap 0.553 < 0.8
+2026-11-19	p17-construction-project-manager	b007	check	1	source	Documents/海田西配送棟増築/図面と質疑/0723_Kaita West - South-facing layout for comment.pdf	body token overlap 0.695 < 0.8
+2026-11-19	p17-construction-project-manager	b007	check	1	source	Downloads/0704_小野さん_搬送設備の旧配置_M-42 Rev0.pdf	body token overlap 0.643 < 0.8
+2026-11-19	p17-construction-project-manager	b007	check	1	source	Downloads/0728_小野さん返し_南向き配置_M-42 Rev1.pdf	missing source values: 3840
+2026-11-19	p17-construction-project-manager	b007	check	1	source	Downloads/Transfer Unit - General Arrangement Rev A.pdf	body token overlap 0.610 < 0.8
+2026-11-19	p17-construction-project-manager	b007	build-review	1	V2	Desktop/0722_前の向きだと120足りない.xlsx	「新旧幅照合」E3は1行に収まったが、型指定の10pt・縮小なしに対し9pt・縮小ありで、G2の基準日も型指定の実日付ではなく文字列になっている。
+2026-11-19	p17-construction-project-manager	b007	build-review	1	V3	Downloads/Transfer Unit - South-facing Transfer Interface Note Rev A.pdf	1ページ目の平面図で、東側の寸法注記「at least 600 mm」の先頭のaに設備外形の右側の縦線が重なっている。
+2026-11-19	p17-construction-project-manager	b007	build-review	1	V3	Documents/海田西配送棟増築/施工記録/0731_北通路を開ける前に測るところ.pdf	1ページ目の平面図で、東の固定柵の実線が「x = 3840」の数字を横切り、予定外形の破線も「南向き設備 予定外形」とその直下の外形寸法の文字に重なっている。
+2026-11-19	p17-construction-project-manager	b007	check	2	source	Documents/海田西配送棟増築/図面と質疑/0722_北壁と設備外形の幅合わせ.pdf	missing source values: 1000, 3120, 3340, 4420
+2026-11-19	p17-construction-project-manager	b007	check	2	source	Documents/海田西配送棟増築/図面と質疑/0723_Kaita West - South-facing layout for comment.pdf	missing source values: 1000, 3100, 6000
+2026-11-19	p17-construction-project-manager	b007	check	2	source	Documents/海田西配送棟増築/施工記録/0731_北通路を開ける前に測るところ.pdf	missing source values: 1300, 3100, 3840, 4420, 4500
+2026-11-19	p17-construction-project-manager	b007	check	2	source	Downloads/0704_小野さん_搬送設備の旧配置_M-42 Rev0.pdf	missing source values: 1000, 3120, 4420
+2026-11-19	p17-construction-project-manager	b007	check	2	source	Downloads/0728_小野さん返し_南向き配置_M-42 Rev1.pdf	body token overlap 0.743 < 0.8
+2026-11-19	p17-construction-project-manager	b007	check	2	source	Downloads/Transfer Unit - General Arrangement Rev A.pdf	body token overlap 0.785 < 0.8
+2026-11-19	p17-construction-project-manager	b007	build-review	2	V2	Desktop/0722_前の向きだと120足りない.xlsx	前回指摘のE3は10pt・縮小なし、G2は実日付に修正済みだが、「新旧幅照合」のB5:J7の数値セルとK5:L8の根拠欄は型の10ptではなく8ptで、K5:L8は指定の左インデント1もなく、印刷ではJ列の1200とK列の根拠が接近している。
+2026-11-19	p17-construction-project-manager	b007	build-review	2	V5	Pictures/海田西配送棟増築/2025-07-23/2025-07-23_X5-X6_間仕切り裏の盤前.jpg	尺は100〜900の表記に変わったが、拡大すると上縁の100〜200、300〜400、700〜800はいずれも約40の細分で1mm刻みの100等分と整合せず、盤側も900の刻線より先で尺が隠れるため、壁裏から盤面までの900mmを示せていない。
+2026-11-19	p17-construction-project-manager	b007	check	2	plan	Pictures/海田西配送棟増築/2025-07-25/2025-07-25_X6寄り_東の柵端と隔離操作の余地.jpg	plan: planned file missing。成形の最終出力：対象の写真1件は**未作成**です。imagegenで生成し、尺の目盛りを複数回修正しましたが、数字の不連続が残り、予定墨から柵端までの660 mmを信頼して読み取れる状態にできませんでした。成果物として保存していません。 原稿や計画は変更せず、stage・commit・pushも行っていません。
+2026-11-19	p17-construction-project-manager	b007	check	0	source	Documents/海田西配送棟増築/図面と質疑/0722_北壁と設備外形の幅合わせ.pdf	missing source values: 1000, 3120, 3340, 4420
+2026-11-19	p17-construction-project-manager	b007	check	0	source	Documents/海田西配送棟増築/図面と質疑/0723_Kaita West - South-facing layout for comment.pdf	missing source values: 1000
+2026-11-19	p17-construction-project-manager	b007	check	0	source	Downloads/0704_小野さん_搬送設備の旧配置_M-42 Rev0.pdf	body token overlap 0.665 < 0.8
+2026-11-19	p17-construction-project-manager	b007	check	0	source	Downloads/Transfer Unit - General Arrangement Rev A.pdf	body token overlap 0.627 < 0.8
+2026-11-19	p17-construction-project-manager	b007	check	1	source	Documents/海田西配送棟増築/図面と質疑/0722_北壁と設備外形の幅合わせ.pdf	body token overlap 0.677 < 0.8
+2026-11-19	p17-construction-project-manager	b007	check	1	source	Documents/海田西配送棟増築/図面と質疑/0723_Kaita West - South-facing layout for comment.pdf	body token overlap 0.684 < 0.8
+2026-11-19	p17-construction-project-manager	b007	check	1	source	Documents/海田西配送棟増築/施工記録/0731_北通路を開ける前に測るところ.pdf	missing source values: 1300, 3100, 3840, 4420, 4500
+2026-11-19	p17-construction-project-manager	b007	check	1	source	Downloads/0704_小野さん_搬送設備の旧配置_M-42 Rev0.pdf	body token overlap 0.680 < 0.8
+2026-11-19	p17-construction-project-manager	b007	check	1	source	Downloads/0728_小野さん返し_南向き配置_M-42 Rev1.pdf	missing source values: 1000, 1300, 3100, 3840, 4420
+2026-11-19	p17-construction-project-manager	b007	check	1	source	Downloads/Transfer Unit - General Arrangement Rev A.pdf	body token overlap 0.621 < 0.8
+2026-11-19	p17-construction-project-manager	b007	build-review	1	V5	Pictures/海田西配送棟増築/2025-07-25/2025-07-25_X6寄り_東の柵端と隔離操作の余地.jpg	予定墨と固定柵の足元、据付前の空いた床は確認できるが、尺の上縁を拡大すると100〜110 mmと600〜610 mmで短い目盛りの間隔が不揃いで、各10 mmを等間隔の1 mm目盛りとして読めない。予定墨は0の目盛線より左、柵端は660の目盛線より右にあり、写真から原稿の660 mmを確認できない。
+2026-11-19	p17-construction-project-manager	b007	check	2	source	Documents/海田西配送棟増築/図面と質疑/0722_北壁と設備外形の幅合わせ.pdf	body token overlap 0.673 < 0.8
+2026-11-19	p17-construction-project-manager	b007	check	2	source	Documents/海田西配送棟増築/図面と質疑/0723_Kaita West - South-facing layout for comment.pdf	body token overlap 0.728 < 0.8
+2026-11-19	p17-construction-project-manager	b007	check	2	source	Downloads/0704_小野さん_搬送設備の旧配置_M-42 Rev0.pdf	body token overlap 0.590 < 0.8
+2026-11-19	p17-construction-project-manager	b007	check	2	source	Downloads/0728_小野さん返し_南向き配置_M-42 Rev1.pdf	missing source values: 1000, 1300, 3100, 3840, 4420
+2026-11-19	p17-construction-project-manager	b007	check	2	source	Downloads/Transfer Unit - General Arrangement Rev A.pdf	body token overlap 0.593 < 0.8
+2026-11-19	p17-construction-project-manager	b007	build-review	2	V1	Documents/海田西配送棟増築/施工記録/0731_北通路を開ける前に測るところ.pdf	1ページ目の平面図上端で、区画名「X5〜X6・Y3〜Y4」の右に、合格原稿にない寸法注記「芯間 6,000」が追加されている。
+2026-11-19	p17-construction-project-manager	b007	check	2	plan	Pictures/海田西配送棟増築/2025-07-23/2025-07-23_X5-X6_間仕切り裏の盤前.jpg	plan: planned file missing。成形の最終出力：- `2025-07-23_X5-X6_間仕切り裏の盤前.jpg`：尺の細かい目盛りと数値が整合せず、900 mmの目盛りも盤面に一致していません。
+2026-11-19	p17-construction-project-manager	b007	check	2	plan	Pictures/海田西配送棟増築/2025-07-25/2025-07-25_X6寄り_東の柵端と隔離操作の余地.jpg	plan: planned file missing。成形の最終出力：- `2025-07-25_X6寄り_東の柵端と隔離操作の余地.jpg`：尺の細分と660 mmの目盛り位置が不正確で、予定墨から柵端までの間隔を確認できません。 原稿や計画は変更していません。stage・commit・pushも行っていません。
+2026-11-19	p17-construction-project-manager	b007	check	0	source	Documents/海田西配送棟増築/図面と質疑/0722_北壁と設備外形の幅合わせ.pdf	body token overlap 0.571 < 0.8
+2026-11-19	p17-construction-project-manager	b007	check	0	source	Documents/海田西配送棟増築/図面と質疑/0723_Kaita West - South-facing layout for comment.pdf	missing source values: 3100, 6000
+2026-11-19	p17-construction-project-manager	b007	check	0	source	Downloads/0704_小野さん_搬送設備の旧配置_M-42 Rev0.pdf	body token overlap 0.647 < 0.8
+2026-11-19	p17-construction-project-manager	b007	check	0	source	Downloads/0728_小野さん返し_南向き配置_M-42 Rev1.pdf	missing source values: 3840
+2026-11-19	p17-construction-project-manager	b007	check	0	source	Downloads/Transfer Unit - General Arrangement Rev A.pdf	body token overlap 0.565 < 0.8
+2026-11-19	p17-construction-project-manager	b007	check	1	source	Documents/海田西配送棟増築/図面と質疑/0722_北壁と設備外形の幅合わせ.pdf	missing source values: 1000, 3120, 3340, 4420
+2026-11-19	p17-construction-project-manager	b007	check	1	source	Documents/海田西配送棟増築/図面と質疑/0723_Kaita West - South-facing layout for comment.pdf	body token overlap 0.679 < 0.8
+2026-11-19	p17-construction-project-manager	b007	check	1	source	Downloads/0704_小野さん_搬送設備の旧配置_M-42 Rev0.pdf	missing source values: 1000, 3120, 4420
+2026-11-19	p17-construction-project-manager	b007	check	1	source	Downloads/Transfer Unit - General Arrangement Rev A.pdf	body token overlap 0.559 < 0.8
+2026-11-19	p17-construction-project-manager	b007	build-review	1	V5	Pictures/海田西配送棟増築/2025-07-25/2025-07-25_X6寄り_東の柵端と隔離操作の余地.jpg	斜め上から固定柵の足元・青い予定墨・据付前の空いた床が写り、尺の0〜10、10〜20、50〜60、60〜66は1 cm刻みとしてほぼ等間隔だが、予定墨は0の目盛線より左、固定柵の支柱の手前面は66の目盛線より右にあり、両端が目盛線に合わず原稿の660 mmを写真から確認できない。
+2026-11-19	p17-construction-project-manager	b007	check	2	source	Downloads/Transfer Unit - General Arrangement Rev A.pdf	body token overlap 0.548 < 0.8
+2026-11-19	p17-construction-project-manager	b007	build-review	2	V3	Documents/海田西配送棟増築/図面と質疑/0723_Kaita West - South-facing layout for comment.pdf	1ページ目の平面図で設備名称と回転注記の2行が設備外形の左右の実線に重なり、X6の破線が必要通路幅「1,200」と「Proposed roller table」の文字を横切っている。
+2026-11-19	p17-construction-project-manager	b007	check	2	plan	Pictures/海田西配送棟増築/2025-07-23/2025-07-23_X5-X6_間仕切り裏の盤前.jpg	plan: planned file missing。成形の最終出力：- `2025-07-23_X5-X6_間仕切り裏の盤前.jpg`：生成画像の尺に数字の乱れがあり、90 cmの目盛りと盤前面の一致を確認できませんでした。
+2026-11-19	p17-construction-project-manager	b007	check	2	plan	Pictures/海田西配送棟増築/2025-07-25/2025-07-25_X6寄り_東の柵端と隔離操作の余地.jpg	plan: planned file missing。成形の最終出力：- `2025-07-25_X6寄り_東の柵端と隔離操作の余地.jpg`：生成後に尺を画像編集で修正しましたが、数字の欠落が残り、0・66 cmの目盛りと予定墨・柵端の一致を確認できませんでした。 組み込みの imagegen を使用し、各原稿の現場構図と測定端点、連続した目盛りを指定しました。画像は目視確認済みです。原稿や計画の変更、stage・commit・push は行っていません。
+2026-11-19	p17-construction-project-manager	b007	coordinator	0	other	Pictures/海田西配送棟増築/2025-07-18/2025-07-18_X5寄り_旧外形を置いた四隅.jpg	統括の抜き取りで不合格
+2026-11-19	p17-construction-project-manager	b007	coordinator	0	other	Pictures/海田西配送棟増築/2025-07-23/2025-07-23_X5寄り_南へ出せるローラー台の側.jpg	統括の抜き取りで不合格

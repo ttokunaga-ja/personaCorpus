@@ -1,6 +1,6 @@
 # 坂本修一郎の文書の型
 
-湊梁建設の現場書類と、汐葛食品・海田流通・白島設計室から受領する文書の型を収録する。普通のDOCX・XLSX・PPTXを開き、別名で保存して使う。型は組織の識別、固定の文書種別、スタイル、列見出しだけを持つ。案件の事実・文書番号・是正内容は計画と原稿から入れる。
+湊梁建設の現場書類と、汐葛食品・海田流通・白島設計室・Merecairn Equipment Ltdから受領する文書の型を収録する。普通のDOCX・XLSX・PPTXを開き、別名で保存して使う。型は組織の識別、固定の文書種別、スタイル、列見出しだけを持つ。案件の事実・文書番号・是正内容は計画と原稿から入れる。
 
 ## 一覧
 
@@ -93,7 +93,7 @@ PDFで保管する引継ぎ案内・施主確認書は、それぞれのWord型�
 - 数量型の明細はC列数量、D列単位、E列単価、F列金額、G列根拠を基本とする。単価・金額は円で計算し、万円表記は文書中の説明でのみ換算する。数量・単価・金額はMB Numberで右寄せ、小数の桁は単位に合わせる。合計・控除・消費税は原稿の実際の位置に数式とMB Totalの行を作り、型に仮の合計を残さない。数量だけの表は列名を原稿に合わせて変更してよいが未使用の金額欄は残さない。
 - 工程型はC・D列を実日付とMB Date、E列を稼働日数にする。WORKDAYで土日を除く日付を求め、日付軸・横棒・凡例は原稿の全データから作る。作業日の並びと引渡し予定の差を分け、複数シートの印刷範囲に基準日・条件・未確定の注記まで入れる。
 - 既存の `minatoryo-site-brief.pptx` は自社の共通マスターと5レイアウトを持つため、海田西配送棟の工程説明にも使える。図・表・発表者ノートは原稿に沿って作る。
-- 海田西配送棟の自社番号は `MB-KN-YYYY-用途-連番` とする。用途はQT（数量）、CO（変更見積）、SC（工程）、BR（説明）、MT（協議）、RF（図面質疑台帳）。海田流通の承認は `KR-YYYY-連番`（連番は3桁、版は別記）、白島設計室は図番と改訂記号、質疑はRFI番号で管理する。CO-014の図番はD-41/D-42。実際の番号・版はfacts.mdと原稿に持ち、型に固定しない。
+- 海田西配送棟の自社番号は `MB-KN-YYYY-用途-連番` とする。用途はQT（数量）、CO（変更見積）、SC（工程）、BR（説明）、MT（協議）、RF（図面質疑台帳・照合表）、DR（日報）、IN（設備取合い確認票）、ZP（配置図）。海田流通の承認は `KR-YYYY-連番`（連番は3桁、版は別記）、白島設計室は図番と改訂記号、質疑はRFI番号で管理する。CO-014の図番はD-41/D-42。実際の番号・版はfacts.mdと原稿に持ち、型に固定しない。
 
 ### 設計図枠と型なし記録
 
@@ -128,18 +128,19 @@ PDFで保管する引継ぎ案内・施主確認書は、それぞれのWord型�
 
 ## 見本と画像
 
-参照先は `scratch/p17-construction-project-manager/b004/work/templates-0002/` からの相対パス。管理欄・断面別内訳・単価などは書式確認用。実際の制作値は計画と原稿を使う。海田流通の承認控えは2026年のCO-014の書式見本。
+参照先は `scratch/p17-construction-project-manager/b007/work/templates-0004/` からの相対パス。管理欄・断面別内訳・単価などは書式確認用。実際の制作値は計画と原稿を使う。海田流通の承認控えは2026年のCO-014の書式見本。
 
 | 対象 | 見本（samples/） | 画像（render/） |
 |---|---|---|
 | Word 7型 | 各型と同名のDOCX | 拡張子を除いた同名フォルダ |
 | PowerPointの5レイアウト | `minatoryo-site-brief.pptx` | `minatoryo-site-brief/` |
-| TeX 3型 | `minatoryo-field-sheet`、`hakushima-drainage`、`minatoryo-earthwork-section` の各TeXとPDF | 同名フォルダ |
+| TeX 5型 | `minatoryo-field-sheet`、`hakushima-drainage`、`minatoryo-earthwork-section`、`minatoryo-zone-plan`、`merecairn-equipment-sheet` の各 `.tex` と `.pdf` | 同名フォルダ |
 | Excel 4型 | 各型の拡張子を除いた名前に `-3.xlsx`、`-38.xlsx` を付けた各ブック | 拡張子を除いた同名フォルダ |
 | 書類照合表を8列に変更した場合 | `minatoryo-document-index-columns-3.xlsx`、`minatoryo-document-index-columns-38.xlsx` | 拡張子を除いた同名フォルダ |
 | 掘削数量照合へ転用した場合 | `minatoryo-earthwork-quantity-3.xlsx`、`minatoryo-earthwork-quantity-38.xlsx` | 拡張子を除いた同名フォルダ |
+| 搬送設備の寸法・案比較と確認事項へ転用した場合 | `minatoryo-equipment-fit-cost-3.xlsx`、`minatoryo-equipment-fit-cost-38.xlsx`、`minatoryo-equipment-fit-punch-3.xlsx`、`minatoryo-equipment-fit-punch-38.xlsx` | 拡張子を除いた同名フォルダ |
 | 協議録の複数ページ | `minatoryo-change-note-49.docx` | `minatoryo-change-note-49/` |
-| 断面別比較表の複数ページ | `minatoryo-earthwork-section-38.tex`、`minatoryo-earthwork-section-38.pdf` | `minatoryo-earthwork-section-38/` |
+| 設備取合い確認票・断面別比較表の複数ページ | `minatoryo-field-sheet-long`、`minatoryo-earthwork-section-long` の各 `.tex` と `.pdf` | 同名フォルダ |
 
 ## 海田研修棟の段階施工
 
@@ -152,3 +153,14 @@ PDFで保管する引継ぎ案内・施主確認書は、それぞれのWord型�
 - 利用枠と施工順比較は `minatoryo-change-schedule.xlsx`、室の現況・切替え確認・未決事項は `minatoryo-punch-list.xlsx` を開く。B1の題と4行目の見出しは各原稿の用途に合わせる。予約枠の時刻はExcelの実時刻、有効室数や席数は数値を使い、管理欄と印刷の反復見出しは維持する。
 - 自社番号は `MB-KT-YYYY-用途-連番`。用途はRM（室現況）、US（利用枠）、SC（順序比較）、CK（切替え確認）、RF（未決照合）、MT（協議）、BR（説明）、UC（利用条件）、ZP（区画計画図）。同じ文書の版と他の図面を引用する番号を区別する。
 - `text`（EML）、`photo`（改修前写真）、`diagram`（説明用区画図）、`scan:handwriting`（原田の無地便箋、坂本の手帳、無地の持参メモ）は型なし。原田の紙は手書きの社名・氏名を含め、湊梁建設の図枠や海田流通の工事変更承認書式を付けない。
+
+## 海田西配送棟の搬送設備の配置照合
+
+| 名前 | 組織・利用者と用途 | 実際のファイル名 | 見た目 |
+|---|---|---|---|
+| Equipment general arrangement and interface notes | Merecairn Equipment Ltd、Natalie Chapman。英文の外形仕様・改訂寸法図・受渡し面の条件 | `merecairn-equipment-sheet.cls` | A4横、Liberation Sans。濃紺 `232945` の本文、紫 `574681` と濃紺の二峰のマーク、淡紫 `EEEBF5` の文書情報帯。英語で工事名・版・発行日・発行者を示し、フッタに社名とページを置く |
+
+- `tex:merecairn-equipment-sheet.cls` は `\EquipmentHeading{題}{工事名}{版}{発行日}{発行者}` と `\EquipmentSection{見出し}` を使う。外形、ガード、受渡し・保守面や引出し位置はTikZで作図し、寸法線とmm表記を添える。図題と版で識別し、独自の設備型番を作らない。
+- 小野の配置図は既存の `tex:hakushima-drainage.cls`、坂本の照会・配置図は `tex:minatoryo-zone-plan.cls`、西村の確認票は `tex:minatoryo-field-sheet.cls` を使う。英文照会図は自社の図枠のまま、図題・寸法注記・凡例・質疑を英語で記載する。
+- 照合ブックは `minatoryo-punch-list.xlsx`（現況・確認事項）と `minatoryo-change-cost.xlsx`（寸法・案比較）を開く。B1の題・4行目の列名・列幅・印刷範囲を文書の用途に合わせ、寸法差はmmの数値と式で入れる。協議録・採用理由は `minatoryo-change-note.docx`、現場日報は `minatoryo-daily.docx` を使う。
+- 自社の題・文書番号・版・日付・作成者は計画と台帳に従う。型なしの `text`、`photo`、`diagram`、`scan:handwriting` は上記の作り方による。小野の旧配置図に赤字を加える場合は `scan:tex:hakushima-drainage.cls` とし、元PDFを保持して赤字のみ加える。
