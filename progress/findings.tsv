@@ -1729,3 +1729,26 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-19	p15-recruiter-people-ops	b004	build-review	0	V1	Documents/入社支援/2月の確認日_休日を飛ばす計算.xlsx	「確認日」B7・D7・F7とB8・D8・F8の曜日は原稿で日本語指定だが、保存された計算結果と印刷表示が順にMon・Wed・FriとThu・Fri・Wedになっている。
 2026-11-19	p15-recruiter-people-ops	b004	build-review	1	V1	Documents/入社支援/2月の確認日_休日を飛ばす計算.xlsx	「確認日」のB7・D7・F7とB8・D8・F8は、保存された数式の結果と印刷表示がともにMon・Wed・Fri／Thu・Fri・Wedで、原稿指定の月・水・金／木・金・水になっていない。
 2026-11-19	p15-recruiter-people-ops	b004	build-review	2	V1	Documents/入社支援/2月の確認日_休日を飛ばす計算.xlsx	「確認日」のB7・D7・F7とB8・D8・F8は、保存されたTEXT式の計算結果と印刷1ページ目でMon・Wed・Fri／Thu・Fri・Wedと表示され、原稿指定の月・水・金／木・金・水になっていない。
+2026-11-19	p03-security-grc-analyst	b004	draft-review	0	D3	Documents/年次審査/2024/依頼と回答/1024_池田さんへ出した証跡一覧.xlsx	提出一覧のS24-001・017・033（原稿17・33・49行）などは証跡ID以外の全列が同じで、96行のうちID以外で区別できる組合せは60通りしかなく、原記録の参照先や内訳もないため別の証跡として照合できない。
+2026-11-19	p03-security-grc-analyst	b004	draft-review	0	D10	Documents/年次審査/2024/講評/1029_池田さんと期間を合わせた記録.docx	冒頭のCD-IM-202410-MTG-02 v1の管理欄に、型の「確認／承認者」の値または未確認等の扱いがない。会議参加者と、次の対応にある社内依頼の確認予定からは、この記録自体の確認状態を設定できない。
+2026-11-19	p03-security-grc-analyst	b004	draft-review	0	D10	Documents/年次審査/2024/講評/2024-10-29_年次審査所見_受領.pdf	冒頭のSK-2024-OBS-01 v1の管理欄に、sakura-review.docxの使用手順が指定する「確認／承認者」の値または欄の扱いがない。池田は発行者、山田と佐々木は宛先として記載されている。
+2026-11-19	p03-security-grc-analyst	b004	draft-review	0	D10	OneDrive - 中京文書/自分の控え/1031_再提出が来たら照合する順番.pdf	冒頭のCD-IM-202410-MTG-03 v1の管理欄に、型の「確認／承認者」の値または自分用控えにつき対象外等の扱いがない。山田は作成者と宛先として記載されている。
+2026-11-19	p03-security-grc-analyst	b004	draft-review	0	D10	Documents/年次審査/2024/依頼と回答/1031_期間外7件の回収予定.pdf	冒頭のCD-IM-202410-ANS-01 v1の管理欄に、型の「確認／承認者」の値または中間連絡時点での扱いがない。本文末尾の確定回答はこれからという記述は、今回発行する中間連絡の確認状態を示さない。
+2026-11-19	p03-security-grc-analyst	b004	draft-review	1	other	Documents/年次審査/2024/依頼と回答/1024_池田さんへ出した証跡一覧.xlsx	判定なし
+2026-11-19	p03-security-grc-analyst	b004	draft-review	1	other	Documents/年次審査/2024/講評/2024-10-29_年次審査所見_受領.pdf	判定なし
+2026-11-19	p03-security-grc-analyst	b004	draft-review	1	other	Documents/年次審査/2024/依頼と回答/1031_期間外7件の回収予定.pdf	判定なし
+2026-11-19	p03-security-grc-analyst	b004	draft-review	0	D10	Desktop/証跡の出し方_佐々木さんコメント.docx	先頭の derived_from が空欄で、計画の「先に要るもの」に指定された v0（Desktop/証跡の出し方_まだ佐々木さんに見せる前.docx）を参照していない。v0.1 の版と佐々木の2件のコメント自体は確認できる。
+2026-11-19	p03-security-grc-analyst	b004	draft-review	0	D3	Documents/統制/情報管理統制/2024年度_年間点検表.xlsx	「統制別予定」の根拠欄が頻度別の3種類の定型文のみで、例えば IM-OP-04 の運用月報、IM-FS-02 の鍵貸出・返却照合、IM-FS-06 の受付簿と集計の照合を区別できず、担当者が表から提出すべき記録を特定できない。
+2026-11-19	p03-security-grc-analyst	b004	draft-review	0	D10	Documents/年次審査/2024/依頼と回答/1024_提出一覧_照合に使う明細.csv	96件の10列・順序・空欄は元の提出明細と一致するが、先頭の derived_from が空欄で、計画が抽出元に指定する「1024_池田さんへ出した証跡一覧.xlsx」への参照がない。
+2026-11-19	p03-security-grc-analyst	b004	build-review	0	V2	Documents/統制/情報管理統制/0418_担当を決めたい項目.xlsx	担当案シートA59:A61（印刷4頁）の集計ラベルが右寄せで、型の適用手順と見本が指定する左寄せ・左インデント1を欠く。
+2026-11-19	p03-security-grc-analyst	b004	build-review	0	V1	Documents/統制/情報管理統制/2024年度_年間点検表.xlsx	回収日シートのA62:H62に、原稿では統制別予定シートだけに置く「点検月の記号と回収期限は『回収日』シートを参照」で始まる注記が重複して残り、回収日の印刷範囲A1:H11外にも原稿外の行がある。
+2026-11-19	p03-security-grc-analyst	b004	build-review	0	V2	Documents/年次審査/2024/依頼と回答/提出一覧の対象日をどこから取るか.docx	1頁「確認事項」の表見出し3セル（資料／採る場所と例／一覧への記入）が本文スタイルの墨色で赤茶地に印刷され、型と見本の白字太字の見出し書式を欠く。
+2026-11-19	p03-security-grc-analyst	b004	build-review	0	V2	Documents/年次審査/2024/依頼と回答/1024_池田さんへ出した証跡一覧.xlsx	「分野別件数」シートのA1:B8と印刷8頁目に、型の必須管理欄（文書番号・版・基準日・作成者・確認者）のラベルと値がなく、提出明細の管理情報が集計頁に引き継がれていない。
+2026-11-19	p03-security-grc-analyst	b004	build-review	1	V2	Documents/統制/情報管理統制/2024年度_年間点検表.xlsx	回収日の重複注記は消えたが、印刷範囲の下にA12:H58の空の明細罫線、A59:B61の空の集計書式、A62の空の注記書式が残り、B7:C10の締め・回収期限も型が求める実日付ではなく文字列で保存されている。
+2026-11-19	p03-security-grc-analyst	b004	build-review	1	V2	Documents/年次審査/2024/依頼と回答/1024_池田さんへ出した証跡一覧.xlsx	分野別件数シートと印刷7頁に管理欄5項目が揃い、96明細と集計式の結果も一致したが、その頁の下端に型・見本が備える「情報管理統制」の表記とページ番号がなく、同シートに印刷フッタの設定がない。
+2026-11-19	p15-recruiter-people-ops	b004	build-review	0	V1	Documents/入社支援/2月の確認日_休日を飛ばす計算.xlsx	「確認日」H7は実日付の2025-02-11でWORKDAYの休業日参照も正しいが、印刷1ページ目の休業日欄とシートの注記に原稿指定の「火・祝」がなく、祝日として除く例であることが読み取れない。
+2026-11-19	p16-clinical-researcher	b003	templates-review	0	other	README.md	型一覧の11リンクは実在するが、PowerPoint・Excelの組版見本欄で b002/work/templates-0007/samples と render を指す19リンク（見本6件・画像13件）の参照先が存在しない。
+2026-11-19	p16-clinical-researcher	b003	draft-review	0	D4	Documents/Study-評価物質の低用量観察研究/実施状況/0204_受渡し前に机に出すもの.docx	「2月6日の準備」で2月4日時点の資料を「長田研究機材から提出された証明書6通」と記すが、計画と台帳では最後のOSA-20250206-CER-001は2月6日発行、同日09:12送付であり、残り1通の到着前に6通とも提出済みとする記述が食い違う。
+2026-11-19	p16-clinical-researcher	b003	draft-review	0	D3	Documents/Study-評価物質の低用量観察研究/実施状況/0128_記入漏れを欄別に数えた.csv	来所の記録行の「旧票の位置」セルに、位置「中段・来所の記録」に続けて全4行に適用する試行件数の非合算ルールを書いているため、位置の値に集計ルールが混在している。
+2026-11-19	p16-clinical-researcher	b003	check	0	source	Documents/品質確認/0206_橋本さんの試料受渡し確認票.pdf	body token overlap 0.223 < 0.3
+2026-11-19	p16-clinical-researcher	b003	build-review	0	V2	Desktop/0128_木村さんと書く順を見直す.pptx	表紙の「記録票を、書ける順に見直す」から5枚目まで、すべての題の文字に墨色302830が直接指定され、型と組版見本の赤紫742747が上書きされている。
