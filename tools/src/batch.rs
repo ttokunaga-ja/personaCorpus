@@ -1,4 +1,5 @@
 //! Persona batch orchestration, journals, review gates, and scoped acceptance.
+use crate::check::CsvMeasurements;
 use anyhow::{Result, anyhow, bail};
 use chrono::{DateTime, NaiveDate, NaiveDateTime, TimeZone, Utc};
 use fs2::FileExt;
@@ -1889,6 +1890,7 @@ impl Batch {
     fn draft_check(&self, rows: &[Value]) -> Result<Value> {
         let mut failures = BTreeMap::<String, String>::new();
         let mut comparisons = vec![];
+        let mut measurements = HashMap::new();
         let mut related = HashSet::<(String, String)>::new();
         for p in files(self.plan.parent().unwrap()) {
             if !re(r"^b\d+\.md$")
@@ -1980,6 +1982,9 @@ impl Batch {
                         g
                     })
                     .collect();
+                if let Some(values) = CsvMeasurements::from_draft(&relative, body) {
+                    measurements.insert(relative.clone(), values);
+                }
                 Ok(Some((relative.clone(), digest, grams)))
             })();
             match check {
@@ -1999,7 +2004,11 @@ impl Batch {
                 } else {
                     (b.to_string(), a.to_string())
                 };
-                if a != b && (exact || !related.contains(&pair)) {
+                let distinct_measurements = measurements
+                    .get(a)
+                    .zip(measurements.get(b))
+                    .is_some_and(|(a, b)| a.differs_from(b));
+                if a != b && (exact || !(related.contains(&pair) || distinct_measurements)) {
                     if expected.contains_key(a) {
                         failures
                             .entry(a.into())

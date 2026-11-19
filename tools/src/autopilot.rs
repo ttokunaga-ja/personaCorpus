@@ -1,3 +1,4 @@
+use crate::manifest;
 use anyhow::{Context, Result, bail};
 use clap::{Parser, Subcommand};
 use fs2::FileExt;
@@ -1763,27 +1764,79 @@ impl Pilot {
             )
         }
         self.cmd(&["git", "-C", &w, "commit", "-qm", message], true)?;
-        if self
-            .cmd(&["git", "-C", &w, "rebase", "-q", "main"], false)?
-            .code
-            != 0
-        {
-            self.cmd(&["git", "-C", &w, "rebase", "--abort"], false)?;
-            bail!("main への rebase が衝突した")
-        }
         let code = changes.iter().any(|(_, p)| {
             ["tools/", "tests/", "ops/"]
                 .iter()
                 .any(|d| p.starts_with(d))
         });
+        let personas = changes
+            .iter()
+            .filter(|(_, p)| p.starts_with("people/") || p.starts_with("manifests/"))
+            .filter_map(|(_, p)| {
+                let rest = p.split_once('/')?.1;
+                Some(rest.split(['/', '.']).next()?.to_string())
+            })
+            .collect();
+        loop {
+            let base = self.cmd(&["git", "rev-parse", "main"], true)?.text;
+            if self
+                .cmd(&["git", "-C", &w, "rebase", "-q", base.trim()], false)?
+                .code
+                != 0
+            {
+                self.cmd(&["git", "-C", &w, "rebase", "--abort"], false)?;
+                bail!("main への rebase が衝突した")
+            }
+            let candidate = self
+                .cmd(&["git", "-C", &w, "rev-parse", "HEAD"], true)?
+                .text;
+            // Batch acceptance can commit during validation. Only merge the result
+            // of validating a candidate whose base is still current.
+            let validation = self.validate_merge(&wt, code, &personas);
+            let _lock = lock(&self.root, "records", true)?;
+            if self.cmd(&["git", "rev-parse", "main"], true)?.text != base {
+                continue;
+            }
+            validation?;
+            self.cmd(&["git", "merge", "--ff-only", "-q", candidate.trim()], true)?;
+            self.state["push_pending"] = json!(true);
+            self.store()?;
+            break;
+        }
+        self.push_attempted = false;
+        self.push()?;
+        if code && self.root.join("tools/Cargo.toml").exists() {
+            let manifest = self
+                .root
+                .join("tools/Cargo.toml")
+                .to_string_lossy()
+                .into_owned();
+            self.cmd(
+                &[
+                    "cargo",
+                    "build",
+                    "--release",
+                    "-q",
+                    "--manifest-path",
+                    &manifest,
+                ],
+                true,
+            )?;
+            self.restart = true;
+        }
+        let head = self
+            .cmd(&["git", "rev-parse", "--short", "HEAD"], true)?
+            .text;
+        if removed > 3 && allowance.exists() {
+            fs::remove_file(&allowance)?;
+        }
+        Ok(format!("取り込んだ {}", head.trim()))
+    }
+    fn validate_merge(&self, wt: &Path, code: bool, personas: &BTreeSet<String>) -> Result<()> {
         if code {
             for script in ["tests/run.sh", "ops/tests/run.sh"] {
                 if wt.join(script).exists() {
-                    let o = command(
-                        &wt,
-                        &[wt.join(script).to_string_lossy().into_owned()],
-                        false,
-                    )?;
+                    let o = command(wt, &[wt.join(script).to_string_lossy().into_owned()], false)?;
                     if o.code != 0 {
                         let tail: String = o
                             .text
@@ -1836,63 +1889,18 @@ impl Pilot {
                 }
             }
         }
-        let personas: BTreeSet<String> = changes
-            .iter()
-            .filter(|(_, p)| p.starts_with("people/") || p.starts_with("manifests/"))
-            .filter_map(|(_, p)| {
-                let rest = p.split_once('/')?.1;
-                Some(rest.split(['/', '.']).next()?.to_string())
-            })
-            .collect();
         for persona in personas {
-            let base = format!("CORPUS_BASE={w}");
-            let manifest = self
-                .root
-                .join("bin/manifest")
-                .to_string_lossy()
-                .into_owned();
-            let o = self.cmd(&["env", &base, &manifest, &persona, "--verify"], false)?;
-            if o.code != 0 {
-                bail!("manifest の照合に通らない（{persona}）: {}", o.text.trim())
-            }
+            let paths = manifest::accepted(&wt.join("people").join(persona))?;
+            // The candidate can only delete accepted files. Retained files keep
+            // their live timestamps when Git fast-forwards the main worktree.
+            manifest::verify(
+                &self.root.join("people").join(persona),
+                &wt.join("manifests").join(format!("{persona}.tsv")),
+                &paths,
+            )
+            .with_context(|| format!("manifest の照合に通らない（{persona}）"))?;
         }
-        {
-            let _lock = lock(&self.root, "records", true)?;
-            self.cmd(
-                &["git", "merge", "--ff-only", "-q", "autopilot-coordinator"],
-                true,
-            )?;
-            self.state["push_pending"] = json!(true);
-            self.store()?;
-        }
-        self.push_attempted = false;
-        self.push()?;
-        if code && self.root.join("tools/Cargo.toml").exists() {
-            let manifest = self
-                .root
-                .join("tools/Cargo.toml")
-                .to_string_lossy()
-                .into_owned();
-            self.cmd(
-                &[
-                    "cargo",
-                    "build",
-                    "--release",
-                    "-q",
-                    "--manifest-path",
-                    &manifest,
-                ],
-                true,
-            )?;
-            self.restart = true;
-        }
-        let head = self
-            .cmd(&["git", "rev-parse", "--short", "HEAD"], true)?
-            .text;
-        if removed > 3 && allowance.exists() {
-            fs::remove_file(&allowance)?;
-        }
-        Ok(format!("取り込んだ {}", head.trim()))
+        Ok(())
     }
     /// What the coordinator must handle now: holds, accepted batches due for a check,
     /// and batches whose processing keeps failing.

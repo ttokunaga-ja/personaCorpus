@@ -197,6 +197,23 @@ fn units(e: &xmltree::Element) -> String {
     });
     out
 }
+fn office_units(node: &xmltree::Element, presentation: bool, texts: &mut Vec<String>) {
+    if presentation && node.name == "txBody" {
+        // Keep paragraphs in the same text box together for trace matching.
+        let mut paragraphs = Vec::new();
+        office_units(node, false, &mut paragraphs);
+        texts.push(paragraphs.join(" "));
+        return;
+    }
+    if matches!(node.name.as_str(), "p" | "si" | "c") {
+        texts.push(units(node));
+    }
+    for child in &node.children {
+        if let xmltree::XMLNode::Element(child) = child {
+            office_units(child, presentation, texts);
+        }
+    }
+}
 fn office_text(p: &Path, ext: &str) -> Result<String> {
     let parts = zip_parts(p)?;
     let main = match ext {
@@ -260,14 +277,9 @@ fn office_text(p: &Path, ext: &str) -> Result<String> {
             }
         }
         if n.starts_with("word/") || n.starts_with("ppt/") || n.starts_with("xl/") {
-            let mut found = false;
-            visit(&e, &mut |node| {
-                if ["p", "si", "c"].contains(&node.name.as_str()) {
-                    texts.push(units(node));
-                    found = true
-                }
-            });
-            if !found {
+            let before = texts.len();
+            office_units(&e, ext == "pptx", &mut texts);
+            if texts.len() == before {
                 let t = units(&e);
                 if !t.is_empty() {
                     texts.push(t)
@@ -275,14 +287,58 @@ fn office_text(p: &Path, ext: &str) -> Result<String> {
             }
         }
     }
-    // XML 1.0 forbids the record separator inside a cell.
-    Ok(texts.join(if ext == "xlsx" { "\x1e" } else { " " }))
+    // XML 1.0 forbids the record separator inside a cell or text box.
+    Ok(texts.join(if ["xlsx", "pptx"].contains(&ext) {
+        "\x1e"
+    } else {
+        " "
+    }))
 }
 fn ocr(p: &Path, language: &str) -> Result<String> {
     Ok(
         String::from_utf8_lossy(&cmd(&["tesseract", &strpath(p), "stdout", "-l", language])?)
             .into_owned(),
     )
+}
+fn pdf_text_and_blank_pages(path: &str) -> Result<(String, Vec<usize>)> {
+    let text = utf(&cmd(&["pdftotext", path, "-"])?)?;
+    let mut pages: Vec<_> = text.split('\x0c').collect();
+    if pages.last().is_some_and(|p| p.trim().is_empty()) {
+        pages.pop();
+    }
+    let mut blanks: Vec<_> = pages
+        .iter()
+        .enumerate()
+        .filter(|(_, p)| p.trim().is_empty())
+        .map(|(i, _)| i + 1)
+        .collect();
+    if blanks.is_empty() && text.trim().is_empty() {
+        blanks.push(1);
+    }
+    Ok((text, blanks))
+}
+fn ocr_pdf_pages(path: &str, pages: &[usize], language: &str, dpi: &str) -> Result<Vec<String>> {
+    let work = tempfile::tempdir()?;
+    pages
+        .iter()
+        .map(|i| {
+            let prefix = work.path().join(format!("page-{i}"));
+            cmd(&[
+                "pdftoppm",
+                "-f",
+                &i.to_string(),
+                "-l",
+                &i.to_string(),
+                "-singlefile",
+                "-r",
+                dpi,
+                "-png",
+                path,
+                &strpath(&prefix),
+            ])?;
+            ocr(&prefix.with_extension("png"), language)
+        })
+        .collect()
 }
 fn email_text(m: &mailparse::ParsedMail<'_>, parts: &mut Vec<String>) -> Result<()> {
     for h in &m.headers {
@@ -318,42 +374,14 @@ fn extract(p: &Path, ext: &str, language: Option<&str>) -> Result<(String, bool,
     }
     if ext == "pdf" {
         cmd(&["pdfinfo", &path])?;
-        let mut text = utf(&cmd(&["pdftotext", &path, "-"])?)?;
-        let mut pages: Vec<_> = text.split('\x0c').collect();
-        if pages.last().is_some_and(|p| p.trim().is_empty()) {
-            pages.pop();
-        }
-        let mut blanks: Vec<_> = pages
-            .iter()
-            .enumerate()
-            .filter(|(_, p)| p.trim().is_empty())
-            .map(|(i, _)| i + 1)
-            .collect();
-        if blanks.is_empty() && text.trim().is_empty() {
-            blanks.push(1)
-        }
+        let (mut text, blanks) = pdf_text_and_blank_pages(&path)?;
         let image_only = !blanks.is_empty() && text.trim().is_empty();
-        if let Some(lang) = language {
-            if !blanks.is_empty() {
-                let d = tempfile::tempdir()?;
-                for i in &blanks {
-                    let prefix = d.path().join(format!("page-{i}"));
-                    cmd(&[
-                        "pdftoppm",
-                        "-f",
-                        &i.to_string(),
-                        "-l",
-                        &i.to_string(),
-                        "-singlefile",
-                        "-r",
-                        "150",
-                        "-png",
-                        &path,
-                        &strpath(&prefix),
-                    ])?;
-                    text.push('\n');
-                    text.push_str(&ocr(&prefix.with_extension("png"), lang)?);
-                }
+        if let Some(lang) = language
+            && !blanks.is_empty()
+        {
+            for page in ocr_pdf_pages(&path, &blanks, lang, "150")? {
+                text.push('\n');
+                text.push_str(&page);
             }
         }
         return Ok((text, image_only, !blanks.is_empty() && language.is_none()));
@@ -748,19 +776,66 @@ fn source_body(text: &str) -> String {
     }
     result.join("\n")
 }
-fn data_lines(text: &str) -> String {
+fn data_lines(text: &str, ext: &str) -> String {
     let mut lines = Vec::new();
-    let mut fenced = false;
-    for l in text.lines() {
-        if l.trim().starts_with("```") {
-            fenced = !fenced;
+    let mut sample = Vec::new();
+    let mut headers = Vec::new();
+    let mut markdown = Vec::new();
+    let mut fence = None;
+    let mut read_header = false;
+    for line in text.lines() {
+        if let Some(label) = line.trim().strip_prefix("```") {
+            fence = if fence.is_some() {
+                None
+            } else {
+                Some(label.trim().eq_ignore_ascii_case(ext))
+            };
+            read_header = fence == Some(true);
+            markdown.push("");
             continue;
         }
-        if fenced || l.trim_start().starts_with('|') {
-            lines.push(l)
+        if fence.is_some() || line.trim_start().starts_with('|') {
+            lines.push(line);
+        }
+        if fence.is_none() {
+            markdown.push(line);
+        }
+        if fence == Some(true) {
+            sample.push(line);
+            if read_header && !line.trim().is_empty() {
+                read_header = false;
+                let delimiter = if ext == "tsv" { b'\t' } else { b',' };
+                let mut reader = csv::ReaderBuilder::new()
+                    .has_headers(false)
+                    .delimiter(delimiter)
+                    .from_reader(line.as_bytes());
+                if let Some(Ok(header)) = reader.records().next() {
+                    headers.push(header);
+                }
+            }
         }
     }
-    if lines.is_empty() {
+    if !headers.is_empty() {
+        // A labeled sample identifies the output columns. Other Markdown
+        // tables can describe totals or rules for generating the data.
+        for table in markdown.split(|line| !line.trim_start().starts_with('|')) {
+            if table.len() < 2 || !separator(&cells(table[1])) {
+                continue;
+            }
+            let columns = cells(table[0]);
+            if headers.iter().any(|header| {
+                header.len() == columns.len()
+                    && header
+                        .iter()
+                        .zip(&columns)
+                        .all(|(sample, column)| sample.trim() == column.trim_matches([' ', '`']))
+            }) {
+                sample.push("");
+                sample.extend_from_slice(table);
+            }
+        }
+        sample.join("\n")
+    } else if lines.is_empty() {
         text.into()
     } else {
         lines.join("\n")
@@ -844,6 +919,101 @@ fn word_revision_source(body: &str, path: &Path, zone: chrono_tz::Tz) -> Result<
         })
         .into_owned())
 }
+const SCAN_MIN_OVERLAP: f64 = 0.3;
+
+fn body_token_overlap(expected: &str, actual: &str) -> f64 {
+    let want = counts(&ungroup(expected));
+    let have = counts(&ungroup(actual));
+    let sum: usize = want.values().sum();
+    if sum == 0 {
+        return 1.0;
+    }
+    want.iter()
+        .map(|(k, v)| (*v).min(*have.get(k).unwrap_or(&0)))
+        .sum::<usize>() as f64
+        / sum as f64
+}
+
+fn strip_transcript_list_labels(page: String) -> String {
+    let blocks = re(r"(?m)(?:^[0-9]{1,9}\.[ \t]+[^\n]+\n)+");
+    let label = re(r"^[0-9]{1,9}\.[ \t]+");
+    blocks
+        .replace_all(&page, |block: &regex::Captures<'_>| {
+            let rows: Vec<_> = block[0].lines().collect();
+            if rows.len() < 2
+                || !rows
+                    .iter()
+                    .enumerate()
+                    .all(|(i, line)| line.starts_with(&format!("{}.", i + 1)))
+            {
+                return block[0].to_owned();
+            }
+            rows.iter()
+                .map(|line| label.replace(line, ""))
+                .collect::<Vec<_>>()
+                .join("\n")
+                + "\n"
+        })
+        .into_owned()
+}
+
+fn scan_transcript(expected: &str) -> Option<Vec<String>> {
+    let heading = re(r"(?i)^## Page ([1-9][0-9]*)(?:\s+[—–:-]\s+.+)?$");
+    let appearance = re(r"(?i)^## (?:Paper and scan|Papier et numérisation)$");
+    let mut lines = expected.trim_start().lines().map(str::trim);
+    let mut pages = Vec::<String>::new();
+    while let Some(line) = lines.next() {
+        if let Some(page) = heading.captures(line) {
+            if page[1].parse::<usize>().ok() != Some(pages.len() + 1) {
+                return None;
+            }
+            pages.push(String::new());
+        } else if appearance.is_match(line) {
+            return (!pages.is_empty()
+                && pages.iter().all(|page| !counts(page).is_empty())
+                && !lines.any(|line| line.starts_with("# ") || line.starts_with("## ")))
+            .then(|| {
+                pages
+                    .into_iter()
+                    .map(strip_transcript_list_labels)
+                    .collect()
+            });
+        } else {
+            if line.starts_with("# ") || line.starts_with("## ") {
+                return None;
+            }
+            let page = pages.last_mut()?;
+            page.push_str(line);
+            page.push('\n');
+        }
+    }
+    None
+}
+
+fn retry_scan_transcript(p: &Path, expected: &str, language: &str) -> Result<Option<String>> {
+    let Some(transcript) = scan_transcript(expected) else {
+        return Ok(None);
+    };
+    let path = strpath(p);
+    let (layer, pages) = pdf_text_and_blank_pages(&path)?;
+    if !layer.trim().is_empty() || pages.len() != transcript.len() {
+        return Ok(None);
+    }
+    let recognized = ocr_pdf_pages(&path, &pages, language, "200")?;
+    if transcript
+        .iter()
+        .zip(&recognized)
+        .any(|(expected, actual)| body_token_overlap(expected, actual) == 0.0)
+    {
+        return Ok(None);
+    }
+    let recognized = recognized.join("\n");
+    Ok(
+        (body_token_overlap(&transcript.join("\n"), &recognized) >= SCAN_MIN_OVERLAP)
+            .then_some(recognized),
+    )
+}
+
 fn source_reason(
     expected: &str,
     actual: &str,
@@ -852,8 +1022,14 @@ fn source_reason(
     reviewed: bool,
     derived: bool,
 ) -> Option<String> {
-    let table = ["xlsx", "csv", "tsv"].contains(&ext);
-    let mut expected = source_body(expected);
+    let delimited = matches!(ext, "csv" | "tsv");
+    let table = delimited || ext == "xlsx";
+    // Locate Markdown table rows before source_body removes their outer pipes.
+    let mut expected = if delimited {
+        source_body(&data_lines(expected, ext))
+    } else {
+        source_body(expected)
+    };
     if !table {
         let fig = re(r"(?i)図|グラフ|軸|凡例|目盛|chart|axis|axes|legend|graph");
         expected = expected
@@ -862,23 +1038,9 @@ fn source_reason(
             .collect::<Vec<_>>()
             .join("\n")
     }
-    let want = counts(&ungroup(&expected));
-    let have = counts(&ungroup(actual));
-    let sum: usize = want.values().sum();
-    let overlap = if sum == 0 {
-        1.0
-    } else {
-        want.iter()
-            .map(|(k, v)| (*v).min(*have.get(k).unwrap_or(&0)))
-            .sum::<usize>() as f64
-            / sum as f64
-    };
+    let overlap = body_token_overlap(&expected, actual);
     if !scan && !derived {
-        let vals = numbers(&if ["csv", "tsv"].contains(&ext) {
-            data_lines(&expected)
-        } else {
-            expected.clone()
-        });
+        let vals = numbers(&expected);
         let actual = numbers(actual);
         let missing: Vec<_> = vals.difference(&actual).take(5).cloned().collect();
         let allowed = if table {
@@ -894,7 +1056,7 @@ fn source_reason(
         return None;
     }
     let threshold = if scan {
-        0.3
+        SCAN_MIN_OVERLAP
     } else if reviewed {
         0.6
     } else if derived {
@@ -1334,6 +1496,23 @@ fn stamp(value: &str, zone: chrono_tz::Tz, offset: Option<&String>) -> Option<Da
     }
     None
 }
+fn persona_timezone(cfg: &BTreeMap<String, String>) -> Result<chrono_tz::Tz> {
+    Ok(cfg
+        .get("timezone")
+        .map(String::as_str)
+        .unwrap_or("UTC")
+        .parse()?)
+}
+
+fn outside_period(instant: DateTime<Utc>, zone: chrono_tz::Tz, period: &str) -> Result<bool> {
+    let (start, end) = period
+        .split_once("..")
+        .ok_or_else(|| anyhow!("invalid period"))?;
+    let day = instant.with_timezone(&zone).date_naive();
+    Ok(day < NaiveDate::parse_from_str(start, "%Y-%m-%d")?
+        || day > NaiveDate::parse_from_str(end, "%Y-%m-%d")?)
+}
+
 fn metadata(
     p: &Path,
     ext: &str,
@@ -1349,11 +1528,7 @@ fn metadata(
         regex::escape(&strpath(&crate::base()))
     ));
     let user = std::env::var("USER").unwrap_or_default();
-    let zone = cfg
-        .get("timezone")
-        .map(String::as_str)
-        .unwrap_or("UTC")
-        .parse::<chrono_tz::Tz>()?;
+    let zone = persona_timezone(cfg)?;
     for (key, value) in &entries {
         let identity = ["png", "jpg"].contains(&ext)
             || re(
@@ -1386,15 +1561,10 @@ fn metadata(
                 .find(|(k, _)| k == offset_key)
                 .map(|(_, v)| v);
             if let Some(t) = stamp(value, zone, offset) {
-                if let Some(period) = cfg.get("period") {
-                    let (start, end) = period
-                        .split_once("..")
-                        .ok_or_else(|| anyhow!("invalid period"))?;
-                    if t.date_naive() < NaiveDate::parse_from_str(start, "%Y-%m-%d")?
-                        || t.date_naive() > NaiveDate::parse_from_str(end, "%Y-%m-%d")?
-                    {
-                        return Ok(Some(format!("{key}: outside persona period: {value}")));
-                    }
+                if let Some(period) = cfg.get("period")
+                    && outside_period(t, zone, period)?
+                {
+                    return Ok(Some(format!("{key}: outside persona period: {value}")));
                 }
                 if t.timestamp() as f64 > mtime {
                     return Ok(Some(format!("{key}: later than file mtime: {value}")));
@@ -1414,24 +1584,42 @@ struct Inspection {
     skipped: Vec<String>,
 }
 
-struct CsvMeasurements {
+pub(crate) struct CsvMeasurements {
     header: csv::StringRecord,
     columns: Vec<Option<BTreeMap<u64, usize>>>,
 }
 
 impl CsvMeasurements {
+    const LENGTH_UNIT: &str = r"(?:_(?:mm|cm|m)|\((?:mm|cm|m)\))$";
+    const MASS_CONCENTRATION_UNIT: &str = r"(?:_[num]?g_m?l|\([num]?g/m?l\))$";
+
+    pub(crate) fn from_draft(path: &str, body: &str) -> Option<Self> {
+        if !path.ends_with(".csv") {
+            return None;
+        }
+        let csv = body
+            .strip_prefix("```csv\n")
+            .and_then(|s| s.strip_suffix("\n```"))
+            .unwrap_or(body);
+        Self::parse(csv)
+    }
+
     fn parse(text: &str) -> Option<Self> {
         let mut reader = csv::Reader::from_reader(text.as_bytes());
         let header = reader.headers().ok()?.clone();
-        let unit = re(r"(?:_(?:mm|cm|m)|\((?:mm|cm|m)\))$");
+        let length = re(Self::LENGTH_UNIT);
+        let concentration = re(Self::MASS_CONCENTRATION_UNIT);
         let mut columns = header
             .iter()
-            .map(|name| unit.is_match(&normalized(name.trim())).then(BTreeMap::new))
+            .map(|name| {
+                let name = normalized(name.trim());
+                (length.is_match(&name) || concentration.is_match(&name)).then(BTreeMap::new)
+            })
             .collect::<Vec<_>>();
         if columns.iter().all(Option::is_none) {
             return None;
         }
-        // Require decimal readings in every row of a unit-labelled length column.
+        // A qualifying measurement column contains decimal readings in every row.
         let decimal = re(r"^[+-]?[0-9]+\.[0-9]+$");
         for row in reader.records() {
             let row = row.ok()?;
@@ -1455,31 +1643,40 @@ impl CsvMeasurements {
         Some(Self { header, columns })
     }
 
-    fn differs_from(&self, other: &Self) -> bool {
+    pub(crate) fn differs_from(&self, other: &Self) -> bool {
         self.header == other.header
-            && self.columns.iter().zip(&other.columns).any(|(a, b)| {
-                let (Some(a), Some(b)) = (a, b) else {
-                    return false;
-                };
-                let rows = a.values().sum::<usize>();
-                if a.len() < 5 || b.len() < 5 || rows != b.values().sum::<usize>() {
-                    return false;
-                }
-                // Require changed frequencies for several values on both sides.
-                // Replacing a single repeated value can change most rows at once.
-                let mut common = 0;
-                let mut excess_a = 0;
-                for (value, &count) in a {
-                    let other_count = b.get(value).copied().unwrap_or(0);
-                    common += count.min(other_count);
-                    excess_a += usize::from(count > other_count);
-                }
-                let excess_b = b
-                    .iter()
-                    .filter(|(value, count)| a.get(value).is_none_or(|other| other < *count))
-                    .count();
-                5 * common < 4 * rows && excess_a >= 2 && excess_b >= 2
-            })
+            && self
+                .header
+                .iter()
+                .zip(self.columns.iter().zip(&other.columns))
+                .any(|(name, (a, b))| {
+                    let (Some(a), Some(b)) = (a, b) else {
+                        return false;
+                    };
+                    let rows_a = a.values().sum::<usize>();
+                    let rows_b = b.values().sum::<usize>();
+                    let concentration =
+                        re(Self::MASS_CONCENTRATION_UNIT).is_match(&normalized(name.trim()));
+                    let min_distinct = if concentration { 4 } else { 5 };
+                    if a.len().min(b.len()) < min_distinct || (!concentration && rows_a != rows_b) {
+                        return false;
+                    }
+                    // Require changed frequencies for several values on both sides.
+                    // Replacing a single repeated value can change most rows at once.
+                    let mut common = 0;
+                    let mut excess_a = 0;
+                    for (value, &count) in a {
+                        let other_count = b.get(value).copied().unwrap_or(0);
+                        common += count.min(other_count);
+                        excess_a += usize::from(count > other_count);
+                    }
+                    let excess_b = b
+                        .iter()
+                        .filter(|(value, count)| a.get(value).is_none_or(|other| other < *count))
+                        .count();
+                    // Measure overlap against the shorter export so a filtered copy still matches.
+                    5 * common < 4 * rows_a.min(rows_b) && excess_a >= 2 && excess_b >= 2
+                })
     }
 }
 
@@ -1545,8 +1742,8 @@ fn inspect(
             match extract(p, &ext, language) {
                 Err(e) => fail(&mut r, "opens", format!("Error: {e}")),
                 Ok((body, scan, missing)) => {
-                    let workbook_units = (ext == "xlsx").then_some(&body);
-                    text = if workbook_units.is_some() {
+                    let office_units = ["xlsx", "pptx"].contains(&ext.as_str()).then_some(&body);
+                    text = if office_units.is_some() {
                         body.replace('\x1e', " ")
                     } else {
                         body.clone()
@@ -1581,14 +1778,7 @@ fn inspect(
                             } else if ext == "docx"
                                 && scfg.get("derived_from").is_none_or(String::is_empty)
                             {
-                                word_revision_source(
-                                    &body,
-                                    p,
-                                    cfg.get("timezone")
-                                        .map(String::as_str)
-                                        .unwrap_or("UTC")
-                                        .parse()?,
-                                )?
+                                word_revision_source(&body, p, persona_timezone(cfg)?)?
                             } else {
                                 body
                             };
@@ -1599,6 +1789,8 @@ fn inspect(
                                     })
                                 });
                             if !visual {
+                                let derived =
+                                    scfg.get("derived_from").is_some_and(|s| !s.is_empty());
                                 if missing {
                                     r.skipped.push("source(OCR)".into())
                                 } else if let Some(reason) = source_reason(
@@ -1607,9 +1799,30 @@ fn inspect(
                                     scan,
                                     &ext,
                                     ext == "docx" && reviewed(p),
-                                    scfg.get("derived_from").is_some_and(|s| !s.is_empty()),
+                                    derived,
                                 ) {
-                                    fail(&mut r, "source", reason)
+                                    let retry = if let Some(lang) = language
+                                        && scan
+                                        && ext == "pdf"
+                                        && !derived
+                                        && scfg.get("kind").is_some_and(|k| k.starts_with("scan:"))
+                                    {
+                                        retry_scan_transcript(p, &body, lang)
+                                    } else {
+                                        Ok(None)
+                                    };
+                                    match retry {
+                                        Ok(Some(recognized)) => {
+                                            // Retain both OCR reads for the trace and secret checks.
+                                            text.push('\n');
+                                            text.push_str(&recognized);
+                                        }
+                                        Ok(None) => fail(&mut r, "source", reason),
+                                        Err(e) => {
+                                            fail(&mut r, "source", reason);
+                                            fail(&mut r, "opens", format!("OCR retry: {e}"));
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -1669,9 +1882,9 @@ fn inspect(
                     }
                     let mut found = false;
                     for m in fancy(TRACE).find_iter(&traced).flatten() {
-                        // A cell ending in "scope" and an adjacent row number form no identifier.
+                        // A cell or text box ending in "scope" does not qualify its neighbor.
                         if m.as_str().to_ascii_lowercase().starts_with("scope")
-                            && let Some(units) = workbook_units
+                            && let Some(units) = office_units
                             && let Some(start) = m.start().checked_sub(rel.len() + 1)
                             && units[start..start + m.as_str().len()].contains('\x1e')
                         {
@@ -1692,16 +1905,10 @@ fn inspect(
                 }
             }
         }
-        if let Some(period) = cfg.get("period") {
-            let (start, end) = period
-                .split_once("..")
-                .ok_or_else(|| anyhow!("invalid period"))?;
-            let day = DateTime::<Utc>::from(st.modified()?).date_naive();
-            if day < NaiveDate::parse_from_str(start, "%Y-%m-%d")?
-                || day > NaiveDate::parse_from_str(end, "%Y-%m-%d")?
-            {
-                fail(&mut r, "mtime", "outside persona period (UTC)")
-            }
+        if let Some(period) = cfg.get("period")
+            && outside_period(st.modified()?.into(), persona_timezone(cfg)?, period)?
+        {
+            fail(&mut r, "mtime", "outside persona period (local date)")
         }
         if ext == "csv" {
             r.measurements = CsvMeasurements::parse(&text);
@@ -2360,6 +2567,20 @@ pub fn run_selected(args: &[String], selected: Option<&BTreeMap<String, BTreeSet
             eprintln!("check: Error: {e}");
             1
         }
+    }
+}
+
+#[cfg(test)]
+mod scan_transcript_tests {
+    use super::*;
+
+    #[test]
+    fn preserves_literal_numbers_and_removes_only_sequential_list_labels() {
+        let manuscript = "## Page 1 — f. 173r\n\n29. janvier 1866\n\n1. Le comité accorde une dispense jusqu'au 12 février.\n2. Reprenez les rappels après le 12.\n\n1. Montant dû\n3. Autre poste\n\n1. février\n\n## Papier et numérisation\n\nPapier gris.";
+        assert_eq!(
+            scan_transcript(manuscript).unwrap().join(""),
+            "\n29. janvier 1866\n\nLe comité accorde une dispense jusqu'au 12 février.\nReprenez les rappels après le 12.\n\n1. Montant dû\n3. Autre poste\n\n1. février\n\n"
+        );
     }
 }
 

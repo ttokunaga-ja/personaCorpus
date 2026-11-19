@@ -48,6 +48,74 @@ fn formats_paths_and_timestamps() {
     assert!(err(&o).contains("persona not found"));
 }
 #[test]
+fn persona_period_uses_local_dates_for_mtime_and_metadata() {
+    let f = Fixture::new();
+    f.cfg("period: 2024-04-01..2024-04-01\ntimezone: Asia/Tokyo");
+    let memo = f.put("memo.txt", BODY);
+    f.plan(&[("memo.txt", "2024-04-01 08:42", "Meeting decision")]);
+    let utc = |stamp: &str| {
+        chrono::DateTime::parse_from_rfc3339(stamp)
+            .unwrap()
+            .timestamp()
+    };
+    let local_day = "2024-03-31T23:42:00Z";
+    f.time(&memo, utc(local_day));
+    success(&f.issues(&["--batch", "b001"]).0);
+
+    for outside in ["2024-03-31T14:59:59Z", "2024-04-01T15:00:00Z"] {
+        f.time(&memo, utc(outside));
+        assert!(present(&f, "memo.txt", "mtime").contains("outside persona period"));
+    }
+
+    let file = "record.docx";
+    f.source(file, BODY, "");
+    for (created, problem) in [
+        (local_day, None),
+        ("2024-03-31T14:59:59Z", Some("outside persona period")),
+        ("2024-04-01T15:00:00Z", Some("outside persona period")),
+        ("2024-04-01T00:00:00Z", Some("later than file mtime")),
+    ] {
+        let core = format!("<coreProperties><created>{created}</created></coreProperties>");
+        let doc = format!("<document><p><r><t>{BODY}</t></r></p></document>");
+        let path = f.zip(
+            file,
+            &[
+                ("[Content_Types].xml", "<Types/>"),
+                ("_rels/.rels", "<Relationships/>"),
+                ("word/document.xml", &doc),
+                ("docProps/core.xml", &core),
+            ],
+        );
+        f.time(&path, utc(local_day));
+        let issue = f.file_issues(file).remove("metadata");
+        match problem {
+            Some(message) => assert!(issue.unwrap().contains(message), "{created}"),
+            None => assert_eq!(issue, None),
+        }
+    }
+}
+
+#[test]
+fn delimited_manuscript_compares_data_values_without_heading_or_notes() {
+    let f = Fixture::new();
+    let source = "# BR-2410 allocation\n\n| Tag | Location |\n|---|---|\n| 3410 | A |\n\nReconciled against log 4510.";
+    for (ext, delimiter) in [("csv", ","), ("tsv", "\t")] {
+        let file = format!("allocation.{ext}");
+        f.source(&file, source, "");
+        f.bytes(
+            &file,
+            format!("Tag{delimiter}Location\n3410{delimiter}A\n").as_bytes(),
+        );
+        absent(&f, &file, "source");
+        f.bytes(
+            &file,
+            format!("Tag{delimiter}Location\n3411{delimiter}A\n").as_bytes(),
+        );
+        assert_eq!(present(&f, &file, "source"), "missing source values: 3410");
+    }
+}
+
+#[test]
 fn production_traces_and_secrets() {
     let f = Fixture::new();
     f.put("a.txt","A BATCH PAYMENT under the synthetic lease. Batchwork and scoping are normal. Scope of work.");
@@ -326,6 +394,51 @@ fn table_sample_rows_and_prose_totals() {
             .unwrap()
             .contains("missing source values")
     );
+    let aggregate = "| 日 | 件数 | 合計（円） |\n|---|---:|---:|\n| 20 | 92 | 3100000 |\n| 21 | 36 | 900000 |\n\n";
+    for (ext, delimiter) in [("csv", ","), ("tsv", "\t")] {
+        let sample = manuscript
+            .replace("```csv", &format!("```{ext}"))
+            .replace(',', delimiter);
+        let aggregate_with_sample = format!("{aggregate}{sample}");
+        let built = built.replace(',', delimiter);
+        let dropped = dropped.replace(',', delimiter);
+        assert!(
+            source_case(
+                &mut f,
+                &aggregate_with_sample,
+                &built,
+                ext,
+                false,
+                false,
+                false
+            )
+            .is_none()
+        );
+        assert!(
+            source_case(
+                &mut f,
+                &aggregate_with_sample,
+                &dropped,
+                ext,
+                false,
+                false,
+                false
+            )
+            .unwrap()
+            .contains("35000")
+        );
+        let full_rows =
+            "| 受注番号 | 金額 |\n|---|---:|\n| OR-1006 | 50000 |\n| OR-1007 | 51000 |\n\n";
+        let mixed = format!("{aggregate}{full_rows}{sample}");
+        let complete = format!("{built}OR-1007{delimiter}51000\n");
+        assert!(source_case(&mut f, &mixed, &complete, ext, false, false, false).is_none());
+        let altered = complete.replace("50000", "50001").replace("51000", "51001");
+        assert!(
+            source_case(&mut f, &mixed, &altered, ext, false, false, false)
+                .unwrap()
+                .contains("51000")
+        );
+    }
     let table = "| 受注番号 | 金額 |\n|---|---:|\n| OR-1001 | 33000 |\n| OR-1002 | 35000 |\n| OR-1003 | 40000 |\n| OR-1004 | 41000 |\n| OR-1005 | 42000 |\n\n合計 7,520,000 円";
     assert!(
         source_case(
@@ -670,6 +783,45 @@ fn duplicates_distinguishes_measurement_runs_with_the_same_csv_layout() {
         assert!(duplicates["first.csv"].ends_with("second.csv"));
         assert!(duplicates["second.csv"].ends_with("first.csv"));
     }
+}
+
+#[test]
+fn duplicates_distinguishes_concentration_exports_of_different_lengths() {
+    let f = Fixture::new();
+    let header = "result_id,local_timestamp_edt,reader_tag,concentration_ng_ml\n";
+    let readings = |day, values: &[&str]| {
+        let mut csv = header.to_string();
+        for (i, value) in values.iter().enumerate() {
+            csv.push_str(&format!(
+                "OCT-{day}-{i:02},2024-10-{day} 10:{i:02}:12,CE-Reader-2,{value}\n"
+            ));
+        }
+        csv
+    };
+    let first = readings(21, &["4.86", "5.23", "4.97", "5.31", "4.72", "5.08"]);
+    let second = readings(22, &["4.68", "5.16", "4.91", "5.04"]);
+    let earlier = readings(
+        17,
+        &[
+            "5.04", "4.79", "5.32", "4.93", "5.18", "4.67", "5.25", "4.89",
+        ],
+    );
+    f.put("first.csv", &first);
+    f.put("second.csv", &second);
+    f.put("earlier.csv", &earlier);
+    assert!(duplicate_map(&f).is_empty());
+
+    let retagged = readings(23, &["4.910", "5.04", "5.16", "4.68"]);
+    f.put("retagged.csv", &retagged);
+    let edited = readings(24, &["4.68", "5.16", "4.91", "5.05"]);
+    f.put("edited.csv", &edited);
+    let trimmed = readings(25, &["5.23", "4.97", "5.31", "4.72"]);
+    f.put("trimmed.csv", &trimmed);
+    let duplicates = duplicate_map(&f);
+    assert!(duplicates.contains_key("retagged.csv"), "{duplicates:?}");
+    assert!(duplicates.contains_key("edited.csv"), "{duplicates:?}");
+    assert!(duplicates["trimmed.csv"].ends_with("first.csv"));
+    assert!(!duplicates.contains_key("earlier.csv"));
 }
 
 #[test]
@@ -1242,6 +1394,38 @@ w.save(home / 'together.xlsx')
     );
     absent(&f, "separate.xlsx", "trace");
     present(&f, "together.xlsx", "trace");
+}
+
+#[test]
+fn scope_identifiers_stay_within_presentation_text_boxes() {
+    let f = Fixture::new();
+    f.generate(
+        r#"
+from pptx import Presentation
+from pptx.util import Inches
+p = Presentation()
+s = p.slides.add_slide(p.slide_layouts[0])
+s.shapes.title.text = "October reader scope"
+s.placeholders[1].text = "BCE-CE-2024-BRF-002-R00 | Oct 24, 2024 | Melissa Watkins"
+p.save(home / 'separate.pptx')
+box = s.shapes.add_textbox(Inches(1), Inches(1), Inches(1), Inches(1))
+box.text = "Scope"
+box.text_frame.add_paragraph().text = "X17"
+p.save(home / 'together.pptx')
+s.notes_slide.notes_text_frame.text = "scope X19"
+box.text_frame.clear()
+p.save(home / 'notes.pptx')
+"#,
+    );
+    absent(&f, "separate.pptx", "trace");
+    assert_eq!(
+        present(&f, "together.pptx", "trace"),
+        "production trace: Scope X17"
+    );
+    assert_eq!(
+        present(&f, "notes.pptx", "trace"),
+        "production trace: scope X19"
+    );
 }
 
 #[test]

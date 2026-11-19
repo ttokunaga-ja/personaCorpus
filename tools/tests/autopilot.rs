@@ -1181,6 +1181,127 @@ fn a_stale_limit_message_in_the_tail_does_not_hide_a_plan_failure() {
 }
 
 #[test]
+fn coordinator_revalidates_when_main_advances_during_validation() {
+    for second_check_succeeds in [true, false] {
+        let f = Fixture::new();
+        hold_row(&f);
+        f.once();
+        let wt = f.r.join("scratch/autopilot/wt");
+        fs::create_dir_all(wt.join("tests")).unwrap();
+        let script = wt.join("tests/run.sh");
+        let second_exit = u8::from(!second_check_succeeds);
+        fs::write(
+            &script,
+            format!(
+                "#!/bin/sh\nset -eu\n\
+                 if [ -f advance-marker ]; then\n\
+                   touch \"$CORPUS_BASE/validated-new-main\"\n\
+                   exit {second_exit}\n\
+                 fi\n\
+                 touch \"$CORPUS_BASE/advance-marker\"\n\
+                 git -C \"$CORPUS_BASE\" add advance-marker\n\
+                 git -C \"$CORPUS_BASE\" commit -qm 'Advance main during validation'\n"
+            ),
+        )
+        .unwrap();
+        fs::set_permissions(&script, fs::Permissions::from_mode(0o755)).unwrap();
+        finish_coordinator(
+            &f,
+            json!({"actions":[
+                {"do":"merge","message":"Coordinator change"},
+                {"do":"unhold","persona":"p01-test","batch":"b001"}
+            ]}),
+        );
+        f.once();
+
+        let result = f.state()["coordinator"]["last_result"].to_string();
+        assert!(f.r.join("validated-new-main").exists(), "{result}");
+        assert!(
+            f.git(&["log", "--format=%s"])
+                .contains("Advance main during validation")
+        );
+        assert_eq!(
+            f.r.join("tests/run.sh").exists(),
+            second_check_succeeds,
+            "{result}"
+        );
+        assert_eq!(
+            f.holds().contains("| b001 |"),
+            !second_check_succeeds,
+            "{result}"
+        );
+        if !second_check_succeeds {
+            assert!(result.contains("tests/run.sh が失敗した"), "{result}");
+        }
+    }
+}
+
+#[test]
+fn coordinator_verifies_candidate_manifest_against_retained_accepted_files() {
+    for update_manifest in [false, true] {
+        let f = Fixture::new();
+        let people = f.r.join("people/p01-test");
+        fs::create_dir_all(&people).unwrap();
+        for name in ["remove.txt", "keep.txt"] {
+            let file = people.join(name);
+            fs::write(&file, name).unwrap();
+            filetime::set_file_mtime(&file, filetime::FileTime::from_unix_time(1_700_000_000, 0))
+                .unwrap();
+        }
+        fs::write(f.r.join("bin/manifest"), include_str!("../../bin/manifest")).unwrap();
+        fs::set_permissions(f.r.join("bin/manifest"), fs::Permissions::from_mode(0o755)).unwrap();
+        let release = f.r.join("tools/target/release");
+        fs::create_dir_all(&release).unwrap();
+        std::os::unix::fs::symlink(env!("CARGO_BIN_EXE_corpus"), release.join("corpus")).unwrap();
+        f.git(&["add", "people", "bin/manifest"]);
+        f.git(&["commit", "-qm", "Add accepted files"]);
+        good(
+            &Command::new(f.r.join("bin/manifest"))
+                .arg(P)
+                .output()
+                .unwrap(),
+        );
+        let manifest = "manifests/p01-test.tsv";
+        f.git(&["add", manifest]);
+        f.git(&["commit", "-qm", "Add valid manifest"]);
+        hold_row(&f);
+        f.once();
+
+        let wt = f.r.join("scratch/autopilot/wt");
+        fs::remove_file(wt.join("people/p01-test/remove.txt")).unwrap();
+        let original = fs::read_to_string(f.r.join(manifest)).unwrap();
+        let reduced = original
+            .lines()
+            .find(|l| l.starts_with("keep.txt\t"))
+            .unwrap();
+        if update_manifest {
+            fs::write(wt.join(manifest), format!("{reduced}\n")).unwrap();
+        }
+        finish_coordinator(
+            &f,
+            json!({"actions":[{"do":"merge","message":"Remove an accepted file"}]}),
+        );
+        f.once();
+
+        let result = f.state()["coordinator"]["last_result"].to_string();
+        assert_eq!(
+            !people.join("remove.txt").exists(),
+            update_manifest,
+            "{result}"
+        );
+        if !update_manifest {
+            assert!(result.contains("manifest の照合に通らない"), "{result}");
+        }
+        good(
+            &Command::new(f.r.join("bin/manifest"))
+                .args([P, "--verify"])
+                .output()
+                .unwrap(),
+        );
+    }
+}
+
+#[test]
 fn rebuild_after_audit_requires_a_new_audit() {
     let f = Fixture::new();
     f.done();

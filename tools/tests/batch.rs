@@ -259,6 +259,41 @@ fn derived_differences_do_not_count_as_duplicate_full_documents() {
     assert_eq!(f.state()["pending"], 0);
 }
 #[test]
+fn draft_duplicate_check_distinguishes_concentration_exports() {
+    for (values, expected) in [
+        (vec!["4.68", "5.16", "4.91", "5.04"], 0),
+        (vec!["4.86", "5.23", "4.97", "5.31"], 2),
+    ] {
+        let f = Fixture::new();
+        f.planned();
+        let first = "Downloads/October 21.csv";
+        let second = "Downloads/October 22.csv";
+        f.set_plan(&rows_named(&f, &[first.into(), second.into()]), true);
+        let draft = |day, values: &[&str]| {
+            let mut body = "```csv\nresult_id,local_timestamp_edt,reader_tag,concentration_ng_ml\n"
+                .to_string();
+            for (i, value) in values.iter().enumerate() {
+                body.push_str(&format!(
+                    "OCT-{day}-{i:02},2024-10-{day} 10:{i:02}:12,CE-Reader-2,{value}\n"
+                ));
+            }
+            body + "```"
+        };
+        f.overrides(json!({
+            first: {"body": draft(21, &["4.86", "5.23", "4.97", "5.31", "4.72", "5.08"])},
+            second: {"body": draft(22, &values)},
+        }));
+        f.run("ok", true);
+        let state = f.state();
+        assert_eq!(
+            state["draft_failures"].as_object().unwrap().len(),
+            expected,
+            "{state}"
+        );
+    }
+}
+
+#[test]
 fn dependency_parent_finishes_review_before_child_and_failed_parent_blocks_build() {
     let f = Fixture::new();
     f.run("dependency", true);
