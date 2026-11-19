@@ -14,9 +14,11 @@
 | 再開手掛かりの分類照合 | Carver、Brian と Jennifer。2人の初回コードと場面ごとの確定理由を照合 | `carver-field-coding.xlsx` | Letter 横。日英質問対照と同じ Carver の紙面で、場面・初回2列・確定・一致判定・行動根拠を6列で示す |
 | 読み上げ順の項目表 | Carver、Jennifer。Amanda の観察を Jeremy に渡す際、期待順・観察順・判定・修正観点を項目別に整理 | `carver-reading-order.xlsx` | Letter 横。黒鉛色の6列見出し。先頭の期待順は右寄せ、直後の項目名は1字下げ |
 | 募集条件照合 | Carver、Carolyn。候補を符号で扱い、3条件の回答と最初に外れた条件を週次の募集会議で照合する | `carver-participant-eligibility.xlsx` | Letter 横、共通ロゴ、黒鉛色の6列見出しと麻色の集計欄。1候補1行で根拠欄を広く取る |
+| 会場費精算 | Carver、Jennifer。運営が発行した紙の明細と会場ごとの申請額を照合する | `carver-venue-expenses.xlsx` | Letter 横、共通ロゴと黒鉛色の列見出し。USD は小数2桁を右寄せ、理由欄は折り返す |
 | 場面共有スライド | Carver、Jennifer。引継ぎの四場面、夜勤棚卸の再開、研修画面の文言案を説明 | `carver-field-brief.pptx` | 16:9、白地。小さな社名と図形ロゴを上に、ページの区切り線を下に置く。マスター1種・レイアウト5種 |
 | 質問試行用紙 | Carver、金子。読み合わせに使う旧質問を余白のある紙面に組む | `carver-pilot-questionnaire.cls` | Letter 縦。麻色の管理欄、煉瓦色の区間見出し、番号付きの日英対。手で削除や言い直しを書き込める質問間隔 |
 | 現地調査報告 | Carver、Jennifer。Ronald に観察範囲、中断と再開の根拠、再開位置の表示、他の勤務帯への留保を伝える | `carver-field-report.cls` | Letter 縦、表紙なし。共通ロゴと煉瓦色の見出し。麻色の管理欄に提出先を独立表示し、根拠を黒鉛色の見出し付きの二列表にできる |
+| 会場費明細 | Carver Research Operations、Carolyn。利用枠と取消料を紙で発行する | `carver-venue-statement.cls` | Letter 縦、共通ロゴ、Research Operations の柱、黒鉛色の明細見出しと麻色の合計行 |
 | 配送計画画面の説明 | Oakridge Dispatch Cooperative、Christine。Dispatch Systems から渡された画面説明 PDF | `oakridge-screen-reference.cls` | Letter 縦。分岐する配送路の図形と社名、濃紺のセリフ体の題、氷青色の管理欄と表見出し |
 | 棚卸手順 | Kenton Contract Warehousing Inc、Ronald。Kenton 発の棚卸手順書や現場掲示の印刷原版 | `kenton-count-instructions.cls` | Letter 縦。アンバーの枠内に棚のマーク、太い上罫、濃い青灰の太字、薄い青灰の管理欄 |
 | 読み上げ観察記録 | Fuller Accessibility Lab LLC、Amanda Shah。観察条件と読み上げの経路を発行元の PDF で Carver に渡す | `fuller-accessibility-observations.cls` | Letter 縦。紫の波形と社名、薄紫の右柱と管理欄、白地に幅の広い本文 |
@@ -26,6 +28,8 @@
 研修画面理解調査は日本語の課題票と共有スライドを使う。回答の根拠は TXT、再試行結果は CSV、6月の保留連絡は EML とする。5月の配車点検は Fuller 発の観察 PDF、Carver 内部の項目表、順路の注釈 PNG に分ける。5月の配車点検と翌年6月の研修画面再試行は、同意・対象項目・判定を調査ごとに記録する。
 
 交代申し送り調査の案件コードは `HO`。参加案内は用途 `INV`、募集条件照合は `ELG` を使う。それ以外は共通の用途を使う。
+
+研修・精算の社内文書は案件コード `OPS`。運営の会場費明細は用途 `VEN`、精算表は `EXP`。配車の引用照合は案件 `DR`・用途 `XLT` とし、調査判断記録の型に「照合範囲」「引用対照」「配布範囲」の見出しと日英の実表を置く。他の文書にまたがる番号・版は事実の台帳と揃える。
 
 ## Carver の書式
 
@@ -73,6 +77,13 @@
 - 集計は明細直下に、A列に数式、B〜Cの結合欄にラベルを置く。候補数はA列の `COUNT`、適合・条件外はE列の判定語と同じ語を使う `COUNTIF`。全体に `CWR Total` を適用し、結合欄の左端は `CWR Text` の左寄せ・字下げを保つ。除外理由の内訳を式で出す場合は、最初に該当しない条件を明細F列の根拠の先頭で揃え、その条件別に数える。
 - A6:F最終明細行にフィルター、印刷範囲は A1:F最終使用行、ペインは B7。Letter 横、幅1頁・高さ自動、1〜6行繰返し。根拠は折り返し、内容に合わせて行高を取る。集計を入れたら `bin/recalc` と `bin/render` で確認する。
 
+### 会場費精算
+
+`carver-venue-expenses.xlsx` のシート `Venue expenses` を開く。管理欄は日英質問対照と同じ位置を使う。6行目は Session date、Room / slot、Charge type、Statement line、Amount (USD)、Reason / matching note。7行目から、A列は実日付に `yyyy-mm-dd` を適用し、A〜D列は `CWR Text`、E列は `CWR USD`、F列は `CWR Note`。日付の表示形式はスタイル適用後に設定し、折り返した理由を行高に収める。
+
+- 明細直後に内訳・申請合計・明細との差の行を置き、原稿の式を E 列に残す。紙明細の合計は照合値の入力行として示し、差額の式でそのセルを参照する。内訳の判定語を C 列に揃え、合計面の A〜F に `CWR Total`、数値の E に `CWR USD Total` を適用する。原本の明細番号と明細合計の出典は注記に記す。
+- フィルターは A6:F最終明細行、印刷範囲は A1:F最終使用行。Letter 横、幅1頁・高さ自動、1〜6行繰返し、ペインは A7。数式を再計算してから印刷面を確認する。
+
 ## PowerPoint の成形
 
 `Presentation(型のパス)` で開き、対応するレイアウトからスライドを追加する。型は0枚。文字は英語 Liberation Sans、日本語 Noto Sans CJK JP、黒鉛色。マスター上部にロゴ、下部に煉瓦色の線と部門名を持つ。頁番号は成形時にフッタ行の右端（左12.13、上7.08インチ、右寄せ9pt）へ配置する。
@@ -91,6 +102,7 @@
 
 - Carver は `\documentclass{carver-pilot-questionnaire}`。本文冒頭に `\CarverDocument{題}{文書番号}{日付}{作成者}`、セクションに `\CarverHeading{見出し}`、設問に `\CarverQuestion{番号}{質問}{対訳}` を置く。単言語の設問は対訳に空の引数を渡す。旧質問票を保存する際は、旧版の本文を組み、原稿で定めた箇所に書込みを載せてから `bin/scan` で画像だけの PDF にする。
 - Carver の報告は `\documentclass{carver-field-report}`。冒頭に `\CarverReport{題}{番号}{日付}{作成者}{提出先}`、節に `\CarverHeading{見出し}` を置く。観察した行動と判断を区別し、提言と観察範囲の留保をそれぞれ記載する。二列表には `tabularx` と `\CarverEvidenceHeader{左見出し}{右見出し}` を使う。補助面には `\rowcolor{CarverLinen}` を使える。
+- 会場費の紙明細は `\documentclass{carver-venue-statement}`。冒頭に `\CarverVenueStatement{文書番号と版}{発行日}{発行者}{提出先}`。行番号、利用日、会場と費目、金額の4列を `CarverVenueLines` 環境で組み、末尾に `\CarverVenueTotal{金額}` を置く。取消条件は表外に印字する。紙原版は作業フォルダで組み、計画がスキャンを指定している場合は `bin/scan` 後の画像だけの PDF を保存する。
 - Oakridge は `\documentclass{oakridge-screen-reference}`。濃紺 `183D52` と氷青 `D9E9EE`、配送経路の分岐図形を使う。欧文の表題・本文は Liberation Serif、管理欄・見出し・柱は Liberation Sans。和文がある場合はそれぞれ Noto Serif CJK JP と Noto Sans CJK JP。上部に社名と Dispatch Systems、下部に Screen Reference と頁を出す。
 - Oakridge の番号は `ODC-DSP-YYYYMMDD-REF-NN`。本文冒頭に `\OakDocument{題}{番号}{日付}{作成者}` を置く。受領日を発行日に置き換えず、発行元の担当者と日付を記載する。節は `\OakHeading{見出し}`。表の先頭行は `\OakTableHeader` を使い、長文は `tabularx` で折り返す。
 - Kenton は `\documentclass{kenton-count-instructions}`。棚のマークと太い罫はアンバー `F4C85B`、本文は青灰 `202D3A`、管理欄は薄い青灰 `EDF0F2`。欧文は DejaVu Sans、和文は Noto Sans CJK JP。柱に社名と Inventory Control、フッタに Warehouse Operations と頁を出す。日勤用の手順番号は `KCW-IC-YYYYMMDD-DAY-NN`。冒頭の `\KentonInstruction{題}{番号}{発行日}{発行担当者}` に発行元の情報を入れ、節は `\KentonHeading{見出し}` で組む。日勤手順の記載は夜勤での観察記録と区別する。

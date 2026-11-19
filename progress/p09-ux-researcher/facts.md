@@ -151,3 +151,31 @@
 - 比較報告 CWR-HO-20251002-BRF-01 は10月2日 v0.3、10月13日 v1.0。10月3日に Patrick が、人と事項の分母を表面に示し、一覧でも残った誤解を数値に並べるよう指摘。v1.0 の PPTX と会議後配布用 PDF は同じスライド。
 - 2025-10-13 10:00–10:35 CDT、Christine・Patrick・Jennifer が説明会。B を次の試作に残す根拠は個々の未確認事項へ戻れること。Jeremy が「対応あり・時刻未定」「返答待ち」を個別に表す案を作り、Jennifer が次の確認課題を用意する。対象は引き続き試作。
 - 10月13日11:42 CDT Jennifer → Christine、件名 `Open items comparison and next check`。比較報告 `2025-10-13 Finding the items still open.pdf` と別添集計 `2025-10-10 Handoff comparison counts.csv` の2点を添付する新規メール。
+
+## 面談の同意説明 — 模擬と単独担当
+
+- 2025-11-04 15:00 第1回は Jennifer が録音可の相手役、05日14:00 第2回は Patrick が録音辞退の相手役、06日10:30 第3回は Jennifer が共有中に識別情報を出しかける相手役。Ayesha が全回を進行。
+- 説明漏れは第2回の音声保存期限だけ。第1回は許可後に録音を開始する手順、第3回は共有と録音を止め、識別情報を除いて再開前に同意を取り直す手順を通した。実際の参加者、画面、音声は無い。
+- 音声は録音に同意した面談の日から180日。改訂した説明順は目的・中断可 → 録音する場合の用途と保存期限 → 許否 → 許可後に開始。辞退時は録音せずメモへ切り替える。
+- 11月7日10:00 CST、Jennifer・Patrick・Ayesha で講評し、Patrick が再び録音を断る役。Ayesha が録音を選ぶ場合の期限も許否の前に伝えられ、Patrick が単独進行を承認。別目的の利用や同意範囲を超える引用の判断は Jennifer に戻す。
+- 単独担当の承認は CWR-OPS-20251107-DEC-01 v1.0。Word と閲覧用 PDF は同じ内容。
+
+## 配車の見通し調査 — 例外停車の英訳と顧客向け引用
+
+- 2025年1月15日の UX-043 を参照。紙の例外メモと停車行の Note を見比べたのは停車条件のため。紙の文面・現物は未取得、Hold の理由と無関係で、口頭連絡後の処理は本人も見ていない。
+- 元の録音同意は調査チーム内。2026-01-26 17:30 CST（翌日08:30 JST）、金子が別途、12:43・14:21・21:47の発言だけについて、匿名の英訳を Christine の報告で使う許可を既存の業務連絡経路で得た。照合は既存の逐語録で行い、旧音声は使わない。
+- Q01〜Q36 は参加者発言35件を時刻順に採り、15:20を最初の一文と残りの2つに分ける。除外時刻は 00:33、01:08、30:41、40:22、43:11。配布許可は Q14（12:43）、Q16（14:21）、Q24（21:47）のみ。
+- CWR-DR-20260127-RPT-01 は1月27日 Jennifer の社内初稿 v0.1 と1月29日 金子のコメント・変更履歴入り返却版 v0.2。両版とも顧客未送付。照合 DOCX は別番号 CWR-DR-20260129-XLT-01 v1.0。対応 CSV はその36件を同じ番号順で抽出。
+- 1月29日の差し戻し7箇所（残る29箇所は変更不要）のうち、Q02 02:32 は毎日の交代 → 直近5勤務で1回、Q14 12:43 は条件がすべて未表示 → この追加分が当該 Note に無かった。
+- Q15 13:31 は停車行が存在しない → 行はあり Note だけでは全部伝わらなかった、Q19 16:45 は画面を更新したと確認 → 覚えているのは照合と口頭連絡まで。
+- Q24 21:47 は次担当が処理完了 → 聞いてもらったところまで、Q30 28:26 は常に助けを求めず処理 → 独力で引き継いできたが迷えば出どころを聞く、Q36 38:50 は原本を調査員に提出 → 紙は本人の手元のまま。
+- 1月29日08:52 CST（同日23:52 JST）、金子（mihoko.kaneko@carver-workplace.example）→ Jennifer、Cc Patrick。件名 `Seven lines to pull back before Oakridge` の新規メールにコメント入り v0.2 と引用対応 CSV を添付。顧客宛てメールとは別スレッド。
+- 1月30日14:00 CST、Patrick と Jennifer が金子の照合結果を確認し、匿名英訳3箇所と1例の観察範囲に収めた別紙だけを Christine に共有すると決定。配布文書 CWR-DR-20260204-RPT-01 v1.0 は2月4日の DOCX と同版の PDF。
+- 2月5日10:06 CST、Jennifer → Christine（christine@oakridge-dispatch.example）。件名 `A short note on the stop condition` の新規メールに `2026-02-04 One stop condition that traveled by voice.pdf` 1点を添付。
+
+## 1月の面談会場 — 欠席枠と月次精算
+
+- 2026-01-05、12、20 の Lake Room は実施分各 USD 200。01-22 13:30 は無断欠席で、前営業日の01-21 17:00 CSTまでに取消がなく、Ayesha が13:45に会場を解放。枠の確保に対する取消料 USD 80 を会場の調査費とする。
+- Carolyn の1月30日付会場費明細 CWR-OPS-20260130-VEN-01 は紙で発行。行1〜3の実施分 USD 600 と行4の欠席費 USD 80 で計 USD 680。Jennifer の精算表 CWR-OPS-20260202-EXP-01 はこの4行と照合し、差額 USD 0。
+- 2月3日09:16 CST、Jennifer → Carolyn（carolyn@carver-workplace.example）。件名 `January room charges for close` に精算 XLSX と紙明細のスキャン PDF を添付。初信 Message-ID は `<76d2bea5-3b4e-4c93-842f-98ec2a4a7b32@carver-workplace.example>`。
+- 2月3日11:08 CST、Carolyn → Jennifer、件名 `Re: January room charges for close`。初信の取消料を説明する段落を引用し、その Message-ID を In-Reply-To と References に使う。返信 ID は `<b48d1a9f-3de0-4c2a-b81d-67f50c2e9a34@carver-workplace.example>`。添付なし、USD 680 の計上済みを通知。

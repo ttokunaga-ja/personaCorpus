@@ -1,0 +1,27 @@
+---
+path: Documents/Team-and-expenses/2026-02-03 Re January room charges for close.eml
+kind: text
+author: Carolyn Davis
+derived_from:
+---
+From: Carolyn Davis <carolyn@carver-workplace.example>
+To: Jennifer Salazar <jennifer@carver-workplace.example>
+Date: Tue, 3 Feb 2026 11:08:00 -0600
+Subject: Re: January room charges for close
+Message-ID: <b48d1a9f-3de0-4c2a-b81d-67f50c2e9a34@carver-workplace.example>
+In-Reply-To: <76d2bea5-3b4e-4c93-842f-98ec2a4a7b32@carver-workplace.example>
+References: <76d2bea5-3b4e-4c93-842f-98ec2a4a7b32@carver-workplace.example>
+
+Hi Jennifer,
+
+I've recorded the USD 680.00 as research venue costs for the close. The three completed room sessions total USD 600.00; I'll record the USD 80.00 absence charge separately within the breakdown. You don't need a separate request for it.
+
+Thanks for explaining the reserved slot and the cancellation deadline.
+
+Carolyn
+
+On Tue, 3 Feb 2026 at 09:16, Jennifer Salazar wrote:
+
+> The USD 80.00 is for the 13:30 slot on January 22. There was no contact or arrival, and no cancellation was received by 17:00 on the previous business day; the room had been reserved for that slot. Ayesha released it at 13:45.
+
+添付: なし
