@@ -1,0 +1,22 @@
+diff --git a/progress/p18-manufacturing-quality-engineer/b004.request.md b/progress/p18-manufacturing-quality-engineer/b004.request.md
+index b13ad26420d8fb8a09508419f7755cdd0ce91311..ebc0c4ba28a3891ce8a783ed136c7f64dddd1563 100644
+--- a/progress/p18-manufacturing-quality-engineer/b004.request.md
++++ b/progress/p18-manufacturing-quality-engineer/b004.request.md
+@@ -5,3 +5,5 @@
+ - 重点：7月23日の読み合わせで、写真から部品の向きを一意に判断できない4枚を特定。計画時に各指示で作業者が迷う箇所、撮り直す方向、現場の掲示先を対応させ、上田が改訂し旧版回収を確認するまでを扱う。
+ - 含めたいもの：指示書の使用場所と版を照合するXLSX、向きが伝わらない旧写真と基準面を写したJPG、上田の赤字指示・回収確認票のスキャンPDF、写真付き手順DOCX、現場配布用の改訂PDF、差し替え先を伝えるEML
+ - 避けるもの：点検した12枚すべてを改訂する扱い、手書き修正を正式版として配ること、4月の不良集計の作り直し
++
++- 写真の共通基準：受入済みの「Pictures/Charts/BR-2410_穴あけ直後と面取り後に見る面.png」で、段の列に沿って最高段を貫通する穴の入口・出口を確認する。低段側に面した立ち上がりが入口、その反対の最高段の端面が出口。段の輪郭が連続する二つの長辺側面は無孔。 4月4日の肩の写真と突き合わせ、各写真の原稿で見える面と画角外の面を指定する。旧写真と24日の失敗は画角・照明・遮蔽の失敗として残す。写真9点を並べ、同じ形状が写ったものだけを赤字控え・正式指示書に使う。配布版と実添付まで照合する。
+diff --git a/progress/p18-manufacturing-quality-engineer/facts.md b/progress/p18-manufacturing-quality-engineer/facts.md
+index dd19b32ccc21f0f7e83bcb756dd49fc1af2b53f7..2e50ab5c0ec5a739c94a067e1e4822691526f036 100644
+--- a/progress/p18-manufacturing-quality-engineer/facts.md
++++ b/progress/p18-manufacturing-quality-engineer/facts.md
+@@ -181,3 +181,7 @@
+ - 7月18日14:11「BR-2410 23日の作業指示書読み合わせ」、中山→上田・原、Cc・添付なし。23日13:30の集合と準備を伝える独立メール。
+ - 7月29日10:02「BR-2410 写真差し替え4枚と旧版の戻し先」、上田→原・中山、Ccなし。発行済みPDF4種とWIC-005のXLSXの計5点を実添付する独立メール。
+ - 7月31日11:04「BR-2410 旧版5部の回収確認」、上田→中山・原、Cc石田。FLD-013の記入済みスキャンPDFを実添付する独立メール。以上3通は日時順で、返信・引用はない。
++
++### BR-2410の横穴を確認する面
++
++受入済みの「Pictures/Charts/BR-2410_穴あけ直後と面取り後に見る面.png」で、段の列に沿って最高段を貫通する穴の入口・出口を確認する。低段側に面した立ち上がりが入口、その反対の最高段の端面が出口。段の輪郭が連続する二つの長辺側面は無孔。 4月4日のQ24-051では入口側の立ち上がり、7月のWI-031では反対側の出口を観察する。
