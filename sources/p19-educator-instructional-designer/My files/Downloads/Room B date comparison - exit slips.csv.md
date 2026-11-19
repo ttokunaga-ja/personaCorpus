@@ -1,0 +1,13 @@
+---
+path: My files/Downloads/Room B date comparison - exit slips.csv
+kind: text
+author: Heather Callahan
+derived_from:
+---
+
+```csv
+Class date,Evidence seen,Response pattern,Slips
+2026-07-27,Effective dates linked to both notices,15 July 15:30 and 16 July 16:00 linked to the instruction period,21
+2026-07-27,Temporary instruction used beyond its end date,15:30 also selected for 16 July,6
+2026-07-27,No decision source identified,Reason for the notice not specified,3
+```

@@ -15,7 +15,7 @@
 | Independent marking comparison | Elmwood、Heather と Erin。匿名答案を突き合わせ、独立採点の点差と協議時の判断を記録 | `elmwood-score-comparison.xlsx` | Letter 横。共通の管理欄と7列の青紫見出し。両者の得点と絶対点差は右揃え、協議フラグと理由は左揃え |
 | Seat allocation | Elmwood、Arjun Deshmukh。Brookdale の受講枠を講座別に設定し、申込区分との照合に使う | `elmwood-seat-allocation.xlsx` | Letter 横。共通の管理欄、青紫の列見出し。受講枠の数は右寄せ、区分コードは左に1文字分の余白。フッタは Corporate courses / Seat allocation |
 | Classroom deck | Elmwood、Heather。一般則と例外、議題と条件によって変わる発言、説明途中の確認課題、依頼主向けの講座説明、受講者向けの課題紹介に使う | `elmwood-classroom.pptx` | 16:9、白地に3本の段形と金茶の上罫線。1マスター、5レイアウト |
-| Reading handout | Elmwood、Heather。職場文書と設問の配布、試行答案への個別の再指導に使う直接 PDF | `elmwood-reading.cls` | Letter 縦。青紫の大見出し、金茶の淡色抜粋欄、ヘッダとページ番号 |
+| Reading handout | Elmwood、Heather。職場文書の対読と設問、オフライン閲覧の紙案内、試行答案への個別の再指導に使う直接 PDF | `elmwood-reading.cls` | Letter 縦。青紫の大見出し、金茶の淡色抜粋欄、ヘッダとページ番号 |
 | Training agreement record | Elmwood、Heather。Janice と合意した研修の範囲、講座ごとの提出物と報告単位を控える直接 PDF | `elmwood-training-agreement.cls` | Letter 縦。Elmwood の配色とロゴ。題下に相手先と管理情報、下に Corporate courses とページ番号 |
 | Workplace operations notice | Brookdale Service Cooperative、Janice Mitchell。授業で参照し得る社外の業務通知を直接 PDF にする型 | `brookdale-workplace-notice.cls` | Letter 縦、右上に円と2本の山形、中央題と節番号。深緑と墨のセリフ体、下罫線に部門名とページ番号 |
 | Meeting agenda extract | Rosedale Workers Housing Cooperative、Glenn Fletcher。先方名義で受領した議題抜粋を直接 PDF にする型 | `rosedale-meeting-agenda.cls` | Letter 縦、家形と社名、煉瓦色の議題番号、麻色の管理帯、左揃えのサンセリフ体 |
@@ -112,26 +112,9 @@ Brookdale の依頼主向け説明では、マスターのフッタを Corporate
 
 `fletcher-course-review` は `\FletcherReview{題}{文書番号}{日付}{査読者}{宛先}` と `\FletcherFinding{見出し}{本文}`。Sean の査読範囲、指摘、求める改訂を記載する。Elmwood の改訂記録は設計判断や目標対応表に置く。`bin/tex` で組む。
 
-## 見本
+## 夏期の配布と授業
 
-今回の作業フォルダに保存した見本。文書番号・答案番号・個別得点・設問番号・時間配分・受講枠の内訳は書式と印刷範囲の確認用。制作時は計画と事実の台帳を参照する。
-
-| 型 | 見本 |
-|---|---|
-| Lesson plan | [授業の進行](../../scratch/p19-educator-instructional-designer/b006/work/templates-0004/samples/elmwood-lesson-plan.docx)、[Brookdale 読解講座の実施案](../../scratch/p19-educator-instructional-designer/b006/work/templates-0004/samples/elmwood-brookdale-crw-plan.docx)、[Brookdale 提案講座の実施案](../../scratch/p19-educator-instructional-designer/b006/work/templates-0004/samples/elmwood-brookdale-bpe-plan.docx) |
-| Curriculum design decision | [設計判断](../../scratch/p19-educator-instructional-designer/b006/work/templates-0004/samples/elmwood-design-decision.docx)、[授業観察の講評](../../scratch/p19-educator-instructional-designer/b006/work/templates-0004/samples/elmwood-observation-feedback.docx) |
-| Item trial review | [試行の講評](../../scratch/p19-educator-instructional-designer/b006/work/templates-0004/samples/elmwood-item-review.docx)、[採点例と注釈](../../scratch/p19-educator-instructional-designer/b006/work/templates-0004/samples/elmwood-rubric-annotations.docx) |
-| Course outcomes report | [職場会議研修の成果](../../scratch/p19-educator-instructional-designer/b006/work/templates-0004/samples/elmwood-course-outcomes.docx) |
-| Item and aim alignment | [3明細](../../scratch/p19-educator-instructional-designer/b006/work/templates-0004/samples/alignment-3.xlsx)、[16明細](../../scratch/p19-educator-instructional-designer/b006/work/templates-0004/samples/alignment-16.xlsx)、[査読対応](../../scratch/p19-educator-instructional-designer/b006/work/templates-0004/samples/elmwood-alignment-review.xlsx)、[根拠の提示順](../../scratch/p19-educator-instructional-designer/b006/work/templates-0004/samples/elmwood-evidence-order.xlsx) |
-| Reading and discussion timing | [3明細](../../scratch/p19-educator-instructional-designer/b006/work/templates-0004/samples/timing-3.xlsx)、[16明細](../../scratch/p19-educator-instructional-designer/b006/work/templates-0004/samples/timing-16.xlsx) |
-| Outcome reconciliation | [3明細](../../scratch/p19-educator-instructional-designer/b006/work/templates-0004/samples/reconciliation-3.xlsx)、[24明細](../../scratch/p19-educator-instructional-designer/b006/work/templates-0004/samples/reconciliation-24.xlsx) |
-| Independent marking comparison | [3明細](../../scratch/p19-educator-instructional-designer/b006/work/templates-0004/samples/comparison-3.xlsx)、[18明細](../../scratch/p19-educator-instructional-designer/b006/work/templates-0004/samples/comparison-18.xlsx) |
-| Seat allocation | [提案講座・3明細](../../scratch/p19-educator-instructional-designer/b006/work/templates-0004/samples/elmwood-seat-allocation-bpe.xlsx)、[読解講座・18明細](../../scratch/p19-educator-instructional-designer/b006/work/templates-0004/samples/elmwood-seat-allocation-crw.xlsx) |
-| Classroom deck | [5レイアウト](../../scratch/p19-educator-instructional-designer/b006/work/templates-0004/samples/elmwood-classroom.pptx)、[匿名答案の協議](../../scratch/p19-educator-instructional-designer/b006/work/templates-0004/samples/elmwood-moderation-discussion.pptx)、[Brookdale 依頼主向け](../../scratch/p19-educator-instructional-designer/b006/work/templates-0004/samples/elmwood-brookdale-sponsor.pptx)、[読解講座の課題紹介](../../scratch/p19-educator-instructional-designer/b006/work/templates-0004/samples/elmwood-brookdale-crw-assignment.pptx)、[提案講座の課題紹介](../../scratch/p19-educator-instructional-designer/b006/work/templates-0004/samples/elmwood-brookdale-bpe-assignment.pptx) |
-| Reading handout | [引渡し通知の読解](../../scratch/p19-educator-instructional-designer/b006/work/templates-0004/samples/elmwood-reading.pdf)、[折返し枠の提案演習](../../scratch/p19-educator-instructional-designer/b006/work/templates-0004/samples/elmwood-conditions-exercise.pdf)、[本人への再指導](../../scratch/p19-educator-instructional-designer/b006/work/templates-0004/samples/elmwood-return-guidance.pdf) |
-| Training agreement record | [Brookdale との夏期研修合意](../../scratch/p19-educator-instructional-designer/b006/work/templates-0004/samples/elmwood-training-agreement.pdf) |
-| Workplace operations notice | [金曜の引渡し通知](../../scratch/p19-educator-instructional-designer/b006/work/templates-0004/samples/brookdale-workplace-notice.pdf) |
-| Meeting agenda extract | [修繕立会いの議題](../../scratch/p19-educator-instructional-designer/b006/work/templates-0004/samples/rosedale-meeting-agenda.pdf) |
-| Course review memorandum | [設問の査読意見](../../scratch/p19-educator-instructional-designer/b006/work/templates-0004/samples/fletcher-course-review.pdf) |
-
-[全ページのレンダリング](../../scratch/p19-educator-instructional-designer/b006/work/templates-0004/render)
+- 紙の閲覧案内は Reading handout を開き、Learner-support に渡す一枚にまとめる。HO の文書番号を使い、接続中に保存する手順、通信を切って開き直す手順、開けない場合の紙教材の受け取り先を順に示す。
+- 対読教材は同じ Reading handout を使い、公開掲示と係員向け指示の発行元・対象者を各抜粋の下に記す。時刻や承認の有無は受付記録で示す。Brookdale が発行した通知そのものを保存する場合は Workplace operations notice を使う。
+- 授業案は Lesson plan、投影は Classroom deck。冒頭で端末または紙で教材にアクセスできるかを確認し、討議では通常の掲示と係員向け指示を比較する。理解確認には、適用条項と記録を挙げて案内を決める問いを使う。
+- 7月6日に Arjun と確認した受講者36人中4人の未設定は、配布状況の CSV と連絡の EML で扱う。受講前に紙案内を渡し、アクセス状況と授業での読解の確認は別々に記録する。
