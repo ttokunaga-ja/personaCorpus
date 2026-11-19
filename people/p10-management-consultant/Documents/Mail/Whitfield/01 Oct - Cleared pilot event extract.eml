@@ -1,0 +1,70 @@
+From: Kenneth Townsend <kenneth@whitfield-components.example>
+To: Connor Atkinson <connor@holt-reeves.example>
+Cc: Nicholas Hargreaves <nicholas@holt-reeves.example>,
+ Neha Patel <neha@holt-reeves.example>
+Date: Wed, 01 Oct 2025 11:37:00 +0100
+Subject: Cleared pilot event extract
+Message-ID: <a778efef93774e20ad30326c1e919483@whitfield-components.example>
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="===============0394978728676124780=="
+
+--===============0394978728676124780==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Connor,
+
+Attached is the cleared extract for your queries on the pilot comparison, lim=
+ited to the eleven cases we discussed. The observation cut-off is 17:00 JST t=
+oday. Please use the cut-off status in the reconciliation and do not fill an =
+absent event time from the status update.
+
+Nicholas and Neha, please keep this extract and the anonymised analysis withi=
+n the client and engagement team only. The underlying records remain in the a=
+uthorised VDI.
+
+Kenneth
+
+--===============0394978728676124780==
+Content-Type: text/csv
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment;
+ filename="Japan pilot approval events - cleared extract.csv"
+MIME-Version: 1.0
+
+Q2FzZSBJRCxDb2hvcnQsRGVwYXJ0bWVudCxFdmVudCxFdmVudCB0aW1lLEhvbGQgcmVhc29uDQpX
+UC1CMDEsQmFzZWxpbmUsQ29tcG9uZW50cyxGaXJzdCAwNiwyMDI1LTA3LTIzVDA5OjAwOjAwKzA5
+OjAwLA0KV1AtQjAxLEJhc2VsaW5lLENvbXBvbmVudHMsUmV0dXJuZWQgdG8gQVAsMjAyNS0wNy0y
+NFQxMDowMDowMCswOTowMCxDb3N0IGJlYXJlciBjb3JyZWN0aW9uDQpXUC1CMDEsQmFzZWxpbmUs
+Q29tcG9uZW50cyxSZS1jaXJjdWxhdGVkLDIwMjUtMDctMjVUMTA6MDA6MDArMDk6MDAsQ29zdCBi
+ZWFyZXIgY29ycmVjdGlvbg0KV1AtQjAxLEJhc2VsaW5lLENvbXBvbmVudHMsMDkgYXBwcm92YWws
+MjAyNS0wNy0yOVQxNTowMDowMCswOTowMCwNCldQLUIxNixCYXNlbGluZSxQYWNrYWdpbmcsRmly
+c3QgMDYsMjAyNS0wNy0yOVQwOTowMDowMCswOTowMCwNCldQLUIxNixCYXNlbGluZSxQYWNrYWdp
+bmcsMDkgYXBwcm92YWwsMjAyNS0wOC0wNFQxNTowMDowMCswOTowMCwNCldQLUIzMSxCYXNlbGlu
+ZSxDb21wb25lbnRzLEZpcnN0IDA2LDIwMjUtMDgtMTRUMDk6MDA6MDArMDk6MDAsDQpXUC1CMzEs
+QmFzZWxpbmUsQ29tcG9uZW50cyxSZXR1cm5lZCB0byBBUCwyMDI1LTA4LTE1VDEwOjAwOjAwKzA5
+OjAwLENvc3QgYmVhcmVyIHJlY29uZmlybWF0aW9uDQpXUC1CMzIsQmFzZWxpbmUsUGFja2FnaW5n
+LEZpcnN0IDA2LDIwMjUtMDgtMTVUMDk6MDA6MDArMDk6MDAsDQpXUC1CMzIsQmFzZWxpbmUsUGFj
+a2FnaW5nLEhvbGQgYXQgMDgsMjAyNS0wOC0xOFQxMDowMDowMCswOTowMCxFeGNlcHRpb24gZXZp
+ZGVuY2UgYXdhaXRlZA0KV1AtQjMzLEJhc2VsaW5lLENvbXBvbmVudHMsRmlyc3QgMDYsLFRpbWUg
+bWlzc2luZzsgZGF0ZSAxMiBBdWcgY29uZmlybWVkIGluIEFQIGRhaWx5IHJlcG9ydA0KV1AtUDAx
+LFBpbG90LENvbXBvbmVudHMsRmlyc3QgMDYsMjAyNS0wOC0xOFQwOTowMDowMCswOTowMCwNCldQ
+LVAwMSxQaWxvdCxDb21wb25lbnRzLFJldHVybmVkIHRvIEFQLDIwMjUtMDgtMjBUMTA6MDA6MDAr
+MDk6MDAsQ29kaW5nIHF1ZXJ5DQpXUC1QMDEsUGlsb3QsQ29tcG9uZW50cyxSZS1jaXJjdWxhdGVk
+LDIwMjUtMDgtMjFUMTA6MDA6MDArMDk6MDAsQ29kaW5nIHF1ZXJ5DQpXUC1QMDEsUGlsb3QsQ29t
+cG9uZW50cywwOSBhcHByb3ZhbCwyMDI1LTA4LTIyVDE1OjAwOjAwKzA5OjAwLA0KV1AtUDE2LFBp
+bG90LFBhY2thZ2luZyxGaXJzdCAwNiwyMDI1LTA4LTI3VDA5OjAwOjAwKzA5OjAwLA0KV1AtUDE2
+LFBpbG90LFBhY2thZ2luZywwOSBhcHByb3ZhbCwyMDI1LTA5LTAxVDA5OjAwOjAwKzA5OjAwLA0K
+V1AtUDMxLFBpbG90LENvbXBvbmVudHMsRmlyc3QgMDYsMjAyNS0wOS0xMFQwOTowMDowMCswOTow
+MCwNCldQLVAzMSxQaWxvdCxDb21wb25lbnRzLFJldHVybmVkIHRvIEFQLDIwMjUtMDktMTFUMTA6
+MDA6MDArMDk6MDAsQ29zdCBiZWFyZXIgY29uZmlybWF0aW9uDQpXUC1QMzIsUGlsb3QsUGFja2Fn
+aW5nLEZpcnN0IDA2LDIwMjUtMDktMTBUMTA6MDA6MDArMDk6MDAsDQpXUC1QMzIsUGlsb3QsUGFj
+a2FnaW5nLEhvbGQgYXQgMDgsMjAyNS0wOS0xMVQxMTowMDowMCswOTowMCxFeGNlcHRpb24tcmVz
+b2x1dGlvbiBldmlkZW5jZQ0KV1AtUDMzLFBpbG90LFBhY2thZ2luZyxGaXJzdCAwNiwyMDI1LTA5
+LTExVDA5OjAwOjAwKzA5OjAwLA0KV1AtUDMzLFBpbG90LFBhY2thZ2luZyxIb2xkIGF0IDA4LDIw
+MjUtMDktMTJUMTA6MDA6MDArMDk6MDAsQ29uZmlybSAwNyBkZXB1dHkgZm9yIGNhc2UNCldQLVAz
+NCxQaWxvdCxDb21wb25lbnRzLEZpcnN0IDA2LDIwMjUtMDktMTJUMDk6MDA6MDArMDk6MDAsDQpX
+UC1QMzQsUGlsb3QsQ29tcG9uZW50cywwOSBhcHByb3ZhbCwsQXBwcm92YWwgY29uZmlybWVkOyB0
+aW1lIG1pc3NpbmcNCg==
+
+--===============0394978728676124780==--

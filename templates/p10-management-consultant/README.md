@@ -1,20 +1,22 @@
 # 経営コンサルタントの文書の型
 
-Whitfield Components Ltd 日本事業の支払診断と実行案、Marston Carton Packaging Ltd の2工場の原価診断、Pioneer Trade Distribution Inc の仕入先選定と例外申請の診断に使う。本文は英語、Holt の日付は `07 Oct 2024` の形式。Nicholas の PC の時刻は Europe/London。受領した記録の時刻とタイムゾーンは原資料に従う。Office の型は開いて別名保存する。
+Whitfield Components Ltd 日本事業の支払診断・実行案・試行、Marston Carton Packaging Ltd の2工場の原価診断、Pioneer Trade Distribution Inc の仕入先選定と例外申請の診断に使う。本文は英語、Holt の日付は `07 Oct 2024` の形式。Nicholas の PC の時刻は Europe/London。受領した記録の時刻とタイムゾーンは原資料に従う。Office の型は開いて別名保存する。
 
 | 型 | 組織と用途 | ファイル | 見た目 |
 |---|---|---|---|
-| Evidence note | Holt & Reeves。Neha Patel が Whitfield の引渡条件や Marston での現場説明と観察の食い違いを確認する | `holt-handoffs.docx` | A4縦。表紙なし。濃い紫灰の表見出し、茶赤の節見出し、淡い管理欄 |
+| Evidence note | Holt & Reeves。Neha Patel が Whitfield の引渡条件と試行担当者の指摘、Marston での現場説明と観察の食い違いを確認する | `holt-handoffs.docx` | A4縦。表紙なし。濃い紫灰の表見出し、茶赤の節見出し、淡い管理欄 |
 | Meeting record | Holt & Reeves。Nicholas Hargreaves が聞き取り後の論点、決定、担当を記録する | `holt-meeting-record.docx` | A4縦。表紙なし。25 pt の題と `Recorded by` 欄。項目、議論、次の対応を横に並べる |
 | Review memorandum | Holt & Reeves。Nicholas が説明案への指摘、根拠の差し替え、配布前の修正、Elizabeth の実行案審査への回答を残す | `holt-review-memo.docx` | A4縦。表紙なし。32 pt の題と `Prepared by` 欄。修正箇所と修正理由を並べる |
 | Working sheet | 型なし。Connor が同僚との照合用に使う作業表。案件符号ごとのイベント対の採否や時間の内訳を確認する | — | 列に見出しとフィルタを付けた通常の Excel ブック。時刻と時間の単位を区別する |
 | Process timings | Holt & Reeves。Connor Atkinson が工程別に実作業、滞留、承認待ちの時間を比較する | `holt-process-timings.xlsx` | A4横。淡い管理欄、濃い紫灰の8列見出し、時間は小数1桁、割合は小数1桁の百分率 |
 | Cost diagnosis | Holt & Reeves。Connor Atkinson と Deepa Desai が対象工場の歩留まりを比較し、設備更新の回収年数の根拠を確認する | `holt-cost-diagnosis.xlsx` | A4横。共通ロゴ、濃い紫灰の列見出し、淡い管理欄。歩留まり比較と設備回収で列構成を分ける |
 | Whitfield finance schedules | Holt & Reeves。Connor Atkinson が旧試算、二重計上の訂正内訳、初期費用の発生時期を管理する | `holt-whitfield-finance.xlsx` | A4横。共通ロゴ、淡色の管理欄、濃い紫灰の8列見出し。円額を右寄せし、根拠と参照キーを並べる |
+| Whitfield payment pilot | Holt & Reeves。Connor Atkinson が2部門の平均承認日数を再計算し、保留案件の扱いを原記録に照合する | `holt-whitfield-pilot.xlsx` | A4横。共通ロゴ、紫灰の8列見出し。比較、案件別時刻、保留照合の3シート |
 | Pioneer buying schedules | Holt & Reeves。Nicholas が Meera Kulkarni と仕入先の絞込み条件を確認し、Neha Patel が例外申請の理由と需要が判明した時点を照合する | `holt-pioneer-buying.xlsx` | A4横。共通ロゴ、淡色の管理欄、濃い紫灰の8列見出し。仕入先選定と例外理由の再分類の2シート |
-| Diagnosis briefing | Holt & Reeves。Nicholas が Kenneth Townsend に支払診断を説明し、Elizabeth に Whitfield の実行案を提示する。Marston では設備案と作業標準統一、Pioneer では全社再交渉の旧案と Meera 向けの判断資料に使う | `holt-diagnosis.pptx` | 16:9。上に社名と茶赤の罫線、下に社名と管理情報。表紙、見出しと本文、2段、表、図の5レイアウト |
+| Diagnosis briefing | Holt & Reeves。Nicholas が Kenneth Townsend に支払診断と試行拡大の判断材料を説明し、Elizabeth に Whitfield の実行案を提示する。Marston では設備案と作業標準統一、Pioneer では全社再交渉の旧案と Meera 向けの判断資料に使う | `holt-diagnosis.pptx` | 16:9。上に社名と茶赤の罫線、下に社名と管理情報。表紙、見出しと本文、2段、表、図の5レイアウト |
 | Client note | Holt & Reeves。Nicholas が Kenneth Townsend に見込の訂正を文書で伝える | `holt-client-note.cls` | A4縦、表紙なし。共通ロゴ、茶赤の上罫と節見出し、淡い管理欄、3列の対照表 |
-| Supplier payment procedure | Whitfield Components Ltd。日本事業の Finance が発行し、Kenneth Townsend が承認する支払手順 | `whitfield-payment-procedure.cls` | A4縦。表紙なし。深緑の三つのブロックと社名、右に `JAPAN FINANCE`。セリフ体、薄緑の発行欄、深緑の表見出し |
+| Supplier payment procedure | Whitfield Components Ltd。日本事業の Finance が発行し、Kenneth Townsend が承認する支払手順と試行の現場手順 | `whitfield-payment-procedure.cls` | A4縦。表紙なし。深緑の三つのブロックと社名、右に `JAPAN FINANCE`。セリフ体、薄緑の発行欄、深緑の表見出し |
+| Payment pilot scope change | Whitfield Components Ltd。Japan Finance が管理する試行範囲の変更合意書。Kenneth と Holt & Reeves 側の承認者が署名する | `whitfield-scope-change.cls` | A4縦。Whitfield 共通の深緑とセリフ体、右上に `JAPAN FINANCE / CHANGE CONTROL`。薄緑の4項目の管理欄、両社の署名欄 |
 | Production work standard | Marston Carton Packaging Ltd。生産部門が発行し、Caroline Wood が診断時に現行版を提供する | `marston-work-standard.cls` | A4縦。表紙なし。折り箱のロゴ、青い文字と琥珀色の帯、淡青灰の版管理欄。4列の作業手順表 |
 | Buying exception guidance | Pioneer Trade Distribution Inc。調達部長の Meera Kulkarni が、申請に必要な証拠、回付先、判断の記録方法を示す現行要領 | `pioneer-exception-guidance.cls` | Letter縦。表紙なし。合流する経路のロゴ、青緑の縦帯と節見出し、白地の管理欄、淡い青緑の手順表 |
 
@@ -23,6 +25,10 @@ Whitfield Components Ltd 日本事業の支払診断と実行案、Marston Carto
 ロゴは上下辺が水平な平行四辺形を2枚使い、左下に紫灰、右上に茶赤を置いて社名を添える。濃い紫灰 `302435` を本文・表見出し背景、茶赤 `964B37` を罫線・注記・修正指示、薄い茶灰 `F4ECE8` を管理欄・合計欄に使う。表見出しの文字は白。英字は Liberation Sans、日本語が入る箇所は Noto Sans CJK JP。Excel はセルごとにフォントが決まるため、日本語を含むセルには書式適用後に書体名だけを Noto Sans CJK JP に替える。
 
 文書番号は `HRA-<案件>-<種別>-<西暦4桁>-<連番3桁>`。案件符号は Whitfield が `WHI-DIAG`、Marston が `MAR-COST`、Pioneer が `PIO-BUY`。種別は Evidence note が `EV`、Meeting record が `MIN`、Review memorandum が `REV`、Process timings が `TIM`、Diagnosis briefing が `BRF`。Cost diagnosis は歩留まり比較が `YLD`、設備回収が `CAP`。Whitfield finance schedules は旧試算が `EST`、訂正内訳が `REC`、初期費用の発生時期が `CST`。Pioneer buying schedules は仕入先選定が `SEL`、例外理由の再分類が `EXC`。Client note は `NTE`。例は `HRA-PIO-BUY-SEL-2025-001`、`HRA-PIO-BUY-EXC-2025-001`、`HRA-PIO-BUY-BRF-2025-001`。改訂で番号を引き継ぐ場合は版を別記する。制作時の番号・作成者・日付は計画と事実の台帳に合わせる。
+
+### Whitfield の支払試行と拡大判断
+
+Holt の案件符号は既存の `WHI-DIAG` を使う。試行ワークブックの種別は `PLT`（例 `HRA-WHI-DIAG-PLT-2025-001`）。2部門で観測した6.2日と3.8日の比較は、観測期間、部門、起点と終点、保留を含める条件まで記す。判断資料は「試行で測った結果」「5部門へ渡す手順」「Kenneth が承認した範囲・条件」を分ける。担当者の指摘は Evidence note に、指摘の内容、発生した引渡条件、証拠、対応担当を記す。許可済み抜粋 CSV は受領時の列・対象範囲・時刻のオフセットを保つ。
 
 ### Marston の診断資料
 
@@ -112,6 +118,31 @@ Whitfield Components Ltd 日本事業の支払診断と実行案、Marston Carto
 例外理由の再分類では申請理由、需要が判明した時点、申請した時点、再分類の根拠を並べる。日時は原資料のタイムゾーンを添え、確認中ならその状態を記す。全93件と、その内数の緊急37件を区別する。緊急件数の集計が必要な場合は、明細の次行で A:G を結合して集計範囲を記し、`Holt Total Label` を使う。H に対象範囲の優先度を数える式（例 `=COUNTIF(C7:C99,"Urgent")`）と `Holt Total Count` を使う。分類理由が不明な行は照会先と確認事項を H に残す。
 
 合計行は25 ptを目安とする。注記が必要なときは次行の A:H を結合して `Holt Note` を適用し、27 ptを目安に行高を調整する。印刷はA4横、横1ページ、縦自動。続頁には6行目の列見出しを繰り返す。印刷範囲は `A1:H<注記または表の最終行>` に更新する。
+
+### Excel — Whitfield の試行前後の承認日数と保留理由
+
+`holt-whitfield-pilot.xlsx` を開く。管理欄は各シートの `A2` に表題、`A4` に文書番号、`D4` に日付型の値、`F4` に作成者を入れる。いずれも結合セルの左上で、管理値行は34 pt。印刷フッタ左に番号・日付・作成者を ` | ` でつなぎ、Liberation Sans 9 pt・紫灰 `302435` を指定する。フッタ右のページ番号は型の設定を使う。
+
+6行目は列見出し。7行目から実データ行を作り、下表のスタイル名の先頭に `Holt ` を付けて `cell.style` に指定する。同じ案件 ID と調査時点の区分で原記録、案件明細、保留照合を突き合わせる。A列の連番は `Index`（右寄せ2桁）。`Text` と `Timestamp` は左インデント1と折返しを持つ。日数と件数は右寄せ、日数は小数1桁。明細行は32 ptを目安に、長文が収まるよう広げる。
+
+| 列 | Days comparison | Approval cases | Hold reconciliation |
+|---|---|---|---|
+| A | 比較区分、`Text` | 行番号、`Index` | 行番号、`Index` |
+| B | 対象部門、`Text` | 案件 ID、`Text` | 案件 ID、`Text` |
+| C | 観測期間、`Text` | 比較区分、`Text` | 比較区分、`Text` |
+| D | 起点のイベント、`Text` | 部門、`Text` | 部門、`Text` |
+| E | 終点のイベント、`Text` | 起点時刻、`Timestamp` | ログの保留理由、`Text` |
+| F | 平均に算入した件数、`Count` | 終点時刻、`Timestamp` | 確認後の保留理由、`Text` |
+| G | 平均日数、`Days` | 算入・除外・判定待ち、`Text` | 比較上の扱い、`Text` |
+| H | 保留の取扱い・根拠、`Text` | 経過日数、`Days` | 根拠の参照先・次の対応、`Text` |
+
+案件明細は JST の日時を Excel 日時値として入れる。日数の単位と丸めは原稿に従う。24時間を1日とする経過日数なら H7 に `=IF(AND(G7="Included",ISNUMBER(E7),ISNUMBER(F7),F7>=E7),F7-E7,"")` を設定する。両時刻と採否を確認した行だけが数値になる。保留案件はログの理由、確認後の理由、採否、その根拠を残し、除外・判定待ちは分母からも外す。両時点で比較条件が異なる場合は違いを明記する。
+
+比較表は区分・部門ごとに、案件明細の H が数値である件数と、その H の合計を件数で割った平均を出す。例えば案件明細が7〜12行なら F7 に `=SUMPRODUCT(--('Approval cases'!$C$7:$C$12=A7),--('Approval cases'!$D$7:$D$12=B7),--ISNUMBER('Approval cases'!$H$7:$H$12))`、G7 に `=IF(F7=0,"",SUMIFS('Approval cases'!$H$7:$H$12,'Approval cases'!$C$7:$C$12,A7,'Approval cases'!$D$7:$D$12,B7)/F7)` を使う。各式の末尾行は案件明細の実データ範囲に合わせる。
+
+試行前と試行中の2部門全体を比較するときは、明細の次に区分ごとの集計行を作る。A:E を結合して対象区分と部門の範囲を書き `Holt Total Label`、F に該当明細の件数合計と `Holt Total Count`、G に両部門の該当区分の日数合計 ÷ F と `Holt Mean Days` を使う。H に集計の根拠を `Holt Total Label` で入れ、折返しに応じて25 pt以上にする。案件明細と保留照合の件数を添える場合は、A:G を結合し集計対象を明記して `Holt Total Label`、H に件数式と `Holt Total Count` を適用する。
+
+注記は次行の A:H を結合して `Holt Note` を適用し、27 pt以上で調整する。フィルタを使うときは `A6:H<明細最終行>`。印刷は A4 横、横1ページ・縦自動、続頁に6行目を繰り返す。印刷範囲は各シートで `A1:H<表または注記の最終行>` に更新する。
 
 ### PowerPoint
 
@@ -206,6 +237,14 @@ LuaLaTeX で `\documentclass{holt-client-note}` を指定し、プリアンブ�
 
 手順番号は `WCL-JP-FIN-PAY-<西暦4桁>-<連番3桁>`。見本は `WCL-JP-FIN-PAY-2024-001`。LuaLaTeX の入力で `\documentclass{whitfield-payment-procedure}` を指定する。プリアンブルの `\wccontrol{手順番号}{発行日}{承認者}` で管理欄を埋め、本文では `\wctitle{表題}` と `\wcsection{節見出し}` を使う。工程表は `wcsteps` 環境の中に実データの分だけ `\wcstep{番号}{工程}{統制と引渡条件}` を追加する。番号を右寄せにし、次の文字列との間に両セルの余白を取る。続頁は列見出しを繰り返す。TeX ソースとクラスを同じ作業フォルダに置くか、型のディレクトリを `TEXINPUTS` に追加し、`bin/tex <入力.tex> <出力.pdf>` で組む。
 
+## Whitfield 管理の支払試行範囲変更合意書
+
+発行元は Whitfield の Japan Finance。手順の型と同じ社名・ロゴ・書体・色を使い、右上の部署表示には `CHANGE CONTROL` が加わる。変更番号は `WCL-JP-FIN-SCA-<西暦4桁>-<連番3桁>`。管理欄の基準文書には、変更対象の合意または手順の参照番号と版を記す。フッタは変更番号、発効日、ページ番号。
+
+LuaLaTeX で `\documentclass{whitfield-scope-change}` を指定し、プリアンブルに `\wcscontrol{変更番号}{発効日}{作成者}{基準文書}`、本文先頭に `\wcstitle{表題}` を入れる。`\wcsection{節見出し}` を使い、既存の試行範囲、承認された変更と発効条件、移行する手順と担当を記す。必要なら `wcsteps` に実データを入れる。末尾の `\wcsapprovals{Whitfield の署名者・役職}{署名日}{Holt の署名者・役職}{署名日}` が2社の署名欄を作る。署名者、発効日、各署名日は承認メールと計画・原稿に合わせる。
+
+この型と `whitfield-payment-procedure.cls` があるディレクトリを `TEXINPUTS` に追加して `bin/tex <入力.tex> <署名欄つきの原本.pdf>` で組む。署名済みの紙面を作り、`bin/scan <署名済みの原本.pdf> <配布するスキャン.pdf>` を実行して全ページを確認する。
+
 ## Marston 発行の作業標準 PDF
 
 折り箱の輪郭と社名をヘッダ左、`PRODUCTION / WORK STANDARD` を右に置く。英字は Liberation Sans、日本語は Noto Sans CJK JP。青 `15374C` を本文と表見出し背景、琥珀色 `D89C36` を箱の輪郭と上罫、淡青灰 `EDF2F4` を版管理欄に使う。フッタに標準番号・版・発効日・ページ番号。
@@ -219,14 +258,3 @@ Letter縦、表紙なし。ヘッダ左に合流経路の図形と社名、右�
 手順番号は `PTD-BUY-EXC-<西暦4桁>-<連番3桁>`。見本は `PTD-BUY-EXC-2025-001`。LuaLaTeX の入力で `\documentclass{pioneer-exception-guidance}` を指定し、プリアンブルで `\ptdcontrol{手順番号}{版}{発効日}{発行者}` を設定する。初頁の管理欄は手順番号・版・発効日・発行者の順。各ページのフッタには手順番号・版・発効日とページ番号が入る。
 
 本文では `\ptdtitle{表題}` と `\ptdsection{節見出し}` を使う。手順表は `\begin{ptdroute}` から `\end{ptdroute}` までに実データ分の `\ptdrow{番号}{申請事項・証拠}{回付先と対応}` を書く。番号は右寄せで、次の文字列との間には両セル各6 ptの余白を取る。続頁には列見出しを繰り返す。クラスを入力と同じ作業フォルダに置くか、型のディレクトリを `TEXINPUTS` に追加し、`bin/tex <入力.tex> <出力.pdf>` で組む。発効日と発行者は顧客文書の計画と原稿に従う。
-
-## Pioneer の確認用見本
-
-管理欄、短い明細と続頁の見え方を確認するための見本。制作時は計画と原稿にある番号・日付・内容を使う。[全ページの確認画像](../../scratch/p10-management-consultant/b004/work/templates-0004/render/)
-
-| 型・用途 | 見本 |
-|---|---|
-| 仕入先選定 | [3社](../../scratch/p10-management-consultant/b004/work/templates-0004/samples/pioneer-supplier-selection-short.xlsx)、[42社](../../scratch/p10-management-consultant/b004/work/templates-0004/samples/pioneer-supplier-selection-long.xlsx) |
-| 例外理由の再分類 | [4件](../../scratch/p10-management-consultant/b004/work/templates-0004/samples/pioneer-exception-recoding-short.xlsx)、[93件](../../scratch/p10-management-consultant/b004/work/templates-0004/samples/pioneer-exception-recoding-long.xlsx) |
-| Meera 向け判断資料 | [5レイアウト](../../scratch/p10-management-consultant/b004/work/templates-0004/samples/pioneer-decision-briefing.pptx) |
-| Pioneer の例外申請要領 | [1ページ](../../scratch/p10-management-consultant/b004/work/templates-0004/samples/pioneer-exception-guidance-short.pdf)、[2ページ](../../scratch/p10-management-consultant/b004/work/templates-0004/samples/pioneer-exception-guidance-long.pdf) |

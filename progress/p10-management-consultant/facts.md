@@ -123,3 +123,34 @@
 - 「Papers for the buying discussion」、2025-07-16 13:29 BST、Nicholas → Meera（Cc Neha、Connor）。v1.0 の `16 Jul - Demand sharing first.pdf` と別添集計 `15 Jul - Coverage and urgent breakdown.xlsx` を実添付。
 - 2025-07-16 14:00〜14:40 BST、Meera・Nicholas・Neha・Connor。Meera は4月の全社再交渉見送りと12社の診断範囲を維持し、需要共有の詰めを先行することに同意。Meera が Buying の窓口を指名し、Neha が共有票を詰める。開始日と窓口名は未確定。
 - 23件は当時の証跡で需要の共有が遅かった件数。先行共有で回避できる件数、削減額、運用後の実績はこの診断では測っていない。
+
+## Whitfield の2部門試行の着手と引渡し
+
+- 2025-07-17 09:00 BST、Kenneth、Nicholas、Neha、Siobhan。通常国内仕入先支払の Components・Packaging の2費用負担部門を選び、8月15日に正副担当と権限を確認できれば18日から07側を開始と決定。給与・税金・緊急手動送金は対象外。
+- 8月6日 Manchester の説明会は Nicholas・Neha・Siobhan と日本側の AP・費用責任者・Japan Finance。Nicholas は10:34 BSTに白板を撮影。8月15日に Packaging の07代理を含め、両部門の07側が準備済みと確認。
+- Japan Finance 発行・Kenneth 承認の試行手順 WCL-JP-FIN-PAY-2025-001 v1.0 は8月11日付。8月18日は07側を開始し、8月22日09:00 BSTの Kenneth・Nicholas・Neha・Siobhan の証跡確認を経て、25日以降に初回06を通る試行案件から09側を適用。進行中は初回の経路で完結させる。
+- AP は請求書・照合根拠・費用負担先を揃え06で07へ回し、不備を引き取る。08の Japan Finance は07承認と該当する例外解消証跡を確認して09に渡す。09の不足は08が引き取り AP などに訂正を求める。再回付は別に記録し、12の Treasury 二重確認は WCL-JP-FIN-PAY-2024-001 v1.0 どおり。
+- 件名「Desk instructions for 18 August」、2025-08-11 10:26 BST Kenneth → Nicholas（Cc Neha、Siobhan）。8月11日の試行手順PDFを実添付。
+
+## Whitfield の試行前後の観測窓と保留案件
+
+- 初回適格回付06の日付（JST）で区分。基準は2025-07-21〜08-17、試行は08-18〜09-14、両端の日を含む。試行には07側のみの立上げ週も含む。両群の追跡を10月1日17:00 JSTで凍結し、組入れ終了後の09も締めまでなら使う。共通締めのため組入れ日ごとの追跡可能期間は異なる。
+- 起点は資料が揃った時点の最初の06、終点は承認済みを記録した09。経過は時刻差÷24時間（休日・夜間・差戻し中も含む）。再回付、請求書受信、承認着手、12・13・14の日時は両端の代用にしない。
+- 67候補は基準33、試行34。締めまでに未承認の基準2／試行3、両端の時刻が揃わない基準1／試行1は平均から除外。閉じた保留は基準4／試行3で算入し、合計60件の内数。保留は処理手順上は承認待ち行列から外しても、算入する案件の経過時計は止めない。
+- Connor の HRA-WHI-DIAG-PLT-2025-001 v1.0（10月3日）。基準は Components 15件96日、Packaging 15件90日。試行は Components 15件60日、Packaging 15件54日。合計186日÷30件＝6.2日、114日÷30件＝3.8日（小数1桁）。完了案件の記述比較であり、未承認は別数、追加3部門の計測は未実施。
+- 基準の Components は WP-B01〜B15 と B31・B33、Packaging は B16〜B30 と B32。試行の Components は WP-P01〜P15 と P31・P34、Packaging は P16〜P30 と P32・P33。各群01〜30が算入、閉じた保留は基準 B01・B04・B18・B23、試行 P01・P06・P24。
+- 抜粋の完了例（以下 JST）は B01 07-23 09:00→07-29 15:00、B16 07-29 09:00→08-04 15:00、P01 08-18 09:00→08-22 15:00、P16 08-27 09:00→09-01 09:00。B16・P16 は保留なし。
+- B01 は07から AP への差戻しで、費用負担先の訂正控えを照合。P01 のログは「Coding query」、8月20日に AP へ戻し、費用負担先根拠の訂正を確認して21日に再回付。P01 の4.25日には差戻し中も含め、08-22の09承認で終える。
+- 締め時未承認は B31（AP、費用負担先の再確認）、B32（08、例外証跡待ち）、P31（AP、費用負担先の確定）、P32（08、例外解消証跡）、P33（08、07主担当不在時に当該案件を処理できる代理を確認中）。
+- B33 は AP の日報で8月12日の初回06を確認できるが時刻がない。P34 は Finance の別控えで09承認済みと分かるが時刻がない。どちらも候補群への所属は確認済みで、日付や更新時刻から時刻を補わない。
+- 許可済み抜粋は B01・B16・B31〜B33、P01・P16・P31〜P34 の11案件。列は Case ID、Cohort、Department、Event、Event time、Hold reason。Cohort は Baseline／Pilot、JST は +09:00、時刻欠損と未発生を区別し、未発生の承認イベントは作らない。
+- 件名「Cleared pilot event extract」、2025-10-01 11:37 BST Kenneth → Connor（Cc Nicholas、Neha）。11案件の CSV を実添付。元の記録は権限付きの VDI 内。許可済み抜粋と分析用に匿名化した時刻明細は顧客・案件チーム限り。
+
+## Whitfield の5部門への試行範囲変更
+
+- 決裁スライド HRA-WHI-DIAG-BRF-2025-007 は10月3日 Nicholas の v0.3、10月6日 Elizabeth の赤字 v0.4、10月8日 Nicholas の顧客向け v1.0。赤字は2部門の観測、完了件数と保留・欠測の扱い、追加3部門で必要な準備を分けるよう求めた。配布PDFは v1.0 の表示面そのまま。
+- 2025-10-09 09:00〜09:40 BST、Kenneth・Nicholas・Neha・Connor・Siobhan。既存 Components・Packaging を維持し、Tooling・Maintenance・Facilities を追加する承認。Siobhan と Japan Finance が10月17日までに部門別の正副担当・権限・証跡の引取を確認し、確認済みの追加部門のみ20日から適用する。未達の部門は従来経路を続ける。
+- WCL-JP-FIN-SCA-2025-001 の基準は WCL-JP-FIN-PAY-2025-001 v1.0。Kenneth Townsend（CFO）と Elizabeth Hargreaves（Partner）が10月9日に署名。条件付き発効は10月20日。手順の配布版は WCL-JP-FIN-PAY-2025-002 v1.0（10月8日付、同じ発効条件）。次契約や追加費用は今回の承認対象外。
+- 件名「Papers for the payment pilot decision」、2025-10-08 15:18 BST Nicholas → Kenneth（Cc Neha、Siobhan）。配布PDFと Connor の集計 XLSX を別々に実添付。
+- 件名「Re: Papers for the payment pilot decision」、2025-10-09 10:28 BST Kenneth → Nicholas（Cc Elizabeth、Neha、Siobhan）。前日の依頼に返信し、決裁依頼を引用して対象と条件を明記。添付なし。
+- 件名「Signed change and desk copy」、2025-10-09 14:24 BST Nicholas → Kenneth（Cc Elizabeth、Neha、Siobhan）。署名済みスキャンと担当者向け手順PDFを実添付。

@@ -1,0 +1,30 @@
+---
+path: Documents/Mail/Whitfield/09 Oct - Five departments approved.eml
+kind: text
+author: Kenneth Townsend
+derived_from:
+---
+
+From: Kenneth Townsend <kenneth@whitfield-components.example>
+To: Nicholas Hargreaves <nicholas@holt-reeves.example>
+Cc: Elizabeth Hargreaves <elizabeth@holt-reeves.example>, Neha Patel <neha@holt-reeves.example>, Siobhan Barrett <siobhan@holt-reeves.example>
+Date: Thu, 09 Oct 2025 10:28:00 +0100
+Subject: Re: Papers for the payment pilot decision
+Message-ID: <8c93b09a-72f7-47dd-a1d9-b5bb17b05843@whitfield-components.example>
+In-Reply-To: <e8149fc4-b572-47f9-b9d3-6423a7f0ce61@holt-reeves.example>
+References: <e8149fc4-b572-47f9-b9d3-6423a7f0ce61@holt-reeves.example>
+
+Dear Nicholas,
+
+Thank you for taking us through the figures and the conditions this morning. I approve adding Tooling, Maintenance and Facilities to the pilot scope alongside Components and Packaging.
+
+Siobhan and Japan Finance should confirm primary and deputy cover, authority and receipt of the required evidence for each additional department by 17 October. A department that has completed those checks may use the changed hand-off from 20 October; any department we cannot confirm should continue on its existing route. Components and Packaging can continue the pilot. Treasury's two checks at step 12 remain in place.
+
+Please arrange for Elizabeth and me to sign the scope change today, as discussed. This approval does not cover additional fees or the next contract.
+
+Best,
+Kenneth
+
+On Wed, 8 Oct 2025 at 15:18, Nicholas Hargreaves wrote:
+
+> At tomorrow's meeting, would you please decide whether to add Tooling, Maintenance and Facilities to the pilot scope, with each additional department applying the hand-off from 20 October only if its primary and deputy cover, authority and access to the required evidence have been confirmed by 17 October? Any department not ready would continue on its existing route. Components and Packaging would continue the pilot, and Treasury's two checks at step 12 would remain in place.
