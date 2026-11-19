@@ -619,6 +619,7 @@ fn mime_attachments_match_declared_current_message() {
     for manuscript in [
         "添付: Documents/報告.pdf",
         "添付（実ファイル）：\n- Documents/報告.pdf",
+        "Attachments (actual files):\n- Documents/報告.pdf",
         "Attachments:\n- `Monthly Financial Review.pdf`",
     ] {
         let name = if manuscript.contains("Monthly") {

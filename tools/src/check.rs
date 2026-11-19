@@ -1106,6 +1106,11 @@ fn source_reason(
         None
     }
 }
+pub(crate) fn attachment_declaration() -> Regex {
+    re(
+        r"(?i)^\s*(?:[-*]\s*)?(?:添付(?:ファイル)?(?:（実ファイル）)?|attachments?(?:[ \t]+\(actual files?\))?)\s*[:：](.*)$",
+    )
+}
 fn email_reasons(expected: &str, p: &Path) -> Result<Vec<(String, String)>> {
     let raw = fs::read(p)?;
     let actual = mailparse::parse_mail(&raw)?;
@@ -1155,9 +1160,7 @@ fn email_reasons(expected: &str, p: &Path) -> Result<Vec<(String, String)>> {
     }
     let mut declared = BTreeSet::new();
     let mut listing = false;
-    let declaration = re(
-        r"(?i)^\s*(?:[-*]\s*)?(?:添付(?:ファイル)?(?:（実ファイル）)?|attachments?)\s*[:：](.*)$",
-    );
+    let declaration = attachment_declaration();
     let file = re(&format!(
         r"(?i)^[^<>,\n]+\.(?:{})$",
         EXT.split_whitespace().collect::<Vec<_>>().join("|")

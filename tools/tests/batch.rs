@@ -330,11 +330,16 @@ fn dependency_parent_finishes_review_before_child_and_failed_parent_blocks_build
     assert!(!read(&f.root.join("progress/findings.tsv")).contains("\tdependency\t"));
 }
 #[test]
-fn markdown_attachment_headings_schedule_email_after_attachment_review() {
+fn attachment_declarations_schedule_email_after_attachment_review() {
     let email = "Documents/Mail/返事.eml";
     for (heading, detail) in [
-        ("Attachment", format!("text/plain; source: {FIRST}")),
-        ("添付", format!("`{FIRST}`")),
+        (
+            "## Attachment",
+            format!("記録.txt — text/plain; source: {FIRST}"),
+        ),
+        ("Attachments (actual files):", FIRST.to_owned()),
+        ("添付（実ファイル）：", FIRST.to_owned()),
+        ("## 添付", format!("記録.txt — `{FIRST}`")),
     ] {
         let f = Fixture::new();
         f.planned();
@@ -343,7 +348,7 @@ fn markdown_attachment_headings_schedule_email_after_attachment_review() {
         rows.swap(0, 1);
         f.set_plan(&rows, true);
         f.overrides(json!({email: {"body": format!(
-            "銀行照会を終えて明日の入金額を確認しました。\n\n## {heading}\n\n- 記録.txt — {detail}"
+            "銀行照会を終えて明日の入金額を確認しました。\n\n{heading}\n\n- {detail}"
         )}}));
         f.run("ok", true);
 

@@ -1795,7 +1795,7 @@ impl Batch {
             .iter()
             .map(|r| text(&r["パス"]).into())
             .collect();
-        let declaration = re(r"(?i)^\s*(?:[-*]\s*)?(?:添付(?:ファイル)?|attachments?)\s*[:：](.*)");
+        let declaration = crate::check::attachment_declaration();
         let heading = re(
             r"(?i)^[ \t]{0,3}#{1,6}[ \t]+(?:添付(?:ファイル)?|attachments?)(?:[ \t]+#+)?[ \t]*$",
         );
