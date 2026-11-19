@@ -35,3 +35,25 @@
 - 「Projector lead for the small room」2024-06-13 10:25 Arjun → Heather、6月20日のリハーサル用に予備HDMIケーブル1本を借りて昼までに返す連絡。
 - 「Tuesday reading check for the pilot group」2024-07-11 13:40 Heather → Erin、12問の冊子PDF添付。試行は7月16日10:00から。
 - 「Four written prompts for another read」2024-07-25 11:30 Heather → Erin、差し替え4問のPDF添付。7月29日までのコメントを依頼。
+
+## Rosedale の修繕立会いと研修の合意
+
+- 2024-08-22 10:00、Heather CallahanとGlenn Fletcherが Communicating in Workplace Meetings を24人・全6回・1回75分（10:00–11:15）、4人組6つで実施すると合意。議題の決定事項、根拠を添えた30秒の発言、条件付き提案の順に扱う。
+- Glenn作成のRWHC-AGD-2024-021（8月19日）は、第3項が直近4週の平日の修繕立会い30件中8件の日程を組み直した報告、第4項が土曜午前枠を2週試すかの決定事項。試行は土曜1日6件まで。配置担当が各回の前の木曜正午までに鍵当番の確定を確認し、未確定なら平日枠を維持する。教材の前提は議題段階であり、実施結果は扱わない。
+- 研修日と主題は09-12 決定事項の読み取り、09-26 30秒の発言、10-10 意見と根拠、10-24 条件による分岐、11-07 反対意見を受けた再提案、11-21 模擬会議と個人課題。
+- ELM-CWM-2024-LP-001は8月27日v0.1、8月29日にYusufが同じ版に3件のコメント、9月4日v1.0。授業用の版では見本より先に議題を読ませ、配置担当を明示し、未確定時の行動を出口で聞く。
+- 10月10日の挙手を先にする試みから、10月24日は行動を2通り書いてから判断する進め方に変更。木曜11:40の確認済みと木曜正午に未確定の2場面を対照する。
+
+## Rosedale の最終提案と12月の報告
+
+- 11月18日にHeatherとErinが到達の4要素を確認。行動と範囲、議題に基づく根拠、確認者（配置担当）と期限（木曜正午）、未確定時の行動（平日枠維持）がすべて読めれば到達。語句の一致や出席は判定条件にしない。
+- 11月21日の個人課題は11月26日16:00（EST）締切。対象はRM-01〜RM-24。23受付イベントのうちRM-14の旧版1件を外し、11月26日15:28の試行2を採用する。他の有効提出は試行1。RM-04・RM-19は未提出で判定欄は空。
+- 11月28日にHeatherとErinが22人分を照合。未到達5人の欠落はRM-02が根拠、RM-07が確認者・期限、RM-11が代案、RM-16が範囲、RM-23が期限・代案。RM-11の11月8日のスキャンは練習段階の返却控え。
+- ELM-CWM-2024-REC-001の集計は対象24、提出22、提出中の到達17、提出済み未到達5、未提出2。報告ELM-CWM-2024-RPT-001は11月29日v0.3、12月2日v1.0。送付版では17人を修了者とする草稿表現を、条件付き提案の到達者に直す。
+
+## Rosedale 研修で保存したメール
+
+- Glennのアドレスは glenn@rosedale-housing.example。各メールは独立した用件で、時刻はToronto現地。
+- 「Workplace meetings training for Rosedale」2024-08-20 09:14 EDT、Glenn → Heather。8月22日の打合せを打診し、Maintenance handover - agenda extract.pdf を添付。
+- 「Spare markers in the small room」2024-09-05 11:05 EDT、Arjun → Heather。添付なし。
+- 「Rosedale workplace meetings - December report」2024-12-02 10:06 EST、Heather → Glenn。Workplace meetings - outcomes for Glenn.pdf を添付。

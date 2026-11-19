@@ -1,0 +1,32 @@
+---
+path: Google Drive/My Drive/Assessment/Moderation/November proposals - marking decisions.csv
+kind: text
+author: Heather Callahan
+derived_from:
+---
+
+```csv
+Learner ID,Valid attempt,Action and scope,Agenda reason,Confirmation and deadline,Unconfirmed action,Reached
+RM-01,1,Saturday mornings two weeks six visits per Saturday,8 of 30 weekday visits rescheduled,Scheduling lead confirms rota by Thursday noon,Keep weekday slots,1
+RM-02,1,Saturday mornings two weeks six visits per Saturday,Missing agenda reason,Scheduling lead confirms rota by Thursday noon,Keep weekday slots,0
+RM-03,1,Two Saturdays at six visits each,8 of 30 visits rescheduled,Scheduling lead confirms rota by Thursday noon,Retain weekday appointments,1
+RM-05,1,Saturday morning trial two weeks maximum six per day,8 of 30 weekday visits rescheduled,Scheduling lead confirms rota by Thursday noon,Keep weekday slots,1
+RM-06,1,Two week Saturday trial capped at six visits per Saturday,8 of 30 visits rescheduled,Scheduling lead confirms rota by Thursday noon,Retain weekday slots,1
+RM-07,1,Saturday mornings two weeks six visits each,8 of 30 weekday visits rescheduled,Key rota mentioned but confirmation owner and deadline missing,Keep weekday slots,0
+RM-08,1,Two Saturdays six visits per day,8 of 30 weekday visits rescheduled,Scheduling lead confirms rota by Thursday noon,Keep weekday appointments,1
+RM-09,1,Two week Saturday morning trial six per Saturday,8 of 30 visits rescheduled,Scheduling lead confirms rota by Thursday noon,Retain weekday slots,1
+RM-10,1,Saturday trial for two weeks up to six visits each day,8 of 30 weekday visits rescheduled,Scheduling lead confirms rota by Thursday noon,Keep weekday slots,1
+RM-11,1,Two Saturday mornings with six visits each,8 of 30 visits rescheduled,Scheduling lead confirms rota by Thursday noon,No action stated if unconfirmed,0
+RM-12,1,Saturday mornings for two weeks maximum six each,8 of 30 weekday visits rescheduled,Scheduling lead confirms rota by Thursday noon,Retain weekday appointments,1
+RM-13,1,Two Saturday sessions capped at six visits each,8 of 30 visits rescheduled,Scheduling lead confirms rota by Thursday noon,Keep weekday slots,1
+RM-14,2,Two week Saturday morning trial six visits per Saturday,8 of 30 weekday visits rescheduled,Scheduling lead confirms rota by Thursday noon,Keep weekday slots,1
+RM-15,1,Two Saturdays up to six visits per day,8 of 30 visits rescheduled,Scheduling lead confirms rota by Thursday noon,Retain weekday appointments,1
+RM-16,1,Saturday trial proposed but duration and visit limit missing,8 of 30 weekday visits rescheduled,Scheduling lead confirms rota by Thursday noon,Keep weekday slots,0
+RM-17,1,Saturday mornings for two weeks six visits each,8 of 30 visits rescheduled,Scheduling lead confirms rota by Thursday noon,Keep weekday appointments,1
+RM-18,1,Two week Saturday trial capped at six visits per Saturday,8 of 30 weekday visits rescheduled,Scheduling lead confirms rota by Thursday noon,Retain weekday slots,1
+RM-20,1,Two Saturday mornings with at most six visits each,8 of 30 visits rescheduled,Scheduling lead confirms rota by Thursday noon,Keep weekday appointments,1
+RM-21,1,Saturday morning trial for two weeks six visits per day,8 of 30 weekday visits rescheduled,Scheduling lead confirms rota by Thursday noon,Keep weekday slots,1
+RM-22,1,Two Saturdays limited to six visits each,8 of 30 visits rescheduled,Scheduling lead confirms rota by Thursday noon,Retain weekday appointments,1
+RM-23,1,Saturday mornings two weeks six visits per Saturday,8 of 30 weekday visits rescheduled,Scheduling lead confirms rota but deadline missing,No action stated if unconfirmed,0
+RM-24,1,Two week Saturday trial six visits per Saturday,8 of 30 visits rescheduled,Scheduling lead confirms rota by Thursday noon,Keep weekday slots,1
+```
