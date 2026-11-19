@@ -10,3 +10,4 @@
 | p19-educator-instructional-designer | b005 | 監査 hold: progress/p19-educator-instructional-designer/b005.audit.md | 2026-11-19T15:48:34.365311+00:00 |
 | p04-ml-research-engineer | b006 | 監査 hold: progress/p04-ml-research-engineer/b006.audit.md | 2026-11-19T16:02:31.016798+00:00 |
 | p16-clinical-researcher | b005 | 監査 hold: progress/p16-clinical-researcher/b005.audit.md | 2026-11-19T16:08:00.704336+00:00 |
+| p09-ux-researcher | b005 | 監査 hold: progress/p09-ux-researcher/b005.audit.md | 2026-11-19T16:11:20.855933+00:00 |
