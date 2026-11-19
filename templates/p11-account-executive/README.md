@@ -1,6 +1,6 @@
 # Michelle Whitaker の文書の型
 
-Office の型は通常の DOCX・XLSX・PPTX。開いて別名で保存する。米国英語、用紙は US Letter、金額は USD、記録する日時は America/Denver。受領した購買文書は JDH の型、提案依頼書は Aldridge の型、試行結果報告は Hollis の型を使う。
+Office の型は通常の DOCX・XLSX・PPTX。開いて別名で保存する。米国英語、用紙は US Letter、金額は USD、記録する日時は America/Denver。受領した文書は発行元の型を使う。JDH の購買確認、Aldridge の提案依頼、Hollis の試行結果、Redfield の購買比較はそれぞれ一覧に示す。
 
 | 名前 | 組織・利用者と用途 | ファイル名 | 見た目 |
 |---|---|---|---|
@@ -17,6 +17,8 @@ Office の型は通常の DOCX・XLSX・PPTX。開いて別名で保存する。
 | Request for Proposal | Aldridge Service Group の Ahmed。提案依頼を発行し、要求番号と優先区分を回答者に渡す | `aldridge-rfp.cls` | LuaLaTeX、縦、表紙なし。右上に3本の段違いの柱と社名。紫の細罫、セリフ体と節番号、淡紫の表見出し |
 | Initial Adoption Terms | Halstead の Michelle。新規導入の席数と対価を注文条件として記録する | `halstead-adoption-terms.cls` | LuaLaTeX、縦、表紙なし。Halstead のロゴと煉瓦色の罫を継承し、ヘッダに ADOPTION TERMS。続きページにも青緑の表見出し |
 | Pilot Results | Hollis Medical Supply Inc の Lawrence。IT が確認した試行の対象と週次利用結果を Halstead に送る | `hollis-pilot-result.cls` | LuaLaTeX、縦、表紙なし。左上に段違いの青い正方形と社名、右上に INFORMATION TECHNOLOGY。淡青の表見出し、右寄せの席数、IT Operations のフッタ |
+| Product Handoff | Halstead の Michelle。Redfield の購買条件と失注理由を Allison へ引き渡し、製品側で扱う要件を記録する | `halstead-product-handoff.docx` | 縦、表紙なし。Halstead の青緑と煉瓦色。顧客要件・営業判断・製品受付の見出し |
+| Purchasing Comparison | Redfield Site Services LLC の Rebecca。仕入先の価格と必須購入条件を照合し、購買判断の根拠を残す | `redfield-comparison.xlsx` | 横。左上に傾いた2本の帯と社名。えんじ色のセリフ体と列見出し、淡い砂色の管理欄と銅色の明細罫 |
 
 CSV は利用明細を出力した時点の列定義、EML は差出人と宛先が分かるメール、訪問 JPG は許可された掲示物の写真として扱う。
 
@@ -30,13 +32,20 @@ Waverley Commercial Storage Inc の導入では、Divya が Department Adoption 
 
 Merritt Equipment Repair Inc の2025年11月の更新では、Scope of Services に支援の範囲と年40時間の取扱いを記し、顧客向けの Renewal Terms に年額 USD 72,000 と支援範囲の参照先を載せる。Nasrin の追加支援の要望、期限付き旧案、Donald が無償追加10時間を却下した経緯は Pricing-approvals の社内記録と EML に残す。旧案を PDF にする場合は Renewal Terms を開き、題に社内案と分かる表示を置き、発行日とは別に有効期限を記す。Waverley と Merritt の文書は顧客別に作る。
 
+## Redfield と HPT
+
+Redfield の2025年2月の購買記録では、Rebecca が Purchasing Comparison で USD 124,000 の提示額と必須の保管条件を照合する。客先に返した回答と失注理由を対応づけ、Product Handoff で Allison に要件と提示案の不足範囲を渡す。書き込みのある紙のスキャンは、購買比較表の印刷版を原紙にする。印刷内容に承認済み原稿の手書き注記を重ねた画像を imagegen で作り、`bin/scan` で画像だけの PDF にする。紙面の表、金額、注記をレンダリング画像で照合する。
+
+HPT の2026年2月の予備商談には、Michelle が Adoption Workshop / Proposal Briefing を使う。Cover に HPT Regional Freight LLC と訪問日を入れ、Two Columns で現行サービスの範囲と提供範囲外の専用接続を並べ、Figure に訪問用構成図 PNG を置く。PNG は Halstead の青緑でサービスの範囲、煉瓦色の破線とラベルで専用接続の境界を示す。Albert への回答は EML、USD 150,000 を予測から外す社内の根拠は TXT に記す。TXT の商談区分は予備商談とし、顧客に伝えた提供範囲と予測除外の根拠を対応づける。
+
 ## 共通の体裁と文書番号
 
 - Halstead のロゴは、支柱から分岐する青緑の横棒と煉瓦色の端点に社名を添える。題・見出し・フッタは青緑 `133D45`、罫や注意は煉瓦色 `AF5636`、本文は墨 `26353B`。白と青灰 `EBF2F1` は背景。欧文は Liberation Sans、和文は Noto Sans CJK JP。Excel のセルは Liberation Sans を基本とし、和文セルを追加する場合は Noto Sans CJK JP を指定する。
-- JDH のロゴは枠内の山形と道路線に社名を添える。焦茶 `653827`、黄土 `916232`、本文の墨茶 `352E2A`、生成りの背景 `F5ECE2`。欧文は Liberation Serif、和文は Noto Sans CJK JP。ヘッダと購買フッタは右寄せとし、フッタにページ番号を入れる。
+- JDH のロゴは枠内の山形と道路線に社名を添える。焦茶 `653827`、黄土 `916232`、本文の墨茶 `352E2A`、生成りの背景 `F5ECE2`。欧文は Liberation Serif、和文は Noto Sans CJK JP。ヘッダと購買フッタは右寄せ。全ページのフッタに `JDH Route Services Inc / Purchasing` と自動ページ番号を表示する。
 - Aldridge は、右上に高さの異なる紫の3本柱と社名を置く。題・見出しとフッタは紫紺 `343454`、細罫と部門ラベルは紫 `575483`、本文は墨紫 `2C2B34`、表帯は淡紫 `EEEDF5`。欧文本文は Liberation Serif、社名・部門ラベルとフッタは Liberation Sans、和文は Noto Serif CJK JP。フッタに Business Planning と通しページ番号を入れる。
 - Hollis は、段違いの紺と青の正方形を左上の社名に添える。本文・題・フッタは紺 `243752`、節見出し・細い横罫・IT 部門名は青 `3B6190`、表見出しの背景は淡青 `E9EFF8`。欧文は DejaVu Sans、和文は Noto Sans CJK JP。全ページの左下に `Hollis Medical Supply Inc / IT Operations`、右下に `Page` と通しページ番号を入れる。
-- Halstead は `HBC-顧客略号-YYYYMMDD-用途-NN`。用途は `ADP`（利用レビュー・集計）、`IMP`（導入負荷）、`WRK`（改善会）、`SVC`（支援範囲）、`REN`（更新条件）、`MAT`（要求と回答の対応表）、`BRF`（顧客説明）、`RFP`（提案回答）、`LEG`（条項の修正案）、`ORD`（新規注文条件）。Aldridge の略号は `ALD`、Hollis は `HOL`、Waverley は `WAV`、Merritt は `MER`。同一発行日・用途内で文書ごとに2桁の番号を割り振る。別文書では固有番号を使い、同じ文書を別形式に出すときは番号を引き継ぐ。JDH 購買文書は `JDH-PO-YYYYMMDD-NN`、Aldridge の提案依頼は `ASG-RFP-YYYYMMDD-NN`、Hollis IT の試行結果は `HMS-IT-YYYYMMDD-NN`。
+- Redfield は、傾いたえんじと銅色の帯に社名を添える。社名・題・列見出し帯はえんじ `692C40`、明細罫は銅色 `AA7951`、本文は墨 `282528`、管理欄と集計帯の背景は砂色 `F5EEE7`。欧文は Liberation Serif。既定フォント、管理欄の空セル、列見出しにも指定済み。和文が必要なセルでは Noto Serif CJK JP を指定する。フッタ左に組織と Procurement、右にページ番号と総ページ数を置く。
+- Halstead は `HBC-顧客略号-YYYYMMDD-用途-NN`。用途は `ADP`（利用レビュー・集計）、`IMP`（導入負荷）、`WRK`（改善会）、`SVC`（支援範囲）、`REN`（更新条件）、`MAT`（要求と回答の対応表）、`BRF`（顧客説明）、`RFP`（提案回答）、`LEG`（条項の修正案）、`ORD`（新規注文条件）、`PRD`（製品引継ぎ）。Redfield の略号は `RED`、HPT は `HPT`。Aldridge の略号は `ALD`、Hollis は `HOL`、Waverley は `WAV`、Merritt は `MER`。同一発行日・用途内で文書ごとに2桁の番号を割り振る。別文書では固有番号を使い、同じ文書を別形式に出すときは番号を引き継ぐ。JDH 購買文書は `JDH-PO-YYYYMMDD-NN`、Aldridge の提案依頼は `ASG-RFP-YYYYMMDD-NN`、Hollis IT の試行結果は `HMS-IT-YYYYMMDD-NN`、Redfield 購買比較は `RSS-PROC-YYYYMMDD-NN`。
 - 見本の番号は組版確認用。実際の番号、担当者、日付、根拠はファイル計画と台帳に従う。4月の基準は稼働318席・契約420席、7月の80%は2か月後の確認目標、翌年5月開始の年次更新は運用支援を含む480席・USD 232,000。見本の試験用明細を実績へ転記しない。
 
 ## Word
@@ -47,6 +56,8 @@ Merritt Equipment Repair Inc の2025年11月の更新では、Scope of Services 
 - 表は必要な行だけ追加し、`Account Table` を指定する。先頭行の段落は `Account Table Header`、文字セルは `Account Table Text`、数値セルは右寄せの `Account Table Number`。すべて9.5 pt。先頭行は繰返し見出し（`w:tblHeader`）、各行には分割禁止（`w:cantSplit`）を設定する。文字セルは段落スタイルの左インデント0.10インチで隣の数値との間隔を取る。
 - 列幅は本文幅以内で指定して折り返す。3列の見本は Halstead で2.16、1.00、3.82インチ、JDH では末列を3.54インチにする。
 - Contract Terms Review は審査段階、対象条項、未決の論点を記録する。削除する原文の文字列に `HB Proposed Deletion`、追加する文字列に `HB Proposed Insertion` を適用する。取消線と下線は PDF にも表示される固定の文字書式。条項から分ける審査メモがある場合は、見出しで区切って続きページに置ける。
+
+- Product Handoff は、Customer requirement に購買側の条件と照会元、Commercial disposition に提示額・顧客への回答・クローズ理由、Product intake に Allison に渡す確認事項を置く。根拠を対応づける場合は `Account Table` を使う。
 
 ## Excel
 
@@ -71,6 +82,14 @@ Hollis の審査用には B8〜D8 を `Pilot cohort`、`Pilot seats`、`Weekly a
 1. 9行目から、週と作業ごとに必要な明細だけを入れる。A・C:E は右寄せの `HB Integer`（単位は整数時間、A は週番号）、B・F は左寄せの `HB Text`。E は D−C。負の値を表示し、空きが足りない週を確認する。偶数行に青灰色 `EBF2F1` を塗り、インデント1と折り返しを保つ。行高の目安は31 pt。
 2. 作業ごとに重複なく確保した時間を足し上げる場合は、明細の直後を23 ptの集計行にする。B に `Total`、C・D に各列の SUM、E に合計行の D−C を入れる。A・B・F は `HB Total`、C:E は `HB Total Integer`。注記には A:F を行内結合して `HB Note` を適用し、折り返して読める行高を指定する。
 3. 明細だけをフィルター範囲に含め、管理欄から最終使用行までを印刷範囲にする。Letter 横と8行目の繰り返しを継承し、A→B と E→F の間隔、管理欄の全文、続きページの列見出しを確認する。
+
+### Purchasing Comparison
+
+`redfield-comparison.xlsx` の `Purchasing Comparison` シートを開く。A3 は表題。C5:C7 は各行で F 列まで結合済み。比較番号、レビュー日（実日付、`mmmm d, yyyy`）、作成者を入力する。9行目の列見出しと `C10` の固定を保つ。
+
+1. 10行目から、原稿の提示案・費目・審査条件だけを追加する。A は右寄せの `RF Item`、C は右寄せの `RF USD`、B と D:F は左寄せの `RF Text`。C は USD の整数を桁区切りで表示する。金額のない条件は C を空欄にする。全列のインデント1を保ち、A→B と C→D を離す。明細行高は39 ptを目安に、複数行の条件や書き込みのための余白を確保する。
+2. 同一案の費目を集計するときだけ最終明細の直後に集計行を追加する。A:B と D:F をそれぞれ結合し、ラベルと対象範囲は `RF Total`、C の該当範囲の SUM は `RF Total USD`。行高は26 ptを目安にする。代替案同士の金額は合算しない。注記は A:F を1行で結合し、`RF Note` と折り返しにし、29 ptを目安にする。
+3. オートフィルターは `A9:F<最終明細行>`、印刷範囲は `A1:F<最終使用行>`。Letter 横、横1ページ、縦は必要なページ数、9行目を各ページで繰り返す。全ページで列見出し、列間の余白、番号・日付・作成者と続きページのページ番号を確認する。
 
 XLSX の内部プロパティは最終保存後に確定する。通常の batch では進行役が `bin/stamp` を実行する。見本を単独で作った場合は `bin/stamp <xlsx> --author <作成者> --date <日付と時刻> --timezone America/Denver` を最終保存後に実行する。`docProps/app.xml` の Application が Microsoft Excel、`docProps/core.xml` の作成者と更新者および作成・更新日時が文書の作成者と日付に合うことを確認する。
 
@@ -106,23 +125,13 @@ Hollis IT の報告は `\documentclass{hollis-pilot-result}` と `\HMSPilotResul
 
 ## 見本とレンダリング
 
-見本と画像は b004 の今回のテンプレート作業フォルダにある。`short` は少量、`long` は改ページ確認用。画像は各ディレクトリ内に全ページを置いた。見本の番号、明細、判定は組版確認用。制作時は計画・原稿・事実の台帳に従う。
+今回の見本は表示と印刷の確認用。番号と明細は計画・台帳・原稿に従って確定する。
 
-| 型 | 見本名（`scratch/p11-account-executive/b004/work/templates-0002/samples/` 以下） | 画像ディレクトリ（`scratch/p11-account-executive/b004/work/templates-0002/render/` 以下） |
+| 用途 | 見本（`scratch/p11-account-executive/b005/work/templates-0004/samples/` 以下） | 画像ディレクトリ（`scratch/p11-account-executive/b005/work/templates-0004/render/` 以下） |
 |---|---|---|
-| Adoption Review | `halstead-adoption-review-short.docx`, `halstead-adoption-review-long.docx` | `halstead-adoption-review-short/`, `halstead-adoption-review-long/` |
-| Workshop Record | `halstead-workshop-record-short.docx`, `halstead-workshop-record-long.docx` | `halstead-workshop-record-short/`, `halstead-workshop-record-long/` |
-| Scope of Services | `halstead-support-scope-short.docx`, `halstead-support-scope-long.docx` | `halstead-support-scope-short/`, `halstead-support-scope-long/` |
-| Purchasing Correspondence | `jdh-purchasing-confirmation-short.docx`, `jdh-purchasing-confirmation-long.docx` | `jdh-purchasing-confirmation-short/`, `jdh-purchasing-confirmation-long/` |
-| Department Adoption | `halstead-adoption-short.xlsx`, `halstead-adoption-long.xlsx`, `halstead-hollis-pilot-review.xlsx`（Hollis 1件） | `halstead-adoption-short/`, `halstead-adoption-long/`, `halstead-hollis-pilot-review/` |
-| Implementation Load | `halstead-waverley-implementation-load-short.xlsx`, `halstead-waverley-implementation-load-long.xlsx` | `halstead-waverley-implementation-load-short/`, `halstead-waverley-implementation-load-long/` |
-| Adoption Workshop / Proposal Briefing | `halstead-workshop.pptx`（Waverley の導入説明、全5レイアウト）、`halstead-waverley-renewal-briefing.pptx`（更新面談） | `halstead-workshop/`, `halstead-waverley-renewal-briefing/` |
-| 訪問用スライドの構成図 | `visit-diagram.png`（Figure レイアウトの挿入図） | `visit-diagram/` |
-| Renewal Terms | `halstead-renewal-short.tex`, `halstead-renewal-short.pdf`, `halstead-renewal-long.tex`, `halstead-renewal-long.pdf` | `halstead-renewal-short/`, `halstead-renewal-long/` |
-| Renewal Terms（Merritt） | `halstead-merritt-renewal.tex`, `halstead-merritt-renewal.pdf` | `halstead-merritt-renewal/` |
-| RFP Cross-Reference | `halstead-rfp-matrix-short.xlsx`（6件）、`halstead-rfp-matrix-long.xlsx`（56件） | `halstead-rfp-matrix-short/`, `halstead-rfp-matrix-long/` |
-| Conditional Proposal Response | `halstead-rfp-response-short.tex`, `halstead-rfp-response-short.pdf`, `halstead-rfp-response-long.tex`, `halstead-rfp-response-long.pdf` | `halstead-rfp-response-short/`, `halstead-rfp-response-long/` |
-| Contract Terms Review | `halstead-terms-redline-short.docx`, `halstead-terms-redline-long.docx` | `halstead-terms-redline-short/`, `halstead-terms-redline-long/` |
-| Request for Proposal | `aldridge-rfp-short.tex`, `aldridge-rfp-short.pdf`, `aldridge-rfp-long.tex`, `aldridge-rfp-long.pdf` | `aldridge-rfp-short/`, `aldridge-rfp-long/` |
-| Initial Adoption Terms | `halstead-adoption-terms-short.tex`, `halstead-adoption-terms-short.pdf`, `halstead-adoption-terms-long.tex`, `halstead-adoption-terms-long.pdf` | `halstead-adoption-terms-short/`, `halstead-adoption-terms-long/` |
-| Pilot Results | `hollis-pilot-result-short.tex`, `hollis-pilot-result-short.pdf`, `hollis-pilot-result-long.tex`, `hollis-pilot-result-long.pdf` | `hollis-pilot-result-short/`, `hollis-pilot-result-long/` |
+| JDH の購買確認（1ページ・2ページ） | `jdh-purchasing-confirmation-short.docx`, `jdh-purchasing-confirmation-long.docx` | `jdh-purchasing-confirmation-short/`, `jdh-purchasing-confirmation-long/` |
+| Redfield の購買比較（少量・複数ページ） | `redfield-comparison-short.xlsx`, `redfield-comparison-long.xlsx` | `redfield-comparison-short/`, `redfield-comparison-long/` |
+| 購買比較の印刷・スキャン確認 | `redfield-review-print.pdf`, `redfield-review-scan.pdf` | `redfield-review-print/`, `redfield-review-scan/` |
+| Halstead の製品引継ぎ（少量・複数ページ） | `halstead-product-handoff-short.docx`, `halstead-product-handoff-long.docx` | `halstead-product-handoff-short/`, `halstead-product-handoff-long/` |
+| HPT の対応範囲（5レイアウト） | `halstead-hpt-scope.pptx` | `halstead-hpt-scope/` |
+| HPT の訪問用構成図 | `hpt-visit-diagram.png` | `hpt-visit-diagram/` |

@@ -1,0 +1,14 @@
+---
+path: Documents/Accounts/Redfield/End of February - let the price lapse.txt
+kind: text
+author: Michelle Whitaker
+derived_from:
+---
+
+Redfield — February closeout
+
+The USD 124,000 annual comparison price in HBC-RED-20250212-RFP-01 expires February 28 at 5:00 p.m. Denver time.
+
+Rebecca removed the offer from the comparison because the two required in-service archive conditions were not met. She does not need a revised quote while those requirements stay the same. Withdraw my reminder to extend the price; do not initiate another price approval just because the date is approaching.
+
+If Rebecca contacts me later, first ask whether the mandatory requirements have changed before copying the old price into anything. The administrator CSV export was reference information, not an answer to the seven-year retention or audit retrieval requirements.

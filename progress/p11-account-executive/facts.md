@@ -127,3 +127,37 @@
 - 11-21 10:00にMichelleとNasrinが、2025-12-01〜2026-11-30の更新を年40時間・年額USD 72,000で合意。更新条件HBC-MER-20251121-REN-01が参照する範囲はHBC-MER-20251121-SVC-01 v1.0。後者の社内審査版はHBC-MER-20251118-SVC-01 v0.2。
 - 年40時間に含む業務は管理者相談、運用整理、担当交代の引継ぎ。Nasrinが繁忙期の候補日を伝え、Darrenが予約時に残高を知らせ、実績時間を差し引く。枠外は別見積とMerrittの書面承認の後に着手する。
 - Nasrinのメールは `nasrin@merritt-equipment.example`。11-12 10:14 Nasrin → Michelle「Merritt - time for the busy weeks」（独立、添付なし）。11-21 13:08 Michelle → Nasrin「Merritt - agreed December renewal and support」（独立、更新条件PDFと確定支援範囲DOCXを実添付）。
+
+# Redfield Site Services LLC
+
+- 2025年2月の時刻はDenver（MST）。購買部長 Rebecca Cruz は `rebecca@redfield-site.example`。Michelle、Divya、Allison は Halstead の既存アドレスを使用。
+
+## 全拠点の活動履歴を保管する購買条件
+
+- 必須は全拠点の業務連絡の活動履歴をBranch Connect内に7年間保持し、監査時は管理者が同じサービスから取り出せること。管理者のCSV出力は現行機能で、サービス外の保管とそのアクセス管理は顧客側。別保管のCSVはRebeccaの必須判定に使えない。
+- 比較用提示 HBC-RED-20250212-RFP-01 v1.0 は2月12日発行、拠点連絡と管理者支援で年額USD 124,000、2月28日17:00まで有効。長期保管は例外欄。提示額は成約額・顧客予算として扱わない。
+- Rebeccaの仕入先別抜粋 RSS-PROC-20250214-01 は2月14日付。2月17日10:00のRebecca・Michelleの比較商談で保管と取り出しの2行を確認し、Rebeccaは同じ表に書き込んだ紙のスキャンを失注通知に添付した。
+- 独立メールの順：02-10 09:18 Rebecca → Michelle「Redfield comparison - archive requirement」（02-12正午回答希望） → 02-11 11:24 Allison → Michelle、Divya「Redfield - CSV leaves the service」（添付なし） → 02-12 09:26 Michelle → Rebecca「Redfield annual price for purchasing review」（`Redfield annual price and archive exception.pdf`）。
+- スレッド「Feb 17 comparison - check the archive rows」：①02-14 10:21 Rebecca → Michelle（`Redfield - branch communications comparison.xlsx`）。②02-17 11:16 Michelle → Rebecca（Re:、①の依頼段落を引用、今回の添付なし）。
+- 02-17 13:22 Rebecca → Michelle「Purchasing disposition - Halstead proposal」（独立、`Redfield comparison - Rebecca's marks.pdf`を実添付）。USD 124,000案を必須条件未達で除外し、条件が同じ間は修正見積不要。営業上は失注。
+
+## 長期保管の要件を製品担当に渡す
+
+- HBC-RED-20250217-PRD-01 は2月17日の初稿 v0.1、2月18日09:18にAllisonがコメントした v0.2、同日13:38にMichelleが確定した v1.0。比較表番号は引用元。製品受付の2項目は7年保管と監査時のサービス内取り出し。提供時期と顧客への再提案を約束しない。
+- 02-18 14:02 Michelle → Allison「Redfield requirements for Product intake」（独立）。`Redfield - retention request for Product.docx` の v1.0 を実添付する。
+
+# HPT Regional Freight LLC
+
+- 2026年2月の時刻はDenver（MST）。情報担当 Albert Hensley は `albert@hpt-regional.example`。Halstead関係者のローカル部は michelle、divya、bradley、donald、denise、ドメインは `halstead-branch.example`。
+
+## ターミナルからの専用接続を求める予備商談
+
+- HPTの必須条件はターミナルからBranch ConnectまでのHPT専用の非公開接続。現行の標準接続で拠点連絡・中央管理は説明できる。専用接続は提供範囲外で、HPTの回線への接続試験、個別設計、提供予定の提示は行わない。
+- 2月17日10:30にAlbert、Michelle、Divyaが面談。Albertは専用接続が必須と確認し、標準範囲の説明までで実演・試行・見積に進まなかった。訪問用HBC-HPT-20260216-BRF-01 v1.0と同番号の配布PDFは青緑の実線が標準接続、煉瓦色の破線が提供範囲外の専用接続。
+- 02-10 10:08 Albert → Michelle「HPT visit - dedicated connection question」（独立、添付なし）。02-17 13:08 Michelle → Albert「HPT connection scope after the Feb 17 visit」（独立、`HPT - connection scope discussed Feb 17.pdf`を実添付）。
+- 02-18 09:27 Albert → Michelle「HPT IT - connection requirement still applies」（独立、添付なし）。配布PDFを受領し、要件に変更があればAlbertから連絡する。
+
+## Q1の見込みから除外
+
+- USD 150,000は当初の社内概算見込み。顧客予算・提示価格・受注額に使わない。2月17日にMichelleがQ1予測から全額除外し、2月19日の締めでDeniseが反映を確認。区分は予備商談。再評価はAlbertが接続要件を見直した場合。
+- 独立メールの順：①02-17 15:11 Michelle → Donald、Denise「HPT - remove the preliminary amount from Q1」。②02-19 10:16 Denise → Michelle、Donald「Feb 19 forecast cut - HPT excluded」。いずれも添付なし。
