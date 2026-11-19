@@ -102,7 +102,7 @@ p08-product-manager	b006	2026-11-19	34	3	2	1	1	accepted	7289.89
 p04-ml-research-engineer	b005	2026-11-19	28	2	2	0	0	accepted	5374.18
 p09-ux-researcher	b004	2026-11-19	31	7	3	0	0	accepted	7014.36
 p02-site-reliability-engineer	b004	2026-11-19	33	2	1	0	0	accepted	6211.55
-p03-security-grc-analyst	b005	2026-11-19	31	7	4	1	0	done	8115.68
+p03-security-grc-analyst	b005	2026-11-19	31	7	4	3	2	accepted	8115.68
 p15-recruiter-people-ops	b006	2026-11-19	31	5	1	3	1	accepted	7373.17
 p12-support-success-lead	b007	2026-11-19	25	5	0	1	0	accepted	5207.48
 p11-account-executive	b004	2026-11-19	33	3	9	1	0	done	8852.02
