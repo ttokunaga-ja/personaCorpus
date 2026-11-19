@@ -1,0 +1,17 @@
+Fare Payments — August cost readback
+18 August 2025, prepared for Richard Fenner, 10:00 UTC check
+
+The August allocation is GBP 18,400 per month against the approved GBP 17,200 monthly budget. The difference is GBP 1,200 per month.
+
+  Standard payment worker pool       GBP 14,600/month
+  Baseline supporting capacity        GBP  2,600/month
+  Budgeted baseline                   GBP 17,200/month
+  Warm reserve workers                GBP    700/month
+  Reserved overflow capacity          GBP    500/month
+  Total allocation                    GBP 18,400/month
+
+The two reserve lines account for the whole GBP 1,200 variance. The warm-worker allocation is payable even when the workers are idle: it buys their readiness, not GBP 700 of extra demand observed in August. The overflow reservation buys an available route to extra capacity for GBP 500 a month; it is not a measure of how much overflow was used. Any usage charge would be accounted for separately. Neither amount should be presented as additional realised demand.
+
+Context for Richard: in the April review, BRT-MT-20250428-001, Anjali approved a 2.80× planning ceiling against the 1,000 eligible attempts/min reference. Louise's busiest-band forecast was 2.30×; the old 2.00× option fell short from 16:00 UTC. The 0.50× sizing allowance was split equally between short bursts and retaining capacity during worker replacement. Matthew was to verify those conditions separately before we relied on the extra capacity. The approval is a planning decision, not a measurement of spare capacity.
+
+For the check: removing only the overflow reservation would reduce the allocation by GBP 500 to GBP 17,900/month, but would give up that route to extra capacity. Ask Richard how to show both reserve lines against budget and discuss what evidence would be needed before considering a reduction. No saving has been assumed in this readback.

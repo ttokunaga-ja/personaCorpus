@@ -1,0 +1,5 @@
+Date,Start UTC inclusive,End UTC exclusive,Valid one-minute observations,Hourly p95 eligible attempts/min,Comparable verified ceiling eligible attempts/min,Worker pool,Workload mix
+2026-08-17,15:00,16:00,60,1680,2800,Normal,Fare Payments representative
+2026-08-17,16:00,17:00,60,1848,2800,Normal,Fare Payments representative
+2026-08-17,17:00,18:00,60,2016,2800,Normal,Fare Payments representative
+2026-08-17,18:00,19:00,60,1792,2800,Normal,Fare Payments representative

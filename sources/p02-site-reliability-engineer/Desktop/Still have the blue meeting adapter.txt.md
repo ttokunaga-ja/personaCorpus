@@ -1,0 +1,10 @@
+---
+path: Desktop/Still have the blue meeting adapter.txt
+kind: text
+author: Daniel Jennings
+derived_from:
+---
+
+18 August — after the cost meeting
+
+Return the blue display adaptor to Andrew at the 16:00 BST handover. I borrowed it briefly for the meeting from the Bristol meeting-room drawer. Put it back there with him so it's available for Tuesday morning.

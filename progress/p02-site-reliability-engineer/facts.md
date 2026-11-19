@@ -25,3 +25,33 @@
 
 - “Westbury desk wording for pending receipts” thread, July 13: (1) Stephen Cartledge → Claire Hutchinson, Cc Daniel, at 13:02 UTC (14:02 BST); (2) Claire → Stephen, Cc Daniel, at 14:15 UTC (15:15 BST), “Re: Westbury desk wording for pending receipts”.
 - Claire's BRT-CU-20260713-001, issued July 13 at 14:05 UTC, is sent as Faregate recovery and change restriction.pdf with her reply. Desk guidance is to check the booking and payment outcome or contact Support before asking for a second payment.
+
+## Fare Payments peak capacity review, 28 April 2025
+
+- Common reference is 1,000 eligible Fare Payments attempts/min, excluding duplicate retry indications and diagnostics. Palmer forecasts the hourly p95 of one-minute rates; half-open hourly bands starting at 15:00, 16:00, 17:00 and 18:00 UTC are 1.70×, 2.05×, 2.30× and 1.90×.
+- Old cap 2.00× leaves −0.05× at 16:00–17:00 UTC and −0.30× at 17:00–18:00 UTC. Proposed 2.80× covers the peak with +0.50× of the reference rate: 0.25× for short bursts and 0.25× for retaining capacity during worker replacement. These are sizing allowances, not observations.
+- PCS-DF-20250425-001 is Louise Turner's issued forecast; BRT-CP-20250428-001 is Daniel Jennings's options workbook; BRT-RB-20250428-001 is his approval briefing.
+- Review on 28 April at 11:00 UTC (12:00 BST): Anjali Shah, Daniel and Matthew Pickering. In BRT-MT-20250428-001 Daniel records Anjali's approval of the 2.80× planning ceiling, Matthew's separate burst/replacement verification and Daniel's August reserve-cost readback.
+- “Fare Payments peak forecast for 28 April” thread, BST: (1) 25 April 14:18 Louise → Daniel, Cc Matthew, attaches Palmer Fare Payments peak forecast.pdf; (2) 25 April 15:06 Daniel → Louise, Cc Matthew, “Re: Fare Payments peak forecast for 28 April”, quotes (1); (3) 28 April 09:12 Louise → Daniel, Cc Matthew, same Re: subject, answers directly without quoting.
+- April thread Message-IDs, in order: `<7b28c5e4-0b63-4b59-93ce-d0f641a8de72@palmer-capacity.example>`, `<9c61c43b-5913-4d75-8f9e-2df3cb77ea06@brt-booking.example>`, `<f4385ae7-ec96-4475-b5b0-c37ac5d9e142@palmer-capacity.example>`. Palmer dispatches use `louise@palmer-capacity.example`.
+
+## Fare Payments reserve cost readback, 18 August 2025
+
+- Like-for-like recurring monthly allocation: GBP 14,600 standard payment worker pool + GBP 2,600 baseline supporting capacity = GBP 17,200 approved budget; GBP 700 warm reserve workers + GBP 500 reserved overflow capacity = GBP 1,200 above budget; total GBP 18,400.
+- Daniel Jennings and Richard Fenner meet at 10:00 UTC (11:00 BST). The GBP 500 reservation-only cut would leave GBP 17,900 and remove the overflow reservation. The cut is deferred and neither reserve line is removed.
+- “August Fare Payments reserve treatment”: 18 August 12:14 BST, Richard → Daniel, Cc Anjali Shah; standalone follow-up confirms the reserve classification and retained allocation.
+
+## Fare Payments observed headroom, 18 August 2026
+
+- Matthew Pickering's representative normal-pool rehearsal on 17 August verified 2,800 eligible attempts/min as the highest sustained rate during 13:00–13:30 UTC. Failover and production change safety were outside the capacity check.
+- For 17 August live traffic, the four half-open hourly bands starting at 15:00, 16:00, 17:00 and 18:00 UTC have 60 valid one-minute observations each and p95 rates of 1,680, 1,848, 2,016 and 1,792 eligible attempts/min. Relative to 2,800/min, unused capacity is 40%, 34%, 28% and 36%.
+- Louise Turner's PCS-DF-20260818-001 (18 August) reports 784/min remaining at the busiest observed band, so headroom is (2,800 − 2,016) / 2,800 = 28%. This percentage uses a verified ceiling, whereas the 2025 approved 2.80× multiplier uses the normal reference rate.
+- “August Fare Payments capacity check”: 18 August 10:15 BST, Louise (louise@palmer-capacity.example) → Daniel Jennings, Cc Matthew, standalone dispatch with Palmer August capacity check.pdf attached.
+
+## Fare Payments limited reconciliation restart, 18 August 2026
+
+- Anjali Shah, Daniel Jennings and Matthew Pickering review at 11:00 UTC (12:00 BST). The 25% job-share proposal stays unapproved. Anjali issues BRT-CD-20260818-001 citing PCS-DF-20260818-001; the shared PDF is her issued Word decision exported unchanged.
+- One 19 August window, 09:00–09:30 UTC (10:00–10:30 BST): shadow reads for up to 10% of eligible reconciliation jobs with the existing production path kept in place. Preflight requires a no-write/no-post check, a verified normal pool and matching workload mix.
+- Daniel monitors headroom against 2,800/min using p95 one-minute rates over a trailing 15-minute window. Preflight requires at least 25%; Matthew owns start/stop and stops below that floor or on any output discrepancy or customer-facing regression.
+- The normal reconciliation release and next Faregate rollout tranche stay held under BRT-CD-20260713-001; the shadow approval does not extend to them. Operations reviews observations or the stand-down reason at 11:00 UTC (12:00 BST) on 19 August; expansion requires a further decision by Anjali.
+- “Approval for 19 August reconciliation shadow window”: 18 August 13:32 BST, Anjali → Matthew and Daniel, Cc Claire Hutchinson, standalone dispatch with August reconciliation shadow approval.pdf attached.
