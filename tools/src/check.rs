@@ -1054,6 +1054,26 @@ fn retry_scan_transcript(p: &Path, expected: &str, language: &str) -> Result<Opt
     )
 }
 
+// Workbook manuscripts may embed literal CSV rows alongside formulas and prose.
+// Separate fields before numeric comparison so date tails cannot absorb quantities.
+fn workbook_source(text: &str) -> String {
+    re(r"(?ims)^[ \t]*```csv[ \t]*\r?\n(.*?)^[ \t]*```[ \t]*\r?$")
+        .replace_all(text, |block: &regex::Captures<'_>| {
+            let mut reader = csv::ReaderBuilder::new()
+                .has_headers(false)
+                .from_reader(block[1].as_bytes());
+            let mut rows = Vec::new();
+            for row in reader.records() {
+                let Ok(row) = row else {
+                    return block[0].to_owned();
+                };
+                rows.push(row.iter().collect::<Vec<_>>().join("\t"));
+            }
+            rows.join("\n")
+        })
+        .into_owned()
+}
+
 fn source_reason(
     expected: &str,
     actual: &str,
@@ -1067,6 +1087,8 @@ fn source_reason(
     // Locate Markdown table rows before source_body removes their outer pipes.
     let mut expected = if delimited {
         source_body(&data_lines(expected, ext))
+    } else if ext == "xlsx" {
+        source_body(&workbook_source(expected))
     } else {
         source_body(expected)
     };
@@ -2812,6 +2834,35 @@ mod handout_and_revision_tests {
             assert_eq!(
                 word_revision_source(&wrong, file.path(), zone).unwrap(),
                 wrong
+            );
+        }
+    }
+}
+
+#[cfg(test)]
+mod workbook_manuscript_tests {
+    use super::*;
+
+    #[test]
+    fn workbook_csv_cells_are_separate_from_prose_and_grouped_amounts() {
+        let manuscript = "Total 8,123,456\n```csv\ndate,qty,cost\n2025-04-18,130,950\n2025-04-24,135,950\n2025-04-26,161,950\n2025-04-28,125,950\n2025-04-30,134,950\n2025-05-01,12,\"4,200\"\n```";
+        let actual = "8123456 2025-04-18 130 950 2025-04-24 135 950 2025-04-26 161 950 2025-04-28 125 950 2025-04-30 134 950 2025-05-01 12 4200";
+        assert_eq!(
+            source_reason(manuscript, actual, false, "xlsx", false, false),
+            None
+        );
+        for missing in ["8123456", "4200"] {
+            assert!(
+                source_reason(
+                    manuscript,
+                    &actual.replace(missing, ""),
+                    false,
+                    "xlsx",
+                    false,
+                    false
+                )
+                .unwrap()
+                .contains(missing)
             );
         }
     }
