@@ -6,13 +6,13 @@
 
 | 名前 | 組織・利用者と用途 | 実際のファイル名 | 見た目 |
 |---|---|---|---|
-| 採用枠・報酬帯の承認／職務要望・広告文の修正／入社支援の振り返り | みらい職場研修、佐藤の申請と渡辺の承認、小林の職務要望と佐藤の広告文修正、佐藤と伊藤の初週振り返り | `mirai-approval.docx` | A4縦、表紙なし。開いた本のロゴ、桑実色の題と見出し、短い節と横罫線の表 |
+| 採用枠・報酬帯の承認／職務要望・広告文の修正／入社支援の振り返り／組織負担調査の所見・提案 | みらい職場研修、佐藤の申請と渡辺の承認、小林の職務要望と佐藤の広告文修正、佐藤と伊藤の初週振り返り、佐藤の調査所見と研修提案 | `mirai-approval.docx` | A4縦、表紙なし。開いた本のロゴ、桑実色の題と見出し、短い節と横罫線の表 |
 | 面接・追加確認 | 同社、佐藤・高橋。面接記録、尺度の再点検、追加質問の要否 | `mirai-interview.docx` | 共通書式。「観察した事実」と「解釈と評価」を別の節に配置 |
 | 候補者へのご案内 | 同社、佐藤。候補者への連絡文案と文書による案内 | `mirai-notice.docx` | 共通書式。宛先、案内、予定、連絡先の簡潔な構成 |
 | 研修設計リード評価表／面接尺度の比較／入社準備の対応表 | 同社、佐藤・高橋が記録と評語を照合し、評価根拠と追加確認を管理。佐藤と伊藤が初週の遅れを事前確認の項目に対応付ける際にも使う | `mirai-evaluation.xlsx` | A4横。桑実色の白抜き見出しと繰り返し印刷される管理欄、用途に合わせて指定する6列 |
-| 採用経費の照合／募集枠の費用比較 | 同社、佐藤・吉田が経費と人数の訂正を照合。佐藤が中村と募集案の費用を比較 | `mirai-expenses.xlsx` | A4横。共通の管理欄。比較する二案・差分と注記。金額と人数は別表／別シートで扱う |
-| 採用進捗報告・研修討議 | 同社、佐藤から渡辺や人事チームへの報告、面接者研修の討議用投影 | `mirai-recruiting.pptx` | 16:9、白地に桑実色の細い左帯。開いた本のロゴと社名、下部に人事。1マスター・5レイアウト、スライド0枚 |
-| 人事の確認事項・受入手順・演習確認票 | 同社、佐藤・伊藤。Officeを経ずに配布する確認事項・質問票・受入手順、無記名の紙の演習確認票の版下 | `mirai-recruiting-note.cls` | A4縦。共通ロゴ・桑実色の題と小見出し、用途を指定できるヘッダ、継続表、会社名とページ番号 |
+| 採用経費の照合／募集枠の費用比較／調査集計の照合 | 同社、佐藤・吉田が経費と人数の訂正を照合。佐藤が中村と募集案の費用を比較し、伊藤と調査の分母・丸めを照合 | `mirai-expenses.xlsx` | A4横。共通の管理欄。共通書式の6列を用途に合わせ、数値を右揃え、注記を左インデント1で配置 |
+| 採用進捗報告・研修討議・組織調査の報告 | 同社、佐藤から渡辺や人事チームへの報告、面接者研修の討議用投影、渡辺への組織負担調査の説明 | `mirai-recruiting.pptx` | 16:9、白地に桑実色の細い左帯。開いた本のロゴと社名、下部に人事。1マスター・5レイアウト、スライド0枚 |
+| 人事の確認事項・受入手順・演習確認票・会議要旨 | 同社、佐藤・伊藤。Officeを経ずに配布する確認事項・質問票・受入手順、会議要旨、無記名の紙の演習確認票の版下 | `mirai-recruiting-note.cls` | A4縦。共通ロゴ・桑実色の題と小見出し、用途を指定できるヘッダ、継続表、会社名とページ番号 |
 | 採用支援の連絡 | 青山キャリア支援、山田が送る確認事項・添付連絡 | `aoyama-recruiting-note.docx` | A4縦、表紙なし。二重の山形ロゴ、青灰色・明朝体。自社の本・桑実色は使わない |
 | 紹介経路の点検配布資料 | 青山キャリア支援、山田が紹介経路の比較条件と求人説明の確認事項を配布 | `aoyama-channel-handout.cls` | A4縦、表紙なし。右上に青灰色の二重山形と社名、細い横罫、明朝体の中央題、淡青灰の表見出し |
 | 求人広告の掲載見本 | 明星採用広告、佐々木美喜子が公開前の表示内容を顧客に確認依頼 | `myojo-ad-proof.cls` | A4縦、表紙なし。左上の四光星と社名、濃い橙の太い上罫、左揃えの濃紺の題と淡橙の管理帯。続頁に社名・表見出し・ページ番号 |
@@ -50,11 +50,18 @@ b001は2026-08-10〜09-30の研修設計リード採用3枠を扱う。8観点�
 - 8月18日の討議は `mirai-recruiting.pptx` を使う。7月の実際の選考の再点検と8月の模擬演習を区別し、研修に参加した面接者12人と模擬評価の不一致5件を別の単位で示す。観察事実・解釈・採否理由の順で討議する。
 - 山口からの配布資料は `tex:okabe-interviewer-exercise.cls` で直接PDFを作り、Downloadsに置く。打合せはEML。みらいの紙の演習確認票は `\renewcommand{\MWDocumentUse}{面接者研修}` を指定して `mirai-recruiting-note.cls` で版下を作る。観察事実の短い引用だけに下線を引き、受講者の氏名欄は設けない。管理欄の作成者は版下の発行担当。記入内容を含む版下を `bin/scan` で画像のみのPDFにする。研修室配置のJPGはPicturesに置き、レイアウトを記録する。
 
+### 2025年10月の組織負担調査と研修提案（b007）
+
+- 調査の読み取りと研修案は `mirai-approval.docx` を開き、ロゴを保持したままヘッダの用途を「組織負担調査」に替える。節は「回答状況」「集計と配布前の確認事項」「新任管理者向けに提案すること」など、原稿に沿って置く。確認事項を表にする場合は、番号／項目／確認内容の幅を14／45／103mmとし、番号を右揃え、次の列との間にはセルの既定余白を残す。承認記録と異なり、提案には承認欄を追加しない。
+- 分母・丸めの照合には `mirai-expenses.xlsx` を開き、題を「組織負担調査　分母と丸めの照合」、A〜F列を「番号／照合する指標／件数（人）／分母（人）／率（表示）／照合根拠・注記」、列幅を11・29・17・17・19・52に替える。A・C〜E列は `MW Number`、B・F列は左インデント1の `MW Text`。見本は明細行高38pt、合計・注記25pt、長い方は14行目の後に `Break(id=14)` を指定する。回答率は対象174人に対する回答151人で、たとえば `=IF(D7>0,C7/D7,"")` の元値を保持し、`0.0%` の表示で照合する。対象と回答の差23人は調査の未回答。負担設問の42％は報告値として示し、再計算は原稿で確認された設問の分子・分母から行う。報告値から件数を逆算しない。丸め前の率と報告桁の値を比較する場合は別セルで表示し、率の足し算をしない。合計が必要なときは対象を分けた回答と未回答の件数だけを合計し、否定回答や確認事項を加えない。
+- 渡辺への投影は `mirai-recruiting.pptx`。表で指標ごとの分母を示し、図で対象174人を回答151人・未回答23人に分ける。42％は設問の報告値として別に注記する。直接組版の会議要旨は `mirai-recruiting-note.cls` を開き、プリアンブルに `\renewcommand{\MWDocumentUse}{組織負担調査}` を置く。10月22日の資料では提案内容と、その後に決める事項を分ける。5月の研修実施は別の記録に置く。
+- 受領控えは匿名集計のCSV、伊藤への確認はEML。集計範囲のPNGは対象・回答・未回答を人数付きで図示し、設問の率を別に表示する。共有資料に回答者名や少人数の属性・部署別内訳を載せない。b007 の文書はみらい職場研修の社内様式を使う。
+
 ## 共通の意匠と管理
 
 - 178人の研修会社として、小さな「開いた本」の図形と社名を使う。本の左ページは桑実色 `963A65`、右ページは灰緑 `7B8270`。本文は墨 `34383C`、白地、合計の淡色は桑実色の濃淡 `F5EDF1`。Word・Excelの図形は埋込みPNG、PowerPointはネイティブ図形、TeXはTikZ。外部画像リンクはない。
 - Officeの日本語・欧文はともに **Noto Sans CJK JP**。WordのNormal、見出し、表、テーマ、Excelの既定フォント・入力欄・名前付き書式、PowerPointのテーマとプレースホルダに実設定する。TeXの日本語も同フォント、欧文は環境にある **Liberation Sans**。本文色はTeXでも文書開始時に適用する。
-- 自社文書番号は `MW-HR-YYYYMM-用途-連番3桁`。用途は `APR`（承認）、`INT`（面接・再点検・追加質問）、`NOT`（案内）、`EVA`（評価・尺度比較）、`EXP`（経費・照合）、`BRF`（報告・討議スライド）、`REC`（確認事項・受入手順・演習確認票）、`REV`（初週の振り返り）、`MAP`（準備の対応表）。同文書の改版・Office由来PDFは同番号で版を区別する。実値は計画と事実台帳で決める。番号を持たない私的メモ・保存メールには付けない。
+- 自社文書番号は `MW-HR-YYYYMM-用途-連番3桁`。用途は `APR`（承認）、`INT`（面接・再点検・追加質問）、`NOT`（案内）、`EVA`（評価・尺度比較）、`EXP`（経費・照合）、`BRF`（報告・討議スライド、会議要旨）、`REC`（確認事項・受入手順・演習確認票）、`REV`（初週の振り返り）、`MAP`（準備の対応表）。同文書の改版・Office由来PDFは同番号で版を区別する。実値は計画と事実台帳で決める。番号を持たない私的メモ・保存メールには付けない。
 - 青山キャリア支援の番号は `AY-CS-YYYYMM-NOT-連番3桁`（連絡）、`AY-CS-YYYYMM-BRF-連番3桁`（配布資料）。Wordは日本語・欧文とも **Noto Serif CJK JP**。TeXは日本語 **Noto Serif CJK JP**、欧文 **Liberation Serif**。青灰色 `486477` と墨 `34383C`、白地。山形2本と社名。配布資料の表見出しは青灰色の淡色 `EAF0F3`。相手の発信文書に自社番号を追加しない。
 - 明星採用広告の校正番号は `MA-AD-YYYYMM-PF-連番3桁`。年月は初校の発行月で、同じ原稿の再校は版と発行日を変える。四光星・上罫・小見出しは濃い橙 `A84816`、題・本文は濃紺 `273449`、管理帯・表見出しは淡橙 `F8EFE7`。日本語は **Noto Sans CJK JP**、欧文は **Liberation Sans**。明星の番号と佐々木の発行担当表記を用いる。
 - 岡部人材評価の演習資料番号は `OK-TA-YYYYMM-EX-連番3桁`。年月は初版の発行月。改版は同番号で版・発行日を更新する。チェック印・罫線・節見出しにオリーブ色 `53632A`、本文・題に墨 `272F25`、管理欄と表見出しに淡いオリーブ色 `EDF0E4` を使う。日本語は **Noto Sans CJK JP**、欧文は **Liberation Sans**。ヘッダは正式社名と用途、フッタは社名・評価研修と頁。講師は山口裕樹。番号の実値は計画と原稿で定める。
@@ -127,28 +134,14 @@ b001は2026-08-10〜09-30の研修設計リード採用3枠を扱う。8観点�
 
 ## 今回の見本と確認先
 
-作業フォルダは `scratch/p15-recruiter-people-ops/b006/work/templates-0002/`。以下のパスはこのフォルダを基準とする。文書番号、明細、文面は書式確認用。成果物の値は計画・台帳・原稿に従う。
+作業フォルダは `scratch/p15-recruiter-people-ops/b007/work/templates-0002/`。以下のパスはこのフォルダを基準とする。文書番号、照合の文面、演習案は書式確認用。成果物には計画・台帳・原稿の内容を使う。
 
 | 型／確認内容 | 見本 | 全ページの画像 |
 |---|---|---|
-| 採用・研修準備の承認記録 | `examples/mirai-approval.docx` | `render/mirai-approval/` |
-| 聞き直しの要否の記録 | `examples/mirai-interview.docx` | `render/mirai-interview/` |
-| 候補者への案内 | `examples/mirai-notice.docx` | `render/mirai-notice/` |
-| 青山の採用支援連絡 | `examples/aoyama-recruiting-note.docx` | `render/aoyama-recruiting-note/` |
-| 評価表（3行） | `examples/mirai-evaluation-3.xlsx` | `render/mirai-evaluation-3/` |
-| 評価表（40行） | `examples/mirai-evaluation-40.xlsx` | `render/mirai-evaluation-40/` |
-| 経費照合（3行、合計あり） | `examples/mirai-expenses-3.xlsx` | `render/mirai-expenses-3/` |
-| 経費照合（40行、合計あり） | `examples/mirai-expenses-40.xlsx` | `render/mirai-expenses-40/` |
-| 7月の面接尺度の比較（3行抜粋） | `examples/mirai-scale-review-3.xlsx` | `render/mirai-scale-review-3/` |
-| 7月の面接尺度の比較（9行） | `examples/mirai-scale-review-9.xlsx` | `render/mirai-scale-review-9/` |
-| 8月の面接者研修討議（5レイアウト） | `examples/mirai-recruiting.pptx` | `render/mirai-recruiting/` |
-| みらいの確認事項（3行） | `examples/mirai-recruiting-note-3.tex`、`examples/mirai-recruiting-note-3.pdf` | `render/mirai-recruiting-note-3/` |
-| みらいの確認事項（50行） | `examples/mirai-recruiting-note-50.tex`、`examples/mirai-recruiting-note-50.pdf` | `render/mirai-recruiting-note-50/` |
-| 青山の配布資料（4行） | `examples/aoyama-channel-handout-4.tex`、`examples/aoyama-channel-handout-4.pdf` | `render/aoyama-channel-handout-4/` |
-| 青山の配布資料（50行） | `examples/aoyama-channel-handout-50.tex`、`examples/aoyama-channel-handout-50.pdf` | `render/aoyama-channel-handout-50/` |
-| 明星の掲載見本（4行） | `examples/myojo-ad-proof-4.tex`、`examples/myojo-ad-proof-4.pdf` | `render/myojo-ad-proof-4/` |
-| 明星の掲載見本（50行） | `examples/myojo-ad-proof-50.tex`、`examples/myojo-ad-proof-50.pdf` | `render/myojo-ad-proof-50/` |
-| 岡部の演習資料（3行） | `examples/okabe-interviewer-exercise-3.tex`、`examples/okabe-interviewer-exercise-3.pdf` | `render/okabe-interviewer-exercise-3/` |
-| 岡部の演習資料（24行） | `examples/okabe-interviewer-exercise-24.tex`、`examples/okabe-interviewer-exercise-24.pdf` | `render/okabe-interviewer-exercise-24/` |
-| 無記名の演習確認票の版下 | `examples/mirai-exercise-check.tex`、`examples/mirai-exercise-check.pdf` | `render/mirai-exercise-check/` |
-| 無記名の演習確認票のスキャン | `examples/mirai-exercise-check-scan.pdf` | `render/mirai-exercise-check-scan/` |
+| 調査の読み取りと研修提案（短い表） | `examples/survey-note-short.docx` | `render/survey-note-short/` |
+| 調査の読み取りと研修提案（表の継続） | `examples/survey-note-long.docx` | `render/survey-note-long/` |
+| 分母・丸めの照合（3行） | `examples/survey-reconciliation-short.xlsx` | `render/survey-reconciliation-short/` |
+| 分母・丸めの照合（確認事項を含む15行） | `examples/survey-reconciliation-long.xlsx` | `render/survey-reconciliation-long/` |
+| 組織調査の報告（5レイアウト） | `examples/survey-briefing.pptx` | `render/survey-briefing/` |
+| 会議要旨（短い表） | `examples/survey-handout-short.tex`、`examples/survey-handout-short.pdf` | `render/survey-handout-short/` |
+| 会議要旨（表の継続） | `examples/survey-handout-long.tex`、`examples/survey-handout-long.pdf` | `render/survey-handout-long/` |
