@@ -32,15 +32,28 @@
   発行日：#4\hfill 作成者：#5\par}\medskip}
 \newcommand{\HidakaSection}[1]{\par\medskip{\large\bfseries\color{HDTeal}#1\par}}
 \newcolumntype{H}[1]{>{\raggedright\arraybackslash}p{#1}}
-\newenvironment{HidakaInspection}{%
+\newenvironment{HidakaInspection}[1][]{%
   \begingroup
+  \def\HidakaClosingMaterial{#1}%
   \setlength{\tabcolsep}{4pt}
   \renewcommand{\arraystretch}{1.5}
   \arrayrulecolor{HDTeal}
   \begin{longtable}{|H{32mm}|H{49mm}|H{45mm}|H{22mm}|}\hline
   \rowcolor{HDTeal}\textcolor{white}{確認箇所}&\textcolor{white}{点検項目}&
   \textcolor{white}{原記録・所見}&\textcolor{white}{判定}\\\hline\endhead
-}{\end{longtable}\endgroup}
+}{%
+  % The final detail ends with \\* so the signature row stays on the same page.
+  \ifx\HidakaClosingMaterial\empty\else
+    % Span the table columns and keep the rule with the closing material.
+    \multispan{4}{\color{HDTeal}\leaders\hrule height\arrayrulewidth\hfill}\cr
+    \noalign{\nobreak}%
+    \multicolumn{4}{@{}l@{}}{%
+      \begin{minipage}[t]{\dimexpr148mm+8\tabcolsep+5\arrayrulewidth\relax}
+        \vspace{4pt}%
+        \HidakaClosingMaterial
+      \end{minipage}}\\
+  \fi
+  \end{longtable}\endgroup}
 \newcommand{\HidakaSignature}[2]{%
   \par\medskip\noindent\begin{minipage}{.96\linewidth}
   \strut 点検者署名\quad\makebox[45mm][l]{#1}\hfill

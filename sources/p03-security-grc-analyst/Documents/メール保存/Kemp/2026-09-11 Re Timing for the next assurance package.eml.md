@@ -1,0 +1,35 @@
+---
+path: Documents/メール保存/Kemp/2026-09-11 Re Timing for the next assurance package.eml
+kind: text
+author: Kevin Vasquez
+derived_from:
+---
+
+From: Kevin Vasquez <kevin.vasquez@kemp-procurement.example>
+To: Miyuki Yamada <miyuki.yamada@chukyo-document.example>
+Cc: Naoko Hayashi <naoko.hayashi@chukyo-document.example>
+Date: Fri, 11 Sep 2026 09:11:00 +0900
+Subject: Re: Timing for the next assurance package
+Message-ID: <1aa4a638453c4a9aa7ca987af11f8325@kemp-procurement.example>
+In-Reply-To: <9c8e8722-7374-44d2-b152-3d8a107e4562@chukyo-document.example>
+References: <9c8e8722-7374-44d2-b152-3d8a107e4562@chukyo-document.example>
+
+Hi Miyuki,
+
+Agreed: for the next assurance package, the submission deadline will be 45 calendar days before the contract renewal date. Once the renewal date has been notified, we can confirm the specific date together.
+
+We will expect today's response by the original deadline of 17:00 JST.
+
+Best regards,
+Kevin
+
+On 10 September 2026 at 14:06 JST, Miyuki Yamada wrote:
+> Hi Kevin,
+>
+> We are proceeding with the current assurance response for 11 September, by 17:00 JST as requested.
+>
+> For subsequent renewals, would you agree to a deadline of 45 calendar days before the contract renewal date for the assurance package? Once the renewal date is known, could we confirm the specific submission date together?
+>
+> Best regards,
+> Miyuki Yamada
+> Chukyo Document Delivery Services

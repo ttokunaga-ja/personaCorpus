@@ -149,7 +149,7 @@ p13-corporate-privacy-counsel	b010	2026-11-19	23	0	2	0	0	accepted	4503.14
 p15-recruiter-people-ops	b009	2026-11-19	31	3	1	0	0	accepted	7792.06
 p11-account-executive	b007	2026-11-19	33	5	6	4	0	done	6242.27
 p07-humanities-researcher	b005	2026-11-19	35	7	6	5	0	done	9151.10
-p03-security-grc-analyst	b007	2026-11-19	33	14	2	8	0	done	8596.20
+p03-security-grc-analyst	b007	2026-11-19	33	14	2	12	6	accepted	8596.20
 p05-bi-data-analyst	b007	2026-11-19	35	10	2	9	4	accepted	7714.97
 p10-management-consultant	b005	2026-11-19	35	8	6	9	6	accepted	8848.88
 p02-site-reliability-engineer	b008	2026-11-19	37	1	0	0	0	accepted	3513.47

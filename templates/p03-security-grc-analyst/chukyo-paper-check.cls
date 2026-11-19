@@ -34,8 +34,21 @@
 点検日：#4\hfill 記録者：#5\par\medskip}
 \newcommand{\CheckSection}[1]{\par\medskip{\large\bfseries\color{CDRust}#1}\par}
 \newcommand{\CheckNote}[1]{\par{\small #1}\par}
-\newenvironment{ApprovalTable}{%
+\newenvironment{ApprovalTable}[1][]{%
+\def\CheckClosingMaterial{#1}%
 \begin{longtable}{|p{15mm}|p{35mm}|p{49mm}|p{26mm}|p{22mm}|}\hline
 \rowcolor{CDRust}\color{white}証跡番号&\color{white}点検項目&\color{white}照合した記録&\color{white}結果&\color{white}確認者\\\hline\endhead
-}{\end{longtable}}
+}{%
+% The final detail ends with \\* so the closing row stays on the same page.
+\ifx\CheckClosingMaterial\empty\else
+  % Span the table columns and keep the rule with the closing material.
+  \multispan{5}\leaders\hrule height\arrayrulewidth\hfill\cr
+  \noalign{\nobreak}%
+  \multicolumn{5}{@{}l@{}}{%
+    \begin{minipage}[t]{\dimexpr147mm+10\tabcolsep+6\arrayrulewidth\relax}
+      \vspace{4pt}%
+      \CheckClosingMaterial
+    \end{minipage}}\\
+\fi
+\end{longtable}}
 \newcommand{\CheckSignatures}[2]{\par\medskip 点検者：#1\hfill 確認者：#2\par}

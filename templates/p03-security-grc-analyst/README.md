@@ -1,12 +1,12 @@
 # 山田美由紀の文書の型
 
-中京文書配送サービス株式会社の情報管理統制と、さくら情報管理審査合同会社、日高文書保管株式会社、三和オフィス機器株式会社から受け取る文書の型。Officeの型は通常のDOCX・XLSX・PPTXであり、開いて別名保存する。本文の事例・仮の値・空の明細・仮の集計は持たない。
+中京文書配送サービス株式会社の情報管理統制と、さくら情報管理審査合同会社、日高文書保管株式会社、三和オフィス機器株式会社、Kemp Procurement Ltdから受け取る文書の型。Officeの型は通常のDOCX・XLSX・PPTXであり、開いて別名保存する。本文の事例・仮の値・空の明細・仮の集計は持たない。
 
 ## 一覧
 
 | 名前 | 組織・利用者と用途 | 実際のファイル名 | 見た目 |
 |---|---|---|---|
-| 審査回答 | 中京文書配送サービス、山田。池田へ提示する草稿・回答・英文審査要約、佐々木の確認対象 | `chukyo-response.docx` | A4縦、表紙なし。封筒と配送矢印のロゴ、赤茶の見出し、罫線表。対象・実績・是正・承認の4見出し |
+| 審査・保証回答 | 中京文書配送サービス、山田。池田への審査回答、Kemp向け保証範囲の英文草稿と提出要約、佐々木の確認対象 | `chukyo-response.docx` | A4縦、表紙なし。封筒と配送矢印のロゴ、赤茶の見出し、罫線表。用途に合わせて節名を差し替える |
 | 是正記録 | 同社、山田・松本。是正の起票、原因、対応根拠と再点検の記録 | `chukyo-correction.docx` | 同じロゴ・色・用紙。指摘・方針・実施・完了判断の4見出し |
 | 読み合わせ記録 | 同社、山田。池田との証跡照合、社内の確認相談と次の担当の記録 | `chukyo-reading.docx` | 共通書式。日時・資料・確認事項・次の対応の4見出し。社内記録に審査者のロゴは使わない |
 | 証跡一覧 | 同社、山田・松本。統制の証跡一覧、提出一覧、委託先の受領証拠と是正判定の対応 | `chukyo-evidence.xlsx` | A4横、封筒ロゴ、赤茶の白抜き列見出し、細い横罫線。8列、明細なし |
@@ -16,6 +16,7 @@
 | 紙の点検票 | 中京文書配送サービス、松本・山田。権限承認や委託先点検で使う照合票の印刷原紙を直接PDFに組む | `chukyo-paper-check.cls` | A4縦、封筒と配送矢印、赤茶と砂色、ゴシック。証跡番号・項目・記録・結果・確認者の表。続頁に表見出しとページ番号 |
 | 保管統制の説明・現地点検票 | 日高文書保管、橋本。購買課に提出する保管統制の説明PDFと、署名する現地点検票の印刷原紙 | `hidaka-storage.cls` | A4縦、保管棚の図形と社名、濃い青緑の細罫線、明朝の中央題。現地点検票は4列の囲み表と署名欄。フッタに発行元と頁番号 |
 | 配送業務の保証確認票 | 三和オフィス機器の購買課、山崎。中京に送る記入前の質問票 | `sanwa-assurance.xlsx` | A4横、用紙トレイ2段のマークと購買課の社名表記、紺の見出し。質問欄は薄青、回答記入欄は白。明細なし |
+| Supplier Security Questionnaire | Kemp Procurement LtdのKevin Vasquezが中京へ送る英文の受領質問票 | `kemp-security-questionnaire.xlsx` | A4横、右上にオリーブ色の二重山形と英文社名。設問列は濃いオリーブ色の見出し、記入列は淡い見出しと白い明細。明細なし |
 
 案件ごとの実際の文書番号、是正票番号、証跡の識別子、各版の日付は計画・事実台帳を参照する。2025年のRISK-031では、7月18日の受容見送り、9月末までの証拠回収、10月7日の2件完了・1件継続という各時点の判断を資料に反映する。8月25日の期限超過5件は月次会議全体の件数として記録する。旧稿の全件完了は未承認の版に記載し、提出する英文要約に継続の理由と確認する記録を記載する。
 
@@ -58,6 +59,18 @@ RISK-031の評価表には `chukyo-checklist.xlsx` を使い、例えば「対�
 2. 6行目は質問番号・区分・確認事項・回答区分・回答・確認時点・補足。7行目から原稿の設問がある行だけを作る。A〜C列の文字には `Sanwa Question`（左寄せ・インデント1）、実際の整数には `Sanwa Number`（右寄せ・インデント1、`#,##0`）を指定する。Q01のような質問番号は文字として保存する。D〜G列は `Sanwa Reply`（白地、左寄せ・インデント1）を付け、受領時は空欄にする。受領票の明細の末尾には集計行を設けない。中京の回答明細は中京の点検表型で別に作る。
 3. 明細の行高を30ptから始め、区分や確認事項の折返しに合わせて広げる。数値の右隣に文字が来る列でもインデントを保つ。印刷範囲をA1:G最終行、フィルタをA6:G最終行に設定する。A4横、幅1頁・縦自動、D7の固定、印刷時の1〜6行の繰返しとページ番号を維持する。
 
+## Kempの受領票と中京の保証回答
+
+**Kempの受領票**は英文。主色はオリーブ `44512E`、本文は濃墨 `26281F`、管理欄と質問欄は淡いオリーブ `EDF0E4`。本文・見出し・入力セル・既定のNormal・印刷フッタは Liberation Sans。フッタ左は社名と Supplier Assurance、右は現在頁／総頁。発行番号の形式は `KP-SSQ-YYYYMM-NN`（発行月と月内2桁）、版は別欄に置く。
+
+1. `kemp-security-questionnaire.xlsx` を開く。B4:C4の左端に発行番号、E4に発行日、B5に版、E5に受領時点の回答期限、B6に発行者、E6に回答企業を入れる。管理欄は24pt、折返し。E4とE5は実日付と `[$-409]dd mmm yyyy`。発行者をブックの作成者に設定する。受領日と発行日はそれぞれ原記録で確認し、期限の延長はメールと中京の管理表に記録する。
+2. 8行目に `No. / Control area / Question / Supplier response / Evidence reference` がある。9行目から実際の設問だけを作る。A列の整数に `Kemp Number`、B・C列に `Kemp Question`、未記入のD・E列に `Kemp Reply` を割り当てる。発行元が文字を含む質問番号を使う場合はA列も `Kemp Question`。文字列の左インデント1を保ち、右寄せの設問番号と区分を離す。明細は30ptから始め、折返しの行数に合わせて高さを増やす。受領票に集計行は設けない。
+3. 印刷範囲をA1:E最終行、フィルタをA8:E最終行に設定する。A4横、幅1頁・縦自動、D9の固定、1〜8行目の印刷時の繰返しを維持する。2025年4月11日受領の版は82問の受領控えとしてDownloadsに保存する。
+
+**中京の根拠表と回答一覧**は前掲のExcel成形手順に従う。設計と運用実績の根拠表には `chukyo-evidence.xlsx` を使い、列を「No. / Question ID / Control design / Operating record / Record date / Source / Review status / Gap or next check」とし、列幅の目安は順に9・16・27・30・15・23・17・29。林のOneDrive用回答一覧には `chukyo-checklist.xlsx` を使い、「No. / Question ID / Scope or question / Response status / Answered on / Answer version / Supporting record / Owner」（12・16・42・17・15・15・38・20）。英文の列見出しは30pt、明細は34ptを出発点にする。管理欄の番号・版・基準日・作成者・確認者は各文書の値を入れる。英語のラベルに差し替える場合は語が折り返されない幅を確保し、印刷フッタの組織・用途も英語にする。両表は発行元の質問番号で突き合わせる。最終版の未回答数を `COUNTIF` で出す場合は、全設問の状態欄を確認し、未回答の表記を統一して実明細の範囲を数える。集計ラベルは必要に応じて明細外のA〜Cを結合して全文を入れる。
+
+**英文草稿と提出要約**は `chukyo-response.docx` を開き、英語の題・管理欄・宛先・節名・フッタを入れる。節は `Scope of the response`、`Design and operating evidence`、`Questions requiring confirmation`、`Next submission` などを本文に合わせて使う。提出用のWordを `bin/office-pdf` でPDFに保存し、文書番号・版・日付をそろえる。2025年4月は裏付け不足の再委託先5問を未確定として残し、当時の期限に対する1週間の延長を記録する。2026年9月11日の確定分は実際の回答日と版を入れ、未回答0問と次回提出が契約更新45日前であることを示す。照会先の控えはTXT、Kevinとの延長合意と次回期限は英文EMLで保存する。
+
 ## PowerPointの使い方
 
 `Presentation(型)`を開き、実レイアウト `slide_layouts[0..4]` を使う。順に「表紙」「見出しと本文」「2段」「表」「図」。共通の社名ロゴと罫線・部門表記はマスター上にあり、本文は入っていない。
@@ -72,6 +85,7 @@ RISK-031の評価表には `chukyo-checklist.xlsx` を使い、例えば「対�
 
 - `\CheckHeading{題}{文書番号}{版}{点検日}{記録者}`、`\CheckSection{見出し}`、`\CheckNote{注記}`、`ApprovalTable`環境、`\CheckSignatures{点検者}{確認者}` を用意している。
 - 表は証跡番号・点検項目・照合した記録・結果・確認者の5列。本文幅166mmの内側に収まり、見出しは続頁に繰り返す。原稿にある行だけ `番号&項目&根拠&結果&確認者\\\hline` で追加する。型の中に空の記入行・架空の印・署名はない。署名の名前欄もマクロを呼んだときだけ作る。
+- 表に付く注記・署名は `\begin{ApprovalTable}[\CheckNote{注記}\CheckSignatures{点検者}{確認者}]` のように開始時の角括弧へ渡す。末尾明細は `\\*` で閉じ、直後に `\end{ApprovalTable}` を置く。型は左右の縦罫に揃う横罫を引き、末尾明細・注記・署名を同じ頁に置く。注記も署名もない表は角括弧を省略し、末尾まで `\\\hline` を使う。
 - 署名付き紙の点検票は、中身のある原紙を先に組み、手書きの署名・筆記が必要な段階でimagegen skillを読んで素材を作る。活字の氏名を手書き署名の代わりにしない。内容と署名を備えた紙面を `bin/scan` に通し、画像だけのPDFを作る。本段階のTeX見本は組版確認用で、署名済みスキャンではない。
 
 ## 型を通さないもの
@@ -82,11 +96,4 @@ RISK-031の評価表には `chukyo-checklist.xlsx` を使い、例えば「対�
 
 - 山田の受領資料と有効期間の対照表には `chukyo-evidence.xlsx` を使う。6行目を「No.／資料名／版・発行番号／受領日／有効開始／有効終了／照合状態／根拠・次の確認」にし、列幅の目安を順に 7・29・22・14・14・14・15・30 とする。No.は `CD Number`、資料名と発行番号は `CD Text`、受領日と有効期間は `CD Date`。資料に有効期間の記載がない場合は該当日付を空欄にし、根拠欄にその旨を記す。点検の実施日・発行日・受領日は原記録で区分する。
 - 井上への条件と確認事項は `chukyo-response.docx` の見出しを「対象と判断／照合した根拠／継続条件／担当と次の確認」に差し替えて書く。管理会議の要点は `chukyo-control.pptx`。8月26日の提出12資料・更新待ち3件による保留と、9月20日の訂正根拠の照合・佐々木の条件付き継続を経過順に扱う。購買台帳の抽出CSVと照会EMLは元の形式で作り、2025年のRISK-031とは別の案件として管理する。
-- 日高のPDFは同じ `TEXINPUTS` で `\documentclass{hidaka-storage}` を選ぶ。`\HidakaHeading{題}{発行番号}{版}{発行日}{作成者}` と `\HidakaSection{見出し}` を使い、保管統制の説明は本文を直接PDFにする。現地点検票は本文に対象と実施日を入れ、`HidakaInspection` 環境に「確認箇所 & 点検項目 & 原記録・所見 & 判定」の実明細を並べ、各行を `\\\hline` で閉じる。続頁には列見出しが入る。本文幅は162mm。署名欄は `\HidakaSignature{点検者の署名}{立会者の署名}` を必要な原稿だけで呼ぶ。各画像は幅43mm・高さ9mm以内を目安に `\includegraphics[width=43mm,height=9mm,keepaspectratio]{画像}` で入れる。成形時に署名素材を作って組んだ原紙を `bin/scan` に通す。見本のスキャンは空の署名欄で紙面を確認したもの。
-
-## b006の質問票の印刷見本
-
-| 見本 | 印刷画像 | 確認箇所 |
-|---|---|---|
-| [3行のXLSX](../../scratch/p03-security-grc-analyst/b006/work/templates-0004/examples/sanwa-assurance-3.xlsx) | [1頁](../../scratch/p03-security-grc-analyst/b006/work/templates-0004/render/sanwa-assurance-3/sanwa-assurance-3-1.png) | 右寄せの「64」と右隣の「64件の受付記録」の間隔 |
-| [48問のXLSX](../../scratch/p03-security-grc-analyst/b006/work/templates-0004/examples/sanwa-assurance-48.xlsx) | [1頁](../../scratch/p03-security-grc-analyst/b006/work/templates-0004/render/sanwa-assurance-48/sanwa-assurance-48-1.png)、[2頁](../../scratch/p03-security-grc-analyst/b006/work/templates-0004/render/sanwa-assurance-48/sanwa-assurance-48-2.png)、[3頁](../../scratch/p03-security-grc-analyst/b006/work/templates-0004/render/sanwa-assurance-48/sanwa-assurance-48-3.png) | 質問票番号・発行日・回答期限、繰返し見出し、白い回答欄、頁番号 |
+- 日高のPDFは同じ `TEXINPUTS` で `\documentclass{hidaka-storage}` を選ぶ。`\HidakaHeading{題}{発行番号}{版}{発行日}{作成者}` と `\HidakaSection{見出し}` を使い、保管統制の説明は本文を直接PDFにする。現地点検票は本文に対象と実施日を入れ、`HidakaInspection` 環境に「確認箇所 & 点検項目 & 原記録・所見 & 判定」の実明細を並べる。本文幅は162mmで、続頁にも列見出しを出す。署名がある場合は `\begin{HidakaInspection}[\HidakaSignature{点検者の署名}{立会者の署名}]` とし、通常の明細を `\\\hline`、末尾明細を `\\*` で閉じる。その直後に `\end{HidakaInspection}` を置くと、型は青緑の横罫を左右の縦罫に揃え、署名欄を末尾明細と同じ頁に置く。署名がない場合は角括弧を省略し、末尾まで `\\\hline` を使う。各署名画像は幅43mm・高さ9mm以内を目安に `\includegraphics[width=43mm,height=9mm,keepaspectratio]{画像}` で入れる。成形時に署名素材を作って組んだ原紙を `bin/scan` に通す。
