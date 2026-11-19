@@ -1067,8 +1067,19 @@ fn usage_limit_does_not_turn_a_failed_audit_into_a_hold() {
             .to_string();
         limit_failure(&f, &job);
         f.once();
+        let until = f.state()["limit_until"].clone();
+        f.once();
+        assert_eq!(
+            f.state()["limit_until"],
+            until,
+            "one cooldown per failed job"
+        );
         expire_limit(&f);
         f.once();
+        assert_ne!(
+            f.state()["batches"]["p01-test/b001"]["audit"]["job"],
+            json!(job)
+        );
     }
     assert!(!f.holds().contains("| b001 |"), "{}", f.holds());
 }

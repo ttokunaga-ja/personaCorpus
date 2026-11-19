@@ -1009,7 +1009,9 @@ impl Pilot {
             return Ok(());
         }
         if name.is_empty() {
-            self.launch(p, b, "audit", audit)?;
+            if !self.paused() {
+                self.launch(p, b, "audit", audit)?;
+            }
             return Ok(());
         }
         if audit.get("hashes") != Some(&self.hashes(p, b)?) {
@@ -1026,6 +1028,7 @@ impl Pilot {
                 let mut audit = audit;
                 if self.jobs.get(name).map(String::as_str) == Some("failed") && self.limited(name) {
                     self.note_limit(name)?;
+                    audit.as_object_mut().unwrap().remove("job");
                     audit["attempts"] = json!((audit["attempts"].as_i64().unwrap_or(1) - 1).max(0));
                     rec["audit"] = audit;
                     self.state["batches"][&key] = rec;
