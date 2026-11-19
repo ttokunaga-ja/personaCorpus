@@ -1233,3 +1233,54 @@ fn milestones_advance_breadth_first_with_a_cap_on_active_personas() {
     assert_eq!(brief_context(&f, "p02-roadmap-r2")["target"], 60);
     assert!(f.cli(&["status", "--target", "90"]).contains("31/60"));
 }
+
+#[test]
+fn each_persona_stops_at_the_scale_in_its_definition() {
+    let f = Fixture::new();
+    fs::create_dir_all(f.r.join("config")).unwrap();
+    fs::write(f.r.join("config/limits.json"), r#"{"milestone":30}"#).unwrap();
+    fs::write(
+        f.r.join("personas/p01-test.md"),
+        "# test\n\n## 規模の目安\n\n全体で 40 件。最初の区切りは 30 件で、月次締めを中心にする。\n\n## 書かないもの\n",
+    )
+    .unwrap();
+    fs::write(f.r.join("personas/p02-test.md"), "# test").unwrap();
+    fs::create_dir_all(f.r.join("progress/p02-test")).unwrap();
+    for p in ["p01-test", "p02-test"] {
+        fs::write(
+            f.r.join(format!("manifests/{p}.tsv")),
+            "x\thash\t1\tdate\n".repeat(31),
+        )
+        .unwrap();
+    }
+    let status = f.cli(&["status", "--target", "90"]);
+    assert!(status.contains("p01-test\t31/40"), "{status}");
+    assert!(status.contains("p02-test\t31/60"), "{status}");
+    fs::write(
+        f.r.join("manifests/p01-test.tsv"),
+        "x\thash\t1\tdate\n".repeat(40),
+    )
+    .unwrap();
+    let status = f.cli(&["status", "--target", "90"]);
+    assert!(status.contains("p01-test\t40/40"), "{status}");
+    assert!(status.contains("p02-test\t31/60"), "{status}");
+}
+
+#[test]
+fn a_roadmap_that_asks_to_review_the_scale_is_held_at_once() {
+    let f = Fixture::new();
+    f.once();
+    f.roadmap(Some("| b001 | 月次締め | 30 | 重点 | 内容 | 回避 | |\n"));
+    let path = f.r.join("progress/p01-test/roadmap.md");
+    let text = fs::read_to_string(&path).unwrap();
+    fs::write(
+        &path,
+        format!("{text}\n規模の見直し：定義の出来事で固有に作れるのは残り 10 件\n"),
+    )
+    .unwrap();
+    f.job("p01-roadmap", "done");
+    f.once();
+    assert!(f.holds().contains("規模の見直し"), "{}", f.holds());
+    assert!(f.jobs().get("p01-roadmap-r2").is_none());
+    assert_eq!(f.called("batch", "start"), 0);
+}
