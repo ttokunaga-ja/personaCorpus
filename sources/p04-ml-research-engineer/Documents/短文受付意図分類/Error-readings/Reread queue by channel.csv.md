@@ -1,0 +1,14 @@
+---
+path: Documents/短文受付意図分類/Error-readings/Reread queue by channel.csv
+kind: text
+author: Joshua Ramirez
+derived_from:
+---
+
+```csv
+channel,unique_documents,Vanessa_reading_assignments,Fatima_reading_assignments,total_reading_assignments,May_pilot_documents_included
+Web form,2160,2160,2160,4320,108
+Shared inbox,1440,1440,1440,2880,72
+Service desk relay,1200,1200,1200,2400,60
+Total,4800,4800,4800,9600,240
+```

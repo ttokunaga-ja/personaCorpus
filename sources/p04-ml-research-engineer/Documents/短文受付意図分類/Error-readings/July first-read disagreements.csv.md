@@ -1,0 +1,16 @@
+---
+path: Documents/短文受付意図分類/Error-readings/July first-read disagreements.csv
+kind: text
+author: Fatima Rahman
+derived_from:
+---
+
+```csv
+border,disagreed_docs,resolved_after_reread,held_for_insufficient_text
+Schedule,70,54,16
+Cancellation,56,42,14
+Document and invoice,48,34,14
+Correction,46,32,14
+Progress,53,40,13
+Equal requests,39,16,23
+```

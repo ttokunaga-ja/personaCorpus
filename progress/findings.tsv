@@ -1334,3 +1334,4 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-19	p09-ux-researcher	b001	check	2	source	Documents/配車の見通し調査/Planning/2024-04-25 Dispatch handoff observation plan.docx	body token overlap 0.421 < 0.5
 2026-11-19	p04-ml-research-engineer	b001	build-review	0	V2	Documents/Lab-meetings/2024/Reading the borderline requests.pptx	表紙の管理欄で番号MDR-STI-20240718-LM-01-R01は表示されるが、型のREADMEと表紙見本が指定する「Document ID」のラベルが欠けている。
 2026-11-19	p03-security-grc-analyst	b002	coordinator	0	other	Documents/リスク/RISK-031/木村さんと合わせた完了条件.xlsx	統括の抜き取りで不合格
+2026-11-19	p04-ml-research-engineer	b001	coordinator	0	other	Documents/Correspondence/July intake label guide for the handoff.eml	統括の抜き取りで不合格
