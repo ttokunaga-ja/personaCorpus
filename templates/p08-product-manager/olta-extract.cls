@@ -31,5 +31,10 @@
   {\LARGE\bfseries\color{OFteal}#1\par}
   {\small 文書番号：#2\quad 版：#3\quad 作成者：#5\par
     発行日：#4\quad 対象期間：#6\par}\medskip}
+\newcommand{\OFGuideRecord}[6]{%
+  \fancyhead[R]{\small\color{OFteal}承認担当者向け手引き}%
+  {\LARGE\bfseries\color{OFteal}#1\par}
+  {\small 文書番号：#2\quad 版：#3\quad 作成者：#5\par
+    発行日：#4\quad 配布先：#6\par}\medskip}
 \newcommand{\OFSection}[1]{\par\medskip{\large\bfseries\color{OFteal}#1}\par}
 \newcommand{\OFHead}[1]{\textcolor{white}{\bfseries #1}}

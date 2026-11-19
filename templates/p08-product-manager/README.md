@@ -1,24 +1,27 @@
 # 石田由美子の文書の型
 
-オルタ現場システムズ株式会社（104人）のプロダクト企画と、若松設備管理株式会社から受領する確認書と受付手順の書式。通常のOfficeファイルを開き、別名保存して使う。型には組織表示・節見出し・書式だけを持ち、案件本文・仮番号・記入例・明細・合計は入れていない。
+オルタ現場システムズ株式会社（104人）のプロダクト企画と、取引先から受領する文書の書式。Officeの型を開き、別名保存して使う。型には組織表示・節見出し・書式だけを持ち、案件本文・仮番号・記入例・明細・合計は入れていない。
 
 | 名前 | 組織・利用者と用途 | 実際のファイル名 | 見た目 |
 |---|---|---|---|
-| 公開後報告・判断記録 | オルタ、石田。申請再利用の要件、判断理由、指標の定義と公開後報告 | `olta-report.docx` | A4縦、表紙なし。巡回経路ロゴ、青緑の題、4節、細い罫線表 |
+| 公開後報告・判断記録 | オルタ、石田。申請再利用の要件、店舗権限の例外条件、判断理由、指標の定義と公開後報告 | `olta-report.docx` | A4縦、表紙なし。巡回経路ロゴ、青緑の題、4節、細い罫線表 |
 | 打合せ記録 | オルタ、石田。小野との受付観察、社内の見積り確認と決定 | `olta-minutes.docx` | 共通便箋。日時と参加者・確認事実・決定・担当と期限の4節 |
 | 管理者へのご案内 | オルタ、石田・中川。若松の管理者説明会への案内・準備連絡 | `olta-guidance.docx` | 共通便箋、3節。発信元がオルタのため自社ロゴを使う |
 | 指標の定義・集計 | オルタ、三浦・石田。期間・分母・分子と採用率の照合 | `olta-metrics.xlsx` | A4横、青緑白抜き見出し。7列、分母・分子・比率・目標を分離 |
 | 要望と工数の照合 | オルタ、石田・太田。要望の出所、見積人週、依存工程、公開時の扱いを要望番号単位で照合 | `olta-requests.xlsx` | A4横、青緑白抜き見出し。先頭に順位と要望番号、工数の右に依存工程 |
 | 拠点別の利用確認 | オルタ、石田・中川。12拠点の利用と教育を区別して整理 | `olta-sites.xlsx` | A4横、共通書式。7列、教育状況と利用状況を別列にする |
 | 投資回収の前提比較 | オルタ、中野・石田。有償社数、月次寄与、初期費用を条件別に置き、回収月数と未確認事項を比較 | `olta-payback.xlsx` | A4横、共通書式。7列、金額と回収月数を右揃え、右隣の未確認事項は字下げ |
-| 企画・公開範囲の説明 | オルタ、石田。太田との案の比較、営業への公開範囲説明、公開後報告、投資案と試行の説明 | `olta-review.pptx` | 16:9、白地、上左の巡回経路ロゴと社名、青緑の題、下罫線。1マスター・5レイアウト、スライド0枚 |
-| 利用状況の出力・経営会議資料 | オルタ、石田。Officeを経ず直接PDFにする利用記録と経営会議への提出資料 | `olta-extract.cls` | LuaLaTeX、A4縦、共通ロゴ、用途別の右ヘッダ、青緑見出しと表ヘッダ、繰返しヘッダ・自動頁 |
+| 企画・公開範囲の説明 | オルタ、石田・原田。開発案の比較、営業への説明、公開後報告、投資案と承認担当者向けの演習 | `olta-review.pptx` | 16:9、白地、上左の巡回経路ロゴと社名、青緑の題、下罫線。1マスター・5レイアウト、スライド0枚 |
+| 利用状況の出力・経営会議資料・承認担当者向け手引き | オルタ、石田。利用記録、経営会議への提出資料、代理承認の配布用手引きを直接PDFにする | `olta-extract.cls` | LuaLaTeX、A4縦、共通ロゴ、用途別の右ヘッダ、青緑見出しと表ヘッダ、繰返しヘッダ・自動頁 |
 | 拠点確認書 | 若松設備管理、小野。顧客発の拠点確認と正式な添付回答 | `wakamatsu-confirmation.docx` | A4縦、表紙なし。屋根と幹の図形、灰緑・明朝、控えめな事務用紙 |
 | 依頼受付の手順 | 若松設備管理、管理部の小野。依頼受付の流れを案内する直接出力のテキストPDF | `wakamatsu-intake.cls` | LuaLaTeX、A4縦。屋根と幹の図形、灰緑の細い上罫、明朝体、管理部と自動頁 |
+| 店舗別の役割・閲覧範囲 | ひかり店舗管理、管理担当の竹内。18店舗の役割・閲覧範囲・承認条件をオルタへ送る | `hikari-store-roles.xlsx` | A4横。えんじ色のひさし形と社名、生成りの管理ラベル、6列のえんじ色見出し |
 
 受付観察は `olta-minutes.docx`、再利用要件は `olta-report.docx` を使う。開発向け比較と営業向け説明は共通の `olta-review.pptx` から別々に作る。DOCXと同内容のPDFは完成したDOCXから `bin/office-pdf` で出し、小野から届く受付手順は若松の `wakamatsu-intake.cls` で組む。
 
 2024年12月〜2025年1月の年間計画では、全体開発の旧稿と試行範囲の文書を `olta-report.docx`、福田向け投資案と試行担当者向けの説明を `olta-review.pptx` からそれぞれ作る。経営会議に直接渡すPDFには `olta-extract.cls` の経営会議用管理欄を使う。商談条件のCSVには確認済み・未確認の区別を持たせる。見込4社と有償移行の想定は別に扱い、1月24日の提案は試行に限定する。試行で確かめる項目と再判断の条件は原稿に従う。決定メール・説明資料には対象の暦年と会計年度の四半期を併記する。
+
+2025年2〜6月の店舗権限分離では、竹内から届いた役割表に `hikari-store-roles.xlsx`、オルタ側で詰めた例外条件に `olta-report.docx`、担当者向け演習に `olta-review.pptx`、配布する手引きに `olta-extract.cls` の手引き用管理欄を使う。対面協議の合意票は、オルタで用意する用紙なら `olta-minutes.docx` の節と表を使って協議内容の欄を組み、承認した条件と手書きの確認事項を反映した原稿から `bin/scan` で画像だけのPDFにする。
 
 ## 組織の識別と管理項目
 
@@ -27,6 +30,7 @@
 - 自社のWordは上部にロゴと正式社名、下部にプロダクト企画・社名・自動頁。PowerPointは同じ識別をマスターに持つ。Excelは上部にロゴと正式社名、印刷ヘッダにプロダクト企画、フッタに社名と現在頁／総頁。TeXは上部にロゴと社名・用途、下部に部門・社名・現在頁／総頁。
 - 文書番号は `OFS-YYYYMM-用途-連番3桁`。用途は `RP`（報告・定義・判断）、`MT`（議事録）、`NT`（案内）、`KM`（指標集計・試算）、`ST`（拠点表）、`RQ`（要望と工数の照合）、`BR`（スライド）、`EX`（直接出力PDF）。実際の番号・版は計画と事実台帳で決める。同じDOCXとPDFは同じ番号・同じ版。全ての正式文書に日付・作成者・版を添える。期間や基準日と発行日・出力日時を混同しない。
 - 若松のロゴは屋根形と垂直な幹、下の水平線。灰緑 `52644C` と墨 `283C40`、白地。Wordは日本語・欧文とも Noto Serif CJK JP。ヘッダに正式社名、フッタに管理部・社名・自動頁。若松発の正式な確認書は `WSK-YYYYMM-CF-連番3桁`、受付手順は `WSK-YYYYMM-PR-連番3桁`。受領側は発行元の番号を保持する。
+- ひかりのロゴは店頭のひさしとカウンター、右に正式社名。えんじ `87394C`、生成り `F6ECE5`、墨 `302B2D`。日本語・欧文とも Noto Sans CJK JP を使い、ExcelのNormal・管理欄・表にも設定する。印刷ヘッダに店舗運営、フッタに社名・管理担当・現在頁／総頁。ひかりの役割表の管理番号は `HKM-YYYYMM-RL-連番3桁`。作成日・版・担当を併記し、受領側でも発行元の番号を保持する。
 - オルタの識別には青緑の巡回経路を使う。織庭の藍と織り目、湊梁建設の橙と柱梁とは、図形と配色で判別できる。
 
 ## Wordで中身を入れる
@@ -35,7 +39,20 @@
 
 A4縦、左右23mm、上29mm、下23mm。Normalは10.5pt、行間1.16、段落後6pt。Titleは24pt、Heading 1は13pt、Heading 2は11pt、見出しは主色・太字。`OF Metadata`、`OF Note`、Captionは9pt。社外型でもスタイル名は同じで、実フォントと主色が若松のものになる。
 
-必要な表だけ追加し `OF Table` を指定する。先頭行の段落は `OF Table Header`（9pt・太字・白）、本文は `OF Table Body`（9pt・墨）を指定する。表の先頭行の塗りは型のfirstRow条件が持つ。見出し行に `w:tblHeader` を付け、ページごとに繰り返す。列幅の合計は本文幅164mm以内にする。長文のセルは折返し、固定行高を使わず、1行がページより高くならないよう本文へ移す。明細と本文は原稿にある分だけ追加する。
+必要な表だけ追加し `OF Table` を指定する。先頭行の段落は `OF Table Header`（9pt・太字・白）、本文は `OF Table Body`（9pt・墨）を指定する。表の先頭行の塗りは型のfirstRow条件が持つ。列幅の合計は本文幅164mm以内にし、固定レイアウトでは列と各セルに同じ幅を設定する。右寄せの数値の後に文字が来る列では、セルの左右余白を確保し、必要なら文字列側に1字分の左インデントを足す。長文のセルは折返し、行高は自動。1行がページより高くなる内容は本文に移す。明細と本文は原稿にある分だけ追加する。
+
+見出し行を各ページに再掲し、同じ行の店舗番号と条件を同一ページに収める。Wordでは「表のプロパティ」→「行」で全行の「行の途中で改ページする」を外し、1行目に「各ページにタイトル行を表示する」を指定する。Word 4型の `OF Table` には行分割を防ぐ既定値（`w:trPr/w:cantSplit`）がある。`bin/render` の LibreOffice 24.2.7.2 では、この既定値だけだと行がページをまたぐ。Pythonで成形するときは次のとおり作成する全行に直接指定する。
+
+```python
+from docx.oxml import OxmlElement
+
+for index, row in enumerate(table.rows):
+    properties = row._tr.get_or_add_trPr()
+    if properties.find(OxmlElement("w:cantSplit").tag) is None:
+        properties.append(OxmlElement("w:cantSplit"))
+    if index == 0 and properties.find(OxmlElement("w:tblHeader").tag) is None:
+        properties.append(OxmlElement("w:tblHeader"))
+```
 
 ## Excelで明細を作る
 
@@ -48,6 +65,13 @@ A4縦、左右23mm、上29mm、下23mm。Normalは10.5pt、行間1.16、段落�
 5. `auto_filter.ref` はA6から最終明細のG列まで。合計・注記を含めない。`print_area` はA1から実内容の最終行G列まで。A4横、幅1ページ・高さ自動、1〜6行目の印刷繰返し、C7固定、左右0.3inch・上下0.4inch。全ページをレンダリングし、読める文字サイズ・番号・列見出し・行の折返しを確認する。数式は `bin/recalc` で計算して確認する。
 
 回収比較の列はAから順に試算条件、有償想定社数、月次寄与（円／社）、初期費用（円）、回収月数、未確認の条件、出典・扱い。A・F・Gは `OF Text`、Bは `OF Number`、C・Dは `OF Yen`（円単位・桁区切り）、Eは `OF Months`（小数1桁）。月次寄与と初期費用の範囲は原稿に従う。単純回収月数を使う場合、E7に `=IF(OR(COUNT(B7:D7)<>3,B7<=0,C7<=0),"",D7/(B7*C7))` を入れ、実際の明細行に合わせて参照を変える。未確認の入力セルは値を空にし、回収月数が空になる理由と確認先はF・Gへ記す。仮定の異なるケースは集計せず、必要な注記を末尾へ入れる。
+
+### ひかり店舗管理の役割表
+
+1. B3:C3に発行元の管理番号（例 `HKM-202502-RL-001`）、E3:F3に版、B4:C4に作成日（実日付、`yyyy-mm-dd`）、E4:F4に担当を入れる。いずれも結合範囲の左端へ書き込む。入力欄は折返し・縦中央、管理番号行は27pt、日付行は24pt。
+2. 7行目から店番、店舗、対象の役割、閲覧範囲、承認・代理の条件、確認事項を原稿から入れる。店番の整数は右寄せ・右インデント1・右罫線付きの `HK Number`、B〜F列は左寄せ・左インデント1の `HK Text`。実セルにだけスタイルを割り当て、明細は上揃え・折返しにする。見本は38pt高。原稿が長いときは必要な行だけ広げる。店番に先頭ゼロや文字が含まれる場合は、文字列として `HK Text` で保存する。
+3. 役割明細は通常、合計を置かない。店舗数を明示する必要があれば末尾に確認済みの対象店舗数を置く。同じ店舗に複数行ある場合は重複を除く。数値には `HK Total`（生成り・上二重罫・整数）、ラベルには同スタイルを指定して左寄せにする。注記があるときだけ、末尾のA:Fを結合して `HK Note` と必要な行高を設定する。見本の注記は26pt。
+4. `auto_filter.ref` はA6から最終明細のF列まで、`print_area` はA1から実内容の最終行F列まで。A4横、幅1ページ・高さ自動、1〜6行目を各ページに再掲、C7固定。左右0.32inch、上0.44inch、下0.47inch。全ページを見て、番号・日付・担当、店番と店舗名の間隔、最終行の折返しを確認する。
 
 ## PowerPointで説明資料を作る
 
@@ -63,6 +87,8 @@ A4縦、左右23mm、上29mm、下23mm。Normalは10.5pt、行間1.16、段落�
 
 経営会議へ直接提出する場合は、本文の最初に `\OFMeetingRecord{題}{文書番号}{版}{発行日}{作成者}{対象期間}` を使う。右ヘッダが「経営会議資料」になり、番号・版・発行日・作成者・計画の対象期間を表示する。見出し・表・次頁は利用状況出力と同じ仕様。
 
+承認担当者へ配る手引きでは、本文の最初に `\OFGuideRecord{題}{文書番号}{版}{発行日}{作成者}{配布先}` を使う。右ヘッダに「承認担当者向け手引き」を表示する。代理者を決める手順と担当外の閲覧可否は別の節で示し、手順の見出しに `\OFSection` を使う。
+
 `wakamatsu-intake.cls` も原稿と同じディレクトリへコピーし、`\documentclass{wakamatsu-intake}` で読み込む。`\WSKRecord{題}{文書番号}{版}{発行日}{作成者}` に送付元の値を入れ、手順の区切りを `\WSKStep{見出し}` で示す。日本語は Noto Serif CJK JP、欧文は Liberation Serif、本文11pt・墨、題と見出しは灰緑。必要に応じて上と同じ方法で表を置き、見出し行は `\rowcolor{WSKgreen}` と `\WSKHead{列名}` を使う。出力PDFはテキストを選択できることを確認する。
 
 ## 型を使わない記録
@@ -71,7 +97,7 @@ CSVは原稿の素の列と値だけを出し、ロゴ・管理行を混入さ�
 
 ## 組版見本と検証先
 
-見本は `scratch/p08-product-manager/b003/work/templates-0002/examples/`、画像は `scratch/p08-product-manager/b003/work/templates-0002/render/`。見本中の番号・明細・試算値は組版確認用。成形時の値は計画・台帳・原稿から取る。
+見本は `scratch/p08-product-manager/b004/work/templates-0004/examples/`、画像は `scratch/p08-product-manager/b004/work/templates-0004/render/`。見本中の番号・明細・試算値は組版確認用。成形時の値は計画・台帳・原稿から取る。
 
 | 型 | examples以下の見本 | render以下の全頁一覧 |
 |---|---|---|
@@ -83,9 +109,13 @@ CSVは原稿の素の列と値だけを出し、ロゴ・管理行を混入さ�
 | `olta-sites.xlsx` | `olta-sites-3.xlsx`・`olta-sites-38.xlsx` | `excel-sites.jpg` |
 | `olta-requests.xlsx` | `olta-requests-3.xlsx`・`olta-requests-38.xlsx` | `excel-requests.jpg` |
 | `olta-payback.xlsx` | `olta-payback-3.xlsx`・`olta-payback-38.xlsx` | `excel-payback.jpg` |
+| `hikari-store-roles.xlsx` | `hikari-store-roles-3.xlsx`・`hikari-store-roles-18.xlsx` | `excel-hikari.jpg` |
 | `olta-review.pptx` | `olta-review.pptx`（全5レイアウト） | `slides.jpg` |
 | `olta-extract.cls` | `olta-extract-short.tex`・`olta-extract-long.tex` と `olta-extract-short.pdf`・`olta-extract-long.pdf` | `tex-extract.jpg` |
 | `olta-extract.cls`（経営会議） | `olta-meeting-short.tex`・`olta-meeting-long.tex` と `olta-meeting-short.pdf`・`olta-meeting-long.pdf` | `tex-meeting.jpg` |
+| `olta-extract.cls`（承認担当者向け手引き） | `olta-guide-short.tex`・`olta-guide-long.tex` と `olta-guide-short.pdf`・`olta-guide-long.pdf` | `tex-guide.jpg` |
 | `wakamatsu-intake.cls` | `wakamatsu-intake-short.tex`・`wakamatsu-intake-long.tex` と `wakamatsu-intake-short.pdf`・`wakamatsu-intake-long.pdf` | `tex-wakamatsu.jpg` |
 
-各頁のPNGは画像先にある見本と同じ拡張子なしの名前のフォルダに格納。Excelの管理欄と明細の列境界は `excel-metrics-detail.png`、`excel-sites-detail.png`、`excel-requests-detail.png`、`excel-payback-detail.png` で確認できる。実行記録は `scratch/p08-product-manager/b003/work/templates-0002/commands.json`、構造検査は `scratch/p08-product-manager/b003/work/templates-0002/structure.json`。
+改ページ検証では、Word 4型それぞれで対象03の取扱いを32行にした。同じ内容を、表スタイルの既定値だけの見本と、全行に直接指定した見本で出力した。直接指定した見本では対象03と取扱い32行が揃って2ページ目に移り、列見出しも再掲される。各型の比較画像は `word-row-guidance.jpg`、`word-row-minutes.jpg`、`word-row-report.jpg`、`word-row-confirmation.jpg`。
+
+各頁のPNGは画像先にある見本と同じ拡張子なしの名前のフォルダに格納。Excelの管理欄と明細の列境界は `excel-metrics-detail.png`、`excel-sites-detail.png`、`excel-requests-detail.png`、`excel-payback-detail.png`、`excel-hikari-detail.png` で確認できる。実行記録は `scratch/p08-product-manager/b004/work/templates-0004/commands.json`、構造検査は `scratch/p08-product-manager/b004/work/templates-0004/structure.json`。
