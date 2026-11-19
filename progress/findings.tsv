@@ -2522,3 +2522,5 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-19	p12-support-success-lead	b009	build-review	0	V3	Documents/顧客会議/石狩事務機/0615_分類別の集計.xlsx	1ページ目のA10:F10の結合注記で、末尾「宛先誤りは対象外。」の句点「。」だけが次の行の先頭に送られている。
 2026-11-19	p12-support-success-lead	b009	build-review	1	V2	Documents/顧客会議/石狩事務機/15日の進行_分類を2回見る.docx	1ページ目の進行表はTS Table、文書番号・版・作成日・作成者はTS Metadataになったが、見出し3セル「時刻・内容・担当」はTS Table Bodyに白字を直接指定しており、型と見本のTS Table Headerが適用されず太字になっていない。
 2026-11-19	p02-site-reliability-engineer	b005	coordinator	0	other	Documents/Mail/RJS observations from the 19 August archive check.eml	統括の抜き取りで不合格
+2026-11-19	p07-humanities-researcher	b003	draft-review	0	D3	Documents/Book/Chapter-2/Dues and participation - revised for Edward.docx	§5の未同定8件の段落は原綴り列を検索するよう指示するが、注17が挙げる Place spellings from the January copies.csv は計画で破棄済みで原稿もなく、前回の合格理由にあった章内一覧も現稿にはないため、改稿に示された索引の手順では8件を引けない。
+2026-11-19	p07-humanities-researcher	b003	build-review	0	V5	Documents/Archive/Box-14/Deux plis à garder avec les dispenses ff176-177.pdf	1頁目 f. 176r の本文第4行を拡大すると、左端近くの縦の折り筋は「Val」の V を通るが、V の返しの筆画は交差箇所で連続しており、原稿指定の折り目による途切れが再現されていない。
