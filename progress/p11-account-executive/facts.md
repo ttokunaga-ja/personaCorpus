@@ -98,3 +98,32 @@
 - スレッド「Hollis order - activation wording before signature」①03-18 14:08 Michelle → Lawrence（順次割当を照会）。②14:39 Lawrence → Michelle（Re:、割当段落を引用、署名手続へ回す）。両通とも添付なし。この時点では未締結。
 - HBC-HOL-20250318-ORD-01 v1.0 は03-18午後に双方締結、15:37に契約控え保存。Halstead Branch Connect、2025-04-01〜2026-03-31、上限180席・年額USD 82,000。本番の上限に試行30席を加算せず、週次利用24席はIT報告の試行値。
 - 03-18 16:06 Michelle → Donald、Denise「Hollis - March 18 order complete」（独立、確定注文PDFを実添付）。DivyaがHalstead側の割当準備を持つ。
+
+# Waverley Commercial Storage Inc
+
+## 120席の導入負荷と6月の引継ぎ
+
+- 2025-05-05、Tracy MorenoとMichelle WhitakerがHalstead Branch Connectを120席・年額USD 54,000で締結。注文控えHBC-WAV-20250505-ORD-01の年次期間は2025-07-01〜2026-06-30。先行開放を含む導入6週は05-05週から数え、最終営業日は06-13。
+- Tracyが05-09までに名簿を確定。割当はDispatch 36席、Site Operations 48席、Office 36席。第3・4・5週に当たる05-19、05-28、06-04にそれぞれ開放。開放済み120席は利用実績の人数を表さない。
+- Divya Raoの負荷表HBC-WAV-20250502-IMP-01は、v0.1の第3週18/14時間を、練習4時間の第4週への移動でv1.0の14/14時間に直す。移動後は第4週14/16時間、合計66/76時間（需要/確保）。管理者練習は05-27。
+- 05-07にMichelle・Tracy・Divyaが練習室を下見。電源は壁側。Tracyは空室と掲示カードの撮影を許可し、人物、名札、画面の情報、室外の区画は対象外。室内設営の画像はWaverleyの下見記録と一緒に保管する。
+- 06-13 13:00、Michelle・Tracy・Divya・Darren Vasquezの引継ぎ。名簿更新はTracy、定着相談はDarren、契約条件の照会はMichelleが受け持つ。
+- Tracyのメールは `tracy@waverley-storage.example`。05-01 09:18 Tracy → Michelle「Waverley - can we open in six weeks?」（独立、添付なし）。05-05 15:26 Michelle → Tracy「Waverley - May 5 order and rollout briefing」（独立、注文条件PDFと面談で使った導入説明HBC-WAV-20250505-BRF-01 v1.0のPPTXを実添付）。
+
+## 74%の確認と7月開始の更新
+
+- 利用の観測窓は2026-05-07〜06-05の現地30暦日。業務連絡の送信または受領確認が1件以上ある席を組ごとに一意に数え、ログインだけは含めない。06-08のCSVと集計表HBC-WAV-20260608-ADP-01は同じ窓・定義を使う。
+- 契約席/稼働席はDispatch 36/30、Site Operations 48/37、Office 36/22、計120/89。表の表示は74.2%、面談は整数丸めの74%。Officeの非稼働は14席。
+- 06-11 10:00、MichelleとTracyが120席・年額USD 54,000を据え置くと合意。HBC-WAV-20260611-REN-01は2026-07-01〜2027-06-30の1年。Tracyが06-19までにOfficeの非稼働席を聞き取り、MichelleがDarrenへの引継ぎを確認する。
+- 06-11 14:18 Michelle → Tracy「Waverley - July renewal and June usage counts」（独立）。同日の更新条件PDFと06-08出力の3組別CSVを別々の実ファイルとして添付。
+
+# Merritt Equipment Repair Inc
+
+## 繁忙期の支援要望と年40時間での更新
+
+- 2025-11-07までの記帳済みは年40時間のうち28時間。繁忙週の9時間は28時間の内数。11-12にNasrin Rahmanが無償10時間追加を要望し、年額と分けて検討を求めた。
+- 社内限定のHBC-MER-20251114-REN-01はUSD 72,000・40時間＋無償10時間を仮置きし、11-19 17:00 Denverが期限。Donald Ramirezは11-18に却下し、繁忙週は40時間内で先に予約、枠外作業は見積とMerrittの書面承認が先と指示した。顧客への旧案の送付はない。
+- スレッド「Merritt: approval for ten extra hours」①11-14 13:42 Michelle → Donald（旧案PDFを実添付）。②11-18 09:16 Donald → Michelle（Re:、元メールの依頼段落を引用、旧案の再添付なし）。
+- 11-21 10:00にMichelleとNasrinが、2025-12-01〜2026-11-30の更新を年40時間・年額USD 72,000で合意。更新条件HBC-MER-20251121-REN-01が参照する範囲はHBC-MER-20251121-SVC-01 v1.0。後者の社内審査版はHBC-MER-20251118-SVC-01 v0.2。
+- 年40時間に含む業務は管理者相談、運用整理、担当交代の引継ぎ。Nasrinが繁忙期の候補日を伝え、Darrenが予約時に残高を知らせ、実績時間を差し引く。枠外は別見積とMerrittの書面承認の後に着手する。
+- Nasrinのメールは `nasrin@merritt-equipment.example`。11-12 10:14 Nasrin → Michelle「Merritt - time for the busy weeks」（独立、添付なし）。11-21 13:08 Michelle → Nasrin「Merritt - agreed December renewal and support」（独立、更新条件PDFと確定支援範囲DOCXを実添付）。

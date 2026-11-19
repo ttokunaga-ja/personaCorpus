@@ -2498,3 +2498,6 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-19	p02-site-reliability-engineer	b005	check	0	source	Documents/Customer-updates/Ticket archive recovery guidance.docx	body token overlap 0.375 < 0.5
 2026-11-19	p02-site-reliability-engineer	b005	check	1	source	Documents/Customer-updates/Ticket archive recovery guidance.docx	body token overlap 0.375 < 0.5
 2026-11-19	p02-site-reliability-engineer	b005	check	2	source	Documents/Customer-updates/Ticket archive recovery guidance.docx	body token overlap 0.375 < 0.5
+2026-11-19	p11-account-executive	b004	coordinator	0	other	Documents/Accounts/Waverley/May 7 room and roster walk-through.docx	統括の抜き取りで不合格
+2026-11-19	p11-account-executive	b004	coordinator	0	other	Documents/Accounts/Waverley/Room check - marked at Waverley.pdf	統括の抜き取りで不合格
+2026-11-19	p11-account-executive	b004	coordinator	0	other	Documents/Mail/Merritt/Nasrin - time for the busy weeks.eml	統括の抜き取りで不合格

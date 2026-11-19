@@ -6,9 +6,9 @@ Office の型は通常の DOCX・XLSX・PPTX。開いて別名で保存する。
 |---|---|---|---|
 | Adoption Review | Halstead の Michelle。利用明細を確認し、増席を見送る理由と後続対応を記録する | `halstead-adoption-review.docx` | 縦、表紙なし。青緑の題、煉瓦色の太い横罫、ベースライン・判断・後続対応の見出し |
 | Workshop Record | Halstead の Michelle と Divya。改善会の決定、部門ごとの担当、確認時期を記録する | `halstead-workshop-record.docx` | 縦、表紙なし。決定・部門担当・確認時期の見出し。表で役割と宿題を対応づける |
-| Scope of Services | Halstead の Michelle が JDH に渡す運用支援範囲。Jonathan が契約条件との整合を確認する | `halstead-support-scope.docx` | 縦、表紙なし。支援範囲・双方の責任・運用レビューの見出し |
-| Department Adoption | Halstead の Michelle。部門別の契約席・稼働席・利用率と確認事項を集計する | `halstead-adoption.xlsx` | 横。上部にロゴ・管理欄、青緑の列見出し、青灰色の明細と集計帯 |
-| Adoption Workshop / Proposal Briefing | Halstead の Michelle と Divya の改善会。Michelle が Ahmed に提示する提案範囲と未対応条件の説明にも使う | `halstead-workshop.pptx` | 16:9。左の青緑の縦罫、小型ロゴ、下の煉瓦色の罫。マスター1つ、レイアウト5種、スライド0枚 |
+| Scope of Services | Halstead の Michelle が JDH や Merritt に渡す運用支援範囲。Jonathan が契約条件との整合を確認する | `halstead-support-scope.docx` | 縦、表紙なし。支援範囲・双方の責任・運用レビューの見出し |
+| Department Adoption | Halstead の Michelle。部門別の契約席・稼働席・利用率を集計し、Divya が Waverley の導入負荷表にも使う | `halstead-adoption.xlsx` | 横。上部にロゴ・管理欄、青緑の列見出し、青灰色の明細と集計帯 |
+| Adoption Workshop / Proposal Briefing | Halstead の Michelle と Divya の改善会。Michelle が Ahmed への提案説明と Waverley の導入・更新面談にも使う | `halstead-workshop.pptx` | 16:9。左の青緑の縦罫、小型ロゴ、下の煉瓦色の罫。マスター1つ、レイアウト5種、スライド0枚 |
 | RFP Cross-Reference | Halstead の Michelle が、Ahmed の要求番号と回答箇所を結び、Allison が確認した未対応条件を追う | `halstead-rfp-matrix.xlsx` | 横。青緑の列見出しと青灰の集計帯。必須区分、回答状態、参照箇所を別の列で扱う |
 | Conditional Proposal Response | Halstead の Michelle が、Donald の承認範囲で回答と例外を Ahmed に提示する | `halstead-rfp-response.cls` | LuaLaTeX、縦、表紙なし。青緑の社名と煉瓦色の罫。例外の判定と回答箇所を並べる表を持つ |
 | Contract Terms Review | Halstead の Marisol と Jonathan が条項を確認し、Michelle が責任上限の対案を Ahmed に返す | `halstead-terms-redline.docx` | 縦、表紙なし。煉瓦色の取消線と下線で条項の削除案と追加案を示す |
@@ -24,13 +24,19 @@ Hollis の訪問用 PPTX は Adoption Workshop / Proposal Briefing を用いる�
 
 2024年8月の提案は30席の試行を条件とする。2025年3月18日に Lawrence が報告した週次利用は試行の30席中24席。審査用 XLSX には試行の集計単位と出典を置く。Jonathan の条件確認後に成立した180席・USD 82,000の導入契約は注文条件として記載する。
 
+## Waverley と Merritt
+
+Waverley Commercial Storage Inc の導入では、Divya が Department Adoption を下記の Implementation Load に組み替え、120席・USD 54,000 の導入を6週で進められるかを確認する。導入説明と2026年6月11日の更新面談は、それぞれ Adoption Workshop / Proposal Briefing で作る。更新面談では利用率74%を根拠として、120席・USD 54,000 の据え置きを示す。利用内訳の CSV は集計日と列の意味を保ち、会議室の JPG は撮影の許可範囲に合わせる。
+
+Merritt Equipment Repair Inc の2025年11月の更新では、Scope of Services に支援の範囲と年40時間の取扱いを記し、顧客向けの Renewal Terms に年額 USD 72,000 と支援範囲の参照先を載せる。Nasrin の追加支援の要望、期限付き旧案、Donald が無償追加10時間を却下した経緯は Pricing-approvals の社内記録と EML に残す。旧案を PDF にする場合は Renewal Terms を開き、題に社内案と分かる表示を置き、発行日とは別に有効期限を記す。Waverley と Merritt の文書は顧客別に作る。
+
 ## 共通の体裁と文書番号
 
 - Halstead のロゴは、支柱から分岐する青緑の横棒と煉瓦色の端点に社名を添える。題・見出し・フッタは青緑 `133D45`、罫や注意は煉瓦色 `AF5636`、本文は墨 `26353B`。白と青灰 `EBF2F1` は背景。欧文は Liberation Sans、和文は Noto Sans CJK JP。Excel のセルは Liberation Sans を基本とし、和文セルを追加する場合は Noto Sans CJK JP を指定する。
 - JDH のロゴは枠内の山形と道路線に社名を添える。焦茶 `653827`、黄土 `916232`、本文の墨茶 `352E2A`、生成りの背景 `F5ECE2`。欧文は Liberation Serif、和文は Noto Sans CJK JP。ヘッダと購買フッタは右寄せとし、フッタにページ番号を入れる。
 - Aldridge は、右上に高さの異なる紫の3本柱と社名を置く。題・見出しとフッタは紫紺 `343454`、細罫と部門ラベルは紫 `575483`、本文は墨紫 `2C2B34`、表帯は淡紫 `EEEDF5`。欧文本文は Liberation Serif、社名・部門ラベルとフッタは Liberation Sans、和文は Noto Serif CJK JP。フッタに Business Planning と通しページ番号を入れる。
 - Hollis は、段違いの紺と青の正方形を左上の社名に添える。本文・題・フッタは紺 `243752`、節見出し・細い横罫・IT 部門名は青 `3B6190`、表見出しの背景は淡青 `E9EFF8`。欧文は DejaVu Sans、和文は Noto Sans CJK JP。全ページの左下に `Hollis Medical Supply Inc / IT Operations`、右下に `Page` と通しページ番号を入れる。
-- Halstead は `HBC-顧客略号-YYYYMMDD-用途-NN`。用途は `ADP`（利用レビュー・集計）、`WRK`（改善会）、`SVC`（支援範囲）、`REN`（更新条件）、`MAT`（要求と回答の対応表）、`BRF`（顧客説明）、`RFP`（提案回答）、`LEG`（条項の修正案）、`ORD`（新規注文条件）。Aldridge の略号は `ALD`、Hollis は `HOL`。同一発行日・用途内で文書ごとに2桁の番号を割り振る。別文書では固有番号を使い、同じ文書を別形式に出すときは番号を引き継ぐ。JDH 購買文書は `JDH-PO-YYYYMMDD-NN`、Aldridge の提案依頼は `ASG-RFP-YYYYMMDD-NN`、Hollis IT の試行結果は `HMS-IT-YYYYMMDD-NN`。
+- Halstead は `HBC-顧客略号-YYYYMMDD-用途-NN`。用途は `ADP`（利用レビュー・集計）、`IMP`（導入負荷）、`WRK`（改善会）、`SVC`（支援範囲）、`REN`（更新条件）、`MAT`（要求と回答の対応表）、`BRF`（顧客説明）、`RFP`（提案回答）、`LEG`（条項の修正案）、`ORD`（新規注文条件）。Aldridge の略号は `ALD`、Hollis は `HOL`、Waverley は `WAV`、Merritt は `MER`。同一発行日・用途内で文書ごとに2桁の番号を割り振る。別文書では固有番号を使い、同じ文書を別形式に出すときは番号を引き継ぐ。JDH 購買文書は `JDH-PO-YYYYMMDD-NN`、Aldridge の提案依頼は `ASG-RFP-YYYYMMDD-NN`、Hollis IT の試行結果は `HMS-IT-YYYYMMDD-NN`。
 - 見本の番号は組版確認用。実際の番号、担当者、日付、根拠はファイル計画と台帳に従う。4月の基準は稼働318席・契約420席、7月の80%は2か月後の確認目標、翌年5月開始の年次更新は運用支援を含む480席・USD 232,000。見本の試験用明細を実績へ転記しない。
 
 ## Word
@@ -58,6 +64,14 @@ Hollis の審査用には B8〜D8 を `Pilot cohort`、`Pilot seats`、`Weekly a
 2. 件数の集計を付ける場合は最終明細の直後に、A に要求番号の COUNT、C に必須かつ例外の COUNTIFS、B・D にそれぞれの集計名を置く。A・C は `HB Total Integer`、B・D〜F は `HB Total`。行高の目安は29 pt。続く注記は A:F を1行で結合し `HB Note` を適用する。
 3. フィルターと印刷範囲は Department Adoption と同じ手順で設定する。管理欄の幅と折返しを保ち、続きページの見出しと A→B、集計行の A→B と C→D の間隔を見る。
 
+### Implementation Load
+
+`halstead-adoption.xlsx` を開き、シート名を `Implementation Load`、A3 を表題、A5 を `As of` に変更する。C4:C6 の文書番号・基準日・作成者の書式と結合を保つ。A 列の幅を10にし、8行目の6列を `Week`、`Workstream`、`Demand (h)`、`Available (h)`、`Headroom (h)`、`Dependency or handoff` に置き換える。
+
+1. 9行目から、週と作業ごとに必要な明細だけを入れる。A・C:E は右寄せの `HB Integer`（単位は整数時間、A は週番号）、B・F は左寄せの `HB Text`。E は D−C。負の値を表示し、空きが足りない週を確認する。偶数行に青灰色 `EBF2F1` を塗り、インデント1と折り返しを保つ。行高の目安は31 pt。
+2. 作業ごとに重複なく確保した時間を足し上げる場合は、明細の直後を23 ptの集計行にする。B に `Total`、C・D に各列の SUM、E に合計行の D−C を入れる。A・B・F は `HB Total`、C:E は `HB Total Integer`。注記には A:F を行内結合して `HB Note` を適用し、折り返して読める行高を指定する。
+3. 明細だけをフィルター範囲に含め、管理欄から最終使用行までを印刷範囲にする。Letter 横と8行目の繰り返しを継承し、A→B と E→F の間隔、管理欄の全文、続きページの列見出しを確認する。
+
 XLSX の内部プロパティは最終保存後に確定する。通常の batch では進行役が `bin/stamp` を実行する。見本を単独で作った場合は `bin/stamp <xlsx> --author <作成者> --date <日付と時刻> --timezone America/Denver` を最終保存後に実行する。`docProps/app.xml` の Application が Microsoft Excel、`docProps/core.xml` の作成者と更新者および作成・更新日時が文書の作成者と日付に合うことを確認する。
 
 ## PowerPoint
@@ -72,7 +86,7 @@ XLSX の内部プロパティは最終保存後に確定する。通常の batch
 | Table | タイトル、表の領域、キャプション（14 pt）。表は領域に合わせて作る |
 | Figure | タイトル、画像プレースホルダー、キャプション（14 pt）。図の比率を領域に合わせる |
 
-PowerPoint 上では表プレースホルダーから表を作る。python-pptx では表用スロットの位置と幅を使って表を置き、元のスロットを取り除く。見出しは青緑に白字、本文セルは墨色で18 ptを目安とし、文字列セルの左余白を0.20インチ以上にする。長い表はスライドを分け、各ページに列見出しを載せる。
+PowerPoint 上では表プレースホルダーから表を作る。python-pptx では表用スロットの位置と幅を使って表を置き、元のスロットを取り除く。見出しは青緑に白字、本文セルは墨色で18 ptを目安とする。数値セルは右寄せにし、文字列セルの左余白を0.20インチ以上にする。長い表はスライドを分け、各ページに列見出しを載せる。
 
 ## LuaLaTeX
 
@@ -92,18 +106,20 @@ Hollis IT の報告は `\documentclass{hollis-pilot-result}` と `\HMSPilotResul
 
 ## 見本とレンダリング
 
-見本はリポジトリ直下から次のパスにある。`short` は少量、`long` は改ページ確認用。画像は各ディレクトリ内に全ページを置いた。見本の番号、明細、判定は組版確認用。制作時は計画・原稿・事実の台帳に従う。
+見本と画像は b004 の今回のテンプレート作業フォルダにある。`short` は少量、`long` は改ページ確認用。画像は各ディレクトリ内に全ページを置いた。見本の番号、明細、判定は組版確認用。制作時は計画・原稿・事実の台帳に従う。
 
-| 型 | 見本名（`scratch/p11-account-executive/b003/work/templates-0004/samples/` 以下） | 画像ディレクトリ（`scratch/p11-account-executive/b003/work/templates-0004/render/` 以下） |
+| 型 | 見本名（`scratch/p11-account-executive/b004/work/templates-0002/samples/` 以下） | 画像ディレクトリ（`scratch/p11-account-executive/b004/work/templates-0002/render/` 以下） |
 |---|---|---|
 | Adoption Review | `halstead-adoption-review-short.docx`, `halstead-adoption-review-long.docx` | `halstead-adoption-review-short/`, `halstead-adoption-review-long/` |
 | Workshop Record | `halstead-workshop-record-short.docx`, `halstead-workshop-record-long.docx` | `halstead-workshop-record-short/`, `halstead-workshop-record-long/` |
 | Scope of Services | `halstead-support-scope-short.docx`, `halstead-support-scope-long.docx` | `halstead-support-scope-short/`, `halstead-support-scope-long/` |
 | Purchasing Correspondence | `jdh-purchasing-confirmation-short.docx`, `jdh-purchasing-confirmation-long.docx` | `jdh-purchasing-confirmation-short/`, `jdh-purchasing-confirmation-long/` |
 | Department Adoption | `halstead-adoption-short.xlsx`, `halstead-adoption-long.xlsx`, `halstead-hollis-pilot-review.xlsx`（Hollis 1件） | `halstead-adoption-short/`, `halstead-adoption-long/`, `halstead-hollis-pilot-review/` |
-| Adoption Workshop / Proposal Briefing | `halstead-workshop.pptx`（Hollis の訪問用見本、全5レイアウト） | `halstead-workshop/` |
+| Implementation Load | `halstead-waverley-implementation-load-short.xlsx`, `halstead-waverley-implementation-load-long.xlsx` | `halstead-waverley-implementation-load-short/`, `halstead-waverley-implementation-load-long/` |
+| Adoption Workshop / Proposal Briefing | `halstead-workshop.pptx`（Waverley の導入説明、全5レイアウト）、`halstead-waverley-renewal-briefing.pptx`（更新面談） | `halstead-workshop/`, `halstead-waverley-renewal-briefing/` |
 | 訪問用スライドの構成図 | `visit-diagram.png`（Figure レイアウトの挿入図） | `visit-diagram/` |
 | Renewal Terms | `halstead-renewal-short.tex`, `halstead-renewal-short.pdf`, `halstead-renewal-long.tex`, `halstead-renewal-long.pdf` | `halstead-renewal-short/`, `halstead-renewal-long/` |
+| Renewal Terms（Merritt） | `halstead-merritt-renewal.tex`, `halstead-merritt-renewal.pdf` | `halstead-merritt-renewal/` |
 | RFP Cross-Reference | `halstead-rfp-matrix-short.xlsx`（6件）、`halstead-rfp-matrix-long.xlsx`（56件） | `halstead-rfp-matrix-short/`, `halstead-rfp-matrix-long/` |
 | Conditional Proposal Response | `halstead-rfp-response-short.tex`, `halstead-rfp-response-short.pdf`, `halstead-rfp-response-long.tex`, `halstead-rfp-response-long.pdf` | `halstead-rfp-response-short/`, `halstead-rfp-response-long/` |
 | Contract Terms Review | `halstead-terms-redline-short.docx`, `halstead-terms-redline-long.docx` | `halstead-terms-redline-short/`, `halstead-terms-redline-long/` |
