@@ -56,3 +56,37 @@
 - 観察した6人に中断が1場面以上あったことは、夜勤全体の発生率を示さない。日勤、夕勤、訪問窓外の夜勤は観察しておらず、導入後の効果・所要時間の短縮も測っていない。
 - 9月26日13:00 CDT に Jennifer が Ronald に説明。報告は CWR-NS-20240926-RPT-01 v1.0、説明資料は CWR-NS-20240926-BRF-01 v1.0。Ronald との場では導入を決定しない。
 - 新規件名 `Kenton count follow-up`。9月26日14:14 Jennifer → Ronald、`2024-09-26 Finding the place again.pdf` と `2024-09-26 Where the count picks up.pptx` の2点を添付。野帳・写真・赤入れは社内に留める。
+
+## 配車の見通し調査 — Adam の試行と戻りの照合
+
+- 2024-10-28 13:00–13:45 CDT、Jennifer が Oakridge の Adam Morales（UX-041）に英語で面談。音声記録に冒頭で同意を得た。直近5勤務のうち交代は4回。この試行は1月に読む12面談の1件。
+- Adam が戻ったのは R-308 を表示した便一覧。4月版から確認できる Route、Plan status、Window、Vehicle と Stops の停車行の Note で記述し、6月の Held 説明案は既存画面に含めない。
+- 開始から09分は旧 Window を控えた自分のメモと現在の Window、13分は口頭で聞いた代車番号と Vehicle、18分は配送係から受けた伝言と Held の状態を照合したと Adam が説明した。伝言は荷受け側からの折り返し待ち。
+- 22分は便一覧の同じ行に戻ったところまで、27分は便一覧に戻った後に停車04の Note を開いたところまで観察。何と比較したかは両方とも未確認。33分は次の担当に渡す下書きの時間帯と表示中の Window を照合したと説明。
+- Adam は次の担当に現在の時間帯と折り返し待ちの伝言を渡した。画面上の Held や停車 Note は伝言の出典ではなく、保留解除の担当は確かめられていない。
+- 10月29日から、13問・45分は維持して「戻った時点／直前の情報／戻った先／何と何を比べたか／次に取った行動」を観察補助欄に追加。先に照合先を教えず、聞けなかった比較対象は未確認とする。
+- 10月30日13:30–14:15 CDT の UX-042 は Jennifer、1月15日07:45–08:30 CST（同日22:45–23:30 JST）の UX-043 は金子、1月17日13:00–13:45 CST の UX-044 は Jennifer が担当。4本の逐語録は UX-041・042・043・044。
+- UX-042 は Vehicle の代車番号を車両係の口頭回答と照合して確定と伝えた。調査者が回答自体を直接確認したわけではない。UX-043 は停車 Note を紙の例外メモと照合し、追加条件を口頭で引き継いだ。UX-044 は一覧に戻って次の便を選んだ。
+- 会議室の受付連絡は件名 `Visitor badges at reception`、10月24日13:26 Carolyn Davis（carolyn@carver-workplace.example）→ Jennifer、Ayesha Siddiqui（ayesha@carver-workplace.example）の新規メール。添付なし。
+
+## 配車の見通し調査 — 初心者特有説の撤回
+
+- 2025-01-22 10:00–11:25 CST、Jennifer と Brian Chen が1面談1件で12件を照合。10月の10件（Adam の UX-041 を含む）と1月の2件が対象で、2026年の追加調査24人、UX-184 はこの集計に入らない。
+- 面談の日付は、2024年10月07日 UX-032、08日 UX-033、10日 UX-034、14日 UX-035、16日 UX-036、21日 UX-037、23日 UX-038、25日 UX-040、28日 UX-041、30日 UX-042。2025年1月15日 UX-043、17日 UX-044。
+- UX-036 と UX-043 は金子が日本語で実施し、残りは Jennifer が英語で実施。分析に用いる日本語発言は原文と訳を対にする。
+- 合意分類は Cross-check＝UX-033・035・037・041・042・043、Other action＝UX-032・038・044、Unresolved＝UX-034・036・040。少なくとも1事象の比較対象が説明できれば面談単位で Cross-check とし、未知の事象は例数に足さない。
+- ほかの根拠は、UX-035 が前担当の控えの車両番号と Vehicle、UX-032 が便番号の読み上げ、UX-038 が停車 Note の伝達。UX-034 は同じ行への戻り、036 は停車行を開いたこと、040 は便一覧への切替えまで取れ、その先の目的は未確認。
+- 初回一致10件。UX-034 は Jennifer が Other action、Brian が Unresolved で、根拠不足で後者に合意。UX-041 は Jennifer が Cross-check、Brian が Unresolved で、説明できた4事象から前者に合意。
+- 熟練の反例4件は、UX-033 が紙の旧時間帯と Window、UX-037 が前の担当からの伝言と Held、UX-042 が車両係の回答と Vehicle、UX-043 が紙の例外メモと停車 Note。4人は通常便と例外対応の引継ぎを独力で担当してきた実務歴を本人の説明で確認でき、職位・交代頻度で熟練を代用しない。
+- 初心者に固有という分類を1月22日に撤回。user persona の草案 CWR-DR-20241031-DEC-01 は10月31日 v0.1、1月23日 Withdrawn v0.2。同じ番号で草案本文を保持し、撤回理由を添える。
+- 件名 `Read before we reuse the novice sketch`。1月24日11:14 Jennifer → Patrick Delgado（patrick.delgado@carver-workplace.example）の新規メール。 `2025-01-24 Where the novice explanation breaks.pdf`（CWR-DR-20250124-RPT-01 v1.0）を1点添付。
+
+## 配車の見通し調査 — 職位から交代頻度への見直し
+
+- 面談時点の直近5勤務での交代回数は UX-032＝2、033＝1、035＝3、037＝4、038＝5、041＝4、042＝5、043＝1、044＝2、034・036・040 は未確認。渡す・受けるいずれかを行った勤務を1回と数える。
+- 職位3案は Shift Lead／Desk Dispatcher／Relief Cover。UX-033 と UX-042 は Desk Dispatcher、UX-037 は Shift Lead、UX-043 は Relief Cover。4月8日、Jennifer と Jeremy が職位列の付箋から UX-033 と UX-042 を離した途中を撮影。
+- 4月9日の会議前メモ CWR-DR-20250409-DEC-01 は10:48 Jennifer v0.1、16:06 Patrick が変更履歴とコメントを付けた v0.2。同じ番号で、頻度を技能と読む文を問いに改め、件数不明の割当を保留した。
+- 2025-04-10 10:00–11:05 CDT、Jennifer と Patrick がレビュー。UX-033 と UX-042 は同職位で交代は1回と5回。042も便と予定時間帯から入り、後で車両係の口頭回答とVehicleを照合した。037は前担当の伝言をHeldと照合した。職位だけでは回数も照合先も説明できず、頻度別に読み直すことにした。042は頻度から開始手順を予測する仮説の反例として残す。
+- 頻度別の2案は、直近5勤務中3回以上なら変更分とその根拠から、2回以下なら対象便と前の状態からたどるという作業仮説。頻度不明は未割当。境は面談を読み直すためのものとし、募集基準や技能判定には使わない。
+- 件名 `Keep the comparison slide`。4月10日13:38 Jennifer → Patrick、`2025-04-10 Three titles or two handoff patterns.pptx`（CWR-DR-20250410-BRF-01 v1.0）を1点添付。Message-ID は `<d9d5c42b-19a7-4220-b044-f1ca2645412c@carver-workplace.example>`。
+- 同日15:16 Patrick → Jennifer、件名 `Re: Keep the comparison slide`。頻度不明を割り当てない一節を引用し、同じ初信の ID を In-Reply-To・References に使う。返信の Message-ID は `<3763b9d8-0280-42c4-9a62-8643fef0b714@carver-workplace.example>`、返信に添付なし。

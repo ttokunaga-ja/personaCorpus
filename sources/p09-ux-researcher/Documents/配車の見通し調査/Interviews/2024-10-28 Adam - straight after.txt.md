@@ -1,0 +1,26 @@
+---
+path: Documents/配車の見通し調査/Interviews/2024-10-28 Adam - straight after.txt
+kind: text
+author: Jennifer Salazar
+derived_from:
+---
+28 Oct · 14:08 · Adam / UX-041
+Finished at 13:45. From my notes, before listening back.
+
+Six returns to the R-308 route list: 09, 13, 18, 22, 27, 33.
+
+Adam named both sides of four comparisons:
+09 — old window in his own note / current Window. He wanted the current value for the next desk.
+13 — relief vehicle number heard aloud / number in Vehicle. Seeing a match tells me which number he checked.
+18 — dispatcher's message that receiving would call back / Held in Plan status. The dispatcher was the source of the message.
+33 — time in the handoff draft / current Window. This was a check on what he was about to pass over.
+
+What I actually saw at the other two:
+22 — same R-308 row again. I didn't ask which field he looked at.
+27 — back to the list, then opened stop 04 Note. I can place the Note on the stop. I can't name the other thing he might have had in mind.
+
+Comparison unknown at 22 and 27. His general explanation of stop instructions leaves the 27-minute comparison open.
+
+He said he gave the next dispatcher the current window and the message that receiving was due to call back. He got the message through dispatch. Who could release the hold: still unconfirmed.
+
+Margin for next time → Just before going back, what had they seen or heard? Once there, which value did they look at and what did they put it against? Let them get through the account first.
