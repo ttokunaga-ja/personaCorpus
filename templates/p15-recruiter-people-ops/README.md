@@ -6,13 +6,13 @@
 
 | 名前 | 組織・利用者と用途 | 実際のファイル名 | 見た目 |
 |---|---|---|---|
-| 採用枠・報酬帯の承認 | みらい職場研修、佐藤が申請し渡辺が承認。承認の条件と支援会社への連絡方針 | `mirai-approval.docx` | A4縦、表紙なし。開いた本のロゴ、桑実色の題と見出し、短い節と横罫線の表 |
+| 採用枠・報酬帯の承認／入社支援の振り返り | みらい職場研修、佐藤が申請し渡辺が承認。佐藤と伊藤の初週振り返りにも共通書式を使う | `mirai-approval.docx` | A4縦、表紙なし。開いた本のロゴ、桑実色の題と見出し、短い節と横罫線の表 |
 | 面接・追加確認 | 同社、佐藤・高橋。面接記録、根拠不足の整理、追加質問の設計 | `mirai-interview.docx` | 共通書式。「観察した事実」と「解釈と評価」を別の節に配置 |
 | 候補者へのご案内 | 同社、佐藤。候補者への連絡文案と文書による案内 | `mirai-notice.docx` | 共通書式。宛先、案内、予定、連絡先の簡潔な構成 |
-| 研修設計リード評価表 | 同社、佐藤・高橋。8観点の評価根拠と追加確認を管理 | `mirai-evaluation.xlsx` | A4横。桑実色の白抜き見出し、事実・解釈・評価・不足根拠・追加確認を分離した6列 |
+| 研修設計リード評価表／入社準備の対応表 | 同社、佐藤・高橋が評価根拠と追加確認を管理。佐藤と伊藤が初週の遅れを事前確認の項目に対応付ける際にも使う | `mirai-evaluation.xlsx` | A4横。桑実色の白抜き見出しと繰り返し印刷される管理欄、用途に合わせて指定する6列 |
 | 採用説明会経費確認 | 同社、佐藤・吉田。経費と人数の訂正を照合 | `mirai-expenses.xlsx` | A4横。共通の管理欄。訂正前・後・差分と注記。金額と人数は別表／別シートで扱う |
 | 採用進捗報告 | 同社、佐藤から渡辺への報告 | `mirai-recruiting.pptx` | 16:9、白地に桑実色の細い左帯。開いた本のロゴと社名、下部に人事。1マスター・5レイアウト、スライド0枚 |
-| 採用確認事項PDF | 同社、佐藤。Officeを経ずに配布する短い確認事項・質問票PDF | `mirai-recruiting-note.cls` | A4縦。共通ロゴ・桑実色の題と小見出し、継続表、会社名とページ番号 |
+| 人事の確認事項・受入手順PDF | 同社、佐藤・伊藤。Officeを経ずに配布する確認事項・質問票、OneDriveの受入手順 | `mirai-recruiting-note.cls` | A4縦。共通ロゴ・桑実色の題と小見出し、用途を指定できるヘッダ、継続表、会社名とページ番号 |
 | 採用支援の連絡 | 青山キャリア支援、山田が送る確認事項・添付連絡 | `aoyama-recruiting-note.docx` | A4縦、表紙なし。二重の山形ロゴ、青灰色・明朝体。自社の本・桑実色は使わない |
 | 紹介経路の点検配布資料 | 青山キャリア支援、山田が紹介経路の比較条件と求人説明の確認事項を配布 | `aoyama-channel-handout.cls` | A4縦、表紙なし。右上に青灰色の二重山形と社名、細い横罫、明朝体の中央題、淡青灰の表見出し |
 
@@ -27,11 +27,18 @@ b001は2026-08-10〜09-30の研修設計リード採用3枠を扱う。8観点�
 - 歩留まり比較は `mirai-expenses.xlsx` を使い、A〜F列を「経路／応募（件）／書類通過（件）／書類通過率／入社（件）／入社率」（列幅35・21・23・22・21・23）に変更する。件数は `MW Number`、率は同書式で `0%` など原稿の精度を指定。原稿が同じ母集団の応募を分母とする場合はD列を `=IF(B7=0,"",C7/B7)`、F列を `=IF(B7=0,"",E7/B7)` のように作り、全経路の率も集計した分子・分母から求める。注記に集計期間・対象4経路・率ごとの分母を明記する。10月25日の書類通過38%・入社6%の件数と対象期間は原稿に従う。運営職の応募24件は別の集計対象。
 - 山田の10月25日配布資料は `aoyama-channel-handout.cls` で直接PDF化しDownloadsに置く。照会と回答はEML、匿名流入の元集計はCSV。12月12日の山本向け説明は `mirai-recruiting.pptx` で、承諾2人・繰延べ1枠と年内の引継ぎを示す。
 
+### 2025年1月の入社支援（b004）
+
+- 初週の振り返りは `mirai-approval.docx` の書式を使う。ヘッダの用途を「入社支援の振り返り」に替え、本文を「照合した記録」「初週に分かった準備の遅れ」「1月23日に決めたこと」「次の受入で確認すること」など原稿に沿って組む。文書番号の用途は `REV`。
+- 遅れと事前に確認できる項目の対応表は `mirai-evaluation.xlsx` を使う。シート名と題を変え、A〜F列を「番号／初週の遅れ／照合した記録／入社3日前の確認／確認する担当／未準備時の連絡」（列幅10・23・25・32・20・35）とする。A列は `MW Number`、B〜F列は左インデント1の `MW Text`。第6行は既存の見出し書式で折り返す。文書番号の用途は `MAP`。対応関係を示す明細に集計や評価点は付けない。
+- OneDrive「規程と手順」に置く受入手順は `mirai-recruiting-note.cls` を使い、プリアンブルに `\renewcommand{\MWDocumentUse}{受入手順}` を置く。文書番号の用途は `REC`。旧版と改訂版は原稿に従い、同じ手順書なら番号を引き継いで版と作成日を区別する。改訂版では入社3日前に誰が何を確認し、未準備の場合にどこへ知らせるかを読み取れるようにする。
+- 匿名の準備状況はCSV、佐藤と伊藤などの担当間の確認はEML。受入担当の案内HTMLと確認日の説明図PNGは原稿から作り、桑実色の見出しと灰緑の補助線を使う。1月23日の判断前後を区別し、新手順の効果は次回の受入で確認する事項として扱う。
+
 ## 共通の意匠と管理
 
 - 178人の研修会社として、小さな「開いた本」の図形と社名を使う。本の左ページは桑実色 `963A65`、右ページは灰緑 `7B8270`。本文は墨 `34383C`、白地、合計の淡色は桑実色の濃淡 `F5EDF1`。Word・Excelの図形は埋込みPNG、PowerPointはネイティブ図形、TeXはTikZ。外部画像リンクはない。
 - Officeの日本語・欧文はともに **Noto Sans CJK JP**。WordのNormal、見出し、表、テーマ、Excelの既定フォント・入力欄・名前付き書式、PowerPointのテーマとプレースホルダに実設定する。TeXの日本語も同フォント、欧文は環境にある **Liberation Sans**。本文色はTeXでも文書開始時に適用する。
-- 自社文書番号は `MW-HR-YYYYMM-用途-連番3桁`。用途は `APR`（承認）、`INT`（面接・追加質問）、`NOT`（案内）、`EVA`（評価表）、`EXP`（経費）、`BRF`（報告スライド）、`REC`（確認事項PDF）。同文書の改版・Office由来PDFは同番号で版を区別する。実値は計画と事実台帳で決める。番号を持たない私的メモ・保存メールには付けない。
+- 自社文書番号は `MW-HR-YYYYMM-用途-連番3桁`。用途は `APR`（承認）、`INT`（面接・追加質問）、`NOT`（案内）、`EVA`（評価表）、`EXP`（経費・照合）、`BRF`（報告スライド）、`REC`（確認事項・受入手順PDF）、`REV`（初週の振り返り）、`MAP`（準備の対応表）。同文書の改版・Office由来PDFは同番号で版を区別する。実値は計画と事実台帳で決める。番号を持たない私的メモ・保存メールには付けない。
 - 青山キャリア支援の番号は `AY-CS-YYYYMM-NOT-連番3桁`（連絡）、`AY-CS-YYYYMM-BRF-連番3桁`（配布資料）。Wordは日本語・欧文とも **Noto Serif CJK JP**。TeXは日本語 **Noto Serif CJK JP**、欧文 **Liberation Serif**。青灰色 `486477` と墨 `34383C`、白地。山形2本と社名。配布資料の表見出しは青灰色の淡色 `EAF0F3`。相手の発信文書に自社番号を追加しない。
 - Office型の作者・最終更新者は自社が佐藤美穂子、青山が山田修二、基準日時は2026-08-10。成果物では原稿の実際の人物・日時へ設定し直す。
 - p03、p05、p12、p14のREADME、およびp03・p12のWord実物のヘッダ、スタイル、埋込みロゴを比較した。封筒と配送矢印／赤茶、織り目／藍、枝と灯／紫、木材／深緑と区別し、本のロゴ・桑実色・PPTの左帯とした。他personaは変更していない。
@@ -98,11 +105,11 @@ b001は2026-08-10〜09-30の研修設計リード採用3枠を扱う。8観点�
 
 ## 今回の見本と確認先
 
-作業フォルダは `scratch/p15-recruiter-people-ops/b003/work/templates-0002/`。以下のパスはこのフォルダを基準とする。見本の番号・日付・明細は書式確認用。歩留まり比較の件数や面接枠の時刻には、印刷確認用の値を使った。
+作業フォルダは `scratch/p15-recruiter-people-ops/b004/work/templates-0002/`。以下のパスはこのフォルダを基準とする。文書番号と明細は書式確認用。対応表の項目例と長い表の行数は、計画や事実台帳に記録する実値と区別する。
 
 | 型／確認内容 | 見本 | 全ページの画像 |
 |---|---|---|
-| 職務説明（mirai-approval.docx） | `examples/mirai-approval.docx` | `render/mirai-approval/` |
+| 初週の振り返り（mirai-approval.docx） | `examples/onboarding-review.docx` | `render/onboarding-review/` |
 | 面接・追加確認 | `examples/mirai-interview.docx` | `render/mirai-interview/` |
 | 候補者への案内 | `examples/mirai-notice.docx` | `render/mirai-notice/` |
 | 青山の採用支援連絡 | `examples/aoyama-recruiting-note.docx` | `render/aoyama-recruiting-note/` |
@@ -110,10 +117,10 @@ b001は2026-08-10〜09-30の研修設計リード採用3枠を扱う。8観点�
 | 評価表（40行） | `examples/mirai-evaluation-40.xlsx` | `render/mirai-evaluation-40/` |
 | 経費表（3行） | `examples/mirai-expenses-3.xlsx` | `render/mirai-expenses-3/` |
 | 経費表（40行） | `examples/mirai-expenses-40.xlsx` | `render/mirai-expenses-40/` |
-| 面接枠の割付 | `examples/interview-allocation.xlsx` | `render/interview-allocation/` |
-| 紹介経路別の歩留まり比較 | `examples/channel-yield.xlsx` | `render/channel-yield/` |
+| 入社準備の対応表（5行） | `examples/onboarding-map-5.xlsx` | `render/onboarding-map-5/` |
+| 入社準備の対応表（40行） | `examples/onboarding-map-40.xlsx` | `render/onboarding-map-40/` |
 | 採用進捗報告（5レイアウト） | `examples/mirai-recruiting.pptx` | `render/mirai-recruiting/` |
-| みらいの確認事項（3行） | `examples/staffing-table-3.tex`、`examples/staffing-table-3.pdf` | `render/staffing-table-3/` |
-| みらいの確認事項（50行） | `examples/staffing-table-50.tex`、`examples/staffing-table-50.pdf` | `render/staffing-table-50/` |
-| 青山の配布資料（4行） | `examples/aoyama-channel-4.tex`、`examples/aoyama-channel-4.pdf` | `render/aoyama-channel-4/` |
-| 青山の配布資料（50行） | `examples/aoyama-channel-50.tex`、`examples/aoyama-channel-50.pdf` | `render/aoyama-channel-50/` |
+| みらいの受入手順（3行） | `examples/mirai-recruiting-note-3.tex`、`examples/mirai-recruiting-note-3.pdf` | `render/mirai-recruiting-note-3/` |
+| みらいの受入手順（50行） | `examples/mirai-recruiting-note-50.tex`、`examples/mirai-recruiting-note-50.pdf` | `render/mirai-recruiting-note-50/` |
+| 青山の配布資料（4行） | `examples/aoyama-channel-handout-4.tex`、`examples/aoyama-channel-handout-4.pdf` | `render/aoyama-channel-handout-4/` |
+| 青山の配布資料（50行） | `examples/aoyama-channel-handout-50.tex`、`examples/aoyama-channel-handout-50.pdf` | `render/aoyama-channel-handout-50/` |

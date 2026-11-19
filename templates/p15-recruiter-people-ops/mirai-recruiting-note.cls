@@ -18,7 +18,8 @@
 \end{tikzpicture}}
 \pagestyle{fancy}\fancyhf{}
 \fancyhead[L]{\MWLogo\quad{\small\color{MWmain}みらい職場研修株式会社}}
-\fancyhead[R]{\small 人事／採用記録}
+\newcommand{\MWDocumentUse}{採用記録}
+\fancyhead[R]{\small 人事／\MWDocumentUse}
 \fancyfoot[L]{\footnotesize みらい職場研修株式会社 | 人事}
 \fancyfoot[R]{\footnotesize\thepage}
 \renewcommand{\headrulewidth}{.3pt}
