@@ -1534,3 +1534,15 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-19	p20-investigative-journalist	b001	coordinator	0	other	Documents/Stories/Road-contracts/Requests/Jul 25 - sent to Dorothy.eml	統括の抜き取りで不合格
 2026-11-19	p20-investigative-journalist	b001	coordinator	0	other	Documents/Stories/Road-contracts/Requests/Jul 26 - Dorothy asks for endpoints.eml	統括の抜き取りで不合格
 2026-11-19	p03-security-grc-analyst	b003	coordinator	0	other	Documents/メール保存/日高文書保管/2024-09-20_橋本さんから_更新資料3点.eml	統括の抜き取りで不合格
+2026-11-19	p04-ml-research-engineer	b002	build-review	0	V2	Documents/短文受付意図分類/Measurements/Case split freeze checks.xlsx	Adjudication!B14:F14 と Evaluation support!B18:F18 の集計が Detail Text／Detail Count のままで、型の Total Text／Total Count の淡いプラム色の背景・太字・上罫線が印刷2ページとも適用されていない。
+2026-11-19	p10-management-consultant	b001	build-review	0	V2	Documents/Clients/Whitfield/Diagnosis/26 Jun - Time by payment step.xlsx	Reconciliation シートのA1:C15は集計表で、型の Document no.・Date・Prepared by のラベル付き管理欄がシートと2頁目の印刷面にない。値は印刷フッターにだけある。
+2026-11-19	p10-management-consultant	b001	build-review	0	V2	Documents/Clients/Whitfield/Diagnosis/12 Jul - Which queue to take first.xlsx	Priority シートのA1:E5は優先順位表で、型の Document no.・Date・Prepared by のラベル付き管理欄がシートと2頁目の印刷面にない。値は印刷フッターにだけある。
+2026-11-19	p16-clinical-researcher	b002	templates-review	0	other	katsuragawa-meeting.pptx	16:9の5レイアウトで共通のロゴ・上下罫・頁を確認したが、ppt/slideMasters/slideMaster1.xml の日付プレースホルダーに既定の仮日付「1/27/13」が残っている。
+2026-11-19	p16-clinical-researcher	b002	draft-review	0	D3	Documents/Study-評価物質の低用量観察研究/計画と審査/0920_計画書に戻す場所_書きかけ.xlsx	問4の10行目はB列の論点、E列の修正案、H列の確認事項が終了時点と未了工程に限られ、照会書の問4が別に求める途中終了までの実所要時間の記録方法が未確認事項にも挙がらず、木村への確認でその論点を拾えない。
+2026-11-19	p16-clinical-researcher	b002	build-review	0	V3	OneDrive - かつら川臨床研究/研究会議/0924_20分のままで読み切れるか.pptx	3枚目「途中で終了した場合」で、資料説明の箱から下に伸びる縦の矢印がラベル「途中終了」の「終」の字に重なっている。
+2026-11-19	p16-clinical-researcher	b002	build-review	1	V2	OneDrive - かつら川臨床研究/研究会議/0924_20分のままで読み切れるか.pptx	2枚目の表「旧記載との関係」列で、見出しと明細3セルの左余白が型の指定と見本の0.25インチに対し既定の0.10インチで、文字が数値列との境界に寄っている。
+2026-11-19	p16-clinical-researcher	b002	build-review	0	V2	Documents/Study-評価物質の低用量観察研究/計画と審査/1015_協議会への回答.pdf	1ページ目の「宛先と照会の参照」直下で、型と見本の「宛先」ラベル付き管理欄がなく、協議会名と長谷川美奈様がラベルなしの本文段落になっている。
+2026-11-19	p16-clinical-researcher	b002	check	2	plan	Documents/メール保存/低用量観察/1015_長谷川さんへ_照会回答と再提出.eml	plan: planned file missing。成形の最終出力：対象の送付控えメールは未作成です。指定された添付3点のうち対照表XLSXはありますが、計画書PDFと回答PDFは所定のパスにありませんでした。 両PDFは今回の対象外の計画行にあたるため作成できず、実ファイル3点を添付する条件を満たせません。メールの作成・検証、および stage・commit・push は行っていません。
+2026-11-19	p13-corporate-privacy-counsel	b003	coordinator	0	other	Documents/Matters/文書処理委託審査/委託先審査/10月21日_Winslow追加審査の回覧控え.pdf	統括の抜き取りで不合格
+2026-11-19	p13-corporate-privacy-counsel	b003	coordinator	0	other	Documents/メール/2024-10-18_Andrea_Third subprocessor pending.eml	統括の抜き取りで不合格
+2026-11-19	p13-corporate-privacy-counsel	b003	coordinator	0	other	Documents/メール/2024-10-21_村田さんへ_3番目の手配は止めたまま.eml	統括の抜き取りで不合格

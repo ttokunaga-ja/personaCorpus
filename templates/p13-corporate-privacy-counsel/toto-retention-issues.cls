@@ -2,7 +2,7 @@
 \ProvidesClass{toto-retention-issues}[2024/04/10 Retention issues handout]
 \LoadClass{toto-review-sheet}
 
-\fancyfoot[L]{\small 法務部｜保存目的の棚卸し}
+\ReviewMatter{保存目的の棚卸し}
 \newenvironment{RetentionIssues}{%
   \renewcommand{\arraystretch}{1.3}%
   \begin{longtable}{@{}p{28mm}p{40mm}p{43mm}p{46mm}@{}}

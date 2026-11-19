@@ -24,7 +24,9 @@
 \end{tikzpicture}}
 \pagestyle{fancy}\fancyhf{}
 \fancyhead[L]{\TDLogo\quad\textcolor{TDMain}{東都文書データサービス株式会社}}
-\fancyfoot[L]{\small 法務部｜文書保全期限見直し}
+\newcommand{\TDReviewMatter}{}
+\newcommand{\ReviewMatter}[1]{\renewcommand{\TDReviewMatter}{｜#1}}
+\fancyfoot[L]{\small 法務部\TDReviewMatter}
 \fancyfoot[R]{\small\thepage\ / \pageref{LastPage}}
 \renewcommand{\headrulewidth}{.6pt}
 \renewcommand{\headrule}{\hbox to\headwidth{\color{TDAccent}\leaders\hrule height\headrulewidth\hfill}}
