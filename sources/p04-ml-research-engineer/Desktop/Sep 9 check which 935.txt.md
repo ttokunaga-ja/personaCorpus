@@ -1,0 +1,12 @@
+---
+path: Desktop/Sep 9 check which 935.txt
+kind: text
+author: Vanessa Nguyen
+derived_from:
+---
+
+Before asking Fatima:
+
+There are two different groups of 935 in this draft. The 0.021 and 0.832 scores belong to the fixed 935 evaluation documents. The 160 were selected misclassifications from saved predictions on the 935 development documents. Equal counts do not make these the same documents.
+
+At each occurrence use the noun: “evaluation documents” for the scores, “development documents” for the saved predictions. Read the abstract by itself: does its first mention of 160 say both development predictions and selected errors? Then check the opening of Reading selected errors. Ask Fatima to check the wording against the saved prediction record before I replace it.

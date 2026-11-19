@@ -170,3 +170,32 @@
 - 2通目 “Re: Inspection routing stays on hold” は8月13日09:42 PDT、Michael → Vanessa、Cc Brandon。本文の引用・添付はなし。両通の Message-ID は順に `<b38e1b4d-f8c4-41dc-9ee4-840cf70d5327@mercer-document.example>` と `<8bfd5d87-d24d-4a6d-9dda-12e2d7cec825@mercer-document.example>`。2通目の In-Reply-To と References に1通目のIDを入れる。
 - Brandon はピーク時の到着と費用の計測、Vanessa は遅延・誤振分け時の人への引き継ぎを8月25日までに論点化する。8月21日の指摘で初回予測を自動で返す案を外し、確認担当への引き継ぎは未実装の計測案に留める。
 - 8月25日14:00 PDT、Vanessa、Michael、Brandon、Emily、Fatima が保留を維持。Brandon は時間帯別の到着・処理時間、Emily と Fatima は別系列での見落とし・誤警報、Vanessa は確認担当と復旧工数を追う。応答時間と許容負担の基準、再審議日は未設定。
+
+## 編集者への短文受付論文の改訂稿返送
+
+- Eric Sandoval は4月29日付の編集用 R02（`MDR-STI-20260420-RM-01-R02`）を9月8日に Word コメント2件（図だけで数値を確認できるか、要旨で160件が採点対象に見えないか）付きで返し、17日までに改訂稿と別紙回答を求めた。本文・発行情報は維持。元著者 Vanessa、最終更新者 Eric。
+- Nicole Foster の指摘PDFは `HEI-20260909-MR-01-R01`（Issued September 9, 2026）。指摘 N1〜N9 の通し番号は PDF・回答書・箇所照合表で共通。9月14日14:00 PDT に Vanessa、Michael Serrano、Fatima Rahman が反映7件・対象外2件と送付範囲を決めた。
+- N1 は R02 Methods / Partitions and reference → R03 Case Allocation。案件は割付単位で、学習2,804／開発935／評価935文書、区画3組の共有案件は各0。
+- N2 は同じ R02 小節 → R03 Scoring Set。受信本文1通を採点単位とし、Hold 126文書は割付・採点外。両手法は同じ評価935文書・12分類の参照ラベルで採点。
+- N3 は R02 Methods / Comparison and scoring → R03 Comparator。学習区画の最多分類 New work request を基準が全評価文書に予測することを明示する。
+- N4 は同じ R02 小節 → R03 Macro-F1。各分類の未丸め F1 を等重みで平均して最後に丸める順を明示する。
+- N5 は R02 Results の比較段落 → R03 Results / Figure 1。0〜1の共通軸・12分類 macro-F1、学習多数クラス基準0.021／単語頻度の線形分類器0.832、同じ評価935文書。注釈入り PNG はこの図の軸起点・値ラベル・母数を指し、掲載図は注釈なし。
+- N6 は R02 Abstract と Methods / Reading selected errors → R03 Abstract と Methods / Diagnostic Reading。開発区画の保存済み予測から選んだ誤分類160件を診断に用いたことを先に示す。
+- N7 は R02 Discussion → R03 Scope Examples。41件（18／14／9）は否定の作用域の読解上の観察で、残り119件や分類器の予測原因へ一般化しない。
+- N8（R02 Results の比較段落 → R03 Figure 1）は対象外。7月 R184 は別評価1,200文書・別比較対象で、4月の比較図に追加すると同一集合の差と読める。N9（R02 Partitions and reference → R03 Case Allocation）は対象外。窓口横断キーの対応表は内部資料として保持し、文書には共有案件数の集計を示す。
+- 送付用改訂稿は `MDR-STI-20260420-RM-01-R03`、回答書は `MDR-STI-20260917-RM-01-R01`、9件の箇所照合表は `MDR-STI-20260917-AW-01-R01`（いずれも Issued September 17, 2026）。ローカルの改訂稿PDFは同じ R03 の Word 出力。
+- 独立した受領メール “Short intake copy back from Ellis” は9月8日09:21 PDT、Eric → Vanessa。“Short intake paper - Eric's comments.docx” を添付。
+- 独立した受領メール “Nine final points on short intake” は9月9日10:18 PDT、Nicole → Vanessa。“Short intake final methods comments.pdf” を添付。
+- 1通目 “Short intake revision for Ellis” は9月17日11:26 PDT、Vanessa → Eric。“Short intake paper - Sep 17.docx”、“Response to the final methods comments.docx”、“Locations of the September edits.xlsx” を添付。ページ確認用PDFと注釈画像は手元用。
+- 2通目 “Re: Short intake revision for Ellis” は9月18日09:46 PDT、Eric → Vanessa。3添付の受領と編集工程への引き渡しを知らせる。本文の引用なし、新規添付なし、採否は未定。
+- 改訂稿返送2通の Message-ID は順に `<b2e78d44-5287-4802-9e49-b311fb296fc3@mercer-document.example>`、`<6fabe157-f37d-4244-80f5-dd27a01b17b5@ellis-technical.example>`。返信の In-Reply-To・References は1通目のID。
+
+## 点検記録論文と購買記録論文の査読打診
+
+- 2026年9月21日14:00 PDT、Vanessa と Michael が二つの打診を確認。点検記録の共著者 Scott Marquez（Dawson Industrial Documents Inc）とは2025年11月に共同研究費申請を準備した関係があり辞退する。申請準備は採択・受給を意味しない。
+- Fenwick Public Records Lab の購買記録論文は Nicole の示した著者・所属について、共著・共同作業・資金関係の重なりが確認されず、Vanessa が引き受ける。可否の返事は2件とも9月23日まで、引受分の査読期限は10月12日。
+- 点検記録の件名は “Review request - inspection follow-up records”、論文名は “Finding follow-up actions in inspection records”。1通目は Nicole → Vanessa、9月21日09:07 PDT。2通目は同件名に “Re: ” を付けた Vanessa → Nicole、9月22日09:22 PDT の辞退。
+- 点検記録の Message-ID は順に `<1981d797-66e8-4c0c-9a01-eace80fa4bb2@hartwell-evaluation.example>`、`<f16c7ea6-94b5-438d-93ee-75f078793fc8@mercer-document.example>`。2通目は1通目を引用し In-Reply-To・References に1通目のIDを使う。両通とも添付なし。
+- 購買記録の件名は “Review request - purchase record line grouping”、論文名は “Line grouping in municipal purchase records”。1通目は Nicole → Vanessa、9月21日10:12 PDT。2通目は同件名に “Re: ” を付けた Vanessa → Nicole、9月22日10:08 PDT の受諾。
+- 購買記録の Message-ID は順に `<783ceba6-96da-4a0c-a2f3-d54bf1765d95@hartwell-evaluation.example>`、`<c972656e-022e-4dda-9d36-e8c3576a2cf5@mercer-document.example>`。2通目は1通目を引用し In-Reply-To・References に1通目のIDを使う。両通とも添付なし。
+- 担当登録の独立した連絡 “October 12 review assignment confirmed” は9月23日09:36 PDT、Nicole → Vanessa。Fenwick の締切は10月12日、論文へのアクセスは後続の個別案内。添付なし。

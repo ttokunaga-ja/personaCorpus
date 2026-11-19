@@ -1,0 +1,4 @@
+allocation_fixed,partition_1,partition_1_documents,partition_2,partition_2_documents,shared_cases
+2025-04-03,training,2804,development,935,0
+2025-04-03,training,2804,evaluation,935,0
+2025-04-03,development,935,evaluation,935,0
