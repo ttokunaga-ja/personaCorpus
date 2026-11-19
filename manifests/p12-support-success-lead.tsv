@@ -1,4 +1,6 @@
 Desktop/1011_日付のある行だけ拾うと混ざる.txt	6d04ebb84d2a4c1a256e1e0a7e532dc97de57e46b73c6671e013c9f2ea2c4573	545	2024-10-11T02:21:00Z
+Desktop/8日昼_一律の次報時刻は入れない.txt	af5aa30916d769cd5d528c550dd7bb23193112acf43d49d27045449557d9ad82	296	2026-01-08T03:51:00Z
+Desktop/8日朝_件数は文面の数.txt	76eb05612ee286a8b8b3659b844708cedfe71b7a5b4cc3a9888f14720e4a44d0	256	2026-01-08T00:42:00Z
 Desktop/9日の聞き取り_誰が自分で処理したか.txt	c9cd032400a354b71087592741c7192beec943b210848caf801bbee0bb6a6b1d	690	2025-09-09T00:44:00Z
 Desktop/件名で突き合わせるのをやめた.txt	8fc6dcb9fe822fde87cb07b9c262bf54dfa8bed838781aed5516a0e96278f61d	439	2025-04-24T00:37:00Z
 Desktop/件数だけ見ても所属は分からなかった.txt	bf442883103c3f9b466d8af1894950e49feab23bf439bfab07346eacbf95899a	739	2025-02-21T02:26:00Z
@@ -11,6 +13,7 @@ Desktop/朝の照合_自動受付を外す.txt	4016a1af2b59335c79a1a8707f94c2382
 Desktop/海外当番の引継ぎ票_約束を分ける案.docx	e8024b3f5eabb80fb563570c54add8c0f0dee034f0b11a12f6b5f4f0775d9652	53831	2024-10-11T09:08:00Z
 Desktop/白樺_4拠点を同じ日に呼ぶ案.pptx	0a0c8b6da5a267c5850069867be4cec5b1d9d3bd8437997e4cf6b8f21c5b9fb4	29996	2025-05-12T02:16:00Z
 Desktop/白樺_ログイン済みを数えない.txt	5e2c5d39a92996ff584caf4b95bbe2e8a11fce40beb562b2cda5550da9644b7f	560	2025-05-12T01:18:00Z
+Desktop/調査中の英文_昼に置いた案.docx	90d147850c2ba3f2d783da339109ef0a4d0fd66809ec08168b76470550d21ad6	53687	2026-01-08T04:14:00Z
 Desktop/谷口さんに電話する順番.txt	dce9189f4a6276e17b45c073a5022c1683168d84f2b313c88167a7584eab9b31	958	2026-08-21T00:18:00Z
 Desktop/谷口さんへ_取込再開の回答_下書き.docx	a84aaf56895a9015eee4076b3584bce58d3e311019add01e89b52e2012735949	54147	2025-07-11T05:36:00Z
 Desktop/露原機材_最初に聞くこと.txt	ca7f9efc9b40e4b9886b4d944e2bfd8ef5c27e7b23917ce1deb1fdd557498832	1312	2025-07-10T02:38:00Z
@@ -28,12 +31,17 @@ Documents/キュー/2025/04/再試行の確認先を置いた5件.xlsx	523342989
 Documents/キュー/2025/07/露原機材_取込相談の記録_0717.pdf	3d4bd3b8354fe527b1ef5bbe9e4ca366e8915ba100b099c4a20fbe3d90025370	91152	2025-07-17T01:16:00Z
 Documents/キュー/2025/07/露原機材_次の連絡期限_0714.xlsx	b0e5921a2c3bf95fafd7e5f07e483cf2d9c29ddf80c3a00d2b5da83a77eb786a	22268	2025-07-14T08:36:00Z
 Documents/キュー/2025/09/0909_白樺の次回連絡を残す.txt	b0c71683cf51f1e1814d741d2cdedc011dbd20194bd0fc9a10595ade992d6109	737	2025-09-09T08:24:00Z
+Documents/キュー/2026/01/13日夕方_JSTを入れて次の当番へ.docx	fc004663297ea6cb87e4076f55f86431a00527b6ca4af3d7b6be8a6e6e824f8a	54166	2026-01-13T07:40:00Z
 Documents/キュー/2026/08/露原機材_閉じる根拠を確認.xlsx	bd9ab72cef00a4613fe598850df6954f7b6aad46feaf88baf1f51cf5d3d19e1b	23457	2026-08-20T07:36:00Z
 Documents/キュー/2026/09/横山さんへ_露原機材の継続3件.docx	70a217147645c2c3cf1eb7d034aa23f8f9786a6ad25820b7190f2e5faf0c5f12	54487	2026-09-17T07:18:00Z
 Documents/ナレッジ改訂/28日_公開する範囲と当番の案内.docx	ff14ed2310a10e9dcdcc218a3737b2adcd44e621bdcd1931b1e2662fe4b222b6	54170	2025-04-28T05:18:00Z
 Documents/ナレッジ改訂/28日_当番が案内を読んで試す順.docx	84ed7ebbe9564cfc08f475c848dc8ead6c076d6d3d68e46ca58cc3aa67b03433	54231	2025-04-28T00:26:00Z
 Documents/ナレッジ改訂/一覧と通知で困ったとき_工藤さんの指摘.docx	899d5118c119c049345a2ec7990624ef7f092b5cf7434094c5eedd4112bc86bb	54497	2025-04-25T04:28:00Z
 Documents/ナレッジ改訂/一覧と通知で困ったとき_読み合わせ前.docx	f546a39ff0f4d7f08b648bf022212f47bbc5239a6b78f0938c06e6c1038f4f41	53599	2025-04-23T06:42:00Z
+Documents/メール保存/0108_国内当番へ_定型返信の直し方.eml	5da7b847d126f49b32ed3a67f701706918b9006dfea1b1b8a084cb5e61e49ea5	35202	2026-01-08T08:14:00Z
+Documents/メール保存/0108_柴田さん_再表示で確認できたのは1件.eml	631065d951c8afb4f543b558c3feffbef118aa04500a897fd8f7dc18ca68a4fa	2330	2026-01-08T03:24:00Z
+Documents/メール保存/0108_柴田さんへ_再表示で言い切れる範囲.eml	98296bd71c8efe21ee87a3faa491426fbf514946a0ca7f923bdcaad8987d0150	1363	2026-01-08T02:48:00Z
+Documents/メール保存/0108_酒井さん_会議室の鍵は受付へ.eml	95f19bb76f0902d2b1ac3612af05f8d9a7f4152973ce074815688af26ae82a6a	886	2026-01-08T07:12:00Z
 Documents/メール保存/0220_丸山さんから_権限まわりの確認.eml	eebbce63b470223e0a757f7546a01006c1e507ab5669a21d56713de0b2a51313	11869	2025-02-20T01:12:00Z
 Documents/メール保存/0220_丸山さんへ_質問表を受け取りました.eml	f6c9153232b993cec7ffda455a13927b3f55c68e6193a5548496eabc2e75fdf1	2489	2025-02-20T02:05:00Z
 Documents/メール保存/0224_内田さんへ_追加見積の前提3件.eml	d27b9a8b73f9bb238a413e1cbee93ed05b92e696c73862bf4ccc0d61e967b86d	76817	2025-02-24T07:20:00Z
@@ -77,6 +85,9 @@ Documents/メール保存/0917_谷口さんへ_QBRの議事録.eml	0c512bcf0b59e
 Documents/メール保存/1011_原さん_電話の約束は3件確認できました.eml	30054f74bda41fcb77dd197952c6fe1a03e0445ac0a4a571875ffa18bb4d1e20	2802	2024-10-11T06:56:00Z
 Documents/メール保存/1011_原さんへ_発信履歴で拾えない4件.eml	93353d4207e2df6b459a6b676846c52ba0a82166ad872d5565e9b4683d84e9eb	1473	2024-10-11T05:49:00Z
 Documents/メール保存/1016_原さん_木曜午後の小会議室.eml	b597bd059e9d9c3465be8f902c3c815672cb301cb3c9d68af9b96d5238911127	827	2024-10-16T01:11:00Z
+Documents/引継ぎ/海外チーム/0108_Jacqueline_Can we change what these replies promise.eml	ee46505161fbba0c245adcf69a13ba0d4bbfd27edbc0f8815ac0f0705f8210cd	8777	2026-01-08T00:18:00Z
+Documents/引継ぎ/海外チーム/0108_Jacquelineへ_What we can promise in an update.eml	f7a2543e1c2bc2efffb4c8b66979450644a9f4cc77651b40a13b7586420b7cac	53077	2026-01-08T07:48:00Z
+Documents/引継ぎ/海外チーム/0109_Jacqueline_The seven replies are in use.eml	874671fda4ffc6a703faf0caf9056f9414ea2380c10d08231763ab20b4864067	939	2026-01-09T01:26:00Z
 Documents/引継ぎ/海外チーム/1011_Jacqueline_The nine are on our handover.eml	afdfb0cae884c2a0187308d62cb8e6f87da6ee1ae0483a6348b1218404f4b4d2	2131	2024-10-11T08:44:00Z
 Documents/引継ぎ/海外チーム/1011_Jacqueline_Which update was promised.eml	cb36be1684adb21824fe5eb871f305e9a4ebd15c2ef99c92b2ecdfad71227bf1	862	2024-10-11T00:18:00Z
 Documents/引継ぎ/海外チーム/1011_Jacquelineへ_Confirmed customer updates.eml	c736d19531b76384b1113ed95d583e3071bf81bd50a626a808c9a1cd39bef848	4851	2024-10-11T08:12:00Z
@@ -84,15 +95,22 @@ Documents/引継ぎ/海外チーム/1011_読み合わせで書き込んだ旧票
 Documents/引継ぎ/海外チーム/1017_Jacquelineへ_Use this handover sheet from 1730.eml	c18078b8714a7d908c855374132336518cd86e6335ed63da0a192d3910bfbcbf	76551	2024-10-17T07:44:00Z
 Documents/引継ぎ/海外チーム/1018_Jacqueline_We can see who calls next.eml	ecc703b05f51e57a242796797dc46df8cd852b13fa98bb31c2f36afaec2cb183	1144	2024-10-18T02:04:00Z
 Documents/引継ぎ/海外チーム/Customer updates for the next shift 11 Oct.csv	25087feb3848a4c84f04db991f6acf84f5071645e5047b9a6da7d7fd26c3d285	1881	2024-10-11T07:58:00Z
+Documents/引継ぎ/海外チーム/Customer updates while we investigate.docx	ba69eb7f010c62a9a3d8e8888a2992dd76f0933c498a65cb1f7d573a09515bca	54397	2026-01-08T07:04:00Z
+Documents/引継ぎ/海外チーム/Investigation replies for the duty desk.html	fe6c459d55889c9382c3c4f9585283cf3e613e03bba55f289d65e14c046dab2d	2042	2026-01-09T01:00:00Z
+Documents/引継ぎ/海外チーム/Replacement replies for the English queue.csv	77f09c3edcda8851642e3f2b7d5308611d7482b45052a98f152f53267a92a2fe	1306	2026-01-08T07:23:00Z
+Documents/引継ぎ/海外チーム/Replies while we investigate - saved 7 Jan.html	5bd8acc1ac8c009d9d5edbdefc78b8d196dff85abcffeb068478e3b3cde2d985	1480	2026-01-07T07:26:00Z
 Documents/引継ぎ/海外チーム/海外当番の引継ぎ票.docx	9ecaae7d4a28224659c7acb34cbcbcc1de162d6564fd65a45209c07a16f81ec6	54371	2024-10-16T06:46:00Z
 Documents/引継ぎ/海外チーム/海外当番の引継ぎ票_原さんの赤字.docx	9ad84c063ff6c56fb307d4d36969c15891e0d731e50531a13ae8dd5148ee198c	54801	2024-10-15T02:32:00Z
 Documents/引継ぎ/海外チーム/海外当番の引継ぎ票_旧版.docx	ab569822ec79edf7d408775bc9783dc5a3d842848330604bdf6116e47c3d4d6e	53323	2024-10-10T06:24:00Z
+Documents/引継ぎ/海外チーム/調査中の英文_上田の修正履歴.docx	b97933e53a8ab1b3e68a8af9b4d6a22b70fa974d521a20253c5f5dae97789b67	53985	2026-01-08T05:22:00Z
 Documents/支援品質/0817_返却班で詰まったら止める箇所.docx	f30356557fd351b0a1c1d129b2e3966d2eefa2172ab431400ad971bbf5bc04a2	53910	2026-08-17T07:19:00Z
 Documents/支援品質/28日_読み合わせで止まった言い回し.csv	0d33368f4ecf19fbbb6181567f0c6501a65d277b1d194695d058c85a4b6a18f4	649	2025-04-28T02:39:00Z
+Documents/支援品質/8日_英文を読んだ時に聞こえた約束.md	80332b98be28175135c087eef6ae855e7a95cdb725fce0f08e31ef486fe07bdc	878	2026-01-08T02:41:00Z
 Documents/支援品質/丸山さんへ出す前_案内の読み合わせ.csv	45a6205834e783bfbb37eebcfebbf175ee9a8715ff158177afb1d3c9857c34ef	894	2025-02-25T01:22:00Z
 Documents/支援品質/公開後に開き直した3ページ.csv	361b5f09fe4e78d8bd4baf2c1ec7e1c765ece18ea51185e5533acefe2dbdf974	903	2025-04-30T04:46:00Z
 Documents/支援品質/新しい票で渡した最初の12件.xlsx	b05a21aa715a28c4363a45d4b56ba43767626060683e1db8549773ab3e7e5df5	23243	2024-10-18T01:26:00Z
 Documents/支援品質/海外当番に声に出して読んでもらった3例.xlsx	c18dba856c25d33be19fb41240882d737368504284abd2fc6297f4a0070a9d8f	22613	2024-10-15T07:42:00Z
+Documents/支援品質/調査中の定型返信_7件の採否.xlsx	c7acd865cd98fcb84d4191d4e0ab70b948e157988a222d98d347936aa2ff12da	23257	2026-01-08T06:56:00Z
 Documents/支援品質/露原機材_受付と初回返信の突合.xlsx	a4861c4387319ac148adc49a2a33450211235d0953f89388968e41ab750a1b65	23614	2026-08-04T01:48:00Z
 Documents/既知問題と案内/24日_回避策を使えた条件.xlsx	697e7f377edc57696478f3d702cc832c8cf38096109d2923e4690c9c8d04c2da	24158	2025-04-24T06:16:00Z
 Documents/既知問題と案内/一覧で受付を探し直すときの確認.html	3adbd5d1a3e4dcbc5b086906f093df84dd4005b994ae1ea647205a19d1a8ad11	3001	2025-04-30T01:00:00Z
@@ -140,6 +158,7 @@ Downloads/0909_白樺4拠点_稼働確認用の控え.csv	145cdb55f971588b1b8ce2
 Downloads/1011_海外引継ぎの照合に使った対応履歴.pdf	e15f61ab4a042c3dcf810cc5049d352a38dfcf18871b10d9caf6bc98f9d28347	54145	2024-10-15T00:26:00Z
 Downloads/1011_海外当番へ渡した40件.csv	888e7e8e9e70f4bf68d5bb6a584e5681580d1aef8d84b64c0ab76fd5b0a624d6	4885	2024-10-11T01:04:00Z
 Downloads/1017交替分_朝に引き直した12件.csv	7cedea22170c2942ece77d525f3dd1c3fd79b34acdcbcf7ccae5808b144204b9	1594	2024-10-18T00:08:00Z
+Downloads/Corley investigation replies 8 Jan.csv	7dd2f4ca9c522fced57aa2ec8abf6e7cf67a4823d95974cb23b30b858bfa3d34	5309	2026-01-08T00:06:00Z
 Downloads/交替前に見ていた記入案内.html	2d034d47fb14c0a8d2e55ce8b203744b33657183a04ea58d9d063e9b50503d64	1662	2024-10-10T07:06:00Z
 Downloads/権限まわりの確認.xlsx	8fb987d4cea3a669b7dd39042820ef437ceb1f86d4a58ec099c1da6ee4a57c81	7329	2025-02-20T01:08:00Z
 Downloads/海外当番へ渡す前の記入案内_1017.html	c4e15d6b5a7197797a5695af01566b6650cd30a434f9cafbf17a728e9f521050	3083	2024-10-17T07:26:00Z
@@ -156,6 +175,8 @@ Downloads/露原機材_未解決出力_0731.csv	fbed2bb2aa69598a2c3f4799466fd0bb
 Downloads/露原機材_未解決出力_0804.csv	68367651e9e6d3a3e9134cc6b56176021fcb246675ba29c5d95fd7ccb8869335	1853	2026-08-04T00:08:00Z
 Downloads/露原機材_未解決出力_0824.csv	396fb0238694559d1b1cd31d5fd94cc09a4e79e9a88afa31069366e92d5dd79b	642	2026-08-24T00:06:00Z
 Downloads/露原機材_返却振分けの対応履歴_0827.html	275d67c9afb24c3cc0e32b26056549e25d61639322bf239fdac7dd72f3c3de99	3261	2026-08-27T06:24:00Z
+OneDrive - 灯枝サービス/チーム会議/0108_完了と読める英文を声に出す.pptx	e3a6d63304d1025ac7382fae2f5a2672f0e8295d1119cea6a80c5bcf09a33fcb	30323	2026-01-08T05:51:00Z
+OneDrive - 灯枝サービス/チーム会議/0108_次報は当番が引き取ってから.docx	1be54c50bbad10364694f8966c5def70da44f40b026d3cf695c2580a0b93f9b1	53906	2026-01-08T06:43:00Z
 OneDrive - 灯枝サービス/チーム会議/0714_原さんへ_露原機材の当番引継ぎ.docx	1f33b36d0728160250264c0552911b7f1734666dd564c140ed7c9fafa1a862d5	54330	2025-07-14T08:12:00Z
 OneDrive - 灯枝サービス/チーム会議/1017_海外当番に渡す前の読み合わせ.pptx	71ce7edf1f418b59bc92c987694f35487ae34a71cbe1a6a99fd8f5b548e9aa21	37054	2024-10-17T05:08:00Z
 OneDrive - 灯枝サービス/チーム会議/24日_柴田さんと公開に回す条件.docx	458e094ad14b9e42d278ea5f7abc0639d44e1e842e849bcf2be31eafae7d4639	54251	2025-04-24T05:45:00Z
@@ -163,6 +184,7 @@ OneDrive - 灯枝サービス/チーム会議/24日午前_内線の受け替え.
 OneDrive - 灯枝サービス/チーム会議/24日午後_研修資料の受け渡し.txt	ecd233584d2783dfdf35ab1e7c31daa769292d2034a14154d612782c5ecbd842	361	2025-04-24T01:08:00Z
 OneDrive - 灯枝サービス/チーム会議/午後の当番_内線の受け替え.txt	f58a08030710bb2b36277c578e34d9ade5a874787fd04e0c1c93c1a8d9afd191	320	2026-08-05T01:18:00Z
 OneDrive - 灯枝サービス/チーム会議/水曜の面談室_鍵は総務へ.txt	9b0e9ad480f16590998d6e72d482be690bf7e32e9a2fb0fbe23830e336dc9af9	308	2025-05-14T06:22:00Z
+OneDrive - 灯枝サービス/配布用の説明/What Corley can say while we investigate.pdf	b602410c10c8d74296f972ef6415bdd5d767b81f15f0c0e1e13383ab08a1541d	35023	2026-01-08T07:37:00Z
 OneDrive - 灯枝サービス/配布用の説明/円山印章_権限の確認と操作のご案内.pdf	60bc0cdd08b27a2ae54d93e2c8f5ca0a244b72f1b4eb731242dc82f0a0b03826	136369	2025-02-25T05:02:00Z
 OneDrive - 灯枝サービス/配布用の説明/受付を探す・引き継ぐ・控える.pdf	b989b6fde10660da6f49a4845702e9fbffe5b8ade83c113f478aa4a0c300be43	202380	2025-04-30T01:18:00Z
 OneDrive - 灯枝サービス/配布用の説明/海外当番の引継ぎ票_印刷用.pdf	a7e13544ec237c7a873420253cf9329fe93bab3c159c677acdc3e155253d381a	102586	2024-10-16T06:54:00Z
@@ -179,6 +201,8 @@ Pictures/先頭のゼロが落ちた控えを開き直す.png	c3bde50b43db673a09
 Pictures/利用者一覧で見る役割と所属.png	d49011779eb7c6665d9e5f8447e915552a49bd573d7b91eca36e6e0d5f06363e	88965	2025-02-21T05:05:00Z
 Pictures/受付一覧_絞り込みを外しても他班は増えない.png	9a1581bff03295ca495e4fbc74e0849560f5f4650011b82147dddf307155b5c8	113641	2025-02-21T05:34:00Z
 Pictures/次報の時刻までに回答が来ないとき.png	bb10eafd164ecd0f8b1dd97cb5b98281317c19cf38a6304f4a21e4f5cd726dd0	145366	2024-10-17T02:06:00Z
+Pictures/次報時刻を引き受けてから書く.png	83f0c417ceac2dfadd648369a10866813859a91d09a385ab510bc831f0afc1e5	126037	2026-01-09T02:17:00Z
 Pictures/研修前_4806が一覧から消えたところ.png	bc9336888ff9030b55be14574659085742805dff85392c3eff6a39d9d2ce2e05	48750	2025-05-16T04:27:00Z
+Pictures/返信本文_確認できたことと次報.png	aaa30b0ff27aab75def4e08bf16086a41c26a90871651e6c9ec585e7fe89071c	49902	2026-01-08T05:37:00Z
 Pictures/露原機材_返却分だけ順に回す.png	162f5515195c13d58bc3ebd04ad3b21229337a9a5438e7e91a6162cbbc041781	205913	2026-08-12T06:11:00Z
 Pictures/顧客に伝える時刻は右の欄.png	0f6d0b35cdf656848c7a2313f410d0f4958873cb18f5c0dfc84b7826797bc87e	200975	2024-10-17T01:18:00Z

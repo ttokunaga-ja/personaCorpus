@@ -1,0 +1,17 @@
+---
+path: Documents/引継ぎ/海外チーム/Replacement replies for the English queue.csv
+kind: text
+author: 上田 由美香
+derived_from:
+---
+
+```csv
+Reply No.,Use,When to use,Replacement reply
+06,Acknowledgement,Request received and details to be reviewed,Thank you for contacting us. We have received your request and will review the details.
+12,Acknowledgement,Request details to be checked against records,Thank you for your message. We will check the details of your request against our records.
+21,Progress,Saved request not appearing in the list reproduced and cause still under investigation,We reproduced the issue where a saved request does not appear in the list. We are still investigating the cause.
+25,Progress,Development team has been asked about the reported issue,We have asked our development team about the issue you reported. We will share what we learn.
+29,Progress,One request seen after reopening the list; customer display still to be checked,We opened the list again and were able to see one request. Could you check whether it appears on your screen as well?
+37,More information,Reference number needed to check the records,Please send us the reference number so that we can check it against our records.
+49,Next update,"Sending owner and date and time accepted; contact even if the development answer is still pending","We will contact you by [agreed date and time, JST] to share what we have confirmed and what is still open."
+```
