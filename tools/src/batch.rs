@@ -1800,6 +1800,7 @@ impl Batch {
             r"(?i)^[ \t]{0,3}#{1,6}[ \t]+(?:添付(?:ファイル)?|attachments?)(?:[ \t]+#+)?[ \t]*$",
         );
         let bullet = re(r"^\s*[-*]\s+");
+        let mime_entry = re(r"(?i)\(actual MIME attachments?(?:[;)])");
         let attachments = re(&format!(
             r#"(?:[\w. -]+/)*[^/`\[\],;:：\n]+?\.(?:{})(?:$|[\s`\],;（(])"#,
             EXT.split_whitespace().collect::<Vec<_>>().join("|")
@@ -1821,7 +1822,7 @@ impl Batch {
                     lines.push(c[1].to_string());
                 } else if heading.is_match(line) {
                     in_attachment = true;
-                } else if in_attachment && bullet.is_match(line) {
+                } else if in_attachment && (bullet.is_match(line) || mime_entry.is_match(line)) {
                     lines.push(line.to_string());
                 } else if !line.trim().is_empty() {
                     in_attachment = false;

@@ -335,11 +335,15 @@ fn attachment_declarations_schedule_email_after_attachment_review() {
     for (heading, detail) in [
         (
             "## Attachment",
-            format!("記録.txt — text/plain; source: {FIRST}"),
+            format!("- 記録.txt — text/plain; source: {FIRST}"),
         ),
-        ("Attachments (actual files):", FIRST.to_owned()),
-        ("添付（実ファイル）：", FIRST.to_owned()),
-        ("## 添付", format!("記録.txt — `{FIRST}`")),
+        ("Attachments (actual files):", format!("- {FIRST}")),
+        ("添付（実ファイル）：", format!("- {FIRST}")),
+        ("## 添付", format!("- 記録.txt — `{FIRST}`")),
+        (
+            "## Attachment",
+            format!("記録.txt — {FIRST} (actual MIME attachment)"),
+        ),
     ] {
         let f = Fixture::new();
         f.planned();
@@ -348,7 +352,7 @@ fn attachment_declarations_schedule_email_after_attachment_review() {
         rows.swap(0, 1);
         f.set_plan(&rows, true);
         f.overrides(json!({email: {"body": format!(
-            "銀行照会を終えて明日の入金額を確認しました。\n\n{heading}\n\n- {detail}"
+            "銀行照会を終えて明日の入金額を確認しました。\n\n{heading}\n\n{detail}"
         )}}));
         f.run("ok", true);
 

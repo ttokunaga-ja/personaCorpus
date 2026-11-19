@@ -856,7 +856,7 @@ fn word_revision_source(body: &str, path: &Path, zone: chrono_tz::Tz) -> Result<
     let labeled = re(concat!(
         r"(?m)^[-*][ \t]+種類[:：][ \t]*(削除|挿入|コメント)[ \t]*[;／][ \t]*",
         r"人物[:：][ \t]*([^\r\n]+?)[ \t]*[;／][ \t]*",
-        r"日時[:：][ \t]*(\d{4}-\d\d-\d\d \d\d:\d\d)(?: ([A-Z]{2,6}))?[ \t]*[;／][ \t]*",
+        r"日時[:：][ \t]*(\d{4}-\d\d-\d\d \d\d:\d\d)(?: ([A-Z]{2,6}|[+-]\d{4}))?[ \t]*[;／][ \t]*",
         r"対象の文[:：][ \t]*([^\r\n]+?)[ \t]*[;／][ \t]*",
         r"新しい文[:：][ \t]*([^\r\n]+)\r?$",
     ));
@@ -920,9 +920,15 @@ fn word_revision_source(body: &str, path: &Path, zone: chrono_tz::Tz) -> Result<
                     *kind == &row[1]
                         && author == &row[2]
                         && date.format("%Y-%m-%d %H:%M").to_string() == row[3]
-                        && row
-                            .get(4)
-                            .is_none_or(|abbr| date.format("%Z").to_string() == abbr.as_str())
+                        && row.get(4).is_none_or(|zone| {
+                            let label = zone.as_str();
+                            let format = if label.starts_with(['+', '-']) {
+                                "%z"
+                            } else {
+                                "%Z"
+                            };
+                            date.format(format).to_string() == label
+                        })
                         && (text == payload || text == unwrapped)
                 })
                 .min_by_key(|(_, (_, _, _, text))| text != payload)
@@ -2789,7 +2795,13 @@ mod handout_and_revision_tests {
             word_revision_source(literal, file.path(), zone).unwrap(),
             "“Filing held.”"
         );
+        let offset = insert.replace("MDT", "-0600");
+        assert_eq!(
+            word_revision_source(&offset, file.path(), zone).unwrap(),
+            "Activation"
+        );
         for wrong in [
+            insert.replace("MDT", "-0700"),
             insert.replace("MDT", "MST"),
             insert.replace("13:17", "13:18"),
             insert.replace("Editor Name", "Other Name"),
