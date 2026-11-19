@@ -11,8 +11,9 @@
 | 要望と工数の照合 | オルタ、石田・太田。要望の出所、見積人週、依存工程、公開時の扱いを要望番号単位で照合 | `olta-requests.xlsx` | A4横、青緑白抜き見出し。先頭に順位と要望番号、工数の右に依存工程 |
 | 拠点別の利用確認 | オルタ、石田・中川。12拠点の利用と教育を区別して整理 | `olta-sites.xlsx` | A4横、共通書式。7列、教育状況と利用状況を別列にする |
 | 投資回収の前提比較 | オルタ、中野・石田。有償社数、月次寄与、初期費用を条件別に置き、回収月数と未確認事項を比較 | `olta-payback.xlsx` | A4横、共通書式。7列、金額と回収月数を右揃え、右隣の未確認事項は字下げ |
-| 企画・公開範囲の説明 | オルタ、石田・原田。開発案の比較、営業への説明、公開後報告、投資案と承認担当者向けの演習 | `olta-review.pptx` | 16:9、白地、上左の巡回経路ロゴと社名、青緑の題、下罫線。1マスター・5レイアウト、スライド0枚 |
-| 利用状況の出力・経営会議資料・承認担当者向け手引き | オルタ、石田。利用記録、経営会議への提出資料、代理承認の配布用手引きを直接PDFにする | `olta-extract.cls` | LuaLaTeX、A4縦、共通ロゴ、用途別の右ヘッダ、青緑見出しと表ヘッダ、繰返しヘッダ・自動頁 |
+| 説明図の読み取り・設問別集計 | オルタ、岡本・石田。匿名回答を設問ごとに集計し、人数と判断根拠を照合 | `olta-reading-results.xlsx` | A4横、青緑白抜き見出し。7列、判定人数と割合のあとに読み取り課題・判定基準 |
+| 企画・公開範囲の説明 | オルタ、石田・原田。開発案の比較、営業への説明、公開後報告、投資案、承認担当者向けの演習、利用者への読み取り課題と社内の結果説明 | `olta-review.pptx` | 16:9、白地、上左の巡回経路ロゴと社名、青緑の題、下罫線。1マスター・5レイアウト、スライド0枚 |
+| 利用状況の出力・経営会議資料・承認担当者向け手引き | オルタ、石田。利用記録、経営会議への提出資料、承認担当者の手引き、巡回チェック利用者への配布資料を直接PDFにする | `olta-extract.cls` | LuaLaTeX、A4縦、共通ロゴ、用途別の右ヘッダ、青緑見出しと表ヘッダ、繰返しヘッダ・自動頁 |
 | 拠点確認書 | 若松設備管理、小野。顧客発の拠点確認と正式な添付回答 | `wakamatsu-confirmation.docx` | A4縦、表紙なし。屋根と幹の図形、灰緑・明朝、控えめな事務用紙 |
 | 依頼受付の手順 | 若松設備管理、管理部の小野。依頼受付の流れを案内する直接出力のテキストPDF | `wakamatsu-intake.cls` | LuaLaTeX、A4縦。屋根と幹の図形、灰緑の細い上罫、明朝体、管理部と自動頁 |
 | 店舗別の役割・閲覧範囲 | ひかり店舗管理、管理担当の竹内。18店舗の役割・閲覧範囲・承認条件をオルタへ送る | `hikari-store-roles.xlsx` | A4横。えんじ色のひさし形と社名、生成りの管理ラベル、6列のえんじ色見出し |
@@ -22,6 +23,8 @@
 2024年12月〜2025年1月の年間計画では、全体開発の旧稿と試行範囲の文書を `olta-report.docx`、福田向け投資案と試行担当者向けの説明を `olta-review.pptx` からそれぞれ作る。経営会議に直接渡すPDFには `olta-extract.cls` の経営会議用管理欄を使う。商談条件のCSVには確認済み・未確認の区別を持たせる。見込4社と有償移行の想定は別に扱い、1月24日の提案は試行に限定する。試行で確かめる項目と再判断の条件は原稿に従う。決定メール・説明資料には対象の暦年と会計年度の四半期を併記する。
 
 2025年2〜6月の店舗権限分離では、竹内から届いた役割表に `hikari-store-roles.xlsx`、オルタ側で詰めた例外条件に `olta-report.docx`、担当者向け演習に `olta-review.pptx`、配布する手引きに `olta-extract.cls` の手引き用管理欄を使う。対面協議の合意票は、オルタで用意する用紙なら `olta-minutes.docx` の節と表を使って協議内容の欄を組み、承認した条件と手書きの確認事項を反映した原稿から `bin/scan` で画像だけのPDFにする。
+
+2025年7〜8月の巡回チェックでは、小野との試行振り返りに `olta-minutes.docx`、観察項目・つまずきの整理に `olta-report.docx` を使う。7月の再利用率・想定と集計条件は `olta-metrics.xlsx` に記録できる。8月の読み取り課題と結果説明は `olta-review.pptx` でそれぞれ組み、回答の設問別集計は `olta-reading-results.xlsx`、利用者に渡すテキストPDFは `olta-extract.cls` を使う。小野の所感は若松からのEMLとして保存する。岡本の書き込みがある旧説明図と修正箇所の図は、それぞれ画像として保存する。
 
 ## 組織の識別と管理項目
 
@@ -66,6 +69,12 @@ for index, row in enumerate(table.rows):
 
 回収比較の列はAから順に試算条件、有償想定社数、月次寄与（円／社）、初期費用（円）、回収月数、未確認の条件、出典・扱い。A・F・Gは `OF Text`、Bは `OF Number`、C・Dは `OF Yen`（円単位・桁区切り）、Eは `OF Months`（小数1桁）。月次寄与と初期費用の範囲は原稿に従う。単純回収月数を使う場合、E7に `=IF(OR(COUNT(B7:D7)<>3,B7<=0,C7<=0),"",D7/(B7*C7))` を入れ、実際の明細行に合わせて参照を変える。未確認の入力セルは値を空にし、回収月数が空になる理由と確認先はF・Gへ記す。仮定の異なるケースは集計せず、必要な注記を末尾へ入れる。
 
+### 説明図の読み取り・設問別集計
+
+共通手順で管理欄を埋める。B4:D4の実施日は読み取りを行った日とし、B3:D3には計画で決めた `OFS-YYYYMM-KM-連番3桁`、F3:G3とF4:G4には版・作成者を入れる。行6の列順は設問、回答数（人）、基準を満たした人数、割合、読み取り課題、判定基準、迷った箇所・注記。行7以降のA・E〜Gは `OF Text`、B・Cは `OF Number`、Dは `OF Percent` を使う。D7に `=IF(B7>0,C7/B7,"")` を入れ、参照を明細行に合わせる。無回答の扱いと判定条件は原稿に従う。率の右隣の課題欄には `OF Text` の左インデントが入る。
+
+設問間で回答者が重なるため、設問別の人数・割合は足し上げない。全体の理解人数を記載する場合は匿名回答を人単位で照合し、判定に使った設問と基準とともに注記する。A:Gを結合した実内容の注記は `OF Note` を使う。明細は36ptを目安に、判定基準などが折り返す行は高さを増やす。A6:Gの最終明細までにフィルタ、A1:Gの最終記載行までに印刷範囲を設定する。
+
 ### ひかり店舗管理の役割表
 
 1. B3:C3に発行元の管理番号（例 `HKM-202502-RL-001`）、E3:F3に版、B4:C4に作成日（実日付、`yyyy-mm-dd`）、E4:F4に担当を入れる。いずれも結合範囲の左端へ書き込む。入力欄は折返し・縦中央、管理番号行は27pt、日付行は24pt。
@@ -89,6 +98,8 @@ for index, row in enumerate(table.rows):
 
 承認担当者へ配る手引きでは、本文の最初に `\OFGuideRecord{題}{文書番号}{版}{発行日}{作成者}{配布先}` を使う。右ヘッダに「承認担当者向け手引き」を表示する。代理者を決める手順と担当外の閲覧可否は別の節で示し、手順の見出しに `\OFSection` を使う。
 
+巡回チェックの説明図を利用者に配る場合は `\OFGuideRecord[利用者向け配布資料]{題}{文書番号}{版}{発行日}{作成者}{配布先}` を使う。右ヘッダに「利用者向け配布資料」、題の下に文書番号・版・作成者・発行日・配布先が出る。文書番号は案内の `NT` を使う。読み取り方や操作条件を `\OFSection` で区切り、説明の本文は選択できるテキストとして組む。
+
 `wakamatsu-intake.cls` も原稿と同じディレクトリへコピーし、`\documentclass{wakamatsu-intake}` で読み込む。`\WSKRecord{題}{文書番号}{版}{発行日}{作成者}` に送付元の値を入れ、手順の区切りを `\WSKStep{見出し}` で示す。日本語は Noto Serif CJK JP、欧文は Liberation Serif、本文11pt・墨、題と見出しは灰緑。必要に応じて上と同じ方法で表を置き、見出し行は `\rowcolor{WSKgreen}` と `\WSKHead{列名}` を使う。出力PDFはテキストを選択できることを確認する。
 
 ## 型を使わない記録
@@ -97,25 +108,25 @@ CSVは原稿の素の列と値だけを出し、ロゴ・管理行を混入さ�
 
 ## 組版見本と検証先
 
-見本は `scratch/p08-product-manager/b004/work/templates-0004/examples/`、画像は `scratch/p08-product-manager/b004/work/templates-0004/render/`。見本中の番号・明細・試算値は組版確認用。成形時の値は計画・台帳・原稿から取る。
+見本は `scratch/p08-product-manager/b005/work/templates-0002/examples/`、レンダリング画像は同じ作業フォルダの `render/`。見本の文書番号・明細・設問・試算値は組版確認用。成形時には計画・台帳・原稿の値を使う。
 
-| 型 | examples以下の見本 | render以下の全頁一覧 |
+| 型 | examples以下の見本 | render以下の全ページ一覧 |
 |---|---|---|
-| `olta-guidance.docx` | `olta-guidance-short.docx`・`olta-guidance-long.docx` | `word-a.jpg` |
-| `olta-minutes.docx` | `olta-minutes-short.docx`・`olta-minutes-long.docx` | `word-a.jpg` |
-| `olta-report.docx` | `olta-report-short.docx`・`olta-report-long.docx` | `word-b.jpg` |
-| `wakamatsu-confirmation.docx` | `wakamatsu-confirmation-short.docx`・`wakamatsu-confirmation-long.docx` | `word-b.jpg` |
-| `olta-metrics.xlsx` | `olta-metrics-3.xlsx`・`olta-metrics-38.xlsx` | `excel-metrics.jpg` |
-| `olta-sites.xlsx` | `olta-sites-3.xlsx`・`olta-sites-38.xlsx` | `excel-sites.jpg` |
-| `olta-requests.xlsx` | `olta-requests-3.xlsx`・`olta-requests-38.xlsx` | `excel-requests.jpg` |
-| `olta-payback.xlsx` | `olta-payback-3.xlsx`・`olta-payback-38.xlsx` | `excel-payback.jpg` |
-| `hikari-store-roles.xlsx` | `hikari-store-roles-3.xlsx`・`hikari-store-roles-18.xlsx` | `excel-hikari.jpg` |
-| `olta-review.pptx` | `olta-review.pptx`（全5レイアウト） | `slides.jpg` |
-| `olta-extract.cls` | `olta-extract-short.tex`・`olta-extract-long.tex` と `olta-extract-short.pdf`・`olta-extract-long.pdf` | `tex-extract.jpg` |
-| `olta-extract.cls`（経営会議） | `olta-meeting-short.tex`・`olta-meeting-long.tex` と `olta-meeting-short.pdf`・`olta-meeting-long.pdf` | `tex-meeting.jpg` |
-| `olta-extract.cls`（承認担当者向け手引き） | `olta-guide-short.tex`・`olta-guide-long.tex` と `olta-guide-short.pdf`・`olta-guide-long.pdf` | `tex-guide.jpg` |
-| `wakamatsu-intake.cls` | `wakamatsu-intake-short.tex`・`wakamatsu-intake-long.tex` と `wakamatsu-intake-short.pdf`・`wakamatsu-intake-long.pdf` | `tex-wakamatsu.jpg` |
+| `olta-guidance.docx` | `olta-guidance-short.docx`・`olta-guidance-long.docx` | `olta-guidance.jpg` |
+| `olta-minutes.docx` | `olta-minutes-short.docx`・`olta-minutes-long.docx` | `olta-minutes.jpg` |
+| `olta-report.docx` | `olta-report-short.docx`・`olta-report-long.docx` | `olta-report.jpg` |
+| `wakamatsu-confirmation.docx` | `wakamatsu-confirmation-short.docx`・`wakamatsu-confirmation-long.docx` | `wakamatsu-confirmation.jpg` |
+| `olta-metrics.xlsx` | `olta-metrics-3.xlsx`・`olta-metrics-38.xlsx` | `olta-metrics.jpg` |
+| `olta-sites.xlsx` | `olta-sites-3.xlsx`・`olta-sites-38.xlsx` | `olta-sites.jpg` |
+| `olta-requests.xlsx` | `olta-requests-3.xlsx`・`olta-requests-38.xlsx` | `olta-requests.jpg` |
+| `olta-payback.xlsx` | `olta-payback-3.xlsx`・`olta-payback-38.xlsx` | `olta-payback.jpg` |
+| `olta-reading-results.xlsx` | `olta-reading-results-3.xlsx`・`olta-reading-results-38.xlsx` | `olta-reading-results.jpg` |
+| `hikari-store-roles.xlsx` | `hikari-store-roles-3.xlsx`・`hikari-store-roles-38.xlsx` | `hikari-store-roles.jpg` |
+| `olta-review.pptx` | `olta-review.pptx`（全5レイアウト） | `olta-review.jpg` |
+| `olta-extract.cls`（利用状況） | `olta-extract-short.tex`・`olta-extract-long.tex` と `olta-extract-short.pdf`・`olta-extract-long.pdf` | `olta-extract.jpg` |
+| `olta-extract.cls`（経営会議） | `olta-meeting-short.tex`・`olta-meeting-long.tex` と `olta-meeting-short.pdf`・`olta-meeting-long.pdf` | `olta-meeting.jpg` |
+| `olta-extract.cls`（承認担当者向け手引き） | `olta-guide-short.tex`・`olta-guide-long.tex` と `olta-guide-short.pdf`・`olta-guide-long.pdf` | `olta-guide.jpg` |
+| `olta-extract.cls`（利用者向け配布資料） | `olta-handout-short.tex`・`olta-handout-long.tex` と `olta-handout-short.pdf`・`olta-handout-long.pdf` | `olta-handout.jpg` |
+| `wakamatsu-intake.cls` | `wakamatsu-intake-short.tex`・`wakamatsu-intake-long.tex` と `wakamatsu-intake-short.pdf`・`wakamatsu-intake-long.pdf` | `wakamatsu-intake.jpg` |
 
-改ページ検証では、Word 4型それぞれで対象03の取扱いを32行にした。同じ内容を、表スタイルの既定値だけの見本と、全行に直接指定した見本で出力した。直接指定した見本では対象03と取扱い32行が揃って2ページ目に移り、列見出しも再掲される。各型の比較画像は `word-row-guidance.jpg`、`word-row-minutes.jpg`、`word-row-report.jpg`、`word-row-confirmation.jpg`。
-
-各頁のPNGは画像先にある見本と同じ拡張子なしの名前のフォルダに格納。Excelの管理欄と明細の列境界は `excel-metrics-detail.png`、`excel-sites-detail.png`、`excel-requests-detail.png`、`excel-payback-detail.png`、`excel-hikari-detail.png` で確認できる。実行記録は `scratch/p08-product-manager/b004/work/templates-0004/commands.json`、構造検査は `scratch/p08-product-manager/b004/work/templates-0004/structure.json`。
+各ページのPNGは `render/` にある見本と同じ拡張子なしの名前のフォルダに格納。作業フォルダ内の `commands.json` にレンダリングの実行結果、`structure.json` に型と見本の検査結果を記録した。
