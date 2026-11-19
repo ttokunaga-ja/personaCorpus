@@ -57,11 +57,18 @@ b001は2026-08-10〜09-30の研修設計リード採用3枠を扱う。8観点�
 - 渡辺への投影は `mirai-recruiting.pptx`。表で指標ごとの分母を示し、図で対象174人を回答151人・未回答23人に分ける。42％は設問の報告値として別に注記する。直接組版の会議要旨は `mirai-recruiting-note.cls` を開き、プリアンブルに `\renewcommand{\MWDocumentUse}{組織負担調査}` を置く。10月22日の資料では提案内容と、その後に決める事項を分ける。5月の研修実施は別の記録に置く。
 - 受領控えは匿名集計のCSV、伊藤への確認はEML。集計範囲のPNGは対象・回答・未回答を人数付きで図示し、設問の率を別に表示する。共有資料に回答者名や少人数の属性・部署別内訳を載せない。b007 の文書はみらい職場研修の社内様式を使う。
 
+### 2026年4〜5月の職務改訂と半期面談（b008）
+
+- 4月22日の赤字と改訂理由には `mirai-approval.docx` を使う。ロゴを保持したままヘッダの用途を「職務説明の改訂」に替え、「改訂前の記載」「赤字で確認する変更」「改訂理由」「高橋との確認」など原稿に沿って組む。削除する語句は赤の取り消し線、追加する語句は赤の下線で示す。教材設計と実施の進行を一つの職務として扱う理由と、高橋が確認した範囲を記す。高橋の確認メールはEMLで保存する。
+- 業務と8項目の対応には `mirai-evaluation.xlsx` を使う。A〜F列を「番号／職務の範囲／確認項目／担当する業務／聞き取る経験／改訂時の確認」、列幅を10・22・27・31・28・27とする。A列は `MW Number`、B〜F列は `MW Text`。用途コードは `MAP`。4月の対応表は職務ごとに聞く経験を示す。8月の面接用基準や個人別の評価点は付けない。
+- 5月8日の半期実績の照合には `mirai-expenses.xlsx` を使う。A〜F列を「番号／照合項目／目標（%）／実績（%）／差（ポイント）／照合根拠・論点」、列幅を10・32・17・17・19・50とする。A・C〜E列は `MW Number`、B・F列は `MW Text`。率のセルは0.70・0.63を数値で入れ `0%` と表示する。差は `=(D7-C7)*100` のように実績から目標を引き、`+0;-0;0` で−7ポイントと示す。率・差の合計欄は作らない。半期の対象範囲は原稿に従い、設計リード3枠の承諾率として扱わない。長い見本は第6行を27ptとした。対応表は明細72ptで11行目の後、実績照合は明細58ptで12行目の後に改ページを指定した。実際の行高と改ページは内容に合わせる。
+- 渡辺との半期面談は `mirai-recruiting.pptx`。目標70%と実績63%を半期の数値として示し、応募時に伝える教材設計、講師との調整、実施の進行を具体化する。面談前の個人メモはTXT。職務説明の配布用抜粋は `mirai-recruiting-note.cls` を使い、プリアンブルに `\renewcommand{\MWDocumentUse}{職務説明}` を置く。配布版には応募者へ伝える担当範囲を載せる。
+
 ## 共通の意匠と管理
 
 - 178人の研修会社として、小さな「開いた本」の図形と社名を使う。本の左ページは桑実色 `963A65`、右ページは灰緑 `7B8270`。本文は墨 `34383C`、白地、合計の淡色は桑実色の濃淡 `F5EDF1`。Word・Excelの図形は埋込みPNG、PowerPointはネイティブ図形、TeXはTikZ。外部画像リンクはない。
 - Officeの日本語・欧文はともに **Noto Sans CJK JP**。WordのNormal、見出し、表、テーマ、Excelの既定フォント・入力欄・名前付き書式、PowerPointのテーマとプレースホルダに実設定する。TeXの日本語も同フォント、欧文は環境にある **Liberation Sans**。本文色はTeXでも文書開始時に適用する。
-- 自社文書番号は `MW-HR-YYYYMM-用途-連番3桁`。用途は `APR`（承認）、`INT`（面接・再点検・追加質問）、`NOT`（案内）、`EVA`（評価・尺度比較）、`EXP`（経費・照合）、`BRF`（報告・討議スライド、会議要旨）、`REC`（確認事項・受入手順・演習確認票）、`REV`（初週の振り返り）、`MAP`（準備の対応表）。同文書の改版・Office由来PDFは同番号で版を区別する。実値は計画と事実台帳で決める。番号を持たない私的メモ・保存メールには付けない。
+- 自社文書番号は `MW-HR-YYYYMM-用途-連番3桁`。用途は `APR`（承認）、`INT`（面接・再点検・追加質問）、`NOT`（案内）、`EVA`（評価・尺度比較）、`EXP`（経費・照合）、`BRF`（報告・討議スライド、会議要旨）、`REC`（確認事項・受入手順・演習確認票）、`REV`（初週の振り返り）、`MAP`（業務・準備の対応表）。同文書の改版・Office由来PDFは同番号で版を区別する。実値は計画と事実台帳で決める。番号を持たない私的メモ・保存メールには付けない。
 - 青山キャリア支援の番号は `AY-CS-YYYYMM-NOT-連番3桁`（連絡）、`AY-CS-YYYYMM-BRF-連番3桁`（配布資料）。Wordは日本語・欧文とも **Noto Serif CJK JP**。TeXは日本語 **Noto Serif CJK JP**、欧文 **Liberation Serif**。青灰色 `486477` と墨 `34383C`、白地。山形2本と社名。配布資料の表見出しは青灰色の淡色 `EAF0F3`。相手の発信文書に自社番号を追加しない。
 - 明星採用広告の校正番号は `MA-AD-YYYYMM-PF-連番3桁`。年月は初校の発行月で、同じ原稿の再校は版と発行日を変える。四光星・上罫・小見出しは濃い橙 `A84816`、題・本文は濃紺 `273449`、管理帯・表見出しは淡橙 `F8EFE7`。日本語は **Noto Sans CJK JP**、欧文は **Liberation Sans**。明星の番号と佐々木の発行担当表記を用いる。
 - 岡部人材評価の演習資料番号は `OK-TA-YYYYMM-EX-連番3桁`。年月は初版の発行月。改版は同番号で版・発行日を更新する。チェック印・罫線・節見出しにオリーブ色 `53632A`、本文・題に墨 `272F25`、管理欄と表見出しに淡いオリーブ色 `EDF0E4` を使う。日本語は **Noto Sans CJK JP**、欧文は **Liberation Sans**。ヘッダは正式社名と用途、フッタは社名・評価研修と頁。講師は山口裕樹。番号の実値は計画と原稿で定める。
@@ -81,12 +88,12 @@ b001は2026-08-10〜09-30の研修設計リード採用3枠を扱う。8観点�
 
 `load_workbook(型)`で開く。1行目は埋込みロゴと社名、2行目は題、3〜4行目は管理項目、6行目は列見出し。5行目は未書式の余白。7行目以降にはセル・明細・式・仮の合計を持たない。
 
-1. B3:D3の結合セルへ規定番号全文、F3へ版、B4:C4へ作成日（実日付に`yyyy-mm-dd`）、E4:F4へ作成者を入れる。入力先は空でもNoto Sans CJK JP・9pt・左寄せ・左インデント1・折返しなし・縦中央。B3:D3の結合は維持し、番号を1行で表示する。列幅A〜Fは評価表が19・38・28・14・25・21、経費表が23・39・18・18・17・30（いずれも合計145）。3・4行目は30pt。少数行／複数ページ見本は `MW-HR-202609-EVA-001` / `MW-HR-202609-EXP-001` と日付・作成者を同時に入れて確認する。管理欄は番号全文と隣の版・日付・作成者を同時に入れて印刷し、長い番号や作成者では入力先の結合幅を広げて1行表示を保つ。題・列名・列幅は原稿に合わせて変更する。
+1. B3:D3の結合セルへ規定番号全文、F3へ版、B4:C4へ作成日（実日付に`yyyy-mm-dd`）、E4:F4へ作成者を入れる。入力先は空でもNoto Sans CJK JP・9pt・左寄せ・左インデント1・折返しなし・縦中央。B3:D3の結合は維持し、番号を1行で表示する。列幅A〜Fは評価表が19・38・28・14・25・21、経費表が23・39・18・18・17・30（いずれも合計145）。3・4行目は30pt。管理欄は番号全文と隣の版・日付・作成者を同時に入れて印刷し、長い番号や作成者では入力先の結合幅を広げて1行表示を保つ。題・列名・列幅は原稿に合わせて変更する。
 2. 原稿にある行だけ7行目から追加する。文字は `MW Text`（10pt、左寄せ、左インデント1）、整数・金額・差分の式は `MW Number`（10pt、右寄せ、`#,##0;[Red](#,##0);0`）、日付は `MW Date`、注記は `MW Note`（9pt）。すべて墨色、折返し・上揃え、細い下罫線。日付・注記の名前付き書式にも左インデント1を設定済み。番号・連番を数値として扱うときは右寄せの `MW Number`、識別子は文字列の `MW Text` とする。数値列の右隣の文字列は先頭の番号列の隣も含め左インデント1を維持し、値を接触させない。列を追加・移動・並替えするときも文字セルへこの書式を適用し、見出しと左寄せの合計ラベルにも左インデント1を付ける。率には原稿に合わせた表示形式を指定する。
 3. 評価表は実際の8観点に従い、候補者ごとのシートまたは文書に分ける。シート名と題に対象者、管理欄の後へ原稿の評価日・評価者を追加するなど、作成日と評価日を区別する。事実と解釈を混ぜない。評価尺度は原稿に従う。保留を0点へ変えず、点数の合計を型の都合で追加しない。
 4. 経費表は金額（円）と人数（人）を別表／シートに分け、題や列見出しに単位を明記する。3〜5列の差額は原稿の式（例：`=D7-C7`）。合計が意味を持つ場合だけ最後の明細の次へラベルと実範囲を指す`SUM`等を入れ、実セルへ `MW Total` を付ける。淡色背景、太字、上細線・下二重線。ラベルの横位置は左寄せ・左インデント1に変更する。人数の内訳と応募者数を重複加算しない。未知額を0に置き換えない。
-5. 注記が原稿にある場合だけ末尾へ `MW Note` の行を追加し、必要な幅を結合する。列幅合計は評価表145、経費表145文字幅。見本では明細行高40pt、合計25pt。長文は行高を増やし、表を分ける。`auto_filter.ref`は6行目から最終明細、`print_area`はA1:F実最終行とし合計・注記まで含める。列を増減した場合は結合・印刷範囲も揃える。
-6. A4横、幅1ページ・高さ自動、左右0.3inch・上0.35・下0.45、1〜6行繰返し、C7で固定。40明細の見本は24行目の後へ `ws.row_breaks.append(Break(id=24))` を入れ、自然改ページも使って文字を保った複数ページにする。実内容の折返しに応じて改ページ位置を変える。印刷ヘッダの余白は0.15inch、フッタ余白は0.2inch。会社・人事と `&P / &N` のフッタを維持する。`bin/recalc`で式を計算し、`bin/render`で全ページを確認する。
+5. 注記が原稿にある場合だけ末尾へ `MW Note` の行を追加し、必要な幅を結合する。列幅合計は評価表145、経費表145文字幅。明細行高は40pt、合計は25ptを目安とする。長文は行高を増やし、表を分ける。`auto_filter.ref`は6行目から最終明細、`print_area`はA1:F実最終行とし合計・注記まで含める。列を増減した場合は結合・印刷範囲も揃える。
+6. A4横、幅1ページ・高さ自動、左右0.3inch・上0.35・下0.45、1〜6行繰返し、C7で固定。表が長い場合は自然改ページを確認し、必要に応じて `ws.row_breaks.append(Break(id=11))` のように行の後に改ページを入れる。位置は実内容の折返しに合わせる。印刷ヘッダの余白は0.15inch、フッタ余白は0.2inch。会社・人事と `&P / &N` のフッタを維持する。`bin/recalc`で式を計算し、`bin/render`で全ページを確認する。
 
 ## PowerPoint
 
@@ -134,14 +141,22 @@ b001は2026-08-10〜09-30の研修設計リード採用3枠を扱う。8観点�
 
 ## 今回の見本と確認先
 
-作業フォルダは `scratch/p15-recruiter-people-ops/b007/work/templates-0002/`。以下のパスはこのフォルダを基準とする。文書番号、照合の文面、演習案は書式確認用。成果物には計画・台帳・原稿の内容を使う。
+作業フォルダは `scratch/p15-recruiter-people-ops/b008/work/templates-0002/`。以下のパスはこのフォルダを基準とする。管理欄の値と明細は書式確認用。成果物には計画・台帳・原稿の内容を使う。
 
 | 型／確認内容 | 見本 | 全ページの画像 |
 |---|---|---|
-| 調査の読み取りと研修提案（短い表） | `examples/survey-note-short.docx` | `render/survey-note-short/` |
-| 調査の読み取りと研修提案（表の継続） | `examples/survey-note-long.docx` | `render/survey-note-long/` |
-| 分母・丸めの照合（3行） | `examples/survey-reconciliation-short.xlsx` | `render/survey-reconciliation-short/` |
-| 分母・丸めの照合（確認事項を含む15行） | `examples/survey-reconciliation-long.xlsx` | `render/survey-reconciliation-long/` |
-| 組織調査の報告（5レイアウト） | `examples/survey-briefing.pptx` | `render/survey-briefing/` |
-| 会議要旨（短い表） | `examples/survey-handout-short.tex`、`examples/survey-handout-short.pdf` | `render/survey-handout-short/` |
-| 会議要旨（表の継続） | `examples/survey-handout-long.tex`、`examples/survey-handout-long.pdf` | `render/survey-handout-long/` |
+| 職務説明の赤字と改訂理由 | `examples/mirai-approval.docx` | `render/mirai-approval/` |
+| 同じ改訂書式で表の継続を確認 | `examples/mirai-approval-long.docx` | `render/mirai-approval-long/` |
+| 面接・追加確認 | `examples/mirai-interview.docx` | `render/mirai-interview/` |
+| 候補者へのご案内 | `examples/mirai-notice.docx` | `render/mirai-notice/` |
+| 業務と確認項目の対応（3行） | `examples/mirai-evaluation-short.xlsx` | `render/mirai-evaluation-short/` |
+| 業務と確認項目の対応（全8項目） | `examples/mirai-evaluation-long.xlsx` | `render/mirai-evaluation-long/` |
+| 半期の内定承諾率の照合（3行） | `examples/mirai-expenses-short.xlsx` | `render/mirai-expenses-short/` |
+| 半期の内定承諾率の照合（説明の論点を含む11行） | `examples/mirai-expenses-long.xlsx` | `render/mirai-expenses-long/` |
+| 半期面談（全5レイアウト） | `examples/mirai-recruiting.pptx` | `render/mirai-recruiting/` |
+| 配布用の職務説明（短い表） | `examples/mirai-recruiting-note-short.tex`、`examples/mirai-recruiting-note-short.pdf` | `render/mirai-recruiting-note-short/` |
+| 同じ配布書式で表の継続を確認 | `examples/mirai-recruiting-note-long.tex`、`examples/mirai-recruiting-note-long.pdf` | `render/mirai-recruiting-note-long/` |
+| 青山の採用支援の連絡 | `examples/aoyama-recruiting-note.docx` | `render/aoyama-recruiting-note/` |
+| 青山の配布資料 | `examples/aoyama-channel-handout.tex`、`examples/aoyama-channel-handout.pdf` | `render/aoyama-channel-handout/` |
+| 明星の掲載原稿 | `examples/myojo-ad-proof.tex`、`examples/myojo-ad-proof.pdf` | `render/myojo-ad-proof/` |
+| 岡部の演習資料 | `examples/okabe-interviewer-exercise.tex`、`examples/okabe-interviewer-exercise.pdf` | `render/okabe-interviewer-exercise/` |
