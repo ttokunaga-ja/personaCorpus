@@ -2455,3 +2455,12 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-19	p12-support-success-lead	b008	build-review	0	V2	OneDrive - 灯枝サービス/配布用の説明/露原機材_4月22日にお話しすること.pptx	3枚目「営業時間をまたぐ2つの例」の比較表は明細が16ptで型の本文18pt以上を満たさず、営業分列の「40＋70＝110分」「09:00から240分」が型の数値右寄せ指定に反して左寄せ。
 2026-11-19	p12-support-success-lead	b008	build-review	1	V2	OneDrive - 灯枝サービス/配布用の説明/露原機材_4月22日にお話しすること.pptx	3枚目「営業時間をまたぐ2つの例」の明細は18ptで営業分の2セルも右寄せに修正済みだが、比較表の上端が型の表プレースホルダと見本の2.05インチに対し2.20インチに置かれている。
 2026-11-19	p12-support-success-lead	b008	build-review	0	V2	Documents/支援品質/露原機材_支援条件の確定文.docx	1ページ目「初回返信について」の表に指定のTS Tableが適用されず、見出し「項目」「内容」が見本の紫地・白字に対して白地・黒字の標準Table Gridで表示されている。
+2026-11-19	p13-corporate-privacy-counsel	b007	templates-review	0	other	README.md	「見本と検証」138〜153行が案内する scratch/p13-corporate-privacy-counsel/b006/work/templates-0004/ が存在せず、表の見本・全頁画像・render-results.json を参照できない。
+2026-11-19	p13-corporate-privacy-counsel	b007	draft-review	0	D10	Documents/相談控え/2026/3月18日_Fairviewに追補を頼む前の確認.docx	原稿9〜14行の管理情報と「日時・参加者」には番号・版・作成者・会議参加者はあるが、toto-consultation.docxのTD Metadataに必要な文書の宛先・確認者の値または確認状況がなく、参加者名だけでは両欄を確定できない。
+2026-11-19	p13-corporate-privacy-counsel	b007	draft-review	0	D10	Desktop/11月12日_削除対象_杉山さん赤字.docx	版0.1との比較で「実施確認」の和文検討メモが「杉山さんへ：照合が完了したと言える条件と…」から「照合完了の条件と起算点の書面化を先方と詰める…」に差し替わっているが、「変更履歴」には英文2箇所の変更と杉山のコメントしかなく、和文の旧文・新文を赤字として再現する指定がない。
+2026-11-19	p13-corporate-privacy-counsel	b007	check	0	source	Documents/Matters/移管先削除条件/3月18日_杉山さんと紙で見た証明の範囲.pdf	body token overlap 0.194 < 0.3
+2026-11-19	p13-corporate-privacy-counsel	b007	build-review	0	V2	Documents/Matters/移管先削除条件/追補が来たら_復元領域の照合手順.pdf	1頁目の表題直下の管理欄に番号・日付・氏名はあるが、toto-review-sheet.cls の ReviewHeading と見本にある「文書番号」「作成日」のラベルがなく、「作成者」が「作成」になっている。
+2026-11-19	p13-corporate-privacy-counsel	b007	build-review	0	V2	Documents/Matters/移管先削除条件/3月18日_Fairviewの提出期限と証明範囲.xlsx	シート「提出期限と証明範囲」のE4／F4:H4は型・見本の「確認者・版」欄と確認者名を欠き、「版」／「1.0」のみが両印刷頁に表示される。
+2026-11-19	p13-corporate-privacy-counsel	b007	build-review	0	V2	Documents/相談控え/2026/3月18日_Fairviewに追補を頼む前の確認.docx	1頁上段の文書番号から確認者までの管理6行が、相談記録の型と見本が指定する9ptの「TD Metadata」ではなく本文用の「Normal」10.5ptで印刷されている。
+2026-11-19	p13-corporate-privacy-counsel	b007	check	1	source	Documents/Matters/移管先削除条件/3月18日_杉山さんと紙で見た証明の範囲.pdf	body token overlap 0.199 < 0.3
+2026-11-19	p15-recruiter-people-ops	b006	coordinator	0	other	Documents/メール控え/7月18日_聞き直しは一律に入れません.eml	統括の抜き取りで不合格

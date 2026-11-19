@@ -1,21 +1,22 @@
 # 佐藤美穂子の文書の型
 
-みらい職場研修株式会社の採用・People Ops、青山キャリア支援合同会社の採用支援、明星採用広告株式会社の掲載見本に使う型。通常のDOCX・XLSX・PPTXを開いて別名保存する。型には組織、見出し、書式だけを置き、事例本文、ダミーの番号・日付、空の明細、仮の合計を置かない。
+みらい職場研修株式会社の採用・People Ops、青山キャリア支援合同会社の採用支援、明星採用広告株式会社の掲載見本、岡部人材評価合同会社の面接者研修に使う型。通常のDOCX・XLSX・PPTXを開いて別名保存する。型には組織、見出し、書式だけを置き、事例本文、ダミーの番号・日付、空の明細、仮の合計を置かない。
 
 ## 一覧
 
 | 名前 | 組織・利用者と用途 | 実際のファイル名 | 見た目 |
 |---|---|---|---|
 | 採用枠・報酬帯の承認／職務要望・広告文の修正／入社支援の振り返り | みらい職場研修、佐藤の申請と渡辺の承認、小林の職務要望と佐藤の広告文修正、佐藤と伊藤の初週振り返り | `mirai-approval.docx` | A4縦、表紙なし。開いた本のロゴ、桑実色の題と見出し、短い節と横罫線の表 |
-| 面接・追加確認 | 同社、佐藤・高橋。面接記録、根拠不足の整理、追加質問の設計 | `mirai-interview.docx` | 共通書式。「観察した事実」と「解釈と評価」を別の節に配置 |
+| 面接・追加確認 | 同社、佐藤・高橋。面接記録、尺度の再点検、追加質問の要否 | `mirai-interview.docx` | 共通書式。「観察した事実」と「解釈と評価」を別の節に配置 |
 | 候補者へのご案内 | 同社、佐藤。候補者への連絡文案と文書による案内 | `mirai-notice.docx` | 共通書式。宛先、案内、予定、連絡先の簡潔な構成 |
-| 研修設計リード評価表／入社準備の対応表 | 同社、佐藤・高橋が評価根拠と追加確認を管理。佐藤と伊藤が初週の遅れを事前確認の項目に対応付ける際にも使う | `mirai-evaluation.xlsx` | A4横。桑実色の白抜き見出しと繰り返し印刷される管理欄、用途に合わせて指定する6列 |
+| 研修設計リード評価表／面接尺度の比較／入社準備の対応表 | 同社、佐藤・高橋が記録と評語を照合し、評価根拠と追加確認を管理。佐藤と伊藤が初週の遅れを事前確認の項目に対応付ける際にも使う | `mirai-evaluation.xlsx` | A4横。桑実色の白抜き見出しと繰り返し印刷される管理欄、用途に合わせて指定する6列 |
 | 採用経費の照合／募集枠の費用比較 | 同社、佐藤・吉田が経費と人数の訂正を照合。佐藤が中村と募集案の費用を比較 | `mirai-expenses.xlsx` | A4横。共通の管理欄。比較する二案・差分と注記。金額と人数は別表／別シートで扱う |
-| 採用進捗報告 | 同社、佐藤から渡辺や人事チームへの報告 | `mirai-recruiting.pptx` | 16:9、白地に桑実色の細い左帯。開いた本のロゴと社名、下部に人事。1マスター・5レイアウト、スライド0枚 |
-| 人事の確認事項・受入手順PDF | 同社、佐藤・伊藤。Officeを経ずに配布する確認事項・質問票、OneDriveの受入手順 | `mirai-recruiting-note.cls` | A4縦。共通ロゴ・桑実色の題と小見出し、用途を指定できるヘッダ、継続表、会社名とページ番号 |
+| 採用進捗報告・研修討議 | 同社、佐藤から渡辺や人事チームへの報告、面接者研修の討議用投影 | `mirai-recruiting.pptx` | 16:9、白地に桑実色の細い左帯。開いた本のロゴと社名、下部に人事。1マスター・5レイアウト、スライド0枚 |
+| 人事の確認事項・受入手順・演習確認票 | 同社、佐藤・伊藤。Officeを経ずに配布する確認事項・質問票・受入手順、無記名の紙の演習確認票の版下 | `mirai-recruiting-note.cls` | A4縦。共通ロゴ・桑実色の題と小見出し、用途を指定できるヘッダ、継続表、会社名とページ番号 |
 | 採用支援の連絡 | 青山キャリア支援、山田が送る確認事項・添付連絡 | `aoyama-recruiting-note.docx` | A4縦、表紙なし。二重の山形ロゴ、青灰色・明朝体。自社の本・桑実色は使わない |
 | 紹介経路の点検配布資料 | 青山キャリア支援、山田が紹介経路の比較条件と求人説明の確認事項を配布 | `aoyama-channel-handout.cls` | A4縦、表紙なし。右上に青灰色の二重山形と社名、細い横罫、明朝体の中央題、淡青灰の表見出し |
 | 求人広告の掲載見本 | 明星採用広告、佐々木美喜子が公開前の表示内容を顧客に確認依頼 | `myojo-ad-proof.cls` | A4縦、表紙なし。左上の四光星と社名、濃い橙の太い上罫、左揃えの濃紺の題と淡橙の管理帯。続頁に社名・表見出し・ページ番号 |
+| 面接者研修の演習資料 | 岡部人材評価、講師の山口裕樹がみらいの面接者へ配布。模擬面接の記録・設問・討議手順を送るテキストPDF | `okabe-interviewer-exercise.cls` | A4縦、表紙なし。チェック印と社名、細いオリーブ色の上罫、濃い墨の題、淡いオリーブ色の管理欄と表見出し。小見出しに短い縦罫 |
 
 b001は2026-08-10〜09-30の研修設計リード採用3枠を扱う。8観点の名称、不足観点、質問、経費内訳、番号の実値は計画・事実台帳・原稿で定める。
 
@@ -42,13 +43,21 @@ b001は2026-08-10〜09-30の研修設計リード採用3枠を扱う。8観点�
 - 明星から届く掲載見本は `tex:myojo-ad-proof.cls` で、発行時点の表示を本文として持つテキストPDFにする。2月24日の6週間の掲載依頼、掲載見本の版、公開ページに保存された表示はそれぞれの時点の原稿に従う。条件の往復はEML、公開ページの保存はHTML、応募集計は匿名CSVとする。
 - 6月20日のチーム会議には `mirai-recruiting.pptx` を使う。広告経由の応募17件、職務理解が合った根拠と2件の選考継続を示し、判断の根拠を匿名に保つ。
 
+### 2025年7〜8月の面接尺度の再点検と面接者研修（b006）
+
+- 7月17日の比較表は `mirai-evaluation.xlsx` を開く。A〜F列を「番号／観察した事実／記録Aの評語／記録Bの評語／確認する根拠／読み直すときの扱い」、列幅を12・34・21・21・24・33とする。A列は `MW Number`、B〜F列は `MW Text`。見本では明細行高72pt、9行版は11行目の後に `Break(id=11)` を設定し、印刷時は自然改ページも確認する。対象は面接者6人の記録で、再点検した尺度のずれは9件。評語は原稿に従い、合計点・候補者名を追加しない。
+- 聞き直しの要否は `mirai-interview.docx` のヘッダの用途を「面接尺度の再点検」に替えて記録する。「比較の対象」「記録にある事実」「尺度の当て方」「追加質問の要否」に、元の記録で再確認できる範囲と、職務上必要で根拠が残らない場合に個別に検討する範囲を記す。一律の追加面接を見送った判断を示す。
+- 8月18日の討議は `mirai-recruiting.pptx` を使う。7月の実際の選考の再点検と8月の模擬演習を区別し、研修に参加した面接者12人と模擬評価の不一致5件を別の単位で示す。観察事実・解釈・採否理由の順で討議する。
+- 山口からの配布資料は `tex:okabe-interviewer-exercise.cls` で直接PDFを作り、Downloadsに置く。打合せはEML。みらいの紙の演習確認票は `\renewcommand{\MWDocumentUse}{面接者研修}` を指定して `mirai-recruiting-note.cls` で版下を作る。観察事実の短い引用だけに下線を引き、受講者の氏名欄は設けない。管理欄の作成者は版下の発行担当。記入内容を含む版下を `bin/scan` で画像のみのPDFにする。研修室配置のJPGはPicturesに置き、レイアウトを記録する。
+
 ## 共通の意匠と管理
 
 - 178人の研修会社として、小さな「開いた本」の図形と社名を使う。本の左ページは桑実色 `963A65`、右ページは灰緑 `7B8270`。本文は墨 `34383C`、白地、合計の淡色は桑実色の濃淡 `F5EDF1`。Word・Excelの図形は埋込みPNG、PowerPointはネイティブ図形、TeXはTikZ。外部画像リンクはない。
 - Officeの日本語・欧文はともに **Noto Sans CJK JP**。WordのNormal、見出し、表、テーマ、Excelの既定フォント・入力欄・名前付き書式、PowerPointのテーマとプレースホルダに実設定する。TeXの日本語も同フォント、欧文は環境にある **Liberation Sans**。本文色はTeXでも文書開始時に適用する。
-- 自社文書番号は `MW-HR-YYYYMM-用途-連番3桁`。用途は `APR`（承認）、`INT`（面接・追加質問）、`NOT`（案内）、`EVA`（評価表）、`EXP`（経費・照合）、`BRF`（報告スライド）、`REC`（確認事項・受入手順PDF）、`REV`（初週の振り返り）、`MAP`（準備の対応表）。同文書の改版・Office由来PDFは同番号で版を区別する。実値は計画と事実台帳で決める。番号を持たない私的メモ・保存メールには付けない。
+- 自社文書番号は `MW-HR-YYYYMM-用途-連番3桁`。用途は `APR`（承認）、`INT`（面接・再点検・追加質問）、`NOT`（案内）、`EVA`（評価・尺度比較）、`EXP`（経費・照合）、`BRF`（報告・討議スライド）、`REC`（確認事項・受入手順・演習確認票）、`REV`（初週の振り返り）、`MAP`（準備の対応表）。同文書の改版・Office由来PDFは同番号で版を区別する。実値は計画と事実台帳で決める。番号を持たない私的メモ・保存メールには付けない。
 - 青山キャリア支援の番号は `AY-CS-YYYYMM-NOT-連番3桁`（連絡）、`AY-CS-YYYYMM-BRF-連番3桁`（配布資料）。Wordは日本語・欧文とも **Noto Serif CJK JP**。TeXは日本語 **Noto Serif CJK JP**、欧文 **Liberation Serif**。青灰色 `486477` と墨 `34383C`、白地。山形2本と社名。配布資料の表見出しは青灰色の淡色 `EAF0F3`。相手の発信文書に自社番号を追加しない。
 - 明星採用広告の校正番号は `MA-AD-YYYYMM-PF-連番3桁`。年月は初校の発行月で、同じ原稿の再校は版と発行日を変える。四光星・上罫・小見出しは濃い橙 `A84816`、題・本文は濃紺 `273449`、管理帯・表見出しは淡橙 `F8EFE7`。日本語は **Noto Sans CJK JP**、欧文は **Liberation Sans**。明星の番号と佐々木の発行担当表記を用いる。
+- 岡部人材評価の演習資料番号は `OK-TA-YYYYMM-EX-連番3桁`。年月は初版の発行月。改版は同番号で版・発行日を更新する。チェック印・罫線・節見出しにオリーブ色 `53632A`、本文・題に墨 `272F25`、管理欄と表見出しに淡いオリーブ色 `EDF0E4` を使う。日本語は **Noto Sans CJK JP**、欧文は **Liberation Sans**。ヘッダは正式社名と用途、フッタは社名・評価研修と頁。講師は山口裕樹。番号の実値は計画と原稿で定める。
 - Office型の作者・最終更新者は自社が佐藤美穂子、青山が山田修二、基準日時は2026-08-10。成果物では原稿の実際の人物・日時へ設定し直す。
 - p03、p05、p12、p14のREADME、およびp03・p12のWord実物のヘッダ、スタイル、埋込みロゴを比較した。封筒と配送矢印／赤茶、織り目／藍、枝と灯／紫、木材／深緑と区別し、本のロゴ・桑実色・PPTの左帯とした。他personaは変更していない。
 
@@ -84,7 +93,7 @@ b001は2026-08-10〜09-30の研修設計リード採用3枠を扱う。8観点�
 | 3 | 表 | 題と表のオブジェクト領域 |
 | 4 | 図 | 題と図のオブジェクト領域 |
 
-題のplaceholderはidx=0、本文／表・図はidx=1、2段右はidx=2。本文領域は左0.75、上2.05、幅11.8、高さ4.55inch。2段は幅5.65、右の左位置6.9inch。表・図は領域を基準に実体へ置き換え、空のオブジェクトplaceholderを削除する。表見出しは桑実色白字、本文18pt以上、注記12pt以上、数値右寄せ。図は本の左右ページと同じ桑実色・灰緑を使う。右下の左12.1・上7.01inch付近へ実ページ番号を10ptで追加する。発表者ノートは原稿に従う。2枠の条件提示準備と1枠の募集継続を、内定承諾や入社実績と混同しない。
+題のplaceholderはidx=0、本文／表・図はidx=1、2段右はidx=2。本文領域は左0.75、上2.05、幅11.8、高さ4.55inch。2段は幅5.65、右の左位置6.9inch。表・図は領域を基準に実体へ置き換え、空のオブジェクトplaceholderを削除する。表見出しは桑実色白字、本文18pt以上、注記12pt以上、数値右寄せ。数値の右隣の文字セルの左余白は0.20inch以上。図は本の左右ページと同じ桑実色・灰緑を使う。右下の左12.1・上7.01inch付近へ実ページ番号を10ptで追加する。発表者ノートは原稿に従う。2枠の条件提示準備と1枠の募集継続を、内定承諾や入社実績と混同しない。
 
 ## TeX
 
@@ -110,32 +119,36 @@ b001は2026-08-10〜09-30の研修設計リード採用3枠を扱う。8観点�
 
 明星の掲載見本は同じ `TEXINPUTS` で `\documentclass{myojo-ad-proof}` を指定する。本文10pt、A4縦・左右21mm、上33mm、下23mm。`\MAHeading{宛先}{題}{校正番号}{版}{発行日}{発行担当}` で宛先と左揃えの題、2行の管理帯を出す。掲載される本文と原稿確認の連絡を分け、`\MASection{見出し}` と `\MANote{確認してほしいこと}` で組む。表示項目を表にする場合は `\begin{MATable}{@{}rp{41mm}p{101mm}@{}}` を使い、見出し行頭に `\MATableHeader`、見出し行末の `\\` に続けて `\endhead` を置く。列間は既定の左右各7ptを残し、本文幅168mmに収める。表や注記は原稿にある場合に組む。`bin/render` で番号・発行担当と全ページの表見出し、フッタを確認する。
 
+岡部の演習資料は同じ `TEXINPUTS` で `\documentclass{okabe-interviewer-exercise}` を指定する。本文11pt、A4縦・左右23mm、上37mm、下23mm。`\OKHeading{題}{資料番号}{版}{発行日}{担当講師}` で題と2行の管理欄を出す。原稿の模擬記録、演習の手順、判断前に確認する点を `\OKSection{見出し}` と `\OKNote{留意点}` で組む。表は `\begin{OKTable}{@{}rp{30mm}p{45mm}p{60mm}@{}}` から始め、見出し行頭に `\OKTableHeader`、見出し行末の `\\` の後に `\endhead` を置く。列間の左右各8ptを残し、本文幅164mmに収める。明細は原稿にある行数で組み、`bin/render` で管理欄の全文、右寄せ番号と隣の文字の間隔、続頁の見出しとフッタを確認する。
+
 ## 型を使わない記録
 
-山田・佐々木とのメールはEMLで送受信ヘッダ・本文・引用・実添付を保つ。青山がWord形式で発行した添付には同社のWord型、直接配布したPDFには発行元のTeX型を使う。候補者連絡の`_未送信`旧案は送信済みと区別し、私用連絡先を加えない。佐藤の面接準備メモは無装飾のTXT・Markdown、CSVは素の表データとして作る。ロゴ・文書番号を全ファイルへ強制しない。
+山田・佐々木・山口とのメールはEMLで送受信ヘッダ・本文・引用・実添付を保つ。青山がWord形式で発行した添付には同社のWord型、直接配布したPDFには発行元のTeX型を使う。候補者連絡の`_未送信`旧案は送信済みと区別し、私用連絡先を加えない。佐藤の面接準備メモは無装飾のTXT・Markdown、CSVは素の表データとして作る。ロゴ・文書番号を全ファイルへ強制しない。
 
 ## 今回の見本と確認先
 
-作業フォルダは `scratch/p15-recruiter-people-ops/b005/work/templates-0002/`。以下のパスはこのフォルダを基準とする。見本の文書番号・費用・明細・文面は書式確認用。計画と台帳の実値は原稿に従う。
+作業フォルダは `scratch/p15-recruiter-people-ops/b006/work/templates-0002/`。以下のパスはこのフォルダを基準とする。文書番号、明細、文面は書式確認用。成果物の値は計画・台帳・原稿に従う。
 
 | 型／確認内容 | 見本 | 全ページの画像 |
 |---|---|---|
-| 募集範囲の比較表（mirai-approval.docx） | `examples/mirai-approval.docx` | `render/mirai-approval/` |
-| 小林の職務要望（mirai-approval.docx） | `examples/role-request.docx` | `render/role-request/` |
-| 広告文の赤字（mirai-approval.docx） | `examples/advert-redline.docx` | `render/advert-redline/` |
-| 面接・追加確認 | `examples/mirai-interview.docx` | `render/mirai-interview/` |
+| 採用・研修準備の承認記録 | `examples/mirai-approval.docx` | `render/mirai-approval/` |
+| 聞き直しの要否の記録 | `examples/mirai-interview.docx` | `render/mirai-interview/` |
 | 候補者への案内 | `examples/mirai-notice.docx` | `render/mirai-notice/` |
 | 青山の採用支援連絡 | `examples/aoyama-recruiting-note.docx` | `render/aoyama-recruiting-note/` |
 | 評価表（3行） | `examples/mirai-evaluation-3.xlsx` | `render/mirai-evaluation-3/` |
 | 評価表（40行） | `examples/mirai-evaluation-40.xlsx` | `render/mirai-evaluation-40/` |
-| 経費表（3行） | `examples/mirai-expenses-3.xlsx` | `render/mirai-expenses-3/` |
-| 経費表（40行） | `examples/mirai-expenses-40.xlsx` | `render/mirai-expenses-40/` |
-| 募集枠の費用比較（3行） | `examples/role-costs-3.xlsx` | `render/role-costs-3/` |
-| 募集枠の費用比較（40行） | `examples/role-costs-40.xlsx` | `render/role-costs-40/` |
-| 採用進捗報告（5レイアウト） | `examples/mirai-recruiting.pptx` | `render/mirai-recruiting/` |
-| みらいの受入手順（3行） | `examples/mirai-recruiting-note-3.tex`、`examples/mirai-recruiting-note-3.pdf` | `render/mirai-recruiting-note-3/` |
-| みらいの受入手順（50行） | `examples/mirai-recruiting-note-50.tex`、`examples/mirai-recruiting-note-50.pdf` | `render/mirai-recruiting-note-50/` |
+| 経費照合（3行、合計あり） | `examples/mirai-expenses-3.xlsx` | `render/mirai-expenses-3/` |
+| 経費照合（40行、合計あり） | `examples/mirai-expenses-40.xlsx` | `render/mirai-expenses-40/` |
+| 7月の面接尺度の比較（3行抜粋） | `examples/mirai-scale-review-3.xlsx` | `render/mirai-scale-review-3/` |
+| 7月の面接尺度の比較（9行） | `examples/mirai-scale-review-9.xlsx` | `render/mirai-scale-review-9/` |
+| 8月の面接者研修討議（5レイアウト） | `examples/mirai-recruiting.pptx` | `render/mirai-recruiting/` |
+| みらいの確認事項（3行） | `examples/mirai-recruiting-note-3.tex`、`examples/mirai-recruiting-note-3.pdf` | `render/mirai-recruiting-note-3/` |
+| みらいの確認事項（50行） | `examples/mirai-recruiting-note-50.tex`、`examples/mirai-recruiting-note-50.pdf` | `render/mirai-recruiting-note-50/` |
 | 青山の配布資料（4行） | `examples/aoyama-channel-handout-4.tex`、`examples/aoyama-channel-handout-4.pdf` | `render/aoyama-channel-handout-4/` |
 | 青山の配布資料（50行） | `examples/aoyama-channel-handout-50.tex`、`examples/aoyama-channel-handout-50.pdf` | `render/aoyama-channel-handout-50/` |
 | 明星の掲載見本（4行） | `examples/myojo-ad-proof-4.tex`、`examples/myojo-ad-proof-4.pdf` | `render/myojo-ad-proof-4/` |
 | 明星の掲載見本（50行） | `examples/myojo-ad-proof-50.tex`、`examples/myojo-ad-proof-50.pdf` | `render/myojo-ad-proof-50/` |
+| 岡部の演習資料（3行） | `examples/okabe-interviewer-exercise-3.tex`、`examples/okabe-interviewer-exercise-3.pdf` | `render/okabe-interviewer-exercise-3/` |
+| 岡部の演習資料（24行） | `examples/okabe-interviewer-exercise-24.tex`、`examples/okabe-interviewer-exercise-24.pdf` | `render/okabe-interviewer-exercise-24/` |
+| 無記名の演習確認票の版下 | `examples/mirai-exercise-check.tex`、`examples/mirai-exercise-check.pdf` | `render/mirai-exercise-check/` |
+| 無記名の演習確認票のスキャン | `examples/mirai-exercise-check-scan.pdf` | `render/mirai-exercise-check-scan/` |
