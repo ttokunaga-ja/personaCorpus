@@ -43,3 +43,29 @@
 - Oct 24 10:00 review with Robert Nguyen, Melissa Watkins, Anthony Mendoza and Lauren Brooks, recorded in BCE-CE-2024-MIN-004-R00. Robert endorses the scoped hold; Anthony issues BCE-CE-2024-HLD-001-R00 effective Oct 24 11:00. The 44 readings remain in the raw records and are excluded from circulated summaries while held, with no blanket adjustment or deletions.
 - Oct 24 11:16, Anthony → Melissa and Lauren, Cc Robert, “Hold in effect for six October measurement dates”, attaches the issued notice. Oct 24 13:25, Lauren → Anthony, Cc Melissa and Robert, “Re: Hold in effect for six October measurement dates”, quotes the instruction to keep raw values and confirms the six-date exclusion from working summaries, with no attachment.
 - At the Oct 31 review Anthony still has no disposition authorization for the 44 records. Melissa keeps them in the review queue while Robert considers options, with the four Oct 22 post-service rows separately identifiable and no repeat results or release recorded.
+
+## Caldwell first comparison — scope and label handoff
+
+- Philadelphia local time is EST (UTC−05:00) from November through January for these records. Melissa opens BCE-CE-2024-PLN-003-R00 on Nov 12; Lauren comments Nov 14; Robert confirms the design on Nov 15 and Melissa files R01.
+- The comparison uses 18 fresh nonclinical samples with shared labels MC18-01 through MC18-18. Preserve both native IDs and both original ng/mL readings. The inclusive limit is 10% for the unrounded arithmetic mean of the 18 absolute pair differences as percentages of each Bennett reading.
+- Nov 18, 2024 11:16, Melissa Watkins → Angela Price, “January comparison details”, confirms Bennett Jan 6 and Caldwell Jan 7; requests the labeled Caldwell export by Jan 8, 2025 at 12:00. No attachment.
+- Dec 12, Lauren Brooks and Benjamin Ortiz check all 18 labels and verify the reprint of MC18-12 before handoff. Register BCE-CE-2024-TBL-008-R00 and paper check BCE-CE-2024-LAB-007-R00 both record completion of the 18-label check.
+
+## January paired readings — source files and accession check
+
+- Jan 6, 2025: Lauren uses CE-Reader-2 and records 18 results in BCE-CE-2025-LAB-001-R00; the 11:42 Bennett CSV is in shared-label order. Its native rows BN-250106-01 through BN-250106-18 use the same suffix as the shared label.
+- Jan 7, 2025: Angela's 14:07 export is ordered by native accession CA-250107-01 through CA-250107-18. Only 07 and 08 are reversed relative to the shared-label order: CA-250107-07 → MC18-08 and CA-250107-08 → MC18-07.
+- Bennett export, ng/mL in shared-label order MC18-01 to MC18-18 (two decimals as on the October reader export): 6.30, 6.87, 7.59, 4.71, 4.67, 7.29, 5.87, 6.79, 7.36, 4.47, 5.64, 5.36, 5.12, 7.87, 4.92, 6.05, 5.15, 4.63.
+- Caldwell export, ng/mL in the same shared-label order (three decimals): 6.086, 6.242, 7.867, 5.142, 5.117, 7.711, 5.667, 7.553, 7.203, 5.663, 5.551, 5.184, 5.770, 7.835, 5.132, 6.590, 4.730, 5.713. Write its native CSV in accession order. These two synthetic series were modeled separately around common sample levels. The percentages are downstream calculations.
+- Jan 8 position matching (BCE-CE-2025-TBL-001-R00) gives 16 label agreements and 2 conflicts. Angela confirms the two accession assignments on Jan 9; Melissa files the 18-row shared-label TSV that day. Anthony's Jan 10 check (BCE-CE-2025-TBL-002-R00) confirms 18 unique pairs, zero missing readings and zero October rows.
+- Jan 7 at 14:22, Angela → Melissa, “Caldwell readings for the first comparison”, with the Jan 7 Caldwell CSV attached. The shared label is the matching key.
+- Accession thread in order: Jan 8 at 11:02 Melissa → Angela, “Can you check Caldwell accessions 07 and 08”; Jan 9 at 09:47 Angela → Melissa, “Re: Can you check Caldwell accessions 07 and 08”, quotes the two-accession question and confirms both assignments. Neither has an attachment.
+
+## January Caldwell review and continuation decision
+
+- From the two exports, the mean absolute relative difference is 8.16701856…%, reported as 8.2%. Four individual differences exceed 10% (08, 10, 13, 18), none equals it and eight signed differences are negative. Compare the unrounded aggregate with the inclusive 10% limit.
+- Melissa drafts BCE-CE-2025-REV-001-R00 Jan 13; on Jan 14 Anthony marks the aggregate-vs-individual distinction and the separate hold; R01 on Jan 15 records the recommendation pending Robert's decision. The Jan 15 discussion deck is BCE-CE-2025-BRF-001-R00.
+- Jan 15 11:19, Angela → Melissa, “Caldwell comparison observations”, attaches CAS-2025-0115-CMP-001 PDF and asks for the reconciled comparison table after the Bennett review.
+- Jan 16 10:00 review: Robert Nguyen, Melissa Watkins, Lauren Brooks and Anthony Mendoza. Workbook BCE-CE-2025-TBL-003-R00 supplies 18 matches and 8.2% against 10%; Robert approves continuation on current conditions. Melissa records it in BCE-CE-2025-MIN-001-R00, the same version exported to PDF Jan 17.
+- The decision assigns the comparison workbook send to Melissa for Jan 17 and preservation of the two exports and crosswalk to Lauren by Jan 21. Anthony retains separate disposition responsibility for the 44 held October results under BCE-CE-2024-HLD-001-R00.
+- Jan 17 10:27, Melissa → Angela, “Reconciled January comparison table”, opens a new thread and attaches the Jan 16 comparison XLSX (BCE-CE-2025-TBL-003-R00). Lauren records completion of the local filing task on Jan 21.

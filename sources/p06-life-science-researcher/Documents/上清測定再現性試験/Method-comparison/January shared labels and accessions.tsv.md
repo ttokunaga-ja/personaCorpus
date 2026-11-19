@@ -1,0 +1,32 @@
+---
+path: Documents/上清測定再現性試験/Method-comparison/January shared labels and accessions.tsv
+kind: text
+author: Melissa Watkins
+derived_from:
+---
+
+```tsv
+Shared label	Bennett record ID	Caldwell accession	Check reference
+MC18-01	BN-250106-01	CA-250107-01	Shared label in Jan 6 Bennett and Jan 7 Caldwell exports
+MC18-02	BN-250106-02	CA-250107-02	Shared label in Jan 6 Bennett and Jan 7 Caldwell exports
+MC18-03	BN-250106-03	CA-250107-03	Shared label in Jan 6 Bennett and Jan 7 Caldwell exports
+MC18-04	BN-250106-04	CA-250107-04	Shared label in Jan 6 Bennett and Jan 7 Caldwell exports
+MC18-05	BN-250106-05	CA-250107-05	Shared label in Jan 6 Bennett and Jan 7 Caldwell exports
+MC18-06	BN-250106-06	CA-250107-06	Shared label in Jan 6 Bennett and Jan 7 Caldwell exports
+MC18-07	BN-250106-07	CA-250107-08	Angela Price, Jan 9 at 09:47 EST, Re: Can you check Caldwell accessions 07 and 08
+MC18-08	BN-250106-08	CA-250107-07	Angela Price, Jan 9 at 09:47 EST, Re: Can you check Caldwell accessions 07 and 08
+MC18-09	BN-250106-09	CA-250107-09	Shared label in Jan 6 Bennett and Jan 7 Caldwell exports
+MC18-10	BN-250106-10	CA-250107-10	Shared label in Jan 6 Bennett and Jan 7 Caldwell exports
+MC18-11	BN-250106-11	CA-250107-11	Shared label in Jan 6 Bennett and Jan 7 Caldwell exports
+MC18-12	BN-250106-12	CA-250107-12	Shared label in Jan 6 Bennett and Jan 7 Caldwell exports
+MC18-13	BN-250106-13	CA-250107-13	Shared label in Jan 6 Bennett and Jan 7 Caldwell exports
+MC18-14	BN-250106-14	CA-250107-14	Shared label in Jan 6 Bennett and Jan 7 Caldwell exports
+MC18-15	BN-250106-15	CA-250107-15	Shared label in Jan 6 Bennett and Jan 7 Caldwell exports
+MC18-16	BN-250106-16	CA-250107-16	Shared label in Jan 6 Bennett and Jan 7 Caldwell exports
+MC18-17	BN-250106-17	CA-250107-17	Shared label in Jan 6 Bennett and Jan 7 Caldwell exports
+MC18-18	BN-250106-18	CA-250107-18	Shared label in Jan 6 Bennett and Jan 7 Caldwell exports
+```
+
+## Table notes
+
+For Lauren Brooks and Anthony Mendoza. Read all three identifier columns as text. Look up the Bennett ID in `2025-01-06 Bennett comparison readings.csv` and the Caldwell accession in `2025-01-07 Caldwell comparison readings.csv`. The check reference travels with each row. This crosswalk contains 18 distinct shared labels and 18 distinct IDs from each export.
