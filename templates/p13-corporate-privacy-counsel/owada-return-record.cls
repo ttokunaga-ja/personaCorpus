@@ -1,7 +1,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{owada-return-record}[2025/08/04 Records storage return form]
 \LoadClass[a4paper,10pt]{ltjsarticle}
-\RequirePackage[top=27mm,bottom=22mm,left=19mm,right=19mm,headheight=20pt]{geometry}
+\RequirePackage[top=31mm,bottom=22mm,left=19mm,right=19mm,headheight=20pt,headsep=10mm]{geometry}
 \RequirePackage{luatexja-fontspec}
 \setmainjfont{Noto Sans CJK JP}
 \setmainfont{Liberation Sans}
@@ -26,7 +26,9 @@
 \fancyhead[L]{\OwadaMark\enspace\textcolor{OWGreen}{\bfseries 大和田文書保管株式会社}}
 \fancyhead[R]{\small 保管業務}
 \renewcommand{\headrulewidth}{.55pt}
-\renewcommand{\headrule}{\hbox to\headwidth{\color{OWGreen}\leaders\hrule height\headrulewidth\hfill}}
+\renewcommand{\headrule}{%
+  \hbox to\headwidth{\color{OWGreen}\leaders\hrule height\headrulewidth\hfill}%
+  \vskip-\headrulewidth}
 \fancyfoot[L]{\small 大和田文書保管株式会社｜返却記録}
 \fancyfoot[R]{\small\thepage\ / \pageref{LastPage}}
 

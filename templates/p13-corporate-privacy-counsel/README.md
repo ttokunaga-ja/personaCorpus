@@ -145,7 +145,7 @@ Winslowの英文通知は同じコマンドで `\documentclass{winslow-subproces
 
 菅原の論点書は `\documentclass{haruka-contract-issues}` を使う。冒頭に `\HarukaIssues{題}{管理番号}{和文日付}{作成者}{宛先氏名}` を置き、`\HarukaSection{見出し}` で区切る。宛先の敬称は型で付与する。
 
-大和田の返却明細と紙の返却控えは `\documentclass{owada-return-record}` を使う。冒頭に `\OwadaReturnHeading{題}{発行番号}{発行日}{担当者}{お渡し先}` を置く。`OwadaReturns` 環境に整数の通し番号・保管箱番号・明細上の取扱い・受渡し記録／照合資料・連絡事項を `&` で区切って入れ、行を `\\\hline` で閉じる。右寄せの番号列と左寄せの箱番号の間に左右各4ptの余白を持たせている。補足は `\OwadaNote{注記}` で入れる。紙の控えは原稿にある明細と受領記録を組んでから `bin/scan` に渡す。
+大和田の返却明細と紙の返却控えは `\documentclass{owada-return-record}` を使う。冒頭に `\OwadaReturnHeading{題}{発行番号}{発行日}{担当者}{お渡し先}` を置く。`OwadaReturns` 環境に整数の通し番号・保管箱番号・明細上の取扱い・受渡し記録／照合資料・連絡事項を `&` で区切って入れ、行を `\\\hline` で閉じる。右寄せの番号列と左寄せの箱番号の間に左右各4ptの余白を持たせている。ヘッダと本文の間隔は10mmとし、続頁の表の上罫線と社名下の深緑の罫線を離す。補足は `\OwadaNote{注記}` で入れる。紙の控えは原稿にある明細と受領記録を組んでから `bin/scan` に渡す。
 
 10月の訂正回覧票は `toto-review-sheet.cls` を開き、`\ReviewMatter{取締役会報告の訂正}` を指定する。CHKの文書番号・版・作成日・作成者、差替え対象のBRF番号、取り消す記載、継続報告、河野が回覧で確認する事項を記してから原紙PDFを `bin/scan` に渡す。回覧確認と個別の委託承認は別に記録する。
 
@@ -159,21 +159,28 @@ Fairview案件の法務共有用の合意条件要旨と、3月18日の紙の点
 - 投影資料は `toto-legal-brief.pptx` の2段レイアウトで修正前の文と条件を補った文を対照し、ひとつの資料にまとめる。5月18日に確認した22枚中の修正5枚と、補足の連絡対象38人を用途ごとに示す。
 - 直接組む配布PDFは `toto-review-sheet.cls` と `\ReviewMatter{社内研修}` を使う。保存HTMLは原稿の題、発行部署、日付、節と本文を保存する。人事向けの連絡控えはJSTのEMLにし、対象人数や参照する配布資料を本文に示す。研修ボード写真は承認の流れが読める板面を写し、受講者の名簿や顔を含めない。
 
+## 2026年8〜9月の延長区分の終了確認
+
+- 藤本の追跡表は `toto-hold-register.xlsx` を開く。A6:H6を「No.／保全区分・対象／所管・担当／確認予定日／実施根拠／実施確認日／終了記録の点検／留保・引継ぎ」とし、幅は順に `10, 25, 21, 17, 28, 17, 22, 24` を起点とする。A列は `TD Number`、D・F列は `TD Date`、H列は `TD Note`、他の明細セルは `TD Text`。H-03（武田）、H-16（杉山）、H-25（増田）の予定は8月20日、24日、25日を起点とし、実施根拠と実施確認日は原稿にある記録から転記する。8月31日の延長終期は注記に書き、実施確認日が不明なときはF列を空欄にする。印刷と集計は「Excelの成形」に従う。
+- 藤本の実施報告は `toto-instruction.docx` を使い、区分と確認の担当、実施根拠と確認日、終了記録への反映、照会事項を原稿に合わせて記す。高田が保存する菅原の指摘控えと河野との面談控えは `toto-consultation.docx` を使う。菅原自身が発行する論点書には `haruka-contract-issues.cls` を使う。Wordから保存したPDFは元文書の番号と版を引き継ぐ。
+- 紙で回す終了記録の原紙は `toto-review-sheet.cls` で組み、`\ReviewMatter{文書保全期限見直し}` を指定する。区分、予定と実施根拠、確認日・確認者、9月10日の点検事項を原稿に従って記し、内容のある原紙PDFを `bin/scan` に通す。
+- 9月21日の月次会議は `toto-legal-brief.pptx` を開き、3区分の解除完了を説明する。委託審査の未回答2件は別の継続報告欄に置く。面談控えは初回整理の平均4日から3日への目標を記す。部署の回答はJSTの送受信日時と返信先のMessage-IDを保ったEMLにする。
+
 ## 見本と検証
 
-今回の作業先は `scratch/p13-corporate-privacy-counsel/b008/work/templates-0002/`。見本は [examples](../../scratch/p13-corporate-privacy-counsel/b008/work/templates-0002/examples/)、全頁画像は [render](../../scratch/p13-corporate-privacy-counsel/b008/work/templates-0002/render/) 内の見本名と同じフォルダにある。TeXは各原稿と同名のPDFをレンダリングした。見本の文書番号・明細数・設問ごとの数値は印刷確認用。成果物の管理欄と数値は計画・原稿に従う。
+今回の作業先は `scratch/p13-corporate-privacy-counsel/b009/work/templates-0002/`。見本は [examples](../../scratch/p13-corporate-privacy-counsel/b009/work/templates-0002/examples/)、全頁画像は [render](../../scratch/p13-corporate-privacy-counsel/b009/work/templates-0002/render/) 内の見本名と同じフォルダにある。TeXは各原稿と同名のPDFをレンダリングした。見本の文書番号・明細数・実施確認日は印刷確認用。成果物の管理欄と日付・数値は計画と原稿に従う。
 
 | 確認した型・用途 | 見本ファイル |
 |---|---|
 | Word社内相談・実施指示・判断資料 | `toto-consultation.docx`、`toto-instruction.docx`、`toto-review.docx` |
 | 宮坂・野田の回答とFairviewの証明明細 | `miyasaka-noda-advice.docx`、`fairview-transfer-record.docx` |
-| Excel設問別集計・表現対照の少量と続頁 | `toto-training-results-3.xlsx`、`toto-training-results-30.xlsx`、`toto-training-wording-3.xlsx`、`toto-training-wording-30.xlsx` |
-| PowerPointの5レイアウト | `toto-training-brief.pptx` |
-| TeXの配布用補足と条件の確認表 | `toto-training-handout.tex`、`toto-review-table-3.tex`、`toto-review-table-44.tex` と各PDF |
-| TeXの棚卸し論点表と大和田返却明細の少量と続頁 | `toto-retention-issues-3.tex`、`toto-retention-issues-44.tex`、`owada-return-record-3.tex`、`owada-return-record-44.tex` と各PDF |
+| Excel追跡表・判断比較表の少量と続頁 | `toto-hold-register-3.xlsx`、`toto-hold-register-23.xlsx`、`toto-decision-comparison-3.xlsx`、`toto-decision-comparison-23.xlsx` |
+| PowerPointの5レイアウト | `toto-legal-brief.pptx` |
+| TeXの終了確認票とスキャン | `toto-review-sheet-3.tex`、`toto-review-sheet-35.tex` と各PDF、`toto-review-sheet-scan.pdf` |
+| TeXの棚卸し論点表と大和田返却明細の少量と続頁 | `toto-retention-issues-3.tex`、`toto-retention-issues-35.tex`、`owada-return-record-3.tex`、`owada-return-record-35.tex` と各PDF |
 | 外部の英文通知・契約論点書 | `winslow-subprocessor-notice.tex`、`haruka-contract-issues.tex` と各PDF |
 
-[render-results.json](../../scratch/p13-corporate-privacy-counsel/b008/work/templates-0002/render-results.json) に19見本・全35頁の画像パスと数式の検算結果を記録した。OfficeとPDFの完成ファイルは、`bin/stamp --author "<原稿の作成者>" --date "<原稿の日付>" --timezone Asia/Tokyo <ファイル>` で内部属性を合わせる。更新者や初版日が異なるときは `--modified-by` と `--created` を指定する。
+[render-results.json](../../scratch/p13-corporate-privacy-counsel/b009/work/templates-0002/render-results.json) に全見本の画像パスと数式の検算結果を記録した。OfficeとPDFの完成ファイルは、`bin/stamp --author "<原稿の作成者>" --date "<原稿の日付>" --timezone Asia/Tokyo <ファイル>` で内部属性を合わせる。更新者や初版日が異なるときは `--modified-by` と `--created` を指定する。
 
 ## 保存した社内ページ・メール・図
 

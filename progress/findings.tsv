@@ -2902,3 +2902,12 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-19	p05-bi-data-analyst	b006	draft-review	0	other	Documents/営業会議/2024/10/10月17日_6店比較の訂正理由_配布.pdf	判定なし
 2026-11-19	p05-bi-data-analyst	b006	draft-review	1	D3	Documents/営業会議/2024/10/2024-10-17_陳列を変えた6店_訂正版.pptx	3枚目の対照表が出典に挙げるORI-BI-202410-照合-01 v1.0（10月17日_営業日をそろえた6店.xlsx）の原稿がなく、受領CSV2点では集計値を再現できるが、明記された出典の採否・合計を照合できない。
 2026-11-19	p05-bi-data-analyst	b006	check	2	plan	Documents/メール/営業会議/2024-10-17_6店比較は2点6に差替えをお願いします.eml	plan: planned file missing。成形の最終出力：`2024-10-17_6店比較は2点6に差替えをお願いします.eml` は未作成です。実添付に必要な `10月17日_6店比較の訂正理由_配布.pdf` が指定の `people/p05-bi-data-analyst/Documents/営業会議/2024/10/` にありません。PDFの原稿は合格済みですが、今回の成形対象はEMLの1件です。 もう一方の添付 `10月17日_会議添付用の6店集計.xlsx` は指定先にあり、`unzip -tq` で整合性を確認しました。
+2026-11-19	p13-corporate-privacy-counsel	b009	coordinator	0	other	Desktop/8月27日_解除欄をまだ埋めない.docx	統括の抜き取りで不合格
+2026-11-19	p13-corporate-privacy-counsel	b009	coordinator	0	other	Desktop/9月18日_月次の説明案_河野さん赤字.docx	統括の抜き取りで不合格
+2026-11-19	p13-corporate-privacy-counsel	b009	coordinator	0	other	Desktop/9月18日_部長に見せる月次の説明案.docx	統括の抜き取りで不合格
+2026-11-19	p13-corporate-privacy-counsel	b009	coordinator	0	other	Documents/Matters/文書保全期限見直し/保全/9月11日_延長3区分の実施報告.docx	統括の抜き取りで不合格
+2026-11-19	p13-corporate-privacy-counsel	b009	coordinator	0	other	Documents/メール/2026-09-10_藤本さんへ_紙では日付を三つに.eml	統括の抜き取りで不合格
+2026-11-19	p13-corporate-privacy-counsel	b009	coordinator	0	other	Documents/人事と事務の控え/9月21日_河野さんと面談_初回整理を3日に.docx	統括の抜き取りで不合格
+2026-11-19	p13-corporate-privacy-counsel	b009	coordinator	0	other	Documents/相談控え/2026/9月10日_菅原さんの指摘_確認日を分ける.docx	統括の抜き取りで不合格
+2026-11-19	p13-corporate-privacy-counsel	b009	coordinator	0	other	Documents/相談控え/2026/9月21日_岩崎先生に確認した解除の範囲.docx	統括の抜き取りで不合格
+2026-11-19	p13-corporate-privacy-counsel	b009	coordinator	0	other	OneDrive - 東都文書データ/法務共有/9月10日_菅原さんの指摘_法務回覧.pdf	統括の抜き取りで不合格
