@@ -70,3 +70,31 @@
 - 01-09の社内赤字 HBC-ALD-20250109-LEG-01 v0.2 ではMarisolが無制限を削除し年額を提案。01-10にJonathanが根拠を対象注文書の年間継続料金（税・一時費用を除く）に絞った。既払額や直近の支払累計は基準にしない。
 - 01-13 09:30にMichelle、Marisol、Jonathanが社内確認。対象注文書で定める年間継続料金を§11.2のHalsteadの総責任上限とする案を一条項に限って返す。他条項に関する判断と署名は保留。外部版 HBC-ALD-20250113-LEG-01 v1.0 はMarisolの内部コメントを含めない。
 - ①01-08 10:11 Ahmed → Michelle「Aldridge agreement - Section 11.2」（条文は本文、添付なし）。②01-10 15:42 Jonathan → Marisol、Michelle「Aldridge 11.2 - use the order form fee」（添付なし）。③01-13 14:06 Michelle → Ahmed「Halstead counterproposal on Section 11.2」（`Aldridge 11.2 - proposed annual cap.docx`を実添付）。3通は独立メール。01-13時点で先方の回答・合意なし。
+
+# Hollis Medical Supply Inc
+
+- 時刻・日付は Denver（America/Denver、8月と2025年3月18日はMDT）。Lawrence Sutton（Hollis IT部長）は lawrence@hollis-medical.example。Halstead関係者は michelle、divya、jonathan、donald、denise @ halstead-branch.example。
+
+## 8月の提案と試行範囲
+
+- 2024-08-12 10:00の訪問はLawrence、Michelle、Divya。1拠点・最大30席を対象に、Lawrenceが名簿、Divyaが手動CSV取込と試行設定を担当する。拠点通知・引継ぎの送信と配信ログを扱い、受領の折返しはHollisの運用に残す。
+- 条件付き提案 HBC-HOL-20240812-ORD-01 v1.0 は導入180席・年額USD 82,000の提示。試行とIT審査が先で、開始日と本番切替は当時未定。交代勤務の練習枠が確保できず、10-03に仮押さえを外す。
+- 08-06 09:14 Lawrence → Michelle「Hollis - scope for the Aug 12 visit」。08-09 15:07 Divya → Michelle「Monday demo - HDMI lead」（当日09:45受付集合）。両通とも独立、添付なし。
+- スレッド「Hollis - Aug 12 proposal and pilot next steps」①08-12 15:18 Michelle → Lawrence（条件付き提案PDFを実添付、回答期限08-23）。②08-22 11:16 Lawrence → Michelle（Re:、宿題を引用、名簿を引き受け開始日は保留、添付なし）。
+
+## 3月の試行と週次利用の審査
+
+- 2025-02-13にLawrence、Divya、Michelleが再始動を確認。名簿の確認期限は02-26、試行は03-03〜03-17、1拠点・30席。開始日に試行外の送り先候補1件を練習送信の前に外し、名簿は30席のまま。
+- 02-14 11:04 Michelle → Lawrence「Hollis pilot - March 3 launch checks」（作業表 HBC-HOL-20250214-WRK-01 v1.0 のPDFを実添付）。03-10 09:38 Lawrence → Michelle、Divya「Hollis pilot - counting the March 10 week」（添付なし）。両通とも独立。
+- 03-10〜03-16のDenver現地日付内で実業務の拠点通知・引継ぎの送信が1件以上ある席を一意に数える。サインイン・閲覧・練習送信を除く。週次明細は30席各1行、稼働24席、業務送信のない席6席、80.0%。未稼働の理由は明細では判定できない。
+- 03-18の週次明細は08:12、LawrenceのHollis IT報告 HMS-IT-20250318-01 v1.0 は08:42。08:56 Lawrence → Michelle、Divya「Hollis - March pilot results for IT review」（独立、報告PDFと席別CSVを実添付）。Michelleの審査集計は HBC-HOL-20250318-ADP-01 v1.0。
+- 03-18 11:00、Lawrence、Michelle、DivyaのIT審査で24/30席を材料に条件確認へ進む。Lawrenceが03-25までに未稼働6席についてシフト担当に聞き、03-27までにDivyaと初回の本番名簿を確認する。
+- 印刷質問票 HBC-HOL-20250317-WRK-01 v0.1 と書き込み控えは同じ番号と版。印刷版は3問とも回答欄を空け、書き込みは03-18の審査で加える。
+
+## 署名前の条項確認と本番注文の確定
+
+- 注文文面の社内草案 HBC-HOL-20250317-LEG-01 v0.1 は開始日の全席有効化と記載。Jonathanの同番号 v0.2 は4月1日を契約開始として維持し、割当はHollis ITが確認した名簿から順次とする。
+- スレッド「Hollis order - check before signature」①03-18 12:24 Michelle → Jonathan（v0.1 DOCXを実添付、14:00までに確認依頼）。②13:36 Jonathan → Michelle（Re:、質問段落を引用、v0.2 DOCXを実添付し修正を条件に署名可）。
+- スレッド「Hollis order - activation wording before signature」①03-18 14:08 Michelle → Lawrence（順次割当を照会）。②14:39 Lawrence → Michelle（Re:、割当段落を引用、署名手続へ回す）。両通とも添付なし。この時点では未締結。
+- HBC-HOL-20250318-ORD-01 v1.0 は03-18午後に双方締結、15:37に契約控え保存。Halstead Branch Connect、2025-04-01〜2026-03-31、上限180席・年額USD 82,000。本番の上限に試行30席を加算せず、週次利用24席はIT報告の試行値。
+- 03-18 16:06 Michelle → Donald、Denise「Hollis - March 18 order complete」（独立、確定注文PDFを実添付）。DivyaがHalstead側の割当準備を持つ。
