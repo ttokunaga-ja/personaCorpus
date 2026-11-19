@@ -55,6 +55,21 @@ enum Action {
         #[arg(long)]
         now: bool,
     },
+    /// Show the Codex usage, or set the usage at which new work stops safely
+    /// (running batches still finish through acceptance).
+    Usage {
+        #[arg(long)]
+        stop_at: Option<f64>,
+        #[arg(long)]
+        off: bool,
+    },
+    /// Reserve the next stage's target: it starts once every persona is within
+    /// one batch of its current goal.
+    Next {
+        target: Option<i64>,
+        #[arg(long)]
+        clear: bool,
+    },
     /// Answer a question the coordinator left for the user (item as shown in status).
     Answer {
         item: String,
@@ -63,6 +78,89 @@ enum Action {
         #[arg(long)]
         allow_delete: Option<usize>,
     },
+}
+/// One rate-limit window from Codex's own session log.
+struct Window {
+    used: f64,
+    minutes: i64,
+    resets_at: Option<i64>,
+}
+impl Window {
+    fn label(&self) -> String {
+        match self.minutes {
+            10080 => "週".into(),
+            m if m % 60 == 0 => format!("{} 時間", m / 60),
+            m => format!("{m} 分"),
+        }
+    }
+    fn reset(&self) -> String {
+        self.resets_at
+            .and_then(|t| chrono::DateTime::from_timestamp(t, 0))
+            .map(|t| {
+                t.with_timezone(&chrono::FixedOffset::east_opt(9 * 3600).unwrap())
+                    .format("%m/%d %H:%M")
+                    .to_string()
+            })
+            .unwrap_or("不明".into())
+    }
+}
+fn codex_sessions() -> PathBuf {
+    if let Ok(d) = std::env::var("AUTOPILOT_CODEX_SESSIONS") {
+        return d.into();
+    }
+    std::env::var("CODEX_HOME")
+        .map(PathBuf::from)
+        .unwrap_or_else(|_| PathBuf::from(std::env::var("HOME").unwrap_or_default()).join(".codex"))
+        .join("sessions")
+}
+/// The latest rate-limit snapshot in the newest Codex session logs
+/// (sessions/YYYY/MM/DD/rollout-*.jsonl). Empty when none is found.
+fn codex_usage() -> Vec<Window> {
+    let mut files = Vec::new();
+    for y in list(&codex_sessions()) {
+        for m in list(&y) {
+            for d in list(&m) {
+                for f in list(&d) {
+                    if f.extension().is_some_and(|e| e == "jsonl") {
+                        if let Ok(t) = f.metadata().and_then(|m| m.modified()) {
+                            files.push((t, f));
+                        }
+                    }
+                }
+            }
+        }
+    }
+    files.sort();
+    let mut best: Option<(String, Value)> = None;
+    for (_, f) in files.iter().rev().take(5) {
+        let Ok(text) = fs::read_to_string(f) else {
+            continue;
+        };
+        for line in text.lines().filter(|l| l.contains("\"rate_limits\"")) {
+            let Ok(e) = serde_json::from_str::<Value>(line) else {
+                continue;
+            };
+            let limits = &e["payload"]["rate_limits"];
+            let at = e["timestamp"].as_str().unwrap_or("").to_string();
+            if limits.is_object() && best.as_ref().is_none_or(|(t, _)| at > *t) {
+                best = Some((at, limits.clone()));
+            }
+        }
+    }
+    let Some((_, limits)) = best else {
+        return Vec::new();
+    };
+    ["primary", "secondary"]
+        .iter()
+        .filter_map(|k| {
+            let w = &limits[*k];
+            w["used_percent"].as_f64().map(|used| Window {
+                used,
+                minutes: w["window_minutes"].as_i64().unwrap_or(0),
+                resets_at: w["resets_at"].as_i64(),
+            })
+        })
+        .collect()
 }
 /// The smallest ordinary batch on a roadmap.
 const MIN_ROW: i64 = 30;
@@ -353,6 +451,8 @@ struct Pilot {
     personas: Option<String>,
     target: i64,
     push_attempted: bool,
+    /// Codex rate-limit windows, read at each refresh.
+    usage: Vec<Window>,
     /// Set after a coordinator fix changed the tools; the loop re-executes itself.
     restart: bool,
 }
@@ -383,6 +483,7 @@ impl Pilot {
             personas,
             target,
             push_attempted: false,
+            usage: Vec::new(),
             restart: false,
         })
     }
@@ -417,6 +518,7 @@ impl Pilot {
         command(&self.root, &a, true)
     }
     fn refresh(&mut self) -> Result<()> {
+        self.usage = codex_usage();
         let o = self.job(&argv(&["status", "--repo", "personaCorpus"]))?;
         self.jobs = o
             .text
@@ -569,7 +671,27 @@ impl Pilot {
         if self.paused() {
             reasons.push("Codex の利用上限（30 分ごとに試す）".into())
         }
+        // A safe stop at a usage threshold: no new batch or roadmap; running
+        // batches finish. A window past its reset time no longer counts.
+        if let Some(limit) = self.usage_stop() {
+            let now = chrono::Utc::now().timestamp();
+            for w in &self.usage {
+                if w.used >= limit && w.resets_at.is_none_or(|r| now < r) {
+                    reasons.push(format!(
+                        "Codex の利用枠（{}）{}% が閾値 {limit}% 以上（{} にリセット）",
+                        w.label(),
+                        w.used,
+                        w.reset()
+                    ));
+                }
+            }
+        }
         Ok(reasons)
+    }
+    fn usage_stop(&self) -> Option<f64> {
+        read(&self.home.join("usage-stop"))
+            .ok()
+            .and_then(|t| t.trim().parse::<f64>().ok())
     }
     fn count(&self, p: &str) -> Result<usize> {
         let path = self.root.join("manifests").join(format!("{p}.tsv"));
@@ -1453,6 +1575,22 @@ impl Pilot {
         {
             bail!("自動運転は main で実行する")
         }
+        if let Some(next) = self.state["next_target"].as_i64() {
+            let mut ready = next > self.target;
+            for p in self.names()? {
+                ready &= self.count(&p)? as i64 >= self.final_target(&p)? - (MIN_ROW - 1);
+            }
+            if ready {
+                self.log(
+                    "phase-advance",
+                    "",
+                    "",
+                    &format!("目標 {} → {next}", self.target),
+                )?;
+                self.target = next;
+                self.state["next_target"] = Value::Null;
+            }
+        }
         self.state["configuration"] = json!({"target":self.target,"personas":self.personas});
         self.store()?;
         self.push_attempted = false;
@@ -2217,6 +2355,23 @@ impl Pilot {
             "Codex 使用中: {used} / 自動運転: {}",
             if live { "稼働中" } else { "停止" }
         );
+        println!(
+            "Codex の利用枠: {} / 安全な停止: {}",
+            if self.usage.is_empty() {
+                "不明".to_string()
+            } else {
+                self.usage
+                    .iter()
+                    .map(|w| format!("{} {}%（{} にリセット）", w.label(), w.used, w.reset()))
+                    .collect::<Vec<_>>()
+                    .join("、")
+            },
+            self.usage_stop()
+                .map_or("なし".to_string(), |l| format!("{l}% 以上"))
+        );
+        if let Some(next) = self.state["next_target"].as_i64() {
+            println!("次の段階: 全 persona が目標まで 30 件未満になったら --target {next} に進む");
+        }
         let job = self.state["coordinator"]["job"].as_str().unwrap_or("");
         let stuck: Vec<&str> = self.state["coordinator"]["stuck"]
             .as_array()
@@ -2278,16 +2433,16 @@ fn execute(a: Action) -> Result<i32> {
         _ => (None, Some(300), false),
     };
     let mut pilot = Pilot::new(personas, target.unwrap_or(300))?;
+    if target.is_none() {
+        pilot.target = pilot.state["configuration"]["target"]
+            .as_i64()
+            .unwrap_or(300)
+    }
     if status {
         if pilot.personas.is_none() {
             pilot.personas = pilot.state["configuration"]["personas"]
                 .as_str()
                 .map(str::to_string)
-        }
-        if target.is_none() {
-            pilot.target = pilot.state["configuration"]["target"]
-                .as_i64()
-                .unwrap_or(300)
         }
     }
     if pilot.target < 1 {
@@ -2309,6 +2464,47 @@ fn execute(a: Action) -> Result<i32> {
         Action::Status { .. } => {
             pilot.refresh()?;
             pilot.status()?;
+        }
+        Action::Usage { stop_at, off } => {
+            fs::create_dir_all(&pilot.home)?;
+            let file = pilot.home.join("usage-stop");
+            if off {
+                if file.exists() {
+                    fs::remove_file(&file)?;
+                }
+                pilot.log("usage-stop", "", "", "解除")?;
+            } else if let Some(limit) = stop_at {
+                if !(0.0..=100.0).contains(&limit) {
+                    bail!("--stop-at は 0〜100")
+                }
+                fs::write(&file, format!("{limit}\n"))?;
+                pilot.log("usage-stop", "", "", &format!("{limit}%"))?;
+            }
+            pilot.usage = codex_usage();
+            for w in &pilot.usage {
+                println!("{} {}%（{} にリセット）", w.label(), w.used, w.reset());
+            }
+            println!(
+                "安全な停止: {}",
+                pilot
+                    .usage_stop()
+                    .map_or("なし".to_string(), |l| format!("{l}% 以上"))
+            );
+        }
+        Action::Next { target, clear } => {
+            if clear {
+                pilot.state["next_target"] = Value::Null;
+            } else if let Some(t) = target {
+                pilot.state["next_target"] = json!(t);
+            }
+            pilot.store()?;
+            pilot.log(
+                "next-target",
+                "",
+                "",
+                &pilot.state["next_target"].to_string(),
+            )?;
+            println!("次の段階の目標: {}", pilot.state["next_target"]);
         }
         Action::Answer {
             item,

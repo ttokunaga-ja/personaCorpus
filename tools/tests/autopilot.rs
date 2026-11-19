@@ -157,11 +157,16 @@ impl Fixture {
         fs::write(r.join("jobs.json"), "{}").unwrap();
         fs::write(r.join("progress/batches.tsv"), "persona\tbatch\tstatus\n").unwrap();
         let remote = tmp.path().join("remote.git");
+        let sessions = r.join("scratch/codex-sessions").to_string_lossy().into_owned();
         let f = Self {
             _tmp: tmp,
             r,
             remote,
-            env: vec![("AUTOPILOT_MIN_FREE_BYTES".into(), "0".into())],
+            env: vec![
+                ("AUTOPILOT_MIN_FREE_BYTES".into(), "0".into()),
+                // Never read the real Codex session logs in tests.
+                ("AUTOPILOT_CODEX_SESSIONS".into(), sessions),
+            ],
         };
         f.git(&["init", "-qb", "main"]);
         f.git(&["config", "user.name", "Test"]);
@@ -1574,4 +1579,83 @@ fn the_hold_limit_scales_with_the_number_of_personas() {
     .unwrap();
     let status = f.cli(&["status", "--target", "30"]);
     assert!(status.contains("保留6件以上"), "{status}");
+}
+
+fn codex_usage(f: &Fixture, used: f64, resets_at: i64) -> PathBuf {
+    let dir = f.r.join("scratch/codex-sessions/2026/11/19");
+    fs::create_dir_all(&dir).unwrap();
+    let line = json!({"timestamp":"2026-11-19T12:00:00.000Z","type":"event_msg","payload":{"type":"token_count","rate_limits":{"primary":{"used_percent":used,"window_minutes":10080,"resets_at":resets_at},"secondary":null}}});
+    fs::write(
+        dir.join("rollout-test.jsonl"),
+        format!("{{\"timestamp\":\"2026-11-19T11:00:00.000Z\",\"type\":\"other\"}}\n{line}\n"),
+    )
+    .unwrap();
+    f.r.join("scratch/codex-sessions")
+}
+
+#[test]
+fn a_usage_threshold_stops_new_batches_until_the_window_resets() {
+    let mut f = Fixture::new();
+    let sessions = codex_usage(&f, 92.0, 4_000_000_000);
+    f.env.push((
+        "AUTOPILOT_CODEX_SESSIONS".into(),
+        sessions.to_string_lossy().into_owned(),
+    ));
+    f.cli(&["usage", "--stop-at", "90"]);
+    f.roadmap(None);
+    f.once();
+    assert_eq!(f.called("batch", "start"), 0);
+    let status = f.cli(&["status", "--target", "30"]);
+    assert!(
+        status.contains("利用枠") && status.contains("92"),
+        "{status}"
+    );
+    // Once the window has reset, the stale snapshot no longer stops anything.
+    codex_usage(&f, 95.0, 1_000);
+    f.once();
+    assert_eq!(f.called("batch", "start"), 1);
+    // Below the threshold, work continues; --off removes the threshold.
+    let g = Fixture::new();
+    g.cli(&["usage", "--stop-at", "90"]);
+    g.cli(&["usage", "--off"]);
+    assert!(!g.r.join("scratch/autopilot/usage-stop").exists());
+}
+
+#[test]
+fn the_next_stage_starts_when_every_persona_is_within_a_batch_of_its_goal() {
+    let f = Fixture::new();
+    fs::write(f.r.join("personas/p02-test.md"), "# test").unwrap();
+    fs::create_dir_all(f.r.join("progress/p02-test")).unwrap();
+    fs::write(
+        f.r.join("manifests/p01-test.tsv"),
+        "x\thash\t1\tdate\n".repeat(100),
+    )
+    .unwrap();
+    fs::write(
+        f.r.join("manifests/p02-test.tsv"),
+        "x\thash\t1\tdate\n".repeat(60),
+    )
+    .unwrap();
+    f.cli(&["next", "200"]);
+    f.cli(&["once", "--target", "100"]);
+    assert_eq!(f.state()["configuration"]["target"], 100);
+    fs::write(
+        f.r.join("manifests/p02-test.tsv"),
+        "x\thash\t1\tdate\n".repeat(75),
+    )
+    .unwrap();
+    f.cli(&["once", "--target", "100"]);
+    assert_eq!(f.state()["configuration"]["target"], 200);
+    assert!(f.state()["next_target"].is_null());
+    let log = fs::read_to_string(f.r.join("scratch/autopilot/log.tsv")).unwrap();
+    assert!(log.contains("phase-advance"), "{log}");
+    // Starting again without --target keeps the advanced target.
+    f.cli(&["start"]);
+    assert!(
+        f.calls()
+            .iter()
+            .any(|c| c[0] == "codex-job" && c.iter().any(|a| a.contains("--target 200"))),
+        "{:?}",
+        f.calls()
+    );
 }

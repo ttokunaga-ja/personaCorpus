@@ -258,7 +258,9 @@ Claude の利用上限で制作が止まらないように、依頼の作成か�
 ```sh
 bin/autopilot start [--personas p01,p05,...] [--target 300]   # tmux の中で動き続ける（codex-job のジョブ autopilot）。--personas を省くと全 persona
 bin/autopilot status                                           # persona ごとの受入済み・進行中・保留、Codex の使用中の数
-bin/autopilot stop                                             # 新しい batch と roadmap の起動をやめる。動いている batch は最後まで進み、やり直し・監査・受入まで行う
+bin/autopilot stop                                             # 安全な停止：新しい batch と roadmap の起動をやめる。動いている batch は最後まで進み、やり直し・監査・受入まで行う（再開は start）
+bin/autopilot usage [--stop-at 90 | --off]                     # Codex の利用枠の使用率を表示する。--stop-at で、その使用率以上の間は安全な停止にする（リセット後に自動で再開）
+bin/autopilot next 2000 [--clear]                              # 次の段階の目標を予約する。全 persona が目標まで 30 件未満になったら、自動でその目標に進む
 bin/autopilot once                                             # 1 回りだけ実行して終わる（手で確かめるとき）
 bin/autopilot stop --now                                       # 自動運転のループだけをすぐ止める（動いている batch は止めない）
 ```
@@ -274,7 +276,9 @@ bin/autopilot stop --now                                       # 自動運転の
 
 - persona ごとの規模（最終目標）は、persona の定義の「規模の目安」の「全体で N 件」である。職種ごとに違ってよく、全 persona を同じ件数に揃えない。自動運転はこの値と `--target` の小さいほうまで作る。
 - 段階は 2 つ。第 1 段階は `--target 300`（定義の「最初の区切り」）で、全 persona をそれぞれの中心の仕事で 300 件まで作る。第 2 段階は `--target 2000` で、各 persona を自分の規模まで作る。始め方と計画は `progress/plan-2000.md` にある。
-- persona どうしで歩調を揃えない。同時に進める persona の数にも上限を置かず、各 persona が自分の目標まで進む。Codex の同時の数は `max_codex`、同じ persona の batch の数は `max_batches_per_persona` で抑える。
+- persona どうしで歩調を揃えない。同時に進める persona の数にも上限を置かず、各 persona が自分の目標まで進む。Codex の同時の数は `max_codex`、同じ persona の batch の数は `max_batches_per_persona` で抑える（いまは 1。同じ persona の並列はしない。2026-11-19 ユーザー決定）。
+- 段階の切替え：`bin/autopilot next <目標>` で予約しておくと、全 persona の受入済みが目標まで 30 件未満になった回に、自動運転が `--target` をその値に切り替える（`phase-advance` を記録）。`start` で `--target` を省くと、最後の目標を引き継ぐ。
+- 利用枠での安全な停止：自動運転は、Codex 自身の記録（`~/.codex/sessions` の最新の rollout ファイルの rate_limits）から利用枠の使用率とリセットの時刻を読む。`bin/autopilot usage --stop-at <使用率>` を設定すると、その使用率以上でリセット前の間は止める条件になる（新しい batch と roadmap を起動しない。動いている batch の作り直し・監査・受入、統括は続ける）。リセットの時刻を過ぎると自動で再開する。閾値は `scratch/autopilot/usage-stop` に置く。ユーザーが利用枠を見て止めたいときは `bin/autopilot stop`（再開は `start`）。
 - roadmap は、次の `roadmap_chunk`（`config/limits.json`、500 件）ずつ、または規模までの残りがそれより少なければ残りの分を並べる。状態が空の行の件数がこれに足りなくなり、動いている batch が無いと、自動運転が延ばさせる。
 - 件数合わせをしないと埋まらないとき、不足が 30 件（1 batch）未満なら、その persona はその目標を終えたものとして扱う（保留にしない。300 件の目標を 297 件で終えてよい）。30 件以上足りないときは、roadmap ジョブが表の下に「規模の見直し：」を書き、自動運転はその persona を保留にする。統括は仕事を足すか、第 2 段階で仕事が尽きたときは規模の目安の変更をユーザーに諮る。
 

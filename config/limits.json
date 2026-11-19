@@ -1,5 +1,5 @@
 {
   "max_codex": 32,
-  "max_batches_per_persona": 3,
+  "max_batches_per_persona": 1,
   "roadmap_chunk": 500
 }
