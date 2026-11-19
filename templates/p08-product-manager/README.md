@@ -31,6 +31,8 @@
 
 2026年3〜4月のFY2026計画では、優先順位途中表に `olta-requests.xlsx`、余力試算に `olta-metrics.xlsx` を使い、下の「四半期計画の優先順位と開発余力」の列へ差し替える。配分根拠と福田への提案は `olta-report.docx` を開き、対象と前提、判断材料、配分案、次の確認などに節を調整する。事業会議の比較案と開発・利用支援への説明は `olta-review.pptx` から別々に作る。承認範囲の配布PDFには `olta-extract.cls` を使う。4〜6月の資料は FY2026 Q1／暦年2026年Q2 と併記する。30%の基準となる余力の内訳と、配分変更で先送りする仕事は計画・台帳・原稿に従う。
 
+2026年5月の拠点ボード月次判定では、集計範囲の決定に `olta-report.docx`、照合に `olta-sites.xlsx`、経営向け説明に `olta-review.pptx`、会議配付用のテキストPDFに `olta-extract.cls` を使う。5月5日の照合結果は、抽出候補47拠点、報告対象44拠点、権限確認待ち3拠点に分ける。候補CSVに三浦の抽出時点が追える記録を添え、松田の確認項目・根拠と再判定条件は原稿に従って記す。画面PNGは絞り込み条件が読める状態、旧HTMLは差し替え前の表示で残す。
+
 ## 組織の識別と管理項目
 
 - 自社ロゴは、下を回って右へ上がる青緑の巡回経路と、右上の黄土の矢印、その右の社名。青緑 `006D77`、黄土 `D69E36`、本文の墨 `283C40` の3色。Officeのテーマにも同じ配色を登録している。淡青緑 `EAF3F3` は主色の背景用濃淡。Word・Excelは図形部分を内部に埋め込み、社名は編集可能な文字。PowerPointのマスターとTeXは図形で持つ。外部画像依存はない。
@@ -74,6 +76,15 @@ for index, row in enumerate(table.rows):
 
 回収比較の列はAから順に試算条件、有償想定社数、月次寄与（円／社）、初期費用（円）、回収月数、未確認の条件、出典・扱い。A・F・Gは `OF Text`、Bは `OF Number`、C・Dは `OF Yen`（円単位・桁区切り）、Eは `OF Months`（小数1桁）。月次寄与と初期費用の範囲は原稿に従う。単純回収月数を使う場合、E7に `=IF(OR(COUNT(B7:D7)<>3,B7<=0,C7<=0),"",D7/(B7*C7))` を入れ、実際の明細行に合わせて参照を変える。未確認の入力セルは値を空にし、回収月数が空になる理由と確認先はF・Gへ記す。仮定の異なるケースは集計せず、必要な注記を末尾へ入れる。
 
+### 拠点ボードの月次判定
+
+`olta-sites.xlsx` を開き、A2の題とシート名に対象月と用途を入れる。管理番号は `ST`。B4:D4は照合の基準日とし、候補CSVの抽出時刻（JST）は別に記録する。
+
+- **拠点明細**ではA6:G6を「照合順」「拠点コード」「権限の判定」「確認した項目」「確認日」「確認者」「報告での扱い・引継ぎ」とする。列幅は順に13、19、16、26、15、16、39。A列は `OF Number`、E列は `OF Date`、他は `OF Text`。拠点コードは文字列のまま保存し、左インデント1を付ける。候補CSVと同じキーで1拠点1行とし、確認した項目と、次回判定に必要な証跡が辿れる記録を残す。
+- **判定内訳**だけを印刷する場合はA6:G6を「判定区分」「権限の確認状況」「拠点数」「月次での扱い」「確認日」「確認者」「確認根拠・次の対応」とする。列幅は19、18、11、24、15、16、39。C列は `OF Number`、E列は `OF Date`、他は `OF Text`。C列の右隣の扱い欄は左インデント1。報告対象と権限確認待ちを別行にし、候補計は末尾で合算する。
+- 明細は36ptを目安にする。合計の実セルに `OF Total` を指定し、見本の行高は24pt。明細が7〜53行なら、C54に `=COUNTA(B7:B53)`、C55に `=COUNTIF(C7:C53,"確認済み")`、C56に `=COUNTIF(C7:C53,"未確認")`。候補コードの重複・欠落がなく、候補計＝報告対象＋権限確認待ちを確認する。A列の合計ラベルは左寄せにし、必要な高さに広げる。次回の扱いを注記する場合は末尾のA:Gを結合して `OF Note` を指定する。
+- 共通手順で明細だけにフィルタを設定し、印刷には実内容の合計・注記までを含める。1〜6行目を全ページで繰り返し、管理番号全文と明細が読めることを確かめる。
+
 ### 公開までの依存工程
 
 共通手順で管理欄を埋める。B3:D3は `OFS-YYYYMM-RQ-連番3桁`、B4:D4は工程表の基準日、F3:G3とF4:G4は版・作成者。A列は工程の順を `OF Number`、B〜D列は工程名・先行工程・担当を `OF Text`、E列は確認予定日を `OF Date`、F・G列は公開条件や確認根拠・状況や次の対応を `OF Text` で入れる。先行工程は照合できる工程名や番号で示し、複数あれば列挙する。予定日が未確定のときは日付セルを空にし、G列に再設定条件を記す。B列に左インデント1が入り、A列の右寄せ番号と離れる。
@@ -105,6 +116,8 @@ for index, row in enumerate(table.rows):
 
 表・図はplaceholderの座標（左0.85、上2.12、幅11.6、高さ4.4inch）に実要素を作り、空のplaceholderを削除する。表の見出しは青緑白字、本文は淡青緑・墨、数値は右寄せ。数値の右隣の文字セルには左マージンを付け、少なくとも文字1字分の間隔を取る。図の経路・矢印は青緑、黄土は着眼点に限る。注記12pt以上。成形時に右下（左12.15、上7.08、幅0.5、高さ0.22inch）へ実ページ番号を10pt・青緑で追加する。全てのレイアウトが共通マスターを継承する。開発向けは工数と依存工程を比較表で示し、営業向けは公開対象と案内時の条件を先に示す。発表者ノートは原稿に従う。
 
+月次説明では、表紙副題の対象期間に報告対象の月を入れる。表のレイアウトで候補・報告対象・権限確認待ちの拠点数を示し、2段または図のレイアウトで次回の扱いを示す。
+
 ## TeXで直接PDFを作る
 
 オルタの利用状況出力・経営会議資料・公開日程変更通知と若松の受付手順に使う。`olta-extract.cls` を指定scratchのTeX原稿と同じディレクトリへコピーし、`\documentclass{olta-extract}` で読み込む。`bin/tex 原稿.tex 出力.pdf` で組む。クラス単体に本文・例文はない。
@@ -112,6 +125,8 @@ for index, row in enumerate(table.rows):
 `\OFRecord[版]{題}{文書番号}{基準日}{出力日時}{作成者}` で実値を指定する。版を管理しない出力では角括弧を省ける。本文は10pt・墨、題は青緑、`\OFSection{見出し}` も青緑。余白23mm、上29mm、下24mm。`longtable` の見出し行は `\rowcolor{OFteal}` と各セルの `\OFHead{列名}` を使い、`\endfirsthead` と `\endhead` で繰返す。列幅の合計と列間余白を本文幅164mm以内に収める。見本では15＋45＋90mmと列間余白を使う。先頭を右寄せにする場合は `>{\raggedleft\arraybackslash}p{15mm}@{\hspace{5mm}}` で次の左寄せ列との間を空ける。型の色は定義するだけでなく、本文・管理題・見出し・ヘッダ・フッタ・ロゴへ適用済み。長い出力でも管理欄と表を重ねない。
 
 経営会議へ直接提出する場合は、本文の最初に `\OFMeetingRecord{題}{文書番号}{版}{発行日}{作成者}{対象期間}` を使う。右ヘッダが「経営会議資料」になり、番号・版・発行日・作成者・計画の対象期間を表示する。見出し・表・次頁は利用状況出力と同じ仕様。
+
+拠点ボードの月次配付PDFも `\OFMeetingRecord` を使い、文書番号は `EX`。対象期間には報告対象の月を記し、発行日と照合基準日を区別する。候補・報告対象・権限確認待ちの内訳と、翌回の確認条件を選択可能なテキストで組む。
 
 承認担当者へ配る手引きでは、本文の最初に `\OFGuideRecord{題}{文書番号}{版}{発行日}{作成者}{配布先}` を使う。右ヘッダに「承認担当者向け手引き」を表示する。代理者を決める手順と担当外の閲覧可否は別の節で示し、手順の見出しに `\OFSection` を使う。
 
@@ -129,7 +144,7 @@ CSVは原稿の素の列と値だけを出し、ロゴ・管理行を混入さ�
 
 ## 組版見本と検証先
 
-見本は `scratch/p08-product-manager/b007/work/templates-0002/examples/`、レンダリング画像は同じ作業フォルダの `render/`。見本の文書番号・明細・設問・試算値は組版確認用。成形時には計画・台帳・原稿の値を使う。
+見本は `scratch/p08-product-manager/b008/work/templates-0002/examples/`、レンダリング画像は同じ作業フォルダの `render/`。見本の文書番号・拠点コード・確認項目・明細・設問・試算値は組版確認用。成形時には計画・台帳・原稿の値を使う。
 
 | 型 | examples以下の見本 | render以下の全ページ一覧 |
 |---|---|---|
@@ -139,6 +154,7 @@ CSVは原稿の素の列と値だけを出し、ロゴ・管理行を混入さ�
 | `wakamatsu-confirmation.docx` | `wakamatsu-confirmation-short.docx`・`wakamatsu-confirmation-long.docx` | `wakamatsu-confirmation.jpg` |
 | `olta-metrics.xlsx` | `olta-metrics-3.xlsx`・`olta-metrics-23.xlsx` | `olta-metrics.jpg` |
 | `olta-sites.xlsx` | `olta-sites-3.xlsx`・`olta-sites-23.xlsx` | `olta-sites.jpg` |
+| `olta-sites.xlsx`（月次判定） | `olta-monthly-summary.xlsx`・`olta-monthly-detail.xlsx` | `olta-monthly.jpg` |
 | `olta-requests.xlsx` | `olta-requests-3.xlsx`・`olta-requests-23.xlsx` | `olta-requests.jpg` |
 | `olta-payback.xlsx` | `olta-payback-3.xlsx`・`olta-payback-23.xlsx` | `olta-payback.jpg` |
 | `olta-reading-results.xlsx` | `olta-reading-results-3.xlsx`・`olta-reading-results-23.xlsx` | `olta-reading-results.jpg` |
@@ -146,9 +162,10 @@ CSVは原稿の素の列と値だけを出し、ロゴ・管理行を混入さ�
 | `olta-dependencies.xlsx` | `olta-dependencies-3.xlsx`・`olta-dependencies-23.xlsx` | `olta-dependencies.jpg` |
 | `olta-requests.xlsx`（優先順位途中表） | `olta-priorities-3.xlsx`・`olta-priorities-23.xlsx` | `olta-priorities.jpg` |
 | `olta-metrics.xlsx`（開発余力試算） | `olta-capacity-3.xlsx`・`olta-capacity-23.xlsx` | `olta-capacity.jpg` |
-| `olta-review.pptx` | `olta-review.pptx`（事業会議・全5レイアウト）・`olta-allocation-brief.pptx`（承認後） | `olta-review.jpg`・`olta-allocation-brief.jpg` |
+| `olta-review.pptx` | `olta-review.pptx`（月次説明・全5レイアウト）・`olta-allocation-brief.pptx`（承認後） | `olta-review.jpg`・`olta-allocation-brief.jpg` |
 | `olta-extract.cls`（利用状況） | `olta-extract-short.tex`・`olta-extract-long.tex` と `olta-extract-short.pdf`・`olta-extract-long.pdf` | `olta-extract.jpg` |
 | `olta-extract.cls`（経営会議） | `olta-meeting-short.tex`・`olta-meeting-long.tex` と `olta-meeting-short.pdf`・`olta-meeting-long.pdf` | `olta-meeting.jpg` |
+| `olta-extract.cls`（月次配付） | `olta-monthly-short.tex`・`olta-monthly-long.tex` と `olta-monthly-short.pdf`・`olta-monthly-long.pdf` | `olta-monthly-pdf.jpg` |
 | `olta-extract.cls`（承認担当者向け手引き） | `olta-guide-short.tex`・`olta-guide-long.tex` と `olta-guide-short.pdf`・`olta-guide-long.pdf` | `olta-guide.jpg` |
 | `olta-extract.cls`（利用者向け配布資料） | `olta-handout-short.tex`・`olta-handout-long.tex` と `olta-handout-short.pdf`・`olta-handout-long.pdf` | `olta-handout.jpg` |
 | `olta-extract.cls`（公開日程変更通知） | `olta-schedule-notice-short.tex`・`olta-schedule-notice-long.tex` と `olta-schedule-notice-short.pdf`・`olta-schedule-notice-long.pdf` | `olta-schedule-notice.jpg` |
