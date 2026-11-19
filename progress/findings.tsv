@@ -1472,3 +1472,64 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-19	p08-product-manager	b003	coordinator	0	other	Library/CloudStorage/オルタ現場/年明けの経営会議_資料の置き方.html	統括の抜き取りで不合格
 2026-11-19	p18-manufacturing-quality-engineer	b002	coordinator	0	other	Documents/メール控え/2026-09-15_石田部長から_NCR-026監視付き完了.eml	統括の抜き取りで不合格
 2026-11-19	p02-site-reliability-engineer	b001	coordinator	0	other	Documents/Mail/Re Westbury desk wording for pending receipts.eml	統括の抜き取りで不合格
+2026-11-19	p11-account-executive	b002	templates-review	0	other	README.md	「見本とレンダリング」の参照先 scratch/p11-account-executive/b001/work/templates-0001/ が存在せず、表に挙げた全7型の見本ファイルと画像ディレクトリを開けない。
+2026-11-19	p11-account-executive	b002	templates-review	1	other	halstead-rfp-matrix.xlsx	原型のdocProps/app.xmlのApplicationに制作ツール名Microsoft Excel Compatible / Openpyxl 3.1.5があり、docProps/core.xmlのmodifiedに制作時の2026-11-19T09:03:39Zが残る。6件・56件の独立見本では管理番号・日付は折れず、A→Bと集計のC→Dに間隔があり、4ページで表見出しが再掲された。
+2026-11-19	p11-account-executive	b002	draft-review	0	D4	Desktop/Aldridge walkthrough - product first_travel.pptx	スライド3の図で「message delivered and delivery logged」の段に入る矢印を「delivery evidence」とし、ログを配信先への到達の証拠として描いているが、台帳の#24と11月5日議事控えではログで確認できるのは送信まで。
+2026-11-19	p11-account-executive	b002	draft-review	0	D3	Documents/Accounts/Aldridge/RFP/Aldridge conditional response.pdf	§2.6の#49（79行目）は支援窓口を提供すると述べるだけで窓口や連絡経路がなく、#50（80行目）はその窓口へ詳細を送るとするだけで手順を示さず、#52（81行目）も受付後の連絡内容・手順を記さずに依頼事項を言い換えている。
+2026-11-19	p11-account-executive	b002	check	0	source	Documents/Accounts/Aldridge/RFP/Marisol - liability first pass.docx	missing source values: 700
+2026-11-19	p11-account-executive	b002	build-review	0	V2	Documents/Accounts/Aldridge/RFP/Aldridge rollout boundaries - Divya.docx	1ページ目の表題直下の管理欄1行目で、型の見本にある「Document no.」と「Issued」のラベルが欠け、文書番号と発行日の値だけが表示されている。
+2026-11-19	p11-account-executive	b002	build-review	0	V2	Documents/Accounts/Aldridge/RFP/Aldridge conditional response.pdf	1ページ目の表題直下で型の2列の管理欄が3行の平文に置き換わり、「Document no.」「Issued」「Account」のラベルが欠けている。
+2026-11-19	p11-account-executive	b002	check	1	source	Documents/Accounts/Aldridge/RFP/Marisol - liability first pass.docx	missing source values: 700
+2026-11-19	p11-account-executive	b002	check	2	source	Documents/Accounts/Aldridge/RFP/Marisol - liability first pass.docx	missing source values: 700
+2026-11-19	p03-security-grc-analyst	b003	templates-review	0	other	README.md	「見本と検証の置き場所」の b002/work/templates-0002/examples/ と render/ が実在せず、記載の見本・画像へたどれない。
+2026-11-19	p03-security-grc-analyst	b003	draft-review	0	D10	Documents/再審査/日高/0920_井上さんと点検日を確認.docx	表題直下の管理情報にはCD-IM-202409-MTG-01 v1の番号・版・作成日・作成者・宛先があるが、chukyo-reading.docxのCD Metadataに必要な文書自体の確認／承認者または確認・承認の状態が指定されていない。
+2026-11-19	p03-security-grc-analyst	b003	draft-review	0	D1	Desktop/日高_条件案_井上さん赤字.docx	変更履歴の16:02のコメントは「次回の報告と原票を確認する担当と締切は誰・いつにするか。」に付いており、v0にもv0.1にも、計画がコメント対象とした点検報告と原票を同一視する記述がない。
+2026-11-19	p03-security-grc-analyst	b003	draft-review	1	D10	Desktop/日高_条件案_井上さん赤字.docx	16:02のコメントには原票で実施日を読める形で残す要請があるが、原稿7行目の derived_from が空欄で、計画の「先に要るもの」に指定された v0（Desktop/日高_先に書ける継続条件.docx）を参照せず、v0.1の全文を再掲している。
+2026-11-19	p03-security-grc-analyst	b003	check	0	source	Documents/再審査/日高/日高_東棟現地点検票_井上立会い.pdf	body token overlap 0.257 < 0.3
+2026-11-19	p03-security-grc-analyst	b003	build-review	0	V2	Documents/再審査/日高/0920_受領資料と期限_確認済.xlsx	印刷2ページ目のB19:B21「資料数」「使用可」「更新待ち」が右寄せ・インデント0で、型の使用手順と集計見本が指定する左寄せ・インデント1が適用されていない。
+2026-11-19	p03-security-grc-analyst	b003	check	1	mtime	Documents/再審査/日高/0826_受領資料と期限.xlsx	differs from plan by at least one day
+2026-11-19	p03-security-grc-analyst	b003	build-review	1	V2	Documents/再審査/日高/日高_東棟現地点検票_井上立会い.pdf	1ページ目の用紙寸法（MediaBox・CropBox）は256.7×363.1 mmで、hidaka-storage.clsとスキャン見本のA4縦（210×297 mm）より縦横とも約22%大きい。
+2026-11-19	p03-security-grc-analyst	b003	check	0	source	Desktop/日高_条件案_井上さん赤字.docx	body token overlap 0.586 < 0.6
+2026-11-19	p03-security-grc-analyst	b003	check	1	source	Desktop/日高_条件案_井上さん赤字.docx	body token overlap 0.586 < 0.6
+2026-11-19	p03-security-grc-analyst	b003	check	2	source	Desktop/日高_条件案_井上さん赤字.docx	body token overlap 0.586 < 0.6
+2026-11-19	p04-ml-research-engineer	b002	templates-review	0	other	README.md	59行目の旧見本へのリンク先 b001/work/templates-0005/examples/ と render/ がともに存在せず、掲載されている見本と画像を参照できない。
+2026-11-19	p04-ml-research-engineer	b002	templates-review	1	other	README.md	型7件と見本の参照先は実在するが、「組織・文書番号」のGD改訂例は7月18日をIDの日付に使っており、台帳の初版5月13日を保持した改訂番号 MDR-STI-20240513-GD-01-R02 と一致しない。
+2026-11-19	p04-ml-research-engineer	b002	templates-review	1	other	mercer-lab-meeting.pptx	1マスターから5レイアウトを挿入した16:9の全5枚では画像・表・管理欄が収まる一方、型の docProps/core.xml の lastModifiedBy に制作元の既定値 Steve Canny が残り、実際に型を開いて保存した見本にも引き継がれた。
+2026-11-19	p04-ml-research-engineer	b002	draft-review	0	D3	Documents/短文受付意図分類/Measurements/January crossing totals.csv	原稿13行目の総括文が結果表と区別されず、CSV本文どおりに成形すると3列の表に1列の非データ行が混ざるため、研究班が扱う結果表の形式を満たさない。
+2026-11-19	p04-ml-research-engineer	b002	draft-review	0	D3	Documents/短文受付意図分類/Measurements/Case matching dry run.csv	原稿13行目の試行目的の説明文が結果表と区別されず、CSV本文どおりに成形すると文中のカンマで2列に分かれる非データ行が4列の結果表に混ざる。
+2026-11-19	p04-ml-research-engineer	b002	draft-review	0	D10	Documents/短文受付意図分類/Research-questions/What the new split must hold fixed Fatima markup.docx	7行目のderived_fromが空欄で、計画が引継ぎ元と指定するWhat the new split must hold fixed.docxを参照していない。発行情報とFatimaの削除・挿入・コメントは初稿と照合できるが、先頭設定にその初稿の相対パスが欠けている。
+2026-11-19	p04-ml-research-engineer	b002	check	0	metadata	Documents/Lab-meetings/2025/May 23 can we compare yet.pptx	/home/ttokunaga-ja/dev/github.com/ttokunaga-ja/personaCorpus/bin/stamp exit 1: stamp: invalid date: 2025-05-23 14:00:00 -0700
+2026-11-19	p04-ml-research-engineer	b002	check	0	mtime	Documents/Lab-meetings/2025/May 23 can we compare yet.pptx	differs from plan by at least one day
+2026-11-19	p04-ml-research-engineer	b002	check	0	trace	Documents/短文受付意図分類/Measurements/Case split freeze checks.xlsx	production trace: Scope 2024
+2026-11-19	p04-ml-research-engineer	b002	check	0	trace	Documents/短文受付意図分類/Measurements/May ledger source check.xlsx	production trace: Scope 96
+2026-11-19	p04-ml-research-engineer	b002	build-review	0	V3	Documents/短文受付意図分類/Measurements/Case split reevaluation Apr 17.pdf	1ページ目の「Conditions and results」表で件数3列が狭く、Training documentsが3行、Development documentsとEvaluation documentsが4行に分かれ、各列の見出しが単語の途中で何度も分断されている。
+2026-11-19	p04-ml-research-engineer	b002	build-review	0	V2	Documents/Lab-meetings/2025/Short intake January readout.pptx	表紙の管理欄に文書番号 MDR-STI-20250116-LM-01-R01 はあるが、型のREADMEと表紙見本で指定される「Document ID」のラベルが欠けている。
+2026-11-19	p04-ml-research-engineer	b002	check	1	metadata	Documents/Lab-meetings/2025/May 23 can we compare yet.pptx	/home/ttokunaga-ja/dev/github.com/ttokunaga-ja/personaCorpus/bin/stamp exit 1: stamp: invalid date: 2025-05-23 14:00:00 -0700
+2026-11-19	p04-ml-research-engineer	b002	check	1	mtime	Documents/Lab-meetings/2025/May 23 can we compare yet.pptx	differs from plan by at least one day
+2026-11-19	p04-ml-research-engineer	b002	check	1	trace	Documents/短文受付意図分類/Measurements/Case split freeze checks.xlsx	production trace: Scope 2024
+2026-11-19	p04-ml-research-engineer	b002	check	1	trace	Documents/短文受付意図分類/Measurements/May ledger source check.xlsx	production trace: Scope 96
+2026-11-19	p04-ml-research-engineer	b002	check	2	metadata	Documents/Lab-meetings/2025/May 23 can we compare yet.pptx	/home/ttokunaga-ja/dev/github.com/ttokunaga-ja/personaCorpus/bin/stamp exit 1: stamp: invalid date: 2025-05-23 14:00:00 -0700
+2026-11-19	p04-ml-research-engineer	b002	check	2	mtime	Documents/Lab-meetings/2025/May 23 can we compare yet.pptx	differs from plan by at least one day
+2026-11-19	p04-ml-research-engineer	b002	check	2	trace	Documents/短文受付意図分類/Measurements/Case split freeze checks.xlsx	production trace: Scope 2024
+2026-11-19	p04-ml-research-engineer	b002	check	2	trace	Documents/短文受付意図分類/Measurements/May ledger source check.xlsx	production trace: Scope 96
+2026-11-19	p13-corporate-privacy-counsel	b003	templates-review	0	other	README.md	一覧・見本・画像・検証記録の参照先は実在するが、判断比較表の文章欄を広くしたという記載は台帳と同一の列幅設定に合わず、TeXとPPTXの成形手順には「文書保全期限見直し」が固定表示されることの記載がない。
+2026-11-19	p13-corporate-privacy-counsel	b003	templates-review	0	other	toto-decision-comparison.xlsx	比較表のA:Hの列幅は台帳と全列同一で、追加の事情D列は幅21、判断根拠E列は幅18のままであり、READMEの文章比較欄を広くしたという説明と一致しない。CMP番号と日付は一行で、隣接する64と64件は区別できた。
+2026-11-19	p13-corporate-privacy-counsel	b003	templates-review	0	other	toto-legal-brief.pptx	16:9の5レイアウトは描画できるが、マスターの下段に「法務部｜文書保全期限見直し」が固定され、READMEの手順で委託先審査の題とBRF番号を入れた全5枚に別案件名が残る。
+2026-11-19	p13-corporate-privacy-counsel	b003	templates-review	0	other	toto-review-sheet.cls	A4縦の3頁で5列の見出し繰り返しと現在頁／総頁は機能するが、クラスの固定フッタ「法務部｜文書保全期限見直し」が今回の再委託先追加審査票の全頁に残る。
+2026-11-19	p13-corporate-privacy-counsel	b003	draft-review	0	D4	Documents/Matters/文書処理委託審査/委託先審査/委託先質問票_回答欄ひとつの版.xlsx	Q20の設問は操作ログの「保存期間」を尋ねており、台帳の「対象と期間」を9月19日の計画と原稿が具体化した、ログ証跡が実際にカバーする「対象期間」を尋ねていない。
+2026-11-19	p13-corporate-privacy-counsel	b003	draft-review	0	D4	Documents/Matters/文書処理委託審査/委託先審査/重なった12問_事実と判断の担当.xlsx	Q20の「技術側が示す確認事実」がログの「対象と保存期間」になっており、9月19日の計画と原稿で法務に回す前に確認する証跡の内容・対象期間が担当対照表の確認事実に入っていない。
+2026-11-19	p13-corporate-privacy-counsel	b003	draft-review	0	D10	Downloads/Notice of Proposed Subprocessor Additions.pdf	13行目のTo欄には和文社名しかなく、指定のwinslow-subprocessor-notice.clsの宛先欄は和文のフォント指定がなくLiberation Sansでは字形を出せないため、同じ通知番号の型見本で使う英文宛先名Toto Document Data Servicesが原稿に必要。
+2026-11-19	p13-corporate-privacy-counsel	b003	build-review	0	V2	Documents/Matters/文書処理委託審査/委託先審査/10月21日_Winslow追加審査の回覧控え.pdf	1頁の審査表は原稿どおりの4列（通知順・予定作業／資料の状態／審査・取扱い／担当・手配）だが、指定型とスキャン見本の印刷済み5列（区分／判断の前提／根拠・変更点／判断・期限／担当）とは項目名と罫線が異なる。
+2026-11-19	p13-corporate-privacy-counsel	b003	build-review	0	V2	Documents/Matters/文書処理委託審査/委託先審査/重なった12問_事実と判断の担当.xlsx	担当対照シートのQ28直後の19行目に、40ptの固定行高とA19のTD Note書式だけが付いた空の注記行が残っている。元の型にこの行はなく、印刷範囲は18行目までだがワークシートには空の書式行が残る。
+2026-11-19	p15-recruiter-people-ops	b003	templates-review	0	other	README.md	91行目の基準フォルダ b002/work/templates-0002 が存在せず、95〜96行目の staffing-table-3 と staffing-table-50 の TeX入力・PDF・画像フォルダがすべて参照切れ。
+2026-11-19	p15-recruiter-people-ops	b003	draft-review	0	D4	Desktop/10月2日だけで回す案_取りやめ.txt	本文10行目で加藤から「面接の日程確定は6件」と聞いたとしているが、11〜15行目では10月2日だけの案を取りやめて2・3日各3枠を選び、山本への開始時刻確認と割付をこれから行うため、計画上の「6件の枠が必要」と日程の確定を混同している。
+2026-11-19	p15-recruiter-people-ops	b003	draft-review	0	D4	Documents/人員計画/2024年度/12月照合_運営3枠は承諾と着任を分ける.xlsx	「枠と着任」のB8・B9で「4月計画・希望」に条件提示3枠と承諾3枠を置き、D8・D9で各1枠未到達とするが、4月24日の決定記録にあるのは10月開始希望の日程調整3枠の募集準備で、提示・承諾の段階別目標は定めていない。
+2026-11-19	p15-recruiter-people-ops	b003	draft-review	0	D1	Documents/メール控え/8月22日_加藤さんへ_運営担当の掲載前確認.eml	本文の「気になる表現があれば、該当箇所とあわせて8月23日15:00までに返してください」は返信を気になる表現がある場合に限っており、計画と台帳で求める必須条件の見出しと応募締切の確認結果を同時刻までに返す依頼が抜けている。
+2026-11-19	p15-recruiter-people-ops	b003	build-review	0	V2	Documents/採用/研修運営担当採用/研修運営担当_職務説明_判断と当番を追記.docx	全2ページのヘッダに型の初期用途「採用枠・報酬帯の承認」が残り、READMEと職務説明の見本で指定された「職務説明」になっていない。
+2026-11-19	p15-recruiter-people-ops	b003	build-review	0	V2	Documents/採用/研修運営担当採用/回答を待っている2枠.xlsx	「11月18日朝」のフィルター範囲が明細末尾の9行目を越えてA6:F13まであり、10・11行目の合計と12・13行目の注記が絞り込み対象に入っている。
+2026-11-19	p15-recruiter-people-ops	b003	build-review	0	V2	Documents/採用/研修運営担当採用/残る1枠が空く年内の当番.xlsx	「年内10日」のフィルター範囲が当番明細末尾の16行目を越えてA6:F18まであり、17・18行目の対象期間と代行・判断手順の注記が絞り込み対象に入っている。
+2026-11-19	p15-recruiter-people-ops	b003	build-review	0	V2	Documents/人員計画/2024年度/12月照合_運営3枠は承諾と着任を分ける.xlsx	2枚目の「提示と承諾」は印刷フッタの社名・人事表記とページ番号が欠落し、型の1〜6行繰り返しとC7固定もないうえ、A6:F12のフィルターに合計と繰延べ決定欄が入っている。
+2026-11-19	p20-investigative-journalist	b001	coordinator	0	other	Documents/Stories/Road-contracts/Checks/Alder and Mill - two ends each.pdf	統括の抜き取りで不合格
+2026-11-19	p20-investigative-journalist	b001	coordinator	0	other	Documents/Stories/Road-contracts/Checks/Where I expect each signature.pdf	統括の抜き取りで不合格
+2026-11-19	p20-investigative-journalist	b001	coordinator	0	other	Documents/Stories/Road-contracts/Requests/Jul 25 - sent to Dorothy.eml	統括の抜き取りで不合格
+2026-11-19	p20-investigative-journalist	b001	coordinator	0	other	Documents/Stories/Road-contracts/Requests/Jul 26 - Dorothy asks for endpoints.eml	統括の抜き取りで不合格

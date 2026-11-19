@@ -42,7 +42,7 @@ p08-product-manager	b002	2026-11-19	36	2	4	2	1	accepted	6290.30
 p18-manufacturing-quality-engineer	b002	2026-11-19	36	7	13	2	1	accepted	23631.85
 p17-construction-project-manager	b010	2026-11-19	36	3	6	3	3	accepted	10109.83
 p11-account-executive	b001	2026-11-19	34	3	1	0	0	accepted	6465.83
-p20-investigative-journalist	b001	2026-11-19	36	3	7	4	0	done	10850.28
+p20-investigative-journalist	b001	2026-11-19	36	3	7	8	4	accepted	10850.28
 p07-humanities-researcher	b001	2026-11-19	35	14	2	0	0	accepted	7770.48
 p03-security-grc-analyst	b002	2026-11-19	34	5	3	1	1	accepted	7542.73
 p10-management-consultant	b001	2026-11-19	35	20	2	13	0	done	9844.72
@@ -59,3 +59,8 @@ p04-ml-research-engineer	b001	2026-11-19	34	3	1	1	1	accepted	7518.51
 p05-bi-data-analyst	b003	2026-11-19	0	0	0	0	0	failed	1554.64
 p16-clinical-researcher	b002	2026-11-19	0	0	0	0	0	failed	1549.23
 p12-support-success-lead	b003	2026-11-19	29	3	4	0	0	accepted	4597.62
+p11-account-executive	b002	2026-11-19	33	2	3	1	0	done	6962.51
+p03-security-grc-analyst	b003	2026-11-19	29	2	3	1	0	done	6255.91
+p04-ml-research-engineer	b002	2026-11-19	38	3	5	3	0	done	6958.33
+p13-corporate-privacy-counsel	b003	2026-11-19	28	3	2	0	0	done	5163.44
+p15-recruiter-people-ops	b003	2026-11-19	36	3	4	0	0	done	6825.10
