@@ -166,17 +166,30 @@ fn codex_usage(cutoff: i64) -> Vec<Window> {
     }
     files.sort();
     let mut best: Option<(String, Value)> = None;
-    for (_, f) in files.iter().rev().take(10) {
+    // Sessions that failed at the limit record no reading: look back until ten
+    // sessions with readings are found.
+    let mut with_readings = 0;
+    for (_, f) in files.iter().rev() {
+        if with_readings >= 10 {
+            break;
+        }
         let Ok(text) = fs::read_to_string(f) else {
             continue;
         };
+        if text.contains("\"used_percent\"") {
+            with_readings += 1;
+        }
         for line in text.lines().filter(|l| l.contains("\"rate_limits\"")) {
             let Ok(e) = serde_json::from_str::<Value>(line) else {
                 continue;
             };
             let limits = &e["payload"]["rate_limits"];
             let at = e["timestamp"].as_str().unwrap_or("").to_string();
-            if limits.is_object() && best.as_ref().is_none_or(|(t, _)| at > *t) {
+            // Some limit kinds carry no window (primary and secondary are null).
+            let has_window = ["primary", "secondary"]
+                .iter()
+                .any(|k| limits[*k]["used_percent"].is_number());
+            if has_window && best.as_ref().is_none_or(|(t, _)| at > *t) {
                 best = Some((at, limits.clone()));
             }
         }

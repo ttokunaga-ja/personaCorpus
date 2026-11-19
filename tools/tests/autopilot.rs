@@ -1803,3 +1803,33 @@ fn a_coordinator_merge_leaves_files_a_running_batch_is_editing() {
     );
     assert!(!f.holds().contains("p01-test"), "{}", f.holds());
 }
+
+#[test]
+fn sessions_without_a_reading_do_not_hide_the_latest_usage() {
+    let f = Fixture::new();
+    let dir = f.r.join("scratch/codex-sessions/2026/11/20");
+    fs::create_dir_all(&dir).unwrap();
+    let start = |i: usize| json!({"timestamp":format!("2026-11-20T06:{i:02}:00.000Z"),"type":"session_meta"});
+    let limits = json!({"timestamp":"2026-11-20T06:00:30.000Z","type":"event_msg","payload":{"type":"token_count","rate_limits":{"primary":{"used_percent":100.0,"window_minutes":10080,"resets_at":4_000_000_000i64}}}});
+    // Codex also reports a second limit kind without any window; it must not
+    // replace the reading that has one.
+    let empty = json!({"timestamp":"2026-11-20T06:00:40.000Z","type":"event_msg","payload":{"type":"token_count","rate_limits":{"limit_id":"premium","primary":null,"secondary":null}}});
+    fs::write(
+        dir.join("rollout-00.jsonl"),
+        format!("{}\n{limits}\n{empty}\n", start(0)),
+    )
+    .unwrap();
+    // Many later sessions failed at the limit before recording any usage.
+    for i in 1..=15 {
+        fs::write(
+            dir.join(format!("rollout-{i:02}.jsonl")),
+            format!("{}\n", start(i)),
+        )
+        .unwrap();
+    }
+    assert!(
+        f.cli(&["usage"]).contains("週 100%"),
+        "{}",
+        f.cli(&["usage"])
+    );
+}
