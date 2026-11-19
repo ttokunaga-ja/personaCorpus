@@ -15,7 +15,9 @@
 | 採用確認事項PDF | 同社、佐藤。Officeを経ずに配布する短い確認事項・質問票PDF | `mirai-recruiting-note.cls` | A4縦。共通ロゴ・桑実色の題と小見出し、継続表、会社名とページ番号 |
 | 採用支援の連絡 | 青山キャリア支援、山田が送る確認事項・添付連絡 | `aoyama-recruiting-note.docx` | A4縦、表紙なし。二重の山形ロゴ、青灰色・明朝体。自社の本・桑実色は使わない |
 
-b001は2026-08-10〜09-30の研修設計リード採用3枠だけを対象とする。8月18日の報酬帯720〜840万円の承認、上限超えの口頭打診をしない方針、9月8日の松本・井上の評価と共通の不足2観点、9月28日の条件提示準備2枠・募集継続1枠を扱う。型にはこれらの値を固定しない。8観点の名称、共通の不足2観点、質問、経費51,000円の内訳、番号の実値は計画・事実台帳・原稿で定める。初回作成時には既存の型・計画・事実台帳はなかった。今回の修正は既存のExcel型2点を対象とする。
+b001は2026-08-10〜09-30の研修設計リード採用3枠を扱う。8観点の名称、不足観点、質問、経費内訳、番号の実値は計画・事実台帳・原稿で定める。
+
+2024年4月の年度人員計画（b002）では、部門要望と職務の根拠に `mirai-approval.docx` の共通書式を使い、ヘッダの用途と節見出しを「必要な職務」「開始希望月と根拠」など原稿に合わせて置き換える。開始月の固定・調整可否と人件費の照合には `mirai-expenses.xlsx` の照合表を使い、題・列名・単位を変更する。募集順の比較には `mirai-recruiting.pptx`、直接PDFにする決定時点の配布控えには `mirai-recruiting-note.cls` を使う。匿名集計はCSV、部門への回答はEMLで保存する。4月24日の判断は依頼12枠、予算内8枠、最初の募集準備は研修運営3枠と区別して記録する。
 
 ## 共通の意匠と管理
 
@@ -65,8 +67,20 @@ b001は2026-08-10〜09-30の研修設計リード採用3枠だけを対象とす
 `TEXINPUTS="$PWD/templates/p15-recruiter-people-ops:" bin/tex <指定scratchの入力.tex> <指定scratchの出力.pdf>`。`\documentclass{mirai-recruiting-note}`を指定する。クラスに本文・ダミーの管理情報・空表はない。
 
 - `\MWHeading{題}{文書番号}{版}{作成日}{作成者}`、`\MWSection{見出し}`、`\MWNote{注記}`を使う。欧文Liberation Sans、日本語Noto Sans CJK JP、本文10pt、左右24mm、上29mm、下24mm。桑実色はロゴ・題・見出し、灰緑は右ページのロゴ、墨は本文に実適用する。
-- `\begin{MWTable}{列指定}`〜`\end{MWTable}`でlongtableを作る。ヘッダは`\rowcolor{MWmain}`、各セルで`\color{white}`を指定し、見出し行末の`\\`に続けて`\endhead`を入れて続頁で繰返す。列幅と列間余白の合計を本文幅162mm以内にする。数値列はr、長文はp列。実際の行だけ入れ、合計が意味を持つ場合だけ原稿の合計を追加する。
-- 直接PDFを作る必要がある質問票・確認事項にだけ使う。Office由来のPDFはOfficeから変換し、型の件数のために配布物を追加しない。
+- `\begin{MWTable}{列指定}`〜`\end{MWTable}`でlongtableを作る。見出し行頭に`\rowcolor{MWmain}`を置き、**各見出しセル**の先頭を`\leavevmode\color{white}`とする。色指定の前に横モードへ入り、数値の`r`列と長文の`p`列で見出しの1行目をそろえる。見出し行末の`\\`に続けて`\endhead`を入れ、続頁にも同じ行を表示する。
+- 先頭の番号など右寄せの数値列に左寄せの文字列が続く場合は、列の境界に既定の列間余白を残す。下記の指定で両端の余白だけを外す。実際の見出しと数値に合わせ、列幅と列間余白の合計を本文幅162mm以内にする。明細には実際の行を入れ、合計が意味を持つ場合だけ原稿の合計を追加する。
+
+```tex
+\begin{MWTable}{@{}rp{35mm}p{103mm}@{}}
+\rowcolor{MWmain}\leavevmode\color{white}番号 &
+  \leavevmode\color{white}担当範囲 &
+  \leavevmode\color{white}確認内容 \\
+\endhead
+% 原稿の明細をここに入れる。
+\end{MWTable}
+```
+
+直接PDFを作る質問票・確認事項・決定時点の配布控えに使う。Office由来のPDFはOfficeから変換する。
 
 ## 型を使わない記録
 
@@ -74,15 +88,9 @@ b001は2026-08-10〜09-30の研修設計リード採用3枠だけを対象とす
 
 ## 今回の見本と確認先
 
-今回の修正はExcel型2点の管理欄と行書式だけ。他のOffice・TeX型は維持する。見本の番号・日付・作成者は規定の実長を使う。3行の経費表は台帳の3費目・計51,000円。40行は改ページと隣接列を検査する組版用の1表であり、案件の事実として転記しない。評価表見本の番号列は数値を右寄せにし、直後の文字列の左インデントを検査する。経費表は差額0の直後の注記、40行見本では番号の直後の確認対象も検査する。
+作業フォルダは `scratch/p15-recruiter-people-ops/b002/work/templates-0002/`。以下の参照先はこのフォルダを基準とする。管理欄には `MW-HR-202404-REC-001`、版1.0、2024-04-24、佐藤 美穂子を入れた。番号と明細は組版確認用。
 
-作業フォルダは `scratch/p15-recruiter-people-ops/templates-1794935212732563606/work/templates-0001/`。以下の参照先はすべてこのフォルダを基準とする。
-
-| 型 | 見本 | 全ページの画像 |
-|---|---|---|
-| mirai-evaluation.xlsx | `examples/mirai-evaluation-3.xlsx` | `render/mirai-evaluation-3/` |
-| 同上（複数ページ） | `examples/mirai-evaluation-40.xlsx` | `render/mirai-evaluation-40/` |
-| mirai-expenses.xlsx | `examples/mirai-expenses-3.xlsx` | `render/mirai-expenses-3/` |
-| 同上（複数ページ） | `examples/mirai-expenses-40.xlsx` | `render/mirai-expenses-40/` |
-
-修正・見本の成形は `fix_excel.py`、再計算とレンダリング結果は `validation.json`、確認記録は `verification.md`。受入済み成果物は変更しない。別実行のtemplates-reviewは未実施。
+| 型 | TeX入力 | PDF | 全ページの画像 |
+|---|---|---|---|
+| mirai-recruiting-note.cls（3行） | `examples/staffing-table-3.tex` | `examples/staffing-table-3.pdf` | `render/staffing-table-3/` |
+| mirai-recruiting-note.cls（50行） | `examples/staffing-table-50.tex` | `examples/staffing-table-50.pdf` | `render/staffing-table-50/` |
