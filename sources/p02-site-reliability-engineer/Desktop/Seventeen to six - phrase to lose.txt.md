@@ -1,0 +1,11 @@
+---
+path: Desktop/Seventeen to six - phrase to lose.txt
+kind: text
+author: Daniel Jennings
+derived_from:
+---
+Speaker notes — take out: ~~we cut the queue by two thirds~~
+
+Use: eleven fewer enquiries across the two comparison weeks.
+
+These are the questions the Westbury desk opened, not the number of passengers or the size of a queue. Booking volume isn't controlled between the weeks; leave the reason for the change open.

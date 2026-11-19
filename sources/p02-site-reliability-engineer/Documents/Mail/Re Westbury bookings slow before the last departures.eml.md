@@ -1,0 +1,34 @@
+---
+path: Documents/Mail/Re Westbury bookings slow before the last departures.eml
+kind: text
+author: Daniel Jennings
+derived_from:
+---
+From: Daniel Jennings <daniel@brt-booking.example>
+To: Stephen Cartledge <stephen@westbury-coach.example>
+Cc: Claire Hutchinson <claire@brt-booking.example>
+Date: Mon, 22 Jul 2024 14:02:00 +0100
+Subject: Re: Westbury bookings slow before the last departures
+Message-ID: <09d0a4f7-8a4b-40d5-874a-6763b648b157@brt-booking.example>
+In-Reply-To: <d0d53a0e-00c2-4ab5-9c1a-16fe426d35a7@westbury-coach.example>
+References: <d0d53a0e-00c2-4ab5-9c1a-16fe426d35a7@westbury-coach.example>
+
+Hi Stephen,
+
+Matthew and I compared the three afternoons by the time each booking was accepted. The higher counts of delayed confirmations were in the hour from 16:00 BST on each day. We will use that as the working busy start and have the BRT duty team ready from 15:30 BST.
+
+If you contact Support about a delayed confirmation, could you include the local time? That will help us find the right period to check.
+
+Thanks,
+Daniel
+
+On Mon, 22 Jul 2024 at 09:04 BST, Stephen Cartledge wrote:
+> Hi Daniel,
+>
+> Could you take a look at the gap between accepting a booking and getting the confirmation at the Westbury desk? The team remembers it being slow on Wednesday, Thursday and Friday afternoon last week, particularly around four, before the last departures. Those are our desk times, BST; we haven't kept a reliable count of how many were delayed.
+>
+> Could you check the times with your figures and let us know when your team should be ready? Claire, I'm copying you in so Support has the context too.
+>
+> Thanks,
+> Stephen
+> Westbury Coach Cooperative

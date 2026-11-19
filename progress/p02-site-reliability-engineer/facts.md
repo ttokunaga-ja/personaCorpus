@@ -172,3 +172,23 @@
 - Anjali's issued BRT-CD-20260407-001 and its unchanged PDF defer all four from April–May production scheduling until a June review on the budget evidence. Preparation outside production can continue.
 - At the scheduled 2 June 10:00 UTC checkpoint Daniel is to bring a fresh budget balance and Matthew the queue and evidence plan. A further recorded Operations decision is required for production scheduling; the checkpoint sets no release date.
 - “SVC-17 - approved deferral to June review”, 7 April 12:44 BST, Anjali → Daniel and Matthew, Cc Claire Hutchinson, standalone with SVC-17 - April deferral decision.pdf and April budget before SVC-17.xlsx attached. Claire's 8 April notice keeps launch wording and customer training dates open.
+
+## Westbury booking confirmations, 22 July 2024
+
+- Westbury bookings accepted on 17, 18 and 19 July use four half-open 30-minute UTC slots starting at 14:30, 15:00, 15:30 and 16:00. Count each accepted booking once and mark it delayed if still unconfirmed at 120 seconds. The desk reported in BST (UTC+1).
+- Delayed counts in slot order are 1/9/8/2, 1/11/9/3 and 2/10/11/2 by day. The two 15:00–16:00 UTC slots together contain 17, 20 and 21 delays respectively. The Desktop Friday preview groups by confirmation time and cannot be read along the acceptance clock.
+- At 11:30 UTC on 22 July Daniel Jennings and Matthew Pickering set preparation at 14:30 UTC (15:30 BST), 30 minutes before the 15:00 UTC busy start. Daniel briefs duty and Matthew handles engineering follow-up. BRT-MT-20240722-001 is the issued readback and its unchanged PDF.
+- “Westbury bookings slow before the last departures” thread, 22 July BST: (1) 09:04 Stephen Cartledge → Daniel, Cc Claire Hutchinson; (2) 14:02 Daniel → Stephen, Cc Claire, same subject with “Re:”, quoting (1). Neither message has attachments.
+
+## Westbury overdue refunds and booking match, 21 October 2025
+
+- The late cohort covers Westbury refunds still outstanding at their due times on 20–21 October UTC, all due by the 21 October 10:00 UTC cutoff. Of 62 refunds, 62 match their original bookings and zero have no match. At cutoff, 54 have been submitted and eight await submission; actual bank arrival is unverified.
+- At the 21 October 12:00 UTC readback Daniel Jennings, Stephen Cartledge and Claire Hutchinson agreed to keep existing bookings. Matthew Pickering checks submissions on 22 October at 12:00 UTC; Claire gives the next update by 14:00 UTC (15:00 BST), including if some are still waiting.
+- BRT-CU-20251021-001 and Claire's Support reference (published 21 October 15:05 BST) give an indicative 3–5 UK working days from submission. The desk keeps the original booking and asks Support for a status check.
+- “Westbury refunds still showing as due” thread, 21 October BST: (1) 09:08 Stephen → Claire and Daniel; (2) 14:48 Claire → Stephen, Cc Daniel, same subject with “Re:”, quoting (1) and attaching Westbury refund timing and booking advice.pdf.
+
+## Westbury desk enquiry review and Riderpass training allocation, 15 September 2026
+
+- Claire Hutchinson's Westbury desk tally covers full Monday–Sunday UTC weeks of 10–16 August and 7–13 September 2026. The confirmation-delay and refund-progress counts are 11 + 6 = 17 and 4 + 2 = 6. Count newly opened questions once per case and question under the first category; follow-ups on the same question add nothing. Two weeks do not establish cause.
+- At 10:30 UTC Daniel Jennings, Claire and Anjali Shah review the figures. Anjali approves moving four team-training hours in October–December to Riderpass. Daniel owns planning, dates stay open, and Westbury preparation and Support guidance stay in use. BRT-MT-20260915-001 is the issued record and unchanged PDF.
+- At 13:00 UTC Claire explains the counting rule and refund contact route to Stephen Cartledge. “Westbury September desk figures and guidance”, 15 September 14:34 BST, Claire → Stephen, Cc Daniel, standalone with Westbury September desk update.pdf (BRT-CU-20260915-001) attached.

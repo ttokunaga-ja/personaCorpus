@@ -14,6 +14,7 @@
 | Ticket archive recovery guidance | BRT Customer Support。Claire が点検で確認した復旧点と、運行側がどの時点までの乗車券記録を確認できるかを説明する修正案。確定稿は同じ Word 文書から PDF に書き出せる | `brt-ticket-recovery-guidance.docx` | A4 縦、表紙なし。青い見出しと橙の罫線。各ページのフッタに Customer Support とページ番号 |
 | Ticket office switch contact card | BRT Customer Support。Claire が Fairfield と読み合わせた切替文面、連絡順、受領確認を窓口配布用に確定するときに使用 | `brt-ticket-office-contact-card.docx` | A4 縦、独立表紙なし。青い見出しと橙罫。Customer Support とページ番号をフッタに表示 |
 | Recovery point comparison | BRT Reliability Engineering。Daniel と Sanjay が基準時刻、復旧点、時点の差と目標を照合 | `brt-recovery-point-comparison.xlsx` | A4 横。青地白字の繰返し見出し、橙の罫線、二つの UTC 日時列と右寄せの分・目標列 |
+| Refund and booking reconciliation | BRT Reliability Engineering。Daniel が返金予定日別に返金の提出状況と予約の突合結果を照合する内部用集計。予約明細は載せない | `brt-refund-reconciliation.xlsx` | A4 横。共通の段形マークと青・橙、青地白字の繰返し見出し、右寄せの件数 |
 | Reliability briefing | BRT Reliability Engineering。Daniel が運用上の判断と根拠を共有し、Emma と Passenger Identity の初回・再演習の結果を比較する。引継ぎ研修の説明にも使う | `brt-reliability-briefing.pptx` | 16:9 白地。全レイアウト共通で上部に社名と段形のマーク、上下に橙の細い罫線 |
 | Customer service update | BRT Customer Support。Claire が Westbury などへ復旧と引き続き適用する制約を説明する直接組版 PDF | `brt-customer-update.cls` | A4 縦、独立表紙なし。青の題と小見出し。各ページ下部に Customer Support とページ番号 |
 | Handover retraining record | BRT Reliability Engineering。Daniel が模擬引継ぎで確認した誤り、再受講の確認、当番入りの判断を記録する直接組版 PDF | `brt-handover-retraining.cls` | A4 縦、表紙なし。青の題と段階別の確認表、橙の罫線、各ページ下部に Reliability Engineering とページ番号 |
@@ -39,6 +40,7 @@ Westbury、RJS、Fairfield の型は各社が発行する文書に用いる。Cl
 - Fairfield は切取線と左右の切欠きのある切符マークを右上に置く。主色は臙脂 `#762E39`、管理欄と表見出しは薄い桜灰 `#F4EAE5`、本文は墨茶 `#362E2C`。欧文は Liberation Sans、和文は Noto Sans CJK JP。
 - BRT の番号は `BRT-種別-YYYYMMDD-連番3桁`。種別は `IR`（事後報告）、`MT`（打合せ）、`CD`（変更判断）、`EB`（エラーバジェット）、`CP`（容量比較）、`RB`（説明資料）、`CU`（顧客説明）、`NH`（夜間引継ぎ）、`OX`（当番交代）、`TR`（再受講記録）、`EX`（復旧演習報告）、`RP`（復旧点比較）、`TC`（窓口の切替連絡票）。Westbury は `WCC-SO-YYYYMMDD-連番3桁`、Palmer の予測・再確認は `PCS-DF-YYYYMMDD-連番3桁`、RJS の立会い所見は `RJS-WS-YYYYMMDD-連番3桁`、Fairfield の受付記録は `FTS-DR-YYYYMMDD-連番3桁`。いずれも日付部分は文書の発行日、連番は組織・種別・発行日ごとに `001` から取る。業務上の障害番号 `INC-260713` を本文で引用する場合は、文書の管理番号と別に記す。
 - 管理欄は完全な番号、発行日（例 `14 Jul 2026`）、作成者のフルネームを入れる。障害の時刻は UTC で表記する。勤務表の日時は Europe/London の現地時刻で、BST または GMT を明記する。初報と確定した内容を両方記す場合は、対象範囲と確認時点を添える。
+- 返金照合表の種別は `RF`。日付と連番の扱いは他の BRT 文書と共通。
 - Office のファイル内部の作成者と日時は、配布物の成形後に進行役が `bin/stamp` で原稿の作成者と計画の日時にそろえる。Excel は保存時に更新日時が書き換わるため、この処理は保存と再計算の後に行う。
 
 ## Word
@@ -83,6 +85,12 @@ Westbury、RJS、Fairfield の型は各社が発行する文書に用いる。Cl
 2. 7 行目から実際の確認ごとに行を追加する。A は `BRT Count` の行番号。B・C は原稿で確認した基準時刻と復旧点を UTC にそろえ、日付付きの Excel 日時を `BRT UTC Time` で表示する。D は復旧点の古さ（分）、E は目標（分）で、どちらも `BRT Count`。分までの証拠を照合する場合、D7 は `=ROUND((B7-C7)*1440,0)`。復旧点が基準時刻以前であることを照合してから、F に `BRT Text` で判定を書く。D が E 以下なら目標内。明細は高さ 25 pt を目安にし、右寄せの数値と次の左寄せ列にインデント 1 を保つ。
 3. 一覧で最大の古さを示す場合は最後の明細の次に A:C を結合して A に `BRT Total Text` の集計名、D に `BRT Total Count` で D 列の MAX、F に `BRT Total Text` で対象範囲を入れる。結合後の B・C と空の E の上罫線を A とそろえる。古さの単純合計は行わない。注記を付ける場合は次の行で A:F を結合して A に `BRT Note` を適用する。集計・注記は高さ 25 pt を目安に折返しに合わせて調整する。
 4. A4 横、横 1 ページ・縦自動、1〜6 行を繰り返す。印刷範囲は最終使用行まで。集計が単独のページに出る場合は行高か改ページ位置を調整する。数式を使ったブックは `bin/recalc` で結果を保存し、`bin/render` で全ページを確認する。
+
+### Refund and booking reconciliation
+
+1. `Reconciliation` シートの B3 に管理番号、E3 に作成者、B4 に発行日、E4 に対象と UTC の照合時点を入れる。対象・照合時点が複数行になる場合は 4 行目を広げる。
+2. 7 行目から返金予定日（UTC）ごとに A に日付、B に遅延返金件数、C にそのうち予約と突合できた件数、D に決済事業者への提出を確認した件数を入力する。E は提出待ち `=B7-D7`、F は対応する予約が見つからない件数 `=B7-C7`。差分の算出は全対象を照合済みの場合に行い、照合中の値を 0 として扱わない。A は `BRT Date`、B:F は `BRT Count`。
+3. 最終明細の直後に A を `BRT Total Text`、B:F を `BRT Total Count` として列ごとに SUM を入れる。全体にかかる注記は次行の A:F を結合し `BRT Note` を用いる。返金の提出と着金の違いを明記する。A4 横、横 1 ページ・縦自動、1〜6 行を繰り返し、実際の最終行までを印刷範囲にする。 `bin/recalc` で計算結果を保存し、 `bin/render` で全ページを確認する。
 
 ## PowerPoint
 
