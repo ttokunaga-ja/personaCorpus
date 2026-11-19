@@ -350,8 +350,6 @@ struct Pilot {
     personas: Option<String>,
     target: i64,
     push_attempted: bool,
-    /// Personas that may start new work in this pass (None: all).
-    allowed: Option<BTreeSet<String>>,
     /// Set after a coordinator fix changed the tools; the loop re-executes itself.
     restart: bool,
 }
@@ -382,7 +380,6 @@ impl Pilot {
             personas,
             target,
             push_attempted: false,
-            allowed: None,
             restart: false,
         })
     }
@@ -634,20 +631,14 @@ impl Pilot {
             .unwrap_or(self.target);
         Ok(self.target.min(scale))
     }
-    /// The persona's current milestone: the next multiple of `milestone` above the
-    /// unfinished persona with the fewest accepted files, capped by the persona's
-    /// whole scale. All personas reach one milestone before any goes further.
+    /// How far the roadmap must reach: the next `roadmap_chunk` files, or the
+    /// persona's whole scale if that is nearer. Personas advance independently.
     fn goal(&self, p: &str) -> Result<i64> {
-        let step = self.limits()?["milestone"].as_i64().unwrap_or(300).max(1);
-        let mut least = None::<i64>;
-        for q in self.names()? {
-            let n = self.count(&q)? as i64;
-            if n < self.final_target(&q)? {
-                least = Some(least.map_or(n, |l| l.min(n)));
-            }
-        }
-        let whole = self.final_target(p)?;
-        Ok(least.map_or(whole, |l| whole.min(step * (l / step + 1))))
+        let chunk = self.limits()?["roadmap_chunk"]
+            .as_i64()
+            .unwrap_or(500)
+            .max(1);
+        Ok(self.final_target(p)?.min(self.count(p)? as i64 + chunk))
     }
     /// Batches of the persona that are neither accepted nor discarded.
     fn active(&self, p: &str) -> Result<BTreeSet<String>> {
@@ -1342,7 +1333,7 @@ impl Pilot {
             .collect()
     }
     fn new_batch(&mut self, p: &str, rows: &[Row]) -> Result<()> {
-        if self.count(p)? >= self.goal(p)? as usize || self.held(p, "roadmap")? {
+        if self.count(p)? >= self.final_target(p)? as usize || self.held(p, "roadmap")? {
             return Ok(());
         }
         let active = self.active(p)?;
@@ -1419,7 +1410,6 @@ impl Pilot {
         self.store()?;
         self.push_attempted = false;
         self.push()?;
-        self.allowed = self.admitted()?;
         for p in self.names()? {
             if self.home.join("stop-now").exists() {
                 return Ok(());
@@ -1434,33 +1424,6 @@ impl Pilot {
             self.log("error", "", "", &format!("統括の起動: {e}"))?;
         }
         Ok(())
-    }
-    /// Personas with work in progress, plus the waiting personas with the most
-    /// accepted files, up to `max_active_personas` (absent: no cap).
-    fn admitted(&self) -> Result<Option<BTreeSet<String>>> {
-        let Some(max) = self.limits()?["max_active_personas"].as_u64() else {
-            return Ok(None);
-        };
-        let mut working = BTreeSet::new();
-        let mut waiting = Vec::new();
-        for p in self.names()? {
-            let road = self.state["roadmaps"][&p]["job"].as_str().unwrap_or("");
-            let n = self.count(&p)?;
-            if !self.active(&p)?.is_empty()
-                || self
-                    .jobs
-                    .get(road)
-                    .is_some_and(|s| ACTIVE.contains(&s.as_str()))
-            {
-                working.insert(p);
-            } else if (n as i64) < self.goal(&p)? {
-                waiting.push((std::cmp::Reverse(n), p));
-            }
-        }
-        waiting.sort();
-        let room = (max as usize).saturating_sub(working.len());
-        working.extend(waiting.into_iter().take(room).map(|(_, p)| p));
-        Ok(Some(working))
     }
     fn once_persona(&mut self, p: &str) -> Result<()> {
         let paths = self.states(p).into_iter().collect::<BTreeMap<_, _>>();
@@ -1528,10 +1491,7 @@ impl Pilot {
         if self.home.join("stop-now").exists() {
             return Ok(());
         }
-        if self.stops()?.is_empty()
-            && self.count(p)? < self.goal(p)? as usize
-            && self.allowed.as_ref().is_none_or(|a| a.contains(p))
-        {
+        if self.stops()?.is_empty() && self.count(p)? < self.final_target(p)? as usize {
             if let Some(rows) = self.ensure_roadmap(p)? {
                 self.new_batch(p, &rows)?;
             }
@@ -2170,7 +2130,7 @@ impl Pilot {
             println!(
                 "{p}\t{}/{}\t{}\t{pending}\t{dropped}\t{}\t{remaining}",
                 self.count(&p)?,
-                self.goal(&p)?,
+                self.final_target(&p)?,
                 if running.is_empty() {
                     "-".into()
                 } else {

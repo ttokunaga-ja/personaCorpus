@@ -1173,14 +1173,10 @@ fn a_used_up_roadmap_is_extended_and_must_keep_its_rows() {
 }
 
 #[test]
-fn milestones_advance_breadth_first_with_a_cap_on_active_personas() {
+fn every_persona_works_at_once_and_plans_ahead_in_large_chunks() {
     let f = Fixture::new();
     fs::create_dir_all(f.r.join("config")).unwrap();
-    fs::write(
-        f.r.join("config/limits.json"),
-        r#"{"max_codex":32,"max_batches_per_persona":3,"milestone":30,"max_active_personas":2}"#,
-    )
-    .unwrap();
+    fs::write(f.r.join("config/limits.json"), r#"{"roadmap_chunk":50}"#).unwrap();
     for (p, n) in [
         ("p01-test", 30),
         ("p02-test", 0),
@@ -1195,50 +1191,42 @@ fn milestones_advance_breadth_first_with_a_cap_on_active_personas() {
         )
         .unwrap();
     }
-    f.cli(&["once", "--target", "90"]);
+    f.cli(&["once", "--target", "200"]);
     let jobs = f.jobs();
-    assert!(
-        jobs.get("p03-roadmap").is_some() && jobs.get("p02-roadmap").is_some(),
-        "{jobs:?}"
-    );
-    assert!(
-        jobs.get("p01-roadmap").is_none() && jobs.get("p04-roadmap").is_none(),
-        "{jobs:?}"
-    );
-    assert_eq!(brief_context(&f, "p02-roadmap")["target"], 30);
-    assert_eq!(brief_context(&f, "p02-roadmap")["final_target"], 90);
-    // Once every persona has reached the first milestone, the next one opens.
-    for p in ["p02-test", "p03-test", "p04-test"] {
-        fs::write(
-            f.r.join(format!("manifests/{p}.tsv")),
-            "x\thash\t1\tdate\n".repeat(31),
-        )
-        .unwrap();
+    for p in ["p01", "p02", "p03", "p04"] {
+        assert!(
+            jobs.get(format!("{p}-roadmap").as_str()).is_some(),
+            "{jobs:?}"
+        );
     }
-    for p in ["p02-test", "p03-test"] {
-        fs::write(
-            f.r.join(format!("progress/{p}/roadmap.md")),
-            format!("{HEADER}| b001 | 月次締め | 31 | 重点 | 内容 | 回避 | 受入済み b001 |\n"),
-        )
-        .unwrap();
-    }
-    f.job("p02-roadmap", "done");
-    f.job("p03-roadmap", "done");
-    f.cli(&["once", "--target", "90"]);
-    let jobs = f.jobs();
+    // The roadmap plans the next chunk, not the whole scale, and personas are not
+    // held back to the slowest one.
+    assert_eq!(brief_context(&f, "p01-roadmap")["target"], 80);
+    assert_eq!(brief_context(&f, "p02-roadmap")["target"], 50);
+    assert_eq!(brief_context(&f, "p01-roadmap")["final_target"], 200);
+    // A roadmap whose open rows cover the chunk is valid even far below the scale.
+    fs::write(
+        f.r.join("progress/p01-test/roadmap.md"),
+        format!("{HEADER}| b001 | 月次締め | 30 | 重点 | 内容 | 回避 | 受入済み b001 |\n| b002 | 四半期 | 30 | 重点 | 内容 | 回避 | |\n| b003 | 年度 | 30 | 重点 | 内容 | 回避 | |\n"),
+    )
+    .unwrap();
+    f.job("p01-roadmap", "done");
+    f.cli(&["once", "--target", "200"]);
+    assert!(f.jobs().get("p01-roadmap-r2").is_none(), "{:?}", f.jobs());
+    assert!(f.calls().iter().any(|c| c.starts_with(&[
+        "batch".into(),
+        "start".into(),
+        "p01-test".into()
+    ])));
     assert!(
-        jobs.get("p03-roadmap-r2").is_some() && jobs.get("p02-roadmap-r2").is_some(),
-        "{jobs:?}"
+        f.cli(&["status", "--target", "200"])
+            .contains("p02-test\t0/200")
     );
-    assert_eq!(brief_context(&f, "p02-roadmap-r2")["target"], 60);
-    assert!(f.cli(&["status", "--target", "90"]).contains("31/60"));
 }
 
 #[test]
 fn each_persona_stops_at_the_scale_in_its_definition() {
     let f = Fixture::new();
-    fs::create_dir_all(f.r.join("config")).unwrap();
-    fs::write(f.r.join("config/limits.json"), r#"{"milestone":30}"#).unwrap();
     fs::write(
         f.r.join("personas/p01-test.md"),
         "# test\n\n## 規模の目安\n\n全体で 40 件。最初の区切りは 30 件で、月次締めを中心にする。\n\n## 書かないもの\n",
@@ -1255,15 +1243,15 @@ fn each_persona_stops_at_the_scale_in_its_definition() {
     }
     let status = f.cli(&["status", "--target", "90"]);
     assert!(status.contains("p01-test\t31/40"), "{status}");
-    assert!(status.contains("p02-test\t31/60"), "{status}");
+    assert!(status.contains("p02-test\t31/90"), "{status}");
     fs::write(
         f.r.join("manifests/p01-test.tsv"),
         "x\thash\t1\tdate\n".repeat(40),
     )
     .unwrap();
-    let status = f.cli(&["status", "--target", "90"]);
-    assert!(status.contains("p01-test\t40/40"), "{status}");
-    assert!(status.contains("p02-test\t31/60"), "{status}");
+    f.cli(&["once", "--target", "90"]);
+    assert!(f.jobs().get("p01-roadmap").is_none());
+    assert!(f.jobs().get("p02-roadmap").is_some());
 }
 
 #[test]

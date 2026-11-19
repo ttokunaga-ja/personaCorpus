@@ -265,17 +265,17 @@ bin/autopilot stop --now                                       # 自動運転の
 ### 制作の道筋（roadmap）
 
 - `progress/<persona>/roadmap.md` に、その persona で作る batch を順に並べる。列は、batch、範囲、件数の目安、重点、含めたいもの、避けるもの、状態。
-- roadmap が無い persona は、自動運転が最初に Codex（`gpt-6.2-astra`、`prompts/roadmap.md`）に作らせる。persona の定義の「仕事の流れ」「フォルダ構成」「形式の目安」「規模の目安」と、これまでの計画を読み、次の区切り（下の「区切りと段階」）までの batch を、範囲が重ならないように並べる。最初の batch は、その persona の中心になる仕事にする。
-- 動いている batch が無く、状態が空の行の件数の合計が次の区切りまでの残りに足りないとき（破棄で受入が予定を下回ったとき、区切りが進んだとき）、自動運転は同じ指示で roadmap を延ばさせる。既存の行と状態は変えさせず、消えたら不合格としてやり直させる。2 回続けて不合格なら保留にする。
+- roadmap が無い persona は、自動運転が最初に Codex（`gpt-6.2-astra`、`prompts/roadmap.md`）に作らせる。persona の定義の「仕事の流れ」「フォルダ構成」「形式の目安」「規模の目安」と、これまでの計画を読み、次のまとまり（下の「段階と規模」）までの batch を、範囲が重ならないように並べる。最初の batch は、その persona の中心になる仕事にする。
+- 動いている batch が無く、状態が空の行の件数の合計が次のまとまりに足りないとき（破棄で受入が予定を下回ったとき、行を使い進んだとき）、自動運転は同じ指示で roadmap を延ばさせる。既存の行と状態は変えさせず、消えたら不合格としてやり直させる。2 回続けて不合格なら保留にする。
 - 統括は roadmap を直してよい（順番、範囲、重点）。自動運転は、状態が空の行を上から順に使う。除外したファイルだけを再制作するときは、統括が範囲の先頭に「再制作：」を書き、元のbatchと対象を特定する。この行は30件未満でも実際の対象件数を書く。
 
-### 区切りと段階
+### 段階と規模
 
-- 規模の目安は persona の定義の「規模の目安」の「全体で N 件」で、自動運転はこれを persona ごとの最終目標として読む。`--target` は段階の上限で、第 1 段階は 300、第 2 段階は 2,000 にする（persona ごとの最終目標は、定義の値と `--target` の小さいほう）。
-- 件数合わせをしないと次の区切りまで埋まらないとき、roadmap ジョブは表の下に「規模の見直し：」を書く。自動運転はその persona を保留にし、統括が仕事を足すか、規模の目安の変更をユーザーに諮る。
-- 区切りは `config/limits.json` の `milestone`（既定 300）の倍数である。自動運転は、最終目標に達していない persona のうち受入済みが最も少ないものの次の倍数を、いまの区切りとする（persona ごとの最終目標を超えない）。全 persona がその区切りに達するまで、どの persona も次の区切りへ進まない。`bin/autopilot status` の「受入済み/目標」の目標は、いまの区切りである。
-- 同時に新しい仕事（roadmap の作成・延長、batch の起動）をする persona は、`max_active_personas` までにする。進行中のものを優先し、空きには受入済みの多い順に入れる。
-- 第 2 段階の始め方と計画は `progress/plan-2000.md` にある。
+- persona ごとの規模（最終目標）は、persona の定義の「規模の目安」の「全体で N 件」である。職種ごとに違ってよく、全 persona を同じ件数に揃えない。自動運転はこの値と `--target` の小さいほうまで作る。
+- 段階は 2 つ。第 1 段階は `--target 300`（定義の「最初の区切り」）で、全 persona をそれぞれの中心の仕事で 300 件まで作る。第 2 段階は `--target 2000` で、各 persona を自分の規模まで作る。始め方と計画は `progress/plan-2000.md` にある。
+- persona どうしで歩調を揃えない。同時に進める persona の数にも上限を置かず、各 persona が自分の目標まで進む。Codex の同時の数は `max_codex`、同じ persona の batch の数は `max_batches_per_persona` で抑える。
+- roadmap は、次の `roadmap_chunk`（`config/limits.json`、500 件）ずつ、または規模までの残りがそれより少なければ残りの分を並べる。状態が空の行の件数がこれに足りなくなり、動いている batch が無いと、自動運転が延ばさせる。
+- 件数合わせをしないと埋まらないとき、roadmap ジョブは表の下に「規模の見直し：」を書く。自動運転はその persona を保留にし、統括が仕事を足すか、規模の目安の変更をユーザーに諮る。
 
 ### 自動運転が 1 回りで行うこと（60 秒ごと。`AUTOPILOT_INTERVAL_SECONDS` で変えられる）
 
@@ -285,7 +285,7 @@ bin/autopilot stop --now                                       # 自動運転の
    - 終わった batch に、原稿の段階の破棄が 3 行以上あれば `--redraft` を 1 回、成形待ちがあれば `--rebuild` を 2 回まで行う。
    - やり直しが済んだ batch に、受入の監査（下）を起動する。
    - 監査が合格なら、監査が挙げた行を `--drop` して `bin/batch accept`、`git push origin main`、roadmap の状態を「受入済み」にする。監査が保留なら、何もせず保留にする。
-3. **新しい batch を起動する**：進行中の batch が無い persona について、roadmap の次の行から依頼（`progress/<persona>/<batch>.request.md`）を書き、`bin/batch start` する。受入済みの件数がいまの区切り（上の「区切りと段階」）に達した persona と、`max_active_personas` の枠に入らない persona は起動しない。同じ persona の batch を並べるのは、roadmap の行に「並行可」と書いてあるときだけ（「並列」の条件を満たす範囲であることは、roadmap を書いた者が確かめる）。
+3. **新しい batch を起動する**：進行中の batch が無い persona について、roadmap の次の行から依頼（`progress/<persona>/<batch>.request.md`）を書き、`bin/batch start` する。受入済みの件数が persona の目標（上の「段階と規模」）に達した persona は起動しない。同じ persona の batch を並べるのは、roadmap の行に「並行可」と書いてあるときだけ（「並列」の条件を満たす範囲であることは、roadmap を書いた者が確かめる）。
 4. **記録する**：行ったことを `scratch/autopilot/log.tsv` に 1 行ずつ書く。保留にした batch は `progress/holds.md` に、persona、batch、理由、日時を書く（Git で管理する。統括が処理したら行を消す）。
 
 ### 受入の監査
