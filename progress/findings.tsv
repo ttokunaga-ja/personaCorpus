@@ -2895,3 +2895,10 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-19	p06-life-science-researcher	b006	build-review	1	V2	Documents/Equipment/Calibration/Reader service interval - question for Mason.docx	1ページ目の「Options for review」表はアイリス色地・白字と横罫に直ったが、「Planned routine stops per year」列の2と1にBennett Table Textが適用されて左寄せになり、型指定のBennett Table Numberによる右寄せが反映されていない。
 2026-11-19	p06-life-science-researcher	b006	build-review	1	V3	Desktop/Anthony's marks on the annual service question.pdf	1ページの比較表で補足訪問の注記の引き出し線が半年案「Keep six months」の「months」を横切り、取消線のように見える。V2では表題直下の文書番号・日付・作成者・状態の管理欄が指定のCaption書式になっていない。
 2026-11-19	p06-life-science-researcher	b006	build-review	2	V2	Desktop/Anthony's marks on the annual service question.pdf	1ページの比較表で、年間の予定停止回数（2・1）の直後にある根拠列「What four in-band visits support」の本文2行が列見出しと同じ左端から始まり、型の Bennett Table After Number が指定する左0.13インチの字下げがない。
+2026-11-19	p05-bi-data-analyst	b006	draft-review	0	other	Documents/店舗/陳列と来店/10月15日_まず同じ曜日を6日ずつ.xlsx	判定なし
+2026-11-19	p05-bi-data-analyst	b006	draft-review	0	other	Documents/メール/営業会議/2024-10-16_17日の営業会議に6店の比較を出します.eml	判定なし
+2026-11-19	p05-bi-data-analyst	b006	draft-review	0	other	Documents/メール/藤田/2024-10-17_営業扱いでも早く閉めた日があります.eml	判定なし
+2026-11-19	p05-bi-data-analyst	b006	draft-review	0	other	Documents/営業会議/2024/10/2024-10-17_陳列を変えた6店_訂正版.pptx	判定なし
+2026-11-19	p05-bi-data-analyst	b006	draft-review	0	other	Documents/営業会議/2024/10/10月17日_6店比較の訂正理由_配布.pdf	判定なし
+2026-11-19	p05-bi-data-analyst	b006	draft-review	1	D3	Documents/営業会議/2024/10/2024-10-17_陳列を変えた6店_訂正版.pptx	3枚目の対照表が出典に挙げるORI-BI-202410-照合-01 v1.0（10月17日_営業日をそろえた6店.xlsx）の原稿がなく、受領CSV2点では集計値を再現できるが、明記された出典の採否・合計を照合できない。
+2026-11-19	p05-bi-data-analyst	b006	check	2	plan	Documents/メール/営業会議/2024-10-17_6店比較は2点6に差替えをお願いします.eml	plan: planned file missing。成形の最終出力：`2024-10-17_6店比較は2点6に差替えをお願いします.eml` は未作成です。実添付に必要な `10月17日_6店比較の訂正理由_配布.pdf` が指定の `people/p05-bi-data-analyst/Documents/営業会議/2024/10/` にありません。PDFの原稿は合格済みですが、今回の成形対象はEMLの1件です。 もう一方の添付 `10月17日_会議添付用の6店集計.xlsx` は指定先にあり、`unzip -tq` で整合性を確認しました。
