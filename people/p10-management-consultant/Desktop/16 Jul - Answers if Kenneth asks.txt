@@ -1,0 +1,13 @@
+Questions for tomorrow — 17 July
+
+Is 61% of the whole elapsed time?
+No. It is 610 hours of approval waiting divided by 1,000 hours of total waiting in the 38 records. The 76 hours of recorded work are separate; receipt to settlement totals 1,076 hours across cases. These are elapsed case-hours, including nights and holidays, not staff hours or calendar duration.
+
+Is fixing entry a waste of time?
+No. We observed 19 hours of entry work at 03. There may be improvements there, but we have not measured their effect. The reason to examine the 07 and 09 hand-offs first is that they account for 560 of the 610 hours waiting for approval. That is a sequencing choice, not proof that entry cannot improve.
+
+Are you proposing one fewer approver?
+No. The double check required before bank release authorisation at 12 stays. We are asking how a complete item reaches the next reviewer and when review starts, not proposing to remove an approval.
+
+Does the same 61% apply outside the 38?
+We cannot say. Connor selected 40 standard payments received and settled between 8 April and 31 May in Japan time. Thirty-eight had the necessary pairs, including 28 without and 10 with returns. Two lacked approval-start pairs and were excluded, not given zero waiting time. The interviews explain the hand-off conditions; they do not measure the prevalence of a cause. We need further evidence before generalising.

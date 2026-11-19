@@ -1,0 +1,52 @@
+From: Connor Atkinson <connor@holt-reeves.example>
+To: Nicholas Hargreaves <nicholas@holt-reeves.example>
+Cc: Neha Patel <neha@holt-reeves.example>
+Date: Wed, 05 Jun 2024 10:46:00 +0100
+Subject: Japan payment timestamps =?utf-8?b?4oCU?= cleared extract
+Message-ID: <7151f74e-fbc4-49ee-9748-49b09adf1ff8@holt-reeves.example>
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="===============2040460307974828970=="
+
+--===============2040460307974828970==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Nicholas,
+
+Attached are the cleared event lines for three cases, for checking our interv=
+al definitions. In WB-0417 the complete package was routed at 10:35 JST on 14=
+ May and review began at 11:05 the following day. The entry itself ran from 1=
+0:10 to 10:28 on the 14th. The seven minutes between entry completion and rou=
+ting should not be counted as approval wait.
+
+WB-0432 shows a return and a subsequent re-match and routing. WB-0439 has a r=
+outing and an approval completion, but no recorded review start; we cannot fi=
+ll in the length of the approval-wait interval from those events. Completion =
+is not a substitute for start.
+
+This is an internal-only copy to check the definitions, not the full set. The=
+ wider analysis uses the authorised payment records separately. Please keep t=
+he extract within the team.
+
+Connor
+
+--===============2040460307974828970==
+Content-Type: text/csv
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment;
+ filename="Japan payment events - cleared extract.csv"
+MIME-Version: 1.0
+
+Y2FzZSxzdGVwLGV2ZW50LHRpbWVzdGFtcF9qc3QKV0ItMDQxNywwMyxlbnRyeV9zdGFydCwyMDI0
+LTA1LTE0VDEwOjEwOjAwKzA5OjAwCldCLTA0MTcsMDMsZW50cnlfY29tcGxldGUsMjAyNC0wNS0x
+NFQxMDoyODowMCswOTowMApXQi0wNDE3LDA2LGNvbXBsZXRlX3BhY2thZ2Vfcm91dGVkLDIwMjQt
+MDUtMTRUMTA6MzU6MDArMDk6MDAKV0ItMDQxNywwNyxyZXZpZXdfc3RhcnQsMjAyNC0wNS0xNVQx
+MTowNTowMCswOTowMApXQi0wNDMyLDA1LHJldHVybmVkX2Zvcl9ldmlkZW5jZSwyMDI0LTA1LTA5
+VDExOjIwOjAwKzA5OjAwCldCLTA0MzIsMDQscmVtYXRjaF9jb21wbGV0ZSwyMDI0LTA1LTA5VDE1
+OjQwOjAwKzA5OjAwCldCLTA0MzIsMDYsY29tcGxldGVfcGFja2FnZV9yb3V0ZWQsMjAyNC0wNS0w
+OVQxNTo1MDowMCswOTowMApXQi0wNDMyLDA3LHJldmlld19zdGFydCwyMDI0LTA1LTEwVDA5OjEw
+OjAwKzA5OjAwCldCLTA0MzksMDYsY29tcGxldGVfcGFja2FnZV9yb3V0ZWQsMjAyNC0wNS0xNlQx
+MDoxNTowMCswOTowMApXQi0wNDM5LDA3LGFwcHJvdmFsX2NvbXBsZXRlLDIwMjQtMDUtMTdUMTE6
+MDA6MDArMDk6MDAK
+
+--===============2040460307974828970==--
