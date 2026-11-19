@@ -1,0 +1,22 @@
+---
+path: My files/Mail/Can we talk about how you compared the callback options.eml
+kind: text
+author: Heather Callahan
+derived_from:
+---
+
+From: Heather Callahan <heather@elmwood-learning.example>
+To: Grace Lim <grace@brookdale-service.example>
+Cc:
+Date: Fri, 24 Oct 2025 11:05:00 -0400
+Subject: Can we talk about how you compared the callback options
+Message-ID: <a9284bf6163648b98e5c95c1f23a9d4b@elmwood-learning.example>
+
+Hi Grace,
+
+Could we talk for 15 minutes at 2:00 pm on Monday, October 27? In the July trial you brought three pieces of evidence together to compare the callback options. I would like to discuss whether I can rearrange those roles for a class activity.
+
+I would write the teaching material in my own words, without your name or your original wording. I won't distribute it until we have checked the intended scope together. There is nothing attached; we can talk through the idea first.
+
+Thanks,
+Heather

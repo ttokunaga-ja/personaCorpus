@@ -81,3 +81,23 @@
 - 目標対応表 ELM-BPE-2025-MAP-001 は5月8日v0.2、5月22日v1.0。5月22日14:00〜14:25にDavidとHeatherが差替えを確認・承認し、5月28日10:00からHeatherとErinが35分の授業で使用。授業時の観察は点数の改善を示す集計にしない。
 - Seanのアドレスは sean@fletcher-course-review.example。時刻はEDT。「May proposal practice for your review」① 5月7日10:00 Heather → Sean、冊子v0.9のPDF添付。② 5月13日09:22 Sean → Heather、「Re: May proposal practice for your review」で①に引用返信し、発行09:05の査読意見PDFを添付。
 - 「Four revised comparison questions」5月23日10:10 Heather → Sean、5月22日承認済みの差替え紙PDFを添付。独立した件名で送付し、FCR-REV-2025-001を参照。
+
+## Brookdale の折返し枠の試行と個別講評
+
+- Building Proposals from Evidence の7月8日の課題 ELM-BPE-2025-HO-006 は、Brookdaleの受付責任者に折返し枠を推薦する演習。2024年の金曜引渡し通知、2025年4月の部屋割り、5月の研修キットとは別の課題。
+- 受付一覧は12件で、両枠の上限は各16件。候補は水曜14:00–15:00と木曜09:00–10:00。期限一覧では12件中10件が水曜16:00まで、残り2件は木曜でも可。木曜枠の当番は確保済み。
+- 当番表では水曜枠に当日正午までの担当確認が要り、元の課題では11:40に確認済み。確認があれば水曜を推薦できる。確認を伏せた場面では水曜を優先したい理由は残るが確約できず、受付責任者へ水曜中の代替対応を相談する。木曜で期限を守れるのは2件。
+- Alexandre Pelletierの7月9日の手書き答案は水曜枠を推薦しただけで、事実・出典・比較を記さず、答案に示された根拠は0件。7月10日のHeatherの満点講評 ELM-BPE-2025-IR-004 v1.0 は旧判断。
+- 7月14日11:00–11:30にHeatherとErinが答案を読み合わせ、Erinは紙面に根拠0件と分かる書き込みを残した。Heatherの同日訂正版は ELM-BPE-2025-IR-004 v1.1。正しい推薦は認め、満点講評を撤回し、訂正後の得点は記録しない。
+- 7月14日15:15にHeatherがAlexandreと個別確認。本人用 ELM-BPE-2025-HO-007 では10件の期限を推薦に結び付ける1文を練習した。口頭で確認した理解は元の答案に足さない。
+- 「Your callback feedback and a short rewrite」2025-07-14 14:35 EDT Heather → Alexandre Pelletier（alexandre@brookdale-service.example）、単独のメール。訂正版DOCXと本人用HO-007のPDFを添付。
+
+## Grace が使った比較根拠と教室での見せ方
+
+- 9月10日にHeatherとErinが根拠を続けて見せる進行を机上で確認し、判断が変わった時点を記録できなかったため、各提示の後に一行書く間を取ることにした。
+- Grace Limが7月の試行で比較に使った3件は、受付一覧の12件と両枠の上限16件（収まる）、期限一覧の水曜16:00までの10件（水曜を優先）、当番表の水曜11:40確認（確約可）。
+- 10月27日14:00–14:15にHeatherとGraceが相談。3件の構成をHeatherが独自の文面で示し、10月30日のクラス内の配布・投影に限定する。氏名、答案画像、原文、個別講評は使わず、外向け資料や他コースには回さない。
+- 提示順の表 ELM-BPE-2025-MAP-002 は10月21日v0.1が期限→件数→当番、10月28日v1.0が件数→期限→当番。投影 ELM-BPE-2025-SLD-006 は10月22日v0.2から10月29日v1.0へ改訂し、判断を書かせた後に当番確認だけを伏せる場面を入れた。
+- 「Can we talk about how you compared the callback options」① 2025-10-24 11:05 EDT Heather → Grace Lim（grace@brookdale-service.example）。② 2025-10-27 15:10 EDT Grace → Heather、「Re: Can we talk about how you compared the callback options」で①を引用し範囲を確認。両通とも添付なし。
+- 「Callback comparison sheet for Thursday」2025-10-29 14:25 EDT Heather → Erin、単独のメール。無記名の比較用紙 ELM-BPE-2025-HO-010 と出口課題 ELM-BPE-2025-HO-011 のPDFを添付。
+- 10月30日10:00–10:30にHeatherとErinが授業。出口課題は無記名12枚を回収し、水曜は条件付きで期限を保持7枚、未確認でも水曜を確約3枚、全件木曜へ移す2枚。回答傾向の内訳であり、受講者の得点や出席数ではない。
