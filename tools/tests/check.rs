@@ -650,6 +650,32 @@ fn mime_attachments_match_declared_current_message() {
     );
 }
 #[test]
+fn semicolon_attachment_lists_check_each_mime_part() {
+    let f = Fixture::new();
+    let manuscript = "Attachments: Quarterly report.pdf; Seat detail.csv";
+    let complete = [("Quarterly report.pdf", "PDF"), ("Seat detail.csv", "CSV")];
+    let issues = attachments(&f, manuscript, &complete, false, false);
+    assert!(!issues.contains_key("email-attachments"), "{issues:?}");
+    for parts in [
+        vec![complete[0]],
+        vec![complete[0], ("Seat detail.csv", "")],
+    ] {
+        let issues = attachments(&f, manuscript, &parts, false, false);
+        assert_eq!(
+            issues["email-attachments"],
+            "missing or empty MIME attachments: Seat detail.csv"
+        );
+    }
+    for name in ["Report; revised.pdf", "report.pdf; appendix.csv"] {
+        let manuscript = format!("Attachments: `{name}`");
+        let issues = attachments(&f, &manuscript, &[], false, false);
+        assert_eq!(
+            issues["email-attachments"],
+            format!("missing or empty MIME attachments: {name}")
+        );
+    }
+}
+#[test]
 fn attachment_declaration_in_original_message_headers_is_history() {
     let f = Fixture::new();
     let history = "----- Original Message -----\nFrom: old@example.test\nTo: recipient@example.test\nDate: Wed, 16 Sep 2026 10:18:00 +0900\nSubject: 前便\n添付: old.pdf、other.pdf\n\n> 本文";

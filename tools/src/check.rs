@@ -841,14 +841,25 @@ fn data_lines(text: &str, ext: &str) -> String {
         lines.join("\n")
     }
 }
+fn revision_text(text: &str) -> &str {
+    let text = text.trim();
+    text.strip_prefix('“')
+        .and_then(|text| text.strip_suffix('”'))
+        .unwrap_or(text)
+}
+
 // Revision instructions use a local timestamp, while Word commonly stores the instant in UTC.
 fn word_revision_source(body: &str, path: &Path, zone: chrono_tz::Tz) -> Result<String> {
     let instruction = re(
         r"(?m)^[-*] (削除|挿入|コメント) *\| *([^|\n]+?) *\| *(\d{4}-\d\d-\d\d \d\d:\d\d [+-]\d{4}) *\|",
     );
-    let labeled = re(
-        r"(?m)^[-*] 種類：(削除|挿入|コメント)／人物：([^／\n]+)／日時：(\d{4}-\d\d-\d\d \d\d:\d\d)／対象の文：([^\n]+?)／新しい文：([^\n]+)$",
-    );
+    let labeled = re(concat!(
+        r"(?m)^[-*][ \t]+種類[:：][ \t]*(削除|挿入|コメント)[ \t]*[;／][ \t]*",
+        r"人物[:：][ \t]*([^\r\n]+?)[ \t]*[;／][ \t]*",
+        r"日時[:：][ \t]*(\d{4}-\d\d-\d\d \d\d:\d\d)(?: ([A-Z]{2,6}))?[ \t]*[;／][ \t]*",
+        r"対象の文[:：][ \t]*([^\r\n]+?)[ \t]*[;／][ \t]*",
+        r"新しい文[:：][ \t]*([^\r\n]+)\r?$",
+    ));
     if !instruction.is_match(body) && !labeled.is_match(body) {
         return Ok(body.to_string());
     }
@@ -872,10 +883,7 @@ fn word_revision_source(body: &str, path: &Path, zone: chrono_tz::Tz) -> Result<
                     labeled_records.push((
                         kind,
                         author.clone(),
-                        instant
-                            .with_timezone(&zone)
-                            .format("%Y-%m-%d %H:%M")
-                            .to_string(),
+                        instant.with_timezone(&zone),
                         units(node),
                     ));
                 }
@@ -900,19 +908,34 @@ fn word_revision_source(body: &str, path: &Path, zone: chrono_tz::Tz) -> Result<
     // manuscript comparison after verifying the actual revision or comment.
     Ok(labeled
         .replace_all(&result, |row: &regex::Captures<'_>| {
-            let payload = if &row[1] == "削除" {
-                &row[4]
-            } else {
-                &row[5]
-            };
+            let deleted = &row[1] == "削除";
+            let target = revision_text(&row[5]);
+            let replacement = revision_text(&row[6]);
+            let payload = if deleted { &row[5] } else { &row[6] };
+            let unwrapped = revision_text(payload);
             let matched = labeled_records
                 .iter()
-                .position(|(kind, author, date, text)| {
-                    *kind == &row[1] && author == &row[2] && date == &row[3] && text == payload
-                });
-            if let Some(index) = matched.filter(|_| &row[1] != "削除" || &row[5] == "なし") {
-                labeled_records.swap_remove(index);
-                row[4].to_owned()
+                .enumerate()
+                .filter(|(_, (kind, author, date, text))| {
+                    *kind == &row[1]
+                        && author == &row[2]
+                        && date.format("%Y-%m-%d %H:%M").to_string() == row[3]
+                        && row
+                            .get(4)
+                            .is_none_or(|abbr| date.format("%Z").to_string() == abbr.as_str())
+                        && (text == payload || text == unwrapped)
+                })
+                .min_by_key(|(_, (_, _, _, text))| text != payload)
+                .map(|(index, _)| index);
+            if let Some(index) =
+                matched.filter(|_| !deleted || matches!(replacement, "なし" | "なし。"))
+            {
+                let (_, _, _, text) = labeled_records.swap_remove(index);
+                if text == payload {
+                    row[5].to_owned()
+                } else {
+                    target.to_owned()
+                }
             } else {
                 row[0].to_owned()
             }
@@ -1157,16 +1180,32 @@ fn email_reasons(expected: &str, p: &Path) -> Result<Vec<(String, String)>> {
             listing = false;
             continue;
         };
-        for item in value.split('、') {
-            let item = item.trim().trim_matches('`');
-            if file.is_match(item) {
-                declared.insert(
-                    Path::new(item)
-                        .file_name()
-                        .unwrap_or_default()
-                        .to_string_lossy()
-                        .into_owned(),
-                );
+        for item in value.split('、').map(str::trim) {
+            let quoted = item
+                .strip_prefix('`')
+                .and_then(|text| text.strip_suffix('`'));
+            let members = item.split("; ");
+            // Split only complete filename lists and preserve a quoted literal name.
+            let names: Vec<_> = if quoted.is_some_and(|text| !text.contains('`'))
+                || members
+                    .clone()
+                    .any(|name| !file.is_match(name.trim().trim_matches('`')))
+            {
+                vec![item]
+            } else {
+                members.collect()
+            };
+            for name in names {
+                let name = name.trim().trim_matches('`');
+                if file.is_match(name) {
+                    declared.insert(
+                        Path::new(name)
+                            .file_name()
+                            .unwrap_or_default()
+                            .to_string_lossy()
+                            .into_owned(),
+                    );
+                }
             }
         }
     }
@@ -2683,6 +2722,52 @@ mod handout_and_revision_tests {
             assert_eq!(
                 word_revision_source(&bad, file.path(), chrono_tz::Asia::Tokyo).unwrap(),
                 bad
+            );
+        }
+    }
+
+    #[test]
+    fn semicolon_revisions_require_matching_word_payload_and_local_zone() {
+        use std::io::Write;
+        let file = tempfile::NamedTempFile::new().unwrap();
+        let mut zip = zip::ZipWriter::new(file.reopen().unwrap());
+        let options = zip::write::SimpleFileOptions::default();
+        zip.start_file("word/document.xml", options).unwrap();
+        zip.write_all(r#"<document>
+            <del author="Editor Name" date="2025-03-18T19:17:00Z"><r><delText>Remove this sentence.</delText></r></del>
+            <ins author="Editor Name" date="2025-03-18T19:17:00Z"><r><t>Send the roster; request a reply.</t></r></ins>
+            <del author="Editor Name" date="2025-03-18T19:17:00Z"><r><delText>“Filing held.”</delText></r></del>
+        </document>"#.as_bytes()).unwrap();
+        zip.start_file("word/comments.xml", options).unwrap();
+        zip.write_all(br#"<comments>
+            <comment author="Editor Name" date="2025-03-18T19:17:00Z"><p><r><t>Add the reply date.</t></r></p></comment>
+        </comments>"#).unwrap();
+        zip.finish().unwrap();
+        let zone = chrono_tz::America::Denver;
+        let delete = "- 種類: 削除; 人物: Editor Name; 日時: 2025-03-18 13:17 MDT; 対象の文: “Remove this sentence.”; 新しい文: なし。";
+        let insert = "- 種類: 挿入; 人物: Editor Name; 日時: 2025-03-18 13:17 MDT; 対象の文: Activation; 新しい文: “Send the roster; request a reply.”";
+        let comment = "- 種類: コメント; 人物: Editor Name; 日時: 2025-03-18 13:17; 対象の文: “reply”; 新しい文: “Add the reply date.”";
+        let body = format!("{delete}\n{insert}\n{comment}\n{comment}");
+        assert_eq!(
+            word_revision_source(&body, file.path(), zone).unwrap(),
+            format!("Remove this sentence.\nActivation\nreply\n{comment}")
+        );
+        let literal = "- 種類：削除／人物：Editor Name／日時：2025-03-18 13:17／対象の文：“Filing held.”／新しい文：なし";
+        assert_eq!(
+            word_revision_source(literal, file.path(), zone).unwrap(),
+            "“Filing held.”"
+        );
+        for wrong in [
+            insert.replace("MDT", "MST"),
+            insert.replace("13:17", "13:18"),
+            insert.replace("Editor Name", "Other Name"),
+            insert.replace("挿入", "コメント"),
+            insert.replace("a reply", "an approval"),
+            delete.replace("なし。", "別の文"),
+        ] {
+            assert_eq!(
+                word_revision_source(&wrong, file.path(), zone).unwrap(),
+                wrong
             );
         }
     }
