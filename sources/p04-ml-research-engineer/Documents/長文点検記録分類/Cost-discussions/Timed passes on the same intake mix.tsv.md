@@ -1,0 +1,15 @@
+---
+path: Documents/長文点検記録分類/Cost-discussions/Timed passes on the same intake mix.tsv
+kind: text
+author: Brandon Romero
+derived_from:
+---
+```tsv
+repeat	condition	original_records	second_reads	accelerator_active_hours	host_active_hours	measurement_basis
+1	opening only	10000	0	15.8	29	same intake mix; same equipment and concurrency
+1	second read for long bodies	10000	2500	23.7	39	same intake mix; same equipment and concurrency
+2	opening only	10000	0	16.0	30	same intake mix; same equipment and concurrency
+2	second read for long bodies	10000	2500	24.0	40	same intake mix; same equipment and concurrency
+3	opening only	10000	0	16.2	31	same intake mix; same equipment and concurrency
+3	second read for long bodies	10000	2500	24.3	41	same intake mix; same equipment and concurrency
+```

@@ -1,0 +1,5 @@
+Before 2 with Brandon:
+
+The 80,000 and 60,000 columns are different workloads. Before explaining the gap, ask: are both sides the same 100,000 original records in the same month, with a second read still counted inside the cost of that same record?
+
+Is the $600 standby monitoring charge added once per month on each side? Split the extra cost into host and accelerator. Which increment takes us over $4,500, and does the accelerator increment alone cross it?
