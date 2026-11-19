@@ -1073,3 +1073,50 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-19	p17-construction-project-manager	b009	coordinator	0	other	OneDrive - 湊梁建設/定例会議/0928_原田さん定例_中間検査で残した五箇所.pptx	統括の抜き取りで不合格
 2026-11-19	p17-construction-project-manager	b009	coordinator	0	other	Pictures/海田西配送棟増築/2026-09-08/2026-09-08_X7-Y4_M2蓋の当たり跡.jpg	統括の抜き取りで不合格
 2026-11-19	p17-construction-project-manager	b009	coordinator	0	other	Pictures/海田西配送棟増築/2026-09-14/2026-09-14_X7-Y4_M2蓋の座を直した後.jpg	統括の抜き取りで不合格
+2026-11-19	p05-bi-data-analyst	b002	draft-review	0	D3	Documents/予算/2026-07-13_週の未達140万を通販と店舗に分ける.xlsx	シート「経路別」のF7・F8は「13日受領日別受注」を根拠としているが、そのCSVに載るのは実績のみで、B7・B8の経路別計画1,600万円・2,400万円を照合できる計画側の出典が表にも注記にもない。
+2026-11-19	p05-bi-data-analyst	b002	draft-review	0	D3	Documents/営業会議/2026/07/2026-07-15_締め時刻の対応.tsv	8行目の「実績抽出時刻」列に、9〜11行目では09:14・09:08・10:32の受領時刻、13行目では速報控えの16:37の受領時刻を入れており、12行目の実際の抽出時刻17:12と同じ列で扱っている。
+2026-11-19	p05-bi-data-analyst	b002	draft-review	0	D10	Documents/営業会議/2026/07/2026-07-15_割引を広げない判断の控え.pdf	9〜11行目には本書の番号・版・作成者・宛先・日付があるが、oriba-analysis.clsの「作成・確認」欄に入れる本書の確認者または確認状況がない。本文の前田との照合はGMVの数値確認で、岡田は宛先と施策の決定者として記載されている。
+2026-11-19	p05-bi-data-analyst	b002	draft-review	0	D10	Documents/予算/2026-07-03_月またぎ週の計画を分ける.xlsx	「日別計画」「対象別」のB5（型の必須管理欄「確認者」）はいずれも「岡田 美代（提出先）」で、確認者または確認状況の値が原稿にない。
+2026-11-19	p05-bi-data-analyst	b002	draft-review	0	D10	Documents/営業会議/2026/07/2026-07-06_週報_月またぎ.xlsx	「日別」「週報」のB5（型の必須管理欄「確認者」）はいずれも「岡田 美代（提出先）」で、確認者または確認状況の値が原稿にない。
+2026-11-19	p05-bi-data-analyst	b002	check	0	opens	Documents/予算/2026-07-14_15日の17時までの計画配分.csv	Error: CSV error: record 1 (line: 1, byte: 100): found record with 3 fields, but the previous record has 1 fields
+2026-11-19	p05-bi-data-analyst	b002	check	0	opens	Documents/営業会議/2026/07/2026-07-15_締め時刻の対応.tsv	Error: CSV error: record 6 (line: 7, byte: 881): found record with 1 fields, but the previous record has 7 fields
+2026-11-19	p05-bi-data-analyst	b002	check	0	opens	Downloads/2026-07-15_13日と14日の受注日計_受領時点.csv	Error: CSV error: record 5 (line: 5, byte: 192): found record with 1 fields, but the previous record has 4 fields
+2026-11-19	p05-bi-data-analyst	b002	check	0	opens	Downloads/2026-07-15_15日16時半の受注速報_受領時点.csv	Error: CSV error: record 5 (line: 5, byte: 259): found record with 1 fields, but the previous record has 5 fields
+2026-11-19	p05-bi-data-analyst	b002	check	0	opens	Downloads/2026-07-15_15日17時の受注_受領時点.csv	Error: CSV error: record 7 (line: 8, byte: 405): found record with 1 fields, but the previous record has 6 fields
+2026-11-19	p05-bi-data-analyst	b002	build-review	0	V3	Pictures/会議用グラフ/2026-07-15_7月の計画線と実績線.png	横軸左端の7月1日の計画・実績マーカーが縦軸と同じ位置にあり、プロット枠で左半分が切れている。
+2026-11-19	p05-bi-data-analyst	b002	build-review	0	V2	Desktop/2026-07-15_岡田さんに先に見せる7月進捗.pptx	2枚目の累計図は型の図領域の上端2.00インチより上の1.65インチから配置され、3枚目の進行中のカードは同領域の右端12.60インチを越え12.95インチまで出ている。
+2026-11-19	p05-bi-data-analyst	b002	build-review	0	V2	Documents/予算/2026-07-10_割引5から8_数量を振った表.xlsx	「数量感応度」の社名と表題の結合範囲がB1:F1とA2:F2のままで、追加したG列「施策の利益差」まで続く見出し帯と印刷範囲に幅が揃っていない。
+2026-11-19	p05-bi-data-analyst	b002	build-review	0	V2	Documents/営業会議/2026/07/2026-07-13_営業会議_12日締め.pptx	4枚目の累計PNGの上端はスライド上端から1.65インチで、図レイアウトの図表領域の上端2.00インチより0.35インチ上にはみ出している。
+2026-11-19	p08-product-manager	b002	draft-check	1	source	Documents/四半期計画/2024/Q3/要望と見積り_7月25日決定.xlsx	/home/ttokunaga-ja/dev/github.com/ttokunaga-ja/personaCorpus/sources/p08-product-manager/Documents/四半期計画/2024/Q3/要望と見積り_7月25日決定.xlsx.md: No such file or directory (os error 2)
+2026-11-19	p08-product-manager	b002	draft-check	2	source	Documents/四半期計画/2024/Q3/要望と見積り_7月25日決定.xlsx	/home/ttokunaga-ja/dev/github.com/ttokunaga-ja/personaCorpus/sources/p08-product-manager/Documents/四半期計画/2024/Q3/要望と見積り_7月25日決定.xlsx.md: No such file or directory (os error 2)
+2026-11-19	p18-manufacturing-quality-engineer	b002	templates-review	0	other	README.md	型8件と制作コマンドの参照先は実在するが、「見本と検査先」のb001/work/templates-0001と「文書番号欄の修正」のb001/work/templates-0003が存在せず、Excelの明細手順にも数値と隣の文字を分離する指定がない。
+2026-11-19	p18-manufacturing-quality-engineer	b002	templates-review	0	other	kanehara-measurement.xlsx	3行・48行見本でB3のKS-QA-2026-MES-026と日付は1行に収まるが、明細E7の測定値24.06とF7の判定「2回一致」が約3ピクセルの間隔で並び「24.062回一致」と続けて読める。
+2026-11-19	p18-manufacturing-quality-engineer	b002	templates-review	0	other	kanehara-sorting.xlsx	3行・48行見本でB3のKS-QA-2026-SEL-026と日付は1行に収まるが、明細F7の隔離数64とG7の引継ぎ「64件の識別札を照合」が詰まり「64 64件」とひと続きに見える。
+2026-11-19	p18-manufacturing-quality-engineer	b002	draft-check	0	duplicate	Downloads/BR-2410_09月09日_2便の高さ.csv	duplicate: normalized 5-word Jaccard >= 0.8: Downloads/BR-2410_09月11日_最終便の高さ.csv
+2026-11-19	p18-manufacturing-quality-engineer	b002	draft-check	0	duplicate	Downloads/BR-2410_09月11日_最終便の高さ.csv	duplicate: normalized 5-word Jaccard >= 0.8: Downloads/BR-2410_09月09日_2便の高さ.csv
+2026-11-19	p18-manufacturing-quality-engineer	b002	draft-review	0	D2	Downloads/双葉_BR-2410_是正後3便の高さ明細.csv	高さ表でBR260902とBR260907は80個中76個が同じ個体末尾で同値、BR260909はBR260902の80個中75個が一律+0.01 mmで、別ロットの読値列がほぼ同じ順序のまま差し替えられている。
+2026-11-19	p18-manufacturing-quality-engineer	b002	draft-review	0	D5	Documents/是正と効果/NCR-026/HG-02_照合前の基準片確認.xlsx	7〜9行の差欄が=D7-C7等になっており、先頭の「行」をシートの行番号として配置すると差欄がD列となって自己参照し、基準片24.00 mmに対する差0.00／0.00／+0.01 mmを計算できない。
+2026-11-19	p18-manufacturing-quality-engineer	b002	draft-review	0	D3	Downloads/BR-2410_09月07日_切替初回の高さ.csv	10固定行以外を個体番号の剰余で埋める式により、006〜008と022〜024・038〜040・054〜056・070〜072が同じ24.08／23.99／24.06 mmを繰り返し、16個離れた64組中53組が一致するため、測定順で工程の寄りを見るための実測記録として使えない。
+2026-11-19	p18-manufacturing-quality-engineer	b002	draft-review	0	D10	Documents/部内の用事/09月08日_基準片の借り出し控え.xlsx	MES-032第1版の管理情報には「作成：原智之」「共有先：検査班」があるが、型がD4に求める確認者の値または確認欄の扱いが原稿になく、共有先を確認者として転記できない。
+2026-11-19	p18-manufacturing-quality-engineer	b002	draft-review	1	D5	Documents/是正と効果/NCR-026/HG-02_照合前の基準片確認.xlsx	D7:D9の自己参照は解消したが、3回目のD9「=C9-B9」はCalcで0.0100000000000016 mmとなり、F9「=IF(ABS(D9)<=E9,…)」が「使用しない」を返すため、許容差ちょうどの+0.01 mmを適合とする本文および台帳と矛盾する。
+2026-11-19	p18-manufacturing-quality-engineer	b002	draft-review	2	D10	Documents/是正と効果/NCR-026/HG-02_照合前の基準片確認.xlsx	CalcでD7:D9は0.00／0.00／+0.01 mm、F7:F9は全て「使用可」となり前回のD5は解消したが、原稿12行目は「提出先：原智之」のみで、指定型の管理欄D4「確認者」に入れる値または未確認の明示がない。
+2026-11-19	p18-manufacturing-quality-engineer	b002	draft-review	0	D10	Desktop/NCR-026_効果確認_石田さんの赤字.docx	計画で元の第0.1版「Desktop/NCR-026_効果確認_石田さん回付前.docx」を指定した回付写しだが、原稿7行目のderived_fromが空欄で、版・決裁欄の変更と石田の3件のコメントに加え、引き継ぐ第0.1版の本文が全文再掲されている。
+2026-11-19	p18-manufacturing-quality-engineer	b002	check	0	source	Documents/是正と効果/NCR-026/BR-2410_初回照合_高さと据え直し.xlsx	missing source values: 2410
+2026-11-19	p18-manufacturing-quality-engineer	b002	check	0	duplicate	Downloads/BR-2410_09月07日_切替初回の高さ.csv	identical normalized shingles: Downloads/BR-2410_09月09日_2便の高さ.csv
+2026-11-19	p18-manufacturing-quality-engineer	b002	check	0	duplicate	Downloads/BR-2410_09月09日_2便の高さ.csv	identical normalized shingles: Downloads/BR-2410_09月07日_切替初回の高さ.csv
+2026-11-19	p18-manufacturing-quality-engineer	b002	check	0	duplicate	Downloads/BR-2410_09月11日_最終便の高さ.csv	identical normalized shingles: Downloads/BR-2410_09月07日_切替初回の高さ.csv
+2026-11-19	p18-manufacturing-quality-engineer	b002	build-review	0	V2	OneDrive - 金原産業精機/品質会議/09月14日_NCR-026の完了判断に残す論点.pptx	表紙の型が指定するタイトル枠（idx=0）が空かつ幅0で、「240個をどう数えるか」は別のテキストボックスに置かれ、副題も型の位置（上4.0インチ）から上1.8インチに移っている。
+2026-11-19	p18-manufacturing-quality-engineer	b002	build-review	0	V3	Documents/是正と効果/NCR-026/NCR-026_是正処置効果確認書.docx	1ページ目のロット別表を6列等幅にしたため、「双葉測定日・範囲」「金原測定日・範囲」の見出しが「範／囲」に割れ、全3ロットで両測定日の「日」が次行の寸法値側に分断されている。
+2026-11-19	p18-manufacturing-quality-engineer	b002	build-review	0	V2	Documents/是正と効果/NCR-026/NCR-026_効果確認の段取り.xlsx	「段取り」の管理欄でE4「条件・単位」のラベルとF4の値が欠け、条件は2ページ目の明細下にだけ記載されている。
+2026-11-19	p18-manufacturing-quality-engineer	b002	build-review	0	V1	Downloads/BR-2410_初回ロット_据え直し確認.csv	ヘッダと6読取りは原稿と一致し全体幅は0.01 mmだが、原稿末尾の「全数測定の80個に加算しない」という扱いがCSVのどこにも記録されていない。
+2026-11-19	p18-manufacturing-quality-engineer	b002	build-review	0	V5	Pictures/BR-2410 位置決めブラケット/2026-09-09_2便の内札と外札.jpg	内札BR260907と外札9/8・FT-0908-02は読めるが、トレー奥の3個は上下に穴がある薄板のZ曲げ品で、9月3日の現物写真にある厚い底部と側面穴を持つBR-2410とは形状が異なる。
+2026-11-19	p18-manufacturing-quality-engineer	b002	build-review	0	V3	Pictures/Charts/BR-2410_切替後_測定順で上側の寄りを見る.png	最下段BR260909で、051の最大値注記「051：24.14 mm」の数値が別の測定点058（24.11 mm）に重なり、その点に文字がかぶっている。
+2026-11-19	p18-manufacturing-quality-engineer	b002	check	1	duplicate	Downloads/BR-2410_09月07日_切替初回の高さ.csv	identical normalized shingles: Downloads/BR-2410_09月09日_2便の高さ.csv
+2026-11-19	p18-manufacturing-quality-engineer	b002	check	1	duplicate	Downloads/BR-2410_09月09日_2便の高さ.csv	identical normalized shingles: Downloads/BR-2410_09月07日_切替初回の高さ.csv
+2026-11-19	p18-manufacturing-quality-engineer	b002	check	1	duplicate	Downloads/BR-2410_09月11日_最終便の高さ.csv	identical normalized shingles: Downloads/BR-2410_09月07日_切替初回の高さ.csv
+2026-11-19	p18-manufacturing-quality-engineer	b002	check	1	opens	Downloads/BR-2410_初回ロット_据え直し確認.csv	Error: CSV error: record 7 (line: 7, byte: 421): found record with 1 fields, but the previous record has 7 fields
+2026-11-19	p18-manufacturing-quality-engineer	b002	build-review	1	V2	OneDrive - 金原産業精機/品質会議/09月14日_NCR-026の完了判断に残す論点.pptx	表紙のタイトル枠と副題の位置は復元されたが、全3枚のタイトル枠（idx=0）で型・見本の青緑（#16686A）を鋼灰（#424F59）で上書きしており、レンダリングでもタイトルが鋼灰になっている。
+2026-11-19	p18-manufacturing-quality-engineer	b002	build-review	0	V2	Desktop/NCR-026_効果確認_石田さんの赤字.docx	1ページ目の表で「金原の規格外」列の全3行の数値「0個」が左寄せで、型のREADMEと見本が指定する数値の右寄せに従っていない。
+2026-11-19	p18-manufacturing-quality-engineer	b002	build-review	0	V3	Documents/是正と効果/NCR-026/NCR-026_是正処置効果確認書_監視条件付き決裁.pdf	表の列幅が狭く、1ページ目の両社の測定日・範囲列で最初の2ロットの単位「mm」が単独で次行に落ち、2ページ目のFJ-04点検記録の担当欄では「工藤英理」の「理」だけが次行に落ちている。
+2026-11-19	p18-manufacturing-quality-engineer	b002	build-review	1	V3	Documents/是正と効果/NCR-026/NCR-026_是正処置効果確認書_監視条件付き決裁.pdf	1ページ目の測定範囲は数値とmmが同じ行に収まり、2ページ目の担当名「工藤英理」も一行に収まったが、同じ行の「項目」列が狭く、「FJ-04の点検記録」の末尾「録」だけが次行に落ちている。
+2026-11-19	p08-product-manager	b002	coordinator	0	other	Desktop/6月末の並べ順_まだ工数なし.xlsx	統括の抜き取りで不合格
