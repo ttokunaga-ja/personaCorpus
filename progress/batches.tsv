@@ -143,7 +143,7 @@ p04-ml-research-engineer	b009	2026-11-19	28	2	5	4	3	accepted	5700.71
 p11-account-executive	b006	2026-11-19	31	1	2	1	0	accepted	6325.54
 p20-investigative-journalist	b005	2026-11-19	33	7	11	0	0	failed	8042.16
 p02-site-reliability-engineer	b007	2026-11-19	32	7	2	6	4	accepted	4309.95
-p18-manufacturing-quality-engineer	b006	2026-11-19	28	6	4	0	0	done	8430.58
+p18-manufacturing-quality-engineer	b006	2026-11-19	28	6	4	3	3	accepted	8430.58
 p09-ux-researcher	b007	2026-11-19	46	37	3	1	0	failed	9119.07
 p13-corporate-privacy-counsel	b010	2026-11-19	23	0	2	0	0	accepted	4503.14
 p15-recruiter-people-ops	b009	2026-11-19	31	3	1	0	0	accepted	7792.06
