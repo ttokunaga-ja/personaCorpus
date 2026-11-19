@@ -18,7 +18,7 @@
 | 場面共有スライド | Carver、Jennifer。引継ぎの四場面、夜勤棚卸の再開、研修画面の文言案を説明 | `carver-field-brief.pptx` | 16:9、白地。小さな社名と図形ロゴを上に、ページの区切り線を下に置く。マスター1種・レイアウト5種 |
 | 質問試行用紙 | Carver、金子。読み合わせに使う旧質問を余白のある紙面に組む | `carver-pilot-questionnaire.cls` | Letter 縦。麻色の管理欄、煉瓦色の区間見出し、番号付きの日英対。手で削除や言い直しを書き込める質問間隔 |
 | 現地調査報告 | Carver、Jennifer。Ronald に観察範囲、中断と再開の根拠、再開位置の表示、他の勤務帯への留保を伝える | `carver-field-report.cls` | Letter 縦、表紙なし。共通ロゴと煉瓦色の見出し。麻色の管理欄に提出先を独立表示し、根拠を黒鉛色の見出し付きの二列表にできる |
-| 会場費明細 | Carver Research Operations、Carolyn。利用枠と取消料を紙で発行する | `carver-venue-statement.cls` | Letter 縦、共通ロゴ、Research Operations の柱、黒鉛色の明細見出しと麻色の合計行 |
+| 会場費明細 | Carver Research Operations、Carolyn。利用枠と取消料を紙で発行する | `carver-venue-statement.cls` | Letter 縦、共通ロゴ、右上に Venue Charge Statement、左下に Research Operations、黒鉛色の明細見出しと麻色の合計行 |
 | 配送計画画面の説明 | Oakridge Dispatch Cooperative、Christine。Dispatch Systems から渡された画面説明 PDF | `oakridge-screen-reference.cls` | Letter 縦。分岐する配送路の図形と社名、濃紺のセリフ体の題、氷青色の管理欄と表見出し |
 | 棚卸手順 | Kenton Contract Warehousing Inc、Ronald。Kenton 発の棚卸手順書や現場掲示の印刷原版 | `kenton-count-instructions.cls` | Letter 縦。アンバーの枠内に棚のマーク、太い上罫、濃い青灰の太字、薄い青灰の管理欄 |
 | 読み上げ観察記録 | Fuller Accessibility Lab LLC、Amanda Shah。観察条件と読み上げの経路を発行元の PDF で Carver に渡す | `fuller-accessibility-observations.cls` | Letter 縦。紫の波形と社名、薄紫の右柱と管理欄、白地に幅の広い本文 |

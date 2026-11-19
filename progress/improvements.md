@@ -178,7 +178,7 @@ b003の125と176–177の配布用PDFで pdfinfo が Invalid XRef entry 0 を出
 
 p18 b005のWallace証明はWG-241017-02／05で、校正票・電子証明・台帳の番号がそろう。型のREADMEは見本のWGS-CAL-YYYY-連番を一律に指定している。batch受入後、発行元の個別番号を照合する説明に直す。同品番写真の照合には、今回除外する棚・測定台の2枚を既存のBR-2410の改善項目に加え、段の並びと貫通穴の軸を工程図で確かめる。
 
-p09 b006の会場費明細は、型も実際の1月明細も右上にVenue Charge Statement、左下にResearch Operationsを印字する。受入後、型一覧の「Research Operations の柱」を両者の位置どおりに直す。
+p09 b006の会場費明細は、型も実際の1月明細も右上にVenue Charge Statement、左下にResearch Operationsを印字する。r88で型の定義と1月明細の表示を照合し、型一覧に両者の位置を明記した。
 
 ## 2026-11-20　三和の質問票の回答期限
 
