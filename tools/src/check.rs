@@ -464,6 +464,13 @@ fn config_text(text: &str, source: bool) -> Result<BTreeMap<String, String>> {
 fn slides_without_notes(parent: &str, request: &str) -> bool {
     parent.ends_with(".pptx")
         && request.trim_start().lines().next().is_some_and(|first| {
+            // A slide-only export describes the screen contents as the entire handout.
+            // Match the complete instruction so a request for additional notes stays in scope.
+            if re(r"^(?:違いなし。)?(?:[0-9]{1,2}時[0-9]{1,2}分提出版の)?全[0-9]+スライドを画面表示どおりに収録。(?:議事メモの追加なし。)?$")
+                .is_match(request.trim())
+            {
+                return true;
+            }
             first.split_inclusive('。').any(|sentence| {
                 matches!(
                     sentence.trim(),
@@ -2140,6 +2147,20 @@ mod print_scope_tests {
             ),
             "## 1枚目\n本文：見出し\n## 2枚目\n本文：数字"
         );
+        assert_eq!(
+            print_source(
+                "a.pptx",
+                slides,
+                "違いなし。11時34分提出版の全3スライドを画面表示どおりに収録。議事メモの追加なし。"
+            ),
+            "## 1枚目\n本文：見出し\n## 2枚目\n本文：数字"
+        );
+        for request in [
+            "全3スライドを画面表示どおりに収録し、発表者メモを添える。",
+            "全3スライドを画面表示どおりに収録。発表者メモも掲載する。",
+        ] {
+            assert_eq!(print_source("a.pptx", slides, request), slides);
+        }
         let sheets = "共通欄\n## シート「配布用」\n売上高\n## シート「根拠」\n内訳";
         assert_eq!(
             print_source(
