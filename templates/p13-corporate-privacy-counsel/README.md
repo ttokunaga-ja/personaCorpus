@@ -16,7 +16,8 @@
 | 方針説明・確認手順・紙の確認票 | 東都文書データサービス、高田から河野・関係部署へ。方針説明と手順の配布、担当引受けや再審査の原紙 | `toto-review-sheet.cls` | A4縦、文書照合ロゴ・紫灰色の見出し、銅色のヘッダ罫線。表を使うときは続頁にも列見出しと頁番号 |
 | 保存目的の棚卸し 会議論点表 | 同社、高田から藤本・関係部署へ。原記録を参照する業務と時点、期限判断に必要な根拠、照会先の確認事項を配布 | `toto-retention-issues.cls` | A4縦、共通ロゴと罫線。4列の表見出しを繰り返し、フッタに法務部・保存目的の棚卸し・頁数 |
 | 英文再委託先追加通知 | Winslow Records Services、Andrea Powellから東都へ。文書処理を支援する再委託先の追加を通知 | `winslow-subprocessor-notice.cls` | Letter縦、左上の3本のファイル背表紙と社名、青の大見出し、緑青の横罫。下部に英文社名と頁数 |
-| 再委託先追加の契約論点書 | はるか契約コンサルティング合同会社、菅原美江子から高田へ。事前承認資料の不足と開始判断の留保について助言 | `haruka-contract-issues.cls` | A4縦、右上に向かい合う角括弧と社名、明朝体、臙脂の題と黄土の節目印。下部に細罫と頁数 |
+| 契約論点書・条項の比較意見 | はるか契約コンサルティング合同会社、菅原美江子から高田へ。再委託先の事前承認や委託終了時の証明条項について助言 | `haruka-contract-issues.cls` | A4縦、右上に向かい合う角括弧と社名、明朝体、臙脂の題と黄土の節目印。下部に細罫と頁数 |
+| 保管箱返却明細・返却控え | 大和田文書保管株式会社、久保正之から東都へ。保管箱の引渡し・受領を確認する明細と紙の控え | `owada-return-record.cls` | A4縦、積み重ねた保管箱の線画と社名、深緑の罫線、淡緑の列見出し。続頁にも列見出し、下部に返却記録・頁数 |
 
 2024年4月の棚卸しでは、高田と藤本が4月10日に整理した28種について、原記録を参照する業務、必要な時点・終期の条件、部署の説明と裏付けを突き合わせる。目的が不明の5種は恒久保存を認めず、照会案に期限を判断するための質問を残す。5種の期限欄は回答と根拠が得られるまで未確定とする。2026年の保全区分台帳とは別の文書番号で管理する。
 
@@ -26,10 +27,11 @@
 - 宮坂・野田：円内の天秤と事務所名。青灰色 `40566E` と本文の墨 `302F33`。天秤は抽象図形であり、実在の資格章ではない。自社とロゴ・書体・主色を分ける。
 - Winslow：3本の背表紙と英文社名。深青 `234B69`、緑青 `16736C`、本文 `252E35`。欧文は `Liberation Sans`。
 - はるか契約コンサルティング：向かい合う角括弧と社名。臙脂 `713539`、黄土 `AE7849`、本文 `342D29`。日本語は `Noto Serif CJK JP`、欧文は `Liberation Serif`。
+- 大和田文書保管：積み重ねた保管箱の線画と社名。深緑 `284E3C`、淡緑 `E5ECE5`、本文 `282D2A`。日本語は `Noto Sans CJK JP`、欧文は `Liberation Sans`。
 - 自社Officeは日本語・欧文とも `Noto Sans CJK JP`、社外Wordは日本語・欧文とも `Noto Serif CJK JP`。TeXは日本語 `Noto Sans CJK JP`、欧文 `Liberation Sans`。既定Normal、見出し、表、入力用管理セルにも実設定し、Officeテーマのフォントと主色も設定した。
 - Wordは社名ヘッダと組織・部門／用途・自動頁番号のフッタ。Excelは社名上段と社名・法務部・頁数の印刷フッタ。PPTXはマスター上のロゴ・社名・罫線・部門表記。東都のTeXは社名ヘッダと部門・現在頁／総頁のフッタ、案件名は文書ごとに指定できる。
 - 自社文書番号：`TDS-LG-YYYYMM-用途-連番3桁`。用途は `REV` 判断資料、`CON` 相談記録、`INS` 指示、`RPT` 報告、`REQ` 申出、`REG` 台帳、`CMP` 比較表、`BRF` 会議資料、`CHK` 紙の再審査票。外部回答は `MN-YYYYMM-ADV-連番3桁`。実番号は計画で割り当て、草稿・確定版・Officeから保存したPDFは同番号と版で追跡する。メール・個人メモに無理に番号を付けない。
-- 外部通知・論点書は発行元の番号を使う。Winslowの追加通知は `WR-YYYYMM-SPN-連番3桁`、菅原の論点書は `HCC-YYYYMM-ISS-連番3桁`。
+- 外部通知・論点書・返却帳票は発行元の番号を使う。Winslowの追加通知は `WR-YYYYMM-SPN-連番3桁`、菅原の論点書は `HCC-YYYYMM-ISS-連番3桁`、大和田の返却帳票は `OW-YYYYMM-RTN-連番3桁`。
 - 紫灰色と銅色の文書照合ロゴを使う。p14の深緑の木材ロゴ、p03の赤茶の配送矢印、p18の青緑の寸法枠とは配色と形が異なる。
 
 ## Wordの成形
@@ -47,6 +49,8 @@ A4縦、左右23mm、上29mm、下23mm。Normal 10.5pt、段落後6pt、行間1.
 判断資料・相談回答のPDFは、完成したWordを `bin/office-pdf` で保存する。同じ内容のPDFを別原稿で作り直さない。紙をスキャンする場合も先に内容のある原紙を作る。
 
 2025年1月29日の標準保存方針案は `toto-review.docx` を開き、提案・適用条件・個別の終期を定める理由・改訂履歴の順に組む。改訂履歴には原稿にある旧条項、改訂日、版、改訂者、修正理由を残す。期限を定めず延長する旧条項に `TD Redline` と取り消し線を適用する。
+
+2025年7月22日の赤字交渉案も `toto-review.docx` を使う。比較した18条は交渉案にまとめ、旧案の削除証明を省く文言には `TD Redline` と取り消し線を適用し、終了後30日以内の報告条件は修正案に記す。8月4日の大和田への差戻し記録は別案件として `toto-instruction.docx` を使う。返却の突合結果、照会する受領根拠、廃棄完了草稿の差戻しを記す。
 
 ## Excelの成形
 
@@ -84,6 +88,12 @@ B〜Hの文字セルに `TD Text` を使う。6行目は34pt、明細は42ptを�
 - 質問票は `toto-hold-register.xlsx` を開き、シート名とA2の題を変更する。旧版の列は「No.／質問の区分／回答部署／回答欄／根拠資料／回答状況／確認者／注記」を起点に原稿どおり設定する。改訂版では「No.／質問の区分／回答部署／技術側の確認事実／法務側の判断条件／根拠資料／回答状況／注記」を起点とし、列幅は `13, 18, 19, 29, 29, 20, 16, 22` を目安にD・Eを長文や複数行の設問に合わせる。回答や根拠が未着の場合は該当欄を空欄にし、回答状況に未着を記す。
 - 回答担当対照表は `toto-decision-comparison.xlsx` のA6:H6を「No.／質問の区分／旧回答部署／技術側が示す確認事実／法務が判断する条件／事実の担当／判断の担当／改訂時の扱い」の順に変更する。既定幅はAから順に `13, 18, 20, 29, 29, 15, 15, 27`。D・Eは台帳の21・18より広く、F・Gを短い担当欄にして全体の印刷幅を揃える。数値の隣の文字欄にも `TD Text` の左インデントを使う。B3:D3とF3:H3の結合は管理欄として維持する。
 
+### 保管箱と受領根拠の突合表
+
+`toto-hold-register.xlsx` を開き、シート名とA2の題を変える。A6:H6は「No.／返却箱／受領根拠／担当／基準日／返却確認／廃棄確認／照会事項」。列幅は型のまま `13, 22, 24, 21, 18, 18, 22, 28` を起点とする。A列は `TD Number`、E列は `TD Date`、H列は `TD Note`、その他は `TD Text`。B3:D3とF3:H3の結合を保ち、実際の明細だけを追加する。
+
+8月4日は返却明細の12箱を一つの表にまとめる。受領根拠を確認できない2箱はF列で「未確認」とする。廃棄確認はG列に独立して記録する。対象箱数を集計するときは実明細のA列を `COUNT`、受領根拠の確認済数と未確認数はF列をそれぞれ `COUNTIF` で数える。集計行は `TD Total` を適用し、ラベルは左、数値は右に `indent=1` で揃える。
+
 ## PowerPointの成形
 
 `Presentation(型のパス)` の `slide_layouts[0..4]` は順に表紙、見出しと本文、2段、表、図。題idx=0、本文／副題／表／図はidx=1、2段の右はidx=2。表紙題32pt・副題18pt、他は題30pt・本文20ptを継承。表紙副題に実番号・版・日付・作成者を入れる。下段のマスターは全レイアウトで「法務部」を表示し、案件名は表紙の題へ入れる。
@@ -107,20 +117,22 @@ Winslowの英文通知は同じコマンドで `\documentclass{winslow-subproces
 
 菅原の論点書は `\documentclass{haruka-contract-issues}` を使う。冒頭に `\HarukaIssues{題}{管理番号}{和文日付}{作成者}{宛先氏名}` を置き、`\HarukaSection{見出し}` で区切る。宛先の敬称は型で付与する。
 
+大和田の返却明細と紙の返却控えは `\documentclass{owada-return-record}` を使う。冒頭に `\OwadaReturnHeading{題}{発行番号}{発行日}{担当者}{お渡し先}` を置く。`OwadaReturns` 環境に整数の通し番号・保管箱番号・明細上の取扱い・受渡し記録／照合資料・連絡事項を `&` で区切って入れ、行を `\\\hline` で閉じる。右寄せの番号列と左寄せの箱番号の間に左右各4ptの余白を持たせている。補足は `\OwadaNote{注記}` で入れる。紙の控えは原稿にある明細と受領記録を組んでから `bin/scan` に渡す。
+
 ## 見本と検証
 
-今回の作業先は `scratch/p13-corporate-privacy-counsel/b004/work/templates-0002/`。下表のファイルは作業先の `examples/`、全頁画像は `render/<拡張子を除いた見本名>/` にある。各見本に完全な文書番号・日付・作成者と、形式に応じた基準日・版・確認者等を入力した。複数頁の見本では印刷確認用に明細を増やしている。成果物の番号・日付・値は計画と原稿に従う。
+今回の作業先は `scratch/p13-corporate-privacy-counsel/b005/work/templates-0002/`。下表のファイルは作業先の `examples/`、全頁画像は `render/<拡張子を除いた見本名>/` にある。見本には完全な文書番号・日付・作成者と、形式に応じた基準日・版・確認者等を入力した。件数を増やした見本は続頁の印刷確認用。成果物の番号・日付・値は計画と原稿に従う。
 
 | 確認する型・用途 | 見本ファイル |
 |---|---|
-| Word社外回答・社内相談・記入要領・標準保存方針案 | `miyasaka-noda-advice.docx`、`toto-consultation.docx`、`toto-instruction.docx`（表の続頁あり）、`toto-review.docx` |
-| Excel期限確認担当の点検表 | `toto-hold-register-3.xlsx`、`toto-hold-register-36.xlsx` |
-| Excel確認担当と判断条件の比較 | `toto-decision-comparison-3.xlsx`、`toto-decision-comparison-36.xlsx` |
+| Word社外回答・社内相談・返却記録の確認手順・赤字交渉案 | `miyasaka-noda-advice.docx`、`toto-consultation.docx`、`toto-instruction.docx`（表の続頁あり）、`toto-review.docx` |
+| Excel保管箱と受領根拠の突合表 | `toto-hold-register-3.xlsx`、`toto-hold-register-12.xlsx`、`toto-hold-register-36.xlsx` |
+| Excel終了条項の比較表 | `toto-decision-comparison-3.xlsx`、`toto-decision-comparison-36.xlsx` |
 | PowerPointの5レイアウト | `toto-legal-brief.pptx` |
 | TeX紙票の少量・複数頁の表 | `toto-review-sheet-3.tex`、`toto-review-sheet-38.tex` と対応するPDF |
-| TeX方針説明・確認手順・担当引受け票 | `toto-retention-policy-brief.tex`、`toto-retention-check-procedure.tex`、`toto-retention-handover.tex` と対応するPDF、原紙を画像化した `toto-retention-handover-scan.pdf` |
 | TeX会議用の論点表 | `toto-retention-issues-3.tex`、`toto-retention-issues-28.tex` と対応するPDF |
 | 外部の英文通知・契約論点書 | `winslow-subprocessor-notice.tex`、`haruka-contract-issues.tex` と対応するPDF |
+| 大和田の返却明細・紙の返却控え | `owada-return-record-3.tex`、`owada-return-record-12.tex`、`owada-return-record-38.tex` と対応するPDF、3行の控えをスキャンした `owada-return-receipt-scan.pdf` |
 
 作業先の `render-results.json` に形式・内部属性・集計結果と画像の枚数を記録する。OfficeとPDFの完成ファイルは、`bin/stamp --author "<原稿の作成者>" --date "<原稿の日付>" --timezone Asia/Tokyo <ファイル>` で内部属性を合わせる。更新者や初版日が異なるときは `--modified-by` と `--created` を指定する。
 
@@ -129,3 +141,5 @@ Winslowの英文通知は同じコマンドで `\documentclass{winslow-subproces
 標準保存方針の社内説明は、原稿にあるページ名、発行部署、日付、本文をHTMLとして保存する。藤本の点検照会は、照会時点の担当と代行の確定状況が分かる本文をEMLに保存する。
 
 部署照会と前提確認の往復は、各メッセージの送受信者、日時（JST）、件名、本文をEMLに保存する。Andreaへの不足資料照会は英文で、該当する候補と求める資料を原稿に従って特定する。返信では先行メッセージのIDを参照する。高田のPNG図は「何のために、いつ参照するか」と「どこにあるか」を別の領域に配置し、原稿にある対応を線やラベルで示す。社内の照会と個人の作業図はOfficeやTeXの型を経由せず成形する。
+
+8月4日の差戻しメールは、未確認2箱の受領根拠と訂正した報告を求めるEMLとして保存する。返却と廃棄を混同した箇所の手控えは、高田が参照した記述と確認すべき根拠をTXTに残す。
