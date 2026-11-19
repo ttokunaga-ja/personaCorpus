@@ -683,6 +683,35 @@ impl Pilot {
         }
         Ok(())
     }
+    // A coordinator may resume a held batch after its last audit. The journal
+    // records successful launches even when the coordinator just merged a fix.
+    fn resumed_after_audit(&self, p: &str, b: &str, job: &str) -> Result<bool> {
+        let path = self.home.join("log.tsv");
+        if !path.exists() {
+            return Ok(false);
+        }
+        let mut seen_audit = false;
+        let mut resumed = false;
+        let mut log = csv::ReaderBuilder::new()
+            .delimiter(b'\t')
+            .has_headers(false)
+            .from_path(path)?;
+        for row in log.records() {
+            let row = row?;
+            if row.get(2) != Some(p) || row.get(3) != Some(b) {
+                continue;
+            }
+            match row.get(1) {
+                Some("audit") => {
+                    seen_audit = row.get(4) == Some(job);
+                    resumed = false;
+                }
+                Some("resume") if seen_audit => resumed = true,
+                _ => (),
+            }
+        }
+        Ok(resumed)
+    }
     fn set_record(&mut self, p: &str, b: &str, kind: &str, record: Value) {
         if kind == "roadmap" {
             self.state["roadmaps"][p] = record
@@ -1010,9 +1039,14 @@ impl Pilot {
         {
             return Ok(());
         }
-        if name.is_empty() {
+        if name.is_empty() || self.resumed_after_audit(p, b, name)? {
             if !self.paused() {
-                self.launch(p, b, "audit", audit)?;
+                self.launch(
+                    p,
+                    b,
+                    "audit",
+                    if name.is_empty() { audit } else { json!({}) },
+                )?;
             }
             return Ok(());
         }

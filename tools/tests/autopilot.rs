@@ -1110,3 +1110,24 @@ fn a_stale_limit_message_in_the_tail_does_not_hide_a_plan_failure() {
         f.holds()
     );
 }
+
+#[test]
+fn rebuild_after_audit_requires_a_new_audit() {
+    let f = Fixture::new();
+    f.done();
+    f.once();
+    f.audit("hold", "[]");
+    let mut log = fs::OpenOptions::new()
+        .append(true)
+        .open(f.r.join("scratch/autopilot/log.tsv"))
+        .unwrap();
+    writeln!(
+        log,
+        "2026-11-19T01:01:00Z\tresume\tp01-test\tb001\t--rebuild"
+    )
+    .unwrap();
+    fs::write(f.r.join("people/p01-test/ok.txt"), "rebuilt").unwrap();
+    f.once();
+    assert!(f.jobs().get("p01-b001-audit-r2").is_some());
+    assert_eq!(f.called("batch", "accept"), 0);
+}

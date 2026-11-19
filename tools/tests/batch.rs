@@ -1356,3 +1356,17 @@ fn large_batch_context_rejected_before_draft_and_unicode_casefold_duplicates_det
     f.run("ok", true);
     assert_eq!(f.state()["draft_failures"].as_object().unwrap().len(), 2);
 }
+
+#[test]
+fn coordinator_selects_sol_for_a_pending_rebuild() {
+    let f = Fixture::new();
+    f.run("reject-always", true);
+    let request = f.root.join(format!("progress/{P}/b001.request.md"));
+    fs::write(
+        &request,
+        format!("{}\n- 再制作の担当：gpt-6.2-sol\n", read(&request)),
+    )
+    .unwrap();
+    f.cli(&["run", "p01", "b001", "--rebuild"], "ok", true);
+    assert_eq!(f.state()["producer"], "gpt-6.2-sol");
+}

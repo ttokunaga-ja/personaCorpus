@@ -2986,14 +2986,29 @@ impl Batch {
             println!("done 終了 {} 件", state["count"].as_u64().unwrap_or(0));
             return Ok(());
         }
+        let coordinator_producer = if (self.args.rebuild || self.args.redraft)
+            && read(&self.request)?
+                .lines()
+                .any(|line| line.trim() == "- 再制作の担当：gpt-6.2-sol")
+        {
+            Some("gpt-6.2-sol".to_owned())
+        } else {
+            None
+        };
         self.update(|s| {
             s["active"] = json!({});
-            s["producer"] = json!(self.args.producer.clone().unwrap_or_else(|| {
-                s["producer"]
-                    .as_str()
-                    .unwrap_or("gpt-6.1-terra")
-                    .to_string()
-            }));
+            s["producer"] = json!(
+                self.args
+                    .producer
+                    .clone()
+                    .or(coordinator_producer)
+                    .unwrap_or_else(|| {
+                        s["producer"]
+                            .as_str()
+                            .unwrap_or("gpt-6.1-terra")
+                            .to_string()
+                    })
+            );
         })?;
         fs::create_dir_all(self.scratch.join("logs"))?;
         let result = self.run_inner(again);

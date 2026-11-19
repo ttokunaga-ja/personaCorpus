@@ -461,10 +461,40 @@ fn config_text(text: &str, source: bool) -> Result<BTreeMap<String, String>> {
     }
     Ok(out)
 }
+fn slides_without_notes(parent: &str, request: &str) -> bool {
+    parent.ends_with(".pptx")
+        && request.trim_start().lines().next().is_some_and(|first| {
+            first.split_inclusive('。').any(|sentence| {
+                matches!(
+                    sentence.trim(),
+                    "発表者ノートを含めない。" | "発表者ノートは含めない。"
+                )
+            })
+        })
+}
+
+// A handout manuscript may restate lines already required by the slide manuscript.
+// Preserve the larger occurrence count and every additional handout line.
+fn append_handout_lines(mut printed: String, handout: &str) -> String {
+    let mut remaining = HashMap::new();
+    for line in printed.lines() {
+        *remaining.entry(line.trim().to_owned()).or_insert(0usize) += 1;
+    }
+    for line in handout.lines() {
+        if let Some(count) = remaining.get_mut(line.trim()) {
+            if *count > 0 {
+                *count -= 1;
+                continue;
+            }
+        }
+        printed.push('\n');
+        printed.push_str(line);
+    }
+    printed
+}
 // Compare the printed portion when the derivative explicitly excludes working material.
 fn print_source(parent: &str, body: &str, request: &str) -> String {
-    if parent.ends_with(".pptx") && request.trim_start().starts_with("発表者ノートを含めない。")
-    {
+    if slides_without_notes(parent, request) {
         return body
             .lines()
             .filter(|line| {
@@ -532,16 +562,20 @@ fn source(
     if let Some(parent) = cfg.get("derived_from").filter(|s| !s.is_empty()) {
         chain.push(rel.into());
         let parent_body = source(root, parent, chain)?.1;
-        let expected = if rel.ends_with(".pdf")
+        body = if rel.ends_with(".pdf")
             && cfg
                 .get("kind")
                 .is_some_and(|kind| kind.starts_with("office:"))
         {
-            print_source(parent, &parent_body, &body)
+            let printed = print_source(parent, &parent_body, &body);
+            if slides_without_notes(parent, &body) {
+                append_handout_lines(printed, &body)
+            } else {
+                printed + "\n" + &body
+            }
         } else {
-            parent_body
+            parent_body + "\n" + &body
         };
-        body = expected + "\n" + &body;
         chain.pop();
     }
     if body.trim().is_empty() && cfg.get("kind").map(String::as_str) != Some("photo") {

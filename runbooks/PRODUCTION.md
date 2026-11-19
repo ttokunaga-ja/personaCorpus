@@ -205,7 +205,7 @@ git push origin main
 
 - 「成形待ち」の行が残っていても受入できる（原稿だけが commit される）。あとで `bin/batch resume <persona> <batch> --rebuild` で成形し直し、抜き取りで確かめてから、もう一度 `bin/batch accept` する。原稿に原因があって成形できない行は、`--drop` で破棄する。原稿の段階で破棄になった行が、仕組みや指示の不備によるものだったときは、`bin/batch resume <persona> <batch> --redraft` で原稿からやり直せる（統括が `--drop` で破棄した行と、合格済みの行には触れない）。
 - 受入または破棄が済むと、`scratch/<persona>/<batch>/` は消える。ただし「成形待ち」の行が残っている間は、原因を調べられるように残す。
-- 同じ batch で不合格が 2 回続いたら、`bin/batch start ... --producer gpt-6.2-sol` で原稿と成形を Sol に切り替え、切替えと理由を依頼の末尾に書く。
+- 同じ batch で不合格が 2 回続いたら、`bin/batch start ... --producer gpt-6.2-sol` で原稿と成形を Sol に切り替え、切替えと理由を依頼の末尾に書く。 自動運転の統括は、対象の依頼に独立した行で `- 再制作の担当：gpt-6.2-sol` と理由を記す。`--rebuild` と `--redraft` がこの指定を読み、明示した `--producer` があればそちらを使う。
 - 形式ごとに、特に出来のよい受入済みファイルを `templates/<persona>/README.md` の「見本」に書き足す。制作とレビューは見本を水準として使う。
 
 ## 7. 配布物を組み立てる

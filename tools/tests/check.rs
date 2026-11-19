@@ -1116,3 +1116,25 @@ echo "Visible text on the scanned page"
     .unwrap();
     absent(&f, "scan.pdf", "opens");
 }
+
+#[test]
+fn slide_pdf_repeats_printed_lines_in_its_manuscript() {
+    let mut f = Fixture::new();
+    let face = "alpha beta gamma delta epsilon zeta eta theta iota kappa ".repeat(8);
+    let note = "private speaker notes with details omitted from the handout ".repeat(6);
+    f.source("board.pptx", &format!("{face}\n発表者ノート：{note}"), "");
+    let manuscript = f.source(
+        "board.pdf",
+        &format!("スライド面は派生元と同一、同順。発表者ノートは含めない。\n{face}"),
+        "board.pptx",
+    );
+    let source = fs::read_to_string(&manuscript)
+        .unwrap()
+        .replace("author:", "kind: office:board.pptx\nauthor:");
+    fs::write(manuscript, source).unwrap();
+    f.bytes("board.pdf", b"%PDF fixture");
+    f.pdf_text(&face, "");
+    absent(&f, "board.pdf", "source");
+    f.pdf_text("alpha beta", "");
+    present(&f, "board.pdf", "source");
+}
