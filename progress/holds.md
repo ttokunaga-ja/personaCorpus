@@ -7,3 +7,4 @@
 | p02-site-reliability-engineer | b006 | 監査 hold: progress/p02-site-reliability-engineer/b006.audit.md | 2026-11-19T19:34:38.672293+00:00 |
 | p16-clinical-researcher | b006 | 監査 hold: progress/p16-clinical-researcher/b006.audit.md | 2026-11-19T19:40:54.062072+00:00 |
 | p03-security-grc-analyst | b006 | 監査 hold: progress/p03-security-grc-analyst/b006.audit.md | 2026-11-19T19:44:08.122036+00:00 |
+| p08-product-manager | b008 | 監査 hold: progress/p08-product-manager/b008.audit.md | 2026-11-19T19:48:39.576354+00:00 |
