@@ -45,3 +45,17 @@
   \hline\BurrCheckColumns\endfirsthead
   \hline\BurrCheckColumns\endhead
 }{\end{longtable}}
+
+\newcommand{\WithdrawalColumns}{%
+  \rowcolor{KTeal}\color{white}指示書番号&
+  \color{white}掲示先・保管場所&
+  \color{white}回収した版&
+  \color{white}差替後の版&
+  \color{white}回収確認・確認者\\\hline
+}
+\newenvironment{WithdrawalTable}{%
+  \renewcommand{\arraystretch}{1.6}%
+  \begin{longtable}{|p{38mm}|p{35mm}|p{19mm}|p{19mm}|p{35mm}|}%
+  \hline\WithdrawalColumns\endfirsthead
+  \hline\WithdrawalColumns\endhead
+}{\end{longtable}}

@@ -2464,3 +2464,7 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-19	p13-corporate-privacy-counsel	b007	build-review	0	V2	Documents/相談控え/2026/3月18日_Fairviewに追補を頼む前の確認.docx	1頁上段の文書番号から確認者までの管理6行が、相談記録の型と見本が指定する9ptの「TD Metadata」ではなく本文用の「Normal」10.5ptで印刷されている。
 2026-11-19	p13-corporate-privacy-counsel	b007	check	1	source	Documents/Matters/移管先削除条件/3月18日_杉山さんと紙で見た証明の範囲.pdf	body token overlap 0.199 < 0.3
 2026-11-19	p15-recruiter-people-ops	b006	coordinator	0	other	Documents/メール控え/7月18日_聞き直しは一律に入れません.eml	統括の抜き取りで不合格
+2026-11-19	p18-manufacturing-quality-engineer	b004	coordinator	0	other	Documents/メール控え/2024-07-29_上田さんから_4枚の差し替え先.eml	統括の抜き取りで不合格
+2026-11-19	p18-manufacturing-quality-engineer	b004	coordinator	0	other	Documents/作業指示/BR-2410_穴出口を手前に_第3版.docx	統括の抜き取りで不合格
+2026-11-19	p18-manufacturing-quality-engineer	b004	coordinator	0	other	Documents/作業指示/現場配布/BR-2410_穴出口を手前に_第3版.pdf	統括の抜き取りで不合格
+2026-11-19	p18-manufacturing-quality-engineer	b004	coordinator	0	other	Pictures/BR-2410 位置決めブラケット/2024-07-25_横穴の出口から低い段まで.jpg	統括の抜き取りで不合格
