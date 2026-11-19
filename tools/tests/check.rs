@@ -1535,6 +1535,25 @@ p.save(home / 'notes.pptx')
 }
 
 #[test]
+fn literal_html_manuscript_matches_the_saved_page() {
+    let f = Fixture::new();
+    let page = r#"<!DOCTYPE html>
+<html><head><title>Duty notice</title></head><body>
+<header><h1>Duty notice</h1></header>
+<main><p>Open the <a href="../records/April%20receipt.pdf">April receipt</a>.</p></main>
+</body></html>"#;
+    f.put("notice.html", page);
+    f.source("notice.html", page, "");
+    absent(&f, "notice.html", "source");
+    f.bytes("notice.html", b"<html><body>Unrelated</body></html>");
+    present(&f, "notice.html", "source");
+    let empty = "<!DOCTYPE html><html><body></body></html>";
+    f.bytes("notice.html", empty.as_bytes());
+    f.source("notice.html", empty, "");
+    present(&f, "notice.html", "source");
+}
+
+#[test]
 fn html_source_compares_notice_urls_as_link_targets() {
     let f = Fixture::new();
     let url = "https://town.example/public/archive/fiscal-year/contracts/notice-42323";

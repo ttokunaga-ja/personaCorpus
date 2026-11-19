@@ -125,6 +125,14 @@ fn html(text: &str) -> String {
 // Only discount the URL tokens of a manuscript link when the HTML contains
 // the same visible label and destination. Keep the label in the body check.
 fn html_source_labels(body: &str, raw: &[u8]) -> Result<String> {
+    // A manuscript may contain the complete saved HTML, including its links.
+    // When the markup itself matches, compare the visible text on both sides.
+    if body.trim_start().starts_with('<') && body.trim().as_bytes() == raw.trim_ascii() {
+        let visible = html(body);
+        if !visible.trim().is_empty() {
+            return Ok(visible);
+        }
+    }
     let links = re(r"\[([^\]\n]+)\]\((https?://[^\s()]+)\)");
     if !links.is_match(body) {
         return Ok(body.to_owned());
