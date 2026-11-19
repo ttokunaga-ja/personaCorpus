@@ -33,6 +33,26 @@
 - ①04-15 09:18 Donald → Michelle「JDH May package price clearance」（添付なし）。②04-17 11:04 Michelle → Janet「JDH May renewal terms and support scope」（`JDH May 2025 annual renewal terms.pdf`と`JDH May renewal support scope.docx`を添付）。
 - ③04-18 11:07 Janet → Michelle「JDH purchasing confirmation for May」（新規件名、`JDH purchasing confirmation - May renewal.docx`を添付）。④04-18 15:31 Michelle → Donald、Denise「JDH May renewal confirmed」（添付なし）。①〜④はいずれも独立メール。
 
+## 拡張の準備と4週時点の到達範囲
+
+- 2026-01-08のJanetの希望は開始から4週以内に通常シフトまで移すこと。01-15にDivyaとMichelleが合意した見積は9週で、着手はJDHの初回名簿と拠点責任者の確認後。実際の開始日、切替日、拡張契約はいずれも未決。
+- Divyaの工数表 HBC-JDH-20260115-IMP-01 v1.0。W1〜W9の需要／確保は24/28、28/28、24/26、28/28、28/30、26/28、24/26、22/24、16/20時間。W1〜W4は104/110時間、W5〜W9は116/128時間、全体220/238時間。
+- W1 名簿・責任者確認 → W2 宛先照合 → W3 切替手順確認 → W4 単一拠点の昼夜別練習 → W5 指摘解消と切替承認 → W6 第1組切替 → W7 第2組切替 → W8 安定化 → W9 支援引継ぎ。W4で渡せるのは照合済みの対象と練習結果・指摘一覧まで。
+- 01-16 10:00はJanet・Michelle・Divyaの面談。Janetは01-23までに拠点責任者と夜間練習枠の候補を確認、Divyaは練習後の承認に必要な証拠の項目を整理。01-23時点で夜間枠の責任者は未確定。
+- 独立メールの順：01-08 09:24 Janet → Michelle「JDH expansion - four weeks from kickoff」（添付なし）→ 01-15 10:18 Divya → Michelle「JDH rehearsal needs two shift windows」（工数XLSX添付）→ 01-16 14:06 Michelle → Janet、Cc Divya「JDH expansion - January 16 follow-up」（面談PPTX添付）。
+
+## 4月の年次比較と5〜7月のサービス延長
+
+- 2026-04-08にJanetが年次予算上限USD 250,000を提示。現契約は04-30までの480席・年額USD 232,000。比較3案は480席・現行相当支援/USD 238,000、520席・年60時間/USD 248,000、560席・年80時間/USD 266,000。
+- 年額上限との差は順に余裕USD 12,000、余裕USD 2,000、超過USD 16,000。現行相当支援の時間換算は未提示。顧客比較表 HBC-JDH-20260415-REN-01 v1.0は印刷して面談でも使用。面談スライドと配布PDFは同じ HBC-JDH-20260415-BRF-01 v1.0。
+- 04-17 09:30の面談はJanet・Michelle・Divya。480席案を比較基準に置き、520席案は支援60時間の内訳と開始条件を詰める候補、560席案は上限外。Michelleが支援の内訳、Divyaが移行の開始・切替条件を受け持つ。年次の注文・開始日は未決。
+- 延長は2026-05-01〜07-31、現行480席と現行運用支援の範囲（HBC-JDH-20250417-SVC-01 v1.0参照）、USD 58,000の1回請求。拡張移行を含めず、期末で終了し自動更新なし。USD 58,000は旧年額の4分の1を根拠とする独立の契約対価で、年次3案には加えない。
+- 延長契約は HBC-JDH-20260417-REN-01 v1.0。Donaldは04-17 17:00 Denverまでの提示を承認し、Jonathanの4月16日の赤字に沿う固定期間・別対価・終了条件を入れて発行する。両社の書面合意は04-17 15:14のJanetの受諾で成立。
+- 事前連絡の順：04-08 10:16 Janet → Michelle「JDH renewal - April budget ceiling」（添付なし）→ 04-15 15:12 Michelle → Janet「JDH April 17 - renewal discussion materials」（スライドPDFと比較XLSXの2点を実添付）。
+- 延長の社内提示承認：04-17 08:41 Donald → Michelle「JDH - release the extension only」（独立、添付なし）。
+- 期間を揃えるスレッド：①04-17 10:48 Michelle → Janet「JDH - confirm May through July coverage」→ ②同日11:17 Janet → Michelle「Re: JDH - confirm May through July coverage」。②は①を引用、両通とも添付なし。
+- 延長の受諾スレッド：①04-17 14:03 Michelle → Janet「JDH - May to July service extension」（延長契約PDFを実添付）→ ②同日15:14 Janet → Michelle「Re: JDH - May to July service extension」（①を引用、新規添付なし）。期間確認とは別スレッド。
+
 # Aldridge Service Group
 
 時刻は Denver 現地時刻（America/Denver。2024-11-03の切替前は MDT、切替後は MST）。Ahmed Farouk は Aldridge Service Group の事業企画責任者（`ahmed@aldridge-service.example`）。Halstead の Allison Kim、Marisol Torres、Jonathan Salgado はそれぞれ `allison`、`marisol`、`jonathan` @ `halstead-branch.example`。

@@ -3,7 +3,7 @@
 \LoadClass[11pt,letterpaper]{article}
 \RequirePackage{fontspec}
 \RequirePackage{luatexja-fontspec}
-\RequirePackage[letterpaper,margin=.76in,top=1.28in,bottom=.82in,headheight=35pt,headsep=.22in]{geometry}
+\RequirePackage[letterpaper,margin=.76in,top=1.28in,bottom=.82in,headheight=42pt,headsep=.22in]{geometry}
 \RequirePackage[table]{xcolor}
 \RequirePackage{fancyhdr}
 \RequirePackage{titlesec}
@@ -34,7 +34,8 @@
     \raisebox{.48em}{\rule{.50em}{.20em}}%
     \raisebox{.14em}{\color{HBRust}\rule{.25em}{.94em}}}%
   \hspace{.45em}{\color{HBTeal}\bfseries Halstead Branch Communications Inc}}
-\fancyhead[L]{\HBCorporateMark\\[3pt]{\footnotesize\color{HBTeal}\bfseries RENEWAL TERMS}}
+\newcommand{\HBDocumentType}{RENEWAL TERMS}
+\fancyhead[L]{\HBCorporateMark\\[3pt]{\footnotesize\color{HBTeal}\bfseries \HBDocumentType}}
 \renewcommand{\headrule}{\hbox to\headwidth{\color{HBRust}\leaders\hrule height 1.4pt\hfill}}
 \fancyfoot[L]{\footnotesize\color{HBTeal}Halstead Branch Connect / Account Services}
 \fancyfoot[R]{\footnotesize\color{HBTeal}Page \thepage}
@@ -58,6 +59,12 @@
   \HBHeadRow\endhead
 }{\end{longtable}}
 \newcommand{\HBTerm}[3]{#1 & #2 & #3\\\arrayrulecolor{HBMist}\hline}
-\newcommand{\HBTotal}[3]{\rowcolor{HBMist}\textbf{#1} & \textbf{#2} & #3\\}
-\newcommand{\HBNote}[1]{\par\smallskip{\small\textcolor{HBRust}{\textbf{Note.}}\enspace #1\par}}
+\newcommand{\HBNoteText}[1]{{\small\textcolor{HBRust}{\textbf{Note.}}\enspace #1}}
+\newcommand{\HBTotalRow}[3]{\rowcolor{HBMist}\textbf{#1} & \textbf{#2} & #3}
+\newcommand{\HBTotal}[3]{\HBTotalRow{#1}{#2}{#3}\\}
+% Include the two internal column gaps in the full-width note.
+\newcommand{\HBTotalWithNote}[4]{%
+  \HBTotalRow{#1}{#2}{#3}\\*
+  \multicolumn{3}{H{\dimexpr6.48in+4\tabcolsep\relax}}{\HBNoteText{#4}}\\}
+\newcommand{\HBNote}[1]{\par\smallskip\HBNoteText{#1}\par}
 \endinput
