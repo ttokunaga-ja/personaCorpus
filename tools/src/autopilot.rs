@@ -63,6 +63,8 @@ enum Action {
         allow_delete: Option<usize>,
     },
 }
+/// The smallest ordinary batch on a roadmap.
+const MIN_ROW: i64 = 30;
 fn now() -> String {
     chrono::Utc::now().to_rfc3339_opts(chrono::SecondsFormat::Micros, false)
 }
@@ -604,10 +606,32 @@ impl Pilot {
             .map(|r| r.get("件数の目安").parse::<i64>().unwrap())
             .sum();
         let need = self.goal(p)? - self.count(p)? as i64;
-        if need > 0 && open < need && self.active(p)?.is_empty() {
+        // A gap smaller than one batch cannot be filled without padding; the
+        // roadmap is complete for this goal. With no open row left, it must be
+        // extended unless the roadmap job said the work is used up.
+        let review = read(&self.root.join("progress").join(p).join("roadmap.md"))?
+            .contains("規模の見直し：");
+        if need > 0
+            && !review
+            && self.active(p)?.is_empty()
+            && (need - open >= MIN_ROW || open == 0)
+        {
             bail!("roadmap: 未着手の行の件数が次の区切りまでに足りない")
         }
         Ok(rows)
+    }
+    /// Files the roadmap's open rows fall short of the current goal.
+    fn shortfall(&self, p: &str) -> Result<i64> {
+        let open: i64 = table(
+            &self.root.join("progress").join(p).join("roadmap.md"),
+            &ROAD,
+            &self.root,
+        )?
+        .iter()
+        .filter(|r| r.get("状態").is_empty())
+        .filter_map(|r| r.get("件数の目安").parse::<i64>().ok())
+        .sum();
+        Ok(self.goal(p)? - self.count(p)? as i64 - open)
     }
     fn limits(&self) -> Result<Value> {
         let cfg = self.root.join("config/limits.json");
@@ -901,6 +925,7 @@ impl Pilot {
             .unwrap_or_default()
             .lines()
             .find(|l| l.contains("規模の見直し："))
+            .filter(|_| self.shortfall(p).map_or(true, |n| n >= MIN_ROW))
         {
             if !self.held(p, "roadmap")? {
                 self.hold(p, "roadmap", line.trim())?;

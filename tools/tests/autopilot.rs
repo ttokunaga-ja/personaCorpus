@@ -1317,7 +1317,7 @@ fn a_roadmap_that_asks_to_review_the_scale_is_held_at_once() {
     )
     .unwrap();
     f.job("p01-roadmap", "done");
-    f.once();
+    f.cli(&["once", "--target", "100"]);
     assert!(f.holds().contains("規模の見直し"), "{}", f.holds());
     assert!(f.jobs().get("p01-roadmap-r2").is_none());
     assert_eq!(f.called("batch", "start"), 0);
@@ -1346,4 +1346,48 @@ fn a_stop_left_by_a_coordinator_is_cleared_when_its_actions_are_applied() {
         g.once();
     }
     assert!(g.r.join("scratch/autopilot/stop").exists());
+}
+
+#[test]
+fn a_gap_smaller_than_one_batch_ends_the_goal_instead_of_holding() {
+    // 297 of 300 planned: the remaining 3 cannot fill a batch, so the roadmap is
+    // complete for this goal, with or without a scale-review note.
+    let f = Fixture::new();
+    fs::write(
+        f.r.join("manifests/p01-test.tsv"),
+        "x\thash\t1\tdate\n".repeat(36),
+    )
+    .unwrap();
+    f.roadmap(Some("| b001 | 月次締め | 30 | 重点 | 内容 | 回避 | 受入済み b001 |\n| b002 | 四半期 | 31 | 重点 | 内容 | 回避 | |\n"));
+    let path = f.r.join("progress/p01-test/roadmap.md");
+    let text = fs::read_to_string(&path).unwrap();
+    fs::write(
+        &path,
+        format!("{text}\n規模の見直し：残り 3 件のために組める仕事が尽きた\n"),
+    )
+    .unwrap();
+    f.cli(&["once", "--target", "70"]);
+    assert!(!f.holds().contains("規模の見直し"), "{}", f.holds());
+    assert_eq!(f.called("batch", "start"), 1);
+    // A large gap is still held for the coordinator.
+    let g = Fixture::new();
+    g.roadmap(Some("| b001 | 月次締め | 30 | 重点 | 内容 | 回避 | |\n"));
+    let path = g.r.join("progress/p01-test/roadmap.md");
+    let text = fs::read_to_string(&path).unwrap();
+    fs::write(
+        &path,
+        format!("{text}\n規模の見直し：残り 70 件分の仕事が尽きた\n"),
+    )
+    .unwrap();
+    g.cli(&["once", "--target", "100"]);
+    assert!(g.holds().contains("規模の見直し"), "{}", g.holds());
+}
+
+#[test]
+fn a_shortfall_under_one_batch_does_not_invalidate_a_roadmap_with_open_rows() {
+    let f = Fixture::new();
+    f.roadmap(Some("| b001 | 月次締め | 30 | 重点 | 内容 | 回避 | |\n| b002 | 四半期 | 35 | 重点 | 内容 | 回避 | |\n"));
+    f.cli(&["once", "--target", "70"]);
+    assert!(f.jobs().get("p01-roadmap").is_none(), "{:?}", f.jobs());
+    assert_eq!(f.called("batch", "start"), 1);
 }
