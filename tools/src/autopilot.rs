@@ -1013,19 +1013,43 @@ impl Pilot {
         }
         Ok((lines[0][9..].into(), drops))
     }
-    fn update_roadmap(&self, p: &str, b: &str, status: &str) -> Result<()> {
+    fn update_roadmap(&self, p: &str, b: &str, status: &str) -> Result<Option<String>> {
         let path = self.root.join("progress").join(p).join("roadmap.md");
         if !path.exists() {
-            return Ok(());
+            return Ok(None);
         }
         let pat = regex(&format!(r"(?:^|\W){}(?:$|\W)", regex::escape(b)));
         for row in table(&path, &ROAD, &self.root)? {
-            if pat.is_match(row.get("状態")) {
-                replace_cell(&path, &row, "状態", &format!("{status} {b}"))?;
-                return Ok(());
+            let previous = row.get("状態");
+            if pat.is_match(previous) {
+                replace_cell(&path, &row, "状態", status)?;
+                return Ok(Some(previous.into()));
             }
         }
-        Ok(())
+        Ok(None)
+    }
+    fn accept_batch(&mut self, p: &str, b: &str, drops: Vec<String>) -> Result<()> {
+        let flags = if drops.is_empty() {
+            Vec::new()
+        } else {
+            std::iter::once("--drop".into()).chain(drops).collect()
+        };
+        let previous_status = self.update_roadmap(p, b, &format!("受入済み {b}"))?;
+        let previous_push_pending = self.state["push_pending"].as_bool().unwrap_or(false);
+        self.state["push_pending"] = json!(true);
+        if let Err(e) = self
+            .store()
+            .and_then(|()| self.batch_cmd("accept", p, b, &flags))
+        {
+            self.state["push_pending"] = json!(previous_push_pending);
+            if let Some(status) = previous_status {
+                self.update_roadmap(p, b, &status)?;
+            }
+            self.store()?;
+            return Err(e);
+        }
+        self.state["batches"][format!("{p}/{b}")]["accepted"] = json!(true);
+        self.store()
     }
     fn process_batch(&mut self, p: &str, b: &str, state: &Value) -> Result<()> {
         let key = format!("{p}/{b}");
@@ -1202,19 +1226,8 @@ impl Pilot {
         if self.state["push_failures"].as_i64().unwrap_or(0) >= 3 {
             return Ok(());
         }
-        self.state["push_pending"] = json!(true);
-        self.store()?;
-        self.update_roadmap(p, b, "受入済み")?;
-        let flags = if drops.is_empty() {
-            Vec::new()
-        } else {
-            std::iter::once("--drop".into()).chain(drops).collect()
-        };
-        if let Err(e) = self.batch_cmd("accept", p, b, &flags) {
+        if let Err(e) = self.accept_batch(p, b, drops) {
             // Acceptance is deterministic; retrying the same command cannot succeed.
-            self.update_roadmap(p, b, "進行中")?;
-            self.state["push_pending"] = json!(false);
-            self.store()?;
             let reason: String = e
                 .to_string()
                 .replace('|', "／")
@@ -1230,9 +1243,6 @@ impl Pilot {
                 ),
             );
         }
-        self.state["batches"][&key]["accepted"] = json!(true);
-        self.state["push_pending"] = json!(true);
-        self.store()?;
         self.push()
     }
     fn push(&mut self) -> Result<()> {
@@ -1621,16 +1631,7 @@ impl Pilot {
                 {
                     bail!("drop のパスが不正")
                 }
-                let mut flags = Vec::new();
-                if !drops.is_empty() {
-                    flags.push("--drop".to_string());
-                    flags.extend(drops);
-                }
-                self.update_roadmap(&p, &b, "受入済み")?;
-                self.state["push_pending"] = json!(true);
-                self.batch_cmd("accept", &p, &b, &flags)?;
-                self.state["batches"][format!("{p}/{b}")]["accepted"] = json!(true);
-                self.store()?;
+                self.accept_batch(&p, &b, drops)?;
                 self.push()?;
             }
             "discard" => {

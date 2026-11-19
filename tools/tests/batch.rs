@@ -295,6 +295,44 @@ fn dependency_parent_finishes_review_before_child_and_failed_parent_blocks_build
     assert!(!read(&f.root.join("progress/findings.tsv")).contains("\tdependency\t"));
 }
 #[test]
+fn markdown_attachment_headings_schedule_email_after_attachment_review() {
+    let email = "Documents/Mail/返事.eml";
+    for (heading, detail) in [
+        ("Attachment", format!("text/plain; source: {FIRST}")),
+        ("添付", format!("`{FIRST}`")),
+    ] {
+        let f = Fixture::new();
+        f.planned();
+        let mut rows = f.rows();
+        rows[1]["パス"] = json!(email);
+        rows.swap(0, 1);
+        f.set_plan(&rows, true);
+        f.overrides(json!({email: {"body": format!(
+            "銀行照会を終えて明日の入金額を確認しました。\n\n## {heading}\n\n- 記録.txt — {detail}"
+        )}}));
+        f.run("ok", true);
+
+        let contexts = f.lines("contexts.jsonl");
+        let stage_for = |stage: &str, path: &str| {
+            contexts
+                .iter()
+                .position(|c| {
+                    c["stage"] == stage
+                        && c["rows"]
+                            .as_array()
+                            .unwrap()
+                            .iter()
+                            .any(|r| r["パス"] == path)
+                })
+                .unwrap()
+        };
+        let attachment_review = stage_for("build-review", FIRST);
+        let email_build = stage_for("build", email);
+        assert!(attachment_review < email_build, "{heading}");
+    }
+}
+
+#[test]
 fn draft_parent_rejection_still_writes_child_with_missing_prerequisite_context() {
     let f = Fixture::new();
     f.planned();
@@ -759,6 +797,62 @@ fn acceptance_scopes_batch_files_roadmap_and_drops_only_selected_rows() {
     );
     assert!(stdout(&f.cli(&["status", "p01"], "ok", true)).contains("受入済み"));
 }
+#[test]
+fn accept_drop_refuses_to_remove_a_source_used_by_a_remaining_row() {
+    let f = Fixture::new();
+    f.overrides(json!({SECOND:{"body":"銀行照会を終えて明日の入金額を確認した。返済期限は翌月末とする。","metadata":{"derived_from":FIRST}}}));
+    f.run("ok", true);
+    assert!(f.artifact(SECOND).is_file());
+    let plan = read(&f.plan());
+
+    let out = f.cli(&["accept", "p01", "b001", "--drop", FIRST], "ok", false);
+    let error = String::from_utf8_lossy(&out.stderr);
+    assert!(error.contains("derived_from"));
+    assert!(error.contains(FIRST));
+    assert!(error.contains(SECOND));
+    assert!(f.source(FIRST).is_file());
+    assert!(f.artifact(FIRST).is_file());
+    assert_eq!(read(&f.plan()), plan);
+
+    f.cli(
+        &["accept", "p01", "b001", "--drop", FIRST, "--drop", SECOND],
+        "ok",
+        true,
+    );
+    assert!(!f.source(FIRST).exists());
+    assert!(!f.source(SECOND).exists());
+}
+
+#[test]
+fn discard_refuses_to_remove_a_source_used_by_a_pending_source_in_another_batch() {
+    let f = Fixture::new();
+    f.run("ok", true);
+    let child = "Documents/控え.txt";
+    write(
+        &f.source(child),
+        format!(
+            "---\npath: {child}\nkind: text\nauthor: 花子\nderived_from: \"./{FIRST}\"\n---\n追記した本文"
+        ),
+    );
+    let plan = read(&f.plan());
+    write(
+        &f.root.join(format!("progress/{P}/b002.md")),
+        plan.lines()
+            .take(3)
+            .collect::<Vec<_>>()
+            .join("\n")
+            .replace(FIRST, child)
+            .replace(" | text | ", " | text | 成形待ち："),
+    );
+
+    let out = f.cli(&["discard", "p01", "b001", "--reason", "品質"], "ok", false);
+    let error = String::from_utf8_lossy(&out.stderr);
+    assert!(error.contains(child));
+    assert!(f.source(FIRST).is_file());
+    assert!(f.artifact(FIRST).is_file());
+    assert_eq!(read(&f.plan()), plan);
+}
+
 #[test]
 fn pending_accept_commits_source_and_preserves_waiting_status() {
     let f = Fixture::new();

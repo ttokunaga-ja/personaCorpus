@@ -897,6 +897,56 @@ fn coordinator_actions_accept_unhold_and_merge_its_worktree() {
     assert!(f.cli(&["status"]).contains("一致: 1"));
 }
 #[test]
+fn failed_coordinator_accept_preserves_the_roadmap_hold_and_push_state() {
+    for push_pending in [false, true] {
+        let f = Fixture::new();
+        hold_row(&f);
+        f.git(&["push", "-q", "origin", "main"]);
+        f.roadmap(Some(
+            "| b001 | 月次 | 30 | 表 | メール | 重複 | 進行中 b001 |\n",
+        ));
+        f.done();
+        f.once();
+        let roadmap = f.r.join("progress/p01-test/roadmap.md");
+        let original = fs::read_to_string(&roadmap).unwrap();
+        if push_pending {
+            f.git(&["commit", "--allow-empty", "-qm", "Existing pending commit"]);
+            let mut state = f.state();
+            state["push_pending"] = json!(true);
+            f.save_state(&state);
+        }
+        f.git(&[
+            "remote",
+            "set-url",
+            "origin",
+            f.r.join("missing").to_str().unwrap(),
+        ]);
+        fs::write(f.r.join("accept-fails"), "").unwrap();
+        finish_coordinator(
+            &f,
+            json!({"actions":[
+                {"do":"accept","persona":"p01-test","batch":"b001","drop":["ok.txt"]},
+                {"do":"unhold","persona":"p01-test","batch":"b001"},
+            ]}),
+        );
+        f.once();
+
+        assert_eq!(f.called("batch", "accept"), 1);
+        assert_eq!(fs::read_to_string(&roadmap).unwrap(), original);
+        assert!(f.holds().contains("| p01-test | b001 | 監査 hold |"));
+        let state = f.state();
+        assert_ne!(state["batches"]["p01-test/b001"]["accepted"], true);
+        assert_eq!(
+            state["push_pending"].as_bool().unwrap_or(false),
+            push_pending
+        );
+        let results = state["coordinator"]["last_result"].as_array().unwrap();
+        assert_eq!(results.len(), 1);
+        assert!(results[0].as_str().unwrap().contains("後続の操作を中止"));
+    }
+}
+
+#[test]
 fn coordinator_merge_refuses_protected_paths_and_failing_tests() {
     for case in ["spec", "tests"] {
         let f = Fixture::new();

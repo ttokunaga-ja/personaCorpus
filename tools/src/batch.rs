@@ -133,7 +133,9 @@ fn bin(root: &Path, name: &str, args: &[String], check: bool) -> Result<(i32, St
     cmd(root, &a, check)
 }
 pub fn config(p: &Path) -> HashMap<String, String> {
-    let s = fs::read_to_string(p).unwrap_or_default();
+    config_text(&fs::read_to_string(p).unwrap_or_default())
+}
+fn config_text(s: &str) -> HashMap<String, String> {
     if !s.starts_with("---\n") {
         return HashMap::new();
     }
@@ -1792,6 +1794,10 @@ impl Batch {
             .map(|r| text(&r["パス"]).into())
             .collect();
         let declaration = re(r"(?i)^\s*(?:[-*]\s*)?(?:添付(?:ファイル)?|attachments?)\s*[:：](.*)");
+        let heading = re(
+            r"(?i)^[ \t]{0,3}#{1,6}[ \t]+(?:添付(?:ファイル)?|attachments?)(?:[ \t]+#+)?[ \t]*$",
+        );
+        let bullet = re(r"^\s*[-*]\s+");
         let attachments = re(&format!(
             r#"(?:[\w. -]+/)*[^/`\[\],;:：\n]+?\.(?:{})(?:$|[\s`\],;（(])"#,
             EXT.split_whitespace().collect::<Vec<_>>().join("|")
@@ -1811,7 +1817,9 @@ impl Batch {
                 if let Some(c) = declaration.captures(line) {
                     in_attachment = true;
                     lines.push(c[1].to_string());
-                } else if in_attachment && re(r"^\s*[-*]\s+").is_match(line) {
+                } else if heading.is_match(line) {
+                    in_attachment = true;
+                } else if in_attachment && bullet.is_match(line) {
                     lines.push(line.to_string());
                 } else if !line.trim().is_empty() {
                     in_attachment = false;
@@ -3681,10 +3689,48 @@ impl Batch {
             .join("\n");
         write(&self.result, out + "\n")
     }
+    fn protect_derived_sources(&self, drops: &BTreeMap<String, String>) -> Result<()> {
+        if drops.is_empty() || !self.sources.try_exists()? {
+            return Ok(());
+        }
+        let sources_to_drop: BTreeMap<_, _> = drops
+            .keys()
+            .map(|p| Ok((self.source(p)?, p)))
+            .collect::<Result<_>>()?;
+        let mut references = Vec::new();
+        for entry in WalkDir::new(&self.sources).sort_by_file_name() {
+            let entry = entry?;
+            let path = entry.path();
+            if !entry.file_type().is_file() || sources_to_drop.contains_key(path) {
+                continue;
+            }
+            let relative = rel(&self.sources, path);
+            let Some(child) = relative.strip_suffix(".md") else {
+                continue;
+            };
+            let cfg = config_text(&read(path)?);
+            if let Some(parent) = cfg.get("derived_from") {
+                let parent = parent.trim_matches(['"', '\'']);
+                if let Some(dropped) =
+                    sources_to_drop.get(&self.sources.join(format!("{parent}.md")))
+                {
+                    references.push(format!("{child} → {dropped}"));
+                }
+            }
+        }
+        if !references.is_empty() {
+            bail!(
+                "破棄対象を derived_from で参照する原稿が残る: {}",
+                references.join(", ")
+            );
+        }
+        Ok(())
+    }
     fn finish(&self, discard: bool) -> Result<()> {
         let _batch = batch_lock(&self.root, &self.persona, &self.batch, false)?;
         self.reload_state()?;
-        let _persona = persona_lock(&self.root, &self.persona, true, true)?;
+        let removes_files = discard || !self.args.drop.is_empty();
+        let _persona = persona_lock(&self.root, &self.persona, !removes_files, true)?;
         let _repository = repository_lock(&self.root, "records")?;
         let rows = plan_rows(&self.plan)?;
         let state = self.state();
@@ -3841,6 +3887,7 @@ impl Batch {
         if drops.keys().any(|p| !allowed.contains(p)) {
             bail!("--drop はこの batch の相対パスを指定する");
         }
+        self.protect_derived_sources(&drops)?;
         for p in drops.keys() {
             remove(&safe_file(&self.folder, p)?)?;
             remove(&self.source(p)?)?;

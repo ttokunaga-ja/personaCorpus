@@ -605,6 +605,64 @@ fn stamp_separate_creator_dates_and_timezone() {
     assert!(String::from_utf8_lossy(&xmp.content).contains("2026-02-01T12:00:00Z"));
 }
 #[test]
+fn stamp_checks_created_abbreviation_against_persona_timezone() {
+    let work = tempfile::tempdir().unwrap();
+    stamp_office_fixture(work.path());
+    let path = work.path().join("report.docx");
+    let args = [
+        "stamp",
+        string(&path),
+        "--author",
+        "Daniel Jennings",
+        "--modified-by",
+        "Matthew Pickering",
+        "--date",
+        "2026-07-14 09:35",
+        "--timezone",
+        "Europe/London",
+        "--created",
+    ];
+    let stamp = |created: &str| {
+        Command::new(env!("CARGO_BIN_EXE_corpus"))
+            .args(args)
+            .arg(created)
+            .output()
+            .unwrap()
+    };
+    let out = stamp("2026-07-13 16:42 BST");
+    assert!(
+        out.status.success(),
+        "{}",
+        String::from_utf8_lossy(&out.stderr)
+    );
+    assert_eq!(property(&path, "created"), "2026-07-13T15:42:00Z");
+    assert_eq!(property(&path, "modified"), "2026-07-14T08:35:00Z");
+
+    let out = stamp("2026-01-13T16:42:15 GMT");
+    assert!(
+        out.status.success(),
+        "{}",
+        String::from_utf8_lossy(&out.stderr)
+    );
+    assert_eq!(property(&path, "created"), "2026-01-13T16:42:15Z");
+
+    let bytes = fs::read(&path).unwrap();
+    for created in [
+        "2026-01-13 16:42 BST", // In London, July is BST and January is GMT.
+        "2026-07-13 16:42 UTC",
+        "2025-10-26 01:30 BST", // Repeated local time.
+        "2026-03-29 01:30 BST", // Skipped local time.
+        "2026-07-13 16:42 BST extra",
+        "2026-07-13 16:42 BS",
+    ] {
+        let out = stamp(created);
+        assert!(!out.status.success(), "{created}");
+        let stderr = String::from_utf8_lossy(&out.stderr);
+        assert!(stderr.contains(created), "{stderr}");
+        assert_eq!(fs::read(&path).unwrap(), bytes);
+    }
+}
+#[test]
 fn stamp_pdf_properties_xmp_and_content() {
     let work = tempfile::tempdir().unwrap();
     let path = work.path().join("report.pdf");

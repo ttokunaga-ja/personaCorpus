@@ -1287,8 +1287,79 @@ struct Inspection {
     issues: BTreeMap<String, String>,
     digest: Option<Vec<u8>>,
     grams: BTreeSet<u64>,
+    measurements: Option<CsvMeasurements>,
     skipped: Vec<String>,
 }
+
+struct CsvMeasurements {
+    header: csv::StringRecord,
+    columns: Vec<Option<BTreeMap<u64, usize>>>,
+}
+
+impl CsvMeasurements {
+    fn parse(text: &str) -> Option<Self> {
+        let mut reader = csv::Reader::from_reader(text.as_bytes());
+        let header = reader.headers().ok()?.clone();
+        let unit = re(r"(?:_(?:mm|cm|m)|\((?:mm|cm|m)\))$");
+        let mut columns = header
+            .iter()
+            .map(|name| unit.is_match(&normalized(name.trim())).then(BTreeMap::new))
+            .collect::<Vec<_>>();
+        if columns.iter().all(Option::is_none) {
+            return None;
+        }
+        // Require decimal readings in every row of a unit-labelled length column.
+        let decimal = re(r"^[+-]?[0-9]+\.[0-9]+$");
+        for row in reader.records() {
+            let row = row.ok()?;
+            for (column, cell) in columns.iter_mut().zip(row.iter()) {
+                let Some(readings) = column else {
+                    continue;
+                };
+                let cell = cell.trim();
+                if let Some(value) = cell
+                    .parse::<f64>()
+                    .ok()
+                    .filter(|v| v.is_finite() && decimal.is_match(cell))
+                {
+                    // Match signed zero and alternate decimal spellings.
+                    *readings.entry((value + 0.0).to_bits()).or_default() += 1;
+                } else {
+                    *column = None;
+                }
+            }
+        }
+        Some(Self { header, columns })
+    }
+
+    fn differs_from(&self, other: &Self) -> bool {
+        self.header == other.header
+            && self.columns.iter().zip(&other.columns).any(|(a, b)| {
+                let (Some(a), Some(b)) = (a, b) else {
+                    return false;
+                };
+                let rows = a.values().sum::<usize>();
+                if a.len() < 5 || b.len() < 5 || rows != b.values().sum::<usize>() {
+                    return false;
+                }
+                // Require changed frequencies for several values on both sides.
+                // Replacing a single repeated value can change most rows at once.
+                let mut common = 0;
+                let mut excess_a = 0;
+                for (value, &count) in a {
+                    let other_count = b.get(value).copied().unwrap_or(0);
+                    common += count.min(other_count);
+                    excess_a += usize::from(count > other_count);
+                }
+                let excess_b = b
+                    .iter()
+                    .filter(|(value, count)| a.get(value).is_none_or(|other| other < *count))
+                    .count();
+                5 * common < 4 * rows && excess_a >= 2 && excess_b >= 2
+            })
+    }
+}
+
 fn fail(r: &mut Inspection, k: &str, v: impl ToString) {
     r.issues
         .entry(k.into())
@@ -1480,6 +1551,9 @@ fn inspect(
                 fail(&mut r, "mtime", "outside persona period (UTC)")
             }
         }
+        if ext == "csv" {
+            r.measurements = CsvMeasurements::parse(&text);
+        }
         let normalized = re(r"\d+")
             .replace_all(&text.case_fold().collect::<String>(), "0")
             .into_owned();
@@ -1523,7 +1597,12 @@ fn duplicates(results: &mut [Inspection], related: &BTreeMap<String, BTreeSet<St
                                 .is_some_and(|v| v.contains(&results[j].rel))
                                 || related
                                     .get(&results[j].rel)
-                                    .is_some_and(|v| v.contains(&results[i].rel))))
+                                    .is_some_and(|v| v.contains(&results[i].rel))
+                                || results[i]
+                                    .measurements
+                                    .as_ref()
+                                    .zip(results[j].measurements.as_ref())
+                                    .is_some_and(|(a, b)| a.differs_from(b))))
                 }) {
                     let value = format!("{reason}: {}", results[j].rel);
                     fail(&mut results[i], "duplicate", value);

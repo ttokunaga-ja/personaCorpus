@@ -618,6 +618,77 @@ fn duplicates_exact_normalized_japanese_relations_and_siblings() {
     );
 }
 #[test]
+fn duplicates_distinguishes_measurement_runs_with_the_same_csv_layout() {
+    let f = Fixture::new();
+    let readings = |day, lot, heights: &[&str]| {
+        let mut csv = String::from("測定日時,製造ロット,個体,機器,高さ_mm\n");
+        for (i, height) in heights.iter().enumerate() {
+            csv.push_str(&format!(
+                "2026-09-{day:02} 09:{i:02},BR{lot},{:03},HG-02,{height}\n",
+                i + 1
+            ));
+        }
+        csv
+    };
+    let first = readings(7, 260902, &["24.05", "24.03", "24.02", "24.01", "24.08"]);
+    let second = readings(9, 260907, &["24.01", "24.07", "23.98", "24.05", "24.03"]);
+    f.put("first.csv", &first);
+    f.put("second.csv", &second);
+    assert!(duplicate_map(&f).is_empty());
+
+    let repeat_with_new_ids = readings(11, 260909, &["24.050", "24.03", "24.02", "24.01", "24.08"]);
+    f.put("repeat.csv", &repeat_with_new_ids);
+    let duplicates = duplicate_map(&f);
+    assert!(duplicates["first.csv"].ends_with("repeat.csv"));
+    assert!(duplicates["repeat.csv"].ends_with("first.csv"));
+    assert!(!duplicates.contains_key("second.csv"));
+
+    let reordered = readings(12, 260910, &["24.08", "24.02", "24.01", "24.05", "24.03"]);
+    f.put("reordered.csv", &reordered);
+    assert!(duplicate_map(&f)["reordered.csv"].ends_with("first.csv"));
+
+    let edited = readings(13, 260911, &["24.01", "24.07", "23.97", "24.05", "24.03"]);
+    f.put("edited.csv", &edited);
+    let duplicates = duplicate_map(&f);
+    assert!(duplicates["edited.csv"].ends_with("second.csv"));
+
+    f.put("copy.csv", &second);
+    assert!(duplicate_map(&f)["second.csv"].contains("identical bytes"));
+
+    for (first, second) in [
+        (vec!["24.00"; 10], vec!["24.01"; 10]),
+        (
+            [vec!["24.00"; 6], vec!["24.03", "24.05", "24.07", "24.08"]].concat(),
+            [vec!["24.01"; 6], vec!["24.03", "24.05", "24.07", "24.08"]].concat(),
+        ),
+    ] {
+        let f = Fixture::new();
+        f.put("first.csv", &readings(7, 260902, &first));
+        f.put("second.csv", &readings(9, 260907, &second));
+        let duplicates = duplicate_map(&f);
+        assert_eq!(duplicates.len(), 2, "{first:?} and {second:?}");
+        assert!(duplicates["first.csv"].ends_with("second.csv"));
+        assert!(duplicates["second.csv"].ends_with("first.csv"));
+    }
+}
+
+#[test]
+fn duplicates_keeps_number_normalization_for_non_measurement_csv() {
+    let f = Fixture::new();
+    f.put(
+        "first.csv",
+        "日付,品番,版,処理\n2026-09-07,AB-001,1.20,取消分確認\n2026-09-07,AB-002,1.21,在庫分確認\n",
+    );
+    f.put(
+        "second.csv",
+        "日付,品番,版,処理\n2026-09-08,AB-003,2.01,取消分確認\n2026-09-08,AB-004,2.02,在庫分確認\n",
+    );
+    let duplicates = duplicate_map(&f);
+    assert!(duplicates["first.csv"].ends_with("second.csv"));
+    assert!(duplicates["second.csv"].ends_with("first.csv"));
+}
+
+#[test]
 fn duplicate_prefix_join_matches_bruteforce() {
     use rand::{Rng, SeedableRng, seq::SliceRandom};
     let f = Fixture::new();

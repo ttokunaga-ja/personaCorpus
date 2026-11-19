@@ -1,5 +1,6 @@
 use anyhow::{Context, Result, bail, ensure};
 use chrono::{DateTime, Datelike, FixedOffset, NaiveDate, NaiveDateTime, TimeZone, Timelike, Utc};
+use chrono_tz::OffsetName;
 use clap::Parser;
 use image::{GenericImageView, ImageEncoder};
 use lopdf::{Document, Object, Stream, dictionary};
@@ -907,26 +908,47 @@ fn tool_regex() -> Regex {
     Regex::new(r"(?i)python|openpyxl|reportlab|pypdf|pillow|matplotlib|codex|chatgpt|openai|imagegen|(?:lua|pdf|xe)?latex|(?:lua|pdf|xe)tex|tesseract|ghostscript|libreoffice|/Users/|/home/|/tmp/|scratch/").unwrap()
 }
 fn timestamp(value: &str, zone: &str) -> Result<DateTime<FixedOffset>> {
-    if let Ok(t) = DateTime::parse_from_rfc3339(&value.replace(' ', "T")) {
+    if let Ok(t) = DateTime::parse_from_rfc3339(value) {
         return Ok(t);
     }
+    let (local, abbreviation) = match value.rsplit_once(' ') {
+        Some((local, suffix))
+            if !suffix.is_empty() && suffix.bytes().all(|c| c.is_ascii_alphabetic()) =>
+        {
+            (local, Some(suffix))
+        }
+        _ => (value, None),
+    };
     let naive = if value.len() == 10 {
         NaiveDate::parse_from_str(value, "%Y-%m-%d")?
             .and_hms_opt(12, 0, 0)
             .unwrap()
     } else {
-        let value = value.replace('T', " ");
-        ["%Y-%m-%d %H:%M:%S", "%Y-%m-%d %H:%M"]
-            .iter()
-            .find_map(|f| NaiveDateTime::parse_from_str(&value, f).ok())
-            .with_context(|| format!("invalid date: {value}"))?
+        [
+            "%Y-%m-%d %H:%M:%S",
+            "%Y-%m-%d %H:%M",
+            "%Y-%m-%dT%H:%M:%S",
+            "%Y-%m-%dT%H:%M",
+        ]
+        .iter()
+        .find_map(|f| NaiveDateTime::parse_from_str(local, f).ok())
+        .with_context(|| format!("invalid date: {value}"))?
     };
     let timezone: chrono_tz::Tz = zone.parse().context("invalid timezone")?;
-    Ok(timezone
-        .from_local_datetime(&naive)
-        .earliest()
-        .context("invalid local time")?
-        .fixed_offset())
+    let local = timezone.from_local_datetime(&naive);
+    let date = if let Some(abbreviation) = abbreviation {
+        let date = local
+            .single()
+            .with_context(|| format!("invalid or ambiguous local time in {zone}: {value}"))?;
+        ensure!(
+            date.offset().abbreviation() == Some(abbreviation),
+            "timezone abbreviation does not match {zone}: {value}"
+        );
+        date
+    } else {
+        local.earliest().context("invalid local time")?
+    };
+    Ok(date.fixed_offset())
 }
 fn iso(date: DateTime<FixedOffset>) -> String {
     date.with_timezone(&Utc)
