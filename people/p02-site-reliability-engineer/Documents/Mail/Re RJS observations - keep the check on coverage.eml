@@ -1,0 +1,41 @@
+From: Patrick Sutcliffe <patrick@rjs-storage.example>
+To: Daniel Jennings <daniel@brt-booking.example>,
+ Sanjay Mehta <sanjay@brt-booking.example>
+Date: Tue, 20 Aug 2024 09:17:00 +0100
+Subject: Re: 19 August ticket archive witness notes
+Message-ID: <17fdc12d-07fd-47c4-b187-95b46ae51213@rjs-storage.example>
+In-Reply-To: <f62c374e-758c-48a7-98f3-50b58687c802@brt-booking.example>
+References: <e7aa4e94-bcad-4b9c-bc44-c54e427508a6@rjs-storage.example>
+ <f62c374e-758c-48a7-98f3-50b58687c802@brt-booking.example>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Hi Daniel and Sanjay,
+
+Yes, I'll review the capture interval with Sanjay, including whether a shorte=
+r interval leaves enough room for a set to be complete by the reference. The =
+readings in the witness record do not by themselves tell us why the point mis=
+sed the limit, so I would keep that question open for now.
+
+For a like-for-like repeat, please retain the fixed reference, the coverage m=
+arker and the completion timestamp separately, along with the evidence that t=
+he set was complete by the reference and could be read back. Select the lates=
+t complete eligible set and compare its coverage point with the same 15-minut=
+e limit. The completion time establishes eligibility; it should not be substi=
+tuted for coverage in the age calculation. We can then compare the observatio=
+ns before drawing a conclusion about the interval.
+
+Regards,
+Patrick
+
+Patrick Sutcliffe
+RJS Data Storage Ltd
+
+On 19 August 2024 at 14:04 BST, Daniel Jennings wrote:
+
+> Could you review with Sanjay whether a shorter capture interval would leave=
+ enough room for the completed-set check before the 15-minute boundary? The r=
+eadings themselves do not establish why we missed the limit. What evidence wo=
+uld RJS want us to retain for a like-for-like repeat against the same referen=
+ce and limit?

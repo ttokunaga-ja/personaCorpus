@@ -34,7 +34,7 @@
 
 \newcommand{\PalmerReport}[5]{%
   \hypersetup{pdftitle={#1},pdfauthor={#4}}%
-  {\color{PalmerPlum}\bfseries\fontsize{28}{33}\selectfont #1\par}%
+  {\raggedright\color{PalmerPlum}\bfseries\fontsize{26}{31}\selectfont #1\par}%
   \vspace{5pt}%
   \begingroup
     \setlength{\fboxsep}{8pt}%

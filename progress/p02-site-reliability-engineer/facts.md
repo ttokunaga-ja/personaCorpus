@@ -105,3 +105,26 @@
 - Compared with October, the four intervals shrink by 1, 10, 3 and 2 minutes. The decision wait accounts for 10 of the 16 minutes saved; the cause of the other six minutes is unresolved.
 - Daniel's comparison deck is BRT-RB-20260120-001. Daniel, Emma and Anjali meet at 14:00 UTC. Daniel's BRT-MT-20260120-001 and its PDF export retain one decision owner for the next rehearsal, assign Daniel to file the two runs separately that day and assign Andrew to recheck his access before the next run.
 - Standalone mail, GMT: 19 January 14:12 “Tuesday Identity repeat - preflight clear”, Daniel → Emma, Andrew and Carys; 20 January 15:46 “January Identity exercise readout and interval extract”, Daniel → Anjali and Emma, Cc Andrew and Carys, attaches January exercise readout decisions.pdf and 20 January Identity recovery timings.csv.
+
+## Ticket archive recovery check with RJS, 19–20 August 2024
+
+- The 19 August check used an isolated exercise archive. Daniel Jennings and Sanjay Mehta read back the clocks with Patrick Sutcliffe of RJS Data Storage Ltd at 10:18 UTC. The fixed reference was 10:00 UTC.
+- The latest complete eligible set covered through 09:38 UTC and finished writing at 09:44 UTC. Eligibility requires the set to be complete by the reference; age is reference minus coverage: 22 minutes, seven over the inclusive 15-minute limit. The abandoned completion-clock calculation was 16 minutes. Neither calculation represents time spent restoring.
+- Patrick issued RJS-WS-20240819-001 on 19 August for Daniel and Sanjay. The witness observations support the clock readings and the missed target. The record leaves the cause of the miss open.
+- “19 August ticket archive witness notes” thread, BST: (1) 19 August 13:23 Patrick → Daniel and Sanjay, attaches RJS 19 August archive witness observations.pdf; (2) 19 August 14:04 Daniel → Patrick, Cc Sanjay, quotes (1) and attaches 19 August archive timestamp correspondence.csv.
+- (3) 20 August 09:17 Patrick → Daniel and Sanjay, quotes (2), no new attachment. Both replies use “Re: 19 August ticket archive witness notes”. Patrick's address is `patrick@rjs-storage.example`.
+- Daniel's BRT-MT-20240820-001 is the 20 August 12:00 UTC review with Sanjay and Anjali and has a same-number PDF. Anjali keeps the miss open, Sanjay and Patrick take the interval review, and Daniel retains both clock readings and the original evidence for a comparable repeat.
+
+## Ticket archive recovery repeat, 11 May 2026
+
+- Daniel and Sanjay kept the 10:00 UTC reference and inclusive 15-minute limit. At 08:10 UTC Sanjay confirmed a 10-minute capture schedule in the isolated exercise environment, a separate coverage marker and an isolated restored copy.
+- The eligible set covered through 09:51 UTC and finished writing at 09:55 UTC. Daniel and Sanjay confirmed it at 10:16 UTC. Its age was nine minutes, six inside the limit and 13 minutes younger than the August observation.
+- Daniel issued BRT-RP-20260511-001 on 11 May for the two comparable checks. The maximum observed age was 22 minutes. The repeat demonstrates one pass under the exercise conditions. The evidence establishes neither a universal bound nor the cause of the difference between the runs.
+- Standalone mail “May archive check for the wording review”, 11 May 13:10 BST, Daniel → Claire Hutchinson, Cc Sanjay, attaches 11 May evidence for the wording review.csv. The attached extract is internal.
+- Daniel, Sanjay, Claire and Anjali met at 13:15 UTC on 11 May (BRT-MT-20260511-001, same number on the PDF). Anjali accepted the exercise result. Daniel files both runs, Sanjay retains the comparison conditions and Claire issues the updated evidence-bound wording.
+
+## Westbury ticket archive recovery guidance, 11 May 2026
+
+- Claire's BRT-CU-20260511-001 is dated 11 May in v0.1 (draft and Daniel's commented copy) and v1.0 (issued DOCX and same-version PDF). Daniel's comment at 14:00 BST flags the draft phrase “within nine minutes of recovery”.
+- The approved wording describes records covered through 09:51 UTC at the 10:00 UTC exercise reference. The 09:52 UTC example requires a separate check with Support. Nine minutes describes the age of the point, and 15 minutes is the target for the exercise.
+- Standalone mail “Ticket archive recovery guidance for Westbury”, 11 May 15:37 BST, Claire → Stephen Cartledge, Cc Daniel, attaches Ticket archive recovery guidance.pdf. Claire uses `claire@brt-booking.example` and Stephen uses `stephen@westbury-coach.example`.

@@ -1,0 +1,11 @@
+19 August — Daniel / Sanjay; Patrick on call
+Exercise archive; reference fixed at 10:00 UTC.
+
+First number I wrote: set finished 09:44 UTC.
+10:00 - 09:44 = 16 minutes — no, this is completion, not coverage.
+
+Sanjay read the marker: coverage through 09:38 UTC. Patrick checked what the marker represents. The set finished writing at 09:44 UTC, before the reference; keep both times.
+
+10:00 - 09:38 = 22 minutes. Limit 15 minutes inclusive; seven minutes over.
+
+10:18 UTC — Sanjay, Patrick and I read the entries back and agreed the completed set is usable for this exercise. The coverage point is the one to compare. The 22 minutes is the age of that point at the reference, not the duration of the restore. Keep the miss open and ask about the capture interval; the clocks alone do not establish why we missed.

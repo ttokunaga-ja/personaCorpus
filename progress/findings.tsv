@@ -2511,3 +2511,14 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-19	p19-educator-instructional-designer	b005	check	0	source	Google Drive/My Drive/Teaching/条件を読む仕事術/Previous/Equipment loans - January reading packet.pdf	body token overlap 0.498 < 0.5
 2026-11-19	p19-educator-instructional-designer	b005	check	1	source	Google Drive/My Drive/Teaching/条件を読む仕事術/Previous/Equipment loans - January reading packet.pdf	body token overlap 0.498 < 0.5
 2026-11-19	p19-educator-instructional-designer	b005	check	2	source	Google Drive/My Drive/Teaching/条件を読む仕事術/Previous/Equipment loans - January reading packet.pdf	body token overlap 0.498 < 0.5
+2026-11-19	p12-support-success-lead	b009	templates-review	0	other	README.md	116行目が案内するscratch/p12-support-success-lead/b008/work/templates-0002/のsamples/とrender/がともに存在せず、118〜131行目の見本とページ画像へたどれない。
+2026-11-19	p12-support-success-lead	b009	draft-review	0	D4	Documents/顧客会議/石狩事務機/0615_分類別の集計.xlsx	F7と末尾の注記は保存してから開き直すことを判定条件としているが、修理の再試行1人は保存せずに戻り、開き直した値で不一致と判定された札11であり、記載の条件ではその1人を数えられない。
+2026-11-19	p12-support-success-lead	b009	draft-review	0	D4	Documents/顧客会議/石狩事務機/0615_酒井さんの講評.docx	「現在の状況」の「それぞれ保存して開き直した」は、再試行で修理を選んだ後に保存せず、開き直すと消耗品が残ったという台帳と酒井のメモに反し、「約束」にも引渡しに必要なその操作経過と確認すべき表示がない。
+2026-11-19	p12-support-success-lead	b009	draft-review	0	D3	Documents/顧客会議/石狩事務機/大野さん経由で渡す_修理の個別確認.docx	「約束」の6月23日正午は初回確認の期限としてだけ記され、「次の行動」の結果・未実施の返信には期限がなく、台帳で同日正午までとされた結果連絡の締切を担当者が読み取れない。
+2026-11-19	p12-support-success-lead	b009	build-review	0	V2	Documents/顧客会議/石狩事務機/15日の進行_分類を2回見る.docx	1ページ目の進行表はTableGridで、見出し「時刻・内容・担当」が白地に黒字で表示される。型のTS TableとTS Table Headerおよび見本の紫地・白字を適用しておらず、文書番号・版・作成日・作成者の段落もTS Metadataが未適用。
+2026-11-19	p12-support-success-lead	b009	build-review	0	V2	Documents/顧客会議/石狩事務機/分類演習_件名から入る案.pptx	全5枚の右下に、型のREADMEと5レイアウトの見本が指定するスライド番号1〜5がない。
+2026-11-19	p12-support-success-lead	b009	build-review	0	V1	Pictures/開き直して6113は請求になった.png	保存前から同じ受付6113を開き直した画面として、製品ヘッダが「灯枝サービス 問い合わせ管理」から「受付管理」に変わり、保存ボタンもカード右上から右下に移っている。候補一覧を閉じた状態と2か所の囲みは原稿どおりだが、前後で同じ個別受付画面の表示を再現できていない。
+2026-11-19	p12-support-success-lead	b009	build-review	0	V2	Documents/顧客会議/石狩事務機/分類演習_15日に映した版.pptx	スライド2「割り当てられた受付で考える」の初回手順4項目は、原稿指定の「題と箇条書き」の本文欄を使わず、行頭記号のないテキスト枠で表示されている。
+2026-11-19	p12-support-success-lead	b009	build-review	0	V3	Documents/顧客会議/石狩事務機/0615_分類別の集計.xlsx	1ページ目のA10:F10の結合注記で、末尾「宛先誤りは対象外。」の句点「。」だけが次の行の先頭に送られている。
+2026-11-19	p12-support-success-lead	b009	build-review	1	V2	Documents/顧客会議/石狩事務機/15日の進行_分類を2回見る.docx	1ページ目の進行表はTS Table、文書番号・版・作成日・作成者はTS Metadataになったが、見出し3セル「時刻・内容・担当」はTS Table Bodyに白字を直接指定しており、型と見本のTS Table Headerが適用されず太字になっていない。
+2026-11-19	p02-site-reliability-engineer	b005	coordinator	0	other	Documents/Mail/RJS observations from the 19 August archive check.eml	統括の抜き取りで不合格

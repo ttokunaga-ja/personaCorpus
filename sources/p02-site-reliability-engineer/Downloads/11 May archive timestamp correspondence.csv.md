@@ -1,0 +1,15 @@
+---
+path: Downloads/11 May archive timestamp correspondence.csv
+kind: text
+author: Sanjay Mehta
+derived_from:
+---
+
+```csv
+role,timestamp_utc,evidence_label,eligibility,calculation_role
+preflight,2026-05-11 08:10 UTC,"10-minute exercise schedule; separate coverage marker; isolated restored copy",setup checked,not used in subtraction
+coverage,2026-05-11 09:51 UTC,coverage through,complete eligible set,point subtracted from reference
+completion,2026-05-11 09:55 UTC,set finished writing,complete eligible set before reference,eligibility only
+reference,2026-05-11 10:00 UTC,fixed comparison reference,complete set required by this time,reference for subtraction
+readback,2026-05-11 10:16 UTC,Daniel and Sanjay confirm coverage and completion belong to same set,complete eligible set confirmed,confirmation only
+```
