@@ -1,6 +1,6 @@
 # 佐藤美穂子の文書の型
 
-みらい職場研修株式会社の採用・People Opsと、青山キャリア支援合同会社から届く採用支援連絡の型。通常のDOCX・XLSX・PPTXを開いて別名保存する。型には組織、見出し、書式だけを置き、事例本文、ダミーの番号・日付、空の明細、仮の合計を置かない。
+みらい職場研修株式会社の採用・People Opsと、青山キャリア支援合同会社から届く採用支援連絡と配布資料の型。通常のDOCX・XLSX・PPTXを開いて別名保存する。型には組織、見出し、書式だけを置き、事例本文、ダミーの番号・日付、空の明細、仮の合計を置かない。
 
 ## 一覧
 
@@ -14,17 +14,25 @@
 | 採用進捗報告 | 同社、佐藤から渡辺への報告 | `mirai-recruiting.pptx` | 16:9、白地に桑実色の細い左帯。開いた本のロゴと社名、下部に人事。1マスター・5レイアウト、スライド0枚 |
 | 採用確認事項PDF | 同社、佐藤。Officeを経ずに配布する短い確認事項・質問票PDF | `mirai-recruiting-note.cls` | A4縦。共通ロゴ・桑実色の題と小見出し、継続表、会社名とページ番号 |
 | 採用支援の連絡 | 青山キャリア支援、山田が送る確認事項・添付連絡 | `aoyama-recruiting-note.docx` | A4縦、表紙なし。二重の山形ロゴ、青灰色・明朝体。自社の本・桑実色は使わない |
+| 紹介経路の点検配布資料 | 青山キャリア支援、山田が紹介経路の比較条件と求人説明の確認事項を配布 | `aoyama-channel-handout.cls` | A4縦、表紙なし。右上に青灰色の二重山形と社名、細い横罫、明朝体の中央題、淡青灰の表見出し |
 
 b001は2026-08-10〜09-30の研修設計リード採用3枠を扱う。8観点の名称、不足観点、質問、経費内訳、番号の実値は計画・事実台帳・原稿で定める。
 
 2024年4月の年度人員計画（b002）では、部門要望と職務の根拠に `mirai-approval.docx` の共通書式を使い、ヘッダの用途と節見出しを「必要な職務」「開始希望月と根拠」など原稿に合わせて置き換える。開始月の固定・調整可否と人件費の照合には `mirai-expenses.xlsx` の照合表を使い、題・列名・単位を変更する。募集順の比較には `mirai-recruiting.pptx`、直接PDFにする決定時点の配布控えには `mirai-recruiting-note.cls` を使う。匿名集計はCSV、部門への回答はEMLで保存する。4月24日の判断は依頼12枠、予算内8枠、最初の募集準備は研修運営3枠と区別して記録する。
+
+### 2024年8〜12月の研修運営担当採用（b003）
+
+- 職務説明の修正稿は `mirai-approval.docx` を開き、ヘッダの用途を「職務説明」に、本文見出しを「募集の背景」「主な職務」「必須の経験と現場の調整例」「改訂と共有」など原稿に合わせて変更する。ヘッダの埋込みロゴを保持し、用途が入った run の文字を変更する。4月26日に山本から受け取った例の、代替講師・会場・受講案内の訂正順を職務に結び付ける。
+- 面接枠の割付は `mirai-evaluation.xlsx` を使い、題と6行目を変更する。A〜F列を「枠順／運営上の割付／日付／開始時刻／担当部署／調整事項」（列幅17・32・20・18・22・36）とし、数値から文字へ移るB列・E列は左インデント1。日付は `MW Date`、時刻は実時刻に `MW Number` を付けて `hh:mm` に変更する。応募24件と面接6件は別段階として記録し、選考終了者の個票や氏名を増やさない。
+- 歩留まり比較は `mirai-expenses.xlsx` を使い、A〜F列を「経路／応募（件）／書類通過（件）／書類通過率／入社（件）／入社率」（列幅35・21・23・22・21・23）に変更する。件数は `MW Number`、率は同書式で `0%` など原稿の精度を指定。原稿が同じ母集団の応募を分母とする場合はD列を `=IF(B7=0,"",C7/B7)`、F列を `=IF(B7=0,"",E7/B7)` のように作り、全経路の率も集計した分子・分母から求める。注記に集計期間・対象4経路・率ごとの分母を明記する。10月25日の書類通過38%・入社6%の件数と対象期間は原稿に従う。運営職の応募24件は別の集計対象。
+- 山田の10月25日配布資料は `aoyama-channel-handout.cls` で直接PDF化しDownloadsに置く。照会と回答はEML、匿名流入の元集計はCSV。12月12日の山本向け説明は `mirai-recruiting.pptx` で、承諾2人・繰延べ1枠と年内の引継ぎを示す。
 
 ## 共通の意匠と管理
 
 - 178人の研修会社として、小さな「開いた本」の図形と社名を使う。本の左ページは桑実色 `963A65`、右ページは灰緑 `7B8270`。本文は墨 `34383C`、白地、合計の淡色は桑実色の濃淡 `F5EDF1`。Word・Excelの図形は埋込みPNG、PowerPointはネイティブ図形、TeXはTikZ。外部画像リンクはない。
 - Officeの日本語・欧文はともに **Noto Sans CJK JP**。WordのNormal、見出し、表、テーマ、Excelの既定フォント・入力欄・名前付き書式、PowerPointのテーマとプレースホルダに実設定する。TeXの日本語も同フォント、欧文は環境にある **Liberation Sans**。本文色はTeXでも文書開始時に適用する。
 - 自社文書番号は `MW-HR-YYYYMM-用途-連番3桁`。用途は `APR`（承認）、`INT`（面接・追加質問）、`NOT`（案内）、`EVA`（評価表）、`EXP`（経費）、`BRF`（報告スライド）、`REC`（確認事項PDF）。同文書の改版・Office由来PDFは同番号で版を区別する。実値は計画と事実台帳で決める。番号を持たない私的メモ・保存メールには付けない。
-- 青山キャリア支援の番号は `AY-CS-YYYYMM-NOT-連番3桁`。日本語・欧文とも **Noto Serif CJK JP**、青灰色 `486477` と墨 `34383C`、白地。山形2本と社名。相手の発信文書に自社番号を追加しない。
+- 青山キャリア支援の番号は `AY-CS-YYYYMM-NOT-連番3桁`（連絡）、`AY-CS-YYYYMM-BRF-連番3桁`（配布資料）。Wordは日本語・欧文とも **Noto Serif CJK JP**。TeXは日本語 **Noto Serif CJK JP**、欧文 **Liberation Serif**。青灰色 `486477` と墨 `34383C`、白地。山形2本と社名。配布資料の表見出しは青灰色の淡色 `EAF0F3`。相手の発信文書に自社番号を追加しない。
 - Office型の作者・最終更新者は自社が佐藤美穂子、青山が山田修二、基準日時は2026-08-10。成果物では原稿の実際の人物・日時へ設定し直す。
 - p03、p05、p12、p14のREADME、およびp03・p12のWord実物のヘッダ、スタイル、埋込みロゴを比較した。封筒と配送矢印／赤茶、織り目／藍、枝と灯／紫、木材／深緑と区別し、本のロゴ・桑実色・PPTの左帯とした。他personaは変更していない。
 
@@ -82,15 +90,30 @@ b001は2026-08-10〜09-30の研修設計リード採用3枠を扱う。8観点�
 
 直接PDFを作る質問票・確認事項・決定時点の配布控えに使う。Office由来のPDFはOfficeから変換する。
 
+青山の直接配布PDFは同じ `TEXINPUTS` で `\documentclass{aoyama-channel-handout}` を指定する。`\AYHeading{題}{資料番号}{版}{発行日}{作成者}`、`\AYSection{見出し}`、`\AYNote{注記}` を使う。A4縦・左右25mm、上31mm、下25mm。表が必要な場合は `\begin{AYTable}{@{}rp{40mm}p{90mm}@{}}` を使い、見出し行頭に `\AYHeader`、行末の `\\` の後に `\endhead` を置く。本文幅160mm以内で列幅を決め、右寄せ数値列と左寄せ文字列の間の既定余白を維持する。原稿に従い資料番号・版・発行日・作成者を埋め、`bin/render` で全ページを確認する。
+
 ## 型を使わない記録
 
-山田とのメールはEMLで送受信ヘッダ・本文・引用・実添付を保つ。添付がある計画の場合だけ青山のWord型を使い、メール本文を自動的に添付文書へ変えない。他の社外組織の型は今回追加しない。候補者連絡の`_未送信`旧案は送信済みと区別し、私用連絡先を加えない。佐藤の面接準備メモは無装飾のTXT・Markdown、CSVは素の表データとして作る。ロゴ・文書番号を全ファイルへ強制しない。
+山田とのメールはEMLで送受信ヘッダ・本文・引用・実添付を保つ。青山がWord形式で発行した添付には同社のWord型、直接配布したPDFには同社のTeX型を使う。メール本文はEMLに保存する。他の社外組織の型は今回追加しない。候補者連絡の`_未送信`旧案は送信済みと区別し、私用連絡先を加えない。佐藤の面接準備メモは無装飾のTXT・Markdown、CSVは素の表データとして作る。ロゴ・文書番号を全ファイルへ強制しない。
 
 ## 今回の見本と確認先
 
-作業フォルダは `scratch/p15-recruiter-people-ops/b002/work/templates-0002/`。以下の参照先はこのフォルダを基準とする。管理欄には `MW-HR-202404-REC-001`、版1.0、2024-04-24、佐藤 美穂子を入れた。番号と明細は組版確認用。
+作業フォルダは `scratch/p15-recruiter-people-ops/b003/work/templates-0002/`。以下のパスはこのフォルダを基準とする。見本の番号・日付・明細は書式確認用。歩留まり比較の件数や面接枠の時刻には、印刷確認用の値を使った。
 
-| 型 | TeX入力 | PDF | 全ページの画像 |
-|---|---|---|---|
-| mirai-recruiting-note.cls（3行） | `examples/staffing-table-3.tex` | `examples/staffing-table-3.pdf` | `render/staffing-table-3/` |
-| mirai-recruiting-note.cls（50行） | `examples/staffing-table-50.tex` | `examples/staffing-table-50.pdf` | `render/staffing-table-50/` |
+| 型／確認内容 | 見本 | 全ページの画像 |
+|---|---|---|
+| 職務説明（mirai-approval.docx） | `examples/mirai-approval.docx` | `render/mirai-approval/` |
+| 面接・追加確認 | `examples/mirai-interview.docx` | `render/mirai-interview/` |
+| 候補者への案内 | `examples/mirai-notice.docx` | `render/mirai-notice/` |
+| 青山の採用支援連絡 | `examples/aoyama-recruiting-note.docx` | `render/aoyama-recruiting-note/` |
+| 評価表（3行） | `examples/mirai-evaluation-3.xlsx` | `render/mirai-evaluation-3/` |
+| 評価表（40行） | `examples/mirai-evaluation-40.xlsx` | `render/mirai-evaluation-40/` |
+| 経費表（3行） | `examples/mirai-expenses-3.xlsx` | `render/mirai-expenses-3/` |
+| 経費表（40行） | `examples/mirai-expenses-40.xlsx` | `render/mirai-expenses-40/` |
+| 面接枠の割付 | `examples/interview-allocation.xlsx` | `render/interview-allocation/` |
+| 紹介経路別の歩留まり比較 | `examples/channel-yield.xlsx` | `render/channel-yield/` |
+| 採用進捗報告（5レイアウト） | `examples/mirai-recruiting.pptx` | `render/mirai-recruiting/` |
+| みらいの確認事項（3行） | `examples/staffing-table-3.tex`、`examples/staffing-table-3.pdf` | `render/staffing-table-3/` |
+| みらいの確認事項（50行） | `examples/staffing-table-50.tex`、`examples/staffing-table-50.pdf` | `render/staffing-table-50/` |
+| 青山の配布資料（4行） | `examples/aoyama-channel-4.tex`、`examples/aoyama-channel-4.pdf` | `render/aoyama-channel-4/` |
+| 青山の配布資料（50行） | `examples/aoyama-channel-50.tex`、`examples/aoyama-channel-50.pdf` | `render/aoyama-channel-50/` |
