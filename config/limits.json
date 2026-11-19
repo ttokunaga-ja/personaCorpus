@@ -1,4 +1,6 @@
 {
   "max_codex": 32,
-  "max_batches_per_persona": 3
+  "max_batches_per_persona": 3,
+  "milestone": 300,
+  "max_active_personas": 4
 }

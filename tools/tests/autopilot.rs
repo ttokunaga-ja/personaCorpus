@@ -1131,3 +1131,105 @@ fn rebuild_after_audit_requires_a_new_audit() {
     assert!(f.jobs().get("p01-b001-audit-r2").is_some());
     assert_eq!(f.called("batch", "accept"), 0);
 }
+
+fn brief_context(f: &Fixture, job: &str) -> Value {
+    let brief =
+        fs::read_to_string(f.r.join(format!("scratch/autopilot/jobs/{job}/brief.md"))).unwrap();
+    serde_json::from_str(brief.rsplit("AUTOPILOT_CONTEXT\n").next().unwrap().trim()).unwrap()
+}
+
+#[test]
+fn a_used_up_roadmap_is_extended_and_must_keep_its_rows() {
+    let f = Fixture::new();
+    f.roadmap(Some(
+        "| b001 | 月次締め | 30 | 重点 | 内容 | 回避 | 受入済み b001 |\n",
+    ));
+    fs::write(
+        f.r.join("manifests/p01-test.tsv"),
+        "x\thash\t1\tdate\n".repeat(10),
+    )
+    .unwrap();
+    f.once();
+    assert!(f.jobs().get("p01-roadmap").is_some(), "{:?}", f.jobs());
+    let context = brief_context(&f, "p01-roadmap");
+    assert_eq!(context["target"], 30);
+    assert_eq!(context["accepted"], 10);
+    assert!(
+        f.r.join("scratch/autopilot/jobs/p01-roadmap/previous.md")
+            .exists()
+    );
+    // A rewrite that loses the finished row is rejected.
+    f.roadmap(Some("| b002 | 四半期締め | 30 | 重点 | 内容 | 回避 | |\n"));
+    f.job("p01-roadmap", "done");
+    f.once();
+    assert!(f.jobs().get("p01-roadmap-r2").is_some());
+    assert_eq!(f.called("batch", "start"), 0);
+    f.roadmap(Some(
+        "| b001 | 月次締め | 30 | 重点 | 内容 | 回避 | 受入済み b001 |\n| b002 | 四半期締め | 30 | 重点 | 内容 | 回避 | |\n",
+    ));
+    f.job("p01-roadmap-r2", "done");
+    f.once();
+    assert_eq!(f.called("batch", "start"), 1);
+}
+
+#[test]
+fn milestones_advance_breadth_first_with_a_cap_on_active_personas() {
+    let f = Fixture::new();
+    fs::create_dir_all(f.r.join("config")).unwrap();
+    fs::write(
+        f.r.join("config/limits.json"),
+        r#"{"max_codex":32,"max_batches_per_persona":3,"milestone":30,"max_active_personas":2}"#,
+    )
+    .unwrap();
+    for (p, n) in [
+        ("p01-test", 30),
+        ("p02-test", 0),
+        ("p03-test", 5),
+        ("p04-test", 0),
+    ] {
+        fs::write(f.r.join(format!("personas/{p}.md")), "# test").unwrap();
+        fs::create_dir_all(f.r.join(format!("progress/{p}"))).unwrap();
+        fs::write(
+            f.r.join(format!("manifests/{p}.tsv")),
+            "x\thash\t1\tdate\n".repeat(n),
+        )
+        .unwrap();
+    }
+    f.cli(&["once", "--target", "90"]);
+    let jobs = f.jobs();
+    assert!(
+        jobs.get("p03-roadmap").is_some() && jobs.get("p02-roadmap").is_some(),
+        "{jobs:?}"
+    );
+    assert!(
+        jobs.get("p01-roadmap").is_none() && jobs.get("p04-roadmap").is_none(),
+        "{jobs:?}"
+    );
+    assert_eq!(brief_context(&f, "p02-roadmap")["target"], 30);
+    assert_eq!(brief_context(&f, "p02-roadmap")["final_target"], 90);
+    // Once every persona has reached the first milestone, the next one opens.
+    for p in ["p02-test", "p03-test", "p04-test"] {
+        fs::write(
+            f.r.join(format!("manifests/{p}.tsv")),
+            "x\thash\t1\tdate\n".repeat(31),
+        )
+        .unwrap();
+    }
+    for p in ["p02-test", "p03-test"] {
+        fs::write(
+            f.r.join(format!("progress/{p}/roadmap.md")),
+            format!("{HEADER}| b001 | 月次締め | 31 | 重点 | 内容 | 回避 | 受入済み b001 |\n"),
+        )
+        .unwrap();
+    }
+    f.job("p02-roadmap", "done");
+    f.job("p03-roadmap", "done");
+    f.cli(&["once", "--target", "90"]);
+    let jobs = f.jobs();
+    assert!(
+        jobs.get("p03-roadmap-r2").is_some() && jobs.get("p02-roadmap-r2").is_some(),
+        "{jobs:?}"
+    );
+    assert_eq!(brief_context(&f, "p02-roadmap-r2")["target"], 60);
+    assert!(f.cli(&["status", "--target", "90"]).contains("31/60"));
+}

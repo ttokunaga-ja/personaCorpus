@@ -350,6 +350,8 @@ struct Pilot {
     personas: Option<String>,
     target: i64,
     push_attempted: bool,
+    /// Personas that may start new work in this pass (None: all).
+    allowed: Option<BTreeSet<String>>,
     /// Set after a coordinator fix changed the tools; the loop re-executes itself.
     restart: bool,
 }
@@ -380,6 +382,7 @@ impl Pilot {
             personas,
             target,
             push_attempted: false,
+            allowed: None,
             restart: false,
         })
     }
@@ -598,15 +601,97 @@ impl Pilot {
         {
             bail!("roadmap: 範囲が空または件数が範囲外（通常30〜40、再制作1〜40）")
         }
-        if rows
+        let open: i64 = rows
             .iter()
+            .filter(|r| r.get("状態").is_empty())
             .map(|r| r.get("件数の目安").parse::<i64>().unwrap())
-            .sum::<i64>()
-            < self.target
-        {
-            bail!("roadmap: 件数の合計が目標未満")
+            .sum();
+        let need = self.goal()? - self.count(p)? as i64;
+        if need > 0 && open < need && self.active(p)?.is_empty() {
+            bail!("roadmap: 未着手の行の件数が次の区切りまでに足りない")
         }
         Ok(rows)
+    }
+    fn limits(&self) -> Result<Value> {
+        let cfg = self.root.join("config/limits.json");
+        Ok(if cfg.exists() {
+            serde_json::from_str(&read(&cfg)?)?
+        } else {
+            json!({})
+        })
+    }
+    /// The current milestone: the next multiple of `milestone` above the persona
+    /// with the fewest accepted files, capped by the final target. All personas
+    /// reach one milestone before any persona works toward the next.
+    fn goal(&self) -> Result<i64> {
+        let step = self.limits()?["milestone"].as_i64().unwrap_or(300).max(1);
+        let mut least = None::<i64>;
+        for p in self.names()? {
+            let n = self.count(&p)? as i64;
+            least = Some(least.map_or(n, |l| l.min(n)));
+        }
+        Ok(least.map_or(self.target, |l| self.target.min(step * (l / step + 1))))
+    }
+    /// Batches of the persona that are neither accepted nor discarded.
+    fn active(&self, p: &str) -> Result<BTreeSet<String>> {
+        let mut active = self.state["batches"]
+            .as_object()
+            .unwrap()
+            .iter()
+            .filter(|(k, v)| {
+                k.starts_with(&format!("{p}/")) && !v["accepted"].as_bool().unwrap_or(false)
+            })
+            .map(|(k, _)| k.split('/').next_back().unwrap().to_string())
+            .collect::<BTreeSet<_>>();
+        for (b, path) in self.states(p) {
+            let v: Value = serde_json::from_str(&read(&path)?)?;
+            if !["accepted", "discarded"].contains(&v["status"].as_str().unwrap_or("")) {
+                active.insert(b);
+            }
+        }
+        let ledger = ledger(&self.root)?;
+        active.retain(|b| {
+            !ledger.iter().any(|r| {
+                r.get("persona").map(String::as_str) == Some(p)
+                    && r.get("batch") == Some(b)
+                    && r.get("status")
+                        .is_some_and(|s| ["accepted", "discarded"].contains(&s.as_str()))
+            })
+        });
+        let pat = regex(&format!(
+            r"^{}-(b\d+)(?:-r\d+)?$",
+            regex::escape(p.split('-').next().unwrap())
+        ));
+        for (n, s) in &self.jobs {
+            if ACTIVE.contains(&s.as_str()) {
+                if let Some(c) = pat.captures(n) {
+                    active.insert(c[1].into());
+                }
+            }
+        }
+        Ok(active)
+    }
+    /// A roadmap rewrite must keep every row that already has a state.
+    fn kept(&self, name: &str, rows: &[Row]) -> Result<()> {
+        let prev = self.home.join("jobs").join(name).join("previous.md");
+        if name.is_empty() || !prev.exists() {
+            return Ok(());
+        }
+        let lost: Vec<_> = table(&prev, &ROAD, &self.root)
+            .unwrap_or_default()
+            .iter()
+            .filter(|o| !o.get("状態").is_empty())
+            .filter(|o| {
+                !rows
+                    .iter()
+                    .any(|r| r.get("範囲") == o.get("範囲") && r.get("状態") == o.get("状態"))
+            })
+            .map(|o| o.get("範囲").to_string())
+            .collect();
+        if !lost.is_empty() {
+            bail!("roadmap: 着手済みの行が消えた: {}", lost.join(", "))
+        }
+        Ok(())
     }
     fn rows(&self, p: &str, b: &str) -> Result<Vec<Row>> {
         table(
@@ -739,7 +824,7 @@ impl Pilot {
                 format!("{b}.audit")
             }
         );
-        let context = json!({"persona":p,"batch":b,"target":self.target,"scratch":work.strip_prefix(&self.root)?.to_string_lossy(),"output":output});
+        let context = json!({"persona":p,"batch":b,"target":self.goal()?,"final_target":self.target,"accepted":self.count(p)?,"scratch":work.strip_prefix(&self.root)?.to_string_lossy(),"output":output});
         let brief = work.join("brief.md");
         fs::write(
             &brief,
@@ -751,7 +836,10 @@ impl Pilot {
         let output = self.root.join(&output);
         if output.exists() {
             fs::copy(&output, work.join("previous.md"))?;
-            fs::remove_file(&output)?;
+            // An audit must be written afresh; a roadmap is extended in place.
+            if kind == "audit" {
+                fs::remove_file(&output)?;
+            }
         }
         rec["job"] = json!(name);
         rec["attempts"] = json!(rec["attempts"].as_i64().unwrap_or(0) + 1);
@@ -791,7 +879,8 @@ impl Pilot {
     }
     fn ensure_roadmap(&mut self, p: &str) -> Result<Option<Vec<Row>>> {
         let mut rec = self.state["roadmaps"].get(p).cloned().unwrap_or(json!({}));
-        let name = rec["job"].as_str().unwrap_or("");
+        let name = rec["job"].as_str().unwrap_or("").to_string();
+        let name = name.as_str();
         if self
             .jobs
             .get(name)
@@ -802,12 +891,19 @@ impl Pilot {
         let checked = if !name.is_empty() && self.jobs.get(name).map(String::as_str) != Some("done")
         {
             Err(anyhow::anyhow!("roadmap ジョブが正常終了していない"))
-        } else {
+        } else if rec["kept"].as_str() == Some(name) {
             self.roadmap(p)
+        } else {
+            self.roadmap(p).and_then(|rows| {
+                self.kept(name, &rows)?;
+                Ok(rows)
+            })
         };
         match checked {
             Ok(rows) => {
                 rec["valid"] = json!(true);
+                rec["kept"] = json!(name);
+                rec["attempts"] = json!(0);
                 self.state["roadmaps"][p] = rec;
                 Ok(Some(rows))
             }
@@ -1218,44 +1314,10 @@ impl Pilot {
             .collect()
     }
     fn new_batch(&mut self, p: &str, rows: &[Row]) -> Result<()> {
-        if self.count(p)? >= self.target as usize || self.held(p, "roadmap")? {
+        if self.count(p)? >= self.goal()? as usize || self.held(p, "roadmap")? {
             return Ok(());
         }
-        let mut active = self.state["batches"]
-            .as_object()
-            .unwrap()
-            .iter()
-            .filter(|(k, v)| {
-                k.starts_with(&format!("{p}/")) && !v["accepted"].as_bool().unwrap_or(false)
-            })
-            .map(|(k, _)| k.split('/').next_back().unwrap().to_string())
-            .collect::<BTreeSet<_>>();
-        for (b, path) in self.states(p) {
-            let v: Value = serde_json::from_str(&read(&path)?)?;
-            if !["accepted", "discarded"].contains(&v["status"].as_str().unwrap_or("")) {
-                active.insert(b);
-            }
-        }
-        let ledger = ledger(&self.root)?;
-        active.retain(|b| {
-            !ledger.iter().any(|r| {
-                r.get("persona").map(String::as_str) == Some(p)
-                    && r.get("batch") == Some(b)
-                    && r.get("status")
-                        .is_some_and(|s| ["accepted", "discarded"].contains(&s.as_str()))
-            })
-        });
-        let pat = regex(&format!(
-            r"^{}-(b\d+)(?:-r\d+)?$",
-            regex::escape(p.split('-').next().unwrap())
-        ));
-        for (n, s) in &self.jobs {
-            if ACTIVE.contains(&s.as_str()) {
-                if let Some(c) = pat.captures(n) {
-                    active.insert(c[1].into());
-                }
-            }
-        }
+        let active = self.active(p)?;
         let Some(row) = rows.iter().find(|r| r.get("状態").is_empty()) else {
             return Ok(());
         };
@@ -1263,18 +1325,13 @@ impl Pilot {
             return Ok(());
         }
         if !active.is_empty() {
-            let cfg = self.root.join("config/limits.json");
-            let config: Value = if cfg.exists() {
-                serde_json::from_str(&read(&cfg)?)?
-            } else {
-                json!({})
-            };
+            let config = self.limits()?;
             let max = std::env::var("CORPUS_MAX_BATCHES_PER_PERSONA")
                 .ok()
                 .and_then(|v| v.parse::<usize>().ok())
                 .unwrap_or(config["max_batches_per_persona"].as_u64().unwrap_or(3) as usize);
             if active.len() >= max
-                || !ledger.iter().any(|r| {
+                || !ledger(&self.root)?.iter().any(|r| {
                     r.get("persona").map(String::as_str) == Some(p)
                         && r.get("status").map(String::as_str) == Some("accepted")
                 })
@@ -1334,6 +1391,7 @@ impl Pilot {
         self.store()?;
         self.push_attempted = false;
         self.push()?;
+        self.allowed = self.admitted()?;
         for p in self.names()? {
             if self.home.join("stop-now").exists() {
                 return Ok(());
@@ -1348,6 +1406,34 @@ impl Pilot {
             self.log("error", "", "", &format!("統括の起動: {e}"))?;
         }
         Ok(())
+    }
+    /// Personas with work in progress, plus the waiting personas with the most
+    /// accepted files, up to `max_active_personas` (absent: no cap).
+    fn admitted(&self) -> Result<Option<BTreeSet<String>>> {
+        let Some(max) = self.limits()?["max_active_personas"].as_u64() else {
+            return Ok(None);
+        };
+        let goal = self.goal()?;
+        let mut working = BTreeSet::new();
+        let mut waiting = Vec::new();
+        for p in self.names()? {
+            let road = self.state["roadmaps"][&p]["job"].as_str().unwrap_or("");
+            let n = self.count(&p)?;
+            if !self.active(&p)?.is_empty()
+                || self
+                    .jobs
+                    .get(road)
+                    .is_some_and(|s| ACTIVE.contains(&s.as_str()))
+            {
+                working.insert(p);
+            } else if (n as i64) < goal {
+                waiting.push((std::cmp::Reverse(n), p));
+            }
+        }
+        waiting.sort();
+        let room = (max as usize).saturating_sub(working.len());
+        working.extend(waiting.into_iter().take(room).map(|(_, p)| p));
+        Ok(Some(working))
     }
     fn once_persona(&mut self, p: &str) -> Result<()> {
         let paths = self.states(p).into_iter().collect::<BTreeMap<_, _>>();
@@ -1415,7 +1501,10 @@ impl Pilot {
         if self.home.join("stop-now").exists() {
             return Ok(());
         }
-        if self.stops()?.is_empty() && self.count(p)? < self.target as usize {
+        if self.stops()?.is_empty()
+            && self.count(p)? < self.goal()? as usize
+            && self.allowed.as_ref().is_none_or(|a| a.contains(p))
+        {
             if let Some(rows) = self.ensure_roadmap(p)? {
                 self.new_batch(p, &rows)?;
             }
@@ -2054,7 +2143,7 @@ impl Pilot {
             println!(
                 "{p}\t{}/{}\t{}\t{pending}\t{dropped}\t{}\t{remaining}",
                 self.count(&p)?,
-                self.target,
+                self.goal()?,
                 if running.is_empty() {
                     "-".into()
                 } else {
