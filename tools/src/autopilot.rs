@@ -84,8 +84,6 @@ enum Action {
 }
 /// One rate-limit window from Codex's own session log.
 struct Window {
-    /// When Codex recorded the snapshot (Unix seconds).
-    at: i64,
     used: f64,
     minutes: i64,
     resets_at: Option<i64>,
@@ -118,26 +116,47 @@ fn codex_sessions() -> PathBuf {
         .unwrap_or_else(|_| PathBuf::from(std::env::var("HOME").unwrap_or_default()).join(".codex"))
         .join("sessions")
 }
+/// When a session log began: the timestamp on its first line (Unix seconds).
+fn session_start(f: &Path) -> Option<i64> {
+    use std::io::BufRead;
+    let mut line = String::new();
+    std::io::BufReader::new(fs::File::open(f).ok()?)
+        .read_line(&mut line)
+        .ok()?;
+    let e: Value = serde_json::from_str(&line).ok()?;
+    chrono::DateTime::parse_from_rfc3339(e["timestamp"].as_str()?)
+        .ok()
+        .map(|t| t.timestamp())
+}
 /// The latest rate-limit snapshot in the newest Codex session logs
-/// (sessions/YYYY/MM/DD/rollout-*.jsonl). Empty when none is found.
-fn codex_usage() -> Vec<Window> {
-    let mut files = Vec::new();
+/// (sessions/YYYY/MM/DD/rollout-*.jsonl) that began at or after `cutoff`.
+/// Sessions begun under an earlier login keep reporting that account, however
+/// late they write. Empty when none is found.
+fn codex_usage(cutoff: i64) -> Vec<Window> {
+    let mut days = Vec::new();
     for y in list(&codex_sessions()) {
         for m in list(&y) {
-            for d in list(&m) {
-                for f in list(&d) {
-                    if f.extension().is_some_and(|e| e == "jsonl") {
-                        if let Ok(t) = f.metadata().and_then(|m| m.modified()) {
-                            files.push((t, f));
-                        }
-                    }
+            days.extend(list(&m));
+        }
+    }
+    days.sort();
+    let mut files = Vec::new();
+    for d in days.iter().rev().take(2) {
+        for f in list(d) {
+            let recent = f
+                .metadata()
+                .and_then(|m| m.modified())
+                .is_ok_and(|t| chrono::DateTime::<chrono::Utc>::from(t).timestamp() >= cutoff);
+            if f.extension().is_some_and(|e| e == "jsonl") && recent {
+                if let Some(start) = session_start(&f).filter(|s| *s >= cutoff) {
+                    files.push((start, f));
                 }
             }
         }
     }
     files.sort();
     let mut best: Option<(String, Value)> = None;
-    for (_, f) in files.iter().rev().take(5) {
+    for (_, f) in files.iter().rev().take(10) {
         let Ok(text) = fs::read_to_string(f) else {
             continue;
         };
@@ -152,16 +171,14 @@ fn codex_usage() -> Vec<Window> {
             }
         }
     }
-    let Some((at, limits)) = best else {
+    let Some((_, limits)) = best else {
         return Vec::new();
     };
-    let at = chrono::DateTime::parse_from_rfc3339(&at).map_or(0, |t| t.timestamp());
     ["primary", "secondary"]
         .iter()
         .filter_map(|k| {
             let w = &limits[*k];
             w["used_percent"].as_f64().map(|used| Window {
-                at,
                 used,
                 minutes: w["window_minutes"].as_i64().unwrap_or(0),
                 resets_at: w["resets_at"].as_i64(),
@@ -525,7 +542,7 @@ impl Pilot {
         command(&self.root, &a, true)
     }
     fn refresh(&mut self) -> Result<()> {
-        self.usage = codex_usage();
+        self.usage = codex_usage(self.usage_cutoff());
         let o = self.job(&argv(&["status", "--repo", "personaCorpus"]))?;
         self.jobs = o
             .text
@@ -682,7 +699,7 @@ impl Pilot {
         // batches finish. A window past its reset time no longer counts.
         if let Some(limit) = self.usage_stop() {
             let now = chrono::Utc::now().timestamp();
-            for w in self.current_usage() {
+            for w in &self.usage {
                 if w.used >= limit && w.resets_at.is_none_or(|r| now < r) {
                     reasons.push(format!(
                         "Codex の利用枠（{}）{}% が閾値 {limit}% 以上（{} にリセット）",
@@ -710,21 +727,12 @@ impl Pilot {
             .unwrap_or(0);
         auth.max(since)
     }
-    /// The windows of the current login; empty until it has a fresh snapshot.
-    fn current_usage(&self) -> Vec<&Window> {
-        let cutoff = self.usage_cutoff();
-        self.usage.iter().filter(|w| w.at >= cutoff).collect()
-    }
     fn usage_text(&self) -> String {
-        let current = self.current_usage();
-        if current.is_empty() {
-            return if self.usage.is_empty() {
-                "不明".into()
-            } else {
-                "アカウントの切替え・確かめ直し後の記録待ち".into()
-            };
+        if self.usage.is_empty() {
+            return "記録なし（アカウントの切替え・確かめ直しの後なら、最初のジョブの記録待ち）"
+                .into();
         }
-        current
+        self.usage
             .iter()
             .map(|w| format!("{} {}%（{} にリセット）", w.label(), w.used, w.reset()))
             .collect::<Vec<_>>()
@@ -2525,7 +2533,7 @@ fn execute(a: Action) -> Result<i32> {
                 )?;
                 pilot.log("usage-recheck", "", "", "これより前の記録を使わない")?;
             }
-            pilot.usage = codex_usage();
+            pilot.usage = codex_usage(pilot.usage_cutoff());
             println!("{}", pilot.usage_text());
             println!(
                 "安全な停止: {}",

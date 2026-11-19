@@ -1698,3 +1698,36 @@ fn a_recheck_ignores_usage_recorded_before_it() {
     f.once();
     assert_eq!(f.called("batch", "start"), 1);
 }
+
+#[test]
+fn sessions_started_under_the_old_login_are_ignored_even_when_they_write_later() {
+    let f = Fixture::new();
+    f.cli(&["usage", "--stop-at", "90"]);
+    f.roadmap(None);
+    fs::write(f.r.join("scratch/auth.json"), "{}").unwrap();
+    let dir = f.r.join("scratch/codex-sessions/2026/11/19");
+    fs::create_dir_all(&dir).unwrap();
+    let limits = |at: &str, used: f64| json!({"timestamp":at,"type":"event_msg","payload":{"type":"token_count","rate_limits":{"primary":{"used_percent":used,"window_minutes":10080,"resets_at":4_000_000_000i64}}}});
+    // A session that began before the login change keeps reporting the old account.
+    fs::write(
+        dir.join("rollout-old.jsonl"),
+        format!(
+            "{}\n{}\n",
+            json!({"timestamp":"2026-01-01T00:00:00.000Z","type":"session_meta"}),
+            limits("2031-01-01T00:00:00.000Z", 95.0)
+        ),
+    )
+    .unwrap();
+    fs::write(
+        dir.join("rollout-new.jsonl"),
+        format!(
+            "{}\n{}\n",
+            json!({"timestamp":"2030-01-01T00:00:00.000Z","type":"session_meta"}),
+            limits("2030-01-01T00:01:00.000Z", 1.0)
+        ),
+    )
+    .unwrap();
+    f.once();
+    assert_eq!(f.called("batch", "start"), 1);
+    assert!(f.cli(&["usage"]).contains("週 1%"));
+}
