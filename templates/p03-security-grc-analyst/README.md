@@ -1,6 +1,6 @@
 # 山田美由紀の文書の型
 
-中京文書配送サービス株式会社の情報管理統制と、さくら情報管理審査合同会社および日高文書保管株式会社から受け取る文書の型。Officeの型は通常のDOCX・XLSX・PPTXであり、開いて別名保存する。本文の事例・仮の値・空の明細・仮の集計は持たない。
+中京文書配送サービス株式会社の情報管理統制と、さくら情報管理審査合同会社、日高文書保管株式会社、三和オフィス機器株式会社から受け取る文書の型。Officeの型は通常のDOCX・XLSX・PPTXであり、開いて別名保存する。本文の事例・仮の値・空の明細・仮の集計は持たない。
 
 ## 一覧
 
@@ -15,6 +15,7 @@
 | 審査依頼・講評 | さくら情報管理審査、池田。依頼リスト、提出の要請と審査所見 | `sakura-review.docx` | A4縦、表紙なし。5弁の花形ロゴと審査機関名、くすんだ紅紫と墨色、明朝、細い罫線。中京の封筒ロゴは使わない |
 | 紙の点検票 | 中京文書配送サービス、松本・山田。権限承認や委託先点検で使う照合票の印刷原紙を直接PDFに組む | `chukyo-paper-check.cls` | A4縦、封筒と配送矢印、赤茶と砂色、ゴシック。証跡番号・項目・記録・結果・確認者の表。続頁に表見出しとページ番号 |
 | 保管統制の説明・現地点検票 | 日高文書保管、橋本。購買課に提出する保管統制の説明PDFと、署名する現地点検票の印刷原紙 | `hidaka-storage.cls` | A4縦、保管棚の図形と社名、濃い青緑の細罫線、明朝の中央題。現地点検票は4列の囲み表と署名欄。フッタに発行元と頁番号 |
+| 配送業務の保証確認票 | 三和オフィス機器の購買課、山崎。中京に送る記入前の質問票 | `sanwa-assurance.xlsx` | A4横、用紙トレイ2段のマークと購買課の社名表記、紺の見出し。質問欄は薄青、回答記入欄は白。明細なし |
 
 案件ごとの実際の文書番号、是正票番号、証跡の識別子、各版の日付は計画・事実台帳を参照する。2025年のRISK-031では、7月18日の受容見送り、9月末までの証拠回収、10月7日の2件完了・1件継続という各時点の判断を資料に反映する。8月25日の期限超過5件は月次会議全体の件数として記録する。旧稿の全件完了は未承認の版に記載し、提出する英文要約に継続の理由と確認する記録を記載する。
 
@@ -49,6 +50,14 @@
 
 RISK-031の評価表には `chukyo-checklist.xlsx` を使い、例えば「対象番号／未実施の内容／影響・判断根拠／担当／証拠回収期限／受容判断／必要な是正／確認者」とする。受領証拠の対応表には `chukyo-evidence.xlsx` を使い、例えば「対象番号／資料名／提供者／受領日／実施日／記録の所在／是正判定／判定根拠・不足」とする。対象番号で両表を照合し、資料の受領日と点検の実施日を別々に記入する。署名済み点検票から根拠の所在へたどれるようにし、継続行には不足している記録を明記する。
 
+## 三和から届いた質問票の作り方
+
+三和の主色は紺 `283F65`、本文は濃い青灰 `253248`、質問欄は薄青 `F1F5FA`。ブックの既定書式 Normal、管理欄、列見出しと明細は和文・欧文とも Noto Sans CJK JP。フッタは左に社名・購買課、右に現在頁／総頁を置く。
+
+1. `load_workbook("sanwa-assurance.xlsx")` で開く。B3:C3に質問票番号（`SW-PQ-YYYY-MM`、2025年2月号は `SW-PQ-2025-02`）、E3:G3に版と発行日、B4:C4に回答先の部署と担当者、E4:G4に回答期限を入れる。結合セルの左端に値を書き、28ptの行高と折返しを維持する。期限は実日付と `yyyy-mm-dd` で保存し、ブックの作成者には発行担当者を設定する。
+2. 6行目は質問番号・区分・確認事項・回答区分・回答・確認時点・補足。7行目から原稿の設問がある行だけを作る。A〜C列の文字には `Sanwa Question`（左寄せ・インデント1）、実際の整数には `Sanwa Number`（右寄せ・インデント1、`#,##0`）を指定する。Q01のような質問番号は文字として保存する。D〜G列は `Sanwa Reply`（白地、左寄せ・インデント1）を付け、受領時は空欄にする。受領票の明細の末尾には集計行を設けない。中京の回答明細は中京の点検表型で別に作る。
+3. 明細の行高を30ptから始め、区分や確認事項の折返しに合わせて広げる。数値の右隣に文字が来る列でもインデントを保つ。印刷範囲をA1:G最終行、フィルタをA6:G最終行に設定する。A4横、幅1頁・縦自動、D7の固定、印刷時の1〜6行の繰返しとページ番号を維持する。
+
 ## PowerPointの使い方
 
 `Presentation(型)`を開き、実レイアウト `slide_layouts[0..4]` を使う。順に「表紙」「見出しと本文」「2段」「表」「図」。共通の社名ロゴと罫線・部門表記はマスター上にあり、本文は入っていない。
@@ -75,18 +84,9 @@ RISK-031の評価表には `chukyo-checklist.xlsx` を使い、例えば「対�
 - 井上への条件と確認事項は `chukyo-response.docx` の見出しを「対象と判断／照合した根拠／継続条件／担当と次の確認」に差し替えて書く。管理会議の要点は `chukyo-control.pptx`。8月26日の提出12資料・更新待ち3件による保留と、9月20日の訂正根拠の照合・佐々木の条件付き継続を経過順に扱う。購買台帳の抽出CSVと照会EMLは元の形式で作り、2025年のRISK-031とは別の案件として管理する。
 - 日高のPDFは同じ `TEXINPUTS` で `\documentclass{hidaka-storage}` を選ぶ。`\HidakaHeading{題}{発行番号}{版}{発行日}{作成者}` と `\HidakaSection{見出し}` を使い、保管統制の説明は本文を直接PDFにする。現地点検票は本文に対象と実施日を入れ、`HidakaInspection` 環境に「確認箇所 & 点検項目 & 原記録・所見 & 判定」の実明細を並べ、各行を `\\\hline` で閉じる。続頁には列見出しが入る。本文幅は162mm。署名欄は `\HidakaSignature{点検者の署名}{立会者の署名}` を必要な原稿だけで呼ぶ。各画像は幅43mm・高さ9mm以内を目安に `\includegraphics[width=43mm,height=9mm,keepaspectratio]{画像}` で入れる。成形時に署名素材を作って組んだ原紙を `bin/scan` に通す。見本のスキャンは空の署名欄で紙面を確認したもの。
 
-## 見本と検証の置き場所
+## b006の質問票の印刷見本
 
-見本の番号と明細は組版確認用。今回の [examples](../../scratch/p03-security-grc-analyst/b003/work/templates-0002/examples/) に見本、[render](../../scratch/p03-security-grc-analyst/b003/work/templates-0002/render/) に全ページの画像がある。画像は見本の拡張子を除いた名前のフォルダに入る。作業フォルダは今回の制作・レビュー中の参照先。
-
-| 型 | examples/内の見本 | 画像の頁数 |
-|---|---|---:|
-| chukyo-response.docx | `chukyo-response.docx`、英文 `chukyo-response-en.docx` とそのPDF | 1・1 |
-| chukyo-correction.docx | `chukyo-correction.docx` | 1 |
-| chukyo-reading.docx | `chukyo-reading.docx` | 1 |
-| sakura-review.docx | `sakura-review.docx` | 1 |
-| chukyo-evidence.xlsx | `chukyo-evidence-3.xlsx`、`chukyo-evidence-28.xlsx`、日高の対照表 `chukyo-hidaka-validity.xlsx` | 1・3・1 |
-| chukyo-checklist.xlsx | `chukyo-checklist-3.xlsx`、`chukyo-checklist-28.xlsx` | 1・3 |
-| chukyo-control.pptx | `chukyo-control.pptx`（5レイアウト全て） | 5 |
-| chukyo-paper-check.cls | `chukyo-paper-check-3.tex`、`chukyo-paper-check-34.tex` と各PDF | 1・2 |
-| hidaka-storage.cls | `hidaka-storage-control.tex`、`hidaka-site-inspection.tex`、`hidaka-site-inspection-long.tex` と各PDF、`hidaka-site-inspection-scan.pdf` | 1・1・3・1 |
+| 見本 | 印刷画像 | 確認箇所 |
+|---|---|---|
+| [3行のXLSX](../../scratch/p03-security-grc-analyst/b006/work/templates-0004/examples/sanwa-assurance-3.xlsx) | [1頁](../../scratch/p03-security-grc-analyst/b006/work/templates-0004/render/sanwa-assurance-3/sanwa-assurance-3-1.png) | 右寄せの「64」と右隣の「64件の受付記録」の間隔 |
+| [48問のXLSX](../../scratch/p03-security-grc-analyst/b006/work/templates-0004/examples/sanwa-assurance-48.xlsx) | [1頁](../../scratch/p03-security-grc-analyst/b006/work/templates-0004/render/sanwa-assurance-48/sanwa-assurance-48-1.png)、[2頁](../../scratch/p03-security-grc-analyst/b006/work/templates-0004/render/sanwa-assurance-48/sanwa-assurance-48-2.png)、[3頁](../../scratch/p03-security-grc-analyst/b006/work/templates-0004/render/sanwa-assurance-48/sanwa-assurance-48-3.png) | 質問票番号・発行日・回答期限、繰返し見出し、白い回答欄、頁番号 |
