@@ -1343,7 +1343,10 @@ impl Batch {
             let relative = text(&row["パス"]);
             let result = (|| -> Result<()> {
                 let p = safe_file(&self.folder, relative)?;
-                if p.exists() || !seen.insert(relative.to_string()) {
+                if p.exists()
+                    || self.source(relative)?.exists()
+                    || !seen.insert(relative.to_string())
+                {
                     errors.push(format!("既存または重複パス: {relative}"));
                 }
                 let ext = p
@@ -1472,13 +1475,31 @@ impl Batch {
                     ))
                     .exists()
             {
-                let overlap: Vec<_> = plan_rows(&other)?
-                    .iter()
-                    .filter_map(|r| {
-                        let p = text(&r["パス"]);
-                        known.contains(p).then(|| p.to_string())
-                    })
+                let mut overlap: Vec<_> = plan_rows(&other)?
+                    .into_iter()
+                    .filter(|row| known.contains(text(&row["パス"])))
                     .collect();
+                if overlap
+                    .iter()
+                    .any(|row| text(&row["内容"]).starts_with("破棄："))
+                {
+                    let prior = Batch::new(
+                        &self.root,
+                        Args {
+                            persona: self.persona.clone(),
+                            batch: other.file_stem().unwrap().to_string_lossy().into_owned(),
+                            ..Args::default()
+                        },
+                    )?;
+                    if matches!(text(&prior.state()["status"]), "accepted" | "discarded") {
+                        let (redraft, _) = prior.redraft_candidates()?;
+                        overlap.retain(|row| {
+                            !text(&row["内容"]).starts_with("破棄：")
+                                || redraft.iter().any(|pending| pending["パス"] == row["パス"])
+                        });
+                    }
+                }
+                let overlap: Vec<_> = overlap.iter().map(|row| text(&row["パス"])).collect();
                 if !overlap.is_empty() {
                     errors.push(format!("進行中の batch と重複パス: {}", overlap.join(", ")));
                 }

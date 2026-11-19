@@ -291,6 +291,48 @@ fn rejected_parent_still_drafts_all_descendants() {
     );
 }
 #[test]
+fn closed_plan_releases_withdrawn_paths_and_keeps_pending_paths_reserved() {
+    let f = Fixture::new();
+    f.planned();
+    let mut rows = f.rows();
+    let path = string(&rows[0]["パス"]).to_owned();
+    let other = f.plan().with_file_name("b002.md");
+    write(
+        &other,
+        read(&f.plan()).replace(string(&rows[0]["内容"]), "破棄：統括が撤回"),
+    );
+    let state = f.root.join(format!("scratch/{P}/b002/state.json"));
+    write(&state, r#"{"status":"accepted"}"#);
+    rows.truncate(1);
+    f.set_plan(&rows, false);
+    f.reset_scratch();
+    f.planned();
+    write(&f.source(&path), "保存済みの原稿");
+    f.reset_scratch();
+    f.cli(&["run", "p01", "b001", "--plan-only"], "ok", false);
+    assert!(string(&f.state()["reason"]).contains(&format!("既存または重複パス: {path}")));
+    fs::remove_file(f.source(&path)).unwrap();
+    for reserved in [
+        json!({"status":"failed"}),
+        json!({"status":"accepted", "draft_failures":{(path.clone()):"原稿不合格"}}),
+    ] {
+        write(&state, reserved.to_string());
+        f.reset_scratch();
+        f.cli(&["run", "p01", "b001", "--plan-only"], "ok", false);
+        assert!(
+            string(&f.state()["reason"]).contains(&format!("進行中の batch と重複パス: {path}"))
+        );
+    }
+    write(&state, r#"{"status":"accepted"}"#);
+    write(
+        &other,
+        read(&other).replace("破棄：統括が撤回", "成形待ち：図の重なり"),
+    );
+    f.reset_scratch();
+    f.cli(&["run", "p01", "b001", "--plan-only"], "ok", false);
+    assert!(string(&f.state()["reason"]).contains(&format!("進行中の batch と重複パス: {path}")));
+}
+#[test]
 fn overlapping_plans_and_invalid_dependency_graphs_are_rejected() {
     let f = Fixture::new();
     f.planned();
