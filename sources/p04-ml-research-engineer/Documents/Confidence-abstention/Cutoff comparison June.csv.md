@@ -1,0 +1,12 @@
+---
+path: Documents/Confidence-abstention/Cutoff comparison June.csv
+kind: text
+author: Vanessa Nguyen
+derived_from:
+---
+
+```csv
+Cutoff,Labelled documents,Baseline errors before hold,Held documents,Hold rate (% of labelled documents),Errors held,Error capture rate (% of baseline errors),Automatically routed documents,Errors automatically routed
+0.60,800,100,144,18,22,22,656,78
+0.45,800,100,72,9,15,15,728,85
+```

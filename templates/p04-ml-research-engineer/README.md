@@ -24,11 +24,18 @@
 - 読み合わせ前の考察と書き直した初稿は Research Memorandum を使い、各文書にその時点の考察を残す。同じ文書の改版なら系列番号を保ち、Issued と版を更新する。4月23日の初稿点検は Eric Sandoval への提出を3週間延ばし、抜けていた比較条件6項目を Adjudication Worksheet の1シートにまとめる。
 - Vanessa がまとめる文書には Mercer の型を使う。Nicole 自身の書面が原稿にある場合は Hartwell の型を使う。読み合わせ結果の CSV・TSV、棄却した解釈の MD、ボード写真、提出時期を伝える EML はそれぞれの形式で保存する。
 
+## 2026年6月の保留閾値比較
+
+- 指標定義の PDF は Research Brief、Emily Chen の条件点検を反映した DOCX は Research Memorandum、用途判断の研究会資料は Lab Meeting Deck を使う。
+- 保留率は保留文書数を評価800文書で割る。誤分類捕捉率は保留に回った誤分類数を、保留適用前の予測の全誤分類数で割る。比較表と図では保留率18%・9%、誤分類捕捉率22%・15%を、それぞれ分母と並べて表示する。
+- 用途採用は保留と記録する。閾値別の結果は CSV、判定の移動集計は TSV、見逃し例の読解は Markdown にまとめる。
+
 ## 組織・文書番号
 
 - **Mercer**。右上へ上がる3つの正方形と社名。プラム `#593875` を題、節、罫線に、黄土 `#A56720` を3つ目の正方形や短い罫線に、墨 `#242331` を本文に使う。淡いプラム `#EFE9F4` は表見出しや集計の背景。英字は Liberation Sans、日本語が必要な箇所は Noto Sans CJK JP。成果物の文面は英語。
 - **Hartwell**。幅の違う水平線3本と機関名。青緑 `#245E65`、本文の濃紺 `#233746`、青緑の淡色 `#E6F0EF`。英字は Liberation Serif、日本語が必要な箇所は Noto Serif CJK JP。
 - Mercer の短文受付意図分類は `MDR-STI-YYYYMMDD-TT-NN-RNN`。日付は系列の初版発行日、`TT` は文書種別、`NN` は同日・同種内の枝番。改版では末尾の版を進め、Issued 欄はその版の発行日にする。種別は研究計画 `RP`、文書集説明 `DD`、判定基準 `GD`、研究メモ `RM`、研究会記録 `LR`、研究会スライド `LM`、照合表 `AW`。例 `MDR-STI-20240513-GD-01-R02`（初版 May 13, 2024、改訂版の Issued は July 18, 2024）。
+- 長文点検記録分類は `MDR-LDI`、低信頼度分類の保留判定（Confidence abstention）は `MDR-CA` を使う。日付、種別、枝番、版の付け方は共通。例 `MDR-CA-20260608-RM-01-R01`。
 - Hartwell は同じ日付・枝番・改版の考え方で `HEI-YYYYMMDD-MR-NN-RNN`。例 `HEI-20250123-MR-01-R01`。どの型でも欄は Document ID、Issued、Author。本文の日付は英語の月名、時刻を併記する文書では America/Los_Angeles を使う。
 
 ## Word
@@ -70,16 +77,16 @@
 
 ## 見本とレンダリング
 
-見本の入力ファイルは [examples](../../scratch/p04-ml-research-engineer/b004/work/templates-0002/examples/) に、`bin/render` の各頁は [render](../../scratch/p04-ml-research-engineer/b004/work/templates-0002/render/) にある。各入力の画像は render 内の拡張子を除いた同名のディレクトリにある。Hartwell の PDF の画像は `render/hartwell-pdf/` にある。
+今回の見本は [examples](../../scratch/p04-ml-research-engineer/b005/work/templates-0002/examples/) に、`bin/render` で出力した全頁の画像は [render](../../scratch/p04-ml-research-engineer/b005/work/templates-0002/render/) にある。各入力の画像は render 内の拡張子を除いた同名のディレクトリにある。Hartwell の PDF の画像は [hartwell-pdf](../../scratch/p04-ml-research-engineer/b005/work/templates-0002/render/hartwell-pdf/) にある。
 
 | 型 | 確認に使った入力 |
 |---|---|
 | Annotation Guidelines | `mercer-label-guide-short.docx`、`mercer-label-guide-long.docx`（対例表の短い版と複数頁版） |
-| Research Memorandum | `mercer-research-note-earlier.docx`、`mercer-research-note.docx`（同じ系列番号で考察の改版を確認） |
-| Lab Meeting Record | `mercer-lab-record.docx`（1月12日の読み合わせ） |
-| Adjudication Worksheet | `mercer-adjudication-short.xlsx`（明細1行）、`mercer-adjudication-long.xlsx`（明細28行と集計）、`mercer-adjudication-conditions.xlsx`（条件表の6行） |
-| Lab Meeting Deck | `mercer-lab-meeting.pptx`（5レイアウト。図版は `january-reading-counts.png`） |
-| Research Brief | `mercer-research-brief-short.pdf`、`mercer-research-brief-long.pdf`（対例の短い版と複数頁版）。組版元は同名の `.tex` |
+| Research Memorandum | `mercer-research-note.docx`（6月8日の条件点検） |
+| Lab Meeting Record | `mercer-lab-record.docx`（6月8日の判断と次の確認事項） |
+| Adjudication Worksheet | `mercer-adjudication-short.xlsx`（明細1行と集計）、`mercer-adjudication-long.xlsx`（明細30行と集計）、`mercer-adjudication-conditions.xlsx`（条件表6行） |
+| Lab Meeting Deck | `mercer-lab-meeting.pptx`（5レイアウト。図版は `threshold-denominators.png`） |
+| Research Brief | `mercer-research-brief-short.pdf`（指標定義と比較表）、`mercer-research-brief-long.pdf`（複数頁にまたがる対例表付き）。組版元は同名の `.tex` |
 | Independent Methods Review | `hartwell-methods-review.docx` と、そこから出力した `hartwell-methods-review.pdf`（PDFからの画像は `render/hartwell-pdf/`） |
 
 見本の対例、明細の識別子、条件の具体的な文言は書式確認用。成形時は各原稿の内容を使う。

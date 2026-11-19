@@ -99,3 +99,21 @@
 - 条件表は `MDR-STI-20260427-AW-01-R01`（Issued 4月27日）。Vanessa が根拠を照合して6行を埋め、Emily が4月30日までに改稿中の反映箇所を確認。固定評価の比較と開発誤分類の読解を分けた。
 - 1通目 “Moving the short intake draft to May 15” は Vanessa → Eric Sandoval（`eric@ellis-technical.example`）、4月23日15:12 PDT。2通目 “Re: Moving the short intake draft to May 15” は Eric → Vanessa、4月24日09:34 PDT。1通目を引用して新日程を了承する。両方とも添付なし。
 - 独立した連絡 “Six conditions to check in Methods” は Vanessa → Emily（`emily@mercer-document.example`、Cc Michael）、4月28日09:48 PDT。Comparison conditions for the editor copy.xlsx を添付。
+
+## 6月の低信頼度分類の保留閾値と読解
+
+- 2026年6月の比較は正解付き受付本文800文書（Web form 360、Shared inbox 264、Service desk relay 176）。同じ文書ID、参照ラベル、保存済みの最上位予測・未丸め信頼度を使用し、保留適用前の誤分類は100件。2024年7月の正解なし Hold 126件は含めない。
+- cutoff 未満を保留、同値を自動判定。0.450ちょうどは4件で 0.60→0.45 で保留から自動へ、0.600ちょうどは4件で両条件とも自動。0.60も0.45も予測ラベルは振分けによって変わらない。
+- 0.60条件は保留144/800（18%）、誤分類捕捉22/100（22%）、自動判定656件（誤り78）。0.45条件は保留72/800（9%）、誤分類捕捉15/100（15%）、自動判定728件（誤り85）。捕捉率の分母100は両条件で共通。
+- 0.60から0.45に下げると保留継続72件（誤り15・正解57）、新規自動72件（誤り7・正解65）、自動継続656件（誤り78・正解578）、新規保留0件。新規自動の経路別は Web form 31/誤り2、Shared inbox 24/誤り4、Service desk relay 17/誤り1。
+- 6月8日14:00 PDTに研究会室で Vanessa と Emily が800件の比較条件を確認し、新規自動72件のうち誤り全7件と各経路から正解の対照1件ずつ（計10件）を読んだ。二人は受信本文の根拠を先に選び、その後に保存予測と参照ラベルを突合した。
+- 戻る誤りは参照 Reschedule／予測 Schedule check が3件（CA-281・CA-342 は Shared inbox、CA-718 は Web form）、参照 Job status／予測 Cancel request が2件（CA-614 は Service desk relay、CA-547 は Shared inbox）、参照 Quote request／予測 New work request が2件（CA-390 は Web form、CA-433 は Shared inbox）。
+- CA-281 は “Thursday instead” が変更依頼で月曜の確認は背景。CA-614 は以前の取消に触れた後の “Has the pump repair been signed off?” が現在の照会。CA-390 は “what a replacement seal would cost” が見積依頼で作業は未発注。
+- 条件メモの初稿は `MDR-CA-20260603-RM-01-R01`（Issued June 3）。6月4日の Emily のコメント付き控えは初稿の発行情報を保持し、境界値の包含と捕捉の分母を指摘。確認後の改稿は同系列の `MDR-CA-20260603-RM-01-R02`（Issued June 9）。
+- 1通目 “Monday - read what comes off hold” は Vanessa → Emily（`emily@mercer-document.example`）、6月5日10:22 PDT。What counts as an error caught.pdf を添付。2通目 “Re: Monday - read what comes off hold” は Emily → Vanessa、同日11:08 PDT。1通目を引用し、添付なしで6月8日の読み方を確認する。
+
+## 6月の用途判断と次回の確認条件
+
+- 6月11日14:00 PDTに Vanessa、Michael Serrano、Emily、Brandon Romero が研究会。Michael は用途採用を保留し現行の振分けに変更を入れない。Emily は次回の比較条件、Brandon は誤振分けの復旧担当・計測点、Vanessa は独立した次回評価案を6月19日までに持ち寄る。
+- 6月19日時点では、検知から正しい担当への受渡しまでを測る案を残した。正しい担当が受領した時刻の取得方法と許容する作業負担は未合意。次回の独立評価と復旧時間の計測はいずれも未実施。
+- “June routing review - measures and movement” は Vanessa → Michael（`michael@mercer-document.example`）・Brandon（`brandon@mercer-document.example`）、Cc Emily、6月12日09:26 PDTの独立した連絡。What counts as an error caught.pdf と Where the decisions moved.tsv を添付。
