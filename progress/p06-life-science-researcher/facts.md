@@ -88,3 +88,27 @@
 - Melissa’s Jul 24 R01 disposition workbook lists all 36 rows and changes the two Pending entries to Excluded. In 0/24/48 h order, planned and listed are both 12/12/12, eligible are 12/11/11 and excluded are 0/1/1. Totals are 36 planned, 36 listed and retained, 34 eligible and 2 excluded. The July scope ends at eligibility and filing.
 - Lauren verifies the three handoff scans, three untouched native CSVs and location of the comparison slip on Jul 28. The two original disputed export strings and readings are still present. The disposition workbook remains separate from the raw exports.
 - Thread, in order: Jul 24 11:49, Melissa → Robert, Cc Anthony and Lauren, “July storage disposition and counts”, with the issued determination PDF and the separate four-row eligibility counts CSV attached as actual files. Jul 29 09:26, Robert → Melissa, Cc Anthony and Lauren, “Re: July storage disposition and counts”, quotes the eligible counts sentence and requests group denominators alongside the later results. The reply has no attachment.
+
+## August storage readings — eligible extract and group comparison
+
+- Melissa's Aug 4 import still included all 36 native records. The Aug 6 eligible extract includes only the confirmed native IDs in BCE-CE-2025-TBL-004-R01. The two rows named in BCE-CE-2025-DEV-001-R00 remain in the original July exports, with no substituted values or corrected IDs in the extract.
+- In 0/24/48 h order the 34 eligible readings are 12/11/11, with sums 84.57/76.81/63.57 ng/mL. The three unrounded group means are those sums divided by their own counts. Divide each mean by the unrounded 0 h mean, then subtract 1 for the signed change.
+- For display, the means are 7.0475/6.9827/5.7791 ng/mL to four decimals; the baseline percentages are 100.0%/99.1%/82.0% and signed changes are 0.0%/−0.9%/−18.0%. These are descriptive comparisons of independent groups at the three observed times. Do not estimate values for unobserved times or claim equivalence.
+- Group summary BCE-CE-2025-TBL-005-R00 was saved Aug 7 and uses the Aug 6 eligible extract. Anthony's Aug 12 check is independent of the summary formulas. The Aug 13 plotting transfer uses the group results. The Sept 3 normalized figure supersedes the clipped-axis Aug 8 draft for presentation.
+
+## August weekly handoff signature check
+
+- Aug 25 at 13:30, Melissa and Benjamin review 18 routine slips and find three that lack a signature. Both parties will verify their fields at handoff next cycle. Benjamin checks the first six on Aug 29, finds both fields present on all six and leaves the previous three slips as found. This is separate from the July storage-study records.
+
+## September storage findings and the rule under discussion
+
+- Melissa's Sept 4 review copy is BCE-CE-2025-REV-003-R00. Anthony strikes “unchanged” on Sept 8. R01 on Sept 10 gives the descriptive 24 h comparison and recommends an inclusive 24 h ceiling, with approval pending.
+- Sept 18 at 10:30, Melissa, Lauren and Anthony agree to take exactly 24 h as within the proposed limit and distinguish a known excess from an unknown elapsed time. Either exception would go to Anthony before routine use. Lauren's Sept 23 worked examples are 23 h 40 min, 24 h exactly, 24 h 15 min and unknown, with no associated readings.
+
+## October storage decision and distribution
+
+- Oct 14 at 14:07 EDT, Melissa → Robert, Cc Lauren and Anthony, “Pre-read for Thursday’s storage review”, a new thread with the actual BCE-CE-2025-BRF-003-R00 PPTX and separate BCE-CE-2025-TBL-005-R00 XLSX attached. The meeting is Oct 16 at 10:00 EDT.
+- At that meeting Robert, Melissa, Lauren and Anthony review the three observed groups. Robert adopts a maximum of 24 h inclusive, effective Oct 20, for routine Bennett work under the evaluated nonclinical supernatant measurement workflow. If elapsed time is over 24 h or undocumented, Anthony reviews before routine use. The approved study plan defining the evaluated workflow is BCE-CE-2025-PLN-001-R01.
+- BCE-CE-2025-MIN-006-R00 records the decision and assigns Melissa same-day issuance, Lauren the Oct 20 desk briefing, and Anthony the timing referrals. Melissa issues BCE-CE-2025-DEC-001-R00 on Oct 16 at 14:06, with Robert as approver.
+- Oct 16 at 14:28 EDT, Melissa → Lauren, Benjamin and Anthony, Cc Robert, “Storage limit for Monday, October 20”, a new thread with the actual issued DEC-001-R00 PDF attached. This follows the pre-read and the decision meeting.
+- Lauren's Oct 20 desk briefing at 09:00 includes Melissa and Benjamin and uses the Oct 17 desk reference. On Oct 22 Lauren removes one Sept 23 worked-examples printout still marked “proposed” from the desk and retains it with the September discussion papers.
