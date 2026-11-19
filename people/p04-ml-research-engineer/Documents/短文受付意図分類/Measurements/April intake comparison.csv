@@ -1,0 +1,4 @@
+allocation,classifier,evaluation_documents,metric,macro_f1,status,comparison_group
+Document-level,Word-frequency linear,940,macro-F1,0.851,Withdrawn: same cases crossed partitions,Not comparable
+Case-level fixed April 3,Word-frequency linear,935,macro-F1,0.832,Reported under frozen conditions,April frozen evaluation
+Case-level fixed April 3,Training majority class,935,macro-F1,0.021,Reported under frozen conditions,April frozen evaluation

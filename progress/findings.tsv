@@ -1624,3 +1624,7 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-19	p16-clinical-researcher	b002	coordinator	0	other	Documents/Study-評価物質の低用量観察研究/計画と審査/1010_添付候補の照合_同じ名前が二つ.csv	統括の抜き取りで不合格
 2026-11-19	p10-management-consultant	b001	coordinator	0	other	Documents/Internal-review/12 Jul - Keep the controls and test the explanation.pptx	統括の抜き取りで不合格
 2026-11-19	p09-ux-researcher	b002	coordinator	0	other	Documents/Night-shift/2024-08-29 Night count observer guide.docx	統括の抜き取りで不合格
+2026-11-19	p02-site-reliability-engineer	b002	templates-review	0	other	README.md	「成形見本」の22リンクすべてが存在しない b001/work/templates-0005 の見本または画像ディレクトリを指し、記載の見本を開けない。
+2026-11-19	p02-site-reliability-engineer	b002	draft-review	0	D4	Documents/Capacity/August cost readback.txt	本文末尾の「We considered」「Richard and I left both reserve lines in place」は10:00 UTC（11:00 BST）の読合せでの検討と合意を完了済みとして記すが、計画の保存日時は同日の10:52 BST（09:52 UTC）で会議より8分早い。
+2026-11-19	p02-site-reliability-engineer	b002	draft-review	0	D10	Desktop/Two times - Matthew's marks.md	原稿7行目のderived_fromが空欄で、計画が「先に要るもの」に指定したDesktop/Two times before Palmer comes back.mdに紐づかず、本文が元メモを含む全文になっている。
+2026-11-19	p02-site-reliability-engineer	b002	build-review	0	V2	Documents/Change-decisions/August reconciliation shadow decision.docx	1ページ目の表題「August reconciliation shadow decision」に20 ptが直接指定され、brt-change-decision.docxのTitleスタイルと入力済み見本が使用する25 ptが上書きされている。

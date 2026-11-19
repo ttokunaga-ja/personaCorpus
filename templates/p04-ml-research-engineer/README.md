@@ -8,17 +8,21 @@
 | Research Memorandum | Mercer、Vanessa Nguyen。評価条件、仮説の採否、Michael Serrano への判断材料 | `mercer-research-note.docx` | US Letter 縦、独立表紙なし。題と発行情報に続けて、論点を短い節に分ける |
 | Lab Meeting Record | Mercer、Vanessa Nguyen・Fatima Rahman。研究会で確認した根拠、決定、次に確かめる点 | `mercer-lab-record.docx` | US Letter 縦、独立表紙なし。共通のヘッダ、下部にページ番号 |
 | Lab Meeting Deck | Mercer、Vanessa Nguyen。研究会で境界例、評価の母数、論点を説明 | `mercer-lab-meeting.pptx` | 16:9、白地にプラム色の題、細い上罫線と黄土色の下部マーク。1マスター・5レイアウト |
-| Adjudication Worksheet | Mercer、Vanessa Nguyen・Fatima Rahman。読みの食い違いや再判定を確認する印刷用の照合表 | `mercer-adjudication.xlsx` | US Letter 横。白地、プラム色の列見出し、適用範囲・発行情報を印刷時に各頁に再掲 |
-| Research Brief | Mercer、Vanessa Nguyen。研究計画とコレクション説明を直接 PDF に組む | `mercer-research-brief.cls` | US Letter 縦、独立表紙なし。Mercer の社名、二重罫線、番号・発行日・作成者、薄紫の表見出し |
-| Independent Methods Review | Hartwell Evaluation Institute、Nicole Foster。独立した方法レビューの所見と対応の依頼 | `hartwell-methods-review.docx` | US Letter 縦、独立表紙なし。短くなる3本の水平線と機関名を中央に置き、青緑の単線とセリフ体を使う |
+| Adjudication Worksheet | Mercer、Vanessa Nguyen・Fatima Rahman・Joshua Ramirez。判定結果、案件と分割の対応、台帳の出所を照合 | `mercer-adjudication.xlsx` | US Letter 横。白地、プラム色の列見出し、適用範囲・発行情報を印刷時に各頁に再掲 |
+| Research Brief | Mercer、Vanessa Nguyen。研究計画、コレクション説明、再評価報告を直接 PDF に組む | `mercer-research-brief.cls` | US Letter 縦、独立表紙なし。Mercer の社名、二重罫線、番号・発行日・作成者、薄紫の表見出し |
+| Independent Methods Review | Hartwell Evaluation Institute、Nicole Foster。独立した方法レビューの所見と対応の依頼。受領した PDF はこの Word 型から `bin/office-pdf` で出力 | `hartwell-methods-review.docx` | US Letter 縦、独立表紙なし。短くなる3本の水平線と機関名を中央に置き、青緑の単線とセリフ体を使う |
 
-Hartwell は persona の定期的な独立レビュー相手なので受領用の型を用意した。b001 の既知の出来事は社内の研究計画と判定基準の改訂で、Hartwell の見本は 2025 年 1 月の設定に基づく書式確認用。
+## 短文評価の撤回と再評価
+
+- 1月23日の指摘は Hartwell の型で組む。照合表には案件キーと分割を記録し、集計の単位を見出しに書く。指摘の84件は文書数。案件数を載せる場合は案件キーの重複を除いて数える。
+- 4月17日の再評価報告は Mercer の Research Brief に組む。旧 macro-F1 0.851 には旧分割と撤回理由、新しい 0.832 には案件単位の分割と採点条件を添える。比較図でも旧値を撤回済みと明記する。
+- 5月23日の台帳点検は Lab Meeting Deck を使う。点検した96件と出所不明で対象外にした4件を区別し、モデルの優劣は保留と記録する。
 
 ## 組織・文書番号
 
 - **Mercer**。右上へ上がる3つの正方形と社名。プラム `#593875` を題、節、罫線に、黄土 `#A56720` を3つ目の正方形や短い罫線に、墨 `#242331` を本文に使う。淡いプラム `#EFE9F4` は表見出しや集計の背景。英字は Liberation Sans、日本語が必要な箇所は Noto Sans CJK JP。成果物の文面は英語。
 - **Hartwell**。幅の違う水平線3本と機関名。青緑 `#245E65`、本文の濃紺 `#233746`、青緑の淡色 `#E6F0EF`。英字は Liberation Serif、日本語が必要な箇所は Noto Serif CJK JP。
-- Mercer の短文受付意図分類は `MDR-STI-YYYYMMDD-TT-NN-RNN`。日付は系列の初版発行日、`TT` は文書種別、`NN` は同日・同種内の枝番。改版では末尾の版を進め、Issued 欄はその版の発行日にする。種別は研究計画 `RP`、文書集説明 `DD`、判定基準 `GD`、研究メモ `RM`、研究会記録 `LR`、研究会スライド `LM`、照合表 `AW`。例 `MDR-STI-20240718-GD-01-R02`。
+- Mercer の短文受付意図分類は `MDR-STI-YYYYMMDD-TT-NN-RNN`。日付は系列の初版発行日、`TT` は文書種別、`NN` は同日・同種内の枝番。改版では末尾の版を進め、Issued 欄はその版の発行日にする。種別は研究計画 `RP`、文書集説明 `DD`、判定基準 `GD`、研究メモ `RM`、研究会記録 `LR`、研究会スライド `LM`、照合表 `AW`。例 `MDR-STI-20240513-GD-01-R02`（初版 May 13, 2024、改訂版の Issued は July 18, 2024）。
 - Hartwell は同じ日付・枝番・改版の考え方で `HEI-YYYYMMDD-MR-NN-RNN`。例 `HEI-20250123-MR-01-R01`。どの型でも欄は Document ID、Issued、Author。本文の日付は英語の月名、時刻を併記する文書では America/Los_Angeles を使う。
 
 ## Word
@@ -30,13 +34,15 @@ Hartwell は persona の定期的な独立レビュー相手なので受領用�
 ## Excel
 
 1. `Adjudication` シートの **B3:C3**（Document ID）、**E3:F3**（Issued）、**B4:C4**（Author）、**E4:F4**（Scope）は結合済み。各左上に実値を入れる。日付は日付型で `mmm d, yyyy`。管理欄は24 pt高で折り返す。
-2. 5行目の `Column Label` を維持して、6行目から必要な明細を作る。A列の参照番号、D列の件数は `Detail Count`（整数 `#,##0`、右寄せ）、B・C・E・F列は `Detail Text`（左寄せ、折返し、左インデント1）。見本の明細行は27 pt。文字がさらに折り返す場合は行高を上げる。参照番号の隣の読み、件数の隣の措置が離れて見えるように、文字列の左インデントを維持する。
+2. A2 の題と5行目の列名を用途に合わせて置き換え、既存の題の書式と `Column Label` を維持する。案件の照合では Ref.／Case key／Partitions／Documents／Disposition／Evidence / notes を起点にする。6行目から実データの明細を作る。A列の参照番号、D列の件数は `Detail Count`（整数 `#,##0`、右寄せ）、B・C・E・F列は `Detail Text`（左寄せ、折返し、左インデント1）。見本の明細行は27 pt。文字がさらに折り返す場合は行高を上げる。参照番号の隣の文字列と件数の隣の措置が離れて見えるように、文字列の左インデントを維持する。
 3. 合算に意味がある場合、最後の明細行の次に A:C を結合して集計名を置く。件数は D列に実範囲を参照する `SUM` を入れ `Total Count`、その他の集計セルは `Total Text`。見本の集計は24 pt高。注記は次の行の A:F を結合し `Print Note`、見本は27 pt。母数と集計範囲の関係や保留の扱いをここに書く。集計・注記の行は必要な場合に作る。
 4. 印刷範囲を A1:F の最終使用行へ広げる。US Letter 横、幅1頁・高さ自動、1〜5行を各頁に再掲する。左下に研究部門名、右下に頁番号。行高を調整した後に全頁で番号・見出し・集計・注記を確認する。Excel の Normal、未入力の管理セル、明細・集計の名前付きスタイルは Liberation Sans。日本語の補助フォントはテーマに設定している。
 
 ## PowerPoint
 
 型はスライド0枚。スライドの寸法は 13⅓ × 7.5 in（16:9）で、ファイル内部のスライド種別も `screen16x9`。挿入するスライドの用途に合わせて5つのレイアウトを選ぶ。タイトルは左寄せ。共通ロゴ・社名・上罫線・フッタはマスターから表示される。
+
+保存時は、ファイルの作成者・更新者と作成・更新日時にも原稿の担当者と計画の日時を設定する。
 
 | レイアウト | 入力先 |
 |---|---|
@@ -56,13 +62,13 @@ Hartwell は persona の定期的な独立レビュー相手なので受領用�
 
 ## 見本とレンダリング
 
-見本の入力ファイルは [examples](../../scratch/p04-ml-research-engineer/b001/work/templates-0005/examples/) に、`bin/render` の各頁は [render](../../scratch/p04-ml-research-engineer/b001/work/templates-0005/render/) にある。
+見本の入力ファイルは [examples](../../scratch/p04-ml-research-engineer/b002/work/templates-0004/examples/) に、`bin/render` の各頁は [render](../../scratch/p04-ml-research-engineer/b002/work/templates-0004/render/) にある。
 
 | 型 | 確認に使った入力 |
 |---|---|
 | Annotation Guidelines | `mercer-label-guide.docx`、`mercer-label-guide-long.docx` |
 | Research Memorandum、Lab Meeting Record | `mercer-research-note.docx`、`mercer-lab-record.docx` |
-| Adjudication Worksheet | `mercer-adjudication-short.xlsx`、`mercer-adjudication-long.xlsx` |
-| Lab Meeting Deck | `mercer-lab-meeting.pptx` の5レイアウト |
-| Research Brief | `mercer-research-plan.pdf`、`mercer-data-description.pdf`、`mercer-boundary-examples.pdf`、`mercer-brief-punctuation.pdf`（組版元は同名の `.tex`）。最後の見本は題・本文・表で曲線アポストロフィの字間と折返しを確認するためのもの |
-| Independent Methods Review | `hartwell-methods-review.docx` |
+| Adjudication Worksheet | `mercer-adjudication-short.xlsx`（1月の検出件数、明細1行）と `mercer-adjudication-long.xlsx`（5月の台帳点検、明細96行。行識別子は印刷確認用） |
+| Lab Meeting Deck | `mercer-lab-meeting.pptx`（台帳点検で5レイアウトを使用。図版は `source-coverage.png`） |
+| Research Brief | `mercer-research-brief.pdf`（4月の再評価）と `mercer-research-brief-long.pdf`（7月の判定結果、複数頁の表）。組版元は同名の `.tex` |
+| Independent Methods Review | `hartwell-methods-review.docx` と、そこから出力した `hartwell-methods-review.pdf`（PDFからの画像は `render/hartwell-pdf/`） |

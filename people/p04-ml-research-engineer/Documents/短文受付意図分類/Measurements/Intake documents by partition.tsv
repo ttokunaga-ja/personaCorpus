@@ -1,0 +1,9 @@
+allocation	partition	documents
+Document-level (January)	Training	2800
+Document-level (January)	Development	934
+Document-level (January)	Evaluation	940
+Document-level (January)	Hold, outside allocation	126
+Case-level (April 3 freeze)	Training	2804
+Case-level (April 3 freeze)	Development	935
+Case-level (April 3 freeze)	Evaluation	935
+Case-level (April 3 freeze)	Hold, outside allocation	126
