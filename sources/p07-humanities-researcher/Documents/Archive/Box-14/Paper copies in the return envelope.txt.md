@@ -1,0 +1,24 @@
+---
+path: Documents/Archive/Box-14/Paper copies in the return envelope.txt
+kind: text
+author: Judith Morris
+derived_from:
+---
+24 July — paper copies collected from Camille at the desk
+
+Box 12
+[checked] CR/12/A 012–013 — subscription notice — 2 leaves
+[checked] CR/12/B 040 — grouped remittance — 1 leaf
+Box total: 2 items, 3 leaves
+
+Box 13
+[checked] CR/13/A 087–088 — Saturday invitation — 2 leaves
+[checked] CR/13/B 123 — evening register — 1 leaf
+Box total: 2 items, 3 leaves
+
+Box 14
+[checked] CR/14/A 179–180 — delay in collection — 2 leaves
+[checked] CR/14/B 198–199 — Thursday opening — 2 leaves
+Box total: 2 items, 4 leaves
+
+Six items, ten leaves. Checked at the desk against the requests; put the paper copies back in the return envelope for the journey. The original documents were returned in the reading room. The photograph of the table is a separate record, not one of these copies.
