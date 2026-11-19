@@ -536,6 +536,22 @@ fn mime_attachments_match_declared_current_message() {
         !attachments(&f, "添付: forwarded.eml", &[], true, true).contains_key("email-attachments")
     );
 }
+#[test]
+fn attachment_declaration_in_original_message_headers_is_history() {
+    let f = Fixture::new();
+    let history = "----- Original Message -----\nFrom: old@example.test\nTo: recipient@example.test\nDate: Wed, 16 Sep 2026 10:18:00 +0900\nSubject: 前便\n添付: old.pdf、other.pdf\n\n> 本文";
+    let reply = format!("受領しました。\n添付: current.pdf\n\n{history}");
+    let issues = attachments(&f, &reply, &[], false, false);
+    assert_eq!(
+        issues["email-attachments"],
+        "missing or empty MIME attachments: current.pdf"
+    );
+    assert!(
+        !attachments(&f, &reply, &[("current.pdf", "PDF")], false, false)
+            .contains_key("email-attachments")
+    );
+}
+
 const WORDS: &str = "alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima mike november oscar papa quebec romeo sierra tango uniform victor whiskey xray yankee zulu";
 fn duplicate_map(f: &Fixture) -> BTreeMap<String, String> {
     f.issues(&[])

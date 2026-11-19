@@ -836,7 +836,25 @@ fn email_reasons(expected: &str, p: &Path) -> Result<Vec<(String, String)>> {
         r"(?i)^[^<>,\n]+\.(?:{})$",
         EXT.split_whitespace().collect::<Vec<_>>().join("|")
     ));
-    for l in expected.lines() {
+    let mut lines = expected.lines().peekable();
+    while let Some(l) = lines.next() {
+        if l.trim()
+            .eq_ignore_ascii_case("----- Original Message -----")
+            && lines.peek().is_some_and(|line| {
+                line.trim_start()
+                    .get(..5)
+                    .is_some_and(|prefix| prefix.eq_ignore_ascii_case("From:"))
+            })
+        {
+            // Attachment names in the quoted header block belong to the earlier message.
+            for header in lines.by_ref() {
+                if header.trim().is_empty() {
+                    break;
+                }
+            }
+            listing = false;
+            continue;
+        }
         let value = if let Some(c) = declaration.captures(l) {
             let v = c[1].trim().to_string();
             listing = v.is_empty();
