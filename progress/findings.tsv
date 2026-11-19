@@ -1383,3 +1383,5 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-19	p08-product-manager	b003	build-review	0	V2	Documents/オルタ拠点ボード/試行/中川さんの支援時間の付け方.xlsx	定常支援のB11・B16と初回設定のB10・B14の合計ラベルが右揃えで、型の左揃え指定と異なる。両シートのフィルター範囲にも合計行が含まれる。
 2026-11-19	p08-product-manager	b003	build-review	1	V2	Documents/オルタ拠点ボード/試行/中川さんの支援時間の付け方.xlsx	定常支援・初回設定の両シートが型指定の高さ自動（fitToHeight=0）から高さ1ページ固定（fitToHeight=1）に変更されており、定常支援は最終注記まで1ページに縮小される。高さ自動の検証用コピーでは定常支援は2ページに分かれる。
 2026-11-19	p08-product-manager	b003	build-review	2	V2	Documents/オルタ拠点ボード/試行/中川さんの支援時間の付け方.xlsx	両シートの高さ自動は復元されたが、「初回設定」の印刷ヘッダ・フッタの設定がなく、3ページ目に型の上部「プロダクト企画」と下部の社名・現在頁／総頁が出ない。
+2026-11-19	p16-clinical-researcher	b001	coordinator	0	other	Documents/メール保存/低用量観察/0710_Re Request for statistical review.eml	統括の抜き取りで不合格
+2026-11-19	p16-clinical-researcher	b001	coordinator	0	other	Documents/品質確認/0611_手続図の紙で見た戻し先.pdf	統括の抜き取りで不合格
