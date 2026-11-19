@@ -1406,6 +1406,63 @@ fn slide_pdf_repeats_printed_lines_in_its_manuscript() {
 }
 
 #[test]
+fn slide_pdf_omits_speaker_notes_only_when_requested() {
+    let mut f = Fixture::new();
+    let face = "alpha beta gamma delta epsilon zeta eta theta iota kappa ".repeat(8);
+    let note = "private speaker notes with details omitted from the handout ".repeat(14);
+    f.source("board.pptx", &format!("{face}\nSpeaker notes: {note}"), "");
+    f.bytes("board.pdf", b"%PDF fixture");
+    f.pdf_text(&face, "");
+
+    let request = "All six slides in the same order and with the same slide content as v1.0. Speaker notes are omitted from the distributed PDF.";
+    let manuscript = f.source("board.pdf", request, "board.pptx");
+    let source = fs::read_to_string(&manuscript)
+        .unwrap()
+        .replace("author:", "kind: office:board.pptx\nauthor:");
+    fs::write(&manuscript, &source).unwrap();
+    absent(&f, "board.pdf", "source");
+
+    for changed in [
+        source.replace("are omitted", "are included"),
+        format!("{source} Include the speaker notes in the appendix."),
+        source.replace(request, &format!("{request}\n\n{note}")),
+    ] {
+        fs::write(&manuscript, changed).unwrap();
+        present(&f, "board.pdf", "source");
+    }
+}
+
+#[test]
+fn pdf_scope_identifiers_stay_within_text_blocks() {
+    let f = Fixture::new();
+    f.generate(
+        r#"
+from reportlab.pdfgen.canvas import Canvas
+title = 'HPT connection scope'
+identifier = 'HBC-HPT-20260216-BRF-01'
+for name, lines in {
+    'separate': [(740, title), (640, identifier)],
+    'wrapped': [(740, title), (724, identifier)],
+    'inline': [(740, title + ' ' + identifier)],
+    'other-trace': [(740, title), (640, identifier), (540, 'artifact ID')],
+}.items():
+    c = Canvas(str(home / (name + '.pdf')))
+    for y, line in lines:
+        c.drawString(50, y, line)
+    c.save()
+"#,
+    );
+    absent(&f, "separate.pdf", "trace");
+    for name in ["wrapped.pdf", "inline.pdf"] {
+        assert!(present(&f, name, "trace").contains("HBC-HPT-20260216-BRF-01"));
+    }
+    assert_eq!(
+        present(&f, "other-trace.pdf", "trace"),
+        "production trace: artifact ID"
+    );
+}
+
+#[test]
 fn scope_numbers_stay_within_workbook_cells() {
     let f = Fixture::new();
     f.generate(

@@ -338,6 +338,41 @@ fn pdf_text_and_blank_pages(path: &str) -> Result<(String, Vec<usize>)> {
     }
     Ok((text, blanks))
 }
+fn pdf_trace_layout(path: &str) -> Result<(usize, String, String)> {
+    let native_len = pdf_text_and_blank_pages(path)?.0.len();
+    let layout = xml(&cmd(&["pdftotext", "-bbox-layout", path, "-"])?)?;
+    let mut blocks = Vec::new();
+    visit(&layout, &mut |block| {
+        if block.name == "block" {
+            let mut words = Vec::new();
+            visit(block, &mut |word| {
+                if word.name == "word" {
+                    words.push(xml_text(word));
+                }
+            });
+            blocks.push(words.join(" "));
+        }
+    });
+    let separated = blocks.join("\x1e");
+    let joined = separated.replace('\x1e', " ");
+    Ok((native_len, separated, joined))
+}
+fn pdf_scope_crosses_blocks(separated: &str, joined: &str, candidate: &str) -> bool {
+    // Require a matching boundary in the visual layout, and retain an in-block occurrence.
+    let mut crosses = false;
+    for m in fancy(TRACE).find_iter(joined).flatten() {
+        if m.as_str()
+            .split_whitespace()
+            .eq(candidate.split_whitespace())
+        {
+            if !separated[m.start()..m.end()].contains('\x1e') {
+                return false;
+            }
+            crosses = true;
+        }
+    }
+    crosses
+}
 fn ocr_pdf_pages(path: &str, pages: &[usize], language: &str, dpi: &str) -> Result<Vec<String>> {
     let work = tempfile::tempdir()?;
     pages
@@ -561,7 +596,8 @@ fn slides_without_notes(parent: &str, request: &str) -> bool {
             {
                 return true;
             }
-            if request.trim() == "違いなし" || re(r"(?i)^(?:The [a-z0-9]+ slide faces are unchanged and in the same order\.\s*)?Export the slide faces only; omit speaker notes\.(?:\s*No post-meeting additions\.)?$").is_match(request.trim()) {
+            if request.trim() == "違いなし" || re(r"(?i)^(?:The [a-z0-9]+ slide faces are unchanged and in the same order\.\s*)?Export the slide faces only; omit speaker notes\.(?:\s*No post-meeting additions\.)?$").is_match(request.trim())
+                || re(r"(?i)^All [a-z0-9]+ slides in the same order and with the same slide content as v[0-9]+(?:\.[0-9]+)*\.\s+Speaker notes are omitted from the distributed PDF\.$").is_match(request.trim()) {
                 return true;
             }
             first.split_inclusive('。').any(|sentence| {
@@ -2182,12 +2218,26 @@ fn inspect(
                         }
                     }
                     let mut found = false;
+                    let pdf_layout = std::cell::OnceCell::new();
                     for m in fancy(TRACE).find_iter(&traced).flatten() {
                         // A cell or text box ending in "scope" does not qualify its neighbor.
                         if m.as_str().to_ascii_lowercase().starts_with("scope")
                             && let Some(units) = office_units
                             && let Some(start) = m.start().checked_sub(rel.len() + 1)
                             && units[start..start + m.as_str().len()].contains('\x1e')
+                        {
+                            continue;
+                        }
+                        // Plain PDF extraction can place separate cover and control blocks
+                        // on consecutive lines. Confirm their layout for native text only.
+                        if ext == "pdf"
+                            && m.as_str().to_ascii_lowercase().starts_with("scope")
+                            && m.as_str().contains(['\n', '\x0c'])
+                            && m.start() > rel.len()
+                            && let Some((native_len, separated, joined)) =
+                                pdf_layout.get_or_init(|| pdf_trace_layout(&strpath(p)).ok())
+                            && m.end() - (rel.len() + 1) <= *native_len
+                            && pdf_scope_crosses_blocks(separated, joined, m.as_str())
                         {
                             continue;
                         }
