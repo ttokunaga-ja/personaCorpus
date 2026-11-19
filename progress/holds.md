@@ -3,3 +3,4 @@
 | persona | batch | 理由 | 日時 |
 |---|---|---|---|
 | p10-management-consultant | b005 | 監査 hold: progress/p10-management-consultant/b005.audit.md | 2026-11-19T22:54:31.160040+00:00 |
+| p09-ux-researcher | b007 | 監査 hold: progress/p09-ux-researcher/b007.audit.md | 2026-11-19T22:57:42.396076+00:00 |
