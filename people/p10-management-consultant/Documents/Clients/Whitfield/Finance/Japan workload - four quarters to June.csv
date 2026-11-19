@@ -1,0 +1,17 @@
+Quarter,Work category,Quantity,Unit,Work key
+2023 Q3,Routine checks,3850,checks,AP-CHECK
+2023 Q3,Independent follow-up contacts,720,contacts,AP-CALL
+2023 Q3,Exception document packs,470,packs,EXC-PACK
+2023 Q3,Approved overtime premium hours,230,hours,OT-PREM
+2023 Q4,Routine checks,4050,checks,AP-CHECK
+2023 Q4,Independent follow-up contacts,760,contacts,AP-CALL
+2023 Q4,Exception document packs,510,packs,EXC-PACK
+2023 Q4,Approved overtime premium hours,250,hours,OT-PREM
+2024 Q1,Routine checks,3950,checks,AP-CHECK
+2024 Q1,Independent follow-up contacts,740,contacts,AP-CALL
+2024 Q1,Exception document packs,490,packs,EXC-PACK
+2024 Q1,Approved overtime premium hours,240,hours,OT-PREM
+2024 Q2,Routine checks,4150,checks,AP-CHECK
+2024 Q2,Independent follow-up contacts,780,contacts,AP-CALL
+2024 Q2,Exception document packs,530,packs,EXC-PACK
+2024 Q2,Approved overtime premium hours,280,hours,OT-PREM

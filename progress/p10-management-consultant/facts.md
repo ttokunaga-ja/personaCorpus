@@ -70,3 +70,29 @@
 - 10月2日 Siobhan・Neha と Caroline の班長候補が、両工場で共通の初品承認時刻・投入重量・良品重量・切替／再始動ロスを各シフトで記録する4週間の案を机上確認。10月4日 Elizabeth はこの条件付き提言の客先説明を了承。
 - 10月7日10:00〜10:45 BST、Caroline、Nicholas、Siobhan、Connor が最終報告会。投影版は Siobhan の HRA-MAR-COST-BRF-2024-007 v1.0。Caroline が班長を指名してから4週間の開始日を決め、設備見積りの次段階には進まない。
 - 件名「Marston cost diagnosis — readout and next steps」、2024-10-07 12:07 BST Nicholas → Caroline（Cc Siobhan、Connor）。回覧PDFを実添付し、10月11日までに両工場の班長名を求める。報告会当日は班長指名と試行開始日が未確定。
+
+## Whitfield 日本事業の年換算見込の照合と訂正
+
+- 積算の数量は Japan Finance の2023年7月〜2024年6月の締め済み四半期集計。通常確認 AP-CHECK 年16,000件、独立した確認連絡 AP-CALL 年3,000件、例外書類取りまとめ EXC-PACK 年2,000件、承認済みの残業割増 OT-PREM 年1,000時間。
+- 旧試算 HRA-WHI-DIAG-EST-2024-001 v0.3 の元行は AP model!D12/D13/D14、Overtime!D8、Finance model!D11 の順（保管ブックの Original estimate 7〜11行）。D12・D13 は各7.5分・30分、D14 と Finance model!D11 は各30分の削減仮定に作業価値 JPY 4,000/時を掛ける。Overtime!D8 は労務の基礎単価を含めず、独立した割増部分 JPY 4,000/時の全1,000時間を回避可能と仮定。
+- 2024-10-15 09:00〜09:45 BST、Nicholas・Connor が旧年額 JPY 26m を照合。部署・名称で突合した初回は漏れたが、AP model!D14 と Finance model!D11 は同じ EXC-PACK の対象期間・2,000件・30分で、AP がまとめた同じ束を Finance が受けるだけと確認した。AP側を残し Finance側の JPY 4m を控除する。
+- 10月15日に AP の準備記録と Finance 側の受領控えから照合した例は EP-184・EP-219・EP-267 の3束。準備作業と受領の区別を確かめるための例で、年2,000件は四半期集計の値。
+- 訂正内訳は HRA-WHI-DIAG-REC-2024-001 v1.0（10月15日）。年 JPY 8m＋6m＋4m＝18m は再配分可能な作業余力の評価、4m は独立した残業割増回避の見込み、計 JPY 22m は安定運用時の年換算。実績、人員削減額、初年度の金額として使わない。
+- 件名「Basis for the Japan savings figure」は10月8日09:12 BST Kenneth → Nicholas（Cc Connor、添付なし）。Japan Finance の部内説明に載せる前に旧年 JPY 26m の前提を尋ねた。
+- 件名「Correction to the Japan savings estimate」は10月15日13:42 BST Nicholas → Kenneth（Cc Connor、Neha）。訂正説明 HRA-WHI-DIAG-NTE-2024-001 v1.0 の PDF を実添付し、部内説明の差し替えを依頼した。
+- 10月16日09:07 BST Kenneth → Nicholas（同Cc）が「Re: Correction to the Japan savings estimate」で先信を引用し、部内説明と自身の説明メモの差し替え、一時費用と時期の説明を依頼（添付なし）。10月21日09:00 BST、Kenneth・Nicholas・Connor が両資料の差し替えを確認。
+
+## Whitfield の段階導入と費用の見積り
+
+- 2024-11-13、Neha が Nicholas・Siobhan・Connor と同時導入案を2例で机上検討。07の費用負担情報欠落は AP、09の例外解消証跡欠落は Japan Finance に戻す。07を先行し、09への引渡しには07の承認と例外解消の記録を要する。12の Treasury の二重確認は維持する。
+- 初期費用の見積り HRA-WHI-DIAG-CST-2024-001 v0.2（Connor、12月4日）。着手承認を起点とした M1＝最初の月。設計・統制確認3m（M1）、設定・権限検証7m（M2）、教育・代替要員5m（M4）、安定化支援3m（M7）、計 JPY 18m。
+- 2025-01-06 09:00 GMT、Kenneth・Nicholas・Neha・Siobhan が着手条件を確認。Kenneth は07→09の証跡と現行経路へ戻す条件の提示を求め、顧客側の担当指名と着手日は持ち帰った。
+
+## Whitfield 実行案の初年度表示と Elizabeth の審査
+
+- 内部実行案 HRA-WHI-DIAG-BRF-2025-001 は Nicholas の1月10日 v0.3、Elizabeth の1月13日11:26 GMT 赤字入り v0.4、Nicholas の1月20日 v1.0。回答 HRA-WHI-DIAG-REV-2025-001 v1.0 と書き込み用 PDF は v1.0 のスライド番号で参照する。
+- v0.3 の3枚目は「First 12 months — JPY 22m savings」。Elizabeth の指摘で v1.0 は初年度額を未算定とし、3枚目で年換算 JPY 22m の内訳、4枚目で条件付き一時費用 JPY 18m、5枚目で承認された着手から効果実現まで9か月の計画値、6枚目で顧客説明の審査と着手判断を分けた。
+- 初年度実績の判定には着手日、着手前4週の基準候補、比較対象件数、導入後の観測期間・作業時間・承認済み割増支出が要る。承認日と実績は未確定で、9か月から初年度額を機械的に按分しない。
+- 件名「Papers for the implementation review」、2025-01-20 09:16 GMT Nicholas → Elizabeth（Cc Connor、Neha、Siobhan）。指摘への回答 DOCX を実添付し、書き込み用 PDF は会議室で手渡す。
+- 2025-01-20 10:00〜10:45 GMT、Elizabeth・Nicholas・Connor・Neha・Siobhan の審査で、Elizabeth が修正後の顧客説明方針を了承。顧客側の着手承認・担当指名・基準期間が揃うまで開始日は保留。
+- 件名「Before we date the Japan changes」、1月20日14:12 GMT Nicholas → Kenneth（Cc Neha、Siobhan、添付なし）。顧客側の担当指名と着手前4週の記録を揃えられる時期を照会。

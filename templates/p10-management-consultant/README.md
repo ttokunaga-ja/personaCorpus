@@ -1,24 +1,26 @@
 # 経営コンサルタントの文書の型
 
-Whitfield Components Ltd 日本事業の支払診断（2024年4〜7月）と Marston Carton Packaging Ltd の2工場の原価診断（2024年8〜10月）に使う。本文は英語、日付は `07 Oct 2024` の形式。Nicholas の PC の時刻は Europe/London。受領した記録の時刻とタイムゾーンは原資料に従う。Office の型は開いて別名保存する。
+Whitfield Components Ltd 日本事業の支払診断（2024年4〜7月）と Marston Carton Packaging Ltd の2工場の原価診断（2024年8〜10月）、および Whitfield の削減見込の訂正と実行案の審査（2024年10月〜2025年1月）に使う。本文は英語、日付は `07 Oct 2024` の形式。Nicholas の PC の時刻は Europe/London。受領した記録の時刻とタイムゾーンは原資料に従う。Office の型は開いて別名保存する。
 
 | 型 | 組織と用途 | ファイル | 見た目 |
 |---|---|---|---|
 | Evidence note | Holt & Reeves。Neha Patel が Whitfield の引渡条件や Marston での現場説明と観察の食い違いを確認する | `holt-handoffs.docx` | A4縦。表紙なし。濃い紫灰の表見出し、茶赤の節見出し、淡い管理欄 |
 | Meeting record | Holt & Reeves。Nicholas Hargreaves が聞き取り後の論点、決定、担当を記録する | `holt-meeting-record.docx` | A4縦。表紙なし。25 pt の題と `Recorded by` 欄。項目、議論、次の対応を横に並べる |
-| Review memorandum | Holt & Reeves。Nicholas が説明案への指摘、根拠の差し替え、配布前の修正を残す | `holt-review-memo.docx` | A4縦。表紙なし。32 pt の題と `Prepared by` 欄。修正箇所と修正理由を並べる |
+| Review memorandum | Holt & Reeves。Nicholas が説明案への指摘、根拠の差し替え、配布前の修正、Elizabeth の実行案審査への回答を残す | `holt-review-memo.docx` | A4縦。表紙なし。32 pt の題と `Prepared by` 欄。修正箇所と修正理由を並べる |
 | Working sheet | 型なし。Connor が同僚との照合用に使う作業表。案件符号ごとのイベント対の採否や時間の内訳を確認する | — | 列に見出しとフィルタを付けた通常の Excel ブック。時刻と時間の単位を区別する |
 | Process timings | Holt & Reeves。Connor Atkinson が工程別に実作業、滞留、承認待ちの時間を比較する | `holt-process-timings.xlsx` | A4横。淡い管理欄、濃い紫灰の8列見出し、時間は小数1桁、割合は小数1桁の百分率 |
 | Cost diagnosis | Holt & Reeves。Connor Atkinson と Deepa Desai が対象工場の歩留まりを比較し、設備更新の回収年数の根拠を確認する | `holt-cost-diagnosis.xlsx` | A4横。共通ロゴ、濃い紫灰の列見出し、淡い管理欄。歩留まり比較と設備回収で列構成を分ける |
-| Diagnosis briefing | Holt & Reeves。Nicholas が Kenneth Townsend に支払診断を説明する。Marston では Nicholas の設備案への指摘と Siobhan Barrett の作業標準統一の提言に使う | `holt-diagnosis.pptx` | 16:9。上に社名と茶赤の罫線、下に社名と管理情報。表紙、見出しと本文、2段、表、図の5レイアウト |
+| Whitfield finance schedules | Holt & Reeves。Connor Atkinson が旧試算、二重計上の訂正内訳、初期費用の発生時期を管理する | `holt-whitfield-finance.xlsx` | A4横。共通ロゴ、淡色の管理欄、濃い紫灰の8列見出し。円額を右寄せし、根拠と参照キーを並べる |
+| Diagnosis briefing | Holt & Reeves。Nicholas が Kenneth Townsend に支払診断を説明し、Elizabeth に Whitfield の実行案を提示する。Marston では Nicholas の設備案への指摘と Siobhan Barrett の作業標準統一の提言に使う | `holt-diagnosis.pptx` | 16:9。上に社名と茶赤の罫線、下に社名と管理情報。表紙、見出しと本文、2段、表、図の5レイアウト |
+| Client note | Holt & Reeves。Nicholas が Kenneth Townsend に見込の訂正を文書で伝える | `holt-client-note.cls` | A4縦、表紙なし。共通ロゴ、茶赤の上罫と節見出し、淡い管理欄、3列の対照表 |
 | Supplier payment procedure | Whitfield Components Ltd。日本事業の Finance が発行し、Kenneth Townsend が承認する支払手順 | `whitfield-payment-procedure.cls` | A4縦。表紙なし。深緑の三つのブロックと社名、右に `JAPAN FINANCE`。セリフ体、薄緑の発行欄、深緑の表見出し |
 | Production work standard | Marston Carton Packaging Ltd。生産部門が発行し、Caroline Wood が診断時に現行版を提供する | `marston-work-standard.cls` | A4縦。表紙なし。折り箱のロゴ、青い文字と琥珀色の帯、淡青灰の版管理欄。4列の作業手順表 |
 
 ## Holt & Reeves 共通
 
-ロゴは茶赤と紫灰の斜めの板を段違いに重ね、社名を添える。濃い紫灰 `302435` を本文・表見出し背景、茶赤 `964B37` を罫線・注記・修正指示、薄い茶灰 `F4ECE8` を管理欄・合計欄に使う。表見出しの文字は白。英字は Liberation Sans、日本語が入る箇所は Noto Sans CJK JP。Excel はセルごとにフォントが決まるため、日本語を含むセルには書式適用後に書体名だけを Noto Sans CJK JP に替える。
+ロゴは上下辺が水平な平行四辺形を2枚使い、左下に紫灰、右上に茶赤を置いて社名を添える。濃い紫灰 `302435` を本文・表見出し背景、茶赤 `964B37` を罫線・注記・修正指示、薄い茶灰 `F4ECE8` を管理欄・合計欄に使う。表見出しの文字は白。英字は Liberation Sans、日本語が入る箇所は Noto Sans CJK JP。Excel はセルごとにフォントが決まるため、日本語を含むセルには書式適用後に書体名だけを Noto Sans CJK JP に替える。
 
-文書番号は `HRA-<案件>-<種別>-<西暦4桁>-<連番3桁>`。Whitfield は案件に `WHI-DIAG`、Marston は `MAR-COST` を使う。種別は Evidence note が `EV`、Meeting record が `MIN`、Review memorandum が `REV`、Process timings が `TIM`、Diagnosis briefing が `BRF`。Cost diagnosis は歩留まり比較が `YLD`、設備回収が `CAP`。例は `HRA-WHI-DIAG-BRF-2024-004` と `HRA-MAR-COST-YLD-2024-001`。改訂で番号を引き継ぐ場合は版を別記する。制作時の番号・作成者・日付は計画と事実の台帳に合わせる。
+文書番号は `HRA-<案件>-<種別>-<西暦4桁>-<連番3桁>`。Whitfield は案件に `WHI-DIAG`、Marston は `MAR-COST` を使う。種別は Evidence note が `EV`、Meeting record が `MIN`、Review memorandum が `REV`、Process timings が `TIM`、Diagnosis briefing が `BRF`。Cost diagnosis は歩留まり比較が `YLD`、設備回収が `CAP`。Whitfield finance schedules は旧試算が `EST`、訂正内訳が `REC`、初期費用の発生時期が `CST`。Client note は `NTE`。例は `HRA-WHI-DIAG-BRF-2024-004` と `HRA-MAR-COST-YLD-2024-001`。改訂で番号を引き継ぐ場合は版を別記する。制作時の番号・作成者・日付は計画と事実の台帳に合わせる。
 
 ### Marston の診断資料
 
@@ -67,6 +69,25 @@ Whitfield Components Ltd 日本事業の支払診断（2024年4〜7月）と Mar
 
 合計行は25 ptが目安。注記が必要なら、次行の A:H を結合して `Holt Note` を適用し、行高を27 ptから折返しに応じて調整する。印刷はA4横・横1ページ・縦自動。続頁の列見出しは6行目を繰り返し、印刷範囲を `A1:H<最終行>` に更新する。
 
+### Excel — Whitfield の旧試算・訂正内訳・費用発生時期
+
+`holt-whitfield-finance.xlsx` を開き、下表から用途に合うシートを選ぶ。別々のブックとして保存するときは、原稿にあるシートだけを残す。管理欄は `A2` に表題、`A4` に文書番号、`D4` に実日付、`F4` に作成者を入れる。結合セルの左上に入力し、管理値行は34 pt。フッタ左に番号・日付・作成者を ` | ` でつなぎ、Liberation Sans 9 pt・紫灰 `302435`。6行目の列見出しを残し、7行目から実データの行を作る。下表のスタイル名は `Holt ` を先頭に付けて、入力後に `cell.style` に指定する。
+
+| 列 | Original estimate | Savings bridge | Cost timing |
+|---|---|---|---|
+| A | 行番号、`Index` | 行番号、`Index` | 行番号、`Index` |
+| B | 旧試算の項目、`Text` | 訂正対象の項目、`Text` | 初期費用の項目、`Text` |
+| C | 旧シート・行の参照、`Text` | 旧シート・行の参照、`Text` | 費用見積りの参照、`Text` |
+| D | 旧年換算額（円）、`JPY` | 旧年換算額（円）、`JPY` | 初期費用（円）、`JPY` |
+| E | 算定区分、`Text` | 控除する重複額（円、正数）、`JPY` | 時期を置く基準、`Text` |
+| F | 重複照合キー、`Text` | 訂正後年換算額（D − E、円）、`JPY` | 基準から数えた着手月、`Index` |
+| G | 残す・外す等の区分、`Text` | 重複照合キー、`Text` | 費用発生条件、`Text` |
+| H | 根拠・仮定、`Text` | 根拠・判断理由、`Text` | 根拠・依存条件、`Text` |
+
+`Holt JPY` は右寄せで1円単位、負数は括弧、ゼロは `0`。文字列は `Holt Text` の左インデント1を使う。行高は30 ptを目安に、折り返しに応じて広げる。訂正内訳の F7 は `=D7-E7` とし、明細の全行に適用する。10月15日の照合は旧試算の参照先と重複照合キーをたどれるようにし、年 JPY 26,000,000 から年 JPY 4,000,000 を控除して年 JPY 22,000,000 に至る。同じ作業を指す行に共通のキーを記す。
+
+合計行は最後の明細の次に作り、行高25 pt、A:C を結合して `Holt Total Label`。年換算額または初期費用の列だけに `SUM` と `Holt Total JPY` を使う。旧試算と費用時期は D 列、訂正内訳は D〜F 列が対象。着手月は加算しない。初期費用 JPY 18,000,000 と実現まで9か月は別に示し、初年度の実現額は裏付けがある期間と条件に基づいて記述する。注記は次行の A:H を結合し、`Holt Note` と27 pt以上の行高を設定する。印刷はA4横・横1ページ・縦自動、続頁に6行目を繰り返す。各シートで `A1:H<最終行>` に印刷範囲を設定する。
+
 ### PowerPoint
 
 型にはスライドマスター1つと以下のレイアウトがある。PowerPoint の「新しいスライド」から、または `slide_layouts.get_by_name()` でレイアウトを選ぶ。
@@ -80,6 +101,8 @@ Whitfield Components Ltd 日本事業の支払診断（2024年4〜7月）と Mar
 | `Process Figure` | 題（0）、横長の図（1、画像プレースホルダー）、図の下の説明（2） |
 
 各スライドの下端右に文書番号、日付、作成者、スライド番号の順で9 ptの管理情報を置く。テキストボックスは左から4.12インチ、上から7.10インチ、幅8.62インチ、内部余白0、右寄せ。図形内での折り返しを有効にし、自動調整をオフにする（python-pptx では `text_frame.word_wrap = True`、`text_frame.auto_size = MSO_AUTO_SIZE.NONE`）。
+
+Whitfield の実行案では、審査前の表現と Elizabeth の指摘後の版を版で区別する。審査用の版は年換算 JPY 22,000,000、初期費用 JPY 18,000,000、効果実現まで9か月を別の項目として示す。Word の Review memorandum には、審査での指摘、初年度の全額計上を削った箇所と理由、修正先のスライドを記録する。
 
 #### Evidence Table の成形
 
@@ -142,6 +165,14 @@ slide.shapes.add_picture(str(image_path), left, top, width, height)
 frame._element.getparent().remove(frame._element)
 ```
 
+## Holt & Reeves 発行の顧客向け訂正説明 PDF
+
+LuaLaTeX で `\documentclass{holt-client-note}` を指定し、プリアンブルで `\holtcontrol{文書番号}{日付}{作成者}{宛先}` を設定する。見出しは `\holttitle{表題}` と `\holtsection{節見出し}`。管理欄は番号、日付、作成者と、その下に宛先が入る。各ページのヘッダは Holt & Reeves の共通ロゴと社名、フッタは番号・日付・ページ番号。英字は Liberation Sans、日本語は Noto Sans CJK JP。共通の紫灰を本文と表見出し、茶赤を上罫と節見出し、淡い茶灰を管理欄と表の横罫に使う。
+
+対照表を使う場合は `\begin{holttable}{項目列の見出し}{数値列の見出し}{根拠列の見出し}` と `\end{holttable}` の間に、実データの分だけ `\holtitem{項目}{数値}{根拠}` を追加する。第2列は右寄せ。左右の内部余白を各5 pt取り、続頁には見出し行を繰り返す。クラスを入力と同じ作業フォルダに置くか、そのディレクトリを `TEXINPUTS` に追加して `bin/tex <入力.tex> <出力.pdf>` で組む。
+
+10月の文書では、Kenneth が差し替えるべき年換算額と訂正理由を明記する。送付理由と添付関係は EML に残し、照合手順の個人メモは Markdown で保存する。
+
 ## Whitfield 発行の支払手順 PDF
 
 英字は Liberation Serif、日本語は Noto Serif CJK JP。深緑 `214738` をロゴ・社名・罫線・表見出し背景、墨緑 `27322E` を本文、薄緑 `E9EFEA` を発行欄に使う。全ページのヘッダに社名と `JAPAN FINANCE`、フッタに手順番号・日付・ページ番号を載せる。
@@ -156,16 +187,18 @@ frame._element.getparent().remove(frame._element)
 
 ## 確認用見本
 
-見本は [samples](../../scratch/p10-management-consultant/b002/work/templates-0002/samples/)、`bin/render` の全ページ画像は [render](../../scratch/p10-management-consultant/b002/work/templates-0002/render/) にある。見本の数値や文書番号は成形時の収まりを確認するための入力例。制作時は計画と原稿を参照する。
+下表は今回のレンダリングに使った見本。番号・日付・作成者欄と、明細が少ない場合および続頁の印刷を確認するための見本で、制作時の内容は計画と原稿に従う。[全ページの確認画像](../../scratch/p10-management-consultant/b003/work/templates-0004/render/)
 
-| 型・用途 | 見本（samples 以下） |
+| 型・用途 | 見本 |
 |---|---|
-| Marston 現場照合 | `marston-ev-short.docx`、`marston-ev-long.docx` |
-| Marston 議事録 | `marston-min-short.docx`、`marston-min-long.docx` |
-| Marston 検討メモ | `marston-rev-short.docx`、`marston-rev-long.docx` |
-| 歩留まり比較 | `marston-yld-short.xlsx`、`marston-yld-long.xlsx` |
-| 設備回収試算 | `marston-cap-short.xlsx`、`marston-cap-long.xlsx` |
-| 作業標準統一の提言 | `marston-recommendation.pptx`（5レイアウト） |
-| Marston 現行作業標準 | `marston-standard-short.pdf`、`marston-standard-long.pdf` |
-| Whitfield 工程別集計 | `whitfield-process-short.xlsx`、`whitfield-process-timings.xlsx`（受入済み文書の控え） |
-| Whitfield 支払手順 | `whitfield-payment-short.pdf`、`whitfield-payment-procedure.pdf`（後者は受入済み文書の控え） |
+| 証拠メモ | [短い版](../../scratch/p10-management-consultant/b003/work/templates-0004/samples/holt-handoffs-short.docx)、[続頁付き](../../scratch/p10-management-consultant/b003/work/templates-0004/samples/holt-handoffs-long.docx) |
+| 照合会議の記録 | [短い版](../../scratch/p10-management-consultant/b003/work/templates-0004/samples/holt-meeting-record-short.docx)、[続頁付き](../../scratch/p10-management-consultant/b003/work/templates-0004/samples/holt-meeting-record-long.docx) |
+| 実行案審査への回答 | [短い版](../../scratch/p10-management-consultant/b003/work/templates-0004/samples/holt-review-memo-short.docx)、[続頁付き](../../scratch/p10-management-consultant/b003/work/templates-0004/samples/holt-review-memo-long.docx) |
+| Whitfield 工程別集計 | [短い版](../../scratch/p10-management-consultant/b003/work/templates-0004/samples/process-timings-short.xlsx)、[続頁付き](../../scratch/p10-management-consultant/b003/work/templates-0004/samples/process-timings-long.xlsx) |
+| Marston 歩留まり比較 | [短い版](../../scratch/p10-management-consultant/b003/work/templates-0004/samples/yield-comparison-short.xlsx)、[続頁付き](../../scratch/p10-management-consultant/b003/work/templates-0004/samples/yield-comparison-long.xlsx) |
+| Marston 設備回収試算 | [短い版](../../scratch/p10-management-consultant/b003/work/templates-0004/samples/equipment-payback-short.xlsx)、[続頁付き](../../scratch/p10-management-consultant/b003/work/templates-0004/samples/equipment-payback-long.xlsx) |
+| Whitfield 財務資料3シート | [短い版](../../scratch/p10-management-consultant/b003/work/templates-0004/samples/whitfield-finance-short.xlsx)、[続頁付き](../../scratch/p10-management-consultant/b003/work/templates-0004/samples/whitfield-finance-long.xlsx) |
+| Kenneth 向けの訂正説明 | [短い版](../../scratch/p10-management-consultant/b003/work/templates-0004/samples/whitfield-client-note-short.pdf)、[続頁付き](../../scratch/p10-management-consultant/b003/work/templates-0004/samples/whitfield-client-note-long.pdf) |
+| Whitfield 支払手順 | [短い版](../../scratch/p10-management-consultant/b003/work/templates-0004/samples/whitfield-payment-procedure-short.pdf)、[続頁付き](../../scratch/p10-management-consultant/b003/work/templates-0004/samples/whitfield-payment-procedure-long.pdf) |
+| Marston 作業標準 | [短い版](../../scratch/p10-management-consultant/b003/work/templates-0004/samples/marston-work-standard-short.pdf)、[続頁付き](../../scratch/p10-management-consultant/b003/work/templates-0004/samples/marston-work-standard-long.pdf) |
+| Whitfield 実行案の審査 | [5レイアウト](../../scratch/p10-management-consultant/b003/work/templates-0004/samples/holt-implementation-review.pptx) |
