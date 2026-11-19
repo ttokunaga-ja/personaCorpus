@@ -1952,3 +1952,4 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-19	p04-ml-research-engineer	b004	draft-check	1	trace	Documents/Lab-meetings/2026/What changed after we read the misses.pptx	制作の痕跡
 2026-11-19	p04-ml-research-engineer	b004	draft-review	1	D10	Documents/Publications/Revision/Short intake paper - Emily's margin notes.docx	計画で指定された初稿のコメント付き控えだが、原稿7行目の derived_from が空で、派生元の Documents/Publications/Revision/Short intake paper - first draft.docx の本文を全文再掲しているため、初稿を継承し六つのコメントを差分として反映する指定が欠けている。
 2026-11-19	p04-ml-research-engineer	b004	build-review	0	V2	Documents/Lab-meetings/2026/What changed after we read the misses.pptx	1枚目の表紙で管理行が MDR-STI-20260122-LM-01-R01 から始まり、Mercer の表紙見本と README が求める Document ID ラベルが抜けている。
+2026-11-19	p03-security-grc-analyst	b004	build-review	0	V2	Documents/年次審査/2024/依頼と回答/1024_池田さんへ出した証跡一覧.xlsx	前回は確認できた文書番号・版・基準日・作成者・確認者のラベルと値が「分野別件数」シート本体と印刷7頁目の両方から欠けている。
