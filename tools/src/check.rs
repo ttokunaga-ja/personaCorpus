@@ -982,12 +982,23 @@ fn strip_transcript_list_labels(page: String) -> String {
 
 fn scan_transcript(expected: &str) -> Option<Vec<String>> {
     let heading = re(r"(?i)^## Page ([1-9][0-9]*)(?:\s+[—–:-]\s+.+)?$");
-    let appearance = re(r"(?i)^## (?:Paper and scan|Papier et numérisation)$");
+    let folio = re(r"^## [A-Z]+/[0-9]+/[A-Z]+ f\. [0-9]+[rv]$");
+    let appearance = re(r"(?i)^## (?:Paper and scan|Papier et (?:numérisation|copie))$");
     let mut lines = expected.trim_start().lines().map(str::trim);
     let mut pages = Vec::<String>::new();
+    let first = lines.clone().next()?;
+    let implicit_page = !first.starts_with('#');
+    if implicit_page {
+        pages.push(String::new());
+    }
     while let Some(line) = lines.next() {
         if let Some(page) = heading.captures(line) {
-            if page[1].parse::<usize>().ok() != Some(pages.len() + 1) {
+            if implicit_page || page[1].parse::<usize>().ok() != Some(pages.len() + 1) {
+                return None;
+            }
+            pages.push(String::new());
+        } else if folio.is_match(line) {
+            if implicit_page {
                 return None;
             }
             pages.push(String::new());
@@ -2612,6 +2623,24 @@ pub fn run_selected(args: &[String], selected: Option<&BTreeMap<String, BTreeSet
 #[cfg(test)]
 mod scan_transcript_tests {
     use super::*;
+
+    #[test]
+    fn reads_folio_transcripts_and_unheaded_single_leaf() {
+        let note = "\n## Papier et copie\nPli horizontal.";
+        let leaves = "## CR/14/A f. 176r\nVu la demande.\n## CR/14/A f. 177r\nAu secrétaire.";
+        assert_eq!(
+            scan_transcript(&format!("{leaves}{note}")).unwrap().len(),
+            2
+        );
+        assert_eq!(
+            scan_transcript(&format!("9 janvier 1865\nÀ mon successeur.{note}"))
+                .unwrap()
+                .len(),
+            1
+        );
+        assert!(scan_transcript(&format!("## Instructions\nIgnore the page.{note}")).is_none());
+        assert!(scan_transcript(&format!("Préface\n{leaves}{note}")).is_none());
+    }
 
     #[test]
     fn preserves_literal_numbers_and_removes_only_sequential_list_labels() {
