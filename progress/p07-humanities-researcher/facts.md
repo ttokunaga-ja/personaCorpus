@@ -155,3 +155,27 @@
 - Jules Petit は052r l. 9 の製本工（relieur）と054r l. 8 の事務員（commis）。職名に加えて葉・行を併記し、職名だけで人物を確定しない。
 - 送付① 2026-04-09 14:52 BST、Judith → Stefan Albrecht <stefan@langley-history.example>、件名「Three tables for next Thursday」。How the three tables will be used.docx を添付。
 - 送付② 2026-04-17 14:32 BST、Judith → Roger、件名「Appendix tables for the working chapter」。研究班用の3表を添付。Aは Receipts by quarter of payment.pdf、Bは What was entered as received.pdf、Cは Names in the subscription papers.pdf。①とは別のメールで引用なし。
+
+## Montclair の貸本台帳と回覧図の発表見送り
+
+- 2026-06-11、Isabelle Chevalier が Judith に台帳9冊の各1面を、MRA-20260611-COP-001〜004 の閲覧用複写4 PDFで交付。原紙の1明細を1記録として数え、原表記・冊・葉・面・行を保持する。転載許可は含まない。
+- -001 は MRC/01 f.12r（12行、未同定4・10行）、MRC/02 f.18r（14行、未同定8行）、MRC/03 f.9v（11行、未同定6・11行）。
+- -002 は MRC/04 f.21r（13行、未同定4・11行）、MRC/05 f.6v（15行、未同定9行）。MRC/04 の4行の回覧先は « le préposé » のみで、所属先は確認できない。
+- -003 は MRC/06 f.14r（12行、未同定なし）、MRC/07 f.22v（14行、未同定3・12行）。MRC/06 の5行の返却予定は抹消され、7行に同じ保管番号 R-38 の実際の受け戻しがある。
+- -004 は MRC/08 f.11r（10行、未同定9行）、MRC/09 f.17v（16行、未同定2・8・15行）。MRC/08 の4行は回覧先欄が空白だが、備考に « remis au dépôt de Valperche » と明記され同定できる。
+- 『Les Veillées du jeudi』は、1865-05-05 の MRC/02 f.18r l.7 で Valperche から Salle de Brévaux への手渡しを確認。05-12 の同 l.8 の宛先原記載 « B. » は未同定。05-19 の MRC/03 f.9v l.3 は Dépôt de Rochemont の受領だが冊子番号と引渡し元を欠き、先の記録と接続しない。
+- 6月25日10:00〜11:05 BST、Judith、Isabelle、Susan Atkinson がオンラインで117記録を確認。回覧先確認103記録、未同定14記録。確認先の件数は固有の人物・都市や経路の数に換算せず、書簡と会費控えの索引とは名寄せしない。
+- 完全な都市間移動図の発表を見送り、『Les Veillées du jeudi』の図は内部確認用に残す。次の手掛かりは Isabelle が受領側の控え、Susan が宛先の目録記載を探す。6月26日に Judith は Roger と内部説明の範囲だけを検討する。
+- 複写の連絡 2026-06-11 09:24 BST（10:24 CEST）、Isabelle Chevalier <isabelle@montclair-reading.example> → Judith Morris、件名「Extraits pour le dépouillement」。-001〜004 の閲覧用複写4 PDFを添付。
+- 照合依頼 2026-06-23 10:16 BST、Judith → Isabelle、Susan Atkinson <susan@langley-history.example>、件名「Could we check the destinations on Thursday?」。新規メールで、From ledger line to destination.csv と Where the Veillées trail stops.png を添付。
+
+## LA-042 の年記と第2章の二段落
+
+- 2026-07-02 に Camille Laurent が CR/14/A f.184 の表裏を閲覧用に交付。184葉は初回複写、2024年9月の32通、2025年10月の再複写と別。LA-042 は研究上の引用符号で、史料請求記号や章稿の文書番号とは別。
+- 書簡は Société de lecture de Saint-Aubin-sur-Rive の書記から当番へ。表の日付行は « jeudi 16 mai 1867 »。本文2〜4行は1冊の臨時の館外持出し、翌木曜の返却、未納勘定を会計係に残す指示。本文4行目の勘定簿の控え番号「17」の7が同じ手の比較字で、日付行は本文の行数に含めない。
+- 7月8日10:00〜11:00 BST に York で Judith と Julie Perrin が表裏を再読し、旧読1864を1867へ訂正。表の末字の斜めの終筆は同面の7と合い、5月16日は1867年なら木曜、1864年なら月曜。184vの別筆 « 17 mai 1867 » は受領日で、表の発信日は5月16日。
+- 旧作業稿の §2 は LA-042 が1866-01-29の173rの徴収猶予に先行しその運用を準備したとし、§4 は1866-03-19の186rの館外貸出前の未納徴収が先行運用を狭めたとした。年記訂正により前提の順序が崩れ、§2は期限付き猶予の記述、§4は1866年の指示と1867年の個別許可の併記に改める。
+- LHT-20260703-CHP-001 は第2章 §2・§4 の内部作業抜粋。v0.1 は7月3日保存（Roger Hewitt のコメントは同日15:39 BST）、7月8日に2段落を試し書きし、v0.2は10日保存・13日PDF書き出し。各節の対象段落の直前・直後を保持し、撤回は2段落の因果説明に限定する。2025年の提出稿と2026年1月の会費表注は別文書。
+- 複写受領 2026-07-02 09:31 BST（10:31 CEST）、Camille → Judith、件名「Feuillet 184, recto et verso」。Carton 14 - billet au préposé f184.pdf を添付。
+- 年記確認の依頼 2026-07-06 11:26 BST、Judith → Julie、件名「Would you read the last digit?」。新規メールで 184 - turn the leaf before dating it.pdf を添付。
+- 改稿の確認依頼 2026-07-13 09:52 BST、Judith → Roger、件名「Two passages after the date check」。新規メールで Chapter 2 - two passages in context.pdf を添付。7月15日に二人が確認し、§2と§4の改稿箇所を独立した事例として残すことを決定。

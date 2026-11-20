@@ -4040,3 +4040,7 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-20	p16-clinical-researcher	b011	check	0	source	Documents/研究費/0922_参加費_発行日と決済日の照合票.pdf	body token overlap 0.292 < 0.3
 2026-11-20	p16-clinical-researcher	b011	build-review	0	V2	Documents/研究費/1107_松原助成_補助業務を書く.docx	1頁上部のヘッダーで、katsuragawa-consultation.docxでは組織名の左にある円と2点のロゴが欠落し、成果物のword/header1.xmlにも図形がない。
 2026-11-20	p16-clinical-researcher	b011	build-review	0	V2	Documents/研究費/1113_藤田さんと機材費を外す話.docx	1頁上部のヘッダーで、katsuragawa-minutes.docxでは組織名の左にある円と2点のロゴが欠落し、成果物のword/header1.xmlにも図形がない。
+2026-11-20	p07-humanities-researcher	b007	build-review	0	V4	Documents/Archive/Box-14/Carton 14 - billet au préposé f184.pdf	V4・V5：f.184rの年末字と本文4行目「17」の7はともに細い斜めの終筆を持つが、周囲の本文は行と活字状の字形が揃い、f.184vの「mai」は太く大きくしても表の「mai」とmの足やiの台状のセリフが似通い、別筆を示す字形を確認できない。原寸・拡大とも表の年末字の横画を横切る紙の筋を識別できず、7月7・8日の手控えの観察を現物で再現できない。
+2026-11-20	p07-humanities-researcher	b007	check	1	source	Documents/Archive/Box-14/Carton 14 - billet au préposé f184.pdf	body token overlap 0.213 < 0.3
+2026-11-20	p07-humanities-researcher	b007	build-review	2	V5	Documents/Archive/Box-14/Carton 14 - billet au préposé f184.pdf	f.184rの日付「1867」の薄い末字と本文4行目「17」の7には共通する右下がりの終筆があり、f.184vの「mai」は傾きとm・iの足の形で別筆と見分けられるが、7月7日・8日の手控えで判読の根拠となった年末字の横画を横切る紙の筋が、埋め込み画像の原寸・3倍拡大とも識別できない。
+2026-11-20	p09-ux-researcher	b010	build-review	0	V1	Documents/Team-and-expenses/2026-05-20 Re Two report revisions from the May review.eml	復号したtext/plain本文で、署名とJenniferの2つ目の引用段落の後に、読者向け本文に含めない成形指定「Attachments: none」が独立した最終行として残っている。実添付は0件。
