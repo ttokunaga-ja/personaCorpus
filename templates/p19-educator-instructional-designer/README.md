@@ -1,6 +1,6 @@
 # Heather Callahan の文書の型
 
-*Reading Conditions at Work*（条件を読む仕事術）、Rosedale 向けの *Communicating in Workplace Meetings*（職場会議の伝え方）、*Building Proposals from Evidence*（根拠から組む提案）で使う。文書は英語、日時は Toronto の現地日付。連絡は EML、独立採点は匿名の CSV、点差は Excel、授業の比較図は PNG で記録する。手書き提案と講評は、紙面を `bin/scan` に通して PDF にする。
+*Reading Conditions at Work*（条件を読む仕事術）、Rosedale 向けの *Communicating in Workplace Meetings*（職場会議の伝え方）、*Building Proposals from Evidence*（根拠から組む提案）、Ashford 紹介者向けの *Everyday Document Basics*（学び直し文書入門）で使う。文書は英語、日時は Toronto の現地日付。連絡は EML、独立採点は匿名の CSV、点差は Excel、授業の比較図は PNG で記録する。手書き提案と講評は、紙面を `bin/scan` に通して PDF にする。
 
 ## 一覧
 
@@ -10,7 +10,7 @@
 | Curriculum design decision | Elmwood、Heather から David Ashcroft。5目標の確認、授業観察の講評、改訂理由と次に確認すること | `elmwood-design-decision.docx` | 同じヘッダ、表紙なし。Context、Change and rationale、Next review。判断の比較には横罫の表 |
 | Item trial review | Elmwood、Heather と Erin MacDonald。設問試行の記録、採点基準に加える答案例と注釈 | `elmwood-item-review.docx` | 同じヘッダ、表紙なし。3節の見出しと、出典や採点理由を添える注記スタイル |
 | Course outcomes report | Elmwood、Heather から Glenn Fletcher。全6回の対象、提出、条件付き提案の到達、報告できる範囲を伝える | `elmwood-course-outcomes.docx` | Letter 縦、表紙なし。共通ロゴと金茶の罫線。提出と到達を比較する表 |
-| Item and aim alignment | Elmwood、Heather と Erin。学習目標・設問・根拠の読み取りを対応付け、授業で根拠を示す順序や読解・討議の時間配分を検討する | `elmwood-item-alignment.xlsx` | Letter 横。ロゴと印刷管理欄、青紫地に白の列見出し、明細は細い横罫。7列 |
+| Item and aim alignment | Elmwood。Heather と Erin が学習目標・設問・根拠を対応付ける。Heather と Learner-support は郵送教材と対応する授業を照合する | `elmwood-item-alignment.xlsx` | Letter 横。ロゴと印刷管理欄、青紫地に白の列見出し、明細は細い横罫。7列 |
 | Outcome reconciliation | Elmwood、Heather。匿名で提出記録と評価結果を照合し、報告の分母・提出者数・到達者数を確認 | `elmwood-outcome-reconciliation.xlsx` | Letter 横。共通のロゴと管理欄、青紫の見出し。提出と条件付き提案の判定は別の列 |
 | Independent marking comparison | Elmwood、Heather と Erin。匿名答案を突き合わせ、独立採点の点差と協議時の判断を記録 | `elmwood-score-comparison.xlsx` | Letter 横。共通の管理欄と7列の青紫見出し。両者の得点と絶対点差は右揃え、協議フラグと理由は左揃え |
 | Seat allocation | Elmwood、Arjun Deshmukh。Brookdale の受講枠を講座別に設定し、申込区分との照合に使う | `elmwood-seat-allocation.xlsx` | Letter 横。共通の管理欄、青紫の列見出し。受講枠の数は右寄せ、区分コードは左に1文字分の余白。フッタは Corporate courses / Seat allocation |
@@ -27,7 +27,7 @@ Brookdale 発行の業務通知には深緑の型、Rosedale 発行の議題に�
 
 - 3本の高さの違う矩形と組織名をロゴとする。青紫 `#393967`、金茶 `#A87323`、本文の墨色 `#29283A`。TeX の引用欄には金茶の淡色を使う。
 - 欧文の本文・題・表は Lato。Word と PowerPoint の東アジア書体および TeX の和文は Noto Sans CJK JP。Excel の Normal と入力用書式は英語資料のため Lato を明示する。和文セルが必要なら当該セルの書体を Noto Sans CJK JP に設定する。
-- 編さんする文書の番号は `ELM-COURSE-YYYY-KIND-NNN`。COURSE は CRW（Reading Conditions at Work）、CWM（Communicating in Workplace Meetings）、BPE（Building Proposals from Evidence）。YYYY は作成時の西暦、KIND は LP（授業案）、DD（設計判断）、IR（設問試行・採点例）、MAP（目標対応表）、SLD（スライド）、HO（配布資料）、REC（報告数値の照合）、RPT（講座成果報告）、MOD（独立採点の比較）、CAP（受講枠）、AGR（合意の控え）。複数講座を含む Brookdale 向け合意の控えと依頼主向け説明では COURSE の位置に取引先略称 BSC を使う。NNN は同講座・同年・同種内での3桁の通番。表示日付は `DD Mon YYYY`。Word・TeX の題下、PPTX の表紙、XLSX の管理欄に文書番号全文・日付・作成者を記す。
+- 編さんする文書の番号は `ELM-COURSE-YYYY-KIND-NNN`。COURSE は CRW（Reading Conditions at Work）、CWM（Communicating in Workplace Meetings）、BPE（Building Proposals from Evidence）、EDB（Everyday Document Basics／学び直し文書入門）。YYYY は作成時の西暦、KIND は LP（授業案）、DD（設計判断）、IR（設問試行・採点例）、MAP（目標対応表・教材と授業の照合表）、SLD（スライド）、HO（配布資料）、REC（報告数値の照合）、RPT（講座成果報告）、MOD（独立採点の比較）、CAP（受講枠）、AGR（合意の控え）。複数講座を含む Brookdale 向け合意の控えと依頼主向け説明では COURSE の位置に取引先略称 BSC を使う。NNN は同講座・同年・同種内での3桁の通番。表示日付は `DD Mon YYYY`。Word・TeX の題下、PPTX の表紙、XLSX の管理欄に文書番号全文・日付・作成者を記す。
 - Brookdale 通知は `BSC-OPS-YYYY-NNN`（年別の業務通知通番）。日付書式は同じ。深緑 `#245747`、墨 `#28322E`、欧文 Liberation Serif、和文 Noto Serif CJK JP を使う。
 - Rosedale 議題の番号は `RWHC-AGD-YYYY-NNN`（年別の議題通番）。煉瓦色 `#873F38`、墨色 `#2D3439`、麻色 `#F3ECE1`。欧文 Liberation Sans、和文 Noto Sans CJK JP。表示日付は `DD Mon YYYY`。題下の帯に文書番号全文・日付・作成者を記す。
 - Fletcher の査読意見の番号は `FCR-REV-YYYY-NNN`（年別の査読通番）。青緑 `#20565E`、墨色 `#26333A`、淡い青灰色 `#E7EFF0`。題と本文は Liberation Serif、社名・節見出し・管理欄とフッタは Liberation Sans。和文はそれぞれ Noto Serif CJK JP と Noto Sans CJK JP。題下の帯に文書番号全文・`DD Mon YYYY` の発行日・査読者・宛先を記す。
@@ -47,6 +47,13 @@ Brookdale の講座別実施案は Lesson plan を講座ごとに開く。Learni
 ## Excel
 
 各型で `A2` に題、`C3:D3` に番号、`G3` に作成者、`C4:D4` に日付の実値、`G4` に講座名を入れる。結合範囲には左上セルから入力する。これらの入力先は書式済み。1〜6行は各印刷ページで反復し、列見出しと管理欄を読める状態にする。
+
+### Postal packet alignment
+
+1. `elmwood-item-alignment.xlsx` を開き、シート名を Postal packet alignment、フッタ左を Learner support / Postal packets とする。管理欄には MAP の文書番号（例 `ELM-EDB-2025-MAP-001`）、日付、作成者、講座名 Everyday Document Basics を入れる。A〜G の列幅は順に 10、26、27、34、12、28、29。6行目の見出しは Session、Enclosure、Document / version、In-class reference、Sheets / set、At-home check、Packing note とし、既存の `ELM Header` のまま高さを32 ptにする。
+2. 7行目から、対応する回の番号と封入物の組み合わせごとに1明細を作る。A は授業回（1〜8）、B は封入物名、C は配布資料の番号と版、D は授業案・投影資料で同じ箇所を見つけるための節・欄・設問、E は1組当たりの物理的な枚数、F は自宅での答えの確かめ方や参照箇所、G は印刷面や綴じ順など封入時の注意。冊子内の設問と解答が同じ紙に載る場合は1明細にまとめる。授業回をまたいで一つの表にまとめ、回順・封入順に並べる。
+3. A・E は整数・右寄せの `ELM Count`、B〜D・F・G は左インデントと折り返し付きの `ELM Text`。明細の見本は48 pt。紙の枚数は原稿や印刷方法から確定した値を入れる。必要なら最終明細の次の行の A に `COUNTA(B7:B最終明細行)` を入れて `ELM Total count`、B:G を結合して集計の対象を `ELM Total text` で記す（26 pt）。この件数は照合した明細数。授業回の番号や回ごとの封入枚数を足し合わせる集計は設けない。
+4. 注記は実明細または集計の次の行で A:G を結合し、`ELM Note` を適用する。見本は30 pt。印刷範囲を最終使用行まで伸ばし、Letter 横、横1頁・縦自動、1〜6行の反復を維持する。数式を使うときは `bin/recalc` で計算結果を保存する。全ページで文書番号・作成者・講座名、A/B と E/F の列境界、末尾の注記を確認する。
 
 ### Seat allocation
 
@@ -111,6 +118,12 @@ Brookdale の依頼主向け説明では、マスターのフッタを Corporate
 `rosedale-meeting-agenda` は `\RoseAgenda{題}{文書番号}{日付}{作成者}` と `\RoseItem{議題番号と見出し}{本文}`。議題を独立した節に分ける。`bin/tex` で組む。
 
 `fletcher-course-review` は `\FletcherReview{題}{文書番号}{日付}{査読者}{宛先}` と `\FletcherFinding{見出し}{本文}`。Sean の査読範囲、指摘、求める改訂を記載する。Elmwood の改訂記録は設計判断や目標対応表に置く。`bin/tex` で組む。
+
+## 学び直し文書入門の授業と郵送教材
+
+- 2月4日の計画は Ashford 紹介18人、全8回、欠席時は紙教材を郵送する。Bernadette McLean からの紹介時の質問と Heather の回答は EML で保存する。相談員が紹介時に伝えることは、参加者が授業で案内の何を読むかと、欠席時にどう教材を使うかが分かるようにする。
+- 授業案は Lesson plan を使う。Teaching sequence に、案内状から申込欄まで読ませる順序と、口頭で補う指示の場所を記す。Classroom deck ではまず案内文を示し、対応する語句を探してから申込欄を開く。授業の理解確認では持参物・集合場所の答えと、そう読める箇所の両方を尋ねる。
+- 郵送教材は Reading handout を使う。授業と同じ案内の抜粋を置き、口頭で指していた参照先を設問のそばに書き添える。持参物・集合場所を自分で探す問いの後に、見直す見出しと照合する文言を示す。参照先を手書きした試し刷りは紙面を `bin/scan` に通す。Learner-support の照合表には郵送版の番号・版と授業内の該当箇所を記す。
 
 ## 夏期の配布と授業
 

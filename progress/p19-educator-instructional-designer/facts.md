@@ -203,3 +203,27 @@
 - Kathleenが希望受付と手配、Arjunが受付・可読性の確認、Heatherが追補の判断メモを読む。追補は9月末時点で実施前で、受領した記録は翌期に置く。
 - 「An October option for the reading memo」2026-09-29 09:22 EDT Heather → CRW-12（crw12@learners.elmwood-learning.example）、単独の個別メール。HO-015のPDF添付。受領記録が確認できない場合の始め方を示す。
 - 「Your reading memo file and the October option」2026-09-29 09:34 EDT Heather → CRW-31（crw31@learners.elmwood-learning.example）、別の単独メール。HO-015のPDF添付。元ファイルが残っていれば開けるかを確かめる選択を示す。
+
+## Ashford からの紹介と欠席時の紙教材
+
+- 2025年2月4日11:00 EST、HeatherとBernadette McLeanは Everyday Document Basics をAshford Community Employment Centreの紹介予定18人に全8回で開く方針を決めた。欠席が確定した回は、教室と同じ題材の紙教材を郵送する。
+- 「What should we say at referral?」① 2025-02-10 09:32 EST Bernadette（bernadette@ashford-employment.example）→ Heather、添付なし。② 02-11 14:04 EST Heather → Bernadette、「Re: What should we say at referral?」で①を引用し、相談員向け ELM-EDB-2025-DD-002 v1.0 のPDFを添付。
+- 相談員は、講師と案内の持参物・集合場所を探すことと、欠席時は紙で読み、確認欄で自分の答えを見直せることを紹介面談で伝える。教材の Reply slip は練習用で提出不要。受講自体の手続きはAshfordの相談員と別に確認する。
+- 全8回の講師用授業案は ELM-EDB-2025-LP-001。2月6日の v0.2 は初回に案内と申込欄を同時に投影する草案。3月19日の v1.0 の開講予定は4月3・10・17・24日、5月1・8・15・22日の各木曜10:00–11:00 EDT。
+
+## Saturday Repair Table の案内、指示語と雨天時の紙面
+
+- Elmwoodの練習用案内「Saturday Repair Table」は5月3日10:00–11:30。What to bring は “one small item and this invitation”、Where to meet は “East entrance, beside the bicycle rack”。Reply slip は Name と Item、返答期限は4月30日16:00。いずれも教材内の情報。
+- ELM-EDB-2025-HO-001 は2月14日の v0.3 が1頁の試し刷り、2月18日のスキャンは同じ版に手書きしたもの。HeatherとYusufは、Q1の “this invitation” とQ2の “there” を紙だけで読む際に参照先を示す必要を確認した。
+- 2月24日の HO-001 v1.0 は各問の直下から What to bring／Where to meet に戻れるようにし、Reply slip の直上に練習用と記す。裏面の Check your answers で案内の文言と照合し、集合場所は自転車置き場の目印まで確かめる。
+- 第1回は ELM-EDB-2025-SLD-001 v1.0 の2枚目で案内、5枚目で Reply slip を開く。持参物と場所の答えに加えて、どの見出しの下に書いてあったかを受講者に聞く。
+- 第2回は返答期限と催しの開始を区別する。第3回の練習用5月1日付雨天通知では集合場所だけが “Main entrance, inside the glass doors” に変わり、開始時刻と持参物は元の案内のまま。第2・3回の投影は ELM-EDB-2025-SLD-002 v1.0。
+
+## 欠席回ごとの照合と封入見本
+
+- 講師案 v1.0 の回順は、案内の根拠、申込欄、変更通知、二つの金曜、持ち物一覧、追加連絡と役割、問い合わせ、初見の案内。第7・8回の投影は ELM-EDB-2025-SLD-003 v1.0。
+- HO-006 と第7・8回の投影で使う案内は共通。第7回は West door まで分かり、遅刻時の行き先が未記載。第8回の6月7日の掲示づくりは pencil and ruler、Room 2 outside the lift、返答期限6月4日12:00。
+- 封入照合表 ELM-EDB-2025-MAP-001 v1.0 は3月24日付。第1〜4回は ELM-EDB-2025-HO-001〜004 の順で各1枚。第5・6回は同じ HO-005 を各回2枚、第7・8回は同じ HO-006 を各回2枚。郵送する版はいずれも v1.0。
+- 3月21日にHeatherとKathleenは第1回の裏面が逆さになるのを見て、全冊子を Letter の両面・長辺綴じに統一。2枚組は頁順に重ね、いずれも1頁目を上にする。第1回は表の設問と裏の Check your answers が同じ向きで開けることを確かめる。
+- 「First envelope and the session list」2025-03-25 10:14 EDT Heather → Kathleen・Arjun（kathleen@elmwood-learning.example、arjun@elmwood-learning.example）、単独メール。HO-001 v1.0 PDFとMAP-001 v1.0 XLSXを添付し、3月27日までに初回用の封入見本を一組確認する。
+- Arjunが欠席回を確かめ、Kathleenがその回の紙を選んで郵送する。3月27日にHeatherとKathleenが初回用の見本1組の向きを確認し、封筒のそばへ置いた。
