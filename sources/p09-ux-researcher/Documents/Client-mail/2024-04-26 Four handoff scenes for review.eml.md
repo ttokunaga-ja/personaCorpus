@@ -24,5 +24,5 @@ Jennifer Salazar
 Senior UX Researcher
 Carver Workplace Research LLC
 
-添付: 2024-04-22 Four ways a handoff can break.pptx
-添付元: Documents/配車の見通し調査/Planning/2024-04-22 Four ways a handoff can break.pptx
+添付: 2024-04-22 Four handoff scenarios.pptx
+添付元: Documents/配車の見通し調査/Planning/2024-04-22 Four handoff scenarios.pptx

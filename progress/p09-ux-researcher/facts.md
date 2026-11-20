@@ -12,7 +12,7 @@
 - 4場面は Christine が持ち込んだ観察の起点。本面談での発生数・所見はまだなく、解除権限は4月16日時点では未確認。操作時間は調査の成否に用いない。
 - 件名 `Dispatch handoff study`。4月16日09:10 Christine（christine@oakridge-dispatch.example）→ Jennifer（jennifer@carver-workplace.example）、初信に `Dispatch Planning Screen Reference.pdf` を添付。同日15:11 Jennifer → Christine、`Re: Dispatch handoff study` で初信の該当段落を引用し、当日の合意を確認、添付なし。
 - 観察計画の番号は CWR-DR-20240419-OBS-01。4月19日 Jennifer の v0.1、23日 Patrick のコメント・変更履歴入り v0.2、25日 Jennifer の v1.0。同一文書の改訂として番号を維持。
-- 別件名 `Four handoff scenes for review`。4月26日09:47 Jennifer → Christine、`2024-04-22 Four ways a handoff can break.pptx`（CWR-DR-20240422-BRF-01 v1.0）1点を添付。代車の説明の確認であり、新しい表示の承認は扱わない。
+- 別件名 `Four handoff scenes for review`。4月26日09:47 Jennifer → Christine、`2024-04-22 Four handoff scenarios.pptx`（CWR-DR-20240422-BRF-01 v1.0）1点を添付。代車の説明の確認であり、新しい表示の承認は扱わない。
 
 ## 配車の見通し調査 — 観察の記録と面談の準備
 
@@ -55,7 +55,7 @@
 - 観察時点の Count List は棚番・数量を扱い、Save で確定する。最終確定棚番を別に表す欄は現行にはない。9月18日の遮る警告と20日の一行表示は Jeremy Sutton の内部案。提言は読み取り専用の `Last confirmed bin` のみ。D-04 の入力だけでは D-03 表示を維持し、照合して Save した後に進む案。警告・自動選択・自動確定・旧日勤回覧の導入は提言しない。
 - 観察した6人に中断が1場面以上あったことは、夜勤全体の発生率を示さない。日勤、夕勤、訪問窓外の夜勤は観察しておらず、導入後の効果・所要時間の短縮も測っていない。
 - 9月26日13:00 CDT に Jennifer が Ronald に説明。報告は CWR-NS-20240926-RPT-01 v1.0、説明資料は CWR-NS-20240926-BRF-01 v1.0。Ronald との場では導入を決定しない。
-- 新規件名 `Kenton count follow-up`。9月26日14:14 Jennifer → Ronald、`2024-09-26 Finding the place again.pdf` と `2024-09-26 Where the count picks up.pptx` の2点を添付。野帳・写真・赤入れは社内に留める。
+- 新規件名 `Kenton count follow-up`。9月26日14:14 Jennifer → Ronald、`2024-09-26 Kenton night count report.pdf` と `2024-09-26 Kenton night count readout.pptx` の2点を添付。野帳・写真・赤入れは社内に留める。
 
 ## 配車の見通し調査 — Adam の試行と戻りの照合
 
@@ -79,7 +79,7 @@
 - 初回一致10件。UX-034 は Jennifer が Other action、Brian が Unresolved で、根拠不足で後者に合意。UX-041 は Jennifer が Cross-check、Brian が Unresolved で、説明できた4事象から前者に合意。
 - 熟練の反例4件は、UX-033 が紙の旧時間帯と Window、UX-037 が前の担当からの伝言と Held、UX-042 が車両係の回答と Vehicle、UX-043 が紙の例外メモと停車 Note。4人は通常便と例外対応の引継ぎを独力で担当してきた実務歴を本人の説明で確認でき、職位・交代頻度で熟練を代用しない。
 - 初心者に固有という分類を1月22日に撤回。user persona の草案 CWR-DR-20241031-DEC-01 は10月31日 v0.1、1月23日 Withdrawn v0.2。同じ番号で草案本文を保持し、撤回理由を添える。
-- 件名 `Read before we reuse the novice sketch`。1月24日11:14 Jennifer → Patrick Delgado（patrick.delgado@carver-workplace.example）の新規メール。 `2025-01-24 Where the novice explanation breaks.pdf`（CWR-DR-20250124-RPT-01 v1.0）を1点添付。
+- 件名 `Read before we reuse the novice sketch`。1月24日11:14 Jennifer → Patrick Delgado（patrick.delgado@carver-workplace.example）の新規メール。 `2025-01-24 Experienced dispatcher cases.pdf`（CWR-DR-20250124-RPT-01 v1.0）を1点添付。
 
 ## 配車の見通し調査 — 職位から交代頻度への見直し
 
@@ -88,7 +88,7 @@
 - 4月9日の会議前メモ CWR-DR-20250409-DEC-01 は10:48 Jennifer v0.1、16:06 Patrick が変更履歴とコメントを付けた v0.2。同じ番号で、頻度を技能と読む文を問いに改め、件数不明の割当を保留した。
 - 2025-04-10 10:00–11:05 CDT、Jennifer と Patrick がレビュー。UX-033 と UX-042 は同職位で交代は1回と5回。042も便と予定時間帯から入り、後で車両係の口頭回答とVehicleを照合した。037は前担当の伝言をHeldと照合した。職位だけでは回数も照合先も説明できず、頻度別に読み直すことにした。042は頻度から開始手順を予測する仮説の反例として残す。
 - 頻度別の2案は、直近5勤務中3回以上なら変更分とその根拠から、2回以下なら対象便と前の状態からたどるという作業仮説。頻度不明は未割当。境は面談を読み直すためのものとし、募集基準や技能判定には使わない。
-- 件名 `Keep the comparison slide`。4月10日13:38 Jennifer → Patrick、`2025-04-10 Three titles or two handoff patterns.pptx`（CWR-DR-20250410-BRF-01 v1.0）を1点添付。Message-ID は `<d9d5c42b-19a7-4220-b044-f1ca2645412c@carver-workplace.example>`。
+- 件名 `Keep the comparison slide`。4月10日13:38 Jennifer → Patrick、`2025-04-10 Handoff profile comparison.pptx`（CWR-DR-20250410-BRF-01 v1.0）を1点添付。Message-ID は `<d9d5c42b-19a7-4220-b044-f1ca2645412c@carver-workplace.example>`。
 - 同日15:16 Patrick → Jennifer、件名 `Re: Keep the comparison slide`。頻度不明を割り当てない一節を引用し、同じ初信の ID を In-Reply-To・References に使う。返信の Message-ID は `<3763b9d8-0280-42c4-9a62-8643fef0b714@carver-workplace.example>`、返信に添付なし。
 
 ## 研修画面理解調査 — 途中保存と研修完了の取り違え
@@ -171,7 +171,7 @@
 - Q24 21:47 は次担当が処理完了 → 聞いてもらったところまで、Q30 28:26 は常に助けを求めず処理 → 独力で引き継いできたが迷えば出どころを聞く、Q36 38:50 は原本を調査員に提出 → 紙は本人の手元のまま。
 - 1月29日08:52 CST（同日23:52 JST）、金子（mihoko.kaneko@carver-workplace.example）→ Jennifer、Cc Patrick。件名 `Seven lines to pull back before Oakridge` の新規メールにコメント入り v0.2 と引用対応 CSV を添付。顧客宛てメールとは別スレッド。
 - 1月30日14:00 CST、Patrick と Jennifer が金子の照合結果を確認し、匿名英訳3箇所と1例の観察範囲に収めた別紙だけを Christine に共有すると決定。配布文書 CWR-DR-20260204-RPT-01 v1.0 は2月4日の DOCX と同版の PDF。
-- 2月5日10:06 CST、Jennifer → Christine（christine@oakridge-dispatch.example）。件名 `A short note on the stop condition` の新規メールに `2026-02-04 One stop condition that traveled by voice.pdf` 1点を添付。
+- 2月5日10:06 CST、Jennifer → Christine（christine@oakridge-dispatch.example）。件名 `A short note on the stop condition` の新規メールに `2026-02-04 Stop exception case brief.pdf` 1点を添付。
 
 ## 1月の面談会場 — 欠席枠と月次精算
 
@@ -185,7 +185,7 @@
 - 2026-04-15 10:00–11:05 CDT、Jennifer と Brian Chen が計24枠を、面談直前の5勤務で交代を渡したか受けた勤務が3回以上／2回以下で各12枠に決定。両方した勤務も1回で、回数不明は確認まで枠外。
 - 3回以上は米国9・日本3、2回以下は米国8・日本4。国は運営上の内訳で、人数割り・職位・技能の判定には使わない。2025年1月に読んだ旧12面談と7月の追加24人は別集計で、Adam の旧 UX-041 と今回 UX-184 は別の面談。
 - 割当根拠 CWR-DR-20260413-DEC-01 は4月13日 Jennifer v0.1、14日 Brian 赤入れ v0.2、15日 Jennifer v1.0。別添の24枠表は Brian の CWR-DR-20260415-DEC-02 v1.0。4月の表は頻度別に並べた枠の管理で、枠番号は実施順を表さない。面談番号や確定日時は7月の記録で対応させる。
-- 2026-04-15 14:05 Jennifer → Carolyn と金子（Cc Brian）、初信件名 `Follow-up slots by handoff frequency`。`2026-04-15 Dispatch follow-up slots by handoff frequency.xlsx` 1点を添付。
+- 2026-04-15 14:05 Jennifer → Carolyn と金子（Cc Brian）、初信件名 `Follow-up slots by handoff frequency`。`2026-04-15 Slots by handoff frequency.xlsx` 1点を添付。
 - 同日15:24 Carolyn → Jennifer（Cc Brian と金子）、返信件名 `Re: Follow-up slots by handoff frequency`。初信の頻度不明者を繰り上げない一節を引用し、空き枠は同じ頻度層で調整すると確認。添付なし。
 
 ## 配車の見通し調査 — 7月の面談、許可と音声の扱い
@@ -238,7 +238,7 @@
 - 補足・鮮度確認は UX-169（既に折り返し待ちと聞き、誰からかを前担当に確認）と UX-182（旧控えがあり、現在の受入れ許可待ちを同じ便と時間帯で受け側デスクに再確認）。
 - UX-185 は一覧閲覧前の口頭引継ぎで理由を知った。UX-183・189 は現れた場面で保留に遭遇していない。比較例の9人は4・2・1・2人に分かれる。
 - 直近5勤務の交代が3回以上／2回以下は各12人。提言根拠はそれぞれ8／7人の観察で、割合差・技能差を示す資料にはしない。2025年1月の旧12面談は加えない。
-- 照合表 CWR-DR-20260804-DEC-01 v1.0 はチーム内の26場面と24人の対応。顧客の別添 `2026-08-10 Counts for the Oakridge readout.csv` は参加者・便・時点を外した7区分の人数表。
+- 照合表 CWR-DR-20260804-DEC-01 v1.0 はチーム内の26場面と24人の対応。顧客の別添 `2026-08-10 Oakridge hold reason counts.csv` は参加者・便・時点を外した7区分の人数表。
 
 ## 配車の見通し調査 — 保留理由の配置案と報告の承認
 
@@ -248,7 +248,7 @@
 - 8月10日10:30–11:10 CDT、Patrick と Jennifer が匿名の行動要約・人数集計・提案図で説明する方針を確認。7月の発言の逐語引用、音声、参加者符号・便番号・時点付き個票は社内にとどめる。
 - 8月12日10:00–10:40 CDT、Christine・Patrick・Jennifer が説明会。CWR-DR-20260812-BRF-01 v1.0 を使用。Christine は Held 隣を次の試作位置に選ぶ。公開・実装の承認や解除権限の変更は行っていない。
 - Jennifer は Jeremy に、理由が確認済み、前日分しかない、理由不明で確認先は分かる、の3条件を渡す。次に試すのは受け手が何を引き継ぎ、確認先・解除可否をどう区別するか。
-- 共有報告 CWR-DR-20260812-RPT-01 v1.0 は Jennifer 発行、Christine 宛て。8月12日の説明会で選んだ試作位置を反映した `2026-08-12 Carrying a hold reason across the handoff.pdf` が配布版。
+- 共有報告 CWR-DR-20260812-RPT-01 v1.0 は Jennifer 発行、Christine 宛て。8月12日の説明会で選んだ試作位置を反映した `2026-08-12 Oakridge hold reason report.pdf` が配布版。
 
 ## 配車の見通し調査 — Christine からの質問と報告送付
 
@@ -279,12 +279,12 @@
 ## 半期評価 — 5月12日に読んだ提出時の6報告
 
 - 2026-05-12 10:00–10:50 CDT、Jennifer Salazar と Patrick Delgado。既に相手に渡した版を1報告1件で読み、提言を限定する具体的な観察を報告本文・投影面で辿れるかを判定。元データだけにある観察、人数表の正答欄だけ、一般的な留保だけでは「記載あり」にしない。提出時の判定は記載あり4件、補足要2件で固定。
-- 記載あり：`Documents/Night-shift/2024-09-26 Finding the place again.pdf`、CWR-NS-20240926-RPT-01 v1.0、p.2「Interpretation」。N05 は同僚から C-12 を聞いた21:14のうちに再開し、全員が場所を探したという読みを退ける。提言は最後に確定した棚番の表示。
-- 記載あり：`Documents/配車の見通し調査/Findings/2025-01-24 Where the novice explanation breaks.pdf`、CWR-DR-20250124-RPT-01 v1.0、p.1「The four counterexamples」。実務経験のある4人が別の情報源と照合しており、初心者特有説を撤回。
-- 記載あり：`Documents/Personas-and-journeys/2025-04-10 Three titles or two handoff patterns.pptx`、CWR-DR-20250410-BRF-01 v1.0（会議後に追記して Patrick へ渡した版）、スライド4–5。UX-042 は直近5勤務のうち交代5回でも便・予定時間帯から入り、回数だけでは開始手順を決められない。
-- 記載あり：`Documents/交代申し送り調査/Handover/2025-10-08 Every item needs somewhere to go.pdf`、CWR-HO-20251008-RPT-01 v1.0、p.1「What the explanations leave open」。HH-03 と HH-10 は一覧案で保存しても別々の誤解が残り、次の試作で別々に確かめる。提出先は Jeremy と Patrick。
+- 記載あり：`Documents/Night-shift/2024-09-26 Kenton night count report.pdf`、CWR-NS-20240926-RPT-01 v1.0、p.2「Interpretation」。N05 は同僚から C-12 を聞いた21:14のうちに再開し、全員が場所を探したという読みを退ける。提言は最後に確定した棚番の表示。
+- 記載あり：`Documents/配車の見通し調査/Findings/2025-01-24 Experienced dispatcher cases.pdf`、CWR-DR-20250124-RPT-01 v1.0、p.1「The four counterexamples」。実務経験のある4人が別の情報源と照合しており、初心者特有説を撤回。
+- 記載あり：`Documents/Personas-and-journeys/2025-04-10 Handoff profile comparison.pptx`、CWR-DR-20250410-BRF-01 v1.0（会議後に追記して Patrick へ渡した版）、スライド4–5。UX-042 は直近5勤務のうち交代5回でも便・予定時間帯から入り、回数だけでは開始手順を決められない。
+- 記載あり：`Documents/交代申し送り調査/Handover/2025-10-08 Open-item list design notes.pdf`、CWR-HO-20251008-RPT-01 v1.0、p.1「What the explanations leave open」。HH-03 と HH-10 は一覧案で保存しても別々の誤解が残り、次の試作で別々に確かめる。提出先は Jeremy と Patrick。
 - 補足要：`Documents/Training-comprehension/2025-02-12 研修の完了と途中保存 文言比較.pdf`、CWR-TC-20250212-BRF-01 v1.0、pp.2–3。集計は誤解5・正答3だが、正しく判断した人が何を根拠に読み分けたかは文言案に結び付いていない。同版の PPTX は別件に数えない。
-- 補足要：`Documents/Screen-reader/2025-05-15 Keep the stop note with its row.docx`、CWR-SR-20250515-DEC-01 v1.0、p.1「Why not move all four to the top?」「Follow-up」。Jennifer の点検を受けて Jeremy が返した共同作業の報告で、抜けた4項目の修正案に対し、同じ通しで読めた Note の対照が本文にない。Amanda の観察PDFと Jennifer の項目表は根拠資料。
+- 補足要：`Documents/Screen-reader/2025-05-15 Stop note reading order.docx`、CWR-SR-20250515-DEC-01 v1.0、p.1「Why not move all four to the top?」「Follow-up」。Jennifer の点検を受けて Jeremy が返した共同作業の報告で、抜けた4項目の修正案に対し、同じ通しで読めた Note の対照が本文にない。Amanda の観察PDFと Jennifer の項目表は根拠資料。
 - 5月12日に Patrick が2件の補足を5月19日までに求めた。研修の頁で正答者の手掛かりを、配車の頁で同じ条件のまま通った項目を示す。提出当時の4/6は更新せず、改訂2件の受領は別に記す。配車の2報告は同一調査内の別判断で、全体は5調査・6報告。
 
 ## 半期評価 — 根拠の再照合と Patrick への再提出
@@ -294,5 +294,5 @@
 - 5月18日 11:18、Jennifer が研修報告の pp.2–3 を基に Word の社内改訂抜粋 CWR-TC-20250212-BRF-01 v1.1 を保存。「最初に止まった時の判断」に正答の根拠を、「保存時の表示をどう変えるか」に提案範囲を変更履歴で加える。番号は元報告から引き継ぎ、顧客配布版 v1.0 はそのまま。
 - 5月18日 15:26、Jennifer が Jeremy の読み上げ判断記録 CWR-SR-20250515-DEC-01 を v1.1 として保存。Jeremy の原文・修正表を残し、「Why not move all four to the top?」「Follow-up」に対照と再点検範囲を変更履歴で加える。両改訂の行き先は Patrick の半期評価の控え。
 - 5月4日 09:12 Patrick（patrick.delgado@carver-workplace.example）→ Jennifer（jennifer@carver-workplace.example）、件名 `Six reports for our May review`。見直し依頼の新規メール、添付なし。
-- 5月19日 10:34 Jennifer → Patrick、件名 `Two report revisions from the May review`。再提出の新規メールに `2026-05-18 途中保存と提出の判断 追記.docx` と `2026-05-18 Keep the stop note with its row - scope edits.docx` の2点を添付。
+- 5月19日 10:34 Jennifer → Patrick、件名 `Two report revisions from the May review`。再提出の新規メールに `2026-05-18 途中保存と提出の判断 追記.docx` と `2026-05-18 Stop note reading order v1.1.docx` の2点を添付。
 - 5月20日 09:17 Patrick → Jennifer、件名 `Re: Two report revisions from the May review`。前日の初信の該当段落を引用し、2件を半期評価の追補として受領。添付なし。顧客への再配布やデザインの承認は行っていない。

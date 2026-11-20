@@ -3,7 +3,7 @@ path: Documents/配車の見通し調査/Planning/2024-04-25 Dispatch handoff ob
 kind: carver-observation-plan.docx
 author: Jennifer Salazar
 created: 2024-04-19 15:36
-derived_from: Documents/配車の見通し調査/Planning/2024-04-23 Dispatch handoff observation Patrick notes.docx
+derived_from: Documents/配車の見通し調査/Planning/2024-04-23 Field plan Patrick markup.docx
 ---
 
 v0.2 からの変更：Patrick の変更履歴を反映し、コメントと「Questions for Patrick」を取り除く。「For Patrick's review」を「For the research team」に替え、管理欄を次のとおり更新する。

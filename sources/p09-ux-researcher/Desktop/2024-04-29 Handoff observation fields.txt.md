@@ -1,0 +1,16 @@
+---
+path: Desktop/2024-04-29 Handoff observation fields.txt
+kind: text
+author: Jennifer Salazar
+derived_from:
+---
+One checkbox I cannot defend
+29 April
+
+I nearly put “handoff complete” at the end of the observation sheet. It would make the sheet tidy, but I cannot say what a checked box means.
+
+A receiver could repeat a window aloud and still repeat the old value. The repetition tells me something was heard; it does not establish where the value came from or whether it matches the current plan. I need the value, its source and the words passed on.
+
+Likewise, opening a stop Note is visible. Even reading the instruction does not show that it was included in the handoff. If the exception is left out, a single complete box would conceal exactly the break we want to understand.
+
+Keep separate entries for opened, read and passed on, with the evidence for each. If I did not see or hear one of them, write unknown rather than no. These are possible situations for the sheet, not participant results.

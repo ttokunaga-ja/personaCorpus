@@ -23,5 +23,5 @@ Best,
 Jennifer
 
 今回の MIME 添付:
-- 2026-08-12 Carrying a hold reason across the handoff.pdf — Library/CloudStorage/Carver/2026-08-12 Carrying a hold reason across the handoff.pdf
-- 2026-08-10 Counts for the Oakridge readout.csv — Documents/配車の見通し調査/Findings/2026-08-10 Counts for the Oakridge readout.csv
+- 2026-08-12 Oakridge hold reason report.pdf — Library/CloudStorage/Carver/2026-08-12 Oakridge hold reason report.pdf
+- 2026-08-10 Oakridge hold reason counts.csv — Documents/配車の見通し調査/Findings/2026-08-10 Oakridge hold reason counts.csv

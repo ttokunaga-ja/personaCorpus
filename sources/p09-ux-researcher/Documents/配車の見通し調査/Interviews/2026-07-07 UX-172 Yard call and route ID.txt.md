@@ -1,0 +1,161 @@
+---
+path: Documents/配車の見通し調査/Interviews/2026-07-07 UX-172 Yard call and route ID.txt
+kind: text
+author: Jennifer Salazar
+derived_from:
+---
+# The yard call has a route number
+
+UX-172 · Interview 7 · July 7, 2026, 14:00–14:45 CDT
+Jennifer Salazar with participant · 1 of last 5 shifts with a handoff
+Team transcript and re-listening only. Audio retention through January 3, 2027. Permission covers this study and this team.
+
+Elapsed time starts at 14:00. The participant recounts both sides of the earlier yard call. The coordinator's readback is at 20:30 here and 19:30 in the recording. Brackets mark actions and sounds during the interview.
+
+00:45 [Before recording: participant agreed to take part and to recording for team transcription and re-listening.]
+01:00 [Recording starts.]
+01:04 Jennifer: First, in the last five shifts, on how many did you give or receive a handoff?
+01:14 Participant: One. I was covering for someone on that shift.
+01:25 Jennifer: Was that a shift you received, a shift you handed off, or one where you did both?
+01:32 Participant: Both on that one. I came in after someone else had started the list and had a different person come in behind me. On the other four I didn't give or take a handoff.
+01:53 Jennifer: What were you covering on that one shift? Give me just enough to put you at the desk.
+02:17 Participant: I was filling in on dispatch. I picked up the list that was already there. I needed to figure out what I could do that shift and what I'd have to carry over.
+02:42 [Chair moves as the participant turns to the route list.]
+03:00 Jennifer: Where did that handoff start for you?
+03:14 Participant: At the dispatch list. I opened R-398 and saw Held. I was taking over and wanted to know what to tell the next person if it was still there when I left.
+03:49 Jennifer: Find the row without opening the stops. I want to see what you had before you called.
+04:10 [A few taps. The participant scans the list and checks the selected route.]
+04:21 Jennifer: You moved back to the left before you selected it. What were you looking for there?
+04:32 Participant: The full route number. If I'm scanning from the status column, all the Held rows look like candidates until I read back across.
+04:49 Participant: There, R-398. At that point I wasn't looking at whether a truck at the yard could load. I was looking at what dispatch was showing.
+05:20 Jennifer: What could you read from the row?
+05:31 Participant: The number and the status. I couldn't read a reason off it. I didn't know if the yard had a place ready for that load.
+06:03 Jennifer: At the desk, is the loading bay the place you're supposed to use on arrival at a stop?
+06:28 Participant: I'm talking about the loading point in the yard here. I'm trying to know whether we even have a place to put that load on. Directions later in the route wouldn't answer that.
+06:51 Jennifer: So even if you know where the driver will go at the other end, you still have a question here?
+07:02 Participant: Right. The stop details could all be right and I'd still need to ask about loading here.
+07:14 Jennifer: Would you have sent it out based on the board at that point?
+07:35 Participant: No. Held was enough for me to keep it there. It wasn't enough for me to tell the next shift what to look for.
+07:47 Jennifer: What would the next shift have to do if all you left was that label?
+07:54 Participant: Start from the same place I did. They could leave it alone, but they'd still have to find out what hadn't happened.
+08:12 Jennifer: What did you do next?
+08:25 Participant: I called the yard contact who handles loading. I asked about the route, but I want to be clear that the answer came from that person, not the row.
+08:58 Jennifer: Which person's side of the conversation did you know you were getting?
+09:22 Participant: I was asking the loading contact, the person in the yard with the allocation. I only have my call to go on. I didn't go down and see somebody trying to fit us into a bay.
+10:00 Jennifer: Where did you have the route number while you made that call?
+10:09 Participant: I'll turn this back toward me first. This is the way I'd have it with the phone at the desk.
+10:23 [Participant opens the row and moves a sheet aside to keep the screen in view.]
+10:34 Jennifer: Was that sheet giving you a second route number, or were you just clearing a space?
+10:44 Participant: Clearing a space. I'm looking right at the number I would have used. I'd keep that row visible while I had somebody on the phone so I could match their answer as they gave it.
+11:02 Participant: Right there on the line. I wanted to have it in front of me when they answered instead of saying it from memory.
+11:22 Jennifer: Was this something you'd written down before you picked up the phone?
+11:32 Participant: I was reading straight from the dispatch list. That's the quickest way I'd check myself before I say it.
+11:45 Jennifer: Can you remember how the call began?
+11:59 Participant: I said I was looking at a held route and needed to know where it stood. We had to make sure we were talking about the same one.
+12:37 Jennifer: Could you start the call as you remember it? Let me know where your words end and where theirs begin.
+12:46 Participant: I can tell you the sense of it. I don't remember my first hello or how they answered the phone. The part I remember starts with me telling them what was on the dispatch screen.
+13:05 Participant: I said, “I've got a route showing Held. Can you tell me where we stand on loading?” That's my part. I had to get the number into it before I could use any answer.
+13:51 Jennifer: Were they calling about something else or did you reach out to them?
+14:14 Participant: I called. Nobody had told me what was outstanding in the yard when I took the desk.
+14:44 [Participant looks back to the number field.]
+14:50 Participant: I could have said “the held one,” which would make sense here while we're both staring at it. Over there they're not looking at my selection.
+15:06 Jennifer: What did you use to identify it?
+15:17 Participant: The route number on the open line. I said R-398. Then I listened for them to say it back before I wrote down what they told me.
+15:55 Jennifer: When you say you listened for the number, did you have one to check against?
+16:15 Participant: I did. I wasn't going to use just “that route” or “the one that's held.” When they said the number I could check it against the row I was on.
+16:37 Jennifer: Walk me through that check without going past the readback yet.
+16:47 Participant: I look here and listen to what they say. I'm checking the last digits even when I think I know it.
+16:58 [Participant shows the number and imitates setting down a pen while waiting for the call to come back to the route.]
+17:10 Jennifer: Is setting the pen down something you remember doing that day?
+17:17 Participant: That part is what I'm showing you now. What I remember is keeping the answer off the line until I'd heard the number. I couldn't tell you where I put the pen during the call.
+17:42 Participant: The part I'd write down is what they said after we matched the number. I wasn't treating it as an answer before then.
+18:20 Jennifer: Take me through their response as you remember it.
+18:31 Participant: They checked, and I waited. A Held label didn't tell me anything about an assignment. Whatever I could learn about it was going to come from the call.
+19:04 Jennifer: Take your time. Where in that exchange could you have started writing a reason with the route number on it?
+19:30 Participant: After the readback. I can do the voices in order, but the call itself isn't playing here. This is how I remember hearing it.
+19:53 Jennifer: Yes, go ahead with what stuck with you. If part of it is a paraphrase, tell me which part.
+20:07 [Participant rereads the route number before reenacting the reply.]
+20:15 Jennifer: When you tell it, can you keep their question and your answer separate? I want to hear where the route got tied to the loading information.
+20:30 Participant: The yard contact said, “R-398?” I said yes. Then they said a loading bay hadn't been assigned yet. That was the first time I had a reason to pass on for that route.
+21:03 Jennifer: Was the person who read it back the same person who gave you the answer?
+21:12 Participant: Yes, the loading contact in the yard. I wasn't reading a note written by somebody else.
+21:31 Jennifer: Apart from the route number, did you hear a bay number you could pass on?
+21:41 Participant: They told me where things stood. There was no number for me to write.
+21:48 Jennifer: Did they say a bay had been chosen but the load hadn't moved?
+22:10 Participant: No, they said one hadn't been assigned. That was as far as I'd take their answer. I don't know what they'd already tried in the yard before my call.
+22:35 Jennifer: I'll read the words I have so far. “Waiting for the yard to designate a place to load.” Is that the scope of what they said?
+22:46 Participant: Yes, that's what was still open.
+22:51 [Jennifer writes the reply separately from the number check.]
+23:01 Participant: If you write “no bay,” put “assigned” with it. I don't know whether there was an empty bay. They hadn't assigned one to this load.
+23:14 Jennifer: What happened after that call?
+23:25 Participant: I left the route held and noted what I'd heard. An unassigned bay isn't the same as a bay being ready.
+24:02 Jennifer: What did you leave the note beside?
+24:19 Participant: With the route number. If they pick up the note and don't have the call, I want them to know where it goes. I wouldn't call that proof they'd cleared anything in the yard.
+24:39 Jennifer: Was this a place you entered a change to the plan?
+24:47 Participant: No, it was for the person coming on. I'd leave the board as it stood. What I could give them was the last thing somebody had actually told me.
+25:12 Jennifer: Could the next person look for an assigned bay from what you wrote?
+25:34 Participant: They could look again, but there wasn't a bay number for me to give them at the time.
+26:00 Jennifer: Did you get a time for the assignment?
+26:11 Participant: Not in that answer. I wouldn't have told the next person there was a time.
+26:28 Jennifer: When you look down at the line now, there's a Window on it. Is your answer coming from that value?
+26:40 Participant: The window is here, yes. That doesn't give me the time for a bay assignment.
+26:50 Jennifer: What would you have said if they'd asked when to expect one?
+27:15 Participant: I didn't have a time. They'd need a fresh answer from the yard. I wouldn't take the planned Window and turn it into an estimate of when the yard would assign something.
+27:38 Jennifer: Can you show the words you would put down while leaving the time out?
+27:49 Participant: I'll start at the left with the number. Then I can put the status and the yard reply next to it so somebody can read them together.
+28:03 [Participant drafts the handoff, looks at the route number, and marks the source after the waiting item.]
+28:19 Jennifer: What's the short piece you're adding on the right?
+28:29 Participant: “Yard, by phone.” It's which answer I'm carrying over. It could be stale by the time somebody calls again, but at least they know where it came from.
+28:50 Participant: That comes after the answer in my note, so you can tell who to go back to.
+29:15 Jennifer: When you handed over, what did you say and to whom did you attribute it?
+29:30 Participant: I told the incoming dispatcher R-398 was Held and the yard loading contact had said no bay was assigned. I named that contact as the source, so the next person would know where the answer came from.
+30:13 Jennifer: Saying where you got the answer didn't give that person permission to release it?
+30:36 Participant: Right. It gives them a place to verify what they're waiting on. I don't know who changes the dispatch state just from who answered the phone.
+30:58 Jennifer: What two questions would that leave a person on the next shift with?
+31:09 Participant: Has a bay been assigned in the meantime? And am I actually clear to move this route? I gave them a source for the first one.
+31:22 Jennifer: Did you ask them to release the route?
+31:31 Participant: No. I handed over the status and the answer; I didn't have an instruction to release it.
+32:06 Jennifer: What would you leave out if the next person had only a moment?
+32:28 Participant: I'd leave out my searching around in the list. I'd keep the route number, the Held status, what the yard told me, and which contact said it.
+32:50 Jennifer: I'll put what you saw on one line and what you heard on the next. Tell me if that reads like two routes.
+33:01 [Jennifer puts the route row and the spoken reply on separate note lines.]
+33:19 Participant: Let's make the route number common to both. If those lines were apart on the page, I'd still want to be able to tell that they're for the same load.
+33:40 Jennifer: Was the route number part of what you passed on?
+33:50 Participant: Yes, because the yard person had read it back to me. Otherwise that answer could be attached to the wrong route.
+34:27 Jennifer: When you told the incoming dispatcher, did you have to read back the whole call?
+34:50 Participant: No. They needed the result and the source. I explained the number check here because you asked how I knew we were talking about the same route.
+35:14 Jennifer: Help me put the readback in the right place on the longer note. Does it come before seeing Held, or after?
+35:25 Participant: After. It's in the call, just before they told me about the bay.
+35:33 [Participant checks Jennifer's notes against what they have just said.]
+35:43 Jennifer: You stopped on the word “awaiting.” Is there something you want to change there?
+35:54 Participant: It works if it's awaiting a bay assignment. If it just says awaiting loading, we'd lose what step was still missing when I called.
+36:12 Jennifer: Do you know what happened after you left?
+36:23 Participant: No. I know what I passed to the incoming dispatcher, not when a bay was assigned.
+37:00 Jennifer: Then for the purpose of this handoff, the story ends while you're still waiting for assignment.
+37:25 Participant: Yes. I'd have to ask somebody on the next shift for anything after that.
+37:44 Jennifer: I'll stop the account at the desk change. Tell me if I have everything leading up to that point in the right order.
+38:04 Jennifer: Let me check my notes: you opened R-398, called the loading contact, heard R-398 repeated, and then heard that the bay wasn't assigned.
+38:17 Participant: Yes. The call is where the reason came from.
+38:49 Jennifer: Is “no loading bay assigned yet” closer to what you heard than “waiting to load”?
+39:09 Participant: Yes. “Waiting to load” could mean a bay is ready and they're waiting for the load to arrive. The yard hadn't assigned a place to load it. That's the part I'd leave word for word if I could.
+39:46 [Jennifer revises the wording in the handoff note and points to the source beside the route number.]
+39:56 Participant: Yes, leave the yard next to that part. The Held comes from the dispatch line up above it.
+40:10 Jennifer: And at handoff you identified the yard contact as the source?
+40:18 Participant: Exactly. I didn't say it was written on the board.
+40:50 Jennifer: Could you see a bay assignment on the dispatch row while we were doing this?
+41:08 Participant: No. That's the row I used to read the number back. It's not where I got the answer.
+41:24 Jennifer: So even if I take out the rest of the notes, the list gives me the same number I can use to look up the yard account.
+41:36 Participant: Yes. That's why I left the number on both.
+41:45 [Jennifer compares the two numbered entries before turning the notes around.]
+42:00 Jennifer: I made the line for what you told the next shift shorter. Would you read it back to me so I can hear whether I lost anything?
+42:12 Participant: “R-398 is still held. Yard says no loading bay has been assigned.” That's what I meant them to leave with. I don't have the exact wording I used that day.
+42:30 Jennifer: Anything to correct or remove?
+42:39 Participant: No, that's the sequence.
+43:05 Jennifer: I'll keep the words you remembered from the call under your account of it. I have the readback first and the unassigned bay after it.
+43:37 Participant: That's right. The person who said the number was the one who gave me the answer.
+43:49 Jennifer: And the person coming in got what you knew from that call, with no later update from you?
+44:02 Participant: Yes. I was done with the shift. If they got an assignment after that, that would be their call to tell, not mine.
+44:15 [Participant closes the route list.]
+44:32 Jennifer: Thank you. We'll close here.
+44:46 Participant: Thanks.
+45:00 [Session and recording end.]

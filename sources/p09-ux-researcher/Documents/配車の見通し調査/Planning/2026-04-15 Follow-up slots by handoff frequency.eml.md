@@ -22,4 +22,4 @@ Use the US and Japan columns to arrange dates with each desk. If someone drops o
 Thanks for coordinating the dates together.
 Jennifer
 
-Attachment: 2026-04-15 Dispatch follow-up slots by handoff frequency.xlsx
+Attachment: 2026-04-15 Slots by handoff frequency.xlsx

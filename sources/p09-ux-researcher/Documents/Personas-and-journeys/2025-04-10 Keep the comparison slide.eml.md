@@ -22,5 +22,5 @@ For this internal read, if we don't have the handoff count for someone's last fi
 Thanks,
 Jennifer
 
-添付: 2025-04-10 Three titles or two handoff patterns.pptx
-添付元: Documents/Personas-and-journeys/2025-04-10 Three titles or two handoff patterns.pptx
+添付: 2025-04-10 Handoff profile comparison.pptx
+添付元: Documents/Personas-and-journeys/2025-04-10 Handoff profile comparison.pptx

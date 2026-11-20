@@ -4,6 +4,7 @@ period: 2024-04-01..2026-09-30
 timezone: America/Chicago
 allowed_terms: user persona, persona mapping, scope of research
 photo_dirs: Pictures
+date_prefix: YYYY-MM-DD 
 ---
 
 # p09 UX リサーチャー
@@ -116,6 +117,19 @@ Documents/Client-mail/                      Christine への説明と承認メ�
 Library/CloudStorage/Carver/共有報告書の手元の写し
 ```
 
+
+## 名前の付け方
+
+面談・観察・レビューを日付順に開けるよう、日にひもづくファイルは `YYYY-MM-DD` の直後に半角スペースを一つ入れる。日別フォルダではファイル名に同じ日付を重ねない。見出しに使う語は英語の計画・分析なら英語、日本語の面談・参加案内・訳の照合なら日本語にする。面談は UX 番号、画面は便番号、レビューは相手の名前や版を手がかりにする。拡張子を除き 40 文字以内、保存メールは 60 文字以内に収める。
+
+- `2026-07-14 UX-184 Adam Held routes.txt` — 逐語録は日付と面談番号から引く。Adam の観察メモにも UX-184 を入れる。
+- `2025-02-07 初回停止時の判断根拠.txt` — 日本語で照合する回答メモは、着目した場面と記録の種類で名前を付ける。
+- `2025-04-09 Profile criteria Patrick edit.docx` — 赤入れは相手の名前を付け、会議前の草案と区別する。
+- `2024-04-18 R-214 screen callouts.png` — 注釈を入れて共有する画面控えは、便番号と図の用途を付ける。
+- `IMG_0412.jpg` — 現場で撮ったままの写真にはカメラが付けた名前を残す。分析会で参照する付箋写真には手で名前を付ける。
+- `Screenshot 2025-03-12 at 14.05.12.png` — Mac で撮っただけの画面控えは保存時の名前でも手元に置く。
+- `Dispatch Planning Screen Reference.pdf` — Downloads の顧客資料は、添付と見比べられるよう受け取った名前で置く。
+- `2026-08-07 Re Is this a new status.eml` — 保存メールは日付と件名を引き継ぎ、返信は `Re` を残す。コロンや疑問符はファイル名から外す。
 
 ## 形式の目安
 

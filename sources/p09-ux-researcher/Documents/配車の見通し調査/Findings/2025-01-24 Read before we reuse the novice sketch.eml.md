@@ -20,5 +20,5 @@ I've attached the short write-up (CWR-DR-20250124-RPT-01). It puts each person's
 Thanks,
 Jennifer
 
-添付: 2025-01-24 Where the novice explanation breaks.pdf
-添付元: Documents/配車の見通し調査/Findings/2025-01-24 Where the novice explanation breaks.pdf
+添付: 2025-01-24 Experienced dispatcher cases.pdf
+添付元: Documents/配車の見通し調査/Findings/2025-01-24 Experienced dispatcher cases.pdf

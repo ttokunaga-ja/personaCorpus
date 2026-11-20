@@ -29,5 +29,5 @@ Thanks,
 Mihoko
 
 添付:
-- 2026-01-29 The stop note example - Mihoko's markup.docx
+- 2026-01-29 Stop note case Mihoko markup.docx
 - 2026-01-29 停車メモ 引用対応表.csv

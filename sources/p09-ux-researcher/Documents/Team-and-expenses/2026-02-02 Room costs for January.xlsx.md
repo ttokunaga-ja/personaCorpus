@@ -20,7 +20,7 @@ A5:F5: For Carolyn Davis · January 2026 research venue costs for month-end clos
 | 7 | 2026-01-05 | Lake Room | Completed session | 1 | 200.00 | January 5 room booking matched by date and room to the completed session on statement line 1. |
 | 8 | 2026-01-12 | Lake Room | Completed session | 2 | 200.00 | January 12 room booking matched by date and room to the completed session on statement line 2. |
 | 9 | 2026-01-20 | Lake Room | Completed session | 3 | 200.00 | January 20 room booking matched by date and room to the completed session on statement line 3. |
-| 10 | 2026-01-22 | Lake Room / 13:30 CST | No-show cancellation | 4 | 80.00 | Line 4 bills USD 80 for the reserved 13:30 slot. See Ayesha Siddiqui’s `2026-01-22 When we released Lake Room.txt` in this folder. She recorded no contact and no arrival by 13:45 CST, when she released the room. Operations checked the reservation record and found no cancellation by 17:00 CST on January 21, the previous business day. Charge the reserved slot to research venue costs. |
+| 10 | 2026-01-22 | Lake Room / 13:30 CST | No-show cancellation | 4 | 80.00 | Line 4 bills USD 80 for the reserved 13:30 slot. See Ayesha Siddiqui’s `2026-01-22 Lake Room no-show log.txt` in this folder. She recorded no contact and no arrival by 13:45 CST, when she released the room. Operations checked the reservation record and found no cancellation by 17:00 CST on January 21, the previous business day. Charge the reserved slot to research venue costs. |
 
 | Row | A:D label | E: Amount (USD) | F: Note |
 |---:|---|---|---|

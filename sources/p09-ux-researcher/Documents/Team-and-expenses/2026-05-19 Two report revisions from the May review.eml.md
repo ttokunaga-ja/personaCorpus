@@ -28,4 +28,4 @@ Jennifer
 ## 添付
 
 - `Documents/Training-comprehension/2026-05-18 途中保存と提出の判断 追記.docx`
-- `Documents/Screen-reader/2026-05-18 Keep the stop note with its row - scope edits.docx`
+- `Documents/Screen-reader/2026-05-18 Stop note reading order v1.1.docx`

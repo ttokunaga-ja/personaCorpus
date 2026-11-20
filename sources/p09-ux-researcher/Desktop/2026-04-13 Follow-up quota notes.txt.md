@@ -1,0 +1,13 @@
+---
+path: Desktop/2026-04-13 Follow-up quota notes.txt
+kind: text
+author: Jennifer Salazar
+derived_from:
+---
+Before I sit down with Brian · Monday, 9:35
+
+Twelve US and twelve Japan looks tidy. Can I tell from either column whether we'll get enough people who handed over on two or fewer of their last five shifts? I can't yet. A full column could still leave us looking for a real cover-shift example.
+
+Pull the two working profiles. UX-033 and UX-042 were both Desk Dispatchers. One shift out of five for 033, five for 042. The first checked the old window on paper. The second also started with the route and window, then checked Vehicle against what the coordinator said. Leave that exception in when we talk about how often someone hands over.
+
+Question for Brian: what do we gain by drawing the country line first? Try drawing the two frequency rows first and see what Carolyn and Kaneko would have to find for each.
