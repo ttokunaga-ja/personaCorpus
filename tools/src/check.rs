@@ -127,6 +127,77 @@ fn html(text: &str) -> String {
         re(r"(?is)<(?:script|style)\b[^>]*>.*?</(?:script|style)\s*>").replace_all(text, "");
     html_escape::decode_html_entities(&re(r"(?s)<[^>]*>").replace_all(&stripped, " ")).into_owned()
 }
+// A saved page may add a stylesheet and a text-free decorative seal. Compare
+// everything else literally, including link destinations and agenda item IDs.
+fn matches_styled_html(manuscript: &str, bytes: &[u8]) -> bool {
+    let Ok(saved) = std::str::from_utf8(bytes.trim_ascii()) else {
+        return false;
+    };
+    if manuscript == saved {
+        return true;
+    }
+    let Ok(dom) = tl::parse(saved, tl::ParserOptions::default()) else {
+        return false;
+    };
+    let mut remaining = manuscript;
+    let mut cursor = 0;
+    for tag in dom.nodes().iter().filter_map(tl::Node::as_tag) {
+        let style = tag.name() == "style";
+        let geometry = tag.name() == "svg"
+            && tag
+                .attributes()
+                .get("aria-hidden")
+                .flatten()
+                .is_some_and(|v| v.as_bytes() == b"true")
+            && tag
+                .children()
+                .all(dom.parser())
+                .iter()
+                .all(|node| match node {
+                    tl::Node::Tag(shape) => matches!(
+                        shape.name().as_bytes(),
+                        b"path"
+                            | b"circle"
+                            | b"rect"
+                            | b"line"
+                            | b"polygon"
+                            | b"polyline"
+                            | b"ellipse"
+                            | b"g"
+                    ),
+                    tl::Node::Raw(text) => text.as_utf8_str().trim().is_empty(),
+                    _ => false,
+                });
+        if !style && !geometry {
+            continue;
+        }
+        let (start, end) = tag.boundaries(dom.parser());
+        if start < cursor {
+            continue;
+        }
+        if let Some(rest) = remaining.strip_prefix(&saved[cursor..=end]) {
+            remaining = rest;
+        } else {
+            let prefix = &saved[cursor..start];
+            // Ignore the extra line break and indentation of a stand-alone style block.
+            let prefix = if style && saved[end + 1..].starts_with('\n') {
+                prefix
+                    .trim_end_matches([' ', '\t'])
+                    .strip_suffix('\n')
+                    .unwrap_or(prefix)
+            } else {
+                prefix
+            };
+            let Some(rest) = remaining.strip_prefix(prefix) else {
+                return false;
+            };
+            remaining = rest;
+        }
+        cursor = end + 1;
+    }
+    remaining == &saved[cursor..]
+}
+
 // Only discount the URL tokens of a manuscript link when the HTML contains
 // the same visible label and destination. Keep the label in the body check.
 fn html_source_labels(body: &str, raw: &[u8]) -> Result<String> {
@@ -138,7 +209,7 @@ fn html_source_labels(body: &str, raw: &[u8]) -> Result<String> {
         .and_then(|s| s.strip_suffix("\n```"))
         .unwrap_or(trimmed)
         .trim();
-    if markup.starts_with('<') && markup.as_bytes() == raw.trim_ascii() {
+    if markup.starts_with('<') && matches_styled_html(markup, raw) {
         let visible = html(markup);
         if !visible.trim().is_empty() {
             return Ok(visible);

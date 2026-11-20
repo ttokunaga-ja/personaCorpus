@@ -1604,3 +1604,28 @@ fn versioned_support_scope_reference() {
         present(&f, "internal.txt", "trace");
     }
 }
+
+#[test]
+fn literal_html_notice_allows_added_styles_and_decorative_geometry() {
+    let f = Fixture::new();
+    let page = r#"<!doctype html><html><head><title>Public notice</title></head>
+<body><header>Borough</header><ol><li id="item-4"><a href="library.html">Library purchasing</a></li></ol></body></html>"#;
+    let styled = page
+        .replace("</head>", "<style>header {color: navy}</style></head>")
+        .replace(
+            "Borough",
+            r#"<svg aria-hidden="true"><circle r="9"/><path d="M0 1"/></svg>Borough"#,
+        );
+    f.put("notice.html", &styled);
+    f.source("notice.html", &format!("```html\n{page}\n```"), "");
+    absent(&f, "notice.html", "source");
+    for altered in [
+        styled.replace("item-4", "item-7"),
+        styled.replace("library.html", "roads.html"),
+        styled.replace("Library purchasing", "Voting results"),
+        styled.replace("</svg>", "<text>Approved</text></svg>"),
+    ] {
+        f.bytes("notice.html", altered.as_bytes());
+        present(&f, "notice.html", "source");
+    }
+}
