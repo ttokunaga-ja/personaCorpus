@@ -1,0 +1,18 @@
+---
+path: Desktop/Housing detail shots - list.txt
+kind: text
+author: Leslie Crawford
+derived_from:
+---
+
+February 11 — afternoon pictures
+
+Keep the work inside the frame. No pulled-back view, no location information. Check the edges before saving.
+
+Rail: close side view of the bracket fastening. Include the fastener and where the bracket meets the painted wall, with just the end of the rail and wall around it.
+
+Window: inside corner at sill and lower frame. Get the strip of filler and the unpainted edge beside it; leave the glass and view outside out of the frame.
+
+Sink: side view of the drain trap coupling and the old pipe. Include the outside seam of the coupling, not the surrounding cupboard contents.
+
+These are explanations of parts, not evidence of when a symptom began or when work was completed. Do not infer that a leak has stopped from a dry-looking surface in one frame.

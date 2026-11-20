@@ -4,6 +4,7 @@ period: 2024-04-01..2026-09-30
 timezone: America/New_York
 allowed_terms: FOIA batch, scope of request, scope of investigation
 photo_dirs: Pictures
+date_prefix: YYYY-MM-DD -
 ---
 
 # p20 調査報道記者
@@ -114,6 +115,21 @@ Documents/Editorial-share/                  編集部共有資料のオフライ
 Documents/Mail/                             請求、質問、回答、編集承認
 ```
 
+
+## 名前の付け方
+
+Leslie は英語で名前を付ける。請求や編集会議など、日付順に探す控えは `YYYY-MM-DD - ` で始める。送受信日、会議日、撮影日など、探す対象の日付を使う。日付で分けたフォルダでは、同じ日付を名前に重ねない。
+
+手で付ける名前は、道路・年度・帳票、取材相手・用件、草稿の版などを短く並べる。記事別フォルダでは共通の案件名を省く。写真は写真デスクに渡すカットに場所や構図が分かる名前を付け、手元の控えにはカメラが付けた名前を残すことがある。共有用のスクリーンショットは照合する帳票や欄を名前にし、撮ったままの画面は macOS が付けた名前で残す。Downloads では役所の配布名を使えるときはそのまま保存し、続けて届いた交付状は日付と用件で見分ける。保存メールは件名を使い、返信の `Re:` は `Re - ` とする。保存名だけでは同じ件名のやり取りを見分けにくいときは、日付や相手を添える。
+
+- `Alder FY23 - change order 2.pdf`（道路・年度・帳票で原本を探す）
+- `2026-06-04 - Decision and field logs.pdf`（照会日と請求した記録）
+- `Road dates - Veronica's margin notes.docx`（編集者の書き込みが入った稿）
+- `Mill outlet from the shoulder.jpg`（写真デスクに渡した引きのカット）
+- `IMG_0412.jpg`（カメラ名のまま置いた控え）
+- `Screenshot 2025-03-12 at 14.05.12.png`（macOS の自動名の例）
+- `2026-08-22 - Supplemental release.pdf`（Downloads の追加交付状）
+- `Re - Use the Mill frame in the page proof.eml`（写真選定の返信）
 
 ## 形式の目安
 

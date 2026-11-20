@@ -27,7 +27,7 @@ Leslie
 
 - Mill outlet from the shoulder.jpg
   - 添付元: Pictures/Reporting/Mill outlet from the shoulder.jpg
-- The photos show the road now.docx
-  - 添付元: Documents/Stories/Road-contracts/Drafts/The photos show the road now.docx
+- Road photo caption candidates.docx
+  - 添付元: Documents/Stories/Road-contracts/Drafts/Road photo caption candidates.docx
 - Mill - planned and measured area.png
   - 添付元: Pictures/Charts/Mill - planned and measured area.png

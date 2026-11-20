@@ -23,5 +23,5 @@ I'd like us to examine how far response times can take the story. They don't by 
 Leslie
 
 Attachments:
-- Sept 21 desk copy - minutes access.pdf — Documents/Editorial-share/Sept 21 desk copy - minutes access.pdf
-- Aug 6 - find the middle two.xlsx — Documents/Stories/Minutes-access/Aug 6 - find the middle two.xlsx
+- 2026-09-21 - Minutes pitch desk copy.pdf — Documents/Editorial-share/2026-09-21 - Minutes pitch desk copy.pdf
+- 2025-08-06 - Response time workbook.xlsx — Documents/Stories/Minutes-access/2025-08-06 - Response time workbook.xlsx

@@ -1,0 +1,16 @@
+---
+path: Documents/Desk-notes/Road price chart replacement notes.txt
+kind: text
+author: Leslie Crawford
+derived_from:
+---
+
+April 29
+
+Retire the April chart from the layout folder
+
+Yesterday I sent Richard the replacement paragraph, chart and Miguel's calculation together. Keep the first-pass chart in Pictures as the trail of how we got here; it is not the figure to pull into the layout.
+
+Before the next desk read, look in three places where the old $610,000 and 22% can survive even after a chart is swapped: the reference paragraph copied into the working text, the figure's alternative text, and the headline notes for the desk read. Each should describe the same five comparable work items across the three FY23 sections, tax excluded: $500,000 original, $582,000 revised, $82,000 difference, 16.4%. Don't let a short label turn this into total road spending or completed work.
+
+Use ACN-INV-20260428-LOG-001 and the April extract pp. 2–6 if anyone needs to trace it. The $28,000 on p.4 is already inside the $148,000 outlet-area line.

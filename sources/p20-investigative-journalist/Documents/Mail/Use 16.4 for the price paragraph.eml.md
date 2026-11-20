@@ -21,6 +21,6 @@ Please replace the paragraph in the desk copy and the explanatory chart together
 Thanks,
 Leslie
 
-Attachment: Price paragraph to put back in.docx
-Attachment: Road work prices - same lines both times.png
-Attachment: Apr 28 - same priced work on both sides.xlsx
+Attachment: Road price paragraph v0.3.docx
+Attachment: Road work prices - matched scope.png
+Attachment: 2026-04-28 - Road price comparison.xlsx

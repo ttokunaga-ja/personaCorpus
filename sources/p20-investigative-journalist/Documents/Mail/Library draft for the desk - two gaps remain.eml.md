@@ -25,7 +25,7 @@ Leslie
 
 ## 添付
 
-- What the library file actually supports.docx
-  - 添付元: Documents/Stories/Library-purchases/What the library file actually supports.docx
-- Nine quotes on the same terms.xlsx
-  - 添付元: Documents/Stories/Library-purchases/Nine quotes on the same terms.xlsx
+- Library draft - source review.docx
+  - 添付元: Documents/Stories/Library-purchases/Library draft - source review.docx
+- Checkout equipment quote comparison.xlsx
+  - 添付元: Documents/Stories/Library-purchases/Checkout equipment quote comparison.xlsx

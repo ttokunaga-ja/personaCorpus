@@ -44,5 +44,5 @@ On August 28, 2026 at 1:09 p.m. EDT, Leslie Crawford wrote:
 
 ## 添付
 
-- Aug 31 - Public Works confirms the two fields.pdf
-  - 添付元: Documents/Stories/Road-contracts/Requests/Aug 31 - Public Works confirms the two fields.pdf
+- 2026-08-31 - Public Works confirmation.pdf
+  - 添付元: Documents/Stories/Road-contracts/Requests/2026-08-31 - Public Works confirmation.pdf

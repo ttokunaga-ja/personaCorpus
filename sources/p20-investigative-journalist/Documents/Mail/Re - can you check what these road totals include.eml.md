@@ -39,4 +39,4 @@ On Thu, Oct 3, 2024 at 9:34 AM EDT, Leslie Crawford <leslie@allegheny-civic.exam
 
 ## 引用元の添付
 
-- Amounts copied from the release.csv
+- Alder and Quarry price extract.csv

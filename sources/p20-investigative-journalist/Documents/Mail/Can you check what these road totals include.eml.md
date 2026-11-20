@@ -25,4 +25,4 @@ Leslie
 
 ## 添付
 
-- Amounts copied from the release.csv — Documents/Stories/Road-contracts/Checks/Amounts copied from the release.csv
+- Alder and Quarry price extract.csv — Documents/Stories/Road-contracts/Checks/Alder and Quarry price extract.csv

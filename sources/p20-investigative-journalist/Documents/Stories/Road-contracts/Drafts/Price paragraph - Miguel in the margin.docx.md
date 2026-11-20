@@ -4,7 +4,7 @@ kind: acn-road-draft.docx
 author: Leslie Crawford
 modified_by: Miguel Valenzuela
 created: 2026-04-24 16:40
-derived_from: Documents/Stories/Road-contracts/Drafts/Price paragraph before Miguel.docx
+derived_from: Documents/Stories/Road-contracts/Drafts/Road price paragraph v0.1.docx
 ---
 
 元の管理欄の Date を April 28, 2026、Version を v0.2 に変更する。Document no. と Prepared by は元のまま。

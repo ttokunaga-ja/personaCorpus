@@ -34,4 +34,4 @@ Trace approval separately. The signatures on p. 46 (September 12, 2023) and p. 9
 
 Richard, use the October 17 opening on the two changes as the working draft. The reader can see what each order redirected while we check the reasons and their approval trail. Veronica, I'll bring back separate page references for the support behind each reason and for any dated approval we can match to the same order.
 
-For this comparison, use Alder and Quarry - same tax basis.xlsx (ACN-INV-20241016-LOG-001, v1.0). Keep the September workbook with the reporting history. Check the printed tax basis contract by contract before making another comparison. The four price pages here support the Alder and Quarry comparison only.
+For this comparison, use Alder and Quarry - tax comparison.xlsx (ACN-INV-20241016-LOG-001, v1.0). Keep the September workbook with the reporting history. Check the printed tax basis contract by contract before making another comparison. The four price pages here support the Alder and Quarry comparison only.

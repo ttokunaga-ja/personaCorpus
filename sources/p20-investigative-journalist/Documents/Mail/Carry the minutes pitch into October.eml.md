@@ -21,5 +21,5 @@ I've attached the review memo and the chart separating those responses from the 
 Leslie
 
 Attachments:
-- Sept 21 - leave this on the reporting list.docx — Documents/Pitches/Sept 21 - leave this on the reporting list.docx
-- The replies and the wait for minutes.png — Pictures/Charts/The replies and the wait for minutes.png
+- 2026-09-21 - Minutes pitch decision.docx — Documents/Pitches/2026-09-21 - Minutes pitch decision.docx
+- Minutes request response times.png — Pictures/Charts/Minutes request response times.png

@@ -20,7 +20,7 @@ Two Mapleton Falls road contracts appear to have grown by a combined $310,000 be
 
 ## Structure under consideration
 
-Richard, I've limited this opening to the two FY2023 pairs in “First pass - which totals move.xlsx.” The Alder agreement (PW-23-01) gives “Original Work Subtotal” at release p. 31 and CO-02 gives “Revised Total” at p. 48. For Quarry (PW-23-03), the corresponding entries are on pp. 76 and 98, the latter in CO-01. Use the release page numbers in the source notes so the desk can find all four entries.
+Richard, I've limited this opening to the two FY2023 pairs in “Alder and Quarry price workbook v0.1.xlsx.” The Alder agreement (PW-23-01) gives “Original Work Subtotal” at release p. 31 and CO-02 gives “Revised Total” at p. 48. For Quarry (PW-23-03), the corresponding entries are on pp. 76 and 98, the latter in CO-01. Use the release page numbers in the source notes so the desk can find all four entries.
 
 The first paragraph follows the difference between columns as printed. I've still got the tax basis marked unconfirmed for all four amounts. Before we can put a dollar figure in the lead, we need to see what each subtotal and total includes and check whether we can compare like fields. Even if that works, the result covers these two pairs out of the 18 contracts we're following.
 

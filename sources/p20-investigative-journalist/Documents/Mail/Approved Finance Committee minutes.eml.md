@@ -24,4 +24,4 @@ Investigative Reporter
 Allegheny Civic News Cooperative
 
 Attachments:
-- Sept 9 - approved finance minutes.pdf — Documents/Stories/Minutes-access/Sept 9 - approved finance minutes.pdf
+- 2026-09-09 - Finance minutes request.pdf — Documents/Stories/Minutes-access/2026-09-09 - Finance minutes request.pdf

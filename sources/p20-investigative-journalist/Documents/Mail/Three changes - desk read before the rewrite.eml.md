@@ -23,8 +23,8 @@ Could you all comment on which entries or fields in the attached source check mi
 Thanks,
 Leslie
 
-Attachments: July 17 - what the record supports.pdf; July 17 - receipts behind the company answer.xlsx
+Attachments: 2025-07-17 - Keller reply review.pdf; 2025-07-17 - Keller reply sources.xlsx
 
 添付の実体:
-- Documents/Editorial-share/July 17 - what the record supports.pdf
-- Documents/Stories/Road-contracts/Checks/July 17 - receipts behind the company answer.xlsx
+- Documents/Editorial-share/2025-07-17 - Keller reply review.pdf
+- Documents/Stories/Road-contracts/Checks/2025-07-17 - Keller reply sources.xlsx

@@ -25,5 +25,5 @@ Allegheny Civic News Cooperative
 
 ## 添付
 
-- October request - library equipment records.pdf
-- 添付元: Documents/Stories/Library-purchases/October request - library equipment records.pdf
+- 2025-10-22 - Equipment records request.pdf
+- 添付元: Documents/Stories/Library-purchases/2025-10-22 - Equipment records request.pdf

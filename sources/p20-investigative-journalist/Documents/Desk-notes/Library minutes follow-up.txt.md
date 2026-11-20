@@ -1,0 +1,17 @@
+---
+path: Documents/Desk-notes/Library minutes follow-up.txt
+kind: text
+author: Leslie Crawford
+derived_from:
+---
+
+Jan. 23 — Library follow-up for next week
+
+Pull up my Jan. 12 email to Dorothy, “Two missing library meeting records,” and use ACN-INV-20260112-REQ-001 when I check in. The 76-page release is complete as numbered. Keep two open entries for LP-25-04:
+
+- Still waiting — March 18, 2025, Library Advisory Committee, item 4. Look for what the committee actually discussed or recommended about the equipment.
+- Still waiting — April 8, 2025, Borough Council, purchasing item 7B. Look for any recorded motion, vote, or decision on the staff recommendation.
+
+If one set comes in, leave the other entry open. For the one that arrives, check the date, agenda item, approval status, and any attachments the minutes incorporate. Put the page and the exact action or discussion recorded in the matching Holds row of Veronica’s Staff rationale versus the meeting record. If the pages leave a question open, jot down what’s still missing.
+
+Then go back to the meeting paragraph in v0.3. Revise the sentence for that meeting only as far as the minutes support it. Leave the other meeting’s hold in place. Keep the staged-installation rationale attributed to staff unless the meeting record establishes who else relied on it.
