@@ -11,7 +11,7 @@ Cc: Koichi Murata <koichi.murata@toto-document.example>
 Date: Mon, 17 Nov 2025 17:13:00 +0900
 Subject: Fairview agreed wording for clause 6
 Message-ID: <3a77f894-72fd-49ae-9644-d1888db98d6d@fairview-transfer.example>
-添付: Fairview - deletion reporting clause agreed wording.docx
+添付: Fairview - Clause 6 - Agreed wording.docx
 
 Dear Minako,
 

@@ -11,7 +11,7 @@ Cc: なし
 Date: Wed, 12 Nov 2025 09:11:00 +0900
 Subject: Fairview post-transfer retention proposal
 Message-ID: <4fb799c1-c563-4ddf-97e6-e74bba12686a@fairview-transfer.example>
-添付: Fairview - draft post-transfer retention clause.docx
+添付: Fairview - Clause 6 - Retention draft.docx
 
 Dear Minako,
 

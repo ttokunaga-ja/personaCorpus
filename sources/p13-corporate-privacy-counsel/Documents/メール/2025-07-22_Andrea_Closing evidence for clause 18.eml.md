@@ -27,5 +27,5 @@ Minako Takada
 Privacy Legal
 Toto Document Data Services
 
-添付：7月22日_終了条項_東都赤字.docx
-添付元：Documents/契約検討/Winslow/7月22日_終了条項_東都赤字.docx
+添付：Clause 18 - Toto redline.docx
+添付元：Documents/契約検討/Winslow/Clause 18 - Toto redline.docx
