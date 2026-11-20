@@ -1,0 +1,24 @@
+---
+path: Google Drive/My Drive/Learner-support/Reading follow-up - September handover.txt
+kind: text
+author: Heather Callahan
+derived_from:
+---
+
+Reading follow-up — September handover
+30 September 2026, 15:08
+To: Kathleen Roy
+From: Heather Callahan
+
+Hi Kathleen,
+
+I sent the October option separately to the two learners yesterday morning, with the common follow-up sheet attached to each message. CRW-12 had no confirmed receipt of a memo by the September deadline; CRW-31 sent a file at 15:47 on 11 September that could not be opened. For the latter I offered to check the original file together if it is still available, before asking for a new memo.
+
+As of 15:08 today I am waiting for their preferences. No paper has been handed over, no consultation has taken place and no follow-up memo has been submitted.
+
+Could you check for replies by noon on 8 October and arrange the paper option or the optional 15 October consultation as requested? The consultation is 12:30–12:50 in Room 2; a learner can submit without attending. If paper is requested, please agree the handover method with the learner. The memo deadline is 22 October at 16:00. Arjun will check receipt and whether a file can be opened; I will read the memo.
+
+If a follow-up memo is received, please record it in the next-term support record, separately from the September report. The September close remains as reported to David; a later submission does not change those figures.
+
+Thanks,
+Heather

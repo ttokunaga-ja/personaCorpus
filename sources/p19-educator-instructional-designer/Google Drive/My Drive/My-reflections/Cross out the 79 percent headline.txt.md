@@ -1,0 +1,14 @@
+---
+path: Google Drive/My Drive/My-reflections/Cross out the 79 percent headline.txt
+kind: text
+author: Heather Callahan
+derived_from:
+---
+
+24 September
+
+Cross out “79% reached the mark”. That is 27 / 34, a calculation among people who submitted, rounded from 79.4%; it is not the agreed reporting denominator.
+
+April's agreement was to report reading attainment against those enrolled at the close. Write 27 / 36 = 75.0% at 14 or more. Separately, 34 / 36 = 94.4% submitted a valid memo. Seven submitted but did not reach 14; two had no valid submission and no mark. Do not put those two into the low-score group.
+
+The receipt-to-close sheet is the check for the 36, 34 and 27. The July viewing count answers a different question.

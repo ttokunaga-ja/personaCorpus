@@ -1,0 +1,40 @@
+---
+path: My files/Mail/Re Two reading memos still open.eml
+kind: text
+author: Kathleen Roy
+derived_from:
+---
+
+From: Kathleen Roy <kathleen@elmwood-learning.example>
+To: Heather Callahan <heather@elmwood-learning.example>
+Cc:
+Date: Thu, 24 Sep 2026 09:48:00 -0400
+Subject: Re: Two reading memos still open
+Message-ID: <ed3b4f77-9958-461e-bcc9-d8a632d938cb@elmwood-learning.example>
+In-Reply-To: <fd736d1c-43e5-48e0-8e9e-33cff6cd582d@elmwood-learning.example>
+References: <fd736d1c-43e5-48e0-8e9e-33cff6cd582d@elmwood-learning.example>
+
+Hi Heather,
+
+Yes, we can offer both learners the same choice. Please ask each to reply by 12:00 noon on 8 October to say whether they would prefer paper materials or a short meeting. If someone asks for paper, I can agree the handover arrangements with them.
+
+For anyone who wants to meet, I propose an optional 20-minute consultation on 15 October at 12:30 in Room 2. They can still submit without attending. Let's set 22 October at 16:00 as the deadline for the follow-up memo. If the person with the unreadable file has a copy, we can check whether it opens before they start again.
+
+We will record this as next term's support work; it will not change the September close figures.
+
+Thanks,
+Kathleen
+
+On Wed, 23 Sep 2026 at 14:18, Heather Callahan wrote:
+> Hi Kathleen,
+>
+> We have two learners without a valid reading memo at the September close. For one there is no receipt record; for the other, the file received could not be opened. I would like to offer both a route to complete the work next term, without treating either as a marked submission.
+>
+> Could we offer the same choices in both cases: paper materials or a short optional meeting? Could you arrange a paper option and a bookable meeting slot, and suggest dates for requesting support and handing in the memo? The person with the unreadable file may still have a usable copy, so we should leave room to check that with them.
+>
+> I have not included individual marks or attachments. Let me know what would work for your desk.
+>
+> Thanks,
+> Heather
+
+Attachment: none
