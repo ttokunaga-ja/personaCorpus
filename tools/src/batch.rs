@@ -238,21 +238,45 @@ fn office_profile_idle(profile: &Path, uri: &str) -> bool {
         {
             continue;
         }
-        match fs::read(process.path().join("cmdline")) {
-            Ok(line)
-                if line
-                    .split(|b| *b == 0)
-                    .any(|part| part == argument.as_bytes() || part == uri.as_bytes()) =>
-            {
-                return false;
-            }
-            Ok(_) => (),
-            Err(e) if e.kind() == std::io::ErrorKind::NotFound => (),
-            Err(_) => return false,
+        if !office_process_clear(fs::read(process.path().join("cmdline")), &argument, uri) {
+            return false;
         }
     }
     true
 }
+fn office_process_clear(cmdline: std::io::Result<Vec<u8>>, argument: &str, uri: &str) -> bool {
+    match cmdline {
+        Ok(line) => !line
+            .split(|b| *b == 0)
+            .any(|part| part == argument.as_bytes() || part == uri.as_bytes()),
+        Err(e) => e.kind() == std::io::ErrorKind::NotFound || e.raw_os_error() == Some(libc::ESRCH),
+    }
+}
+
+#[test]
+fn office_profile_scan_handles_process_exit_during_cmdline_read() {
+    use std::io::Read;
+    let mut child = std::process::Command::new("sleep")
+        .arg("60")
+        .spawn()
+        .unwrap();
+    let mut file = fs::File::open(format!("/proc/{}/cmdline", child.id())).unwrap();
+    child.kill().unwrap();
+    child.wait().unwrap();
+    let mut bytes = Vec::new();
+    let result = file.read_to_end(&mut bytes).map(|_| bytes);
+    assert!(office_process_clear(
+        result,
+        "-env:UserInstallation=file:///profile",
+        "file:///profile"
+    ));
+    assert!(!office_process_clear(
+        Err(std::io::ErrorKind::PermissionDenied.into()),
+        "",
+        ""
+    ));
+}
+
 fn split_pipe(s: &str) -> Vec<String> {
     let mut cells = vec![];
     let mut current = String::new();

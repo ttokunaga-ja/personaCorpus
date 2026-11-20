@@ -689,15 +689,18 @@ impl Pilot {
         drop(_lock);
         self.log("hold", p, b, reason)
     }
+    fn low_space(&self) -> Result<bool> {
+        let threshold = std::env::var("AUTOPILOT_MIN_FREE_BYTES")
+            .unwrap_or("30000000000".into())
+            .parse::<f64>()?;
+        Ok((fs2::available_space(&self.root)? as f64) < threshold)
+    }
     fn stops(&self) -> Result<Vec<String>> {
         let mut reasons = Vec::new();
         if self.home.join("stop").exists() {
             reasons.push("stop".into())
         }
-        let threshold = std::env::var("AUTOPILOT_MIN_FREE_BYTES")
-            .unwrap_or("30000000000".into())
-            .parse::<f64>()?;
-        if (fs2::available_space(&self.root)? as f64) < threshold {
+        if self.low_space()? {
             reasons.push("空き容量30GB未満".into())
         }
         // Holds stop only their persona; a share of held batches across the
@@ -1363,6 +1366,9 @@ impl Pilot {
                 self.hold(p, b, &format!("resume 後に再失敗: {reason}"))?;
                 return Ok(());
             }
+            if self.low_space()? {
+                return Ok(());
+            }
             self.batch_cmd("resume", p, b, &[])?;
             if limited {
                 rec["limit_since"] = json!(epoch())
@@ -1420,6 +1426,9 @@ impl Pilot {
             None
         };
         if let Some((flag, k, max)) = redo {
+            if self.low_space()? {
+                return Ok(());
+            }
             self.batch_cmd("resume", p, b, &[flag.into()])?;
             rec[k] = json!(max.min(rec[k].as_i64().unwrap_or(0) + 1));
             rec.as_object_mut().unwrap().remove("audit");

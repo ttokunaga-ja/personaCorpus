@@ -344,6 +344,20 @@ fn request_is_unique_and_target_prevents_admission() {
     assert_eq!(g.called("batch", "start"), 0);
 }
 #[test]
+fn low_space_defers_batch_retries_until_recovery() {
+    for (status, pending, discarded) in [("failed", 0, 0), ("done", 1, 0), ("done", 0, 3)] {
+        let mut f = Fixture::new();
+        f.batch(status, "", pending, discarded);
+        f.env
+            .push(("AUTOPILOT_MIN_FREE_BYTES".into(), "1e30".into()));
+        f.once();
+        assert_eq!(f.called("batch", "resume"), 0, "{status}");
+        f.env.pop();
+        f.once();
+        assert_eq!(f.called("batch", "resume"), 1, "{status}");
+    }
+}
+#[test]
 fn redraft_then_two_rebuilds_then_audit() {
     let f = Fixture::new();
     f.batch("done", "", 1, 3);
