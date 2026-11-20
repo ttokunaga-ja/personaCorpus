@@ -24,5 +24,5 @@ Thanks,
 Heather
 
 Attachments:
-- Nov 10 - where to pause the explanation.docx — Google Drive/My Drive/Staff-administration/Nov 10 - where to pause the explanation.docx
-- Nov 10 - observed minutes and next plan.xlsx — Google Drive/My Drive/Staff-administration/Nov 10 - observed minutes and next plan.xlsx
+- 2025-11-10_Tristan observation feedback.docx — Google Drive/My Drive/Staff-administration/2025-11-10_Tristan observation feedback.docx
+- 2025-11-10_Tristan timing comparison.xlsx — Google Drive/My Drive/Staff-administration/2025-11-10_Tristan timing comparison.xlsx

@@ -1,0 +1,14 @@
+---
+path: Google Drive/My Drive/My-reflections/2025-10-30_Callback exit slip notes.txt
+kind: text
+author: Heather Callahan
+derived_from:
+---
+
+30 October
+
+They still wanted to say Wednesday
+
+Of the 12 exit slips, three promised Wednesday even with the duty cover hidden. Two moved all the callbacks to Thursday, although ten still had a Wednesday 16:00 deadline. Seven kept Wednesday conditional and retained that deadline.
+
+Next time, put two cards up first: “I want to choose Wednesday” and “I can say Wednesday is confirmed.” Ask which one needs a check of duty cover before it can be said. Then ask what happens to the ten deadlines while that check is outstanding. I don't want the need to wait for confirmation to sound like permission to move everything to Thursday.

@@ -28,6 +28,6 @@ Thank you for showing us where a single fact was enough to answer the old questi
 Best,
 Heather
 
-Attachment: Four questions to swap into the booklet.pdf
+Attachment: May proposal booklet replacement pages.pdf
 
-添付元: Google Drive/My Drive/Teaching/根拠から組む提案/Four questions to swap into the booklet.pdf
+添付元: Google Drive/My Drive/Teaching/根拠から組む提案/May proposal booklet replacement pages.pdf

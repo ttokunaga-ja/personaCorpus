@@ -23,4 +23,4 @@ Could you keep the receipt times for the handoff? I'll bring the last valid memo
 Thanks,
 Heather
 
-Attachment: What to do with a second copy.pdf
+Attachment: Reading memo resubmission desk guide.pdf

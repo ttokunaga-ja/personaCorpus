@@ -23,5 +23,5 @@ Thanks both,
 Heather
 
 Attachments:
-- Read the invitation at home.pdf — Google Drive/My Drive/Teaching/学び直し文書入門/Read the invitation at home.pdf
-- Which pages to post after an absence.xlsx — Google Drive/My Drive/Learner-support/Which pages to post after an absence.xlsx
+- Session 1 - invitation worksheet.pdf — Google Drive/My Drive/Teaching/学び直し文書入門/Session 1 - invitation worksheet.pdf
+- Postal packet checklist by session.xlsx — Google Drive/My Drive/Learner-support/Postal packet checklist by session.xlsx

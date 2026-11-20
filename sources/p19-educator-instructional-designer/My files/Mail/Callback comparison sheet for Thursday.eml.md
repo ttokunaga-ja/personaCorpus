@@ -23,5 +23,5 @@ Please keep these for distribution and projection within this class. Thanks for 
 Heather
 
 ## Attachments
-- Two slots and three pieces of evidence.pdf — Google Drive/My Drive/Teaching/根拠から組む提案/Two slots and three pieces of evidence.pdf
-- What would you tell the duty lead.pdf — Google Drive/My Drive/Teaching/根拠から組む提案/What would you tell the duty lead.pdf
+- Callback slot comparison worksheet.pdf — Google Drive/My Drive/Teaching/根拠から組む提案/Callback slot comparison worksheet.pdf
+- Callback proposal exit slip.pdf — Google Drive/My Drive/Teaching/根拠から組む提案/Callback proposal exit slip.pdf

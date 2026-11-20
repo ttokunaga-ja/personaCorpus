@@ -23,6 +23,6 @@ The attached note sets out the task. Please hand in your one-page memo by 22 Oct
 Best,
 Heather
 
-Attachment: If you still need to hand in the reading memo.pdf
+Attachment: October reading memo submission guide.pdf
 
-添付する成果物: Google Drive/My Drive/Learner-support/If you still need to hand in the reading memo.pdf
+添付する成果物: Google Drive/My Drive/Learner-support/October reading memo submission guide.pdf

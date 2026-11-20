@@ -2,6 +2,7 @@
 persona: p19-educator-instructional-designer
 period: 2024-04-01..2026-09-30
 timezone: America/Toronto
+date_prefix: YYYY-MM-DD_
 allowed_terms: scope of course, scope of assessment, batch enrolment
 photo_dirs: My files/Pictures
 ---
@@ -116,6 +117,24 @@ Google Drive/Shared drives/
 My files/Mail/                              保存した講座連絡の eml
 ```
 
+
+## 名前の付け方
+
+- 教材は英語で、講座フォルダの中では題材と用途が分かる短い名前にする。回を追って使う教材は `Session 1` のように回を先に置く。同じ教材の草案、同僚のコメント入り、改訂版には ` - draft` や ` - Erin notes` を添える。外部向けの共有フォルダでは Brookdale や Ashford など、相手先を名前に入れる。
+- 授業後の振り返り、観察記録、日付で照合する合意や引継ぎには、年・月・日とアンダースコアで始まる `YYYY-MM-DD_` を使う。同じ日付のフォルダにまとめた場合はファイル名の日付を省く。教材の版を見分ける月や季節は `January reading packet` や `summer outcomes` のように名前の一部にする。
+- 教室の写真は、授業でまた探す白板などにだけ撮影日と写っているものを付け、部屋の記録は機器が付けたファイル名で残す。スクリーンショットは操作を伝えるために取ったものには操作や画面の名前を付け、一時的な画面控えは端末の自動名で保存する。Downloads では受領した通知の表題や、書き出し元の短い英語名を使う。機器や書き出し元の自動名も数字の連続は4桁までにする。
+- 保存メールは件名で残し、返信の `Re:` は `Re - ` に置き換える。拡張子を除き、通常は40文字、メールは60文字まで。
+
+| 用途 | 名前の例 |
+|---|---|
+| 第1回の配布用ワークシート | `Session 1 - invitation worksheet.pdf` |
+| Erin の講師案レビュー | `Reception routing plan - Erin notes.docx` |
+| 日付順に見る授業後のメモ | `2026-07-13_Approval prompt debrief.txt` |
+| Brookdale との合意控え | `2026-04-07_Brookdale training agreement.pdf` |
+| 教室の配置を控えた写真 | `IMG_0426.jpg` |
+| 閲覧操作を説明する画面 | `Offline packet - Downloads capture.png` |
+| Downloads に残す提出履歴の出力 | `submission_activity_2024-11.csv` |
+| 件名で探す保存メール | `Re - Paper directions before Monday.eml` |
 
 ## 形式の目安
 

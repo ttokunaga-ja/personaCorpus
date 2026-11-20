@@ -23,6 +23,6 @@ The attached note explains what to read and what to include. Please submit your 
 Best,
 Heather
 
-Attachment: If you still need to hand in the reading memo.pdf
+Attachment: October reading memo submission guide.pdf
 
-添付する成果物: Google Drive/My Drive/Learner-support/If you still need to hand in the reading memo.pdf
+添付する成果物: Google Drive/My Drive/Learner-support/October reading memo submission guide.pdf

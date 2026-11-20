@@ -21,4 +21,4 @@ Let's keep the July 6 setting check separate from the record that the directions
 Thanks,
 Heather
 
-Attachment: Open your reading packet without Wi-Fi.pdf
+Attachment: Offline reading packet instructions.pdf

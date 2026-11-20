@@ -1,0 +1,12 @@
+---
+path: My files/授業前の準備/Callback marking prep notes.txt
+kind: text
+author: Heather Callahan
+derived_from:
+---
+
+14 July, before Erin at 11:00
+
+Last time I circled Wednesday as soon as I saw it and moved on to the next answer. I knew the case and filled in the reason myself.
+
+Put the case sheet face down first. Read Alexandre's answer on its own and try to underline the words that give a reason. If there is nothing to underline, leave the space empty. Then turn the case over and ask Erin what the answer actually allows us to credit.

@@ -23,4 +23,4 @@ I'm also unsure whether the fourth aim should ask people to choose the more rest
 Thanks,
 Heather
 
-Attachment: Reading aims for Thursday.docx
+Attachment: Reading aims - David meeting draft.docx

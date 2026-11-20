@@ -22,5 +22,5 @@ Thanks,
 Heather
 
 Attachments:
-- Brookdale - June handover for the two courses.docx
-- Places to leave open after the nomination cut.xlsx
+- 2026-06-29_Brookdale summer handover.docx
+- Brookdale nomination reconciliation.xlsx

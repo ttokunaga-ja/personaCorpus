@@ -22,5 +22,5 @@ See you shortly,
 Heather
 
 ## Attachments
-- Alexandre - why I changed the feedback.docx — Google Drive/My Drive/Assessment/Work-examples/Alexandre - why I changed the feedback.docx
-- Alexandre - add the reason for Wednesday.pdf — Google Drive/My Drive/Learner-support/Alexandre - add the reason for Wednesday.pdf
+- Alexandre callback feedback - revised.docx — Google Drive/My Drive/Assessment/Work-examples/Alexandre callback feedback - revised.docx
+- Alexandre callback rewrite exercise.pdf — Google Drive/My Drive/Learner-support/Alexandre callback rewrite exercise.pdf

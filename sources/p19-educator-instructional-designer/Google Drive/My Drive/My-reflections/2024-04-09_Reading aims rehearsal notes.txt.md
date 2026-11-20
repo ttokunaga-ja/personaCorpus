@@ -1,0 +1,12 @@
+---
+path: Google Drive/My Drive/My-reflections/2024-04-09_Reading aims rehearsal notes.txt
+kind: text
+author: Heather Callahan
+derived_from:
+---
+
+9 April, after the desk check with Erin
+
+Erin found the usual deadline immediately. When I gave her a case that could be released under the exception, she applied that same deadline and said to carry it over. The time she read was right; the decision for this case was not.
+
+Next time, before asking for the answer, ask: “Which sentence made your decision change?” I need to hear what the reader does with the condition, not just how quickly the time comes back. Take this to David when we discuss the aims.

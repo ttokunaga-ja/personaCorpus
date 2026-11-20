@@ -25,8 +25,8 @@ Erin and I agreed the 8 / 6 / 6 criteria and used them to reread the remaining v
 Thanks,
 Heather
 
-Attachment: Reading Conditions at Work - summer outcomes.pdf
-Attachment: September counts for David.xlsx
+Attachment: Summer reading outcomes report.pdf
+Attachment: Summer reading counts for David.xlsx
 
-添付する成果物: Google Drive/My Drive/Teaching/条件を読む仕事術/2026-Summer/Reading Conditions at Work - summer outcomes.pdf
-添付する成果物: Google Drive/My Drive/Teaching/条件を読む仕事術/2026-Summer/September counts for David.xlsx
+添付する成果物: Google Drive/My Drive/Teaching/条件を読む仕事術/2026-Summer/Summer reading outcomes report.pdf
+添付する成果物: Google Drive/My Drive/Teaching/条件を読む仕事術/2026-Summer/Summer reading counts for David.xlsx

@@ -1,0 +1,11 @@
+---
+path: My files/Downloads/Reading packet access counts - July 13.csv
+kind: text
+author: Arjun Deshmukh
+derived_from:
+---
+
+Session,Viewing route,Learners,Observed at
+Reading Conditions at Work - 13 July 2026,Device - local PDF,24,2026-07-13 13:00 EDT
+Reading Conditions at Work - 13 July 2026,Paper - same case packet,10,2026-07-13 13:00 EDT
+Reading Conditions at Work - 13 July 2026,Absent - viewing unconfirmed,2,2026-07-13 13:00 EDT

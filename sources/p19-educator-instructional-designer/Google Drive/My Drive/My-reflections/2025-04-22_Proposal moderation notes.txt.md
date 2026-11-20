@@ -1,0 +1,12 @@
+---
+path: Google Drive/My Drive/My-reflections/2025-04-22_Proposal moderation notes.txt
+kind: text
+author: Heather Callahan
+derived_from:
+---
+
+22 April, after the conversation with Erin
+
+I nearly suggested giving P02 an 8, halfway between my 10 and Erin's 6. That would have hidden the point: I credited the Room B row and its 24 places against the 18 expected; Erin had not recognised that wording as the source. An 8 would not explain where either of us found evidence, or what we did with the incomplete fallback.
+
+Next time, before we talk about points, put a mark beside the words each of us read as evidence. Then ask what we supplied from the task rather than found in the proposal. Keep both independent marks.

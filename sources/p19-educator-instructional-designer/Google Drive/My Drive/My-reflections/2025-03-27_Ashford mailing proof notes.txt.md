@@ -1,0 +1,12 @@
+---
+path: Google Drive/My Drive/My-reflections/2025-03-27_Ashford mailing proof notes.txt
+kind: text
+author: Heather Callahan
+derived_from:
+---
+
+27 March
+
+Kathleen and I opened the first-session copy together. With long-edge binding, the questions on the front and “Check your answers” on the back are the same way up. One clean, complete copy is now beside the Learner-support envelopes for the first packet.
+
+Keep the print with my arrows on the tutor side, not with the clean copy. At the first session, when we check the meeting place, ask for the landmark as well as the entrance: beside the bicycle rack. Have them point back to Where to meet before we move to the reply slip.

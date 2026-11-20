@@ -23,6 +23,6 @@ The April CSVs will remain as our independent readings, including the original s
 Thanks,
 Heather
 
-Attachment: Proposal marking guide - annotated examples.docx
+Attachment: Proposal marking guide - examples.docx
 
-添付元: Google Drive/My Drive/Assessment/Moderation/Proposal marking guide - annotated examples.docx
+添付元: Google Drive/My Drive/Assessment/Moderation/Proposal marking guide - examples.docx
