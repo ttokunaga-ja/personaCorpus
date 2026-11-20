@@ -1655,3 +1655,26 @@ fn recorded_speech_uses_decoding_and_listening_instead_of_text_extraction() {
         present(&f, &name, "opens");
     }
 }
+
+#[test]
+fn scanned_print_proof_shares_text_with_its_office_original() {
+    let mut f = Fixture::new();
+    f.docx(&format!("<w:p><w:r><w:t>{WORDS}</w:t></w:r></w:p>"), "");
+    f.source("review.docx", WORDS, "");
+    for (name, kind, parent) in [
+        ("proof.pdf", "office:layout.docx", "review.docx"),
+        ("marked.pdf", "scan:proof.pdf", "proof.pdf"),
+    ] {
+        f.bytes(name, format!("%PDF {name}").as_bytes());
+        let path = f.source(name, "", parent);
+        fs::write(
+            path,
+            format!("---\nkind: {kind}\nderived_from: {parent}\n---\nPencil marks."),
+        )
+        .unwrap();
+    }
+    f.pdf_text(WORDS, WORDS);
+    assert!(duplicate_map(&f).is_empty());
+    f.bytes("marked.pdf", b"%PDF proof.pdf");
+    assert!(duplicate_map(&f)["marked.pdf"].contains("identical bytes"));
+}

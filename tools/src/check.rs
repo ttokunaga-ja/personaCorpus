@@ -2927,10 +2927,25 @@ fn run_inner(a: &Args, selected: Option<&BTreeMap<String, BTreeSet<String>>>) ->
         for r in &results {
             if let Ok((cfg, _)) = source(&a.sources.join(&name), &r.rel, &mut Vec::new()) {
                 if let Some(parent) = cfg.get("derived_from").filter(|s| !s.is_empty()) {
-                    related
-                        .entry(r.rel.clone())
-                        .or_default()
-                        .insert(parent.clone());
+                    let versions = related.entry(r.rel.clone()).or_default();
+                    versions.insert(parent.clone());
+                    // A scan of an Office printout also reproduces the Office original.
+                    if r.rel.ends_with(".pdf")
+                        && parent.ends_with(".pdf")
+                        && cfg.get("kind").and_then(|k| k.strip_prefix("scan:"))
+                            == Some(parent.as_str())
+                        && let Ok((print, _)) =
+                            source(&a.sources.join(&name), parent, &mut Vec::new())
+                        && let Some(template) =
+                            print.get("kind").and_then(|k| k.strip_prefix("office:"))
+                        && let Some(original) = print.get("derived_from")
+                        && ["docx", "xlsx", "pptx"].iter().any(|ext| {
+                            Path::new(template).extension() == Some(ext.as_ref())
+                                && Path::new(original).extension() == Some(ext.as_ref())
+                        })
+                    {
+                        versions.insert(original.clone());
+                    }
                 }
             }
         }
