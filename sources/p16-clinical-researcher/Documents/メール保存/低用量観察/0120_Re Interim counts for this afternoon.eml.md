@@ -46,4 +46,4 @@ On 20 January 2026 at 11:36, Mitsuko Suzuki wrote:
 > Katsuragawa Clinical Research Center
 
 ## 今回の添付
-- `Downloads/0120_Koichi Goto - Reading the interim counts.pdf`（添付名：0120_Koichi Goto - Reading the interim counts.pdf）
+- `Downloads/0120_Goto - Interim counts.pdf`（添付名：0120_Goto - Interim counts.pdf）

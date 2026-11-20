@@ -29,4 +29,4 @@ Mitsuko Suzuki
 Katsuragawa Clinical Research Center
 
 ## 今回の添付
-- `Documents/統計相談/0120_1月20日朝の項目別分母.xlsx`（添付名：0120_1月20日朝の項目別分母.xlsx）
+- `Documents/統計相談/0120_中間集計の項目別分母.xlsx`（添付名：0120_中間集計の項目別分母.xlsx）

@@ -26,5 +26,5 @@ Mitsuko Suzuki
 Katsuragawa Clinical Research Center
 
 ## 今回の添付
-- `Documents/統計相談/0701_Questions for Koichi.pdf`（添付名：0701_Questions for Koichi.pdf）
-- `Documents/統計相談/0614_分母を並べてみた空表.xlsx`（添付名：0614_分母を並べてみた空表.xlsx）
+- `Documents/統計相談/0701_Denominator questions for Koichi.pdf`（添付名：0701_Denominator questions for Koichi.pdf）
+- `Documents/統計相談/0614_項目別分母の空表_v0.1.xlsx`（添付名：0614_項目別分母の空表_v0.1.xlsx）
