@@ -779,6 +779,12 @@ impl Pilot {
             .collect::<Vec<_>>()
             .join("、")
     }
+    /// The target to advance to once every persona is near its goal.
+    fn next_target(&self) -> Option<i64> {
+        read(&self.home.join("next-target"))
+            .ok()
+            .and_then(|t| t.trim().parse::<i64>().ok())
+    }
     fn usage_stop(&self) -> Option<f64> {
         read(&self.home.join("usage-stop"))
             .ok()
@@ -1731,7 +1737,7 @@ impl Pilot {
             self.state["recheck_seen"] = json!(since);
             self.log("usage-recheck", "", "", "利用上限の待ちを解いた")?;
         }
-        if let Some(next) = self.state["next_target"].as_i64() {
+        if let Some(next) = self.next_target() {
             let mut ready = next > self.target;
             for p in self.names()? {
                 ready &= self.count(&p)? as i64 >= self.final_target(&p)? - (MIN_ROW - 1);
@@ -1744,7 +1750,7 @@ impl Pilot {
                     &format!("目標 {} → {next}", self.target),
                 )?;
                 self.target = next;
-                self.state["next_target"] = Value::Null;
+                let _ = fs::remove_file(self.home.join("next-target"));
             }
         }
         self.state["configuration"] = json!({"target":self.target,"personas":self.personas});
@@ -2569,7 +2575,7 @@ impl Pilot {
             self.usage_stop()
                 .map_or("なし".to_string(), |l| format!("{l}% 以上"))
         );
-        if let Some(next) = self.state["next_target"].as_i64() {
+        if let Some(next) = self.next_target() {
             println!("次の段階: 全 persona が目標まで 30 件未満になったら --target {next} に進む");
         }
         let job = self.state["coordinator"]["job"].as_str().unwrap_or("");
@@ -2701,19 +2707,19 @@ fn execute(a: Action) -> Result<i32> {
             );
         }
         Action::Next { target, clear } => {
+            // A file, not the loop's state: a running loop would overwrite it.
+            let path = pilot.home.join("next-target");
             if clear {
-                pilot.state["next_target"] = Value::Null;
+                let _ = fs::remove_file(&path);
             } else if let Some(t) = target {
-                pilot.state["next_target"] = json!(t);
+                fs::create_dir_all(&pilot.home)?;
+                fs::write(&path, t.to_string())?;
             }
-            pilot.store()?;
-            pilot.log(
-                "next-target",
-                "",
-                "",
-                &pilot.state["next_target"].to_string(),
-            )?;
-            println!("次の段階の目標: {}", pilot.state["next_target"]);
+            let next = pilot
+                .next_target()
+                .map_or("null".to_string(), |t| t.to_string());
+            pilot.log("next-target", "", "", &next)?;
+            println!("次の段階の目標: {next}");
         }
         Action::Answer {
             item,

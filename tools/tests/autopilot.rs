@@ -1681,7 +1681,7 @@ fn the_next_stage_starts_when_every_persona_is_within_a_batch_of_its_goal() {
     .unwrap();
     f.cli(&["once", "--target", "100"]);
     assert_eq!(f.state()["configuration"]["target"], 200);
-    assert!(f.state()["next_target"].is_null());
+    assert!(!f.r.join("scratch/autopilot/next-target").exists());
     let log = fs::read_to_string(f.r.join("scratch/autopilot/log.tsv")).unwrap();
     assert!(log.contains("phase-advance"), "{log}");
     // Starting again without --target keeps the advanced target.
@@ -1693,6 +1693,23 @@ fn the_next_stage_starts_when_every_persona_is_within_a_batch_of_its_goal() {
         "{:?}",
         f.calls()
     );
+}
+
+#[test]
+fn clearing_the_next_stage_survives_a_running_loop_state() {
+    let f = Fixture::new();
+    fs::write(
+        f.r.join("manifests/p01-test.tsv"),
+        "x\thash\t1\tdate\n".repeat(100),
+    )
+    .unwrap();
+    f.cli(&["next", "200"]);
+    f.cli(&["next", "--clear"]);
+    // A loop that started before the clear still holds the old value.
+    f.save_state(&json!({"next_target": 200}));
+    f.cli(&["once", "--target", "100"]);
+    assert_eq!(f.state()["configuration"]["target"], 100);
+    assert!(!f.cli(&["status"]).contains("次の段階"));
 }
 
 fn old_usage(f: &Fixture, used: f64) -> PathBuf {
