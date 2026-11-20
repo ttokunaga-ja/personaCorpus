@@ -795,6 +795,34 @@ fn revised_word_source(parent: &str, changes: &str) -> String {
         .join("\n");
     retained + "\n" + changes
 }
+// An unchanged slide-face export maps consecutively numbered slides to PDF pages.
+fn slide_pdf_excerpt(parent_body: &str, changes: &str) -> Option<String> {
+    let export = "表示スライドは違いなし。発表者ノートは印刷対象に含めない。";
+    let slides = parent_body.trim_end().strip_suffix(export)?.trim_end();
+    let requested = re(r"^提出PDFの pp\.([0-9]+(?:[-–—][0-9]+)?) を本文と[0-9]+表を含めて抜粋し、見出しと原文を保持する。")
+        .captures(changes.trim_start())?;
+    let (first, last) = pdf_page_range(&requested[1])?;
+    let mut page = 0usize;
+    let mut excerpt = Vec::new();
+    for line in slides.lines() {
+        if let Some(heading) = line.strip_prefix("## スライド") {
+            page += 1;
+            if heading.parse::<usize>().ok()? != page {
+                return None;
+            }
+        } else if line.starts_with('#') || (page == 0 && !line.trim().is_empty()) {
+            return None;
+        }
+        if (first..=last).contains(&page)
+            && !line.trim_start().starts_with("発表者メモ：")
+            && !line.trim_start().starts_with("発表者ノート：")
+            && !line.trim_start().starts_with("Speaker notes:")
+        {
+            excerpt.push(line);
+        }
+    }
+    (last <= page).then(|| excerpt.join("\n") + "\n" + changes)
+}
 fn numbered_pdf_pages(body: &str) -> Option<Vec<(usize, usize)>> {
     let candidate = re(r"(?i)^## Page [0-9]");
     let heading = re(r"(?i)^## Page ([1-9][0-9]*)(?:\s+[—–:-]\s+.+)?$");
@@ -998,6 +1026,16 @@ fn source(
             }
             shortened_pdf_source(parent, &parent_body, rel, &body)
                 .unwrap_or_else(|| parent_body + "\n" + &body)
+        } else if rel.ends_with(".docx")
+            && parent.ends_with(".pdf")
+            && parent_cfg
+                .get("kind")
+                .is_some_and(|kind| kind.starts_with("office:") && kind.ends_with(".pptx"))
+            && parent_cfg
+                .get("derived_from")
+                .is_some_and(|path| path.ends_with(".pptx"))
+        {
+            slide_pdf_excerpt(&parent_body, &body).unwrap_or_else(|| parent_body + "\n" + &body)
         } else if rel.ends_with(".docx") && parent.ends_with(".docx") {
             revised_word_source(&parent_body, &body)
         } else {
@@ -3463,5 +3501,53 @@ mod derived_word_tests {
         )
         .unwrap();
         assert!(resolve().contains("Retired draft wording."));
+    }
+}
+
+#[cfg(test)]
+mod word_excerpt_tests {
+    use super::*;
+
+    #[test]
+    fn revised_excerpt_uses_only_explicit_pages_of_slide_only_pdf() {
+        let dir = tempfile::tempdir().unwrap();
+        let write = |name: &str, parent: &str, kind: &str, body: &str| {
+            fs::write(dir.path().join(format!("{name}.md")), format!(
+                "---\npath: {name}\nkind: {kind}\nauthor: Editor\nderived_from: {parent}\n---\n{body}"
+            )).unwrap();
+        };
+        write(
+            "slides.pptx",
+            "",
+            "deck.pptx",
+            "## スライド1\nCover\n## スライド2\nFirst table\n発表者メモ：Private\n## スライド3\nSecond table\n## スライド4\nAppendix",
+        );
+        write(
+            "sent.pdf",
+            "slides.pptx",
+            "office:deck.pptx",
+            "表示スライドは違いなし。発表者ノートは印刷対象に含めない。",
+        );
+        let resolve = |pages: &str| {
+            write(
+                "revision.docx",
+                "sent.pdf",
+                "form.docx",
+                &format!(
+                    "提出PDFの pp.{pages} を本文と2表を含めて抜粋し、見出しと原文を保持する。\nAdded text"
+                ),
+            );
+            source(dir.path(), "revision.docx", &mut Vec::new())
+                .unwrap()
+                .1
+        };
+        let body = resolve("2–3");
+        for retained in ["First table", "Second table", "Added text"] {
+            assert!(body.contains(retained));
+        }
+        for excluded in ["Cover", "Private", "Appendix"] {
+            assert!(!body.contains(excluded), "{excluded}");
+        }
+        assert!(resolve("2–9").contains("Cover"));
     }
 }
