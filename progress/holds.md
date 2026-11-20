@@ -2,4 +2,3 @@
 
 | persona | batch | 理由 | 日時 |
 |---|---|---|---|
-| p11-account-executive | b008 | 監査 hold: progress/p11-account-executive/b008.audit.md | 2026-11-20T02:05:30.177998+00:00 |
