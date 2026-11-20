@@ -7,6 +7,9 @@ Desktop/2025-02-05 I looked at the button first.txt	fa13c500cac835168eb6817db0db
 Desktop/2025-02-10 Keep the checkmark.png	d1e747fdd4cbd5bf047836108898888e5b3ce6ce1b6081c898f8c7cfb5c440fe	67554	2025-02-10T15:54:00Z
 Desktop/2025-07-23 I thought she had opened the stop.txt	9469d420d3269061790dc087e11a8324381389136c2990b2d26899f3c0248266	1321	2025-07-23T13:29:00Z
 Desktop/2025-11-05 I left the date until the end.txt	f5d4630a82b0ea4353c9093ef3ead1c20d9e4fac0b6a9d9a7ee1e2a4546ee8a8	591	2025-11-05T20:51:00Z
+Desktop/2026-04-13 The country grid does not help yet.txt	490e48e9bf572bb4de694e2eb4d1521568f6d2dfd64aeedcc898be0c6983b057	814	2026-04-13T14:35:00Z
+Desktop/2026-07-14 How far Adam got on each hold.txt	d11b827dc8b8cc8d61a7f755915520bca3efb83bc46d314e24a0b240f97f1fcf	1853	2026-07-14T16:15:00Z
+Desktop/2026-07-14 Mara had the reason before the screen.txt	52a48f039bfdb0fb882264ab22dd00f9029f7a6f5f6bd107fa547569fba40663	921	2026-07-14T19:15:00Z
 Documents/Client-mail/2024-04-16 Dispatch handoff study.eml	3a07a9df8a9067bb35acc16fee255a4a01634fa1f1799d92e33889fb32420edf	93600	2024-04-16T14:10:00Z
 Documents/Client-mail/2024-04-16 Re Dispatch handoff study.eml	0767f86ec1c9b6d90a9653ebb08d4a9092b1781b90568698de1cb7c74d294db0	2288	2024-04-16T20:11:00Z
 Documents/Client-mail/2024-04-26 Four handoff scenes for review.eml	26919dacec23465ed36edd9993a3ca894be90127b1d9448ad859d1801ad1fd2e	55471	2024-04-26T14:47:00Z
@@ -61,6 +64,7 @@ Documents/Participants/2025-08-27 One September slot opened.eml	8052cf42f7be240f
 Documents/Participants/2025-08-28 Re One September slot opened.eml	0c383084317ae63a15ab179f845d088aa93a293f4fdc7496dc37d400b0f48f32	1229	2025-08-28T15:06:00Z
 Documents/Participants/2025-10-17 Close the spare slots.txt	0e47c49bf1010ae3ac035d2c0fdc8e176e0a61b2904f294869cbb6acd8a2d86e	901	2025-10-17T20:29:00Z
 Documents/Participants/2026-06-15 Tsubasa retest permission check.docx	7d28ec41ec65f1a880b232bee4df3c04f9552b6b2d40f09209e12f07265152bb	45774	2026-06-15T15:25:00Z
+Documents/Participants/2026-07-20 Dispatch recording permissions and dates.xlsx	805549c16f4a4d3ed1359cd87a37484a096711b952c6958127e8032094d4870d	15285	2026-07-20T16:40:00Z
 Documents/Personas-and-journeys/2024-10-31 New to the desk - a working sketch.docx	83f95bf6b758e3b01d29a34cd340d86756004a77844992d477648a49c406ae15	46519	2024-10-31T16:18:00Z
 Documents/Personas-and-journeys/2025-01-23 New to the desk - withdrawn.docx	caaa0cdfc0a9cf2e0aa765caafdf8219453ef4d855a915f94a68e54afaa7d395	46984	2025-01-23T17:08:00Z
 Documents/Personas-and-journeys/2025-04-03 Same four cases under three job labels.pptx	ff47f5e1f8bf104a4ad6462e37314872c0a4f0279efaea6c32ceef20c5fd4906	33622	2025-04-03T18:32:00Z
@@ -98,6 +102,7 @@ Documents/Team-and-expenses/2026-01-30 January room charges.pdf	d490e4456db7b4ae
 Documents/Team-and-expenses/2026-02-02 Room costs for January.xlsx	cd7a3598942f3d06acda382563cce2924d80824b1faee36544c2f77b138e33eb	14705	2026-02-02T20:48:00Z
 Documents/Team-and-expenses/2026-02-03 January room charges for close.eml	e341397964db131ca75030c50edccd3a00b4469415969c2f3e3002da5b50acba	231996	2026-02-03T15:16:00Z
 Documents/Team-and-expenses/2026-02-03 Re January room charges for close.eml	e5b2e59565bed88260d41861ef8a3855c083cf35c80020047304773c7daa9fd1	1180	2026-02-03T17:08:00Z
+Documents/Team-and-expenses/2026-07-02 The fridge gets cleared Friday.eml	194767e0df1577feb8ac01cd5ffdaa8b1d10f7d6ec56a6141ad66ac072cba7ec	711	2026-07-02T14:16:00Z
 Documents/Training-comprehension/2025-02-03 新人研修の途中保存を見たいです.eml	434d5841874e4b2f1f67ae5c23312a3feb262781e9a1cc4670ecb9cfdf1d2b87	1397	2025-02-03T23:28:00Z
 Documents/Training-comprehension/2025-02-04 研修画面の課題票 下書き.docx	d879750017ed9cea6f61135425e15cd47ecf18a123c919be06e944deb8c11174	45816	2025-02-04T16:16:00Z
 Documents/Training-comprehension/2025-02-05 研修画面の課題票.docx	1ac03dd97717505faccf5295a0d9e6e5126a6ec7c18a7d675bbe7a114a83e3c0	46090	2025-02-05T17:42:00Z
@@ -150,6 +155,31 @@ Documents/配車の見通し調査/Interviews/2024-10-30 Vehicle number without 
 Documents/配車の見通し調査/Interviews/2025-01-15 例外停車の引継ぎ UX-043.txt	8e55efd9d4359b383bf16f1ce7e93dfbd091033722922eddfdd6e52a49b4670c	10490	2025-01-15T16:18:00Z
 Documents/配車の見通し調査/Interviews/2025-01-15 紙と停車欄で食い違ったこと.txt	65563fcbdb3fdf6f38a22c0c3430866bf5db1d15babdb2a0325321272ba1e7be	1101	2025-01-15T14:49:00Z
 Documents/配車の見通し調査/Interviews/2025-01-17 Opening the next route UX-044.txt	7a441761eec38a59c3d6add8a5f1a51e8c561e349a0e926f7227211c2cdd7704	7132	2025-01-17T21:12:00Z
+Documents/配車の見通し調査/Interviews/2026-07-06 UX-166 Pay attention to the date on the slip.txt	4061d093a352c5f5c929155965f9f4bc364c5675988476c5dcec4059e7ad4d10	26155	2026-07-07T14:25:00Z
+Documents/配車の見通し調査/Interviews/2026-07-06 UX-167 The coordinator says which van.txt	158eabc225b8bd3c3439a90241845d805a646be9b188eb55409b9fe7f3868e98	26402	2026-07-07T15:45:00Z
+Documents/配車の見通し調査/Interviews/2026-07-06 UX-168 Two lines in the handoff notebook.txt	9e041a4abd393cc3a64c9849b565ebe7c693b8bc79994acdc8692aa6f386f84d	31569	2026-07-06T20:03:00Z
+Documents/配車の見通し調査/Interviews/2026-07-06 UX-169 折り返しの主語を聞き直した.txt	37145a47cd2fc63cc545c49c03da917a3192d9022febb9287c2b8e537eb3de27	26705	2026-07-07T13:45:00Z
+Documents/配車の見通し調査/Interviews/2026-07-07 UX-170 The reason belongs to the next route.txt	0424ddbe455ee4b7fccb119f5aa26482b168a76dd1abe8e3ac4c2330df0cd19a	14139	2026-07-08T14:25:00Z
+Documents/配車の見通し調査/Interviews/2026-07-07 UX-171 The door note was all she had.txt	e2474324ca9b11e8120ae7841e6c7517c5db2153327aa7fd69b980a4ddd62d93	13984	2026-07-08T15:45:00Z
+Documents/配車の見通し調査/Interviews/2026-07-07 UX-172 The yard call has a route number.txt	7b9fc150420e5c83cc2ee253edd760c22d0948e1d72dd3c25d7880701446125f	16754	2026-07-07T20:03:00Z
+Documents/配車の見通し調査/Interviews/2026-07-07 UX-173 停車メモと積込待ちを別に言う.txt	365672efa391991145743c87ba92ccf89c025ddad9a294e3e94a05c3a2937a68	13302	2026-07-08T13:45:00Z
+Documents/配車の見通し調査/Interviews/2026-07-08 UX-174 An answer came after the handoff.txt	1cf9bcf316cb19229c041438285e1ee30768b7369828ca5a7959b4f88dccc0c1	13591	2026-07-09T14:25:00Z
+Documents/配車の見通し調査/Interviews/2026-07-08 UX-175 The message preview cut off the route.txt	cf2a9b174955d3b894b32b3e15f7c7137541376f4f6562f7572d6ea98fd864c7	14081	2026-07-09T15:45:00Z
+Documents/配車の見通し調査/Interviews/2026-07-08 UX-176 便番号を言い直して分かった待ち先.txt	c9cb77a1dcf037c82a212eaf6c1589bbbd5080eb5c4ca763283e29026a8cdde5	17050	2026-07-09T13:45:00Z
+Documents/配車の見通し調査/Interviews/2026-07-09 UX-177 Ready changed while she was looking.txt	623403642e9028df9f7e41d5a91f6257adbde936598ae247668a8804b6dded5d	11757	2026-07-10T14:25:00Z
+Documents/配車の見通し調査/Interviews/2026-07-09 UX-178 A clear reason without a release name.txt	2b62343fc2f5883fd678d7033832fe0e45ac95f56a62ff33daeb14eea94048c2	12405	2026-07-10T15:45:00Z
+Documents/配車の見通し調査/Interviews/2026-07-09 UX-179 時間帯が戻っても保留は残った.txt	48793b245e707500a7d0c14f3cff378d129844a5e6ad81b6cb53a1807fb1c89a	16630	2026-07-10T13:45:00Z
+Documents/配車の見通し調査/Interviews/2026-07-10 UX-180 The note says which gate only.txt	22b9b37cbd914efd9c3eae310d953e0901a55985e8043edb5be514a1da69cfc4	12662	2026-07-13T20:45:00Z
+Documents/配車の見通し調査/Interviews/2026-07-12 UX-181 積込待ちの伝言が別の日だった.txt	0292b23764d5885de818ae918bcc17003d737cd0d69d2a24afd38609f67c2183	13924	2026-07-13T13:45:00Z
+Documents/配車の見通し調査/Interviews/2026-07-13 UX-182 Agreement from the other desk.txt	d630370935e74a2b8af5294de3c8c434d7c0a587b2d7841868557aea24cb0c10	16428	2026-07-14T20:45:00Z
+Documents/配車の見通し調査/Interviews/2026-07-13 UX-183 The route never went on hold.txt	a6db21abccbde0c3fd0911d829179acdf3b4cf175f58c26ece602f4c63cd2ac4	17462	2026-07-14T20:45:00Z
+Documents/配車の見通し調査/Interviews/2026-07-14 UX-184 Adam on three held routes.txt	82dca8fdb50fcc909411fd7cde9ca269e68d19539a0a26b7bf90bee8d88ee222	28568	2026-07-14T18:04:00Z
+Documents/配車の見通し調査/Interviews/2026-07-14 UX-185 She knew before opening the list.txt	de2d6aa95fdc3144882548203b3f78d825e38360547a899dacbcaeaff0f5e134	17998	2026-07-15T20:45:00Z
+Documents/配車の見通し調査/Interviews/2026-07-15 UX-186 Read back the number while on the call.txt	c7bffb6445a594ec0f3d4a8f3aaf95f8cc90aa42774f6a34c6ec664521f3fcd3	18795	2026-07-16T20:45:00Z
+Documents/配車の見通し調査/Interviews/2026-07-15 UX-187 理由を渡せず確認先だけ残した.txt	4e12bfe7ff3bed42575e703a18c00b0069c95834b7295694874d02a6f5dc2439	20142	2026-07-16T13:45:00Z
+Documents/配車の見通し調査/Interviews/2026-07-16 UX-188 The dispatch board and the call.txt	b2f575817e81f37300321b92e3923fb428eda93607c786b9643a37e73e0b9b4b	23347	2026-07-16T16:03:00Z
+Documents/配車の見通し調査/Interviews/2026-07-16 UX-189 時刻だけ直した交代.txt	be883e589a0cf4a8d1be0ec4fa4b73791ea74f1f2bbdc0d6dec67f093b92c137	21055	2026-07-17T13:45:00Z
+Documents/配車の見通し調査/Interviews/2026-07-20 Dispatch observation times.csv	740a0b3442999f1827d1508fb83c49ff7af56a45f8bd3bfa5ebe7c245b2cfaf9	8061	2026-07-20T19:50:00Z
 Documents/配車の見通し調査/Planning/2024-04-16 What actually gets handed over.txt	9cc1eb08257cf13b4d8eb05b53b0abe334e11aedf739f70016eac10ef87ed74f	1408	2024-04-16T19:28:00Z
 Documents/配車の見通し調査/Planning/2024-04-19 Dispatch handoff observation draft.docx	5f451374052f65f160838f2fd42ea755ed4917a3b694270e3814067f562e57c0	46240	2024-04-19T20:36:00Z
 Documents/配車の見通し調査/Planning/2024-04-22 Four ways a handoff can break.pptx	1637307940d0ab37bd620f6c7e9c97cbe9a43a8344f0614998d93805d32f96e8	39463	2024-04-22T18:41:00Z
@@ -168,6 +198,13 @@ Documents/配車の見通し調査/Planning/2024-07-11 配車引継ぎ 進行台
 Documents/配車の見通し調査/Planning/2024-07-12 Dispatch prompts ready for both sessions.eml	ae4133dd443f5744381cd430f977b0af53adc3e64a68037dd69264869c6dcc77	35571	2024-07-12T14:44:00Z
 Documents/配車の見通し調査/Planning/2024-10-25 Monday room and recording handoff.docx	feee892f49291fe16f6f75dfaf00a156bc6e9650cc21b8da416452f0f479006f	45682	2024-10-25T20:16:00Z
 Documents/配車の見通し調査/Planning/2024-10-29 Ask what was checked.docx	fd456a37f93d99b0041f16d0f25cd68a702242c4ba59e62f2d311411f9fa4fd4	46480	2024-10-29T19:12:00Z
+Documents/配車の見通し調査/Planning/2026-04-13 Dispatch follow-up allocation draft.docx	398d4f8f8c51522f103a37055bf3a2a813ecddae58e61ef96767d8ffba5493a2	46222	2026-04-13T20:20:00Z
+Documents/配車の見通し調査/Planning/2026-04-14 Dispatch follow-up allocation Brian notes.docx	52a6f97e27316ea2213bf0623ed1b8b831c2d5a8b919b8ea48368755440b178e	47315	2026-04-14T16:10:00Z
+Documents/配車の見通し調査/Planning/2026-04-15 Dispatch follow-up slots by handoff frequency.xlsx	933290e2c517ab086764fcb28a26985652de880811dafcf0f69abdaaf6b50eed	14979	2026-04-15T18:10:00Z
+Documents/配車の見通し調査/Planning/2026-04-15 Follow-up slots by handoff frequency.eml	8e6bacdbedd3069032a5140db51f4dc9d9f41d6ae8e923cb7eda3566eacc90d5	22464	2026-04-15T19:05:00Z
+Documents/配車の見通し調査/Planning/2026-04-15 Re Follow-up slots by handoff frequency.eml	338657745e4e9771e5e9497a2635061b6c671334b2ae068f74bcd2a7a52526a8	1401	2026-04-15T20:24:00Z
+Documents/配車の見通し調査/Planning/2026-04-15 Why we booked by handoff frequency.docx	ddb5f1c799a8b131b32a8a081499bdf97ae282bfff08a6296ebaed7a84d39465	46144	2026-04-15T16:40:00Z
+Documents/配車の見通し調査/Planning/2026-07-02 What did they know when they handed it over.pptx	3e5fcc7165a6af15276683fd36bd3e2fabb5f0a42b2a65aa5f47b1508f0e77bb	37144	2026-07-02T20:40:00Z
 Downloads/Dispatch Planning Screen Reference.pdf	0dc1cae104e12bfff6b9b5246f2eaae4cde2ae344e19b1b4e0d938c27e267056	67123	2024-04-16T14:06:00Z
 Downloads/Kenton Day Count Desk Instructions.pdf	6023ff1e4b1979a384b0a0807ae5deced3b4a689a9eb2ff84e402409b9309664	42343	2024-08-20T19:10:00Z
 Library/CloudStorage/Carver/2026-02-04 One stop condition that traveled by voice.pdf	dfc9dfcd003951a18cc5785825f94173076da54766d1bb5e71018790db9cd937	41833	2026-02-04T20:03:00Z
@@ -178,5 +215,8 @@ Pictures/Analysis/2024-09-20 One line above the count list.png	2c8c420243eb7f693
 Pictures/Analysis/2025-04-08 Desk roles half taken down.jpg	3db499aa0d046a389b1768ccd6a4cf394b524d2268a898091850091752eece44	468254	2025-04-08T19:23:00Z
 Pictures/Analysis/2025-07-28 Due first or open first.jpg	66cf19dc41cfa8ac21c276c1774fc24c36f85644c4c979e47cc7ce1d3081fc89	505253	2025-07-28T20:34:00Z
 Pictures/Analysis/2026-06-16 Saved step beside submitted step.png	e85ff2e53ed4a29b23106c1571a7db771d9104b64c075ab44fbfe261386293b7	66172	2026-06-16T19:08:00Z
+Pictures/Analysis/2026-07-14 Adam three ways back to Held.png	0e28725eb007b027cd96877b3a023655e3fe46d6d070155a5ff2ed200779a644	94050	2026-07-14T19:20:00Z
+Pictures/Analysis/2026-07-14 R-476 stop 02 and the held row.png	0f83bc7490a510fe3fd3219ef4d57a3145848030ae50a68134a506c63d7f16ad	45587	2026-07-14T16:35:00Z
+Pictures/Analysis/2026-07-15 Before the list and on the call.png	319d8cc19df33457a5de41932588be3e12691a7215ebc4df297bdbad396a1850	89367	2026-07-15T20:00:00Z
 Pictures/Field-visits/2024-09-04 Count area notice.jpg	5e1d8842fcc4ed48cd7e22b6665f7a3eaca2e5fe3203b9a99244da77ae07734f	403064	2024-09-05T01:19:00Z
 Pictures/Field-visits/2024-09-04 Count desk between rounds.jpg	a580f667e512fc94bc4ee9bc295393c361194044da824a1683221ef19e2e8307	397561	2024-09-05T01:24:00Z

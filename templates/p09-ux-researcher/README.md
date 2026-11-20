@@ -14,6 +14,8 @@
 | 再開手掛かりの分類照合 | Carver、Brian と Jennifer。2人の初回コードと場面ごとの確定理由を照合 | `carver-field-coding.xlsx` | Letter 横。日英質問対照と同じ Carver の紙面で、場面・初回2列・確定・一致判定・行動根拠を6列で示す |
 | 読み上げ順の項目表 | Carver、Jennifer。Amanda の観察を Jeremy に渡す際、期待順・観察順・判定・修正観点を項目別に整理 | `carver-reading-order.xlsx` | Letter 横。黒鉛色の6列見出し。先頭の期待順は右寄せ、直後の項目名は1字下げ |
 | 募集条件照合 | Carver、Carolyn。候補を符号で扱い、3条件の回答と最初に外れた条件を週次の募集会議で照合する | `carver-participant-eligibility.xlsx` | Letter 横、共通ロゴ、黒鉛色の6列見出しと麻色の集計欄。1候補1行で根拠欄を広く取る |
+| 配車追加調査の割当 | Carver、Brian と Jennifer。直近5勤務の交代頻度別に面談枠と配置の根拠を確認する | `carver-dispatch-allocation.xlsx` | Letter 横、共通ロゴと管理欄。面談枠を1行ずつ並べ、頻度別の小計を麻色で示す |
+| 面談の録音管理 | Carver、Ayesha と金子。許可の確認時刻、音声の消去日時または保存期限を対応させる | `carver-recording-register.xlsx` | Letter 横、共通ロゴと管理欄。音声の取扱いと日時の列を離し、確認者と用途を右端に置く |
 | 会場費精算 | Carver、Jennifer。運営が発行した紙の明細と会場ごとの申請額を照合する | `carver-venue-expenses.xlsx` | Letter 横、共通ロゴと黒鉛色の列見出し。USD は小数2桁を右寄せ、理由欄は折り返す |
 | 場面共有スライド | Carver、Jennifer。引継ぎの四場面、夜勤棚卸の再開、研修画面の文言案を説明 | `carver-field-brief.pptx` | 16:9、白地。小さな社名と図形ロゴを上に、ページの区切り線を下に置く。マスター1種・レイアウト5種 |
 | 質問試行用紙 | Carver、金子。読み合わせに使う旧質問を余白のある紙面に組む | `carver-pilot-questionnaire.cls` | Letter 縦。麻色の管理欄、煉瓦色の区間見出し、番号付きの日英対。手で削除や言い直しを書き込める質問間隔 |
@@ -76,6 +78,18 @@
 
 - 集計は明細直下に、A列に数式、B〜Cの結合欄にラベルを置く。候補数はA列の `COUNT`、適合・条件外はE列の判定語と同じ語を使う `COUNTIF`。全体に `CWR Total` を適用し、結合欄の左端は `CWR Text` の左寄せ・字下げを保つ。除外理由の内訳を式で出す場合は、最初に該当しない条件を明細F列の根拠の先頭で揃え、その条件別に数える。
 - A6:F最終明細行にフィルター、印刷範囲は A1:F最終使用行、ペインは B7。Letter 横、幅1頁・高さ自動、1〜6行繰返し。根拠は折り返し、内容に合わせて行高を取る。集計を入れたら `bin/recalc` と `bin/render` で確認する。
+
+### 配車追加調査の割当
+
+`carver-dispatch-allocation.xlsx` のシート `Dispatch allocation` を開く。共通管理欄の案件は `DR`、用途は `DEC`。6行目の既存列を使い、7行目から1枠1行で、A・C列は `CWR Integer`、B・D・E列は `CWR Text`、F列は `CWR Note` を使う。C列の0は確認済みの0回とし、未確認の空欄と分ける。
+
+- 明細直後に原稿の頻度区分名ごとの小計（D列の `COUNTIF`）と合計（A列の `COUNT`）を置く。集計ラベルはB〜Cを結合し、`CWR Total` と本文の字下げを使う。面談担当の内訳を併記する場合は区分と担当を条件にして数える。
+
+### 面談の録音管理
+
+`carver-recording-register.xlsx` のシート `Recording register` を開く。共通管理欄の案件は `DR`、用途は `DEC`。7行目から1面談1行で、A〜E列は `CWR Text`、F列は `CWR Note` を使う。B・D列は日時（`yyyy-mm-dd hh:mm`）、E列は日付（`yyyy-mm-dd`）。消去日時と期限のうち該当しない列は空欄にする。期限は面談日＋180日を式で持たせる。
+
+- 明細直後に許可区分別の件数をC列の `COUNTIF` で置き、`CWR Total` を適用する。両方の型ともフィルターは A6:F最終明細行、ペインは B7、印刷は A1:F最終使用行。Letter 横・幅1頁・高さ自動で1〜6行を繰り返し、集計後に全印刷面を確認する。
 
 ### 会場費精算
 

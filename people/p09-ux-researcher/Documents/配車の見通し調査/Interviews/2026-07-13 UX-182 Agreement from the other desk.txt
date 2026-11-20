@@ -1,0 +1,111 @@
+UX-182 · July 13, 2026 · 10:00–10:45 CDT
+Jennifer Salazar with a dispatcher, interview 17. Elapsed from session start. Opening from room notes. Brackets describe the walkthrough; exchanges from the shift are the participant's recollection.
+Research team only. Temporary audio for transcription and speaker checking, to be deleted after the check.
+
+00:00 Jennifer: Let's take something you had to leave for the next dispatcher. I'm interested in how you knew which information was still current. You can skip anything and you can ask me to stop at any time.
+00:27 Jennifer: May I record for the team's transcript and speaker check? The audio will be deleted after we check it. We won't share it with the customer or use it in another study.
+00:45 Participant: Yes. You can record for that.
+01:00 [Recording starts.]
+01:09 Jennifer: How many of the last five shifts included a handoff you gave or received?
+01:24 Participant: Four. One day I took it and gave it back at the end, but that's still one.
+01:53 Jennifer: Pick one of those exchanges where the other person was going to have to keep working on something after you.
+02:15 Participant: The one I wrote down was R-458. I had a copy of the old handoff. I wanted to see whether I could use what was already written when I gave it to the next person.
+02:45 Jennifer: Could we start with the copy? Leave anything you don't want on the share off to one side.
+03:09 [Participant places the handoff copy beside the keyboard and points to the heading.]
+03:37 Participant: The number was handy. I didn't have to ask which run the note was about. Then I had something somebody had already written down as the reason it was waiting. It went with the handoff on this copy. I still had to see whether it went with the handoff I was doing.
+04:12 Jennifer: Would someone know from looking at this paper whether the other desk had agreed since it was written?
+04:36 Participant: I couldn't see that. There's nothing that updates on the paper. If you come in and it's still sitting where they left it, it looks like the thing you're supposed to read. That doesn't tell you who's called in the meantime.
+05:10 Jennifer: What made you keep it out in front of you?
+05:31 Participant: I use it to find my place. If I put it away I'd still have to find which held route they'd meant. And I wanted to keep the original entry where I could go back to it if somebody asked what I'd started with.
+06:06 Jennifer: Can you show me how you got from that number to what you were using for the current handoff?
+06:27 [Participant opens the route list and brings the copy closer, moving from its route entry to the Route column.]
+06:56 Participant: Four-five-eight. That's the row I need. I go across it. I'm taking Held from the screen, and the Window there is the time I'd use to identify it when I ask.
+07:25 Jennifer: If I asked what had changed since the paper was written, what could you tell from the row?
+07:47 Participant: I could tell you what the line said when I checked. I couldn't tell how long it had been like that. The row didn't show me whether the receiving desk had said yes in between, or what discussion they'd had.
+08:18 Jennifer: What was the question you needed answered at that point?
+08:41 Participant: Whether the other desk had permission to receive it for the window I was looking at. When you come on you can hear about several runs in the same breath. I just needed to know what was true for the one in front of me.
+09:11 Jennifer: Did you do anything on the copy to indicate you'd reached a new answer?
+09:35 Participant: No. I kept that over here. If I crossed it out, I'd have lost what the person before me told me. If I put a check beside it, I'd have made it look like I'd verified that wording. I hadn't at that point.
+10:08 [Jennifer leaves a space under her note for where the next information came from. Participant points back to Window.]
+10:31 Jennifer: Did you need to go into Stops to get the time you used when you spoke to the other desk?
+10:48 Participant: I used the timing on this line. I didn't need where the driver was going to turn in or anything like that. I was trying to make sure the other desk had the same job for the same window.
+11:15 Jennifer: Tell me what would go wrong if you just called and said the old reason back to them.
+11:39 Participant: They could say “right” because they recognize it. That wouldn't tell me what had happened since. I'd rather tell them what line I've got and leave them room to tell me what they're still waiting for, if there's anything.
+12:15 Jennifer: Who did you actually ask?
+12:34 Participant: The receiving desk. If somebody there had received permission to take it, I'd expect that to be where I'd get the answer. I wasn't asking them to change what I could see on my list.
+13:03 Jennifer: Could you put the paper where it was when you called and show me which value you kept in front of you?
+13:23 [Participant shifts the copy to the side. The R-458 row stays visible while the participant holds a finger near its Window.]
+13:48 Participant: Here. I could look across the route number to the current window without going back into what was written earlier. If they asked me to say it again, it was right there.
+14:20 Jennifer: Did you read from the paper at all on the call?
+14:41 Participant: I may have kept my place with it, but the part I said to them was from the line. I didn't read them the explanation on the paper. That would be me supplying an answer to the question I was trying to get them to answer.
+15:12 Jennifer: Do you recall opening with “is it still held” or with the route number?
+15:34 Participant: I was asking about the receiving side. I had the route and the time there. I wanted them on the same one before we got into what was pending.
+16:01 Jennifer: If their answer had been about a different window, how would you have caught it?
+16:24 Participant: I would have said the window from the current row back again. If what they said didn't belong to that, I'd keep it separate. Having the same number gives you most of what you need, but the time is what I was checking with them too.
+16:56 [Participant points to Route and then Window in the same row. Jennifer asks the participant to leave the old wording off the shared view.]
+17:18 Jennifer: Let's run the call from the point you're both talking. There's no need to repeat the actual window for me. Which part do you say back, and which part do you wait for from them?
+17:43 Participant: I read the number and the time. Then it's their turn to tell me where it stands. That pause is where I could have filled it in with what was on the old copy. I wanted to hear them answer it for this run.
+18:12 Jennifer: At that point, was “still waiting” your own description, or something they told you once you'd identified it?
+18:33 Participant: It was their answer. Let me put the number back with it so it's clear.
+18:45 Participant: I read back R-458 and its time to the receiving desk. They said it was still waiting for permission to receive.
+19:06 Jennifer: What does that give you to tell the next dispatcher that you didn't have just from the row?
+19:30 Participant: A current answer about what was pending. I can say I checked with the receiving desk about this run. I still can't tell you when they'll have permission. If they tell me “still waiting,” that's the part I'm handing over.
+20:06 Jennifer: Did “still” lead you to think something on the old copy was probably correct?
+20:25 Participant: It meant there hadn't been a yes as far as what they told me on the call. I can't use that to say I confirmed the whole earlier note. If somebody reads it later I want them to know which sentence came straight from the desk when I asked.
+20:55 [Participant keeps a finger on the selected row while Jennifer reads back the order of the exchange.]
+21:21 Jennifer: Did the row give you any independent evidence of permission being pending?
+21:43 Participant: No. I had Held on the row before I asked, and it was the same when I checked. I'd have said “Held” either way. The part about permission is what they told me when I read the route and time.
+22:13 Jennifer: Is there a difference between saying the other desk agreed with you and saying what they said back?
+22:36 Participant: Yes. They were answering about the same run. That doesn't mean they agreed to take it. If you put “agreed” in the handoff on its own, the next person might think we're cleared on their side. I'd say their permission was still pending.
+23:09 Jennifer: How did you put that for the person coming on?
+23:29 Participant: I gave the route first and where I'd got the answer. Something like “R-458 is Held. The receiving desk says it's still waiting for permission.” They could read the time right there, but I'd keep it with the number in anything I left written down.
+24:09 Jennifer: If they picked up the earlier copy before you had a chance to speak, what would you tell them to do with it?
+24:32 Participant: Use it to see where we started. I'd point out I'd spoken to the other desk since that was handed to me. The current answer goes with the route we're working now. I don't want them to pass the copy around like it's what I just heard.
+25:06 [Participant slides the copy away from the place where the list is displayed. Jennifer draws a line between the two sources on her notes.]
+25:33 Jennifer: Suppose I was leaving you a note about the call. Would you include an estimate for when the permission might come through?
+25:51 Participant: I wouldn't. They didn't give me a time for that. The window I read to them is how I identified the route. It would be a mistake to use one end of it as a promise from them.
+26:23 Jennifer: Did they tell you who would make the decision, or just that permission hadn't come through?
+26:44 Participant: Just where they stood. I don't have a name from the call. I know which desk answered me. I can't send the next person away with a name for someone who can clear the hold.
+27:12 Jennifer: How would you show somebody the route you were asking about if the old copy wasn't beside you anymore?
+27:35 [Participant closes and reopens the route list, then runs the pointer down to the R-458 entry.]
+28:09 Participant: By the number and the window again. I'd say what I heard on the call and how I tied it to that line. The paper won't help them any more than that with whether the response has arrived since.
+28:38 Jennifer: Did you stay to see it get released?
+28:58 Participant: No, I left while it was still something the next person had to follow. I can't tell you whether it got permission two minutes after that or whether they had to try again. I wasn't on the desk.
+29:26 Jennifer: Let's hold that boundary. We can hear what the desk told you, but we don't have what happened after you handed over. Did anybody give you a follow-up instruction before you walked away?
+29:49 Participant: Nothing that put a time or a person on it. I left the receiving desk as the source of what I knew, so if the next dispatcher had to check again they'd know where I'd got that answer.
+30:20 Jennifer: When you first showed me the copy, you said it was handy for finding the route. Is there anything else you used from it apart from that?
+30:44 Participant: It reminded me it had a history. I'd already got an account from a handoff. That was exactly why I asked for an update instead of copying it. The one bit I could take across unchanged was the route I was looking for.
+31:15 [Jennifer shows the participant two lines in her notes, one labelled “earlier handoff copy” and one “receiving desk call”.]
+31:41 Participant: That's about right. I'd put the window beside the call. That's the window on the line when I spoke, not a time I've taken out of the old explanation.
+32:08 Jennifer: I can do that without writing the actual times in the transcript. Could you describe how you kept the route and timing together when you read back?
+32:31 Participant: I didn't scan across the whole board looking for whoever had that window. I started on R-458 and moved right along the same row. Then I said both in the same turn so we could tell what their next words were about.
+33:05 Jennifer: What would you record as the response if the desk had only said “wait”?
+33:29 Participant: I'd say they asked me to wait. I'd still have to ask them what for. Here they told me the part I was trying to find, that they didn't have the permission to receive yet. That makes it something I can leave for the next person to follow.
+34:03 Jennifer: If the next person reads “receiving pending,” does that keep enough of it?
+34:28 Participant: I'd spell out permission to receive. “Receiving pending” could mean the truck's there and nobody's unloaded it, or something else. I don't want to send them looking for a physical problem that wasn't in the answer.
+35:02 [Jennifer updates her wording to “waiting for permission to receive” and turns the note back.]
+35:27 Jennifer: That's the wording we have now. Do you want me to put anything about the old reason in quotation marks?
+35:51 Participant: No, just say there was an earlier explanation on the copy. It was from the older handoff. The words I want tied to the current run are what I got from the receiving desk after I checked the number and time with them.
+36:22 Jennifer: I'm going to read the whole order out once. You had a copy to start with. R-458 was Held on the current line. You read the number and time to the receiving desk, and the desk's reply was that permission was still pending.
+36:50 Participant: Right. I didn't see that in the row. And you can keep that in there about agreement; when I say the other desk answered, I'm not saying they accepted the route.
+37:19 Jennifer: Where did you leave your handoff on that sequence?
+37:42 Participant: With the desk's answer as the most recent one I had. If somebody sits down later and there is something new, they can update it. The old copy was where I started, not what I was telling them was happening now.
+38:15 [Participant reads both entries again and indicates the second line.]
+38:41 Jennifer: That's where we can point if someone asks how you found the reason. How far can we go if they ask about a release?
+39:02 Participant: As far as “still waiting” as of that call. They didn't tell me who could switch it. I didn't watch a release after that. I wouldn't put either one on the handoff under things we know happened.
+39:33 Jennifer: Did I make the paper sound like an instruction from the receiving desk?
+39:55 Participant: No, as long as it says I had it from the earlier handoff. The receiving desk gave me the answer we're talking about in the call. The copy and the call are two different things I had in front of me at different points.
+40:24 Jennifer: So the reply you are quoting is your recollection of the call, not something that's open on the screen here.
+40:45 Participant: Right. I can show you where I got the number and the time. You're hearing the answer from me now. It's not a recording of the other desk.
+41:12 [Jennifer reads the account and the walkthrough notes separately; the participant checks the route number in each.]
+41:38 Jennifer: I've put that in the notes. Anything from the walkthrough you don't want kept with the team's transcript?
+42:02 Participant: The copy can stay with me. I don't mind you writing that I had it and what I did with it. The route and the answer are enough for this.
+42:30 Jennifer: That's fine. I'll keep the account of where you looked and what was said. Could you close the shared list? I still have it on my side.
+42:53 [Participant ends the share and moves the copy back to their side of the desk.]
+43:08 Participant: Is it gone? I don't want you to have the copy in anything from here.
+43:18 Jennifer: Yes, I only have the call now. The team will check the speakers against the temporary recording for the transcript and delete the audio when that's done.
+43:45 Participant: That works. Thanks for keeping the two answers apart. If I'm reading it back tomorrow, that's what I'd want to see.
+44:09 Jennifer: I'll keep the older entry as context and put the desk's answer after the readback. Thank you for taking me through the call.
+44:36 Participant: Sure. That's all I had for four-five-eight.
+44:53 Jennifer: All right, I'll stop here.
+45:00 [Session and recording end.]

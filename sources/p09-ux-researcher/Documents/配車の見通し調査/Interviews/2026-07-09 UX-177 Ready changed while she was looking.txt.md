@@ -1,0 +1,117 @@
+---
+path: Documents/配車の見通し調査/Interviews/2026-07-09 UX-177 Ready changed while she was looking.txt
+kind: text
+author: Jennifer Salazar
+derived_from:
+---
+UX-177 • July 9, 2026 • 09:00–09:45 CDT
+Jennifer Salazar and participant. Times are from the session start. Opening from my notes. Brackets record what I could see during the walkthrough. Any account of the desk handoff is the participant's.
+
+00:00 Jennifer: Take me through the line you were looking at when you took over. Say when you see something you would have used.
+00:29 Jennifer: May I record for the team's transcription and speaker check? We'll delete the audio after that check.
+00:45 Participant: Yes, for the transcript.
+01:00 [Recording starts.]
+01:12 Jennifer: How many of your last five shifts included giving or receiving the desk?
+01:28 Participant: Two. I received it on one and passed it on at the end of the other.
+02:04 Jennifer: Which one are we following?
+02:30 Participant: The one I received. I was checking which route to deal with first. R-430 was the one I had open.
+03:03 Jennifer: Before you open anything, show me what sets that line apart for you.
+03:28 Participant: I read the route number first. If I start with the time I can land on a line next to it.
+03:58 [Participant finds R-430 in the list and points to the number.]
+04:12 Participant: I've got it. I haven't opened the lower part yet. This is where I can see whether it still looks like the route I'd had in mind.
+04:31 Jennifer: Can you read the status that's there now?
+04:47 Participant: Ready. With that I would normally check what time is on the row and whether it matches what the person leaving gave me.
+05:22 Jennifer: And aren't you already inside the stops at that point?
+05:30 [Participant keeps the pointer on the list.]
+05:40 Participant: No, I'd do that here first. If it was the wrong line, I'd just be looking at the wrong stops.
+06:20 Jennifer: Show me the next thing you'd do. Tell me if any values move as you do it.
+06:49 [Participant checks Window and moves the pointer back to the route number before selecting the row.]
+07:04 Jennifer: You came back along the same line from the time to the number. Why both?
+07:21 Participant: I'm trying to keep the row together. On the desk I can read one cell, turn to answer somebody, and come back to a different cell.
+07:52 Jennifer: What did you already know before the status changed on that shift?
+08:19 Participant: The route was on the list and the old window was the one I'd been looking at. I hadn't had a call saying something had slipped.
+09:02 Jennifer: Is there a message you would open before taking another look at the row?
+09:29 Participant: If one came with the handoff I'd read it. There wasn't anything I could point to for this one. I'll go back to where I was reading.
+09:55 [Participant returns to the list and locates R-430 again.]
+10:10 Participant: I don't have anything separately saying to use a different time. Here I have the time that's still on the row. I'll start from the left and follow it across before I select it again.
+10:31 Jennifer: What are you watching as you bring it up this time?
+10:54 Participant: The state and the time. If the time is different, I'd want to see whether the state moved as well.
+11:31 Jennifer: Which line are you on?
+11:50 Participant: R-430. I'm keeping my finger by it. The next line is close enough that I want to check the number again.
+12:06 Jennifer: I'm watching the same row. You can open it when you're ready.
+12:23 [Participant selects R-430 again. Ready changes to Held as Window changes on the same row.]
+12:38 Participant: That moved. It says Held now. The time's different too.
+12:57 Jennifer: Read the two cells in the order you noticed them.
+13:16 Participant: The state first, because I was looking for Ready. Then the window.
+13:45 Participant: When I saw the window move too, I thought maybe it was delayed. That's my guess from the two changes. I couldn't find where a reason came from or who could take it off hold.
+14:12 Jennifer: What did the line actually give you for that guess?
+14:34 Participant: Held and a different Window. It didn't give me anybody saying it was delayed. If I'd only seen Held, I wouldn't even have had the time change to go on.
+15:13 Jennifer: Can you show me what you tried after the two changed?
+15:39 [Participant opens Stops and moves along the rows, reading the Note cells on the selected route.]
+15:56 Jennifer: Have you stayed on R-430 while you looked down there?
+16:16 Participant: I'm checking whether something on a stop mentions a change. Even if I find an instruction here, I still want to know whether it belongs to the hold.
+16:51 Jennifer: What have you found that you could use for that?
+17:13 Participant: Nothing I can connect. Let me go back and see whether I missed something at the end of the route row.
+17:38 [Participant leaves Stops, scans the R-430 row and points to Vehicle.]
+17:55 Participant: I'm at the far side now. You can read a value there, but it's still the vehicle for the current row. It's just what I could see, not an explanation of anything.
+18:16 Jennifer: Did that give you another source?
+18:32 Participant: No. It's the vehicle. It doesn't tell me somebody checked the delay. I don't have a person or a message to back up that word.
+19:14 Jennifer: Thinking of the actual handoff again, what did the person leaving tell you about the window?
+19:39 Participant: We weren't talking about what had caused the change. I was looking at the board. I wouldn't put their name next to my guess.
+20:18 Jennifer: Did anyone tell you later that the route could go?
+20:43 Participant: I couldn't confirm that while I was handing over. I didn't see a release or get an instruction to clear it.
+21:17 Jennifer: Before you move on, could you give me your handoff as if I were sitting down at the desk?
+21:44 Participant: R-430 flipped to Held while I was looking at it. The board has a different window now. I'd tell you to work from that displayed window if you're comparing the schedule, but I haven't got the reason for the hold.
+22:30 Jennifer: Would you add “running late” if I asked for a short note?
+22:48 Participant: I'd leave that out. It sounds like it's something I heard. I'd put the two things I actually saw.
+23:18 Jennifer: Give yourself a moment and write the short note you'd leave with that line.
+23:42 [Participant writes on paper, looks back at the row and underlines the status in her note.]
+24:01 Jennifer: You put a break after Held. Are you leaving room to put something there later?
+24:12 Participant: Only if someone can tell me why. For now I'm giving two facts that came out of two different cells.
+24:23 Participant: I'd put “now Held” on its own. The changed window is the other part. I wouldn't write a cause in the space next to it.
+24:59 Jennifer: Where in that note would the next person find out who can release it?
+25:17 Participant: They wouldn't. I didn't have a name. I can tell them I didn't clear it and I didn't see anyone clear it.
+25:54 Jennifer: What would have let you use a name?
+26:14 Participant: An instruction connected to that route, or someone on the desk saying who's handling it. Just hearing that somebody is looking at the schedule isn't an answer to that.
+26:52 Jennifer: Would you need the same kind of evidence for the reason?
+27:13 Participant: I'd need someone to tell me what it was waiting for, with R-430 attached to it. Who can clear it is another question. The same person might know both, but I didn't have either answer.
+27:58 Jennifer: Let's look once more at how you got to the changed row. Show the first place you looked without telling me what you expect to find.
+28:28 [Participant points to the list, tracks across R-430 and stops at the status cell before moving to Window.]
+28:49 Jennifer: I can see the order you're using. What's the farthest you can get by going across that line?
+29:06 Participant: There. The two are close enough that I noticed one and then the other. I didn't see a line saying one had caused the other.
+29:42 Jennifer: Did selecting the route tell you why it had changed?
+30:01 Participant: It let me open the stops. I wish I could say that's where I found it, but I didn't find a reason there.
+30:36 Jennifer: If you came in after the change, what would you be able to reproduce?
+30:58 Participant: You could see Held and whatever the current window was. You wouldn't have seen it switch. That's why I would say I saw it change, rather than say the screen recorded what happened earlier.
+31:41 Jennifer: Would your note be enough to tell me the window before the change?
+32:06 Participant: I'd need to have both written down to give you the old one. The point of my note here is that it changed while I was on it. I'd read back the current one against the row.
+32:51 [Participant compares the paper note with the displayed row. Jennifer waits while she rereads the route identifier.]
+33:12 Jennifer: Is there any question about which row the new time came from?
+33:35 Participant: Yes, same route. I didn't pick up the window from the next line.
+34:04 Jennifer: You used “delayed” earlier. Was it something you thought then, or something you've worked out looking at it today?
+34:29 Participant: It was what crossed my mind then when the window moved. Seeing the same thing here reminds me of that. I haven't found anything today that makes it more certain.
+34:55 [Jennifer writes “possible delay” in the participant's account and leaves the source field empty.]
+35:06 Participant: Yes, that's where the thought goes.
+35:17 Jennifer: How did that uncertainty affect what you could do next?
+35:39 Participant: I'd keep it on the desk as Held. I'd pass the changed time and leave the reason open. There's no use giving the next person a guess they might treat as a call somebody made.
+36:24 Jennifer: Did you see who made the change as part of today's walkthrough?
+36:41 Participant: No. I saw the display change. I can't tell from it who made it happen or who can undo it.
+37:14 Jennifer: I'll read back two things for the record. During the walkthrough, you selected R-430 and we saw the state and window change. In your account of the shift, the window made you think delay, but nobody confirmed that. Is either part wrong?
+37:40 [Participant points to the status and Window on the same row, then to the word “delay” in the notes.]
+37:56 Participant: That's right. And it wasn't just that I couldn't remember a name. I didn't have a source or a release name to give.
+38:36 Jennifer: Would you write that there was no reason for holding the route?
+38:55 Participant: No. I'd write that I didn't have the reason. There could be somebody who can answer it.
+39:37 Jennifer: Is there anything else on the screen you used that we haven't talked through?
+39:56 Participant: I looked at the vehicle while I was scanning across, but it didn't change my answer. I didn't get anything about the hold from it.
+40:34 [Both look over Jennifer's account of the order of the two visible changes.]
+40:51 Jennifer: I have the change marked as one event on the row. The order you noticed the two values is on the line below it.
+41:13 Participant: Keep it on the same row. I didn't switch routes between seeing Held and reading the time.
+41:39 Jennifer: That's how I've marked it. Anything to take out?
+42:05 Participant: No. I just don't want “delayed” to read like something dispatch confirmed.
+42:36 Jennifer: I'll keep it with your account of what you thought when the two fields changed.
+43:12 Participant: Good. That's what I would have said to the next person if they asked why I'd been checking it.
+43:47 Jennifer: Is there anything after the handoff that we need to add?
+44:08 Participant: Nothing I've seen myself.
+44:34 Jennifer: Okay. Thank you for showing me the row twice.
+44:46 Participant: Sure.
+45:00 [Session and recording end.]

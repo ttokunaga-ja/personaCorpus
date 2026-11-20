@@ -1,0 +1,122 @@
+---
+path: Documents/配車の見通し調査/Interviews/2026-07-13 UX-183 The route never went on hold.txt
+kind: text
+author: Jennifer Salazar
+derived_from:
+---
+UX-183 · July 13, 2026 · 13:00–13:45 CDT
+Interview 18 · Jennifer Salazar and a relief dispatcher
+Times elapsed from interview start. Opening from room notes. Brackets mark what I saw in the walkthrough. Statements about the shift are the participant's account.
+Team transcript from temporary audio. Permission covers transcription and speaker checking, with deletion afterward.
+
+00:00 Jennifer: I'd like to hear about a time you took over a desk. Start with what you were told and then show me what you checked. We have forty-five minutes; you can leave out an example or stop.
+00:29 Jennifer: May I record this for the team to make and check the transcript? The audio is deleted after that check. The transcript stays in this team.
+00:45 Participant: Yes. That's fine for the transcript.
+01:00 [Recording starts.]
+01:10 Jennifer: Of the last five shifts, how many involved you taking or giving a handoff? Count a shift once even if you did both.
+01:26 Participant: One. I was filling in that one time. The other shifts I wasn't relieving anybody at that desk.
+01:52 Jennifer: What was the first bit of work you had to pick up when you filled in? It can be a very ordinary change.
+02:15 Participant: The one I remember is a time change. The dispatcher before me told me they were working to a different window for R-463. I had the old one in my head, so I wanted to make sure I'd heard which run they meant and which time we were using.
+02:48 Jennifer: Did you get the update before you were looking at the route or while you were looking at it?
+03:07 Participant: They told me first. I was still getting up to the desk. I had heard a time for that one earlier and when I sat down I didn't want to pull the wrong one out of my head and give it back to them.
+03:39 Jennifer: Where would I see you start if I were standing by the desk?
+04:00 [Participant brings the route list into the shared area and moves down the Route column.]
+04:24 Participant: Here with the numbers. I'd look for the four-six-three line and then move over to Window. If I look at the times first, I might see the one I expect and miss the fact that it belongs to the next line.
+04:59 Jennifer: Have you found the line now? I can see where your pointer stopped but I'd like to hear how you know it's the right one.
+05:18 Participant: There's four-six-three. I know that's the one because that's the number the previous person said with the time. I would point here if the other dispatcher was still beside me. Then we'd both be talking about what's on that line.
+05:46 [Participant moves the pointer horizontally and stops at Window.]
+06:02 Jennifer: What did you do with the time you were carrying in your head from before?
+06:23 Participant: I had to stop using it. I'd remembered it because it was the first one I'd heard, but the reason I was looking here was to see what we'd actually go with. I wasn't choosing between two possibilities that were both still live.
+06:58 Jennifer: Was the old time somewhere on the list beside the new one?
+07:18 Participant: I just had the current Window in the list. I wanted to see if it was the one they'd just told me. If I had two on the screen I'd ask which one they meant. Here the second thing I had was what they'd said out loud a minute before.
+07:50 Jennifer: Tell me what you did with what they'd said. We can leave the actual time out, but can you show where you took the value?
+08:11 [Participant keeps the pointer at Window, then briefly returns to Route to check the row.]
+08:35 Participant: I'd read what it says there, on the same line. First the route, then the window for it. I'd read the whole window. If all I gave them was the start, I'd still have to find out if we're both talking about the same end of it.
+09:08 Jennifer: When you said you had “checked it,” was that only a look at the cell or did you open the line?
+09:24 Participant: I looked at the detail too. I wanted to make sure I was on four-six-three. I don't need to borrow anything from the stops to get the window. I was checking the number belonged to the route I had open.
+09:51 [Participant selects R-463 and moves the pointer between the route number and its detail below.]
+10:13 Jennifer: What numbers or words are you matching when you do that?
+10:33 Participant: The four-six-three from the handoff against the line I've opened. Then the window against the time I'm hearing. Here I can see I've opened the right one. If I had misclicked, I'd want to find that out before I told the other dispatcher anything.
+11:09 Jennifer: Was there some second instruction in the stop detail at the time, or was going there part of finding the route?
+11:29 Participant: That was part of finding the route. I wasn't following a stop instruction. The thing that had changed was the time I was meant to use. As long as I could see the right route and when it was planned for now, I could say that part back.
+12:00 Jennifer: Could you say the form of the readback the way you did at the desk?
+12:18 Participant: I'd start “R-463, the window I've got is...” and read the time. And I'd stop there and see if they were going to correct me. They were still there, so I didn't have to send a message around asking anybody else.
+12:51 Jennifer: Did you read the previous time as well so they'd know which one you'd set aside?
+13:13 Participant: No, I had it in my head, but I didn't need to put both back into the conversation. I was trying to get them to say that the one I had in front of me was the new plan. I wasn't asking them why they'd changed it.
+13:48 [Participant goes back to the list and follows the R-463 row from Route to Plan status and Window.]
+14:17 Jennifer: Did you notice the status while you were doing that, or are you only looking at it now because I've asked?
+14:38 Participant: I saw Ready when I was checking the time. It was right there beside it. The person before me hadn't said anything about waiting for this to move. I was trying to make the time match, and I saw it was still Ready.
+15:09 Jennifer: Could “still Ready” mean you saw it get back to Ready after the time was changed?
+15:29 Participant: No. I didn't watch it change into Ready. The time had already been given to me as a change when I opened the list. I didn't see a Held state come in while I was looking at it.
+15:58 Jennifer: Can you pin that to when you took over? I want to get whether there was ever a hold for you to follow on this run.
+16:17 Participant: From when I took it on? Right, for this one I can say exactly that.
+16:30 Participant: It was Ready from the start and stayed Ready. The change I received was the time window; the route never went on hold while I had it.
+16:52 Jennifer: Okay. When you asked the previous person to confirm, was the question whether it was okay to send the route or whether you'd heard the revised time correctly?
+17:16 Participant: It was the time. I was checking I hadn't picked up the old one. If I thought the route was held, I'd have had to ask what it was waiting for, but that wasn't part of what I took over on four-six-three.
+17:47 Jennifer: What did they actually say when you read it back?
+18:09 Participant: They said that was the revised window. I don't remember the exact reply word for word. What I understood was that I'd picked up the right time off the right line.
+18:41 [Jennifer draws a short sequence on her notepad. Participant keeps the R-463 row open.]
+18:56 Jennifer: Have I got the order right so far? You heard about the change, then the list gave you a window you could check, and then they heard you read it back.
+19:18 Participant: That's right. I wasn't going back to them with some time I'd worked out myself. The one on the screen was the one I said back. I could have just nodded when they told me, but I wanted to know I wasn't mixing up the old one with the new one.
+19:53 Jennifer: During the shift, did anyone need you to pass anything more along about that time?
+20:15 Participant: I had to leave the new window for the next person. If I could still see the same value, that's the one I'd write down. I wouldn't put the old one next to it unless I needed to explain something about what had changed.
+20:47 Jennifer: What did you actually hand over, as best you remember it?
+21:05 Participant: R-463 and the current time. I said it was Ready when I checked. I wasn't leaving a question on that one for somebody to take up with another desk. I was leaving the time they needed to work to.
+21:38 Jennifer: Did you put anything in there about the cause of the time change?
+21:57 Participant: I didn't know the cause. I knew they'd changed the window and which one was current. I wasn't told anything about whether it came forward or went back for a particular reason, or which person had moved it.
+22:26 Jennifer: What kind of mistake would it make if I wrote “delay confirmed” next to that?
+22:44 Participant: You'd make it sound like I was checking why the run had slipped. I was checking which time to give the next person. A new window can make a difference to the driver's plan, but what they told me was a revised time. The part I confirmed was the time I read back.
+23:21 [Participant points to Window and then removes the pointer from the view while Jennifer writes.]
+23:43 Jennifer: Put me in the seat of the person after you. If I see Ready and I've got a different time written down from earlier, what would you ask me to look at?
+24:04 Participant: I'd ask you to open the line for the route you've written. Tell me the route first. Then I'd say to look at Window and make sure you're giving out the one that's current. If you only tell me “it's the one with the new time,” that won't help if several changed.
+24:38 Jennifer: Would you send them into the detail or keep them here?
+24:59 Participant: If we're already looking at the same line, here is fine. I went into it to make sure I'd selected the route they meant. What you need to read the window is already on the line. Going in doesn't make it a different confirmation.
+25:29 Jennifer: When you looked at Ready later, did you see any indication of a decision being made to release it?
+25:50 Participant: I didn't see a release happen. It was Ready when I got it and when I checked it. I'd have no reason to tell somebody it had been set free between those checks. I hadn't seen it on hold.
+26:20 Jennifer: You said all of that was on the one shift you counted. Did you have any days in that set where you only passed a time to somebody but didn't give away the work?
+26:43 Participant: There's passing a time to a driver, which I do, and then there's another dispatcher coming on to take the work from me. I'm counting when I handed the work to somebody or took it. The time we just went through belonged to the one where I was covering.
+27:16 Jennifer: On the one where you were covering, once you read it back, were you still waiting for an answer about the window?
+27:37 Participant: No, they told me I'd got the revised one. Somebody else could move it later; that happens. I could say which one I'd checked while I was there.
+28:08 [Jennifer takes down the sequence; participant scrolls the list slightly, then brings R-463 back into view.]
+28:34 Jennifer: I see you put that same row back. How do you get back to it if it's gone out of view?
+28:54 Participant: I start at the number again. If I go by the time, I'm depending on the thing I think I remember, when that's the very thing I'm here to check. When I get to the number I can read over and see what goes with it. See, there it is again.
+29:24 Jennifer: Thanks. At the real handoff, did you have to flag any other items for R-463 besides the time?
+29:44 Participant: Not that I remember. I gave the route and the current window and the fact it was Ready. I didn't give them a call to make on a hold. There wasn't one for that route while I had it.
+30:13 Jennifer: Can you say what would be different if you looked at another row and that one did say Held?
+30:34 Participant: I'd ask what they were waiting on, especially if I had to cover it and the person leaving might go before I asked. I'd be trying to find out what to do with it next. I didn't have that question with the one you asked me to show.
+31:04 Jennifer: So I should keep your answer to that last question as what you would do with a different route, rather than an extra step for four-six-three?
+31:26 Participant: Yes. For four-six-three all I'm doing is picking up a change to the time. We didn't have to go and get a reason from anybody or find a person who could clear it.
+31:56 [Jennifer marks the difference in her notes. Participant looks at the selected row as Jennifer reads back her wording.]
+32:19 Jennifer: It says “looked for current time, saw Ready throughout.” Would you make that more specific about the two checks?
+32:42 Participant: Add that I read it back. If I just saw the same thing I'd heard, I might think that was enough. This time I had the person there so I gave them the number and time and they told me that was it. That's how I knew I'd picked up the change.
+33:14 Jennifer: Does it need an exact time to make sense to you if you read it again?
+33:36 Participant: Not for this. The point is I read the revised one where it belonged. If you put in a time I said earlier and didn't say which one it was, you'd have the same problem I was trying to avoid. Just leave it as the revised window.
+34:04 Jennifer: Did that window carry any other condition, like waiting for a call before using it?
+34:23 Participant: I didn't get a condition with it. They told me that was the time we're using. That's what I was able to pass on.
+34:49 Jennifer: Have you seen any of what happened to the route after you left the desk?
+35:06 Participant: No. I don't know what the next person had to deal with after I gave it back. I can say Ready for the part I showed you. Leave the rest outside that.
+35:34 [Participant moves the pointer to the edge of the shared area. Jennifer reads back the account up to handoff.]
+35:59 Jennifer: Starting with the person you relieved, I have the revised time coming in by word of mouth before you checked the window. You found R-463, read the new time back, and the outgoing person confirmed it. The route was Ready through your part of the shift.
+36:28 Participant: Yes. I'd just make sure Ready doesn't sound like something they confirmed in the readback. Ready is what I was looking at. The thing I said back to them was the time and which run it belonged to.
+36:56 Jennifer: That's clear. Can you put those in two short lines for me, as though you were leaving the update at the desk?
+37:15 Participant: “R-463. Use the revised window on the list; read back to the person I relieved.” Then “Ready when I checked.” That's about as much as I needed to tell the next person on that one.
+37:41 Jennifer: If you saw that on a slip, would you read any part of it as a change from Held?
+38:02 Participant: No. If you put “now Ready” on it, I'd wonder what it was before. I'd say “Ready when checked.” I wasn't coming on to take it off a hold. I was just making sure I understood the change I'd been given.
+38:34 [Jennifer edits the status line while the participant reads the window line separately.]
+38:55 Jennifer: Is there anything you relied on other than the list and the person handing over?
+39:16 Participant: Not for that. I had the old time in my head, but I didn't use that to decide which one was right. I used their update and the line. Then I checked I'd heard it right before the person left.
+39:47 Jennifer: Good. Did we look at this detail in the same order you remember doing it when you were at the desk?
+40:06 Participant: Near enough. I went to the number first. Today I showed you where my eyes went a second time because you asked me to point. I didn't have anybody asking me to show it slowly when I was on the desk.
+40:35 Jennifer: I'll keep that distinction. The actions in the brackets are what I watched here, with the shift in your words. Can you look at the two entries before I finish?
+40:58 [Participant reads the notes from the number match through the readback, then points to the status entry.]
+41:21 Participant: That's fine. I want the Ready bit there because otherwise hearing about a time change can make it sound like a route was stopped. For this one I had a time to pass on, and the route stayed Ready.
+41:52 Jennifer: Anything in the team transcript you'd like to correct or leave out?
+42:13 Participant: No, as long as there aren't two different times with it. You've got which one I was giving out, which is what matters.
+42:39 Jennifer: Yes. We're done with the list. Would you stop sharing it while I make sure I've got the last part?
+42:56 [Participant ends the share. Jennifer confirms it closed and reads the last line aloud.]
+43:17 Participant: That's right. It's the part up until I passed it over. If someone wants to know what happened later, they'll have to ask the person who took it.
+43:42 Jennifer: I'll leave the later history open. The transcript stays with the team, and we'll delete the temporary audio after the speaker check.
+44:05 Participant: Good. I wasn't sure a time change would be enough of an example, but that's the one I could tell you in order.
+44:28 Jennifer: It gave me what I needed to follow the check. Thanks for showing me how you kept the number and time together.
+44:50 Participant: You're welcome.
+45:00 [Session and recording end.]
