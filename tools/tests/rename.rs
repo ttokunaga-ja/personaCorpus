@@ -305,3 +305,47 @@ fn apply_does_not_move_files_when_one_extraction_fails() {
     assert!(!r.f.home.join(NEW).exists());
     assert!(!r.progress.join("rename-refs.tsv").exists());
 }
+
+#[test]
+fn run_launches_no_codex_job_while_the_usage_stop_is_reached() {
+    let r = Rename::new();
+    r.f.put(OLD, BODY);
+    r.accept();
+    let sessions = r.f.base.join("scratch/codex-sessions");
+    let day = sessions.join("2026/11/19");
+    fs::create_dir_all(&day).unwrap();
+    fs::write(
+        day.join("rollout-test.jsonl"),
+        "{\"timestamp\":\"2026-11-19T11:00:00.000Z\",\"type\":\"other\"}\n\
+         {\"timestamp\":\"2026-11-19T12:00:00.000Z\",\"type\":\"event_msg\",\"payload\":{\"type\":\"token_count\",\"rate_limits\":{\"primary\":{\"used_percent\":60.0,\"window_minutes\":10080,\"resets_at\":4000000000}}}}\n",
+    )
+    .unwrap();
+    r.f.write(&r.f.base.join("scratch/autopilot/usage-stop"), b"50");
+    r.f.write(&r.f.base.join("prompts/rename.md"), b"rename");
+    let script = r.f.base.join("ops/bin/codex-job");
+    r.f.write(
+        &script,
+        format!(
+            "#!/bin/sh\necho \"$@\" >> {}/scratch/started\n",
+            common::quote(r.f.base.to_str().unwrap())
+        )
+        .as_bytes(),
+    );
+    fs::set_permissions(&script, fs::Permissions::from_mode(0o755)).unwrap();
+    let mut cmd = std::process::Command::new(env!("CARGO_BIN_EXE_corpus"));
+    cmd.args(["rename", "run", "p01", "--interval", "1"]);
+    for n in ["root", "personas", "progress", "manifests", "sources"] {
+        cmd.arg(format!("--{n}"))
+            .arg(r.f.base.join(if n == "root" { "people" } else { n }));
+    }
+    cmd.envs(&r.f.env)
+        .env("AUTOPILOT_CODEX_SESSIONS", &sessions);
+    let mut child = cmd.spawn().unwrap();
+    std::thread::sleep(std::time::Duration::from_secs(3));
+    child.kill().unwrap();
+    child.wait().unwrap();
+    let started = fs::read_to_string(r.f.base.join("scratch/started")).unwrap_or_default();
+    assert!(!started.contains("start"), "{started}");
+    let log = fs::read_to_string(r.f.base.join("scratch/rename/log.tsv")).unwrap();
+    assert!(log.contains("usage-stop"), "{log}");
+}

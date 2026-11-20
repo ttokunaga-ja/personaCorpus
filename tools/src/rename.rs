@@ -1271,7 +1271,15 @@ impl Driver {
                 .map(|e| format!("\n前回の不合格の理由（直すこと）:\n{e}\n"))
                 .unwrap_or_default()
         };
-        let can_launch = paused.is_none_or(|t| SystemTime::now() >= t);
+        let stopped = crate::autopilot::usage_stopped(&self.base);
+        if let Some(reason) = &stopped
+            && s["usage_stop"].as_str() != Some(reason)
+        {
+            s["usage_stop"] = json!(reason);
+            self.store(p, &s)?;
+            self.log(p, "usage-stop", reason)?;
+        }
+        let can_launch = stopped.is_none() && paused.is_none_or(|t| SystemTime::now() >= t);
         match stage.as_str() {
             "names" => {
                 if s["ran"].is_null() {

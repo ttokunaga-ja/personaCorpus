@@ -211,6 +211,25 @@ fn codex_usage(cutoff: i64) -> Vec<Window> {
 }
 /// The smallest ordinary batch on a roadmap.
 const MIN_ROW: i64 = 30;
+/// The safe stop (`usage --stop-at`) when a current window has reached it.
+/// Other drivers (`corpus rename run`) use it to stop launching Codex jobs.
+pub(crate) fn usage_stopped(root: &Path) -> Option<String> {
+    let home = root.join("scratch/autopilot");
+    let limit = read(&home.join("usage-stop"))
+        .ok()?
+        .trim()
+        .parse::<f64>()
+        .ok()?;
+    let since = read(&home.join("usage-since"))
+        .ok()
+        .and_then(|t| t.trim().parse::<i64>().ok())
+        .unwrap_or(0);
+    let now = chrono::Utc::now().timestamp();
+    codex_usage((login_time() as i64).max(since))
+        .into_iter()
+        .find(|w| w.used >= limit && w.resets_at.is_none_or(|r| now < r))
+        .map(|w| format!("Codex の利用枠（{}）{}% が閾値 {limit}% 以上", w.label(), w.used))
+}
 fn now() -> String {
     chrono::Utc::now().to_rfc3339_opts(chrono::SecondsFormat::Micros, false)
 }
