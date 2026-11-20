@@ -125,3 +125,27 @@
 - 受領スレッドの順序は10-22 09:18の Leslie → Dorothy の請求、2026-01-12 09:14 Dorothy → Leslie「Re: Library equipment purchase records」（送付状と電子3点を添付）、同日16:07 Leslie → Dorothy（同件名で電子46頁・紙30頁の受領を確認）。
 - 2026-01-12 17:44、Leslie → Dorothy「Two missing library meeting records」。独立した再請求 ACN-INV-20260112-REQ-001 を添え、初回請求・1月交付の番号と上記2会議を指定した。1月23日の週末メモ時点で両方とも確認待ち。
 - 2026-01-20 15:49、Leslie → Richard と Veronica「Library draft for the desk - two gaps remain」。本文稿 v0.3 の DOCX と見積9件の比較 XLSX を別添した。
+
+## 住宅修繕記事の写真選定と撮り直し
+
+- 2026-02-11 10:00〜10:35 EST、Leslie Crawford、Francesca Johnson、Marianne Davis の週次編集会議で18枚を確認。場所を絞り込める3枚を外し、残り15枚は掲載承認前の候補。
+- Leslie は同日午後、手すり受けの固定、窓枠内側の充填材、流し台下の排水継手をそれぞれ接写。3枚は部位の説明用で、選外写真との個別の対応も、記録上の22件との対応も付けない。
+- 2026-02-12 10:52 EST、Leslie → Francesca、Cc Marianne “Three detail frames for captions”（接写3枚とキャプション案を添付）→ 同日15:18、Francesca → Leslie、Cc Marianne “Re: Three detail frames for captions”（依頼を引用、再添付なし）。
+- キャプションメモは ACN-INV-20260212-MEM-001 v0.1（2月12日 Leslie）、v0.2（2月13日 Leslie）。配管は撮影時の継手の外面、窓は充填材と縁、手すりはねじと受けを説明する。写真は完了日や漏れ解消の根拠に使わない。
+
+## 住宅修繕22要望の完了日再確認
+
+- 集合は2024-08-06の記名面談で扱った22件。R-01〜R-22は住戸や住所を表さない取材用符号。従前から完了日確認が14件、完了日不明が R-03・06・09・12・15・17・20・22 の8件。
+- 2026-03-18 09:38 EDT、Leslie → Theresa Coleman “Eight repair dates to check”（8件を照会、3月23日までに控えを依頼）→ 3月23日14:08、Theresa → Leslie “Re: Eight repair dates to check”（元メールを引用、協会控え4点のスキャンを添付）。
+- Theresa の取材用メールは `theresa@parkview-tenants.example`。協会控え4点はいずれも2026-03-23付。末尾001は従前の基準表、002は署名済み作業票からの転記、003は住人の書面からの完了記載と協会登録の控え、004は完了記載のない控え。
+- PCTA-RPR-20260323-001 p.1 の従前確認日（すべて2024年、元記録は署名済み作業票）。R-01 04-16、R-02 04-30、R-04 05-09、R-05 05-20、R-07 06-04、R-08 06-13、R-10 06-21。
+- 同001 p.2 の従前確認日（すべて2024年、元記録は署名済み作業票）。R-11 06-27、R-13 07-08、R-14 07-11、R-16 07-16、R-18 07-22、R-19 07-25、R-21 08-01。
+- PCTA-RPR-20260323-002 p.1 の作業票に記された完了日。R-03 手すり受けの固定 2024-08-19、R-06 浴室排気スイッチの交換 2024-09-04、R-09 流し台の止水弁の交換 2024-10-08。
+- PCTA-RPR-20260323-003 p.1 の住人の書面にある作業完了日は、R-12 窓枠のすき間充填 2024-11-12、R-15 流し台排水パッキン交換 2025-01-16。協会の台帳登録は順に 2024-11-14、2025-01-21。
+- PCTA-RPR-20260323-004 p.1 は R-17 戸口ブラシの訪問採寸 2024-07-29、R-20 洗面排水の再訪予約 2024-08-02（予約した日）、R-22 共用照明伝票の協会台帳への転記 2024-08-05。3件とも完了日の記載なし。
+- 2026-03-24 14:00〜14:45 EDT、Leslie・Theresa・Veronica Huang が22件を照合。002と003から5件の完了日を確認し、従前の14件と合わせ19件。004の3件は完了日が空欄のままで、完了・未完了いずれにも確定しない。住宅記事全体を掲載保留。
+- ACN-INV-20260324-DRF-001 は Leslie の記事断片 v0.1 と Veronica の赤字返却 v0.2。v0.2 では「19 requests were completed」を「We could verify completion dates for 19 of the 22 requests」の趣旨に直す。
+- 3月24日の掲載保留メモは ACN-INV-20260324-MEM-001 v1.0、Word と共有PDFは同版。別添の22件照合表は ACN-INV-20260324-LOG-001 v1.0。
+- 2026-03-24 17:41 EDT、Leslie → Richard Espinoza、Cc Veronica “Housing stays on hold”（保留メモPDFと22件照合XLSXを添付）。翌25日09:17、Richard → Leslie、Cc Veronica “Keep the March slot clear”（新規の編成連絡で保留を維持）。
+- 次の根拠は R-17 の交換完了票、R-20 の予約後の作業報告、R-22 の原伝票の完了欄。Leslie が照会、Veronica が再照合、Richard が掲載を再判断する。
+- 2026-03-26 10:36 EDT、Leslie → Theresa “Three closeout questions left”（新規の3件照会、3月31日を折り返しの目安）。3月31日終業時点で追加記録は届かず、完了日と掲載判断は保留のまま。

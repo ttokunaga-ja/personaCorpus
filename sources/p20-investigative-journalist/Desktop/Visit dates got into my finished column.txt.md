@@ -1,0 +1,12 @@
+---
+path: Desktop/Visit dates got into my finished column.txt
+kind: text
+author: Leslie Crawford
+derived_from:
+---
+
+March 4, 2026
+
+While revisiting the eight requests without a completion date in the set of 22, I nearly copied July 29, 2024 into the completion-date candidate column for R-17. It is the visit date. The visit note records a measurement for the door brush, not a replacement. There is no record of a part being replaced in that note.
+
+I put the completion date back to blank. A visit is not a closeout. For every date I bring forward, note the kind of record and what the date actually marks; ask for a record that expressly dates completed work before filling the completion field. Blank means not established from what I have, not that the work was never done.

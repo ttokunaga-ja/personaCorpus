@@ -1,16 +1,15 @@
 # Leslie Crawford の文書の型
 
-Allegheny Civic News Cooperative の調査報道デスク、Mapleton Falls Borough、Keller Municipal Paving Inc の文書に使う。本文は英語（en-US）、時刻は America/New_York、用紙は US Letter。見本の参照番号・明細・金額などは書式の確認用。制作時の値は計画と事実の台帳から取る。
+Allegheny Civic News Cooperative の調査報道デスク、Mapleton Falls Borough、Keller Municipal Paving Inc、Parkview Court Tenants Association の文書に使う。本文は英語（en-US）、時刻は America/New_York、用紙は US Letter。見本の参照番号・明細・金額などは書式の確認用。制作時の値は計画と事実の台帳から取る。
 
 | 名前 | 組織・利用者と用途 | ファイル名 | 見た目 |
 |---|---|---|---|
 | Story pitch | Allegheny Civic News Cooperative、Leslie から Richard へ。取材の問い、公開資料、未入手記録、企画の判断 | `acn-pitch.docx` | Letter 縦、表紙なし。えんじのマストヘッドと大きなセリフ体の題、問いを先頭に置く |
 | Story outline | 同編集部、Leslie。検討した導入、構成、採否と理由 | `acn-outline.docx` | Letter 縦、表紙なし。マストヘッドの下に三つの編集用見出し |
 | Story draft | 同編集部、Leslie の本文稿と Veronica の赤字返却、編集長への回覧稿 | `acn-road-draft.docx` | Letter 縦。マストヘッドと管理欄、版を持つ記事本文。変更履歴とコメントは Word の機能を使う |
-| Records scope memo | 同編集部、Leslie・Keith。公開請求の対象と次の対応を共有 | `acn-scope-memo.docx` | Letter 縦、表紙なし。対象範囲、必要な資料、対応を三節に分ける |
+| Records scope memo | 同編集部、Leslie・Keith。公開請求の対象と次の対応を共有。住宅記事では Leslie が写真説明と掲載保留を回覧する | `acn-scope-memo.docx` | Letter 縦、表紙なし。編集メモの見出しと任意の対照表 |
 | Records scope workbook | 同編集部、Leslie。契約別の範囲と、年度・区画ごとの請求資料種別を対照 | `acn-records-scope.xlsx` | Letter 横。題と管理欄を上段に置き、淡い赤みの地にえんじの見出し。本文は白地と細い横罫 |
-| Story source check | 同編集部、Veronica。出典箇所の所在・根拠の範囲と、保留した主張を別シートで管理 | `acn-source-check.xlsx` | Letter 横。えんじの見出し、資料と頁・時刻を戻って追える明細。Sources と Holds の2シート |
-| Tax basis reconciliation / Equipment quote comparison | 同編集部、Leslie と Miguel。道路の税区分を照合する。図書室設備では Leslie が見積9件と保守条件を照合する | `acn-tax-reconciliation.xlsx` | Letter 横。根拠、条件、右寄せの金額3列と判定を並べる8列。設備用の列名は下記の手順で設定 |
+| Story source check workbook | 同編集部、Veronica が Sources と Holds で根拠の範囲と保留を管理。Leslie と Miguel は Tax basis で税区分を照合し、Leslie は同シートを設備の見積比較にも使う | `acn-source-check.xlsx` | Letter 横。えんじの見出し。Sources と Holds は資料と頁・時刻を追える6列。Tax basis は根拠・条件、右寄せの金額3列、判定を並べる8列 |
 | Editorial brief | 同編集部、Leslie から Richard らへ。編集会議で問い、根拠、区画を説明 | `acn-editorial-brief.pptx` | 16:9。白地、えんじの細い上下罫、左上にマストヘッド。表紙・本文・2 段・表・図の実レイアウト |
 | Public records correspondence | 同編集部、Leslie から Dorothy へ。最初の請求と、対象を絞った再請求の添付 PDF | `acn-records-letter.cls` | Letter 縦。編集部のマストヘッド、管理欄、宛先、本文と署名。必要な場合は明細を添える |
 | Public Records Office reply | Mapleton Falls Borough、Dorothy から Leslie へ。窓口が独立した PDF として出す回答、通知、開示送付状 | `mapleton-falls-records.cls` | Letter 縦。丸い庁舎章と名称の中央組み、青い帯の件名とラベル付きの管理欄。サンセリフ体 |
@@ -18,6 +17,7 @@ Allegheny Civic News Cooperative の調査報道デスク、Mapleton Falls Borou
 | Public Works contract and change schedule | Mapleton Falls Borough が契約当事者と作成・保管する契約書、変更指示、価格明細 | `mapleton-falls-records.cls` | 同じ庁舎章と青帯。契約参照番号と契約先の欄、金額を右揃えにした明細と繰り返し見出し |
 | Public Works field records | Mapleton Falls Borough、Eleanor Briggs が管理する受領簿・入構票・交通整理準備票の紙控え | `mapleton-falls-records.cls` | Public Works の庁舎章と青帯。受領簿は受付明細の横罫、入構票と準備票は欄名と記入値の組 |
 | Supplemental work schedule | Keller Municipal Paving Inc、Raymond Salazar が提供する自社の工事・数量明細 | `keller-work-schedule.cls` | Letter 縦。路面と破線のマークを左上に置き、黄土色の上罫と砂色の明細見出し。番号と数量は右寄せ |
+| Repair record | Parkview Court Tenants Association、Theresa Coleman。住所を含まない修繕記録の紙控え | `parkview-repair-record.cls` | Letter 縦。家形と名称、深緑の題、薄緑の管理欄。控えの参照番号は等幅、明細は日付・記録種別・修繕内容を横罫で整理 |
 
 保存した公示 HTML は Mapleton Falls Borough の掲載物として、庁舎章の円と青・濃灰のサンセリフ体を使う。公示の表題、掲載日、発注参照番号、掲示された区画を保存時点の文面で残す。メールは EML のヘッダと本文を使い、差出人・宛先・日付・件名と返信関係を保つ。請求 PDF は Leslie が書く一通の請求につき一つ。手書きの区画メモは原稿に沿って手帳の画像を作り `bin/scan` で組む。掲示写真は現場の掲示物と読める区画表記を画像にする。これらの形式はそれぞれ元資料の外観を使う。
 
@@ -36,12 +36,19 @@ Allegheny Civic News Cooperative の調査報道デスク、Mapleton Falls Borou
 
 会議日を確かめる公表文は、区役所の保存 HTML として掲載日・会議日・会議体を残す。Dorothy との受領・不足議事録2回分の再請求は EML、Gerald への確認事項は TXT。再請求では公表文で確認した会議を指定し、受領資料の範囲と不足している記録を明示する。
 
+## 住宅修繕の取材（2026年2〜3月）
+
+写真説明と掲載判断の回覧には `acn-scope-memo.docx` を使う。原稿に合わせて三節の見出しを変更し、写真で見える修繕部位、説明に使える範囲、判断を保留する事項を分ける。写真説明に対照表を使う場合は採用候補だけを載せる。選外理由と撮り直し指示は TXT、照会は EML、根拠の日付は CSV。3月24日付の回覧では、22件のうち前回完了日が不明だった8件について、完了日を確認できた5件と裏付け不足で掲載保留の3件を分ける。
+
+Theresa が提供する協会控えは `parkview-repair-record.cls` で組んでからスキャンする。住所・住戸・住民の識別情報を作らず、記録自体の参照と日付の意味を残す。
+
 ## 書体・組織・管理番号
 
 - 編集部は、階段状に置いた三つの四角と社名でマストヘッドを作る。欧文は **Liberation Serif**。墨 `#232826` は本文、えんじ `#792C3D` は組織名・見出し・罫、淡い赤みの紙色 `#F6EFEB` は表の帯と強調欄。通常紙面は白。ヘッダにマストヘッド、フッタに Investigations desk。縦文書とワークブックの印刷にはページ番号を付ける。
 - 編集部の番号は `ACN-INV-YYYYMMDD-用途-連番3桁`。用途は企画 `PIT`、構成 `OUT`、範囲メモ `MEM`、照合表 `LOG`、会議資料 `BRF`、請求 `REQ`、記事本文稿 `DRF`。例は `ACN-INV-20240725-REQ-001`。日付は文書の日付、連番は同日・同用途内。独立した再請求は自身の文書番号を持ち、本文で初回請求を参照する。単なる書き出しは元文書の番号を引き継ぐ。
 - 区役所は、丸い枠に庁舎の輪郭を描いた章と名称を並べる。欧文は **Liberation Sans**。青 `#234C69` は章、タイトル帯、ラベル、罫。濃灰 `#293942` は本文。フッタは発行部署（Public Records Office、Public Works、Library など）とページ番号。公開窓口の発行番号は `MFB-PRO-YYYYMMDD-連番3桁`（例 `MFB-PRO-20240726-001`）。図書室の発行番号を割り当てる場合は `MFB-LIB-YYYYMMDD-連番3桁`。受領資料に記載済みの番号は原表どおり転記する。照会相手の番号を引用する場合は本文に記す。契約書と変更明細の管理欄には、記録自体の契約参照番号（例 `PW-23-03`）と、原表にある変更番号を使う。開示の番号や日時は送付状で管理する。
 - Keller は、車道をかたどった平行四辺形と二本の区画線を社名の左に置く。欧文は **Liberation Sans**。アスファルト色 `#252C30` をロゴと本文、黄土色 `#AE741C` を区画線と罫、砂色 `#F3EAD8` を表の見出し地に使う。下端に Project records とページ番号。Reference には契約参照・変更番号と、別の発行番号がある場合はその番号を併記する。Keller が新たに発行する工事明細の番号は `KMP-YYYYMMDD-WS-連番3桁`（例 `KMP-20250715-WS-001`）。受領済み資料の管理番号・日付は原記録から転記する。
+- Parkview は、家形と協会名を用いる。欧文は **Liberation Sans**、参照番号のみ **Liberation Mono**。深緑 `#315642` は組織名・題・罫、墨緑 `#28332E` は本文、薄緑 `#E7EDE4` は管理欄と表の見出し。下端に Association file copy とページ番号。協会が発行する控えの参照番号は `PCTA-RPR-YYYYMMDD-連番3桁`（同日内の通番）。原記録の参照がある場合は全文を転記する。表示日付は英語表記の月・日・年。
 - 作成者・日付は管理欄とファイルの内部プロパティを揃える。既定の文書言語は英語。地名・日付・文書番号は行の隣に実際の値を入れて読み合わせる。
 
 ## Word
@@ -67,21 +74,21 @@ Allegheny Civic News Cooperative の調査報道デスク、Mapleton Falls Borou
 
 ### 税区分の照合（Tax basis）
 
-1. `acn-tax-reconciliation.xlsx` の Tax basis を開き、`C3` に LOG 番号、`F3` に作成者、`C4` に日付を入れる。F:H の結合セルに作成者を入れる。番号欄は C:D の結合と折返しで全文を表示する。
+1. `acn-source-check.xlsx` を別名保存し、Tax basis を残して Sources と Holds を削除する。`C3` に LOG 番号、`F3` に作成者、`C4` に日付を入れる。F:H の結合セルに作成者を入れる。番号欄は C:D の結合と折返しで全文を表示する。
 2. 7 行目から、原表の各金額につき 1 行を作る。A が照合行番号（`Desk Number`）、B が契約参照番号、C が資料名・開示頁・欄、D が原表で確認した区分（`Included`、`Excluded`、`Unconfirmed`）、H が確認結果。B〜D と H は `Desk Text`（折返しと左インデント 1）。E は原表の金額、F は E に含まれることを確認した税額、G は税別換算額。E〜G に `Desk USD`（USD、小数 2 桁、右寄せ）を指定する。明細行高は 46 pt を目安に本文に合わせる。
 3. 税別額は D が `Excluded` なら E、D が `Included` かつ F が数値なら E−F。原表で確認できない場合は空欄にする。7 行目の式は `=IF(AND(ISNUMBER(E7),D7="Excluded"),E7,IF(AND(ISNUMBER(E7),D7="Included",ISNUMBER(F7)),E7-F7,""))`。換算額が両方確認できた組だけを比較する。原表の税込・税別の混在額を合算しない。異なる資料で同じ額を再掲している場合は重複計上しない。
 4. 注記は A:H を結合し `Desk Note` を適用する。件数を表示する場合は A に `COUNT`、B:H を結合して件数ラベルを置き、`Desk Total Number`／`Desk Total` を指定する。明細末尾までをフィルター、注記・集計を含む最終行までを印刷範囲にする。Letter 横に幅 1 ページ、縦は自動、1〜6 行を繰り返す。文字と金額の間隔、数字・番号の全桁、改ページ後の見出しを確認する。数式は `bin/recalc` で確認し、最終保存後に `bin/stamp` を適用する。
 
 ### 図書室設備の見積比較（Equipment quote comparison）
 
-1. `acn-tax-reconciliation.xlsx` を開いて別名保存し、シート名を `Quote comparison`、A2 を `Library equipment | Quote comparison` にする。C3、F3、C4 に LOG 番号、作成者、日付を入れる。6 行目の書式を保って A:H を `No.`、`Quote / issuer`、`Source / page`、`Service terms`、`Equipment (USD)`、`Service (USD)`、`Comparable (USD)`、`Match / follow-up` に替える。列幅は A:H の順に 6、19、25、23、17、16、17、29 を目安とする。
+1. `acn-source-check.xlsx` を別名保存し、Tax basis を残して Sources と Holds を削除する。残したシート名を `Quote comparison`、A2 を `Library equipment | Quote comparison` にする。C3、F3、C4 に LOG 番号、作成者、日付を入れる。6 行目の書式を保って A:H を `No.`、`Quote / issuer`、`Source / page`、`Service terms`、`Equipment (USD)`、`Service (USD)`、`Comparable (USD)`、`Match / follow-up` に替える。列幅は A:H の順に 6、19、25、23、17、16、17、29 を目安とする。
 2. 7 行目から見積の実数分を入れる。A は `Desk Number`、B〜D と H は `Desk Text`、E〜G は `Desk USD`。D に保守の期間・適用範囲・除外条件、H に数量・仕様・税の前提を含む比較可否と確認先を記す。E と F は分けて確認した設備額と保守額。F に 0 を入れるのは原記録で無償が確認できた場合。込みで区分不能の保守額や記載自体がない額は空欄で、扱いを H に記す。D と H が読めるよう明細行を 46 pt を目安に調整する。
 3. G は同一条件の比較に使える見積だけに入れる。同じ税・数量・保守条件の内訳が確認でき、E と F に重複がない場合は `=IF(COUNT(E7:F7)=2,SUM(E7:F7),"")`（行番号は明細に合わせる）。同じ条件の保守込み総額だけが原表で確認できる場合はその総額を G に記録し、H で根拠を示す。条件が揃わない行の G は空欄にする。
 4. 金額は見積ごとに比較し、ブック末尾の集計には見積件数を使う。税区分表と同じ要領で A に件数式、B:H に件数ラベル、必要なら A:H の注記を置く。明細だけをフィルター対象にし、集計・注記までを印刷範囲にする。9 件の本表では A7:A15 が件数式の範囲。1〜6 行の繰り返し設定と横幅 1 ページを維持し、見出し・金額と次の文字の間隔・管理番号を全ページで確認する。最後に `bin/recalc`、`bin/stamp` を適用する。
 
 ### 記事の出典点検（Story source check）
 
-1. `acn-source-check.xlsx` は管理欄・書体・色・ページ番号を範囲表から引き継ぐ。両シートの `C3` に LOG 番号、`F3` に作成者、`C4` に Excel の日付値を入れる。1〜6 行を印刷時に繰り返し、Letter 横、幅 1 ページ、縦は自動とする。
+1. `acn-source-check.xlsx` を別名保存し、Sources と Holds を残して Tax basis を削除する。管理欄・書体・色・ページ番号は範囲表と共通。両シートの `C3` に LOG 番号、`F3` に作成者、`C4` に Excel の日付値を入れる。1〜6 行を印刷時に繰り返し、Letter 横、幅 1 ページ、縦は自動とする。
 2. Sources は A〜F に出典行番号、文書または証言の名、頁・時刻、確認した事実、支える範囲、限界や追跡先を置く。頁・時刻は表記を保つため文字列にする。Holds は A〜F に保留番号、草稿内の主張、Sources の出典行番号、不足する根拠、担当、状態を置く。Holds の A は整数を `"H"0` で表示し、C は照合先の整数とする。
 3. 7 行目から実際の明細ごとに入れ、番号セルには `Desk Number`、本文セルには `Desk Text` を適用する。折り返した文が読める行高を取り、明細終了までをフィルター対象にする。各シートで末尾に B:F を結合して件数の意味を添え、A に A 列の明細だけを数える `COUNT` 式を置く。印刷範囲に集計と注記まで含め、組み直したファイルを `bin/recalc` で検算し `bin/stamp` で整える。
 
@@ -129,6 +136,12 @@ TZ=America/New_York pdfinfo "$pdf"
 
 原記録にある欄と値を組んでから `bin/scan "$pdf" "$scan"` に通す。開示番号、2025年3月3日の交付日時、交付単位の紙面数は Dorothy の送付状に載せる。スキャンのメタデータは `bin/stamp` で原記録の管理者と計画にある保存日時を設定する。`pdfinfo` で面数、`pdftotext` でテキスト層が空であること、`bin/render` で綴じ穴・原票の欄・受付印の視認性を確認する。
 
+
+### Parkview の修繕控え
+
+`\ParkviewRecord{帳票名}{記録参照の全文}{控えの日付}{作成者}` の後に、原記録の明細を `ParkviewEntries` 環境で組む。各行は `番号 & 記録された日付 & 記録種別 & 修繕の記載 \\` の順。通番と日付列の間隔は 0.18 in、見出しは各ページに繰り返す。受付・訪問・完了・台帳記入の日付は、原記録にある種別のまま示す。
+
+`bin/tex` で組んだ PDF を `bin/scan "$pdf" "$scan"` に通し、協会控えの作成者と計画上の保存日時を `bin/stamp` で設定する。`pdftotext` で抽出できる文字がないこと、`bin/render` の画像で管理欄・記録種別・日付が読めることを確かめる。
 
 ## 記入見本の確認
 
