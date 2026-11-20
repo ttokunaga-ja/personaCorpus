@@ -3,3 +3,4 @@
 | persona | batch | 理由 | 日時 |
 |---|---|---|---|
 | p11-account-executive | b008 | 監査 hold: progress/p11-account-executive/b008.audit.md | 2026-11-20T02:22:47.849501+00:00 |
+| p18-manufacturing-quality-engineer | b008 | 監査 hold: progress/p18-manufacturing-quality-engineer/b008.audit.md | 2026-11-20T02:34:07.695105+00:00 |
