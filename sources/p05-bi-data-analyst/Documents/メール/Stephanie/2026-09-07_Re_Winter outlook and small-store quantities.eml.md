@@ -37,5 +37,5 @@ On 2 September 2026 at 09:06 JST, Stephanie Freeman wrote:
 > Hollowreed Buying Office
 
 ## 添付
-- `Documents/海外購買/September 2026 Buying Report - Winter Range.pdf`（添付名：September 2026 Buying Report - Winter Range.pdf）
-- `Documents/海外購買/Winter range - group figures for 8 September.csv`（添付名：Winter range - group figures for 8 September.csv）
+- `Documents/海外購買/2026-09-07_Winter Buying Report.pdf`（添付名：2026-09-07_Winter Buying Report.pdf）
+- `Documents/海外購買/2026-09-07_Winter Range Allocation.csv`（添付名：2026-09-07_Winter Range Allocation.csv）
