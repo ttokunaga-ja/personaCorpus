@@ -1,0 +1,14 @@
+---
+path: Desktop/I sorted on the amount column again.txt
+kind: text
+author: Leslie Crawford
+derived_from:
+---
+
+Jan 12, after the first sort
+
+I sorted on the amount column again and caught $44,800 twice. I’d made Q01’s equipment line on p. 13 and Q02’s equipment-only offer on p. 15 look like two totals. Q01 carries another $18,600 for service, so its pre-tax amount for the full scope is $63,400. That $18,600 is the difference Gerald explained in May. The Q02 service box has no price in it. Leave its comparable amount empty.
+
+Move the columns before I sort again: receipt and source page → terminal and printer counts → installation and test → tax → service term, on-site work and parts → equipment amount → service amount → comparable amount → reason for any blank. Leave the numeric cells empty when the amount is unstated. In the reason column use “price not stated” for Q02 and “included, split unavailable” for a bundled price. Save zero for a service the supplier actually priced at no charge and keep its scope next to it.
+
+Q04, pp. 19–20: $64,200 in one box. Check that the package is before tax and includes four terminals, two card printers, installation and demonstration, and 36 months on site with parts and labor. If those match the service sheet, put the full $64,200 in the comparable column and keep both component boxes empty. Sort the comparable column after that.

@@ -100,3 +100,28 @@
 - 机上確認の回覧メモと7月18日の配布PDFは ACN-INV-20250717-MEM-001 の同一版。出典・保留の別添ブックは ACN-INV-20250717-LOG-001。
 - 新規件名 “Three changes — desk read before the rewrite”、2025-07-18 09:46 EDT、Leslie → Richard、Cc Veronica・Miguel・Keith。添付は “July 17 - what the record supports.pdf” と “July 17 - receipts behind the company answer.xlsx” の2点。
 - 追加工事の節草稿 ACN-INV-20250721-DRF-001 は7月21日 Leslie v0.1、22日 Veronica の赤字 v0.2、24日 Leslie の改訂 v0.3。25日の共有PDFは v0.3 と同内容。工事の必要性・実測・着工日の保留を残し、掲載判断には進めない。
+
+## 閲覧カウンター設備の取材と記録請求
+
+- 2025-05-20 の Gerald Scott の説明で、Leslie が見ていた USD 18,600 の差は保守込みと設備のみの差と分かった。10-20 09:35 に Leslie と Richard Espinoza は設備見積9件の比較に絞った（企画 ACN-INV-20251020-PIT-001）。
+- 最初の記録請求は ACN-INV-20251022-REQ-001。2025-10-22 09:18、Leslie → Dorothy Hensley「Library equipment purchase records」。閲覧カウンター設備 LP-25-04 の仕様・見積・保守・受領・選定・会議記録を対象とした。
+- 2025-11-17 の引用研修は Leslie、Danielle Romero、Alicia Dawson。録音10か所のうち前後の文脈が欠けた2か所を引用候補から外した。
+
+## LP-25-04 の価格と保守条件
+
+- 比較条件は税別、閲覧用セルフチェックアウト端末4台・カードプリンター2台、据付・動作確認、36か月の現地保守（部品と作業込み）。Q01・Q03・Q04の3件が揃い、照合表は ACN-INV-20260113-LOG-001。
+- Q01 は Lanton Counter Systems、設備 USD 44,800 ＋保守 USD 18,600 ＝ USD 63,400。Q02 は同社の設備のみ USD 44,800、保守価格の記載なし。5月に説明された差はこの組。
+- Q03 は Mercerwick Library Supply、USD 46,100 ＋ USD 16,800 ＝ USD 62,900。Q04 は Alderfen Access Equipment、保守込み USD 64,200。Q04 は比較条件を確認できるが、設備額と保守額は区分できない。
+- Q05（Mercerwick）は設備 USD 44,300 と12か月の無償遠隔対応。Q06（Alderfen）は端末6台で設備 USD 55,600・保守 USD 19,800。Q07（Lanton）は設備 USD 43,250・保守 USD 13,950 で据付の記載なし。
+- Q08（Mercerwick）は設備 USD 42,700・現地作業の保守 USD 10,800 で部品別。Q09（Alderfen）は保守込み USD 65,740 で税区分不明。Q02とQ05〜Q09の比較額は空欄。
+- Gerald の2025-03-13付スタッフ資料（通し64頁）は、Q03 が USD 500 低い一方、Q01 には入替中も最低1台が稼働する段階据付の書面があるとして Q01 を推薦した。Q03 の同等工程の書面は交付分から確認できず、会議体の審議・採決・決定は未確認。
+- 机上読みの本文稿は ACN-INV-20260114-DRF-001。2026-01-14 Leslie の v0.1、01-15 Veronica Huang の赤字 v0.2、01-20 Leslie の取材継続稿 v0.3。
+
+## 76頁の交付と二つの議事録
+
+- 2026-01-12 の交付は MFB-PRO-20260112-001、通し1–76頁。電子は仕様1–12、提出見積13–30、スタッフ評価53–68の46頁。紙は受付31–38、保守39–52、回付69–76の30頁で、同日14時から窓口受取。送付状は外数。
+- 見積は Borough の統一回答用紙を3社が記入して提出。実際に受け取った原票は受領番号 Q01〜Q09 の9件で、通し13頁から1件2頁ずつ。工程紙の追送は同じ受領番号に属する。
+- 追跡先は 2025-03-18 18:00 Library Advisory Committee 議題4（公表03-12）と 2025-04-08 19:00 Borough Council 購買事項7B（公表04-02）。公表文と回付綴りで LP-25-04 の日付・会議体・議題を特定し、76頁に両会議の議事録はない。
+- 受領スレッドの順序は10-22 09:18の Leslie → Dorothy の請求、2026-01-12 09:14 Dorothy → Leslie「Re: Library equipment purchase records」（送付状と電子3点を添付）、同日16:07 Leslie → Dorothy（同件名で電子46頁・紙30頁の受領を確認）。
+- 2026-01-12 17:44、Leslie → Dorothy「Two missing library meeting records」。独立した再請求 ACN-INV-20260112-REQ-001 を添え、初回請求・1月交付の番号と上記2会議を指定した。1月23日の週末メモ時点で両方とも確認待ち。
+- 2026-01-20 15:49、Leslie → Richard と Veronica「Library draft for the desk - two gaps remain」。本文稿 v0.3 の DOCX と見積9件の比較 XLSX を別添した。
