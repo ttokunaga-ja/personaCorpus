@@ -216,3 +216,23 @@
 - Melissa and Katherine lead the Feb 5 session at 14:00–14:25 EST with BCE-CE-2026-BRF-005-R00 and desk copy R01. BCE-CE-2026-LAB-008-R00 records signatures from all nine trainees; Melissa and Katherine are the instructors. Katherine retains the signed paper.
 - Trainees and Bennett mail local parts, in attendance order: Lauren Brooks (lauren), Patricia Jensen (patricia), Benjamin Ortiz (benjamin), Alicia Ramos (aramos), Eric Han (ehan), Maya Patel (mpatel), Peter Walsh (pwalsh), Janelle Foster (jfoster), Daniel Kim (dkim); all are @bennett-cell.example.
 - Feb 5 at 15:16 EST, Melissa → the nine trainees, Cc Katherine, “Opening date examples from this afternoon”, new thread with the actual R01 DOCX attached. The marked R00 stays with the draft, and only the R01 paper copy remains in the common reference stack on Feb 6.
+
+## Whitmore Science Fund — November revised application
+
+- Monica Robinson's Nov 6 guidance WSF-2025-1106-BUD-001 requests the revised justification PDF and itemized workbook by Nov 10, 2025 at 16:30 Philadelphia time. Monica and Melissa have the budget consultation Nov 10 at 10:00; Joseph and Melissa reconcile the estimates at 13:00.
+- The Nov 7 consultation workbook BCE-CE-2025-TBL-010-R00 has four lines (USD): joint measurement 22,500, Bennett staff 15,500, materials 10,000, records review 8,000. Melissa scans the R00 print with the Nov 10 call marks; its printed amounts stay as in R00.
+- Nov 7 basis for Joseph's check: Caldwell service estimate, 3 × USD 6,000; Bennett labor worksheet, 155 staff hours plus 45 coordination hours at USD 100; Bennett materials allowance sheet, 5 × USD 2,000; Bennett records-review estimate, 80 × USD 100, separate from staff hours.
+- Monica limits joint measurement to the three Caldwell blocks (USD 18,000). The USD 4,500 in Bennett coordination moves to staff for USD 20,000, and materials and records review stay at USD 10,000 and USD 8,000. Total remains USD 56,000 in BCE-CE-2025-TBL-010-R01 and BCE-CE-2025-REV-005-R01. The earlier explanation is REV-005-R00; the submitted PDF is exported from the R01 DOCX.
+- Nov 6 09:14 Monica → Melissa, “Budget categories for the revised request”, sends the guidance PDF as the first message in its thread. Use monica@whitmore-science-fund.example.
+- Nov 10 15:48 Melissa → Monica, Cc Joseph, “Whitmore revised budget for resubmission”, opens a new thread and sends the actual REV-005-R01 PDF and TBL-010-R01 XLSX. Submission is the only external outcome recorded.
+
+## Next application — August 13 budget review
+
+- Joseph checks six estimates with Melissa on Aug 10, 2026 at 14:15. In August cost support BCE-CE-2026-TBL-009-R00, mark sources and option eligibility per line. Aug 5 Bennett equipment allowance (expansion only): one additional reader position at USD 12,000, an internal planning estimate.
+- Aug 6 Caldwell preliminary costing (from Angela Price): two low-range service blocks × USD 7,000 in both options; one supplemental low-range evaluation package × USD 10,000 in the recommended option only. These are budgeting units and carry no commitment to a sample count or schedule.
+- Aug 7 Bennett staff estimate: internal coordination 100 h × USD 80 in both options. Aug 7 Bennett records-review estimate: baseline review 50 h × USD 80 in both; supplemental internal review 25 h × USD 80 in the recommended option only. The latter is distinct from the USD 10,000 Caldwell package.
+- BCE-CE-2026-TBL-010-R00 and pre-read BCE-CE-2026-BRF-006-R00 compare expansion to recommendation, in USD: expansion 12,000 → 0; low-range evaluation 14,000 → 24,000; coordination 8,000 → 8,000; records review 4,000 → 6,000. Each option totals USD 38,000. The USD 12,000 released by removing expansion funds the USD 10,000 and USD 2,000 increments.
+- Aug 13 at 10:00, Robert Nguyen reviews the two allocations with Melissa and Joseph and approves the recommendation for the next application budget. Comparison BCE-CE-2026-TBL-010-R01 and decision BCE-CE-2026-DEC-003-R00 record the approved amounts; Melissa files them and Joseph is to reconcile the next draft.
+- Budget scope is the April follow-up band (Bennett readings below 3.00 ng/mL; see BCE-CE-2026-PLN-002-R00). The budget decision leaves candidate count, schedule and any new results open and places no order for equipment or services.
+- Aug 11 14:08 Melissa → Robert, Cc Joseph, “Budget options for Thursday”, opens a thread with the actual BRF-006-R00 PPTX and TBL-010-R00 XLSX attached.
+- Aug 13 14:29 Melissa → Joseph, Cc Robert, “Use this allocation in the next draft”, opens a new thread with the actual DEC-003-R00 PDF and TBL-010-R01 XLSX attached.
