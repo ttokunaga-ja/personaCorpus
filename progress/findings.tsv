@@ -3857,3 +3857,22 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-20	p18-manufacturing-quality-engineer	b009	build-review	0	V2	Documents/CL-1625 小型保持金具/試験評価/CL-1625_再試験で着座を先に書く表.xlsx	後半シートの印刷フッタに型の部門名とページ番号がなく、2ページ目の下端が空白のまま。
 2026-11-20	p18-manufacturing-quality-engineer	b009	build-review	1	V5	Pictures/CL-1625 小型保持金具/2025-07-11/押さえる手と無孔側の当て.jpg	丸ピンの軸は基台面と平行になったが、指で金具を寄せている締付前の場面で、写真右の引張グリップが既に丸ピンを上下から挟んでおり、初回条件書の「締付後に手を離してから丸ピンをつかむ」順序と合わない。
 2026-11-20	p18-manufacturing-quality-engineer	b009	build-review	1	V2	Documents/CL-1625 小型保持金具/試験評価/CL-1625_再試験で着座を先に書く表.xlsx	後半のフッタに部門名とページ番号は復帰したが、印刷2・4ページ目（各シートの注記続き）の上部に1〜6行の繰返しが出ず、社名・表題と文書番号、版、基準日などの管理欄、列見出しが印字されない。
+2026-11-20	p09-ux-researcher	b008	templates-review	0	other	carver-dispatch-allocation.xlsx	印刷面の番号と日付、0回と区分名、小計・合計は読めるが、ブックプロパティの題名が別用途の Participant eligibility review のままで、割当表の用途と一致しない。
+2026-11-20	p09-ux-researcher	b008	templates-review	0	other	carver-field-report.cls	1頁目の26ptの題 Finding the shelf where counting stopped が折り返されず、末尾 stopped の右端が本文の右境界550.08ptを13.56pt越える。
+2026-11-20	p09-ux-researcher	b008	templates-review	0	other	carver-recording-register.xlsx	印刷面では許可・消去日時・保存期限と集計を区別できるが、ブックプロパティの題名が別用途の Participant eligibility review のままで、録音管理表の用途と一致しない。
+2026-11-20	p09-ux-researcher	b008	draft-review	0	D4	Documents/配車の見通し調査/Findings/2026-08-10 Counts for the Oakridge readout.csv	Told before viewing the list行のCounting rule「One person told the reason orally before opening the list」は計上した参加者が理由を伝えたと読めるが、UX-185の11:55では前担当がMaraに伝え、Maraがその後一覧を開いた。
+2026-11-20	p09-ux-researcher	b008	draft-review	0	D4	Documents/配車の見通し調査/Findings/2026-08-03 Which checks count as finding a reason.docx	Cases to settleのUX-182は受け側デスクが便番号とWindowを復唱したと記すが、7月13日の逐語録18:45と32:31では参加者が両方を読み上げ、デスクは受入れ許可がまだ出ていないと返した。
+2026-11-20	p09-ux-researcher	b008	draft-review	0	D3	Documents/配車の見通し調査/Findings/2026-08-04 What was already in the handoff.txt	UX-182の段落は旧控えに受入れ許可待ちと明記されていたとするが、逐語録03:37・35:27–35:51で取れるのは旧控えに理由の記述があったことまでで、受入れ許可待ちという具体的内容は18:45の受け側デスクの返答に由来する。
+2026-11-20	p09-ux-researcher	b008	draft-review	0	D3	Documents/配車の見通し調査/Findings/2026-08-04 Dispatch scenes and people.xlsx	R-458 / 18:45の根拠欄は旧控えにも今回と同じ待ちが記載されていたとするが、逐語録03:37・35:27–35:51は旧控えに理由があったことまでを示し、具体的な受入れ許可待ちは18:45の通話の証言に限られる。
+2026-11-20	p09-ux-researcher	b008	draft-review	0	D4	Documents/配車の見通し調査/Findings/2026-08-07 Reason at the handoff - Patrick notes.docx	43〜45行のJenniferの文中コメントは8月6日10:00・10:03・10:06 CDTだが、6行のcreatedと元版v0.1の計画上の作成時刻は同日10:12 CDTで、引き継いだコメントが原文書の作成より前になっている。
+2026-11-20	p09-ux-researcher	b008	draft-review	0	D5	Documents/配車の見通し調査/Findings/2026-08-12 Carry the reason with Held.pptx	スライド3の45行が提言根拠を「15 observations」と数えるが、8月4日の照合表と7月索引では15人・17場面であり、表の人数と観察場面の件数が本文で混同されている。
+2026-11-20	p09-ux-researcher	b008	build-review	0	V2	Documents/配車の見通し調査/Findings/2026-08-12 Carry the reason with Held.pptx	全5枚で型の手順が指定する右下のページ番号が欠け、4枚目の比較図も型の8.2×4.5インチの図枠を超える9.30×5.07インチで配置されている。
+2026-11-20	p09-ux-researcher	b008	build-review	0	V2	Documents/配車の見通し調査/Findings/2026-08-07 Reason at the handoff - Patrick notes.docx	1ページ目のEvidence behind the proposalの根拠表がTable Gridの白地・黒罫線で、型と草稿のCWR Evidence Tableの黒鉛色見出し・白太字が失われ、表題直下の管理行にもCWR Metadataが適用されていない。
+2026-11-20	p09-ux-researcher	b008	build-review	0	V3	Pictures/Analysis/2026-08-10 A known reason can go stale.png	中央の判断枠から右上のCandidate for displayへ向かう赤い斜め矢印がYesの末尾のsに重なっている。
+2026-11-20	p09-ux-researcher	b008	build-review	0	V2	Documents/配車の見通し調査/Findings/2026-08-11 Ask them what they can pass on.pptx	Carverの場面共有スライドの成形要領と見本が指定する右下のページ番号が、表紙からCard Cまで全5枚で欠けている。
+2026-11-20	p09-ux-researcher	b008	check	1	mtime	Documents/配車の見通し調査/Findings/2026-08-11 The slide before the counts.txt	differs from plan by at least one day
+2026-11-20	p09-ux-researcher	b008	build-review	1	V4	Documents/Client-mail/2026-08-12 Re Hold reason readout and report.eml	Christineの返信本文末尾で英語の引用直後に、添付の有無を指示する原稿注記「今回の添付: なし」が日本語のまま表示される。
+2026-11-20	p11-account-executive	b009	coordinator	0	other	Documents/Travel/2025/JDH and Waverley on Wednesday.docx	統括の抜き取りで不合格
+2026-11-20	p11-account-executive	b009	coordinator	0	other	Documents/Travel/2025/July 30 visit plan.pdf	統括の抜き取りで不合格
+2026-11-20	p11-account-executive	b009	coordinator	0	other	Documents/Travel/2025/Michelle - both visits on July 30.eml	統括の抜き取りで不合格
+2026-11-20	p11-account-executive	b009	coordinator	0	other	Documents/Travel/2025/Two trips or one.xlsx	統括の抜き取りで不合格

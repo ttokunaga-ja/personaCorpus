@@ -237,3 +237,31 @@
 - 2025-08-12の独立メール：①13:12 Michelle → Reza「Sutton - figures for the budget check」（HBC-SUT-20250812-BRF-01 v1.0 の書き出しPDFを実添付）、②16:38 Reza → Michelle「Sutton - move the extra seats to next year」（追加予算不足で翌年度へ持ち越し、添付なし）。
 - スレッド「Sutton - August 27 seat and budget check」：①2026-08-24 10:04 Michelle → Reza（8月27日の予算照会）、②08-27 13:36 Reza → Michelle（Re:、①の予算質問を引用）。両通とも添付なし。08-27午前の確認でも予算承認は得られず、220席を維持、300席案は保留。
 - 2025年の見送り後も2026年8月27日の再確認後も、更新基準は現行220席。追加80席は更新売上と別管理し、追加予算の根拠が得られたときにのみ再開する。
+
+# Sales Operations
+
+## 2025年7月のJDH・Waverley出張手配
+
+- MichelleとDivyaのDenver–Chicago周辺の出張。旧案は7月29日Janet、31日Tracyを個別の往復で訪問。採用案は7月28〜31日の1往復・3泊で、7月30日のChicago現地09:30にJanetと支援窓口、14:00にTracyと6月引継ぎ後の管理者対応を確認する予定。
+- 2人分の比較は旧案／採用案の順に航空USD 3,200／2,200、宿泊2,400／1,800、地上移動1,000／700、食事等600／500、予備1,200／1,200。計8,400／6,400、差2,000。USD 6,400は手配前の上限で実費ではない。
+- 2025-07-24のスレッド「July travel - both visits on Wednesday」①09:06 MDT Michelle → Donald（`July 30 visit plan.pdf` と `Two trips or one.xlsx` を実添付）。②10:13 MDT Donald → Michelle（Re:、依頼部分を引用、添付なし）。Donaldは同日2社・上限USD 6,400に同意し、同日化が崩れたら再相談を指示。
+- 行程のDOCXと配布PDFは HBC-TRV-20250724-TRV-01 v1.0。7月24日の保存画面は承認済み・発券待ち。旧案の仮枠は同日解除。2026年9月のUSD 410の照合とは別件。
+
+## 2026年5月の月次予測と根拠欄の指導
+
+- 5月4日08:30 MDTの確認対象は担当8社。09:30にMichelle・Bradley・Deniseが、JDHの新年次（書面待ち）、Waverleyの7月更新（面談前）、Suttonの追加80席（予算承認待ち）を未署名として実績候補から除外。残り5社を実績件数としない。
+- JDHは署名済みの5〜7月延長USD 58,000を別契約として維持。Aldridgeは予算凍結の保留、HPTは予備商談、Redfieldは失注。Hollisの旧注文とMerrittの既存更新を新たな5月実績に入れない。
+- Waverleyの指導例は現行120席・年額USD 54,000と書面待ちの7月更新を分ける。根拠欄には確認日・相手または資料・未確認事項・次の確認先を置き、確認先はTracy。
+- 2026-05-04 14:24 MDT、Michelle → Tyler「May notes - put the evidence before the label」（独立、`Tyler - my edits on the May note.docx` を実添付）。初稿と添削は HBC-SALES-20260504-COA-01 v0.1 → v0.2。書き直しは5月5日11:00まで、同日午前に読み合わせ。
+
+## 2026年9月の四半期予測確定
+
+- 9月14日08:30 MDTの担当商談出力を使い、10:00にMichelleとDonaldが確定。JDHは7月17日の書面受諾、8月1日発効の年次USD 248,000を契約実績に反映。旧延長USD 58,000は非加算。金額は契約対価で、収益認識・入金とは別。
+- Aldridgeは200席USD 96,000の未契約案で、名簿担当と購買承認手順、発注が未確認。40%は8月の社内確度。全額を基本計画から外し、40%を掛けた額も基本計画に持ち込まない。Suttonの追加80席は引き続き保留。
+- Donald用の投影版と配布PDFは HBC-SALES-20260914-FCT-01 v1.0。2026-09-14 11:42 MDT、Denise → Donald、Michelle「September 14 cut - JDH in, Aldridge outside base」（独立、`Sept 14 - figures Donald cleared.xlsx` を実添付）。
+
+## 2026年9月の評価面談と経費照合
+
+- 9月17日10:00 MDT、MichelleとDonaldが評価票の更新率目標90%・実績88%（2ポイント差）を確認。評価票の分子・分母は手元の数値に含まれず、商談確認対象8社から求めない。翌月から更新予定の60日前に確認担当と期限を置き、Michelleが9月24日までにDonaldへ記載例1件を示す。
+- 同日14:00 MDT、MichelleとKarenが9月出張の地上移動費1件USD 410をカード利用行と照合。明細付き領収書の添付がないため申請を保留。社内の紙控えは提出状態を確かめる経費表紙で、領収書や承認済み精算の記録ではない。
+- 2026-09-17のスレッド「September travel - missing detail for the USD 410」①14:32 MDT Karen → Michelle、②15:06 MDT Michelle → Karen（Re:、依頼部分を引用）。いずれも添付なし。9月21日12:00 MDTまでに明細の入手可否を知らせる扱いで、9月18日時点も未提出・保留。
