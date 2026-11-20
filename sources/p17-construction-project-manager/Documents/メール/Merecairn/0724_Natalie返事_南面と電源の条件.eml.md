@@ -40,4 +40,4 @@ On 23 July 2025 at 10:14 JST, Shuichiro Sakamoto wrote:
 >
 > Attachment: 0723_Kaita West - South-facing layout for comment.pdf
 
-添付：Transfer Unit - South-facing Transfer Interface Note Rev A.pdf
+添付：South-facing Transfer Interface Rev A.pdf

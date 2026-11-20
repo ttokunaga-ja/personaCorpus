@@ -36,8 +36,9 @@ jg0K
 Content-Type: image/png
 Content-Transfer-Encoding: base64
 Content-Disposition: attachment;
- filename*0*=utf-8''0419_%E7%81%AB%E6%9C%A8%E3%81%A73%E6%99%82%E9%96%93;
- filename*1*=%E3%81%9A%E3%81%A4.png
+ filename*0*=utf-8''0419_%E7%81%AB%E6%9C%A8%E3%81%AE%E5%81%9C%E6%AD%A2;
+ filename*1*=%E5%80%99%E8%A3%9C%E6%9E%A0_%E6%99%82%E9%96%93%E5%B8%AF%E5%9B%B3;
+ filename*2*=.png
 MIME-Version: 1.0
 
 iVBORw0KGgoAAAANSUhEUgAACMAAAAOQCAYAAADVeZ8oAAAAG2lUWHRBdXRob3IAAAAAAOWdguac
