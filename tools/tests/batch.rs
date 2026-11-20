@@ -339,6 +339,11 @@ fn attachment_declarations_schedule_email_after_attachment_review() {
         ),
         ("Attachments (actual files):", format!("- {FIRST}")),
         ("添付（実ファイル）：", format!("- {FIRST}")),
+        (
+            "## 今回の添付",
+            format!("- {}", FIRST.rsplit('/').next().unwrap()),
+        ),
+        ("## 添付元", format!("- {FIRST}")),
         ("## 添付", format!("- 記録.txt — `{FIRST}`")),
         (
             "## Attachment",
@@ -374,6 +379,35 @@ fn attachment_declarations_schedule_email_after_attachment_review() {
         let email_build = stage_for("build", email);
         assert!(attachment_review < email_build, "{heading}");
     }
+}
+
+#[test]
+fn linked_plan_prerequisite_finishes_before_the_document_is_built() {
+    let f = Fixture::new();
+    f.planned();
+    let mut rows = f.rows();
+    rows[1]["先に要るもの"] = json!(FIRST);
+    rows.swap(0, 1);
+    f.set_plan(&rows, true);
+    f.overrides(
+        json!({SECOND: {"body": "受領した件数は[照合記録](../Documents/記録.txt)を参照。"}}),
+    );
+    f.run("ok", true);
+    let contexts = f.lines("contexts.jsonl");
+    let first_stage = |stage: &str, path: &str| {
+        contexts
+            .iter()
+            .position(|c| {
+                c["stage"] == stage
+                    && c["rows"]
+                        .as_array()
+                        .unwrap()
+                        .iter()
+                        .any(|r| r["パス"] == path)
+            })
+            .unwrap()
+    };
+    assert!(first_stage("build-review", FIRST) < first_stage("build", SECOND));
 }
 
 #[test]

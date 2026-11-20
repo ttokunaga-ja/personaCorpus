@@ -1847,7 +1847,7 @@ impl Batch {
             .collect();
         let declaration = crate::check::attachment_declaration();
         let heading = re(
-            r"(?i)^[ \t]{0,3}#{1,6}[ \t]+(?:添付(?:ファイル)?|attachments?)(?:[ \t]+#+)?[ \t]*$",
+            r"(?i)^[ \t]{0,3}#{1,6}[ \t]+(?:(?:今回の)?添付(?:ファイル)?|添付元|attachments?)(?:[ \t]+#+)?[ \t]*$",
         );
         let bullet = re(r"^\s*[-*]\s+");
         let mime_entry = re(r"(?i)\(actual MIME attachments?(?:[;)])");
@@ -1855,6 +1855,7 @@ impl Batch {
             r#"(?:[\w. -]+/)*[^/`\[\],;:：\n]+?\.(?:{})(?:$|[\s`\],;（(])"#,
             EXT.split_whitespace().collect::<Vec<_>>().join("|")
         ));
+        let markdown_link = re(r"\]\(([^)\n]+)\)");
         let mut result = BTreeMap::new();
         for row in rows {
             let relative = text(&row["パス"]);
@@ -1866,7 +1867,30 @@ impl Batch {
             }
             let mut lines = vec![];
             let mut in_attachment = false;
-            for line in fs::read_to_string(&source).unwrap_or_default().lines() {
+            let manuscript = fs::read_to_string(&source).unwrap_or_default();
+            let prerequisites = prerequisites(row);
+            for link in markdown_link.captures_iter(&manuscript) {
+                let mut target = Path::new(relative)
+                    .parent()
+                    .unwrap_or(Path::new(""))
+                    .to_owned();
+                let local = Path::new(&link[1]).components().all(|part| match part {
+                    std::path::Component::Normal(name) => {
+                        target.push(name);
+                        true
+                    }
+                    std::path::Component::CurDir => true,
+                    std::path::Component::ParentDir => target.pop(),
+                    _ => false,
+                });
+                if local
+                    && let Some(path) = target.to_str()
+                    && prerequisites.contains(path)
+                {
+                    dependencies.insert(path.to_owned());
+                }
+            }
+            for line in manuscript.lines() {
                 if let Some(c) = declaration.captures(line) {
                     in_attachment = true;
                     lines.push(c[1].to_string());
