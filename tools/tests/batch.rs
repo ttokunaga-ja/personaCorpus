@@ -942,6 +942,25 @@ fn redraft_only_failed_drafts_preserves_other_work_and_accepted_ledger_recovery(
     }
 }
 #[test]
+fn visual_review_after_redraft_checks_recovered_files() {
+    let f = Fixture::new();
+    f.run("draft-reject-always", true);
+    f.cli(&["run", "p01", "b001", "--redraft"], "ok", true);
+    let recovered = fs::read(f.artifact(FIRST)).unwrap();
+    let before = f.contexts("build-review").len();
+    f.cli(&["run", "p01", "b001", "--review-again"], "ok", true);
+    assert_eq!(f.state()["count"], 2);
+    assert_eq!(fs::read(f.artifact(FIRST)).unwrap(), recovered);
+    assert!(f.contexts("build-review")[before..].iter().any(|context| {
+        context["rows"]
+            .as_array()
+            .unwrap()
+            .iter()
+            .any(|row| row["パス"] == FIRST)
+    }));
+}
+
+#[test]
 fn redraft_resumes_after_build_failure_without_new_generation() {
     let f = Fixture::new();
     f.run("draft-parent-fail", true);

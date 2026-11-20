@@ -3593,6 +3593,11 @@ impl Batch {
                 );
                 if self.args.draft_review_again {
                     s["draft-review_notes"] = json!([]);
+                } else if s["completed"]["draft-complete"].is_object()
+                    && s["draft_failures"].is_object()
+                {
+                    // A later redraft may have cleared failures in the original checkpoint.
+                    s["completed"]["draft-complete"] = s["draft_failures"].clone();
                 }
                 s["build-review_notes"] = json!([]);
             })?;
