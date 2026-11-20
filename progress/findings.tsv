@@ -3841,3 +3841,19 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-20	p20-investigative-journalist	b007	coordinator	0	other	Documents/Stories/Road-contracts/Records/Mill - read the total after the three runs.txt	統括の抜き取りで不合格
 2026-11-20	p20-investigative-journalist	b007	coordinator	0	other	Documents/Stories/Road-contracts/Records/Mill FY23 - paper measurement book from the counter.pdf	統括の抜き取りで不合格
 2026-11-20	p20-investigative-journalist	b007	coordinator	0	other	Documents/Stories/Road-contracts/Records/Quarry - the space between prep and work.txt	統括の抜き取りで不合格
+2026-11-20	p18-manufacturing-quality-engineer	b009	draft-check	0	duplicate	Downloads/FT-03_CL-1625_2025-07-11_午前の荷重履歴.csv	duplicate: normalized 5-word Jaccard >= 0.8: Downloads/FT-03_CL-1625_2025-07-11_午後の荷重履歴.csv
+2026-11-20	p18-manufacturing-quality-engineer	b009	draft-check	0	duplicate	Downloads/FT-03_CL-1625_2025-07-11_午後の荷重履歴.csv	duplicate: normalized 5-word Jaccard >= 0.8: Downloads/FT-03_CL-1625_2025-07-11_午前の荷重履歴.csv
+2026-11-20	p18-manufacturing-quality-engineer	b009	draft-review	0	D4	OneDrive - 金原産業精機/品質会議/7月15日_CL-1625の5個と試験条件.docx	19行目の「既に負荷と再締結を受けた部品」は低値5個に再締結済みと記しているが、PLN-021第0.1版では再締結は提案段階で、同じ議事録および台帳では5個を現状保存するとしている。
+2026-11-20	p18-manufacturing-quality-engineer	b009	draft-review	0	D4	Documents/CL-1625 小型保持金具/試験評価/CL-1625_締めた後に隙間を当てる場所.pdf	15行目の平面図は無孔側の端辺を装置正面の手前に描くが、初回条件書REV-021と段取り写真の原稿では同じCL-J01で無孔側の縁を奥の当て止めに寄せており、左右のゲージ測点を示す向きが食い違う。
+2026-11-20	p18-manufacturing-quality-engineer	b009	draft-review	0	D10	Documents/CL-1625 小型保持金具/試験評価/CL-1625_7月11日保持力の初回報告.docx	11行目の「状態：報告」は文書種別で、工程検討の型に必要な実際の回付・承認状態と確認者がない。またD4として16行目の「操作後の表示はいずれも0.0 N」は、MES-021の08:58が表示確認のみでゼロ操作なしという記録と食い違う。
+2026-11-20	p18-manufacturing-quality-engineer	b009	draft-review	1	D3	Downloads/FT-03_CL-1625_2025-07-11_午前の荷重履歴.csv	10行目の式は全20試行の荷重をピーク値Pだけで決め、全試行を3.00秒で折れる同一の正規化波形にしているため、ピーク値と時刻は再現できても、06を含む個々の装置波形を照合する根拠にならない。
+2026-11-20	p18-manufacturing-quality-engineer	b009	draft-review	1	D3	Downloads/FT-03_CL-1625_2025-07-11_午後の荷重履歴.csv	10行目の式は全20試行のピークを2.50秒に固定し、23と24のピーク後の差を別々に設定した直線の係数0.10と0.025で作っているため、計画が求める両試行の装置出力から落ち方を比較する根拠にならない。
+2026-11-20	p18-manufacturing-quality-engineer	b009	draft-check	2	duplicate	Downloads/FT-03_CL-1625_2025-07-11_午前の荷重履歴.csv	duplicate: identical normalized shingles: Downloads/FT-03_CL-1625_2025-07-11_午後の荷重履歴.csv
+2026-11-20	p18-manufacturing-quality-engineer	b009	draft-check	2	duplicate	Downloads/FT-03_CL-1625_2025-07-11_午後の荷重履歴.csv	duplicate: identical normalized shingles: Downloads/FT-03_CL-1625_2025-07-11_午前の荷重履歴.csv
+2026-11-20	p18-manufacturing-quality-engineer	b009	draft-review	0	D10	Desktop/CL-1625_5個を締め直す案_中山コメント.docx	先頭7行目のderived_fromが空で、計画上の回覧元「CL-1625_締め順を戻して測る案.docx」を指していないため、同じ第0.1版を引き継いで中山のWordコメント2件を重ねる派生関係が設定されていない。
+2026-11-20	p18-manufacturing-quality-engineer	b009	build-review	0	V5	Pictures/CL-1625 小型保持金具/2025-07-11/押さえる手と無孔側の当て.jpg	写真の中央手前にある丸ピンは金具から離れて基台上に垂直に立っており、同じ治具で金具中央の丸ピンを基台面と平行に引く原稿の段取りおよび固定後の写真と対応しない。
+2026-11-20	p18-manufacturing-quality-engineer	b009	build-review	0	V3	Pictures/Charts/CL-1625_23番と前後枠の荷重曲線.png	ピーク付近で午前006の青緑の曲線が午後024の「132.4 N」注記の末尾「4 N」に重なっている。
+2026-11-20	p18-manufacturing-quality-engineer	b009	build-review	0	V3	Documents/CL-1625 小型保持金具/試験評価/CL-1625_予備24個の締め順割付.xlsx	割付シートのA36:G36は印刷範囲内だが、2ページ目の集計下に原稿の末尾注記（対内の番号順、採取元ごとの両順各6個、試験値未入力）が印字されない。
+2026-11-20	p18-manufacturing-quality-engineer	b009	build-review	0	V2	Documents/CL-1625 小型保持金具/試験評価/CL-1625_再試験で着座を先に書く表.xlsx	後半シートの印刷フッタに型の部門名とページ番号がなく、2ページ目の下端が空白のまま。
+2026-11-20	p18-manufacturing-quality-engineer	b009	build-review	1	V5	Pictures/CL-1625 小型保持金具/2025-07-11/押さえる手と無孔側の当て.jpg	丸ピンの軸は基台面と平行になったが、指で金具を寄せている締付前の場面で、写真右の引張グリップが既に丸ピンを上下から挟んでおり、初回条件書の「締付後に手を離してから丸ピンをつかむ」順序と合わない。
+2026-11-20	p18-manufacturing-quality-engineer	b009	build-review	1	V2	Documents/CL-1625 小型保持金具/試験評価/CL-1625_再試験で着座を先に書く表.xlsx	後半のフッタに部門名とページ番号は復帰したが、印刷2・4ページ目（各シートの注記続き）の上部に1〜6行の繰返しが出ず、社名・表題と文書番号、版、基準日などの管理欄、列見出しが印字されない。
