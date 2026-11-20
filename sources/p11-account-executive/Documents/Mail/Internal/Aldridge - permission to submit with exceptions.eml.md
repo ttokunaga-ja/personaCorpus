@@ -23,4 +23,4 @@ I am not requesting approval of price or contract terms. Commercial discussions 
 Thanks,
 Michelle
 
-Attachments: Aldridge exceptions - decision for Donald.pdf
+Attachments: Aldridge RFP exceptions approval memo.pdf

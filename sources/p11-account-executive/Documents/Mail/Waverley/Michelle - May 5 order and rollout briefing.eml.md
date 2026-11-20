@@ -22,6 +22,6 @@ Please let me know if anything may affect the roster date before our room visit.
 Thanks,
 Michelle
 
-Attachments: Waverley May 5 order terms.pdf; Waverley rollout briefing.pptx
-Attachment source: Documents/Accounts/Waverley/Waverley May 5 order terms.pdf
+Attachments: 2025-05-05_Waverley initial order.pdf; Waverley rollout briefing.pptx
+Attachment source: Documents/Accounts/Waverley/2025-05-05_Waverley initial order.pdf
 Attachment source: Documents/Accounts/Waverley/Waverley rollout briefing.pptx

@@ -1,0 +1,15 @@
+---
+path: Documents/Accounts/Aldridge/RFP/Aldridge contract intake notes.txt
+kind: text
+author: Michelle Whitaker
+derived_from:
+---
+
+Aldridge — leave for January
+December 19, 2024
+
+If Ahmed sends contract language, send it to Jonathan as the Contracts contact. First identify the section number and keep one authoritative copy of what Ahmed sent. Check that the language we mark up is the same text before making a return copy; keep the source and any response together.
+
+Donald's October 23 email authorized submission of the technical response with six exceptions. It did not approve a contract redline. Do not copy that approval into a field for approval to return revised contract language. Ask for the appropriate review of the actual wording.
+
+As of the December review, the technical response was submitted; the six exception scores and contract text were still outstanding. Do not move the opportunity into actual revenue without a supported order date and signature.

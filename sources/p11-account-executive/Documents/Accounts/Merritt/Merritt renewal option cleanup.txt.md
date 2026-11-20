@@ -1,0 +1,9 @@
+---
+path: Documents/Accounts/Merritt/Merritt renewal option cleanup.txt
+kind: text
+author: Michelle Whitaker
+derived_from:
+---
+Move HBC-MER-20251114-REN-01 out of the send candidates. The internal 50-hour option expired November 19 at 5:00 p.m. Denver time, and Donald declined the extra ten hours on November 18. Keep the option and his reply together in Pricing-approvals so I can check the decision.
+
+For the renewal entry use the agreed December 1 start, USD 72,000 annual price and 40 annual support hours. The old option is not a customer offer.

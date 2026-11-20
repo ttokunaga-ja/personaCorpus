@@ -1,0 +1,12 @@
+---
+path: Documents/Forecast/2026/Q3/Aldridge Q3 forecast notes.txt
+kind: text
+author: Michelle Whitaker
+derived_from:
+---
+
+September 14, before Donald's review
+
+I nearly left Aldridge in the base with a different color and the 40% tag from August. That only makes the uncertainty visible; it does not resolve it. Ahmed's August 26 reply still has no named roster owner or purchasing route, and there is no order.
+
+Move the full USD 96,000 proposal outside the base for the explanation. Do not put USD 38,400 (40% of the proposal) into the base either. Keep 40% as the August internal assessment, not a customer commitment. Ask for the purchasing route and roster contact before revisiting the treatment.

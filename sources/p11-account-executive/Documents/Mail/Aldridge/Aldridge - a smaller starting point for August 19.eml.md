@@ -1,0 +1,25 @@
+---
+path: Documents/Mail/Aldridge/Aldridge - a smaller starting point for August 19.eml
+kind: text
+author: Ahmed Farouk
+derived_from:
+---
+
+From: Ahmed Farouk <ahmed@aldridge-service.example>
+To: Michelle Whitaker <michelle@halstead-branch.example>
+Date: Mon, 10 Aug 2026 09:22:00 -0600
+Subject: Aldridge - a smaller starting point for August 19
+Message-ID: <6c0d359b-9bc1-4ad9-a358-9b06b729589e@aldridge-service.example>
+
+Hi Michelle,
+
+Could we use our August 19 discussion to look at a smaller starting point: one site and 200 seats? I would like to understand what our central roster person would need to check and provide, and what your team would do with the file.
+
+Please also separate the other sites from this first discussion, so we can see what would remain outside it. I would like to go through that with you at 10:00.
+
+I cannot yet answer on budget approval or an order. I will need to take those questions back internally.
+
+Thanks,
+Ahmed
+
+Attachments: none

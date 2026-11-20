@@ -4,6 +4,7 @@ period: 2024-04-01..2026-09-30
 timezone: America/Denver
 allowed_terms: scope of proposal, scope of services, batch invoicing
 photo_dirs: Pictures
+date_prefix: YYYY-MM-DD_
 ---
 
 # p11 アカウント営業
@@ -126,6 +127,20 @@ Pictures/Proposal-diagrams/                 利用構成図、説明画面
 Documents/Mail/                             取引先ごとの約束と価格承認
 ```
 
+
+## 名前の付け方
+
+- 米国英語で、顧客の略称と資料の用途をスペースでつなぐ。顧客別フォルダの中では略称を省くこともある。議事録や照合表を日付順に探すときは、会議日や確認日の後ろにアンダースコアを置く。日付別フォルダでは同じ日付を省く。契約や更新の対象月は `August` などと用件に添える。
+  - `2026-04-17_Renewal meeting notes.docx`
+  - `JDH August purchasing briefing.pptx`
+  - `Aldridge first-site briefing_travel.pptx`（機内で直した作業版）
+- Outlook の保存メールは件名を基本にし、Windows のファイル名に使えない記号は省くかハイフンに替える。承認や回答を相手の名前で探すときは「差出人 - 用件」とし、同じ件名の往復には返信の印を付けることもある。
+  - `JDH workshop changes before Friday.eml`
+  - `RE - September adoption check.eml`
+- そのまま置く訪問写真や Windows の画面控えは機器・アプリの名前を残せる。提案や報告に使い回す図や写真には顧客名と題材を付ける。Downloads では受信添付や出力元の名前を使い、長い添付名は顧客と用途が分かる形に縮める。
+  - `IMG_0412.jpg`（取り込んだままの訪問写真）
+  - `Screenshot (12).png`（Windows の画面控え）
+  - `JDH August purchasing confirmation.docx`（購買確認の添付）
 
 ## 形式の目安
 

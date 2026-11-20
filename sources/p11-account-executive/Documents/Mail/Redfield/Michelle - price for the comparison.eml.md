@@ -21,4 +21,4 @@ For our February 17 discussion, I suggest we first confirm how the two mandatory
 Best,
 Michelle
 
-Attachment: Redfield annual price and archive exception.pdf
+Attachment: Redfield price and archive exception.pdf

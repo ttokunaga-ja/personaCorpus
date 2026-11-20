@@ -27,4 +27,4 @@ JDH Route Services Inc
 
 ## 添付
 
-- Downloads/JDH purchasing confirmation - August annual renewal.docx
+- Downloads/JDH August purchasing confirmation.docx

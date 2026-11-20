@@ -16,7 +16,7 @@
 - Janetが07-30までに提出状況を集約。Divyaが09-12の確認用に4月と同じ30日定義を準備する。確認目標は全社80%（420席なら336席）で、記録が揃わなければ判定を保留する。
 - スライドは社内案 HBC-JDH-20240710-WRK-01 v0.1、当日版 HBC-JDH-20240712-WRK-01 v1.0。決定記録のWordと配布PDFはともに HBC-JDH-20240712-WRK-02 v1.0。
 - 改善会前の独立メール（いずれも添付なし）。07-09 11:53 Divya → Michelle「Friday room and adapters」。07-11 10:26 Divya → Michelle「JDH workshop changes before Friday」。
-- 07-12 15:24 Michelle → Janet、Cc Divya「JDH workshop follow-up and July 26 actions」。`Jul 12 workshop decisions.pdf`を1点添付。
+- 07-12 15:24 Michelle → Janet、Cc Divya「JDH workshop follow-up and July 26 actions」。`2024-07-12_Workshop decisions.pdf`を1点添付。
 
 ## 9月の利用率確認と判定保留
 
@@ -31,7 +31,7 @@
 - 社内提示申請 HBC-JDH-20250414-REN-01 v1.0。Donaldが04-15にJonathanの確認を条件として提示を承認。価格表による提示有効期限は04-18 17:00、Denver。Jonathanは04-17の顧客への送付前に支援範囲を確認した。
 - 支援草案は HBC-JDH-20250414-SVC-01 v0.1、Jonathan赤字は同番号 v0.2。顧客送付版 HBC-JDH-20250417-SVC-01 v1.0を条件PDF HBC-JDH-20250417-REN-01 v1.0の本文で参照する。Janetの購買確認 JDH-PO-20250418-01 v1.0は両方の発行番号を参照する。
 - ①04-15 09:18 Donald → Michelle「JDH May package price clearance」（添付なし）。②04-17 11:04 Michelle → Janet「JDH May renewal terms and support scope」（`JDH May 2025 annual renewal terms.pdf`と`JDH May renewal support scope.docx`を添付）。
-- ③04-18 11:07 Janet → Michelle「JDH purchasing confirmation for May」（新規件名、`JDH purchasing confirmation - May renewal.docx`を添付）。④04-18 15:31 Michelle → Donald、Denise「JDH May renewal confirmed」（添付なし）。①〜④はいずれも独立メール。
+- ③04-18 11:07 Janet → Michelle「JDH purchasing confirmation for May」（新規件名、`JDH May purchasing confirmation.docx`を添付）。④04-18 15:31 Michelle → Donald、Denise「JDH May renewal confirmed」（添付なし）。①〜④はいずれも独立メール。
 
 ## 拡張の準備と4週時点の到達範囲
 
@@ -59,7 +59,7 @@
 - 06-12にJanetが追加40席の名簿窓口を引き取った。部門別配分と夜間練習の承認者は07-17時点も未確定。Divyaが準備条件を確認し、JDHが名簿・現場責任者を確定して昼夜別練習と指摘解消を経て承認した後に、追加枠を二組に分けて段階割当する。
 - 1月の9週は初回名簿と責任者が揃ってからの条件付き移行見積。追加40席の割当日と各組の人数は合意せず、08-01は年間契約の開始日としてのみ確定した。
 - 訪問用PPTXと書き出しPDFは HBC-JDH-20260602-BRF-01 v1.0。候補条件の版で、PDFにはスライド表と開始日の区別を示す図を引き継ぐ。
-- 独立メールの順：①05-12 09:18 Janet → Michelle「JDH August renewal - three things purchasing needs」（添付なし）。②06-03 15:12 Michelle → Janet、Cc Divya「JDH June 3 - seats, hours and the August date」（`JDH August - the purchasing questions.pdf`を実添付）。
+- 独立メールの順：①05-12 09:18 Janet → Michelle「JDH August renewal - three things purchasing needs」（添付なし）。②06-03 15:12 Michelle → Janet、Cc Divya「JDH June 3 - seats, hours and the August date」（`JDH August purchasing briefing.pdf`を実添付）。
 - ③06-12 11:34 Janet → Michelle、Divya「JDH roster routing for the extra seats」（添付なし）。②で依頼した名簿窓口の回答を別件名で送る。
 
 ## 年60時間の使途と月次残高
@@ -80,8 +80,8 @@
 
 - 発行内容は HBC-JDH-20260717-REN-01 v1.0、2026-08-01〜2027-07-31、契約上限520席・年60時間・年額USD 248,000。2026-05-01〜07-31の延長対価USD 58,000は独立した契約の金額で、年額に含めない。
 - Janetが JDH-PO-20260717-01 v1.0 を07-17 14:32に作成し、発行条件PDFと支援範囲DOCXの番号・版を指定。14:44に同書面を返送し、16:00 MDTの期限内に双方の合意が成立した。08-01から既存480席を継続する。
-- 独立メールの順：①07-17 11:30 Michelle → Janet「JDH August renewal - terms for written acceptance」（`JDH annual renewal - August 2026.pdf`と`JDH August renewal - how the 60 hours work.docx`を実添付）。
-- ②07-17 14:44 Janet → Michelle「JDH purchasing acceptance - August annual term」（`JDH purchasing confirmation - August annual renewal.docx`を実添付）。
+- 独立メールの順：①07-17 11:30 Michelle → Janet「JDH August renewal - terms for written acceptance」（`JDH annual renewal - August 2026.pdf`と`August renewal support plan.docx`を実添付）。
+- ②07-17 14:44 Janet → Michelle「JDH purchasing acceptance - August annual term」（`JDH August purchasing confirmation.docx`を実添付）。
 
 # Aldridge Service Group
 
@@ -104,14 +104,14 @@
 
 - Donaldの10-23の承認は技術回答の提出に限る。56件のうち26件の必須と24件の希望に回答し、残る必須6件は例外。代替運用の記載は可。全面適合、価格、契約条件、新機能や提供時期は確約しない。
 - 作業用対応表 HBC-ALD-20241010-MAT-01 v0.1 から送付用対応表 HBC-ALD-20241023-MAT-01 v1.0 へ改訂。送付用対応表の注記には回答 HBC-ALD-20241023-RFP-01 v1.0 を記す。回答の§2.1〜§2.6は依頼書の6区分順で、各行は元の要求番号で特定する。6例外は§3と元の要求番号で特定する。
-- 承認スレッド：①10-22 08:46 Michelle → Donald「Aldridge RFP - permission to submit with six exceptions」（`Aldridge exceptions - decision for Donald.pdf`、HBC-ALD-20241021-RFP-01 v0.2 を実添付）。②10-23 09:08 Donald → Michelle（Re:、①の依頼段落を引用、実添付なし）。
+- 承認スレッド：①10-22 08:46 Michelle → Donald「Aldridge RFP - permission to submit with six exceptions」（`Aldridge RFP exceptions approval memo.pdf`、HBC-ALD-20241021-RFP-01 v0.2 を実添付）。②10-23 09:08 Donald → Michelle（Re:、①の依頼段落を引用、実添付なし）。
 - 10-23 13:42 Michelle → Ahmed「Halstead response to the Aldridge RFP」（独立）。`Aldridge conditional response.pdf`、`Aldridge response cross-reference.xlsx` の2点を実添付。
 
 ## 採点前の説明と年末引継ぎ
 
 - 11-05 10:00 DenverにAhmed、Michelle、Divyaが30分の説明会。#24は拠点責任者が折返しを管理できるか、#34はCSVを先方の誰が保管できるかがAhmedの宿題。6件の例外の採点は持ち帰り。
 - 説明用の旧案 HBC-ALD-20241101-BRF-01 v0.2 は製品紹介先行。顧客用 HBC-ALD-20241104-BRF-01 v1.0 は #24 と #34 を先に扱い、配信ログと受領確認、CSV出力と保管の境界を示す。
-- 独立メール：①10-29 10:14 Ahmed → Michelle「Nov 5 - Aldridge exceptions walkthrough」（添付なし）。②11-05 08:38 Michelle → Ahmed「Aldridge walkthrough slides for 10:00」（`Aldridge - what changes at the branch.pptx`を実添付）。③11-07 13:26 Michelle → Ahmed「Aldridge #34 - export custody follow-up」（`Nov 7 - who keeps the export.pdf`を実添付）。
+- 独立メール：①10-29 10:14 Ahmed → Michelle「Nov 5 - Aldridge exceptions walkthrough」（添付なし）。②11-05 08:38 Michelle → Ahmed「Aldridge walkthrough slides for 10:00」（`Aldridge RFP exceptions walkthrough.pptx`を実添付）。③11-07 13:26 Michelle → Ahmed「Aldridge #34 - export custody follow-up」（`2024-11-07_Item 34 export custody.pdf`を実添付）。
 - 12-12のDenise・Donald向け確認では技術回答は提出済み。顧客の例外採点結果、契約文面、署名は未着で、受注実績に移さない。契約文面を受け取ったらJonathanへ回す。
 
 ## §11.2の無制限責任と年額上限の対案
@@ -203,8 +203,8 @@
 - 必須は全拠点の業務連絡の活動履歴をBranch Connect内に7年間保持し、監査時は管理者が同じサービスから取り出せること。管理者のCSV出力は現行機能で、サービス外の保管とそのアクセス管理は顧客側。別保管のCSVはRebeccaの必須判定に使えない。
 - 比較用提示 HBC-RED-20250212-RFP-01 v1.0 は2月12日発行、拠点連絡と管理者支援で年額USD 124,000、2月28日17:00まで有効。長期保管は例外欄。提示額は成約額・顧客予算として扱わない。
 - Rebeccaの仕入先別抜粋 RSS-PROC-20250214-01 は2月14日付。2月17日10:00のRebecca・Michelleの比較商談で保管と取り出しの2行を確認し、Rebeccaは同じ表に書き込んだ紙のスキャンを失注通知に添付した。
-- 独立メールの順：02-10 09:18 Rebecca → Michelle「Redfield comparison - archive requirement」（02-12正午回答希望） → 02-11 11:24 Allison → Michelle、Divya「Redfield - CSV leaves the service」（添付なし） → 02-12 09:26 Michelle → Rebecca「Redfield annual price for purchasing review」（`Redfield annual price and archive exception.pdf`）。
-- スレッド「Feb 17 comparison - check the archive rows」：①02-14 10:21 Rebecca → Michelle（`Redfield - branch communications comparison.xlsx`）。②02-17 11:16 Michelle → Rebecca（Re:、①の依頼段落を引用、今回の添付なし）。
+- 独立メールの順：02-10 09:18 Rebecca → Michelle「Redfield comparison - archive requirement」（02-12正午回答希望） → 02-11 11:24 Allison → Michelle、Divya「Redfield - CSV leaves the service」（添付なし） → 02-12 09:26 Michelle → Rebecca「Redfield annual price for purchasing review」（`Redfield price and archive exception.pdf`）。
+- スレッド「Feb 17 comparison - check the archive rows」：①02-14 10:21 Rebecca → Michelle（`Redfield vendor comparison.xlsx`）。②02-17 11:16 Michelle → Rebecca（Re:、①の依頼段落を引用、今回の添付なし）。
 - 02-17 13:22 Rebecca → Michelle「Purchasing disposition - Halstead proposal」（独立、`Redfield comparison - Rebecca's marks.pdf`を実添付）。USD 124,000案を必須条件未達で除外し、条件が同じ間は修正見積不要。営業上は失注。
 
 ## 長期保管の要件を製品担当に渡す
@@ -220,7 +220,7 @@
 
 - HPTの必須条件はターミナルからBranch ConnectまでのHPT専用の非公開接続。現行の標準接続で拠点連絡・中央管理は説明できる。専用接続は提供範囲外で、HPTの回線への接続試験、個別設計、提供予定の提示は行わない。
 - 2月17日10:30にAlbert、Michelle、Divyaが面談。Albertは専用接続が必須と確認し、標準範囲の説明までで実演・試行・見積に進まなかった。訪問用HBC-HPT-20260216-BRF-01 v1.0と同番号の配布PDFは青緑の実線が標準接続、煉瓦色の破線が提供範囲外の専用接続。
-- 02-10 10:08 Albert → Michelle「HPT visit - dedicated connection question」（独立、添付なし）。02-17 13:08 Michelle → Albert「HPT connection scope after the Feb 17 visit」（独立、`HPT - connection scope discussed Feb 17.pdf`を実添付）。
+- 02-10 10:08 Albert → Michelle「HPT visit - dedicated connection question」（独立、添付なし）。02-17 13:08 Michelle → Albert「HPT connection scope after the Feb 17 visit」（独立、`HPT connection scope briefing.pdf`を実添付）。
 - 02-18 09:27 Albert → Michelle「HPT IT - connection requirement still applies」（独立、添付なし）。配布PDFを受領し、要件に変更があればAlbertから連絡する。
 
 ## Q1の見込みから除外
@@ -252,13 +252,13 @@
 - 5月4日08:30 MDTの確認対象は担当8社。09:30にMichelle・Bradley・Deniseが、JDHの新年次（書面待ち）、Waverleyの7月更新（面談前）、Suttonの追加80席（予算承認待ち）を未署名として実績候補から除外。残り5社を実績件数としない。
 - JDHは署名済みの5〜7月延長USD 58,000を別契約として維持。Aldridgeは予算凍結の保留、HPTは予備商談、Redfieldは失注。Hollisの旧注文とMerrittの既存更新を新たな5月実績に入れない。
 - Waverleyの指導例は現行120席・年額USD 54,000と書面待ちの7月更新を分ける。根拠欄には確認日・相手または資料・未確認事項・次の確認先を置き、確認先はTracy。
-- 2026-05-04 14:24 MDT、Michelle → Tyler「May notes - put the evidence before the label」（独立、`Tyler - my edits on the May note.docx` を実添付）。初稿と添削は HBC-SALES-20260504-COA-01 v0.1 → v0.2。書き直しは5月5日11:00まで、同日午前に読み合わせ。
+- 2026-05-04 14:24 MDT、Michelle → Tyler「May notes - put the evidence before the label」（独立、`Waverley forecast note - markup.docx` を実添付）。初稿と添削は HBC-SALES-20260504-COA-01 v0.1 → v0.2。書き直しは5月5日11:00まで、同日午前に読み合わせ。
 
 ## 2026年9月の四半期予測確定
 
 - 9月14日08:30 MDTの担当商談出力を使い、10:00にMichelleとDonaldが確定。JDHは7月17日の書面受諾、8月1日発効の年次USD 248,000を契約実績に反映。旧延長USD 58,000は非加算。金額は契約対価で、収益認識・入金とは別。
 - Aldridgeは200席USD 96,000の未契約案で、名簿担当と購買承認手順、発注が未確認。40%は8月の社内確度。全額を基本計画から外し、40%を掛けた額も基本計画に持ち込まない。Suttonの追加80席は引き続き保留。
-- Donald用の投影版と配布PDFは HBC-SALES-20260914-FCT-01 v1.0。2026-09-14 11:42 MDT、Denise → Donald、Michelle「September 14 cut - JDH in, Aldridge outside base」（独立、`Sept 14 - figures Donald cleared.xlsx` を実添付）。
+- Donald用の投影版と配布PDFは HBC-SALES-20260914-FCT-01 v1.0。2026-09-14 11:42 MDT、Denise → Donald、Michelle「September 14 cut - JDH in, Aldridge outside base」（独立、`2026-09-14_Forecast adjustments.xlsx` を実添付）。
 
 ## 2026年9月の評価面談と経費照合
 

@@ -32,4 +32,4 @@ Halstead Branch Communications Inc
 ## 添付
 
 - Documents/Accounts/JDH/Renewals/JDH annual renewal - August 2026.pdf
-- Documents/Accounts/JDH/Renewals/JDH August renewal - how the 60 hours work.docx
+- Documents/Accounts/JDH/Renewals/August renewal support plan.docx

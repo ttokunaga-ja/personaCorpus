@@ -11,7 +11,7 @@ Cc:
 Date: Fri, 18 Apr 2025 11:07:00 -0600
 Subject: JDH purchasing confirmation for May
 Message-ID: <03f6b607-6ce3-42b0-9e6c-c41330e4121b@jdh-route.example>
-Attachments: JDH purchasing confirmation - May renewal.docx
+Attachments: JDH May purchasing confirmation.docx
 
 Hi Michelle,
 
@@ -24,4 +24,4 @@ Janet Morales
 Purchasing Lead
 JDH Route Services Inc
 
-添付元: Downloads/JDH purchasing confirmation - May renewal.docx
+添付元: Downloads/JDH May purchasing confirmation.docx

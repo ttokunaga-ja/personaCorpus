@@ -1,0 +1,18 @@
+---
+path: Documents/Accounts/Aldridge/Restart/Aldridge restart checklist.txt
+kind: text
+author: Michelle Whitaker
+derived_from:
+---
+
+Aldridge — if Ahmed calls back
+October 16, 2025
+
+The tentative implementation consultation slot was released after the budget freeze. Don't offer it as still reserved; first ask what budget and scope Aldridge can reopen and then check availability.
+
+Open these before discussing what comes next:
+- Documents/Accounts/Aldridge/RFP/Aldridge conditional response.pdf — the submitted technical response and the six mandatory exceptions.
+- Documents/Accounts/Aldridge/RFP/Aldridge 11.2 - proposed annual cap.docx — the January 13 counterproposal, paired with the email that sent it to Ahmed.
+- Documents/Accounts/Aldridge/RFP/Section 11.2 response tracker.txt — where I left the two separate threads of the discussion.
+
+If the freeze lifts, ask Ahmed how Aldridge wants to treat the six exceptions and what contract terms it is prepared to discuss. Neither the exceptions nor §11.2 has been agreed. I had intended to send the old documents straight over on a callback; cancel that plan. Open them for context first and ask what he needs before sending anything.
