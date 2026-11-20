@@ -1,5 +1,42 @@
 # 統括の引継ぎ
 
+最終更新：2026-11-20（coordinator-r129）
+
+## いまの状態
+
+自動運転は稼働中、保留0件。受入総数5,362件。p09 b008の計画28件中、27件受入・草稿1件破棄済み。受入済みの9形式9件を再確認し、一致を記録した。p09 b009は計画中。前回の取り込みとp06 b009の再制作起動・保留解除は成功し、原稿の再制作が進行中。
+
+| persona | 受入 | 累積破棄 |
+|---|---:|---:|
+| p01-software-engineer | 317 | 2 |
+| p02-site-reliability-engineer | 276 | 12 |
+| p03-security-grc-analyst | 249 | 19 |
+| p04-ml-research-engineer | 279 | 9 |
+| p05-bi-data-analyst | 287 | 11 |
+| p06-life-science-researcher | 217 | 16 |
+| p07-humanities-researcher | 190 | 8 |
+| p08-product-manager | 293 | 11 |
+| p09-ux-researcher | 249 | 8 |
+| p10-management-consultant | 229 | 16 |
+| p11-account-executive | 274 | 11 |
+| p12-support-success-lead | 291 | 2 |
+| p13-corporate-privacy-counsel | 296 | 24 |
+| p14-finance-controller | 318 | 135 |
+| p15-recruiter-people-ops | 302 | 12 |
+| p16-clinical-researcher | 238 | 10 |
+| p17-construction-project-manager | 327 | 57 |
+| p18-manufacturing-quality-engineer | 233 | 43 |
+| p19-educator-instructional-designer | 288 | 11 |
+| p20-investigative-journalist | 209 | 23 |
+
+## 次の手
+
+1. p06 b009の再制作後、R00の印刷状態、スキャンの元原稿・注記、CSVの採用30行と比較10行、実添付3点を監査で確認する。次のp06テンプレート作成でQCF・DECの見本を照合する。
+2. p20 b008の受入後、b007の再制作行をroadmapで扱う。
+3. 次の受入も連続一致の基準に従って確認する。今回の変更は確認記録のみ。ユーザーに聞くことはない。
+
+## 前回の記録（coordinator-r128）
+
 最終更新：2026-11-20（coordinator-r128）
 
 ## いまの状態
