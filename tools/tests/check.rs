@@ -18,6 +18,57 @@ fn absent(f: &Fixture, rel: &str, kind: &str) {
     assert!(!m.contains_key(kind), "{m:?}")
 }
 #[test]
+fn accepted_files_report_name_rule_violations() {
+    let f = Fixture::new();
+    let long = format!("Documents/{}.txt", "あ".repeat(41));
+    let wrong_date = "Documents/Mar 6 agenda.txt";
+    let duplicate_date = "Documents/2026-03-06/0306_notes.txt";
+    let sentence = "Documents/I wrote down the delivery date.txt";
+    let good = "Documents/0306_agenda.txt";
+    for path in [&*long, wrong_date, duplicate_date, sentence, good] {
+        f.put(path, path);
+    }
+    f.put(
+        "Documents/Do not forward this message.eml",
+        "From: a@x.example\nTo: b@x.example\nSubject: Do not forward this message\n\nThe supplier confirmed the delivery date.",
+    );
+    f.accept();
+    f.put("Documents/I wrote this after acceptance.txt", BODY);
+    let report = f.base.join("accepted.tsv");
+    let name_issues = |config| {
+        f.cfg(config);
+        let o = f.cli(
+            "check",
+            &["--all", "--accepted", "--report", report.to_str().unwrap()],
+        );
+        failure(&o);
+        fs::read_to_string(&report)
+            .unwrap()
+            .lines()
+            .filter(|line| line.contains("\tname\t"))
+            .map(str::to_string)
+            .collect::<Vec<_>>()
+    };
+    let issues = name_issues("date_prefix: MMDD_");
+    for (path, reason) in [
+        (&*long, "名前が長すぎる"),
+        (wrong_date, "日付の形"),
+        (duplicate_date, "日付のフォルダ"),
+        (sentence, "名前が要約・結論・会話の文"),
+    ] {
+        let expected = format!("{}\t{path}\tname\t{reason}", f.name);
+        assert!(
+            issues.iter().any(|line| line.starts_with(&expected)),
+            "{issues:?}"
+        );
+    }
+    assert_eq!(issues.len(), 4, "{issues:?}");
+    let without_prefix = name_issues("");
+    assert_eq!(without_prefix.len(), 3, "{without_prefix:?}");
+    assert!(!without_prefix.iter().any(|line| line.contains(wrong_date)));
+}
+
+#[test]
 fn formats_paths_and_timestamps() {
     let f = Fixture::new();
     f.put("a.txt", BODY);

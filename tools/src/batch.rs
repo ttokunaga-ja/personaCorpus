@@ -1385,35 +1385,9 @@ impl Batch {
             .with_timezone(&Utc))
     }
     fn trace(&self, body: &str) -> bool {
-        let allowed = self
-            .cfg
-            .get("allowed_terms")
-            .map(String::as_str)
-            .unwrap_or("");
-        let ranges: Vec<_> = allowed
-            .split(',')
-            .filter(|s| s.split_whitespace().count() >= 2)
-            .flat_map(|term| {
-                let pat = format!(
-                    r"(?i)(?<!\w){}(?!\w)",
-                    term.split_whitespace()
-                        .map(regex::escape)
-                        .collect::<Vec<_>>()
-                        .join(r"\s+")
-                );
-                fancy_regex::Regex::new(&pat)
-                    .unwrap()
-                    .find_iter(body)
-                    .filter_map(|r| r.ok())
-                    .map(|m| (m.start(), m.end()))
-                    .collect::<Vec<_>>()
-            })
-            .collect();
-        fancy_regex::Regex::new(crate::check::TRACE)
-            .unwrap()
-            .find_iter(body)
-            .filter_map(|r| r.ok())
-            .any(|m| !ranges.iter().any(|(a, b)| *a <= m.start() && m.end() <= *b))
+        crate::check::traces(body, self.cfg.get("allowed_terms").map(String::as_str))
+            .next()
+            .is_some()
     }
     fn validate_plan(&self) -> Result<Vec<Value>> {
         let rows = plan_rows(&self.plan)?;
@@ -1464,7 +1438,7 @@ impl Batch {
                 if bad_path(relative) {
                     errors.push(format!("制作区分または ID: {relative}"));
                 }
-                errors.extend(names.name_problems(relative));
+                errors.extend(names.path_problems(relative));
                 if self.trace(relative) {
                     errors.push(format!("制作の痕跡: {relative}"));
                 }

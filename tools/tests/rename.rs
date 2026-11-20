@@ -133,6 +133,53 @@ fn email(name: &str) -> String {
 }
 
 #[test]
+fn validate_rejects_traces_in_new_paths_unless_allowed() {
+    let r = Rename::new();
+    r.f.put("Documents/Supplier proposal.pptx", BODY);
+    r.accept();
+    for new in [
+        "Documents/07 Apr - Pioneer supplier scope v0.3.pptx",
+        "Documents/supplier scope v0.3/Proposal.pptx",
+    ] {
+        r.map(&format!("Documents/Supplier proposal.pptx\t{new}\t分類\n"));
+        let o = r.run("validate");
+        failure(&o);
+        assert!(
+            err(&o).contains(&format!("制作の痕跡: {new}")),
+            "{}",
+            err(&o)
+        );
+    }
+    r.f.cfg("date_prefix: DD Mon -\nallowed_terms: supplier scope v0");
+    success(&r.run("validate"));
+}
+
+#[test]
+fn detects_old_names_split_by_whitespace_in_extracted_pdf_text() {
+    let mut r = Rename::new();
+    let old = "Documents/4 November mock  handover observations.csv";
+    let new = "Documents/04 Nov - Handover observations.csv";
+    let pdf = "Documents/Handover report.pdf";
+    r.f.put(old, "status\nready");
+    r.f.put(pdf, BODY);
+    r.accept();
+    r.map(&format!("{old}\t{new}\t短縮\n"));
+    r.f.pdf_text("See 4 November mock\n\t handover observations.csv.", "");
+
+    success(&r.run("apply"));
+    assert!(r.read("rename-refs.tsv").contains(&format!(
+        "{pdf}\t4 November mock  handover observations.csv"
+    )));
+    let o = r.run("verify");
+    failure(&o);
+    assert!(
+        err(&o).contains(&format!("中身に古い名前が残る: {pdf}")),
+        "{}",
+        err(&o)
+    );
+}
+
+#[test]
 fn apply_updates_references_and_verify_can_be_repeated() {
     let r = Rename::new();
     r.f.put(OLD, BODY);

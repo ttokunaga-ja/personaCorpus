@@ -42,6 +42,38 @@ fn fancy(s: &str) -> Fancy {
         .or_insert_with(|| Fancy::new(s).unwrap())
         .clone()
 }
+pub(crate) fn traces<'a>(
+    text: &'a str,
+    allowed_terms: Option<&str>,
+) -> impl Iterator<Item = fancy_regex::Match<'a>> {
+    static PATTERN: std::sync::LazyLock<Fancy> =
+        std::sync::LazyLock::new(|| Fancy::new(TRACE).unwrap());
+    let mut allowed = Vec::new();
+    for term in allowed_terms.unwrap_or("").split(',') {
+        let words = term.split_whitespace().collect::<Vec<_>>();
+        if words.len() >= 2 {
+            let pattern = format!(
+                r"(?i)(?<!\w){}(?!\w)",
+                words
+                    .iter()
+                    .map(|s| regex::escape(s))
+                    .collect::<Vec<_>>()
+                    .join(r"\s+")
+            );
+            allowed.extend(
+                fancy(&pattern)
+                    .find_iter(text)
+                    .flatten()
+                    .map(|m| (m.start(), m.end())),
+            );
+        }
+    }
+    PATTERN.find_iter(text).flatten().filter(move |m| {
+        !allowed
+            .iter()
+            .any(|(a, b)| *a <= m.start() && m.end() <= *b)
+    })
+}
 fn has(s: &str, t: &str) -> bool {
     fancy(s).is_match(t).unwrap_or(false)
 }
@@ -2349,31 +2381,9 @@ fn inspect(
                         fail(&mut r, "secret", "secret-like extracted text")
                     }
                     let traced = rel.clone() + "\n" + &text;
-                    let mut allowed = Vec::new();
-                    for term in cfg
-                        .get("allowed_terms")
-                        .map(String::as_str)
-                        .unwrap_or("")
-                        .split(',')
-                    {
-                        let words = term.split_whitespace().collect::<Vec<_>>();
-                        if words.len() >= 2 {
-                            let pattern = format!(
-                                r"(?i)(?<!\w){}(?!\w)",
-                                words
-                                    .iter()
-                                    .map(|s| regex::escape(s))
-                                    .collect::<Vec<_>>()
-                                    .join(r"\s+")
-                            );
-                            for m in fancy(&pattern).find_iter(&traced).flatten() {
-                                allowed.push((m.start(), m.end()));
-                            }
-                        }
-                    }
                     let mut found = false;
                     let pdf_layout = std::cell::OnceCell::new();
-                    for m in fancy(TRACE).find_iter(&traced).flatten() {
+                    for m in traces(&traced, cfg.get("allowed_terms").map(String::as_str)) {
                         // A cell or text box ending in "scope" does not qualify its neighbor.
                         if m.as_str().to_ascii_lowercase().starts_with("scope")
                             && let Some(units) = office_units
@@ -2395,14 +2405,9 @@ fn inspect(
                         {
                             continue;
                         }
-                        if !allowed
-                            .iter()
-                            .any(|(a, b)| *a <= m.start() && m.end() <= *b)
-                        {
-                            fail(&mut r, "trace", format!("production trace: {}", m.as_str()));
-                            found = true;
-                            break;
-                        }
+                        fail(&mut r, "trace", format!("production trace: {}", m.as_str()));
+                        found = true;
+                        break;
                     }
                     if !found {
                         if let Some(m)=re(r"本文への埋め込み|【[^】\n]{0,60}(?:削除・取り消し線|赤字の挿入|赤字追記)[^】\n]{0,20}】").find(&traced){fail(&mut r,"trace",format!("production trace: {}",m.as_str()));}
@@ -2855,6 +2860,10 @@ fn run_inner(a: &Args, selected: Option<&BTreeMap<String, BTreeSet<String>>>) ->
             eprintln!("定義なし：{}（期間検査・許可語なし）", cfg_path.display());
             BTreeMap::new()
         };
+        let name_rules = selected
+            .map(|_| crate::rename::NameRules::new(cfg.get("date_prefix").map(String::as_str)))
+            .transpose()
+            .with_context(|| format!("{}: 命名規則", cfg_path.display()))?;
         let paths = if let Some(s) = selected {
             s[&name].iter().map(|p| folder.join(p)).collect::<Vec<_>>()
         } else {
@@ -2997,7 +3006,10 @@ fn run_inner(a: &Args, selected: Option<&BTreeMap<String, BTreeSet<String>>>) ->
                     }
                 }
             }
-            if r.issues.is_empty() {
+            let name_problems = name_rules
+                .as_ref()
+                .map_or_else(Vec::new, |rules| rules.name_problems(&r.rel));
+            if r.issues.is_empty() && name_problems.is_empty() {
                 if r.skipped.is_empty() {
                     passed += 1
                 } else {
@@ -3006,6 +3018,9 @@ fn run_inner(a: &Args, selected: Option<&BTreeMap<String, BTreeSet<String>>>) ->
             }
             for (k, v) in r.issues {
                 local.push((r.rel.clone(), k, v))
+            }
+            for reason in name_problems {
+                local.push((r.rel.clone(), "name".into(), reason));
             }
         }
         local.sort();

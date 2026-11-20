@@ -167,23 +167,20 @@ impl<'a> NameRules<'a> {
         let mail = ext_of(rel) == "eml";
         let max = if mail { EML_STEM_MAX } else { STEM_MAX };
         if stem.chars().count() > max {
-            out.push(format!("名前が長すぎる（{max} 文字まで）: {rel}"));
+            out.push(format!("名前が長すぎる（{max} 文字まで）"));
         }
         let date = DATE.find(&stem).or_else(|| COMPACT.find(&stem));
         let title = date
             .map_or(stem.as_ref(), |m| &stem[m.end()..])
             .trim_start_matches([' ', '-', '_']);
         if !mail && SENTENCE.is_match(title) {
-            out.push(format!("名前が要約・結論・会話の文になっている: {rel}"));
+            out.push("名前が要約・結論・会話の文になっている".into());
         }
         if let Some(prefix) = &self.prefix
             && date.is_some()
             && !prefix.is_match(&stem)
         {
-            out.push(format!(
-                "日付の形が定義（{}）と違う: {rel}",
-                self.spec.unwrap()
-            ));
+            out.push(format!("日付の形が定義（{}）と違う", self.spec.unwrap()));
         }
         for dir in path.parent().into_iter().flat_map(Path::components) {
             let dir = dir.as_os_str().to_string_lossy();
@@ -210,13 +207,17 @@ impl<'a> NameRules<'a> {
                         .is_ok_and(|r| r.is_match(&stem))
                 })
             {
-                out.push(format!(
-                    "日付のフォルダと同じ日付を名前にも付けている: {rel}"
-                ));
+                out.push("日付のフォルダと同じ日付を名前にも付けている".into());
                 break;
             }
         }
         out
+    }
+
+    pub(crate) fn path_problems<'b>(&self, rel: &'b str) -> impl Iterator<Item = String> + use<'b> {
+        self.name_problems(rel)
+            .into_iter()
+            .map(move |reason| format!("{reason}: {rel}"))
     }
 }
 
@@ -269,11 +270,10 @@ impl Ctx {
     fn audit(&self) -> PathBuf {
         self.progress().join("rename.audit.md")
     }
-    fn date_prefix(&self) -> Result<Option<String>> {
-        Ok(
-            crate::batch::config_text(&fs::read_to_string(self.definition())?)
-                .remove("date_prefix"),
-        )
+    fn config(&self) -> Result<std::collections::HashMap<String, String>> {
+        Ok(crate::batch::config_text(&fs::read_to_string(
+            self.definition(),
+        )?))
     }
     fn relative(&self, path: &Path) -> Result<String> {
         Ok(path
@@ -375,12 +375,14 @@ impl Ctx {
         pairs: &[(String, String)],
         rows: &BTreeMap<String, Row>,
     ) -> Result<Vec<String>> {
-        let prefix = self.date_prefix()?;
+        let cfg = self.config()?;
+        let prefix = cfg.get("date_prefix").map(String::as_str);
+        let allowed_terms = cfg.get("allowed_terms").map(String::as_str);
         let mut errors = Vec::new();
         if prefix.is_none() {
             errors.push("persona の定義の先頭設定に date_prefix がない".into());
         }
-        let rules = match NameRules::new(prefix.as_deref()) {
+        let rules = match NameRules::new(prefix) {
             Ok(rules) => rules,
             Err(e) => {
                 errors.push(e.to_string());
@@ -439,13 +441,16 @@ impl Ctx {
             if ext_of(old) != ext_of(new) {
                 errors.push(format!("拡張子が変わる: {old} → {new}"));
             }
-            errors.extend(rules.name_problems(new));
+            errors.extend(rules.path_problems(new));
             if crate::batch::bad_path(new) {
                 errors.push(format!("制作区分または ID: {new}"));
             }
+            if crate::check::traces(new, allowed_terms).next().is_some() {
+                errors.push(format!("制作の痕跡: {new}"));
+            }
         }
         for rel in rows.keys().filter(|p| !olds.contains(p)) {
-            let mut problems = rules.name_problems(rel);
+            let mut problems = rules.path_problems(rel).collect::<Vec<_>>();
             if crate::batch::bad_path(rel) {
                 problems.push(format!("制作区分または ID: {rel}"));
             }
@@ -507,24 +512,7 @@ impl References {
                 replacements.entry(new.into()).or_insert_with(|| new.into());
             }
         }
-        let mut keys: Vec<_> = replacements.keys().collect();
-        keys.sort_by_key(|name| std::cmp::Reverse(name.len()));
-        let pattern = if keys.is_empty() {
-            None
-        } else {
-            Some(
-                RegexBuilder::new(
-                    &keys
-                        .into_iter()
-                        .map(|k| regex::escape(k))
-                        .collect::<Vec<_>>()
-                        .join("|"),
-                )
-                .size_limit(32 * 1024 * 1024)
-                .build()
-                .context("旧名の検索パターン")?,
-            )
-        };
+        let pattern = reference_pattern(replacements.keys())?;
         Ok(Self {
             pattern,
             replacements,
@@ -532,26 +520,8 @@ impl References {
     }
 
     fn matches<'a>(&'a self, text: &'a str) -> impl Iterator<Item = regex::Match<'a>> {
-        self.pattern
-            .iter()
-            .flat_map(move |pattern| pattern.find_iter(text))
-            .filter(move |m| {
-                let tail = &text[m.end()..];
-                let embedded_before = text[..m.start()]
-                    .chars()
-                    .next_back()
-                    .is_some_and(|c| c.is_ascii_alphanumeric() || "_-.".contains(c));
-                let embedded_after = tail
-                    .chars()
-                    .next()
-                    .is_some_and(|c| c.is_ascii_alphanumeric() || "_-".contains(c))
-                    || (tail.starts_with('.')
-                        && tail[1..].starts_with(|c: char| c.is_ascii_alphanumeric())
-                        && !tail.strip_prefix(".md").is_some_and(|after| {
-                            !after.starts_with(|c: char| c.is_ascii_alphanumeric())
-                        }));
-                !embedded_before && !embedded_after && self.replacements[m.as_str()] != m.as_str()
-            })
+        reference_matches(&self.pattern, text)
+            .filter(|m| self.replacements[m.as_str()] != m.as_str())
     }
 
     fn rewrite(&self, text: &str) -> Option<String> {
@@ -571,6 +541,100 @@ impl References {
     fn stale(&self, text: &str) -> BTreeSet<String> {
         self.matches(text).map(|m| m.as_str().to_string()).collect()
     }
+}
+
+fn reference_pattern<'a>(names: impl Iterator<Item = &'a String>) -> Result<Option<Regex>> {
+    let mut keys: Vec<_> = names.collect();
+    if keys.is_empty() {
+        return Ok(None);
+    }
+    keys.sort_by_key(|name| std::cmp::Reverse(name.len()));
+    Ok(Some(
+        RegexBuilder::new(
+            &keys
+                .into_iter()
+                .map(|k| regex::escape(k))
+                .collect::<Vec<_>>()
+                .join("|"),
+        )
+        .size_limit(32 * 1024 * 1024)
+        .build()
+        .context("旧名の検索パターン")?,
+    ))
+}
+
+fn reference_matches<'a>(
+    pattern: &'a Option<Regex>,
+    text: &'a str,
+) -> impl Iterator<Item = regex::Match<'a>> {
+    pattern
+        .iter()
+        .flat_map(move |pattern| pattern.find_iter(text))
+        .filter(move |m| {
+            let tail = &text[m.end()..];
+            let embedded_before = text[..m.start()]
+                .chars()
+                .next_back()
+                .is_some_and(|c| c.is_ascii_alphanumeric() || "_-.".contains(c));
+            let embedded_after = tail
+                .chars()
+                .next()
+                .is_some_and(|c| c.is_ascii_alphanumeric() || "_-".contains(c))
+                || (tail.starts_with('.')
+                    && tail[1..].starts_with(|c: char| c.is_ascii_alphanumeric())
+                    && !tail.strip_prefix(".md").is_some_and(|after| {
+                        !after.starts_with(|c: char| c.is_ascii_alphanumeric())
+                    }));
+            !embedded_before && !embedded_after
+        })
+}
+
+struct ExtractedReferences<'a> {
+    exact: &'a References,
+    pattern: Option<Regex>,
+    old_names: BTreeMap<String, BTreeSet<&'a str>>,
+}
+
+impl<'a> ExtractedReferences<'a> {
+    fn new(exact: &'a References) -> Result<Self> {
+        let mut old_names = BTreeMap::<_, BTreeSet<_>>::new();
+        for (old, new) in &exact.replacements {
+            if old != new {
+                old_names
+                    .entry(collapse_whitespace(old))
+                    .or_default()
+                    .insert(old.as_str());
+            }
+        }
+        for (old, new) in &exact.replacements {
+            if old == new {
+                // A normalized match may be a retained name. Keep it in the pattern
+                // to mask shorter matches and require an exact spelling for this hit.
+                old_names.insert(collapse_whitespace(old), BTreeSet::new());
+            }
+        }
+        let pattern = reference_pattern(old_names.keys())?;
+        Ok(Self {
+            exact,
+            pattern,
+            old_names,
+        })
+    }
+
+    fn stale(&self, text: &str) -> BTreeSet<String> {
+        let mut stale = self.exact.stale(text);
+        let normalized = collapse_whitespace(text);
+        stale.extend(
+            reference_matches(&self.pattern, &normalized)
+                .flat_map(|m| &self.old_names[m.as_str()])
+                .map(|name| name.to_string()),
+        );
+        stale
+    }
+}
+
+fn collapse_whitespace(text: &str) -> String {
+    text.split_whitespace().collect::<Vec<_>>().join(" ")
 }
 
 fn text_digest(text: &str) -> String {
@@ -811,6 +875,7 @@ fn apply(c: &Ctx) -> Result<Vec<String>> {
     } else {
         crate::check::ocr_language()?
     };
+    let extracted_names = ExtractedReferences::new(&keys)?;
     for (rel, old) in &finals {
         let path = c.home().join(old);
         crate::batch::safe_file(&c.home(), old)?;
@@ -843,7 +908,7 @@ fn apply(c: &Ctx) -> Result<Vec<String>> {
         } else {
             let text = extract_reference_text(&path, rel, ocr)
                 .with_context(|| format!("参照の検査で中身を読めない: {old}"))?;
-            let stale = keys.stale(&text);
+            let stale = extracted_names.stale(&text);
             if !stale.is_empty() {
                 refs.entry(rel.clone()).or_default().extend(stale);
             }
@@ -1036,10 +1101,11 @@ fn verify(c: &Ctx) -> Result<Vec<String>> {
         keys.iter().flat_map(|keys| keys.stale(text)).collect()
     };
     let mut errors = Vec::new();
-    let prefix = c
-        .date_prefix()?
+    let cfg = c.config()?;
+    let prefix = cfg
+        .get("date_prefix")
         .context("persona の定義の先頭設定に date_prefix がない")?;
-    let names = NameRules::new(Some(&prefix))?;
+    let names = NameRules::new(Some(prefix))?;
     for (old, new) in &past_paths {
         if c.home().join(old).try_exists()? || c.sources().join(format!("{old}.md")).try_exists()? {
             errors.push(format!("旧パスが残る: {old} → {new}"));
@@ -1056,26 +1122,32 @@ fn verify(c: &Ctx) -> Result<Vec<String>> {
     } else {
         crate::check::ocr_language()?
     };
+    let extracted_keys = keys
+        .iter()
+        .map(ExtractedReferences::new)
+        .collect::<Result<Vec<_>>>()?;
     for (rel, old) in &finals {
         let path = crate::batch::safe_file(&c.home(), rel)?;
-        errors.extend(names.name_problems(rel));
+        errors.extend(names.path_problems(rel));
         if metadata_if_exists(&path)?.is_none() {
             errors.push(format!("付け直しが反映されていない: {old} → {rel}"));
             continue;
         }
         if TEXT.contains(&ext_of(rel).as_str()) || refs.contains(rel) {
-            let text = if TEXT.contains(&ext_of(rel).as_str()) {
-                read_text(&path)?
+            let stale = if TEXT.contains(&ext_of(rel).as_str()) {
+                stale_names(&read_text(&path)?)
             } else {
                 match extract_reference_text(&path, rel, ocr) {
-                    Ok(text) => text,
+                    Ok(text) => extracted_keys
+                        .iter()
+                        .flat_map(|keys| keys.stale(&text))
+                        .collect(),
                     Err(e) => {
                         errors.push(format!("中身を読めない: {rel}: {e:#}"));
                         continue;
                     }
                 }
             };
-            let stale = stale_names(&text);
             if !stale.is_empty() {
                 errors.push(format!("中身に古い名前が残る: {rel}: {stale:?}"));
             }
