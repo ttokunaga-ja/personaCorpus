@@ -3808,3 +3808,18 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-20	p10-management-consultant	b007	coordinator	0	other	Documents/Mail/Whitfield/13 Jul - Papers for the 20 July decision.eml	統括の抜き取りで不合格
 2026-11-20	p03-security-grc-analyst	b009	coordinator	0	other	Documents/教育・演習/休日連絡/0422_佐々木さんの受け時刻票.pdf	統括の抜き取りで不合格
 2026-11-20	p03-security-grc-analyst	b009	coordinator	0	other	Documents/教育・演習/休日連絡/0422_松本さんが書いた時刻票.pdf	統括の抜き取りで不合格
+2026-11-20	p20-investigative-journalist	b007	build-review	0	V2	Documents/Stories/Road-contracts/Checks/Aug 19 - twenty-eight claims.xlsx	6ページ目の Price calculation に Investigations desk と 6 / 6 は印刷されているが、1～4ページの Sources では型の独立した Page or time 列がなく、C列の Source and location に資料名と頁・時刻が統合されている。
+2026-11-20	p11-account-executive	b009	draft-review	0	D4	Documents/Forecast/2026/Q2/May 4 opportunities before the call.csv	08:30時点のHollis行の取引名と区分が「Existing adoption order」「Existing order」だが、根拠のMarch 18 adoption orderと締結通知ではUSD 82,000の対象期間が2026年3月31日で終了しており、5月4日時点の区分に終了済みの旧注文であることが反映されていない。
+2026-11-20	p11-account-executive	b009	draft-review	0	D10	Documents/Team-notes/Tyler - May language before review.docx	Contract Terms Review型の実物にはReview status欄があるが、表題直下の管理欄は番号・版・日付・作成者・宛先で終わり、本文もEvidence wordingから始まるため、TylerがMichelleに確認を依頼する添削前の草稿という審査状態が指定欄にない。
+2026-11-20	p11-account-executive	b009	draft-review	0	D3	Documents/Forecast/2026/Q3/Sept 14 opportunities for the cut.csv	13行目のAldridgeは根拠日を8月26日としてUSD 96,000を載せているが、Ahmedの同日返信は名簿担当と購買経路が未確認であることまでしか裏づけず、金額を裏づける8月19日の提示メールまたは提案書への参照がCSV行にも注記にもない。
+2026-11-20	p11-account-executive	b009	draft-review	0	D10	Documents/Forecast/2026/Q3/Sept 14 - figures Donald cleared.xlsx	9～10行目にJDHの契約実績USD 248,000とAldridgeの基本計画外USD 96,000はあるが、型の予測差分表で必要な両取引の変更前区分と次の確認先がなく、F列の根拠だけでは変更前後と引継ぎ先を成形できない。
+2026-11-20	p11-account-executive	b009	build-review	0	V2	Documents/Forecast/2026/Q2/May 4 - before we count it.docx	1ページ目の文書番号・発行日・作成者・宛先にAccount Metadataが未適用で、1ページ目の判断表と2ページ目のFollow-up表が指定のAccount Tableではなく黒い全罫線のTable Gridで、列見出しの繰返し設定もない。
+2026-11-20	p11-account-executive	b009	build-review	0	V2	Documents/Forecast/2026/Q3/Q3 call - one actual and one hold.pptx	表紙タイトルが型の43 pt・青緑133D45から32 pt・233A3Aに上書きされ、2〜4枚目のタイトルも型の31 pt・133D45から32 pt・233A3Aに変わっている。
+2026-11-20	p11-account-executive	b009	build-review	1	V2	Documents/Forecast/2026/Q3/Q3 call - one actual and one hold.pptx	全4枚のタイトルは型の43/31 pt・133D45に復帰したが、2枚目の判断表でAccount and transaction、Evidence、Proposed treatment各列の文字セルの左余白が0.12インチ（指定は0.20インチ以上）、明細2行の文字色が233A3A（指定は26353B）。
+2026-11-20	p11-account-executive	b009	check	0	source	Documents/Forecast/2026/Q3/Q3 call - one actual and one hold.pdf	body token overlap 0.463 < 0.5
+2026-11-20	p11-account-executive	b009	check	1	source	Documents/Forecast/2026/Q3/Q3 call - one actual and one hold.pdf	body token overlap 0.463 < 0.5
+2026-11-20	p11-account-executive	b009	check	2	source	Documents/Forecast/2026/Q3/Q3 call - one actual and one hold.pdf	body token overlap 0.463 < 0.5
+2026-11-20	p07-humanities-researcher	b006	coordinator	0	other	Documents/Book/Appendices/Names in the subscription papers.pdf	統括の抜き取りで不合格
+2026-11-20	p07-humanities-researcher	b006	coordinator	0	other	Documents/Book/Appendices/Receipts behind the counts.csv	統括の抜き取りで不合格
+2026-11-20	p07-humanities-researcher	b006	coordinator	0	other	Documents/Book/Appendices/What the old heading counted.xlsx	統括の抜き取りで不合格
+2026-11-20	p07-humanities-researcher	b006	coordinator	0	other	Documents/Letters/17 April - Appendix tables for the working chapter.eml	統括の抜き取りで不合格

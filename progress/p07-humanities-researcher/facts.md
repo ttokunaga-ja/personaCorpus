@@ -126,3 +126,32 @@
 - 研修① 2025-11-14 15:42 GMT、Judith → Florian Schulte <florian@langley-history.example>、件名「Twenty references for Monday」。Find the passage before fixing the note.docx を添付。
 - 研修② 2025-11-17 11:24 GMT、Florian → Judith、件名「Re: Twenty references for Monday」。①の各自で開く指示を引用し、Find the passage - Florian's comments.docx を添付。
 - 二人が独立に請求記号・葉・面・行を照合し、確認者名・日付・反映先を記録してから作業章稿の本文と注を突き合わせる。11月17日の時点で4件は参照確定、次の作業稿への反映は待ち。提出済みの章稿は保存する。
+
+## 箱12の会費受領控えと第2章の表注
+
+- 2026-01-09 に Camille Laurent から箱12 CR/12/B 043–054の閲覧用紙複写12葉が York に届いた。会の会計係の活字刷りの受領控えで、保存するのは各葉の表面。公表・転載の許諾は含まない。
+- 受領日で四半期に分ける。1863年4〜6月は043r〜045r（各14、計42）、7〜9月は046r〜048r（17・16・16、計49）、10〜12月は049r〜051r（各15、計45）、1864年1〜3月は052r〜054r（各16、計48）。葉・行の「行」は見出しを除く各面の明細の順で、原紙の通し受領番号とは別。
+- この会計年度の通し受領番号は記帳順に1–184。四半期ごとに1–42、43–91、92–136、137–184を使う。別の受領を参照するときはこの番号を用い、典拠では葉・面・行を併記する。
+- CR/12/B 043r l. 4 は Marguerite Bernard の1863年4月10日付0.50フラン（acompte）、044r l. 6 は同じ勘定の5月8日付1.00フラン（残額）。後者は前の受領を指し、受領は2件。
+- 049r l. 5 は1863年10月9日に Étienne Roux が3人分を取りまとめた4.50フラン。個々の割当が記されない一度の受領で1件。既存の040rは別の日の受領を述べる照会書簡で、今回の184明細には入れない。
+- 052r l. 6 は1864年1月15日受領、内訳は「reste du terme de décembre」（前年12月期の残額）。受領期の集計では1864年1〜3月に置く。
+- 2026-01-14 10:00–11:20 GMT、York で Judith Morris と Julie Perrin が184件を照合。第2章 §2 作業用 Table 2.1 の「Participants」を「Payment entries」（延べ支払件数）へ変更し、集計値は維持。単位は記帳された会費の受領1回で、分納は別々、同時に受け取った取りまとめは1件。実人数・来室率は推計しない。
+- 表と表注の文書 LHT-20260112-EVD-001 は1月12日 v0.1、1月14日 v0.2（Julie のコメントは同日11:42・11:47 GMT）、1月15日 v0.3（表・注を Judith が訂正、PDFも同番号・同版）。第2章の提出済み LHT-20250212-CHP-001 v1.1 とは別文書。
+- メール① 2026-01-12 15:28 GMT、Judith → Julie Perrin <julie@langley-history.example>、件名「Could we read the receipts against the heading?」。Numbers under Participants.docx を添付。
+- メール② 2026-01-14 12:14 GMT、Julie → Judith、件名「Re: Could we read the receipts against the heading?」。①を引用し、Numbers under Participants - Julie in the margin.docx を添付。
+- 別便 2026-01-15 16:04 GMT、Judith → Roger Hewitt <roger@langley-history.example>、件名「The table heading has changed」。Table note - payment entries.pdf を添付し、内部作業稿での扱いを求める。
+
+## 出張精算の処理済み分と返金待ちの券
+
+- Frances Dixon（frances@langley-history.example）と Judith は2026-02-12にGBP 1,160を精算。未使用鉄道券GBP 84は別欄に残し、返金通知まで精算済み額へ含めない。
+- 前日の連絡 2026-02-11 11:42 GMT、Frances → Judith、件名「The rail receipt and the unused ticket」。紙券を持参するよう依頼。添付なし。
+
+## 付録3表の受領根拠と同名項目
+
+- 2026-04-16 10:00–11:25 BST、York で Judith Morris と Stefan Albrecht が照合。付録表Aは受領期別の件数、Bは採否を典拠から引く対照表、Cは CR/12/B 043r–054r の人物索引。Aは184受領、Cの57は同定を検討した索引項目数。
+- Cの51項目は記録内で同一の勘定番号または先の受領番号の照応で結び付く2記入を典拠にする。受領期別に11・13・12・15項目（2記入ずつ、計102記入）で、他の明細は照合根拠がないものを数合わせで人物項目にしない。下記6件は1記入ずつ別項目にし、3組とも同一人・別人の断定は保留。
+- Pierre Giraud は CR/12/B 046r l. 5 の取次ぎの当番（préposé）と048r l. 7の本人分の支払名。同じ綴りでも勘定同士を結ぶ参照がない。
+- Claire Martin は049r l. 8 の rue du Four と051r l. 4 の rue des Tanneurs。双方とも記載名は同じで、異なる居所を結ぶ勘定の記載を確認できない。
+- Jules Petit は052r l. 9 の製本工（relieur）と054r l. 8 の事務員（commis）。職名に加えて葉・行を併記し、職名だけで人物を確定しない。
+- 送付① 2026-04-09 14:52 BST、Judith → Stefan Albrecht <stefan@langley-history.example>、件名「Three tables for next Thursday」。How the three tables will be used.docx を添付。
+- 送付② 2026-04-17 14:32 BST、Judith → Roger、件名「Appendix tables for the working chapter」。研究班用の3表を添付。Aは Receipts by quarter of payment.pdf、Bは What was entered as received.pdf、Cは Names in the subscription papers.pdf。①とは別のメールで引用なし。

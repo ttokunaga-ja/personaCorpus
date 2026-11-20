@@ -1,0 +1,14 @@
+---
+path: Documents/Reading/French/Acompte et solde - que faire de remise.txt
+kind: text
+author: Judith Morris
+derived_from:
+---
+
+Pour Julie — mots à garder avec la date, 13 janvier
+
+CR/12/B f. 043r, l. 4 : « acompte », Marguerite Bernard, 10 avril 1863, 0,50 fr. Le mot désigne une partie versée, pas une personne supplémentaire. À f. 044r, l. 6, le solde de 1,00 fr. est reçu le 8 mai pour le même compte ; l'entrée renvoie à la première réception. Deux dates, deux réceptions, un seul terme réglé en deux fois. Garder les deux dates dans le relevé.
+
+CR/12/B f. 049r, l. 5 : « remise » de 4,50 fr. par Étienne Roux pour trois sociétaires, le 9 octobre 1863. Ici la somme est effectivement reçue en une fois. Le détail individuel n'est pas donné : ne pas répartir 1,50 fr. par personne dans le relevé et ne pas transformer cette entrée en trois réceptions. Comparer f. 040r : le trésorier y demande comment enregistrer une autre remise pour trois personnes ; ce courrier n'est pas lui-même une ligne de ce relevé.
+
+CR/12/B f. 037r, ll. 4–8 : l'offrande de deux francs pour le charbon doit être tenue à part des cotisations ; la lettre demande encore la remise de l'enveloppe. Le mot ne suffit donc pas à en faire une cotisation reçue. CR/12/A f. 023r, ll. 4–7 : la cotisation trimestrielle de 1 fr. 50 est réclamée et un reçu annoncé ; la demande ne prouve pas le paiement. Dans chaque cas, lire l'action et son objet, non le seul substantif.
