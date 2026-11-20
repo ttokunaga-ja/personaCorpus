@@ -34,7 +34,7 @@ The Jan 8 worksheet aligned the exports by position and flagged two conflicting 
 
 ## Evidence
 
-- **2025-01-06 Bennett comparison readings.csv** — Lauren Brooks's original Bennett export.
-- **2025-01-07 Caldwell comparison readings.csv** — Angela Price's original export in Caldwell accession order.
+- **2025-01-06_Bennett readings.csv** — Lauren Brooks's original Bennett export.
+- **2025-01-07_Caldwell readings.csv** — Angela Price's original export in Caldwell accession order.
 - **January shared labels and accessions.tsv** — Jan 9 crosswalk, including Angela's confirmation for MC18-07 and MC18-08.
-- **Jan 13 pair differences.csv** — Both original concentrations and signed Caldwell-minus-Bennett differences for all 18 pairs. See **January readings side by side.png** for the paired display.
+- **2025-01-13_Caldwell pair differences.csv** — Both original concentrations and signed Caldwell-minus-Bennett differences for all 18 pairs. See **January paired readings chart.png** for the paired display.

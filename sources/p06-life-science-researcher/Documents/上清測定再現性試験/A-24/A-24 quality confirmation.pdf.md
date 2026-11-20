@@ -16,7 +16,7 @@ To: Melissa Watkins and Robert Nguyen
 ## Records reviewed
 
 - Lauren Brooks's signed measurement sheet BCE-CE-2026-LAB-006-R00, Jul 21, 2026.
-- Original CE-Reader-2 output, `2026-07-21 A-24 readings.csv`, saved Jul 21 at 11:41.
+- Original CE-Reader-2 output, `2026-07-21_A-24 readings.csv`, saved Jul 21 at 11:41.
 - Melissa Watkins's run summary BCE-CE-2026-TBL-005-R00, including Run readings and Run summary.
 - Approved single-run plan BCE-CE-2026-PLN-003-R00.
 

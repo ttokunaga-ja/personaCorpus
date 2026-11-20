@@ -4,7 +4,7 @@ kind: bennett-funding-budget.xlsx
 author: Melissa Watkins
 modified_by: Melissa Watkins
 created: 2026-08-11 09:35
-derived_from: Documents/Funding/Next request - options for August 13.xlsx
+derived_from: Documents/Funding/2026-08-13_Budget options.xlsx
 ---
 
 # Next request — Robert's allocation

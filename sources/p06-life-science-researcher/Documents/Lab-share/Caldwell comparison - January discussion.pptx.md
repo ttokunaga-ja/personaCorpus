@@ -69,7 +69,7 @@ Layout: BCE Figure and Caption
 
 Title: January readings side by side
 
-Figure: Use the saved figure `Documents/上清測定再現性試験/Method-comparison/January readings side by side.png`. It shows the 18 pairs from the Jan 13 extract. The horizontal axis is the shared MC18 suffix (01–18), and the vertical axis is concentration in ng/mL (4–8.5). Bennett is the filled circle and Caldwell is the open diamond. The line within each pair connects the two site readings.
+Figure: Use the saved figure `Documents/上清測定再現性試験/Method-comparison/January paired readings chart.png`. It shows the 18 pairs from the Jan 13 extract. The horizontal axis is the shared MC18 suffix (01–18), and the vertical axis is concentration in ng/mL (4–8.5). Bennett is the filled circle and Caldwell is the open diamond. The line within each pair connects the two site readings.
 
 Caption:
 

@@ -1,0 +1,14 @@
+---
+path: Downloads/2025-02-05_Prep register extract.csv
+kind: text
+author: Patricia Jensen
+derived_from:
+---
+
+```csv
+Preparation record reference,Material identification,Preparation date,Source field
+PR-250128-02,FCM-141A,2025-01-28,Preparation date
+PR-250129-03,FCM-141B,2025-01-29,Preparation date
+PR-250131-06,FCM-147C,2025-01-31,Preparation date
+PR-250131-08,FCM-153D,2025-01-31,Preparation date
+```

@@ -1,0 +1,26 @@
+---
+path: Documents/Correspondence/2025-01-08_Can you check Caldwell accessions 07 and 08.eml
+kind: text
+author: Melissa Watkins
+derived_from:
+---
+
+From: Melissa Watkins <melissa@bennett-cell.example>
+To: Angela Price <angela@caldwell-assay.example>
+Cc:
+Date: Wed, 08 Jan 2025 11:02:00 -0500
+Subject: Can you check Caldwell accessions 07 and 08
+Message-ID: <471563c0-ea1d-476e-8110-9e9bf986c366@bennett-cell.example>
+
+Hi Angela,
+
+I tried lining up the two exports in file order this morning. Sixteen labels lined up, but the two entries in the middle came up in the opposite order on our lists. Before I join on the shared label, could you check these against your register?
+
+Which shared label belongs to CA-250107-07, and which belongs to CA-250107-08?
+
+I'll keep the CSV you sent exactly as received and wait for your confirmation before I enter those two links in our crosswalk.
+
+Thanks,
+Melissa
+
+Attachments: none.

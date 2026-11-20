@@ -1,0 +1,18 @@
+---
+path: Documents/Lab-book/2025/01/Caldwell comparison filing note.txt
+kind: text
+author: Lauren Brooks
+derived_from:
+---
+
+Jan 21, 2025 — 4:04 PM EST
+
+Melissa,
+
+I found both originals in Downloads: 2025-01-06_Bennett readings.csv and 2025-01-07_Caldwell readings.csv. I left the files as they came out, including Caldwell's accession order. The filing set keeps both with January shared labels and accessions.tsv. I went down the crosswalk and looked up both native IDs for every label. I could retrieve all 18 Bennett records and all 18 Caldwell records. In particular, the lookup for MC18-07 lands on CA-250107-08, and MC18-08 lands on CA-250107-07.
+
+The Jan 8 sheet on the Desktop, Caldwell pairing - row order trial.xlsx, is still identifiable as the first row-order attempt. For the copy that went to Angela, the Jan 17 sent message carries 2025-01-16_Caldwell comparison.xlsx, BCE-CE-2025-TBL-003-R00.
+
+That closes my filing item from the Jan 16 review. Anthony still has the separate October disposition queue, BCE-CE-2024-TBL-007-R00, for the 44 held results.
+
+Lauren

@@ -29,4 +29,4 @@ MC18-18	BN-250106-18	CA-250107-18	Shared label in Jan 6 Bennett and Jan 7 Caldwe
 
 ## Table notes
 
-For Lauren Brooks and Anthony Mendoza. Read all three identifier columns as text. Look up the Bennett ID in `2025-01-06 Bennett comparison readings.csv` and the Caldwell accession in `2025-01-07 Caldwell comparison readings.csv`. The check reference travels with each row. This crosswalk contains 18 distinct shared labels and 18 distinct IDs from each export.
+For Lauren Brooks and Anthony Mendoza. Read all three identifier columns as text. Look up the Bennett ID in `2025-01-06_Bennett readings.csv` and the Caldwell accession in `2025-01-07_Caldwell readings.csv`. The check reference travels with each row. This crosswalk contains 18 distinct shared labels and 18 distinct IDs from each export.

@@ -6,6 +6,6 @@ derived_from:
 ---
 
 Received at (EDT),Original filename,First record ID,Last record ID,Row count,Date sheet
-2025-07-14 11:42,2025-07-14 Storage zero-hour readings.csv,BN-250714-01,BN-250714-12,12,Filed
-2025-07-15 11:47,2025-07-15 Storage next-day readings.csv,BN-250715-01,BN-250715-12,12,Filed
-2025-07-16 11:55,2025-07-16 Storage two-day readings.csv,BN-250716-01,BN-250716-12,12,Filed
+2025-07-14 11:42,2025-07-14_Storage 0 h readings.csv,BN-250714-01,BN-250714-12,12,Filed
+2025-07-15 11:47,2025-07-15_Storage 24 h readings.csv,BN-250715-01,BN-250715-12,12,Filed
+2025-07-16 11:55,2025-07-16_Storage 48 h readings.csv,BN-250716-01,BN-250716-12,12,Filed

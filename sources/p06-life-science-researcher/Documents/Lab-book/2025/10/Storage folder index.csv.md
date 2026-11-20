@@ -1,0 +1,21 @@
+---
+path: Documents/Lab-book/2025/10/Storage folder index.csv
+kind: text
+author: Melissa Watkins
+derived_from:
+---
+# October storage folder index
+
+CSV contents; locations are relative to the user folder. Filing roles are included in the final column for Lauren and Anthony.
+
+```csv
+record,relative_location,record_date,owner,filing_role
+July determination,Documents/Quality/Deviations/Storage label deviation report.pdf,2025-07-24,Anthony Mendoza,Evidence: final identity exclusions decided July 21
+July disposition workbook,Documents/上清保存時間試験/Storage-study/July storage sample disposition.xlsx,2025-07-24,Melissa Watkins,Evidence: all 36 listed and 34 eligible after disposition
+Eligible extract,Documents/上清保存時間試験/Storage-study/July eligible storage readings.csv,2025-08-06,Melissa Watkins,Analysis input: 34 eligible readings
+Group summary,Documents/上清保存時間試験/Storage-study/Storage time group means and baseline.xlsx,2025-08-07,Melissa Watkins,Formula workbook: eligible counts and group comparison
+Normalized comparison,Documents/上清保存時間試験/Storage-study/Storage readings against zero hour.png,2025-09-03,Melissa Watkins,Figure: observed group means relative to zero hour
+Director briefing,Documents/Lab-share/2025-10-16_Storage limit briefing.pptx,2025-10-14,Melissa Watkins,Decision pre-read and proposed boundary
+Decision minutes,Documents/Lab-share/2025-10-16_Storage decision minutes.docx,2025-10-16,Melissa Watkins,Meeting decision and assigned actions
+Issued decision,Documents/上清保存時間試験/Storage-study/Storage time limit decision.pdf,2025-10-16,Melissa Watkins,Active instruction effective October 20
+```

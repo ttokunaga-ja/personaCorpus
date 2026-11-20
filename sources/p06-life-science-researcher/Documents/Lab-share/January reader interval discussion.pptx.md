@@ -62,7 +62,7 @@ Figure: Two-bar chart titled “CE-Reader-2 active use”. Horizontal axis: peri
 
 Caption: The change is relative to the Jul–Sep base: (292.8 − 240.0) / 240.0 = 22.0%. Active operation only; setup, idle reservations and Mason service are excluded. Each window is 92 calendar days.
 
-Source: Lauren Brooks, Jan 5, 2026 monthly usage-counter export, “2026-01-05 CE-Reader-2 monthly use.csv”, and signed usage close BCE-CE-2026-LAB-001-R00. The respective subtotals are 14,400 and 17,568 minutes, divided by 60.
+Source: Lauren Brooks, Jan 5, 2026 monthly usage-counter export, “CE-Reader-2_MonthlyHours_2025-12.csv”, and signed usage close BCE-CE-2026-LAB-001-R00. The respective subtotals are 14,400 and 17,568 minutes, divided by 60.
 
 Speaker notes: The later window contains 52.8 more active hours, not more calendar days. Reservation time is not a substitute for the counter. The increase does not by itself measure drift or establish performance at twelve months.
 

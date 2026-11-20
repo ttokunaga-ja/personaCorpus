@@ -4,7 +4,7 @@ kind: bennett-findings.docx
 author: Melissa Watkins
 modified_by: Melissa Watkins
 created: 2025-11-07 14:51
-derived_from: Documents/Funding/Whitmore cost explanation - before the call.docx
+derived_from: Documents/Funding/Whitmore justification - call draft.docx
 ---
 
 # Whitmore — revised budget justification

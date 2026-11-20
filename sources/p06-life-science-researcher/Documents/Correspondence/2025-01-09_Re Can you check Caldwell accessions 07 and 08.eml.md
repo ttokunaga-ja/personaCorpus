@@ -1,0 +1,27 @@
+---
+path: Documents/Correspondence/2025-01-09_Re Can you check Caldwell accessions 07 and 08.eml
+kind: text
+author: Angela Price
+derived_from:
+---
+
+From: Angela Price <angela@caldwell-assay.example>
+To: Melissa Watkins <melissa@bennett-cell.example>
+Cc:
+Date: Thu, 09 Jan 2025 09:47:00 -0500
+Subject: Re: Can you check Caldwell accessions 07 and 08
+Message-ID: <d666fa95-22ca-449f-becc-be617a4a4af2@caldwell-assay.example>
+In-Reply-To: <471563c0-ea1d-476e-8110-9e9bf986c366@bennett-cell.example>
+References: <471563c0-ea1d-476e-8110-9e9bf986c366@bennett-cell.example>
+
+Hi Melissa,
+
+I checked both entries against the Caldwell accession register. CA-250107-07 belongs to MC18-08, and CA-250107-08 belongs to MC18-07. Those are the labels in the Jan 7 export. Please keep the original CSV as sent and use those links in your crosswalk.
+
+Thanks,
+Angela
+
+On Wed, Jan 8, 2025 at 11:02 AM, Melissa Watkins wrote:
+> Which shared label belongs to CA-250107-07, and which belongs to CA-250107-08?
+
+Attachments: none.

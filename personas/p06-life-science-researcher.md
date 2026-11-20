@@ -4,6 +4,7 @@ period: 2024-04-01..2026-09-30
 timezone: America/New_York
 allowed_terms: assay batch, batch number, synthetic medium, scope of study
 photo_dirs: Pictures
+date_prefix: YYYY-MM-DD_|DD_
 ---
 
 # p06 生命科学研究者
@@ -127,6 +128,21 @@ Documents/Lab-share/                        共有会議の資料と議事録
 Documents/Correspondence/                   共同検討と点検依頼の eml
 ```
 
+
+## 名前の付け方
+
+Melissa は英語で、試験名・装置タグ・相手先と、作業票・照合表・議事録などの種類を短く付ける。机上の草稿や赤字スキャンには確認相手や版を添え、清書版と見分ける。日付で探す測定出力や会議資料は、測定日や会議日の `YYYY-MM-DD_` で始める。年月別の `Lab-book` では日を手がかりにする記録だけ `DD_` で始め、月全体を扱う索引は資料名だけにする。
+
+作業票と照合する写真は日付と被写体で名付け、補助の写真や Windows のスクリーンショットは機器・OS の名前で残すことがある。Downloads では装置の書き出し名や発行元の添付名も使う。保存メールは送信日と英語の件名で揃え、`Re:` のコロンなどファイル名に使えない文字を除き、長い件名は用件を残して詰める。
+
+- `2026-07-21_A-24 readings.csv`（測定日の原出力）
+- `21_A-24 measurement sheet.pdf`（`Lab-book/2026/07/` の作業票）
+- `April comparison - Anthony markup.pdf`（机上の赤字スキャン）
+- `2024-07-08_Culture rack handoff.jpg`（作業票と突き合わせる写真）
+- `IMG_0412.jpg`（カメラ名のままの補助写真）
+- `Screenshot (12).png`（Windows が付けた画面保存名）
+- `CAS-2025-0115-CMP-001.pdf`（Caldwell の添付名）
+- `2024-07-11_Re First repeatability run - four flags.eml`（返信の保存）
 
 ## 形式の目安
 

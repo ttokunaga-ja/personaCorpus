@@ -1,0 +1,15 @@
+---
+path: Documents/Manuscript/2026-09-09_Report version index.csv
+kind: text
+author: Melissa Watkins
+derived_from:
+---
+
+```csv
+Item,File location,Local date,Author or custodian,Report revision,Status
+August working text,Documents/Manuscript/Joint supernatant report - August draft.docx,2026-08-31,Melissa Watkins,BCE-CE-2026-RPT-001-R00,Internal evidence for Anthony's first read
+Marked paper scan,Desktop/Joint report - storage page markup.pdf,2026-09-09,Melissa Watkins,BCE-CE-2026-RPT-001-R00,Internal evidence with Anthony's marks on page 2. Not distributed.
+September editing copy,Documents/Manuscript/Joint supernatant report - Sept R01.docx,2026-09-09,Melissa Watkins,BCE-CE-2026-RPT-001-R01,Editable review text
+Outgoing report,Documents/Manuscript/Joint supernatant measurement report.pdf,2026-09-09,Melissa Watkins,BCE-CE-2026-RPT-001-R01,Sent to Angela at 15:36 EDT
+Companion register,Documents/Manuscript/2026-09-09_Figure and legend check.xlsx,2026-09-09,Melissa Watkins,BCE-CE-2026-RPT-001-R01,Sent to Angela at 15:36 EDT as separate register BCE-CE-2026-TBL-006-R00
+```

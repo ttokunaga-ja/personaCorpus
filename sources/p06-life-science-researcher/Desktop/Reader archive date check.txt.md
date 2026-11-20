@@ -1,0 +1,12 @@
+---
+path: Desktop/Reader archive date check.txt
+kind: text
+author: Melissa Watkins
+derived_from:
+---
+
+Oct 23, 9:07 — for me
+
+The quick file-date filter put the OCT-21 archive under Oct 22 alongside the four actual Oct 22 readings. ~~10 readings on Oct 22~~ — do not use that count. Lauren saved the OCT-21 archive at 08:18 the next morning; that is a save time, not necessarily the acquisition date.
+
+Ask Lauren to check the paper date and the original timestamps before I send anyone a scope. Keep the four post-service readings separate until then.

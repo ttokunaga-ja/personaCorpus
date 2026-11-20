@@ -1,0 +1,19 @@
+---
+path: Documents/Lab-book/2024/07/Repeatability run filing notes.txt
+kind: text
+author: Melissa Watkins
+derived_from:
+---
+
+Jul 31 — before moving the July 11 files
+
+Keep together for the next review:
+
+- Downloads/2024-07-11_Supernatant results.csv — Lauren's original 24-row export. Keep it intact.
+- Lab-book/2024/07/08_Culture rack handoff.pdf and 10_Culture rack label check.pdf — both dated rack scans; slots 01–12 were used on each date. Keep the Rack crosswalk - days 08 and 10.tsv with them.
+- Lab-book/2024/07/11_Measurement sheet with flags.pdf — Lauren's dated measurement sheet and four-flag tally.
+- Lab-book/2024/07/11_Pooled findings draft.docx (R00) and 11_Findings by culture date.docx (R01) — keep both readings of the same run.
+
+Retain the flagged readings under their full IDs: RPT-240711-19 (17%), RPT-240711-20 (19%), RPT-240711-23 (18%) and RPT-240711-24 (21%). All 24 values stay with the record. The date split is 0/12 over 15% for Jul 8 and 4/12 for Jul 10; it does not establish a cause.
+
+For Aug 2: bring Robert the dated proposal, Lauren's availability and Anthony's crosswalk review. A capacity reservation may be held provisionally. Repeat date: open. Authorization to run: open. See Lab-share/2024-07-29_Repeatability review minutes.docx.

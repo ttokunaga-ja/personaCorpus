@@ -1,0 +1,14 @@
+---
+path: Documents/Lab-book/2024/10/Month-end reader hold notes.txt
+kind: text
+author: Melissa Watkins
+derived_from:
+---
+
+October close — Oct 31
+
+File Christopher's signed Mason certificate MLM-2024-1022-SV-014 with the October reader data. Keep the original measurements unchanged with it; the certificate records service completion at 11:18 EDT on Oct 22, not a disposition of the earlier results.
+
+Leave Anthony's queue BCE-CE-2024-TBL-007-R00 open: 44 results from Oct 9, 10, 11, 15, 17 and 21 remain on hold. Robert still needs to decide their disposition. As of today no repeat outcome and no release have been entered. The four Oct 22 post-service observations remain separate; they began at 11:32.
+
+Melissa

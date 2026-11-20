@@ -1,0 +1,56 @@
+---
+path: Documents/Medium-exchange/June exchange readings extract.csv
+kind: text
+author: Melissa Watkins
+derived_from:
+---
+
+```csv
+Interval_h,Sample_ID,Prep_date,Measurement_date,Measurement_round,Original_output_row,Result_ng_mL,Use
+24,MX24-01,2025-06-23,2025-06-26,MX-250626,2,10.40,Adopted
+24,MX24-02,2025-06-23,2025-06-26,MX-250626,3,9.08,Adopted
+24,MX24-03,2025-06-23,2025-06-26,MX-250626,4,10.92,Adopted
+24,MX24-04,2025-06-23,2025-06-26,MX-250626,5,9.60,Adopted
+24,MX24-05,2025-06-23,2025-06-26,MX-250626,6,10.13,Adopted
+24,MX24-06,2025-06-23,2025-06-26,MX-250626,7,8.81,Adopted
+24,MX24-07,2025-06-23,2025-06-26,MX-250626,8,10.66,Adopted
+24,MX24-08,2025-06-23,2025-06-26,MX-250626,9,9.87,Adopted
+24,MX24-09,2025-06-23,2025-06-26,MX-250626,10,11.19,Adopted
+24,MX24-10,2025-06-23,2025-06-26,MX-250626,11,9.34,Adopted
+48,MX48-01,2025-06-23,2025-06-26,MX-250626,12,10.99,Adopted
+48,MX48-02,2025-06-23,2025-06-26,MX-250626,13,8.61,Adopted
+48,MX48-03,2025-06-23,2025-06-26,MX-250626,14,10.20,Adopted
+48,MX48-04,2025-06-23,2025-06-26,MX-250626,15,11.78,Adopted
+48,MX48-05,2025-06-23,2025-06-26,MX-250626,16,9.41,Adopted
+48,MX48-06,2025-06-23,2025-06-26,MX-250626,17,10.59,Adopted
+48,MX48-07,2025-06-23,2025-06-26,MX-250626,18,8.22,Adopted
+48,MX48-08,2025-06-23,2025-06-26,MX-250626,19,11.39,Adopted
+48,MX48-09,2025-06-23,2025-06-26,MX-250626,20,9.80,Adopted
+48,MX48-10,2025-06-23,2025-06-26,MX-250626,21,9.01,Adopted
+72,MX72-01,2025-06-23,2025-06-26,MX-250626,22,11.73,Adopted
+72,MX72-02,2025-06-23,2025-06-26,MX-250626,23,8.27,Adopted
+72,MX72-03,2025-06-23,2025-06-26,MX-250626,24,13.12,Adopted
+72,MX72-04,2025-06-23,2025-06-26,MX-250626,25,9.65,Adopted
+72,MX72-05,2025-06-23,2025-06-26,MX-250626,26,7.57,Adopted
+72,MX72-06,2025-06-23,2025-06-26,MX-250626,27,10.35,Adopted
+72,MX72-07,2025-06-23,2025-06-26,MX-250626,28,6.88,Adopted
+72,MX72-08,2025-06-23,2025-06-26,MX-250626,29,12.43,Adopted
+72,MX72-09,2025-06-23,2025-06-26,MX-250626,30,8.96,Adopted
+72,MX72-10,2025-06-23,2025-06-26,MX-250626,31,11.04,Adopted
+72,MX72-01,2025-06-12,2025-06-17,MX-250617,22,6.36,Comparison
+72,MX72-02,2025-06-12,2025-06-17,MX-250617,23,7.95,Comparison
+72,MX72-03,2025-06-12,2025-06-17,MX-250617,24,8.75,Comparison
+72,MX72-04,2025-06-12,2025-06-17,MX-250617,25,9.32,Comparison
+72,MX72-05,2025-06-12,2025-06-17,MX-250617,26,9.77,Comparison
+72,MX72-06,2025-06-13,2025-06-17,MX-250617,27,10.23,Comparison
+72,MX72-07,2025-06-13,2025-06-17,MX-250617,28,10.45,Comparison
+72,MX72-08,2025-06-13,2025-06-17,MX-250617,29,11.25,Comparison
+72,MX72-09,2025-06-13,2025-06-17,MX-250617,30,12.27,Comparison
+72,MX72-10,2025-06-13,2025-06-17,MX-250617,31,13.64,Comparison
+```
+
+## Reconciliation notes for Melissa Watkins and Anthony Mendoza
+
+The CSV contains the eight columns shown above. Interval_h is the study condition in hours. Prep_date and Measurement_date are calendar dates in YYYY-MM-DD format. Identify a reading by Measurement_round and Sample_ID together. Original_output_row is the row in that round's reader export, counting its header as row 1. Result_ng_mL is the retained concentration. Use marks the decision set as Adopted and the historical reference set as Comparison.
+
+For the decision use the 30 Adopted rows from MX-250626, one reading per study ID. Compute the sample standard deviation and mean within each ten-row interval group and divide the former by the latter. Display the resulting percentage to one decimal: 24 h 8.0%, 48 h 12.0%, 72 h 21.0%. The ten Comparison rows from MX-250617 give 21.0% for the initial 72 h group when calculated on their own. The initial 24 h and 48 h readings are outside this extract. The combined 40 rows represent 30 distinct study IDs.

@@ -6,10 +6,10 @@ derived_from:
 ---
 # Storage time group means and baseline
 
-For Anthony Mendoza and Robert Nguyen. BCE-CE-2025-TBL-005-R00; Aug 7, 2025; Melissa Watkins. Source: Eligible July readings for the storage comparison.csv, Aug 6, 2025.
+For Anthony Mendoza and Robert Nguyen. BCE-CE-2025-TBL-005-R00; Aug 7, 2025; Melissa Watkins. Source: July eligible storage readings.csv, Aug 6, 2025.
 
 ## Sheet: Group summary
-B4: BCE-CE-2025-TBL-005-R00; E4: Melissa Watkins; B5: Aug 7, 2025; E5: Eligible July readings for the storage comparison.csv
+B4: BCE-CE-2025-TBL-005-R00; E4: Melissa Watkins; B5: Aug 7, 2025; E5: July eligible storage readings.csv
 
 Row 7: A Storage time (h); B Planned n; C Eligible n; D Mean (ng/mL); E Ratio to 0 h; F Change from 0 h; G Note.
 
@@ -24,7 +24,7 @@ Row 11: A:B Total eligible; C11 `=SUM(C8:C10)` (34).
 Expected displayed means 7.0475, 6.9827 and 5.7791 ng/mL; ratios 100.0%, 99.1% and 82.0%; signed changes 0.0%, −0.9% and −18.0%. Ratios use unrounded means. Two identity-disputed records are excluded under BCE-CE-2025-DEV-001-R00; no values were substituted.
 
 ## Sheet: Eligible readings
-B4: BCE-CE-2025-TBL-005-R00; E4: Melissa Watkins; B5: Aug 7, 2025; E5: Eligible July readings for the storage comparison.csv
+B4: BCE-CE-2025-TBL-005-R00; E4: Melissa Watkins; B5: Aug 7, 2025; E5: July eligible storage readings.csv
 
 Row 7: A No.; B Native ID; C Storage time (h); D Matched label; E Concentration (ng/mL); F Measurement date; G Handoff record.
 

@@ -1,0 +1,21 @@
+---
+path: Downloads/2025-07-15_Storage 24 h readings.csv
+kind: text
+author: Lauren Brooks
+derived_from:
+---
+```csv
+acquisition_date,reader,record_id,recorded_label,concentration_ng_mL
+2025-07-15,CE-Reader-2,BN-250715-01,ST24-01,6.92
+2025-07-15,CE-Reader-2,BN-250715-02,ST24-02,7.13
+2025-07-15,CE-Reader-2,BN-250715-03,ST24-03,6.74
+2025-07-15,CE-Reader-2,BN-250715-04,ST24-04,7.06
+2025-07-15,CE-Reader-2,BN-250715-05,ST24-15,6.88
+2025-07-15,CE-Reader-2,BN-250715-06,ST24-06,7.20
+2025-07-15,CE-Reader-2,BN-250715-07,ST24-07,6.97
+2025-07-15,CE-Reader-2,BN-250715-08,ST24-08,6.81
+2025-07-15,CE-Reader-2,BN-250715-09,ST24-09,7.09
+2025-07-15,CE-Reader-2,BN-250715-10,ST24-10,6.95
+2025-07-15,CE-Reader-2,BN-250715-11,ST24-11,7.15
+2025-07-15,CE-Reader-2,BN-250715-12,ST24-12,6.79
+```

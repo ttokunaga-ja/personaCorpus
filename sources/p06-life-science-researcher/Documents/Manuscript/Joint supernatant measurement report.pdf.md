@@ -2,7 +2,7 @@
 path: Documents/Manuscript/Joint supernatant measurement report.pdf
 kind: tex:bennett-joint-report.cls
 author: Melissa Watkins
-derived_from: Documents/Manuscript/Joint supernatant report - September review.docx
+derived_from: Documents/Manuscript/Joint supernatant report - Sept R01.docx
 ---
 
 Typeset the September review copy using the Joint report heading fields.
