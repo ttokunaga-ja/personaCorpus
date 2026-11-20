@@ -3891,3 +3891,5 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-20	p06-life-science-researcher	b009	build-review	0	V3	Documents/Medium-exchange/Which readings support the interval decision.pdf	1ページ目のConfirmation表で第2列の幅が狭く、見出しAdopted readingsが大きな語間を空けたAdopted read-と次行のingsに分断されている。
 2026-11-20	p06-life-science-researcher	b009	build-review	1	V2	Documents/Medium-exchange/Exchange interval findings - working copy.docx	1ページ目の根拠表で前回指摘のn・Repeat CV・Criterionは全3行とも右寄せになったが、Criterionの直後のPosition列は全3行がBennett Table Textで、型のBennett Table After Numberによる左0.13インチの字下げがない。
 2026-11-20	p06-life-science-researcher	b009	build-review	1	V2	Documents/Medium-exchange/Why we would stop at 48 hours.docx	1ページ目の根拠表で前回指摘のMeasurement dateは単語を切らずに2行で読めるが、Criterionの直後のPosition列は全3行がBennett Table Textで、型のBennett Table After Numberによる左0.13インチの字下げがない。
+2026-11-20	p18-manufacturing-quality-engineer	b009	coordinator	0	other	Pictures/CL-1625 小型保持金具/2025-07-11/両ねじを締めて丸ピンをつかんだ状態.jpg	統括の抜き取りで不合格
+2026-11-20	p18-manufacturing-quality-engineer	b009	coordinator	0	other	Pictures/Charts/CL-1625_23番と前後枠の荷重曲線.png	統括の抜き取りで不合格
