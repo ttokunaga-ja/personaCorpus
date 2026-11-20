@@ -16,6 +16,7 @@
 | 募集条件照合 | Carver、Carolyn。候補を符号で扱い、3条件の回答と最初に外れた条件を週次の募集会議で照合する | `carver-participant-eligibility.xlsx` | Letter 横、共通ロゴ、黒鉛色の6列見出しと麻色の集計欄。1候補1行で根拠欄を広く取る |
 | 配車追加調査の割当 | Carver、Brian と Jennifer。直近5勤務の交代頻度別に面談枠と配置の根拠を確認する | `carver-dispatch-allocation.xlsx` | Letter 横、共通ロゴと管理欄。面談枠を1行ずつ並べ、頻度別の小計を麻色で示す |
 | 面談の録音管理 | Carver、Ayesha と金子。許可の確認時刻、音声の消去日時または保存期限を対応させる | `carver-recording-register.xlsx` | Letter 横、共通ロゴと管理欄。音声の取扱いと日時の列を離し、確認者と用途を右端に置く |
+| 月末の音声保存期限点検 | Carver、Jennifer と金子。複数調査の点検項目を、期限到来・期日前・録音対象外に分ける | `carver-retention-review.xlsx` | Letter 横、共通ロゴと管理欄、黒鉛色の見出し。面談日・許可区分・期限・点検結果を別列に置く |
 | 配車の観察場面と人数の照合 | Carver、Jennifer と Brian。場面、人数に含める行、確認できた範囲を突き合わせる | `carver-dispatch-findings.xlsx` | Letter 横、共通ロゴと管理欄。人数欄は右寄せ、隣の照合結果は1字下げ。人数の集計は麻色 |
 | 会場費精算 | Carver、Jennifer。運営が発行した紙の明細と会場ごとの申請額を照合する | `carver-venue-expenses.xlsx` | Letter 横、共通ロゴと黒鉛色の列見出し。USD は小数2桁を右寄せ、理由欄は折り返す |
 | 場面共有スライド | Carver、Jennifer。引継ぎの四場面、夜勤棚卸の再開、研修画面の文言案を説明 | `carver-field-brief.pptx` | 16:9、白地。小さな社名と図形ロゴを上に、ページの区切り線を下に置く。マスター1種・レイアウト5種 |
@@ -90,9 +91,19 @@
 
 ### 面談の録音管理
 
-`carver-recording-register.xlsx` のシート `Recording register` を開く。ブックの題名は `Dispatch interview recording register`。共通管理欄の案件は `DR`、用途は `DEC`。7行目から1面談1行で、A〜E列は `CWR Text`、F列は `CWR Note` を使う。B・D列は日時（`yyyy-mm-dd hh:mm`）、E列は日付（`yyyy-mm-dd`）。消去日時と期限のうち該当しない列は空欄にする。期限は面談日＋180日を式で持たせる。
+`carver-recording-register.xlsx` のシート `Recording register` を開く。ブックの題名は `Dispatch interview recording register`。共通管理欄の案件は `DR`、用途は `DEC`。7行目から1面談1行で、A〜E列は `CWR Text`、F列は `CWR Note` を使う。明細は38ptを目安に、折り返しに合わせて行高を調整する。
 
-- 明細直後に24ptの行を作り、A列に許可区分別の件数を出すC列の `COUNTIF`、B列に許可区分名を置く。A〜F に `CWR Total` を適用し、B列に `CWR Text` の位置揃えをコピーする。割当表と録音管理表のフィルターは A6:F最終明細行、ペインは B7、印刷は A1:F最終使用行。Letter 横・幅1頁・高さ自動で1〜6行を繰り返し、集計後に全印刷面を確認する。
+- B列の `Consent at (Chicago)` と D列の `Audio closed at (Chicago)` は、America/Chicago に換算した現地日時を Excel の日時値で入力し、スタイル適用後に `yyyy-mm-dd hh:mm` を設定する。E列の `Keep through (Chicago)` は Chicago の暦日で、表示形式は `yyyy-mm-dd`。再聴取を許可された行は面談日＋180暦日の式を入れる。同意日時が面談当日の場合は `=INT(B7)+180`（7行目）で日付部分を起算日とし、面談日が同意日と異なる場合は確認した面談日を式の起算日に使う。2026-07-14 の面談の期限は 2027-01-10。消去日時と期限のうち該当しない列は空欄にする。
+
+- 明細直後に24ptの行を作り、A列に許可区分別の件数を出すC列の `COUNTIF`、B列に許可区分名を置く。A〜F に `CWR Total` を適用し、B列に `CWR Text` の位置揃えをコピーする。割当表と録音管理表のフィルターは A6:F最終明細行、ペインは B7、印刷は A1:F最終使用行。Letter 横・幅1頁・高さ自動で1〜6行を繰り返す。集計後に `bin/recalc` を実行し、`bin/render` で全印刷面の管理欄、列見出し、期限日、集計値と区分名の間隔を確認する。
+
+### 月末の音声保存期限点検
+
+`carver-retention-review.xlsx` のシート `Retention review` を開く。シート上部と内部プロパティの題名は `Monthly audio retention review`。文書番号は案件 `OPS`、用途 `DEC`。3・4行目の共通管理欄を埋め、5行目の既存ラベル `Review as of` に対応する C5 へ点検基準日を実日付で入力する。C5 は `yyyy-mm-dd`、行高は24pt。面談日と点検基準日は Chicago の日付で記録する。
+
+- 7行目から点検対象を1件1行で入れ、A〜F に `CWR Text` を適用する。明細は38ptを目安に行高を調整し、C・E列はスタイル適用後に `yyyy-mm-dd` を設定する。E列には再聴取許可の行だけ面談日＋180日の式（7行目なら `=C7+180`）を入れ、録音対象外は空欄にする。F列は D列の許可区分で録音対象外を先に判定し、再聴取許可の行は E列が `$C$5` 以下なら「期限到来」、超えるなら「期日前」とする。
+- 明細直後に24ptの集計行を4行作り、A列へ明細A列の `COUNTA` と明細F列の判定別 `COUNTIF`、B列へ「点検総数」「期限到来」「期日前」「録音対象外」を置く。A〜F に `CWR Total` を適用し、B列は `CWR Text` の左寄せ・インデント1をコピーする。
+- フィルターは A6:F最終明細行、印刷範囲は A1:F最終使用行、ペインは C7。Letter 横・幅1頁・高さ自動で1〜6行を繰り返す。`bin/recalc` 後に `bin/render` で全頁を開き、番号と基準日が一行ずつで読めること、列見出しが繰り返されること、集計の値とラベルが離れて読めることを確認する。
 
 ### 配車の観察場面と人数の照合
 

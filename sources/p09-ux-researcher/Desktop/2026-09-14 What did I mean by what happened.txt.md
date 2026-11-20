@@ -1,0 +1,12 @@
+---
+path: Desktop/2026-09-14 What did I mean by what happened.txt
+kind: text
+author: Jennifer Salazar
+derived_from:
+---
+
+Before Patrick — “what's up with this one?”
+
+Adam was making a distinction I nearly flattened. His first answer to that phrase would be what he could read on the list: the route and Held. It was the next question, “what are we waiting on?”, that asked for the work still pending. With R-472 he could point to the state and then look in Stops; he still could not tell me the reason.
+
+Don't mark the opening answer as a reason just because I intended the question broadly. Keep the first sentence, the next question and what he checked after it separate when we look at the prompts.
