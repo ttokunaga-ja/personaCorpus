@@ -22,4 +22,4 @@ Best regards,
 Jamie Pearson
 Wallace Gauge Services
 
-添付：HG-02 Calibration Certificate 17 Oct.pdf（Downloads/HG-02 Calibration Certificate 17 Oct.pdf）
+添付：2024-10-17_HG-02 Calibration Certificate.pdf（Downloads/2024-10-17_HG-02 Calibration Certificate.pdf）
