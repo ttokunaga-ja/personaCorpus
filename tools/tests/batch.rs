@@ -141,6 +141,46 @@ fn plan_path_date_method_and_existing_file_guards() {
     assert!(string(&f.state()["reason"]).contains("既存"));
 }
 #[test]
+fn plan_checks_name_length_date_prefix_and_duplicate_day() {
+    for (path, reason) in [
+        (
+            format!("Documents/{}.txt", "あ".repeat(41)),
+            "名前が長すぎる",
+        ),
+        ("Documents/Mar 6 agenda.txt".into(), "日付の形"),
+        (
+            "Documents/2026-03-06/0306_agenda.txt".into(),
+            "日付のフォルダ",
+        ),
+        ("Documents/0306_agenda.txt".into(), ""),
+    ] {
+        let f = Fixture::new();
+        f.planned();
+        let original = read(&f.plan());
+        f.reset_scratch();
+        let persona = f.root.join(format!("personas/{P}.md"));
+        write(
+            &persona,
+            read(&persona).replace("timezone:", "date_prefix: MMDD_\ntimezone:"),
+        );
+        write(
+            &f.root.join("fixture-plan.md"),
+            original.replace(FIRST, &path),
+        );
+        f.cli(
+            &["run", "p01", "b001", "--plan-only"],
+            "ok",
+            reason.is_empty(),
+        );
+        if reason.is_empty() {
+            assert_eq!(f.rows()[0]["パス"], path);
+        } else {
+            let state = f.state();
+            assert!(string(&state["reason"]).contains(reason), "{state}");
+        }
+    }
+}
+#[test]
 fn machine_and_review_rejections_retry_only_failed_rows() {
     for (mode, stage) in [
         ("machine-once", "draft"),

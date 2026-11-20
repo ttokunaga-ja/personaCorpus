@@ -1,0 +1,10 @@
+#!/bin/sh
+set -eu
+repo=$(CDPATH= cd -- "$(dirname -- "$(readlink -f -- "$0")")/.." && pwd)
+corpus="$repo/tools/target/release/corpus"
+if [ ! -x "$corpus" ]; then
+    echo "corpus is not built; run: cargo build --release --manifest-path $repo/tools/Cargo.toml" >&2
+    exit 1
+fi
+export CORPUS_BASE="$repo"
+exec "$corpus" rename "$@"

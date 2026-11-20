@@ -152,7 +152,7 @@ fn bin(root: &Path, name: &str, args: &[String], check: bool) -> Result<(i32, St
 pub fn config(p: &Path) -> HashMap<String, String> {
     config_text(&fs::read_to_string(p).unwrap_or_default())
 }
-fn config_text(s: &str) -> HashMap<String, String> {
+pub(crate) fn config_text(s: &str) -> HashMap<String, String> {
     if !s.starts_with("---\n") {
         return HashMap::new();
     }
@@ -189,7 +189,7 @@ pub fn persona_name(root: &Path, s: &str) -> Result<String> {
     }
     Ok(names.remove(0))
 }
-fn safe_file(folder: &Path, relative: &str) -> Result<PathBuf> {
+pub(crate) fn safe_file(folder: &Path, relative: &str) -> Result<PathBuf> {
     if relative.is_empty()
         || relative.starts_with('/')
         || relative.contains('\\')
@@ -1441,6 +1441,7 @@ impl Batch {
         let (start, end) = period
             .split_once("..")
             .ok_or_else(|| anyhow!("period 不正"))?;
+        let names = crate::rename::NameRules::new(self.cfg.get("date_prefix").map(String::as_str))?;
         let mut seen = HashSet::new();
         for row in &rows {
             let relative = text(&row["パス"]);
@@ -1463,10 +1464,7 @@ impl Batch {
                 if bad_path(relative) {
                     errors.push(format!("制作区分または ID: {relative}"));
                 }
-                errors.extend(crate::rename::name_problems(
-                    relative,
-                    self.cfg.get("date_prefix").map(String::as_str),
-                ));
+                errors.extend(names.name_problems(relative));
                 if self.trace(relative) {
                     errors.push(format!("制作の痕跡: {relative}"));
                 }
@@ -4825,6 +4823,16 @@ fn main_inner(args: &[String]) -> Result<i32> {
                 .map(PathBuf::from)
                 .ok_or_else(|| anyhow!("{flag} required"))
         };
+        let model = if args.iter().any(|s| s == "--model") {
+            args.iter()
+                .position(|s| s == "--model")
+                .and_then(|i| args.get(i + 1))
+                .map(String::as_str)
+                .filter(|m| matches!(*m, "gpt-6.2-sol" | "gpt-6.2-astra"))
+                .ok_or_else(|| anyhow!("補助ジョブのモデルが不正"))?
+        } else {
+            "gpt-6.2-astra"
+        };
         let brief = option("--brief")?;
         let output = option("--output")?;
         let brief = if brief.is_absolute() {
@@ -4850,7 +4858,7 @@ fn main_inner(args: &[String]) -> Result<i32> {
             .args([
                 "exec",
                 "-m",
-                "gpt-6.2-astra",
+                model,
                 "-c",
                 "model_reasoning_effort=\"medium\"",
                 "-s",
@@ -5040,7 +5048,7 @@ fn validate_args(args: &[String]) -> Result<()> {
             "discard" => flag == "--reason",
             "templates" => flag == "--fix",
             "findings" => ["--since", "--persona"].contains(&flag),
-            "codex-once" => ["--brief", "--output"].contains(&flag),
+            "codex-once" => ["--brief", "--output", "--model"].contains(&flag),
             _ => false,
         };
         if !allowed {
@@ -5066,6 +5074,7 @@ fn validate_args(args: &[String]) -> Result<()> {
             "--persona",
             "--brief",
             "--output",
+            "--model",
         ]
         .contains(&flag)
         {

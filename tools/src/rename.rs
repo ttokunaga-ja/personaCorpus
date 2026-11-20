@@ -6,94 +6,216 @@
 //! restores the recorded modification times, rewrites the manifest and runs
 //! the corpus checks. `commit` stages exactly the touched paths. `run` drives
 //! the Codex jobs (names, content fixes, audit) and the steps above.
-use crate::manifest::{Locations, accepted, digest, entries, read_rows, resolve, safe_relative};
+use crate::manifest::{Locations, Row, absolute, accepted, digest, entries, read_rows, resolve};
 use anyhow::{Context, Result, bail};
 use clap::Parser;
 use fs2::FileExt;
-use regex::Regex;
+use regex::{Regex, RegexBuilder};
 use serde_json::{Value, json};
 use std::{
     collections::{BTreeMap, BTreeSet},
     fs::{self, File, OpenOptions},
+    io::{ErrorKind, Write},
     path::{Path, PathBuf},
     process::Command,
     time::{Duration, SystemTime},
 };
+use unicode_casefold::UnicodeCaseFold;
+use unicode_normalization::UnicodeNormalization;
 
 /// Longest stem a person plausibly types; saved mail keeps its subject.
 pub const STEM_MAX: usize = 40;
 pub const EML_STEM_MAX: usize = 60;
 const TEXT: [&str; 8] = ["txt", "md", "csv", "tsv", "html", "json", "xml", "log"];
-const MONTHS: &str = "Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec";
-const FULL_MONTHS: &str =
+const DATE_FORMS: &[&str] = &[
+    "YYYY-MM-DD",
+    "YYYY_MM_DD",
+    "YYYY.MM.DD",
+    "YYYY年M月D日",
+    "YYYY年MM月DD日",
+    "MM-DD",
+    "MM.DD",
+    "MMDD",
+    "M月D日",
+    "MM月DD日",
+    "D日",
+    "DD日",
+    "D Mon",
+    "DD Mon",
+    "D Month",
+    "DD Month",
+    "Mon D",
+    "Mon DD",
+    "Month D",
+    "Month DD",
+    "D-Mon",
+    "DD-Mon",
+    "D_Mon",
+    "DD_Mon",
+];
+const TOKENS: &str = "YYYY|Month|Mon|MM|DD|M|D";
+const MON: &str = "Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec";
+const MONTH: &str =
     "January|February|March|April|May|June|July|August|September|October|November|December";
 
 fn re(s: &str) -> Regex {
     Regex::new(s).unwrap()
 }
-/// Regex for the persona's `date_prefix` (alternatives separated by `|`).
-pub fn date_prefix_regex(spec: &str) -> Result<Regex> {
-    let mut alts = Vec::new();
-    for alt in spec.split('|').map(str::trim).filter(|s| !s.is_empty()) {
-        let token = re(r"YYYY|Month|Mon|MM|DD|M|D");
-        let mut out = String::from("^");
-        let mut last = 0;
-        for m in token.find_iter(alt) {
-            out.push_str(&regex::escape(&alt[last..m.start()]));
-            out.push_str(match m.as_str() {
-                "YYYY" => r"\d{4}",
-                "MM" => r"(0[1-9]|1[0-2])",
-                "DD" => r"(0[1-9]|[12]\d|3[01])",
-                "M" => r"([1-9]|1[0-2])",
-                "D" => r"([1-9]|[12]\d|3[01])",
-                "Mon" => "(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)",
-                _ => "(January|February|March|April|May|June|July|August|September|October|November|December)",
-            });
-            last = m.end();
-        }
-        out.push_str(&regex::escape(&alt[last..]));
-        alts.push(format!("(?:{out})"));
+
+fn expand_date(format: &str, mut expand: impl FnMut(&str) -> String) -> String {
+    use std::sync::LazyLock;
+    static TOKEN: LazyLock<Regex> = LazyLock::new(|| re(TOKENS));
+    let mut out = String::new();
+    let mut last = 0;
+    for m in TOKEN.find_iter(format) {
+        out.push_str(&regex::escape(&format[last..m.start()]));
+        out.push_str(&expand(m.as_str()));
+        last = m.end();
     }
-    if alts.is_empty() {
-        bail!("date_prefix が空")
-    }
-    Ok(Regex::new(&alts.join("|"))?)
-}
-/// Problems with a file name that a person would not have given it.
-pub fn name_problems(rel: &str, date_prefix: Option<&str>) -> Vec<String> {
-    let mut out = Vec::new();
-    let path = Path::new(rel);
-    let name = path.file_name().unwrap_or_default().to_string_lossy();
-    let ext = path
-        .extension()
-        .unwrap_or_default()
-        .to_string_lossy()
-        .to_lowercase();
-    let stem = path.file_stem().unwrap_or_default().to_string_lossy();
-    let max = if ext == "eml" { EML_STEM_MAX } else { STEM_MAX };
-    if stem.chars().count() > max {
-        out.push(format!("名前が長すぎる（{max} 文字まで）: {rel}"));
-    }
-    let dated = re(&format!(
-        r"^(\d{{4}}[-_.]?\d{{2}}|\d{{1,2}}月|\d{{1,2}}日|\d{{4}}_|\d{{1,2}}[ ._-]?({MONTHS})[a-z]*\b|({MONTHS})[a-z]*\.? \d{{1,2}}\b|({FULL_MONTHS})\b)"
-    ));
-    if let Some(spec) = date_prefix
-        && dated.is_match(&name)
-    {
-        match date_prefix_regex(spec) {
-            Ok(r) if r.is_match(&name) => {}
-            Ok(_) => out.push(format!("日付の形が定義（{spec}）と違う: {rel}")),
-            Err(e) => out.push(format!("{e}")),
-        }
-    }
-    let day = re(r"^\d{4}-\d{2}(-\d{2})?$");
-    for dir in path.parent().into_iter().flat_map(|p| p.components()) {
-        let dir = dir.as_os_str().to_string_lossy();
-        if day.is_match(&dir) && dir.len() == 10 && name.contains(dir.as_ref()) {
-            out.push(format!("日付のフォルダと同じ日付を名前にも付けている: {rel}"));
-        }
-    }
+    out.push_str(&regex::escape(&format[last..]));
     out
+}
+fn date_pattern(format: &str) -> String {
+    expand_date(format, |token| match token {
+        "YYYY" => r"[0-9]{4}".into(),
+        "MM" => r"(?:0[1-9]|1[0-2])".into(),
+        "DD" => r"(?:0[1-9]|[12][0-9]|3[01])".into(),
+        "M" => r"(?:1[0-2]|[1-9])".into(),
+        "D" => r"(?:3[01]|[12][0-9]|[1-9])".into(),
+        "Mon" => format!("(?:{MON})"),
+        _ => format!("(?:{MONTH})"),
+    })
+}
+
+pub(crate) struct NameRules<'a> {
+    spec: Option<&'a str>,
+    prefix: Option<Regex>,
+    formats: Vec<&'a str>,
+}
+impl<'a> NameRules<'a> {
+    pub(crate) fn new(spec: Option<&'a str>) -> Result<Self> {
+        let formats: Vec<_> = spec
+            .into_iter()
+            .flat_map(|s| s.split('|'))
+            .map(str::trim)
+            .collect();
+        let prefix = if spec.is_some() {
+            for alt in &formats {
+                let pattern = date_pattern(alt);
+                if alt.is_empty() || pattern == regex::escape(alt) {
+                    bail!("date_prefix の書式が不正: {alt}");
+                }
+            }
+            let patterns = formats
+                .iter()
+                .map(|alt| {
+                    let pattern = date_pattern(alt);
+                    // A final space in the front matter is trimmed. Still require a
+                    // separator when the format itself ends in a date token.
+                    if alt.ends_with(" -") {
+                        format!("{pattern} ")
+                    } else if alt.ends_with(|c: char| c.is_ascii_alphabetic()) {
+                        format!("{pattern}(?:[^[:alnum:]]|$)")
+                    } else {
+                        pattern
+                    }
+                })
+                .collect::<Vec<_>>();
+            Some(
+                RegexBuilder::new(&format!(r"\A(?:{})", patterns.join("|")))
+                    .case_insensitive(true)
+                    .build()
+                    .context("date_prefix")?,
+            )
+        } else {
+            None
+        };
+        Ok(Self {
+            spec,
+            prefix,
+            formats,
+        })
+    }
+
+    pub(crate) fn name_problems(&self, rel: &str) -> Vec<String> {
+        use std::sync::LazyLock;
+        static DATE: LazyLock<Regex> = LazyLock::new(|| {
+            re(&format!(
+                r"(?i)\A(?:(?:{})(?:[^[:alnum:]]|$)|[0-9]{{4}}[-_.][0-9]{{1,2}}(?:[^0-9]|$)|[0-9]{{1,2}}月|[0-9]{{1,2}}日)",
+                DATE_FORMS
+                    .iter()
+                    .filter(|f| **f != "MMDD")
+                    .map(|f| date_pattern(f))
+                    .collect::<Vec<_>>()
+                    .join("|")
+            ))
+        });
+        static COMPACT: LazyLock<Regex> =
+            LazyLock::new(|| re(&format!(r"\A{}[-_ .]", date_pattern("MMDD"))));
+        // Only flag unmistakable sentence patterns here. The naming review
+        // checks summaries and conversational titles that need context.
+        static SENTENCE: LazyLock<Regex> = LazyLock::new(|| {
+            re(
+                r"(?i)\A(?:do not|don't|(?:i|we) (?:looked|checked|wrote|thought|asked|noticed|didn't))\s|(?:に見えた|と思っていた|していない|ではない|できない|しない|入れない|使わない|ません|ました|[。！？])\z",
+            )
+        });
+        let mut out = Vec::new();
+        let path = Path::new(rel);
+        let stem = path.file_stem().unwrap_or_default().to_string_lossy();
+        let mail = ext_of(rel) == "eml";
+        let max = if mail { EML_STEM_MAX } else { STEM_MAX };
+        if stem.chars().count() > max {
+            out.push(format!("名前が長すぎる（{max} 文字まで）: {rel}"));
+        }
+        let date = DATE.find(&stem).or_else(|| COMPACT.find(&stem));
+        let title = date
+            .map_or(stem.as_ref(), |m| &stem[m.end()..])
+            .trim_start_matches([' ', '-', '_']);
+        if !mail && SENTENCE.is_match(title) {
+            out.push(format!("名前が要約・結論・会話の文になっている: {rel}"));
+        }
+        if let Some(prefix) = &self.prefix
+            && date.is_some()
+            && !prefix.is_match(&stem)
+        {
+            out.push(format!(
+                "日付の形が定義（{}）と違う: {rel}",
+                self.spec.unwrap()
+            ));
+        }
+        for dir in path.parent().into_iter().flat_map(Path::components) {
+            let dir = dir.as_os_str().to_string_lossy();
+            let Ok(day) = chrono::NaiveDate::parse_from_str(&dir, "%Y-%m-%d") else {
+                continue;
+            };
+            if stem.contains(dir.as_ref())
+                || self.formats.iter().chain(DATE_FORMS).any(|format| {
+                    let date = expand_date(format, |token| {
+                        let part = match token {
+                            "YYYY" => "%Y",
+                            "MM" => "%m",
+                            "DD" => "%d",
+                            "M" => "%-m",
+                            "D" => "%-d",
+                            "Mon" => "%b",
+                            _ => "%B",
+                        };
+                        day.format(part).to_string()
+                    });
+                    RegexBuilder::new(&format!(r"\A{date}(?:[^[:alnum:]]|$)"))
+                        .case_insensitive(true)
+                        .build()
+                        .is_ok_and(|r| r.is_match(&stem))
+                })
+            {
+                out.push(format!(
+                    "日付のフォルダと同じ日付を名前にも付けている: {rel}"
+                ));
+                break;
+            }
+        }
+        out
+    }
 }
 
 struct Ctx {
@@ -103,6 +225,13 @@ struct Ctx {
 }
 impl Ctx {
     fn new(loc: Locations, persona: &str) -> Result<Self> {
+        let loc = Locations {
+            root: absolute(&loc.root)?,
+            personas: absolute(&loc.personas)?,
+            progress: absolute(&loc.progress)?,
+            manifests: absolute(&loc.manifests)?,
+            sources: absolute(&loc.sources)?,
+        };
         let persona = resolve(&loc.root, persona)?;
         let base = loc
             .root
@@ -132,178 +261,438 @@ impl Ctx {
     fn state_dir(&self) -> PathBuf {
         self.base.join("scratch/rename").join(&self.persona)
     }
-    fn date_prefix(&self) -> Result<Option<String>> {
-        let text = fs::read_to_string(self.loc.personas.join(format!("{}.md", self.persona)))?;
-        let head = text
-            .strip_prefix("---\n")
-            .and_then(|t| t.split_once("\n---"))
-            .map(|x| x.0)
-            .unwrap_or("");
-        Ok(head
-            .lines()
-            .find_map(|l| l.strip_prefix("date_prefix:"))
-            .map(|v| v.trim().to_string()))
+    fn definition(&self) -> PathBuf {
+        self.loc.personas.join(format!("{}.md", self.persona))
     }
+    fn audit(&self) -> PathBuf {
+        self.progress().join("rename.audit.md")
+    }
+    fn date_prefix(&self) -> Result<Option<String>> {
+        Ok(
+            crate::batch::config_text(&fs::read_to_string(self.definition())?)
+                .remove("date_prefix"),
+        )
+    }
+    fn relative(&self, path: &Path) -> Result<String> {
+        Ok(path
+            .strip_prefix(&self.base)
+            .with_context(|| format!("リポジトリの外のパス: {}", path.display()))?
+            .to_str()
+            .context("パスが UTF-8 ではない")?
+            .to_string())
+    }
+    fn check_locations(&self) -> Result<()> {
+        for path in [
+            &self.loc.root,
+            &self.loc.sources,
+            &self.loc.progress,
+            &self.loc.manifests,
+            &self.loc.personas,
+            &self.progress(),
+            &self.sources(),
+            &self.state_dir(),
+        ] {
+            self.relative(path)?;
+            if crate::manifest::resolve_path(path)? != *path {
+                bail!("リンクを含むフォルダ: {}", path.display());
+            }
+        }
+        for path in [self.definition(), self.manifest(), self.map_path()] {
+            crate::batch::safe_file(&self.base, &self.relative(&path)?)?;
+        }
+        Ok(())
+    }
+    fn lock(&self) -> Result<File> {
+        self.check_locations()?;
+        lock_file(
+            &self.base,
+            &format!("scratch/rename/{}/.lock", self.persona),
+            true,
+        )
+    }
+
     /// (old, new) pairs from rename.tsv.
     fn pairs(&self) -> Result<Vec<(String, String)>> {
         let text = fs::read_to_string(self.map_path())
             .with_context(|| format!("{} がない", self.map_path().display()))?;
         let mut lines = text.lines().filter(|l| !l.trim().is_empty());
-        if lines.next().map(|h| h.split('\t').take(2).collect::<Vec<_>>())
-            != Some(vec!["旧", "新"])
-        {
+        if lines.next() != Some("旧\t新\t理由") {
             bail!("rename.tsv の見出しは「旧<TAB>新<TAB>理由」")
         }
         lines
             .map(|l| {
                 let c = l.split('\t').collect::<Vec<_>>();
-                if c.len() < 3 || c[2].trim().is_empty() {
+                if c.len() != 3 || c[2].trim().is_empty() {
                     bail!("rename.tsv の行は 3 列（旧、新、理由）: {l}")
                 }
                 Ok((c[0].to_string(), c[1].to_string()))
             })
             .collect()
     }
-    /// Accepted paths as recorded in the manifest (old names until committed).
-    fn recorded(&self) -> Result<BTreeMap<String, [String; 4]>> {
-        Ok(read_rows(&self.manifest())?
-            .into_iter()
-            .map(|r| (r[0].clone(), r))
-            .collect())
+    fn recorded(&self) -> Result<BTreeMap<String, Row>> {
+        let mut rows = BTreeMap::new();
+        for row in read_rows(&self.manifest())? {
+            let path = row[0].clone();
+            crate::batch::safe_file(&self.home(), &path)?;
+            chrono::DateTime::parse_from_rfc3339(&row[3])
+                .with_context(|| format!("manifest の日時が不正: {path}"))?;
+            if rows.insert(path.clone(), row).is_some() {
+                bail!("manifest のパスが重複: {path}");
+            }
+        }
+        Ok(rows)
     }
-    fn validate(&self, pairs: &[(String, String)]) -> Result<Vec<String>> {
-        let accepted = accepted(&self.home())?;
+    fn inventory(&self) -> Result<BTreeMap<String, Row>> {
+        let rows = self.recorded()?;
+        let head = accepted(&self.home())?;
+        if rows.keys().ne(head.iter()) {
+            bail!(
+                "manifest のパスが受入済みの HEAD と一致しない: {}",
+                self.persona
+            );
+        }
+        Ok(rows)
+    }
+    fn validation(&self) -> Result<Vec<String>> {
+        let rows = self.inventory()?;
+        match self.pairs() {
+            Ok(pairs) => self.validate(&pairs, &rows),
+            Err(e) => {
+                let mut errors = self.validate(&[], &rows)?;
+                errors.insert(0, format!("{e:#}"));
+                Ok(errors)
+            }
+        }
+    }
+    fn validate(
+        &self,
+        pairs: &[(String, String)],
+        rows: &BTreeMap<String, Row>,
+    ) -> Result<Vec<String>> {
         let prefix = self.date_prefix()?;
         let mut errors = Vec::new();
         if prefix.is_none() {
             errors.push("persona の定義の先頭設定に date_prefix がない".into());
         }
-        let (mut olds, mut news) = (BTreeSet::new(), BTreeSet::new());
+        let rules = match NameRules::new(prefix.as_deref()) {
+            Ok(rules) => rules,
+            Err(e) => {
+                errors.push(e.to_string());
+                NameRules::new(None)?
+            }
+        };
+        let folded = |p: &str| p.nfkc().case_fold().collect::<String>();
+        let mut news = BTreeSet::new();
+        let mut olds = BTreeSet::new();
+        let renamed: BTreeSet<_> = pairs.iter().map(|(old, _)| old).collect();
+        let retained: BTreeSet<_> = rows
+            .keys()
+            .filter(|p| !renamed.contains(p))
+            .map(|p| folded(p))
+            .collect();
+        let files: BTreeSet<_> = rows
+            .keys()
+            .chain(pairs.iter().map(|(_, new)| new))
+            .map(|p| folded(p))
+            .collect();
         for (old, new) in pairs {
-            if !accepted.contains(old) {
+            if !rows.contains_key(old) {
                 errors.push(format!("受入済みにない: {old}"));
             }
             if !olds.insert(old) {
                 errors.push(format!("旧が重複: {old}"));
             }
-            if !safe_relative(new) || new.contains('\\') {
+            let target = crate::batch::safe_file(&self.home(), new);
+            let source = crate::batch::safe_file(&self.sources(), &format!("{new}.md"));
+            if target.is_err()
+                || source.is_err()
+                || new.contains('|')
+                || new.chars().any(char::is_control)
+            {
                 errors.push(format!("新のパスが不正: {new}"));
                 continue;
             }
-            if !news.insert(new) || accepted.contains(new) || self.home().join(new).exists() {
+            let key = folded(new);
+            if !news.insert(key.clone())
+                || retained.contains(&key)
+                || rows.contains_key(new)
+                || target?.try_exists()?
+            {
                 errors.push(format!("新が重複または既存: {new}"));
             }
-            let ext = |s: &str| {
-                Path::new(s)
-                    .extension()
-                    .map(|e| e.to_string_lossy().to_lowercase())
-            };
-            if ext(old) != ext(new) {
+            if source?.try_exists()? {
+                errors.push(format!("新の原稿が既存: {new}.md"));
+            }
+            if Path::new(new)
+                .ancestors()
+                .skip(1)
+                .any(|p| files.contains(&folded(&p.to_string_lossy())))
+            {
+                errors.push(format!("新の親がファイルと衝突する: {new}"));
+            }
+            if ext_of(old) != ext_of(new) {
                 errors.push(format!("拡張子が変わる: {old} → {new}"));
             }
-            if old == new {
-                errors.push(format!("名前が変わらない: {old}"));
-            }
-            errors.extend(name_problems(new, prefix.as_deref()));
+            errors.extend(rules.name_problems(new));
             if crate::batch::bad_path(new) {
                 errors.push(format!("制作区分または ID: {new}"));
             }
         }
-        // Every accepted name that breaks the rules must be renamed.
-        for rel in accepted.difference(&olds.into_iter().cloned().collect()) {
-            for e in name_problems(rel, prefix.as_deref()) {
-                errors.push(format!("付け直しが要る: {e}"));
+        for rel in rows.keys().filter(|p| !olds.contains(p)) {
+            let mut problems = rules.name_problems(rel);
+            if crate::batch::bad_path(rel) {
+                problems.push(format!("制作区分または ID: {rel}"));
             }
+            errors.extend(problems.into_iter().map(|e| format!("付け直しが要る: {e}")));
         }
         Ok(errors)
     }
 }
-/// Replacement keys: old relative paths, then basenames that are unique.
-fn replacements(pairs: &[(String, String)], accepted: &BTreeSet<String>) -> Vec<(String, String)> {
-    let base = |s: &str| {
-        Path::new(s)
-            .file_name()
-            .unwrap()
-            .to_string_lossy()
-            .into_owned()
-    };
-    let mut count = BTreeMap::<String, usize>::new();
-    for a in accepted {
-        *count.entry(base(a)).or_default() += 1;
-    }
-    let mut out = pairs.to_vec();
-    for (old, new) in pairs {
-        if count.get(&base(old)) == Some(&1) {
-            out.push((base(old), base(new)));
+
+fn basename(rel: &str) -> &str {
+    rel.rsplit('/').next().unwrap()
+}
+
+struct References {
+    pattern: Option<Regex>,
+    replacements: BTreeMap<String, String>,
+}
+impl References {
+    fn new(
+        pairs: &[(String, String)],
+        original: &BTreeMap<String, Row>,
+        finals: &BTreeMap<String, String>,
+        persona: &str,
+    ) -> Result<Self> {
+        let mut counts = BTreeMap::<&str, usize>::new();
+        for path in original.keys() {
+            *counts.entry(basename(path)).or_default() += 1;
         }
+        let final_names: BTreeSet<_> = finals.keys().map(|p| basename(p)).collect();
+        let mut replacements = BTreeMap::new();
+        for (old, new) in pairs {
+            if old.contains('/') {
+                replacements.insert(old.clone(), new.clone());
+            } else {
+                // A root-level path and a bare basename have the same spelling.
+                // Explicit paths remain usable when the basename is ambiguous.
+                for (prefix, suffix) in [
+                    ("./".to_string(), ""),
+                    (format!("people/{persona}/"), ""),
+                    (format!("sources/{persona}/"), ".md"),
+                    ("path: ".to_string(), ""),
+                    ("derived_from: ".to_string(), ""),
+                    ("scan:".to_string(), ""),
+                    ("| ".to_string(), " |"),
+                ] {
+                    replacements.insert(
+                        format!("{prefix}{old}{suffix}"),
+                        format!("{prefix}{new}{suffix}"),
+                    );
+                }
+            }
+            if counts[basename(old)] == 1 && !final_names.contains(basename(old)) {
+                replacements.insert(basename(old).into(), basename(new).into());
+            }
+        }
+        // A new name can itself contain an old name (for example "Revised notes.txt").
+        for (_, new) in pairs {
+            for new in [new.as_str(), basename(new)] {
+                replacements.entry(new.into()).or_insert_with(|| new.into());
+            }
+        }
+        let mut keys: Vec<_> = replacements.keys().collect();
+        keys.sort_by_key(|name| std::cmp::Reverse(name.len()));
+        let pattern = if keys.is_empty() {
+            None
+        } else {
+            Some(
+                RegexBuilder::new(
+                    &keys
+                        .into_iter()
+                        .map(|k| regex::escape(k))
+                        .collect::<Vec<_>>()
+                        .join("|"),
+                )
+                .size_limit(32 * 1024 * 1024)
+                .build()
+                .context("旧名の検索パターン")?,
+            )
+        };
+        Ok(Self {
+            pattern,
+            replacements,
+        })
     }
-    out.sort_by_key(|(k, _)| std::cmp::Reverse(k.len()));
-    out.dedup_by(|a, b| a.0 == b.0);
-    out
-}
-fn replace_all(text: &str, keys: &[(String, String)], pattern: &Regex) -> String {
-    let map = keys.iter().cloned().collect::<BTreeMap<_, _>>();
-    pattern
-        .replace_all(text, |c: &regex::Captures| map[&c[0]].clone())
-        .into_owned()
-}
-fn pattern(keys: &[(String, String)]) -> Regex {
-    Regex::new(
-        &keys
+
+    fn matches<'a>(&'a self, text: &'a str) -> impl Iterator<Item = regex::Match<'a>> {
+        self.pattern
             .iter()
-            .map(|(k, _)| regex::escape(k))
-            .collect::<Vec<_>>()
-            .join("|"),
-    )
-    .unwrap()
+            .flat_map(move |pattern| pattern.find_iter(text))
+            .filter(move |m| {
+                let tail = &text[m.end()..];
+                let embedded_before = text[..m.start()]
+                    .chars()
+                    .next_back()
+                    .is_some_and(|c| c.is_ascii_alphanumeric() || "_-.".contains(c));
+                let embedded_after = tail
+                    .chars()
+                    .next()
+                    .is_some_and(|c| c.is_ascii_alphanumeric() || "_-".contains(c))
+                    || (tail.starts_with('.')
+                        && tail[1..].starts_with(|c: char| c.is_ascii_alphanumeric())
+                        && !tail.strip_prefix(".md").is_some_and(|after| {
+                            !after.starts_with(|c: char| c.is_ascii_alphanumeric())
+                        }));
+                !embedded_before && !embedded_after && self.replacements[m.as_str()] != m.as_str()
+            })
+    }
+
+    fn rewrite(&self, text: &str) -> Option<String> {
+        let mut out = String::new();
+        let mut end = 0;
+        for m in self.matches(text) {
+            out.push_str(&text[end..m.start()]);
+            out.push_str(&self.replacements[m.as_str()]);
+            end = m.end();
+        }
+        (end > 0).then(|| {
+            out.push_str(&text[end..]);
+            out
+        })
+    }
+
+    fn stale(&self, text: &str) -> BTreeSet<String> {
+        self.matches(text).map(|m| m.as_str().to_string()).collect()
+    }
 }
-fn md_files(dir: &Path) -> Vec<PathBuf> {
-    walkdir::WalkDir::new(dir)
-        .into_iter()
-        .flatten()
-        .filter(|e| e.file_type().is_file())
-        .map(|e| e.into_path())
-        .filter(|p| p.extension().is_some_and(|e| e == "md"))
-        .collect()
-}
-fn rewrite_keep_time(p: &Path, text: &str) -> Result<()> {
-    let time = fs::metadata(p)?.modified()?;
-    fs::write(p, text)?;
-    filetime::set_file_mtime(p, filetime::FileTime::from_system_time(time))?;
-    Ok(())
+
+fn text_digest(text: &str) -> String {
+    use sha2::{Digest, Sha256};
+    format!("{:x}", Sha256::digest(text.as_bytes()))
 }
 fn ext_of(p: &str) -> String {
     Path::new(p)
         .extension()
         .unwrap_or_default()
         .to_string_lossy()
-        .to_lowercase()
+        .to_ascii_lowercase()
 }
-/// Record of what apply touched, for verify and commit.
-fn save_record(c: &Ctx, v: &Value) -> Result<()> {
-    fs::create_dir_all(c.state_dir())?;
-    fs::write(c.state_dir().join("applied.json"), serde_json::to_string_pretty(v)?)?;
+fn md_files(dir: &Path) -> Result<Vec<PathBuf>> {
+    if !dir.try_exists()? {
+        return Ok(Vec::new());
+    }
+    let mut paths = Vec::new();
+    for entry in walkdir::WalkDir::new(dir).sort_by_file_name() {
+        let entry = entry?;
+        if entry.file_type().is_symlink() {
+            bail!("リンクを含むパス: {}", entry.path().display());
+        }
+        if entry.file_type().is_file() && entry.path().extension().is_some_and(|e| e == "md") {
+            paths.push(entry.into_path());
+        }
+    }
+    Ok(paths)
+}
+fn project_markdown(c: &Ctx) -> Result<impl Iterator<Item = PathBuf>> {
+    let audit = c.audit();
+    Ok(md_files(&c.sources())?.into_iter().chain(
+        md_files(&c.progress())?
+            .into_iter()
+            .filter(move |p| *p != audit),
+    ))
+}
+fn read_text(p: &Path) -> Result<String> {
+    fs::read_to_string(p).with_context(|| p.display().to_string())
+}
+fn atomic_write(p: &Path, data: &[u8], keep_time: bool) -> Result<()> {
+    let parent = p.parent().context("出力先に親フォルダがない")?;
+    let mut tmp = tempfile::NamedTempFile::new_in(parent)?;
+    tmp.write_all(data)?;
+    if let Some(meta) = metadata_if_exists(p)? {
+        tmp.as_file().set_permissions(meta.permissions())?;
+        if keep_time {
+            filetime::set_file_mtime(
+                tmp.path(),
+                filetime::FileTime::from_last_modification_time(&meta),
+            )?;
+        }
+    }
+    tmp.persist(p)
+        .with_context(|| format!("書き込めない: {}", p.display()))?;
     Ok(())
+}
+fn metadata_if_exists(p: &Path) -> Result<Option<fs::Metadata>> {
+    match fs::symlink_metadata(p) {
+        Ok(meta) if meta.is_file() => Ok(Some(meta)),
+        Ok(_) => bail!("通常のファイルではない: {}", p.display()),
+        Err(e) if e.kind() == ErrorKind::NotFound => Ok(None),
+        Err(e) => Err(e).with_context(|| p.display().to_string()),
+    }
+}
+fn save_json(path: &Path, value: &Value) -> Result<()> {
+    fs::create_dir_all(path.parent().context("記録のフォルダがない")?)?;
+    atomic_write(path, &serde_json::to_vec_pretty(value)?, false)
 }
 fn load_record(c: &Ctx) -> Result<Value> {
     Ok(serde_json::from_str(
-        &fs::read_to_string(c.state_dir().join("applied.json")).context("apply の記録がない")?,
+        &read_text(&c.state_dir().join("applied.json")).context("apply の記録がない")?,
     )?)
 }
+fn final_paths(
+    rows: &BTreeMap<String, Row>,
+    pairs: &[(String, String)],
+) -> BTreeMap<String, String> {
+    let renamed: BTreeMap<_, _> = pairs.iter().map(|(old, new)| (old, new)).collect();
+    rows.keys()
+        .map(|old| (renamed.get(old).map_or(old, |&p| p).clone(), old.clone()))
+        .collect()
+}
+fn extract_reference_text(p: &Path, rel: &str, ocr: Option<&str>) -> Result<String> {
+    let ext = ext_of(rel);
+    if ["wav", "mp3", "m4a"].contains(&ext.as_str()) {
+        return Ok(String::new());
+    }
+    if ext == "zip" {
+        let zip = zip::ZipArchive::new(File::open(p)?)?;
+        return Ok(zip.file_names().collect::<Vec<_>>().join("\n"));
+    }
+    let (text, _, _) = crate::check::extract(p, &ext, ocr)?;
+    Ok(text)
+}
+
+struct Edit {
+    path: PathBuf,
+    old: String,
+    new: String,
+}
+
 fn apply(c: &Ctx) -> Result<Vec<String>> {
+    let _lock = c.lock()?;
+    let record_path = c.state_dir().join("applied.json");
+    let pending = c.state_dir().join("applying.json");
+    let map_hash = digest(&c.map_path())
+        .with_context(|| format!("対応表が読めない: {}", c.map_path().display()))?;
+    if record_path.try_exists()? {
+        let record = load_record(c)?;
+        if record["map_hash"] != map_hash {
+            bail!("適用済みの rename.tsv が変更された");
+        }
+        return Ok(serde_json::from_value(record["ref_rows"].clone())?);
+    }
+    if pending.try_exists()? {
+        bail!("前回の apply が中断された: {}", pending.display());
+    }
+    let rows = c.inventory()?;
     let pairs = c.pairs()?;
-    let errors = c.validate(&pairs)?;
+    let errors = c.validate(&pairs, &rows)?;
     if !errors.is_empty() {
         bail!("rename.tsv が不正:\n{}", errors.join("\n"))
     }
-    let accepted = accepted(&c.home())?;
-    let mut changed = BTreeSet::<String>::new();
-    let repo = |p: &Path| -> String {
-        p.strip_prefix(&c.base)
-            .unwrap_or(p)
-            .to_string_lossy()
-            .into_owned()
-    };
+    let finals = final_paths(&rows, &pairs);
+    let keys = References::new(&pairs, &rows, &finals, &c.persona)?;
+    let mut changed = BTreeSet::from([c.relative(&c.refs_path())?, c.relative(&c.map_path())?]);
+    let mut moves = BTreeMap::new();
     for (old, new) in &pairs {
         for (from, to) in [
             (c.home().join(old), c.home().join(new)),
@@ -312,187 +701,294 @@ fn apply(c: &Ctx) -> Result<Vec<String>> {
                 c.sources().join(format!("{new}.md")),
             ),
         ] {
-            if !from.exists() {
-                continue;
+            if metadata_if_exists(&from)?.is_none() {
+                bail!("移動元がない: {}", from.display());
             }
-            fs::create_dir_all(to.parent().unwrap())?;
-            fs::rename(&from, &to)?;
-            changed.insert(repo(&from));
-            changed.insert(repo(&to));
-            let mut dir = from.parent();
-            while let Some(d) = dir {
-                if d == c.home() || d == c.sources() || fs::remove_dir(d).is_err() {
-                    break;
-                }
-                dir = d.parent();
+            crate::batch::safe_file(&c.base, &c.relative(&from)?)?;
+            changed.insert(c.relative(&from)?);
+            changed.insert(c.relative(&to)?);
+            moves.insert(from, to);
+        }
+    }
+
+    // Read and check all inputs before moving or rewriting any of them.
+    let mut edits = Vec::new();
+    let mut edited_text = BTreeMap::new();
+    let mut refs = BTreeMap::new();
+    let ocr = if pairs.is_empty() {
+        None
+    } else {
+        crate::check::ocr_language()?
+    };
+    for (rel, old) in &finals {
+        let path = c.home().join(old);
+        if metadata_if_exists(&path)?.is_none() || digest(&path)? != rows[old][1] {
+            bail!("配布物が元の manifest と一致しない: {old}");
+        }
+        if pairs.is_empty() {
+            continue;
+        }
+        if TEXT.contains(&ext_of(rel).as_str()) {
+            let text = read_text(&path)?;
+            if let Some(new) = keys.rewrite(&text) {
+                changed.insert(c.relative(&c.home().join(rel))?);
+                edited_text.insert(rel.clone(), text_digest(&new));
+                edits.push(Edit {
+                    path,
+                    old: text,
+                    new,
+                });
+            }
+        } else {
+            let text = extract_reference_text(&path, rel, ocr)
+                .with_context(|| format!("参照の検査で中身を読めない: {old}"))?;
+            let stale = keys.stale(&text);
+            if !stale.is_empty() {
+                refs.insert(rel.clone(), stale);
             }
         }
     }
-    let keys = replacements(&pairs, &accepted);
-    let pat = pattern(&keys);
-    let skip = ["rename.tsv", "rename-refs.tsv", "rename.audit.md"];
-    let mut texts = md_files(&c.sources());
-    texts.extend(
-        md_files(&c.progress())
-            .into_iter()
-            .filter(|p| !skip.iter().any(|s| p.ends_with(s))),
-    );
-    let finals = accepted
+    // Scan the original text so a replacement is never applied twice to a moved source.
+    let mut originals = BTreeSet::new();
+    if !pairs.is_empty() {
+        for path in project_markdown(c)? {
+            let text = read_text(&path)?;
+            let destination = moves.get(&path).unwrap_or(&path);
+            if let Some(new) = keys.rewrite(&text) {
+                originals.insert(c.relative(&path)?);
+                changed.insert(c.relative(destination)?);
+                edits.push(Edit {
+                    path,
+                    old: text,
+                    new,
+                });
+            } else if destination != &path {
+                originals.insert(c.relative(&path)?);
+            }
+        }
+    }
+    ensure_unmodified(c, &originals)?;
+    let ref_rows: Vec<_> = refs
         .iter()
-        .map(|a| {
-            pairs
-                .iter()
-                .find(|(o, _)| o == a)
-                .map(|(_, n)| n.clone())
-                .unwrap_or(a.clone())
+        .map(|(p, names)| {
+            format!(
+                "{p}\t{}",
+                names.iter().cloned().collect::<Vec<_>>().join(" / ")
+            )
         })
-        .collect::<BTreeSet<_>>();
-    for rel in &finals {
-        if TEXT.contains(&ext_of(rel).as_str()) {
-            texts.push(c.home().join(rel));
+        .collect();
+    let report = std::iter::once("パス\t中身に残る古い名前")
+        .chain(ref_rows.iter().map(String::as_str))
+        .collect::<Vec<_>>()
+        .join("\n")
+        + "\n";
+    let refs_path = c.refs_path();
+    let previous_report = metadata_if_exists(&refs_path)?
+        .map(|_| fs::read(&refs_path))
+        .transpose()?;
+    for to in moves.values() {
+        fs::create_dir_all(to.parent().context("新しいパスの親がない")?)?;
+    }
+    let record = json!({
+        "pairs": pairs, "map_hash": map_hash, "report_hash": text_digest(&report),
+        "rows": rows, "changed": changed,
+        "edited_text": edited_text, "refs": refs.keys().collect::<Vec<_>>(), "ref_rows": ref_rows,
+    });
+    save_json(&pending, &record)?;
+    let mut moved = Vec::new();
+    let mut edited = Vec::new();
+    let mut report_written = false;
+    let result = (|| -> Result<()> {
+        for (from, to) in &moves {
+            if metadata_if_exists(to)?.is_some() {
+                bail!("新しいパスが既存: {}", to.display());
+            }
+            fs::rename(from, to)
+                .with_context(|| format!("{} → {}", from.display(), to.display()))?;
+            moved.push((from, to));
+        }
+        for edit in &edits {
+            let path = moves.get(&edit.path).unwrap_or(&edit.path);
+            atomic_write(path, edit.new.as_bytes(), true)?;
+            edited.push((path, &edit.old));
+        }
+        atomic_write(&refs_path, report.as_bytes(), false)?;
+        report_written = true;
+        save_json(&record_path, &record)
+    })();
+    if let Err(error) = result {
+        let rollback = (|| -> Result<()> {
+            for (path, old) in edited.into_iter().rev() {
+                atomic_write(path, old.as_bytes(), true)?;
+            }
+            for (from, to) in moved.into_iter().rev() {
+                fs::rename(to, from)?;
+            }
+            if report_written {
+                match previous_report {
+                    Some(bytes) => atomic_write(&refs_path, &bytes, false)?,
+                    None => fs::remove_file(&refs_path)?,
+                }
+            }
+            fs::remove_file(&pending)?;
+            Ok(())
+        })();
+        if let Err(rollback) = rollback {
+            bail!(
+                "{error:#}\napply の復元に失敗した: {rollback:#}\n記録: {}",
+                pending.display()
+            );
+        }
+        return Err(error);
+    }
+    fs::remove_file(pending)?;
+    for from in moves.keys() {
+        // Git does not record empty directories. Remove only empty source ancestors.
+        for dir in from
+            .ancestors()
+            .skip(1)
+            .take_while(|p| *p != c.home() && *p != c.sources())
+        {
+            if fs::remove_dir(dir).is_err() {
+                break;
+            }
         }
     }
-    for p in texts {
-        let Ok(text) = fs::read_to_string(&p) else {
-            continue;
-        };
-        let out = replace_all(&text, &keys, &pat);
-        if out != text {
-            rewrite_keep_time(&p, &out)?;
-            changed.insert(repo(&p));
-        }
-    }
-    // Deliverables whose source names a renamed file must say the new name.
-    let new_names = keys
-        .iter()
-        .map(|(_, n)| n.clone())
-        .collect::<BTreeSet<_>>();
-    let mut refs = Vec::new();
-    for rel in &finals {
-        if TEXT.contains(&ext_of(rel).as_str()) {
-            continue;
-        }
-        let source = c.sources().join(format!("{rel}.md"));
-        let Ok(body) = fs::read_to_string(&source) else {
-            continue;
-        };
-        let body = body
-            .split_once("\n---")
-            .filter(|_| body.starts_with("---\n"))
-            .map(|x| x.1)
-            .unwrap_or(&body);
-        let named = new_names
-            .iter()
-            .filter(|n| body.contains(n.as_str()))
-            .collect::<Vec<_>>();
-        if named.is_empty() {
-            continue;
-        }
-        let stale = stale_names(c, rel, &keys)?;
-        if !stale.is_empty() {
-            refs.push(format!("{rel}\t{}", stale.join(" / ")));
-        }
-    }
-    fs::write(
-        c.refs_path(),
-        format!("パス\t中身に残る古い名前\n{}", refs.iter().map(|r| r.clone() + "\n").collect::<String>()),
-    )?;
-    changed.insert(repo(&c.refs_path()));
-    changed.insert(repo(&c.map_path()));
-    save_record(
-        c,
-        &json!({"pairs": pairs, "changed": changed, "refs": refs.iter().map(|r| r.split('\t').next().unwrap()).collect::<Vec<_>>()}),
-    )?;
-    Ok(refs)
+    Ok(ref_rows)
 }
-/// Old names still present in a deliverable's extracted text.
-fn stale_names(c: &Ctx, rel: &str, keys: &[(String, String)]) -> Result<Vec<String>> {
-    let p = c.home().join(rel);
-    let (text, _, _) = crate::check::extract(&p, &ext_of(rel), None)?;
-    Ok(keys
-        .iter()
-        .filter(|(k, _)| text.contains(k.as_str()))
-        .map(|(k, _)| k.clone())
-        .collect())
+
+fn ensure_unmodified(c: &Ctx, paths: &BTreeSet<String>) -> Result<()> {
+    if paths.is_empty() {
+        return Ok(());
+    }
+    let mut args = vec!["ls-files", "-z", "--"];
+    args.extend(paths.iter().map(String::as_str));
+    let tracked = git(&c.base, &args)?;
+    let tracked: BTreeSet<_> = tracked.split_terminator('\0').collect();
+    if let Some(p) = paths.iter().find(|p| !tracked.contains(p.as_str())) {
+        bail!("Git 管理外の原稿または進捗を変更する: {p}");
+    }
+    args.splice(..2, ["diff", "HEAD", "--no-renames", "--name-only", "-z"]);
+    if let Some(path) = git(&c.base, &args)?.split_terminator('\0').next() {
+        bail!("原稿または進捗に既存の変更がある: {path}");
+    }
+    Ok(())
 }
+
 fn verify(c: &Ctx) -> Result<Vec<String>> {
+    let _lock = c.lock()?;
+    let verified = c.state_dir().join("verified.json");
+    match fs::remove_file(&verified) {
+        Ok(()) => {}
+        Err(e) if e.kind() == ErrorKind::NotFound => {}
+        Err(e) => return Err(e.into()),
+    }
     let record = load_record(c)?;
+    if record["map_hash"] != digest(&c.map_path())?
+        || record["report_hash"] != digest(&c.refs_path())?
+    {
+        bail!("適用済みの rename.tsv または rename-refs.tsv が変更された");
+    }
     let pairs: Vec<(String, String)> = serde_json::from_value(record["pairs"].clone())?;
-    let refs: Vec<String> = serde_json::from_value(record["refs"].clone())?;
-    let recorded = c.recorded()?;
+    let refs: BTreeSet<String> = serde_json::from_value(record["refs"].clone())?;
+    let edited_text: BTreeMap<String, String> =
+        serde_json::from_value(record["edited_text"].clone())?;
+    let rows: BTreeMap<String, Row> = serde_json::from_value(record["rows"].clone())?;
+    let finals = final_paths(&rows, &pairs);
+    let keys = References::new(&pairs, &rows, &finals, &c.persona)?;
     let mut errors = Vec::new();
-    let mut finals = recorded.keys().cloned().collect::<BTreeSet<_>>();
+    let prefix = c
+        .date_prefix()?
+        .context("persona の定義の先頭設定に date_prefix がない")?;
+    let names = NameRules::new(Some(&prefix))?;
     for (old, new) in &pairs {
-        finals.remove(old);
-        finals.insert(new.clone());
-        if c.home().join(old).exists() || !c.home().join(new).is_file() {
-            errors.push(format!("付け直しが反映されていない: {old} → {new}"));
+        if c.home().join(old).try_exists()? || c.sources().join(format!("{old}.md")).try_exists()? {
+            errors.push(format!("旧パスが残る: {old} → {new}"));
         }
     }
-    let accepted = recorded.keys().cloned().collect::<BTreeSet<_>>();
-    let keys = replacements(&pairs, &accepted);
-    for rel in &refs {
-        if !c.home().join(rel).is_file() {
-            errors.push(format!("参照を直すファイルがない: {rel}"));
+    for path in project_markdown(c)? {
+        let stale = keys.stale(&read_text(&path)?);
+        if !stale.is_empty() {
+            errors.push(format!("古い名前が残る: {}: {stale:?}", path.display()));
+        }
+    }
+    let ocr = if refs.is_empty() {
+        None
+    } else {
+        crate::check::ocr_language()?
+    };
+    for (rel, old) in &finals {
+        let path = crate::batch::safe_file(&c.home(), rel)?;
+        errors.extend(names.name_problems(rel));
+        if metadata_if_exists(&path)?.is_none() {
+            errors.push(format!("付け直しが反映されていない: {old} → {rel}"));
             continue;
         }
-        match stale_names(c, rel, &keys) {
-            Ok(s) if s.is_empty() => {}
-            Ok(s) => errors.push(format!("中身に古い名前が残る: {rel}: {}", s.join(" / "))),
-            Err(e) => errors.push(format!("中身を読めない: {rel}: {e}")),
+        if TEXT.contains(&ext_of(rel).as_str()) || refs.contains(rel) {
+            let text = if TEXT.contains(&ext_of(rel).as_str()) {
+                read_text(&path)?
+            } else {
+                match extract_reference_text(&path, rel, ocr) {
+                    Ok(text) => text,
+                    Err(e) => {
+                        errors.push(format!("中身を読めない: {rel}: {e:#}"));
+                        continue;
+                    }
+                }
+            };
+            let stale = keys.stale(&text);
+            if !stale.is_empty() {
+                errors.push(format!("中身に古い名前が残る: {rel}: {stale:?}"));
+            }
         }
-    }
-    let rel_keys = pairs.iter().map(|(o, _)| o.clone()).collect::<Vec<_>>();
-    for p in md_files(&c.sources()) {
-        let text = fs::read_to_string(&p).unwrap_or_default();
-        if let Some(k) = rel_keys.iter().find(|k| text.contains(k.as_str())) {
-            errors.push(format!("原稿に古いパスが残る: {}: {k}", p.display()));
+        let expected = edited_text.get(rel).unwrap_or(&rows[old][1]);
+        if !refs.contains(rel) && digest(&path)? != *expected {
+            errors.push(format!("参照の置換以外で中身が変わった: {rel}"));
         }
     }
     if !errors.is_empty() {
         return Ok(errors);
     }
-    // Keep each file's recorded time (the document's date), then record it.
-    let old_of = pairs
-        .iter()
-        .map(|(o, n)| (n.clone(), o.clone()))
-        .collect::<BTreeMap<_, _>>();
-    for rel in &finals {
-        let row = &recorded[old_of.get(rel).unwrap_or(rel)];
-        let stamp = chrono::DateTime::parse_from_rfc3339(&row[3])?;
-        let t = filetime::FileTime::from_unix_time(stamp.timestamp(), 0);
-        filetime::set_file_mtime(c.home().join(rel), t)?;
+    for (rel, old) in &finals {
+        let stamp = chrono::DateTime::parse_from_rfc3339(&rows[old][3])?;
+        let time =
+            filetime::FileTime::from_unix_time(stamp.timestamp(), stamp.timestamp_subsec_nanos());
+        filetime::set_file_mtime(c.home().join(rel), time)?;
     }
-    let rows = entries(&c.home(), &finals)?;
-    let mut out = String::new();
-    for r in &rows {
-        out.push_str(&r.join("\t"));
-        out.push('\n');
-    }
-    fs::write(c.manifest(), out)?;
-    for (old, new) in &pairs {
-        if recorded[old][1] != digest(&c.home().join(new))?
-            && !refs.contains(new)
-            && !TEXT.contains(&ext_of(new).as_str())
-        {
-            errors.push(format!("付け直しだけのはずの中身が変わった: {new}"));
-        }
-    }
-    let selected = BTreeMap::from([(c.persona.clone(), finals)]);
+    let selected = BTreeMap::from([(c.persona.clone(), finals.keys().cloned().collect())]);
     let mut args = vec![c.persona.clone()];
     args.extend(c.loc.check_args());
     let report = c.state_dir().join("check.tsv");
     args.extend(["--report".into(), report.to_string_lossy().into_owned()]);
     if crate::check::run_selected(&args, Some(&selected)) != 0 {
-        errors.push(format!(
-            "検査に通らない: {}",
-            fs::read_to_string(&report).unwrap_or_default().trim()
-        ));
+        let detail = fs::read_to_string(&report).unwrap_or_default();
+        return Ok(vec![format!(
+            "検査に通らない: {}\n{}",
+            report.display(),
+            detail.trim()
+        )]);
     }
+
+    let rows = entries(&c.home(), &selected[&c.persona])?;
+    let mut manifest = csv::WriterBuilder::new()
+        .delimiter(b'\t')
+        .from_writer(Vec::new());
+    for row in rows {
+        manifest.write_record(row)?;
+    }
+    atomic_write(&c.manifest(), &manifest.into_inner()?, false)?;
+    let paths = commit_paths(c, &record)?;
+    save_json(&verified, &json!(fingerprints(c, &paths)?))?;
     Ok(errors)
 }
+
 fn git(base: &Path, args: &[&str]) -> Result<String> {
-    let o = Command::new("git").arg("-C").arg(base).args(args).output()?;
+    let o = Command::new("git")
+        .arg("-C")
+        .arg(base)
+        .arg("--literal-pathspecs")
+        .args(args)
+        .output()?;
     if !o.status.success() {
         bail!(
             "git {}: {}",
@@ -504,6 +1000,9 @@ fn git(base: &Path, args: &[&str]) -> Result<String> {
 }
 fn lock_file(base: &Path, rel: &str, wait: bool) -> Result<File> {
     let p = base.join(rel);
+    if crate::manifest::resolve_path(&p)? != p {
+        bail!("リンクを含むロックのパス: {}", p.display());
+    }
     fs::create_dir_all(p.parent().unwrap())?;
     let f = OpenOptions::new().create(true).append(true).open(p)?;
     if wait {
@@ -513,58 +1012,77 @@ fn lock_file(base: &Path, rel: &str, wait: bool) -> Result<File> {
     }
     Ok(f)
 }
-fn commit(c: &Ctx, push: bool) -> Result<String> {
-    let record = load_record(c)?;
-    let pairs: Vec<(String, String)> = serde_json::from_value(record["pairs"].clone())?;
+fn commit_paths(c: &Ctx, record: &Value) -> Result<BTreeSet<String>> {
     let refs: Vec<String> = serde_json::from_value(record["refs"].clone())?;
     let mut paths: BTreeSet<String> = serde_json::from_value(record["changed"].clone())?;
-    let repo = |p: &Path| {
-        p.strip_prefix(&c.base)
-            .unwrap_or(p)
-            .to_string_lossy()
-            .into_owned()
-    };
     for rel in &refs {
-        paths.insert(repo(&c.home().join(rel)));
-        let s = c.sources().join(format!("{rel}.md"));
-        if s.exists() {
-            paths.insert(repo(&s));
-        }
+        paths.insert(c.relative(&c.home().join(rel))?);
     }
-    paths.insert(repo(&c.manifest()));
-    paths.insert(repo(&c.loc.personas.join(format!("{}.md", c.persona))));
-    let audit = c.progress().join("rename.audit.md");
-    if audit.exists() {
-        paths.insert(repo(&audit));
-    }
-    let _records = lock_file(&c.base, "scratch/.locks/records.lock", true)?;
-    let tracked = git(&c.base, &["ls-files", "-z"])?
-        .split('\0')
-        .map(str::to_string)
-        .collect::<BTreeSet<_>>();
-    paths.retain(|p| c.base.join(p).exists() || tracked.contains(p));
-    let mut args = vec!["add", "--"];
-    args.extend(paths.iter().map(String::as_str));
-    git(&c.base, &args)?;
-    let staged = git(&c.base, &["diff", "--cached", "--name-only", "-z"])?;
-    if let Some(p) = staged
-        .split('\0')
-        .filter(|s| !s.is_empty())
-        .find(|p| !paths.contains(*p))
-    {
+    paths.insert(c.relative(&c.manifest())?);
+    paths.insert(c.relative(&c.definition())?);
+    Ok(paths)
+}
+fn fingerprints(c: &Ctx, paths: &BTreeSet<String>) -> Result<BTreeMap<String, Option<String>>> {
+    paths
+        .iter()
+        .map(|path| {
+            let p = crate::batch::safe_file(&c.base, path)?;
+            let hash = metadata_if_exists(&p)?.map(|_| digest(&p)).transpose()?;
+            Ok((path.clone(), hash))
+        })
+        .collect()
+}
+fn check_index(c: &Ctx, paths: &BTreeSet<String>) -> Result<()> {
+    let staged = git(
+        &c.base,
+        &["diff", "--cached", "--no-renames", "--name-only", "-z"],
+    )?;
+    if let Some(p) = staged.split_terminator('\0').find(|p| !paths.contains(*p)) {
         bail!("stage の範囲外の変更がある: {p}")
     }
+    Ok(())
+}
+fn commit(c: &Ctx) -> Result<String> {
+    let _lock = c.lock()?;
+    let _records = lock_file(&c.base, "scratch/.locks/records.lock", true)?;
+    let record = load_record(c)?;
+    let mut paths = commit_paths(c, &record)?;
+    let audit = c.audit();
+    if metadata_if_exists(&audit)?.is_some() {
+        if read_text(&audit)?.lines().next() != Some("verdict: accept") {
+            bail!("監査が合格していない: {}", audit.display());
+        }
+        paths.insert(c.relative(&audit)?);
+    }
+    check_index(c, &paths)?;
+    let verified: BTreeMap<String, Option<String>> = serde_json::from_str(
+        &read_text(&c.state_dir().join("verified.json")).context("verify が合格していない")?,
+    )?;
+    let original_paths = commit_paths(c, &record)?;
+    if verified != fingerprints(c, &original_paths)? {
+        bail!("verify の後に名前の付け直しに関係するファイルが変わった");
+    }
+    let rows: BTreeMap<String, Row> = serde_json::from_value(record["rows"].clone())?;
+    let pairs: Vec<(String, String)> = serde_json::from_value(record["pairs"].clone())?;
+    let finals = final_paths(&rows, &pairs);
+    crate::manifest::verify(&c.home(), &c.manifest(), &finals.into_keys().collect())?;
+
+    let mut args = vec!["add", "-A", "--"];
+    args.extend(paths.iter().map(String::as_str));
+    git(&c.base, &args)?;
+    check_index(c, &paths)?;
     let message = format!(
         "Rename {} files: 中身を説明する名前・日付の不統一を付け直し ({} files, 中身の参照の修正 {})",
         c.persona,
         pairs.len(),
-        refs.len()
+        record["refs"].as_array().context("参照の記録が不正")?.len()
     );
-    git(&c.base, &["commit", "-qm", &message])?;
-    if push {
-        git(&c.base, &["push", "-q", "origin", "main"])?;
-    }
-    let _ = fs::remove_file(c.state_dir().join("applied.json"));
+    // A path-limited commit cannot pick up an unrelated add racing the index check.
+    let mut args = vec!["commit", "--only", "-qm", &message, "--"];
+    args.extend(paths.iter().map(String::as_str));
+    git(&c.base, &args)?;
+    save_json(&c.state_dir().join("state.json"), &json!({"stage": "done"}))?;
+    fs::remove_file(c.state_dir().join("applied.json"))?;
     Ok(message)
 }
 
@@ -585,7 +1103,6 @@ impl Driver {
         let path = self.base.join("scratch/rename/log.tsv");
         fs::create_dir_all(path.parent().unwrap())?;
         let mut f = OpenOptions::new().create(true).append(true).open(path)?;
-        use std::io::Write;
         writeln!(
             f,
             "{}\t{p}\t{what}\t{}",
@@ -598,7 +1115,10 @@ impl Driver {
         let o = Command::new(self.base.join("ops/bin/codex-job"))
             .args(["status", "--repo", "personaCorpus"])
             .output()?;
-        Ok(String::from_utf8_lossy(&o.stdout)
+        if !o.status.success() {
+            bail!("codex-job status: {}", String::from_utf8_lossy(&o.stderr));
+        }
+        Ok(String::from_utf8(o.stdout)?
             .lines()
             .find_map(|l| {
                 let c = l.split('\t').collect::<Vec<_>>();
@@ -616,13 +1136,25 @@ impl Driver {
         let short = p.split('-').next().unwrap();
         let mut name = format!("{short}-{kind}");
         let mut i = 1;
-        while self.ops().join("jobs/personaCorpus").join(&name).exists() {
+        while self
+            .ops()
+            .join("jobs/personaCorpus")
+            .join(&name)
+            .try_exists()?
+            || self
+                .base
+                .join("scratch/rename")
+                .join(p)
+                .join(&name)
+                .try_exists()?
+        {
             i += 1;
             name = format!("{short}-{kind}-r{i}");
         }
         let work = self.base.join("scratch/rename").join(p).join(&name);
         fs::create_dir_all(&work)?;
-        let context = json!({"persona": p, "scratch": work.strip_prefix(&self.base)?.to_string_lossy()});
+        let context =
+            json!({"persona": p, "scratch": work.strip_prefix(&self.base)?.to_string_lossy()});
         let brief = work.join("brief.md");
         fs::write(
             &brief,
@@ -635,16 +1167,30 @@ impl Driver {
         let cmd = shell_words::join([
             self.base.join("bin/batch").to_string_lossy().into_owned(),
             "codex-once".into(),
+            "--model".into(),
+            model.into(),
             "--brief".into(),
             brief.to_string_lossy().into_owned(),
             "--output".into(),
             work.join("out.md").to_string_lossy().into_owned(),
         ]);
-        let command = format!("cd {} && {cmd}", shell_words::quote(&self.base.to_string_lossy()));
+        let command = format!(
+            "cd {} && {cmd}",
+            shell_words::quote(&self.base.to_string_lossy())
+        );
         let o = Command::new(self.base.join("ops/bin/codex-job"))
             .args([
-                "start", "--repo", "personaCorpus", "--name", &name, "--model", model, "--effort",
-                "medium", "--command", &command,
+                "start",
+                "--repo",
+                "personaCorpus",
+                "--name",
+                &name,
+                "--model",
+                model,
+                "--effort",
+                "medium",
+                "--command",
+                &command,
             ])
             .output()?;
         if !o.status.success() {
@@ -656,25 +1202,33 @@ impl Driver {
     fn state_path(&self, p: &str) -> PathBuf {
         self.base.join("scratch/rename").join(p).join("state.json")
     }
-    fn state(&self, p: &str) -> Value {
-        fs::read_to_string(self.state_path(p))
-            .ok()
-            .and_then(|s| serde_json::from_str(&s).ok())
-            .unwrap_or(json!({"stage": "names", "attempts": 0}))
+    fn state(&self, p: &str) -> Result<Value> {
+        match metadata_if_exists(&self.state_path(p))? {
+            Some(_) => Ok(serde_json::from_str(&read_text(&self.state_path(p))?)?),
+            None => Ok(json!({"stage": "names", "attempts": 0})),
+        }
     }
     fn store(&self, p: &str, v: &Value) -> Result<()> {
-        fs::create_dir_all(self.state_path(p).parent().unwrap())?;
-        fs::write(self.state_path(p), serde_json::to_string_pretty(v)?)?;
-        Ok(())
+        save_json(&self.state_path(p), v)
     }
     /// One step for one persona. Returns true when the persona is finished.
-    fn step(&self, p: &str, push: bool, paused: &mut Option<SystemTime>) -> Result<bool> {
-        let mut s = self.state(p);
-        let stage = s["stage"].as_str().unwrap_or("names").to_string();
+    fn step(&self, p: &str, paused: &mut Option<SystemTime>) -> Result<bool> {
+        let mut s = self.state(p)?;
+        let stage = s["stage"].as_str().context("stage が不正")?.to_string();
         if ["done", "hold"].contains(&stage.as_str()) {
             return Ok(true);
         }
         let ctx = Ctx::new(self.loc.clone(), p)?;
+        // A completed apply can be found after an interruption before the driver
+        // saved its next stage.
+        if stage == "names" && ctx.state_dir().join("applied.json").try_exists()? {
+            let refs = apply(&ctx)?;
+            self.store(
+                p,
+                &json!({"stage": if refs.is_empty() {"verify"} else {"fix"}, "attempts": 0}),
+            )?;
+            return Ok(false);
+        }
         let job = s["job"].as_str().unwrap_or("").to_string();
         if !job.is_empty() {
             let status = self.job_status(&job)?;
@@ -687,8 +1241,15 @@ impl Driver {
                     self.log(p, "limit", &job)?;
                     *paused = Some(SystemTime::now() + Duration::from_secs(1800));
                 } else {
-                    s["attempts"] = json!(s["attempts"].as_i64().unwrap_or(0) + 1);
-                    s["errors"] = json!(format!("Codex ジョブが正常終了しなかった: {job}"));
+                    let reason = format!("Codex ジョブが正常終了しなかった: {job} ({status})");
+                    let attempts = s["attempts"].as_i64().unwrap_or(0);
+                    if attempts >= 2 {
+                        self.store(p, &json!({"stage": "hold", "reason": reason}))?;
+                        self.log(p, "hold", &reason)?;
+                        return Ok(true);
+                    }
+                    s["attempts"] = json!(attempts + 1);
+                    s["errors"] = json!(reason);
                 }
                 self.store(p, &s)?;
                 return Ok(false);
@@ -721,7 +1282,7 @@ impl Driver {
                     self.store(p, &s)?;
                     return Ok(false);
                 }
-                let errors = ctx.pairs().and_then(|pairs| ctx.validate(&pairs));
+                let errors = ctx.validation();
                 match errors {
                     Ok(e) if e.is_empty() => {
                         let refs = apply(&ctx)?;
@@ -746,7 +1307,8 @@ impl Driver {
                     if !can_launch {
                         return Ok(false);
                     }
-                    s["job"] = json!(self.launch(p, "rename-fix", "gpt-6.2-sol", &errors_note(&s))?);
+                    s["job"] =
+                        json!(self.launch(p, "rename-fix", "gpt-6.2-sol", &errors_note(&s))?);
                     self.store(p, &s)?;
                     return Ok(false);
                 }
@@ -769,22 +1331,28 @@ impl Driver {
                     if !can_launch {
                         return Ok(false);
                     }
-                    let _ = fs::remove_file(ctx.progress().join("rename.audit.md"));
+                    if metadata_if_exists(&ctx.audit())?.is_some() {
+                        fs::remove_file(ctx.audit())?;
+                    }
                     s["job"] = json!(self.launch(p, "rename-audit", "gpt-6.2-astra", "")?);
                     self.store(p, &s)?;
                     return Ok(false);
                 }
-                let audit = fs::read_to_string(ctx.progress().join("rename.audit.md")).unwrap_or_default();
+                let audit = match metadata_if_exists(&ctx.audit())? {
+                    Some(_) => read_text(&ctx.audit())?,
+                    None => String::new(),
+                };
                 match audit.lines().next() {
                     Some("verdict: accept") => {
-                        let message = commit(&ctx, push)?;
+                        let message = commit(&ctx)?;
                         self.log(p, "commit", &message)?;
-                        s = json!({"stage": "done"});
-                        self.store(p, &s)?;
                         return Ok(true);
                     }
                     Some("verdict: hold") => {
-                        return hold(&mut s, "監査 hold: progress/".to_string() + p + "/rename.audit.md");
+                        return hold(
+                            &mut s,
+                            "監査 hold: progress/".to_string() + p + "/rename.audit.md",
+                        );
                     }
                     _ if attempts >= 2 => return hold(&mut s, "監査の書式が不正".into()),
                     _ => {
@@ -806,9 +1374,8 @@ impl Driver {
 )]
 struct Options {
     action: String,
+    #[arg(id = "persona_names", required = true)]
     personas: Vec<String>,
-    #[arg(long)]
-    push: bool,
     #[arg(long, default_value_t = 60)]
     interval: u64,
     #[command(flatten)]
@@ -824,7 +1391,7 @@ fn execute(o: Options) -> Result<i32> {
     match o.action.as_str() {
         "validate" => {
             let c = one()?;
-            let e = c.validate(&c.pairs()?)?;
+            let e = c.validation()?;
             for l in &e {
                 println!("{l}");
             }
@@ -849,47 +1416,67 @@ fn execute(o: Options) -> Result<i32> {
         }
         "commit" => {
             let c = one()?;
-            println!("{}", commit(&c, o.push)?);
+            let _l = lock_file(&c.base, &format!("scratch/{}/.lock", c.persona), false)
+                .context("同じ persona の batch が進行中")?;
+            println!("{}", commit(&c)?);
             Ok(0)
         }
         "run" => {
-            let (personas, push, interval) = (o.personas.clone(), o.push, o.interval);
-            let base = o.locations.root.parent().unwrap().to_path_buf();
+            let ctx = Ctx::new(o.locations.clone(), &o.personas[0])?;
+            ctx.check_locations()?;
+            let base = ctx.base;
+            // The jobs use bin/rename and repo-relative paths from their briefs.
+            for (path, name) in [
+                (&ctx.loc.root, "people"),
+                (&ctx.loc.personas, "personas"),
+                (&ctx.loc.progress, "progress"),
+                (&ctx.loc.manifests, "manifests"),
+                (&ctx.loc.sources, "sources"),
+            ] {
+                if *path != base.join(name) {
+                    bail!("run はリポジトリの既定の配置が必要: {}", path.display());
+                }
+            }
             let d = Driver {
-                loc: o.locations.clone(),
+                loc: ctx.loc,
                 base: base.clone(),
             };
-            let names = personas
+            let names = o
+                .personas
                 .iter()
-                .map(|p| resolve(&o.locations.root, p))
-                .collect::<Result<Vec<_>>>()?;
+                .map(|p| resolve(&d.loc.root, p))
+                .collect::<Result<BTreeSet<_>>>()?;
             let mut locks = BTreeMap::<String, File>::new();
             let mut paused = None;
             loop {
                 let mut open = 0;
                 for p in &names {
                     if !locks.contains_key(p) {
-                        if d.state(p)["stage"] == "done" {
+                        if matches!(d.state(p)?["stage"].as_str(), Some("done" | "hold")) {
                             continue;
                         }
                         match lock_file(&base, &format!("scratch/{p}/.lock"), false) {
                             Ok(f) => {
                                 locks.insert(p.clone(), f);
                             }
-                            Err(_) => {
+                            Err(e)
+                                if e.downcast_ref::<std::io::Error>()
+                                    .is_some_and(|e| e.kind() == ErrorKind::WouldBlock) =>
+                            {
                                 open += 1;
                                 continue;
                             }
+                            Err(e) => return Err(e),
                         }
                     }
-                    match d.step(p, push, &mut paused) {
+                    match d.step(p, &mut paused) {
                         Ok(true) => {
                             locks.remove(p);
                         }
                         Ok(false) => open += 1,
                         Err(e) => {
                             d.log(p, "error", &format!("{e:#}"))?;
-                            let mut s = d.state(p);
+                            let mut s = d.state(p)?;
                             s["stage"] = json!("hold");
                             s["reason"] = json!(format!("{e:#}"));
                             d.store(p, &s)?;
@@ -898,16 +1485,29 @@ fn execute(o: Options) -> Result<i32> {
                     }
                 }
                 if open == 0 {
-                    return Ok(0);
+                    let mut result = 0;
+                    for p in &names {
+                        let state = d.state(p)?;
+                        if state["stage"] == "hold" {
+                            eprintln!(
+                                "{p}: 保留: {}",
+                                state["reason"].as_str().unwrap_or_default()
+                            );
+                            result = 1;
+                        }
+                    }
+                    return Ok(result);
                 }
-                std::thread::sleep(Duration::from_secs(interval));
+                std::thread::sleep(Duration::from_secs(o.interval));
             }
         }
         other => bail!("unknown action: {other}"),
     }
 }
 pub fn run(args: &[String]) -> i32 {
-    let o = match Options::try_parse_from(std::iter::once("rename".to_string()).chain(args.iter().cloned())) {
+    let o = match Options::try_parse_from(
+        std::iter::once("rename".to_string()).chain(args.iter().cloned()),
+    ) {
         Ok(o) => o,
         Err(e) => {
             let code = e.exit_code();

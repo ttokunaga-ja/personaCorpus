@@ -2809,6 +2809,19 @@ fn tracked(folder: &Path) -> Result<BTreeSet<String>> {
     }
     Ok(paths)
 }
+pub(crate) fn ocr_language() -> Result<Option<&'static str>> {
+    let language = if which("tesseract") {
+        let langs = utf(&cmd(&["tesseract", "--list-langs"])?)?;
+        Some(if langs.lines().any(|s| s == "jpn") {
+            "eng+jpn"
+        } else {
+            "eng"
+        })
+    } else {
+        None
+    };
+    Ok(language)
+}
 fn run_inner(a: &Args, selected: Option<&BTreeMap<String, BTreeSet<String>>>) -> Result<i32> {
     let mut accepted = BTreeMap::<String, BTreeSet<String>>::new();
     let selected = if a.accepted {
@@ -2832,16 +2845,7 @@ fn run_inner(a: &Args, selected: Option<&BTreeMap<String, BTreeSet<String>>>) ->
     let (mut passed, mut pending) = (0, 0);
     let mut failed_files = BTreeSet::new();
     let mut skips = BTreeMap::<String, usize>::new();
-    let language = if which("tesseract") {
-        let langs = utf(&cmd(&["tesseract", "--list-langs"])?)?;
-        Some(if langs.lines().any(|s| s == "jpn") {
-            "eng+jpn"
-        } else {
-            "eng"
-        })
-    } else {
-        None
-    };
+    let language = ocr_language()?;
     for name in names {
         let folder = a.root.join(&name);
         let cfg_path = a.personas.join(format!("{name}.md"));

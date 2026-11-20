@@ -81,7 +81,7 @@ impl Fixture {
             cmd.arg(format!("--{n}"))
                 .arg(self.base.join(if n == "root" { "people" } else { n }));
         }
-        if ["check", "pack"].contains(&tool) {
+        if ["check", "pack", "rename"].contains(&tool) {
             cmd.arg("--sources").arg(self.base.join("sources"));
         }
         cmd.envs(&self.env);
