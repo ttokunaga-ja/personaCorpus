@@ -47,6 +47,18 @@ fn save(p: &Path, v: &Value) -> Result<()> {
     fs::rename(temp, p)?;
     Ok(())
 }
+/// Production categories or IDs in a deliverable path.
+pub(crate) fn bad_path(relative: &str) -> bool {
+    matches(BAD_PATH, relative)
+        || matches(
+            r"(?<![a-z0-9])p\d{2}(?!\d)|-s\d{6}(?!\d)|(?<!\d)\d{5,}(?!\d)",
+            Path::new(relative)
+                .file_name()
+                .unwrap_or_default()
+                .to_string_lossy()
+                .as_ref(),
+        )
+}
 fn matches(p: &str, s: &str) -> bool {
     fancy_regex::Regex::new(&format!("(?i){p}"))
         .unwrap()
@@ -1448,14 +1460,13 @@ impl Batch {
                 if !EXT.split_whitespace().any(|s| s == ext) {
                     errors.push(format!("対象外の拡張子: {relative}"));
                 }
-                if matches(BAD_PATH, relative)
-                    || matches(
-                        r"(?<![a-z0-9])p\d{2}(?!\d)|-s\d{6}(?!\d)|(?<!\d)\d{5,}(?!\d)",
-                        p.file_name().unwrap_or_default().to_string_lossy().as_ref(),
-                    )
-                {
+                if bad_path(relative) {
                     errors.push(format!("制作区分または ID: {relative}"));
                 }
+                errors.extend(crate::rename::name_problems(
+                    relative,
+                    self.cfg.get("date_prefix").map(String::as_str),
+                ));
                 if self.trace(relative) {
                     errors.push(format!("制作の痕跡: {relative}"));
                 }

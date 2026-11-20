@@ -5,6 +5,7 @@ mod manifest;
 mod media;
 mod ops;
 mod pack;
+mod rename;
 fn base() -> std::path::PathBuf {
     std::env::var_os("CORPUS_BASE")
         .map(Into::into)
@@ -20,7 +21,7 @@ fn main() {
     let code = match args.first().map(String::as_str) {
         Some("--help" | "-h") => {
             println!(
-                "usage: corpus <check|batch|manifest|pack|render|office-pdf|tex|scan|stamp|recalc|autopilot|job|alert|watchd> [arguments]"
+                "usage: corpus <check|batch|manifest|pack|render|office-pdf|tex|scan|stamp|recalc|autopilot|rename|job|alert|watchd> [arguments]"
             );
             0
         }
@@ -29,6 +30,7 @@ fn main() {
         Some("check") => check::run(&args[1..]),
         Some("autopilot") => autopilot::run(&args[1..]),
         Some("batch") => batch::run(&args[1..]),
+        Some("rename") => rename::run(&args[1..]),
         Some(c @ ("render" | "office-pdf" | "tex" | "scan" | "stamp" | "recalc")) => {
             media::run(c, &args[1..])
         }
@@ -37,7 +39,7 @@ fn main() {
         }
         _ => {
             eprintln!(
-                "usage: corpus <check|batch|manifest|pack|render|office-pdf|tex|scan|stamp|recalc|autopilot|job|alert|watchd> [arguments]"
+                "usage: corpus <check|batch|manifest|pack|render|office-pdf|tex|scan|stamp|recalc|autopilot|rename|job|alert|watchd> [arguments]"
             );
             2
         }

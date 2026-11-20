@@ -513,7 +513,7 @@ fn filename(m: &mailparse::ParsedMail<'_>) -> Option<String> {
         .cloned()
         .or_else(|| m.ctype.params.get("name").cloned())
 }
-fn extract(p: &Path, ext: &str, language: Option<&str>) -> Result<(String, bool, bool)> {
+pub(crate) fn extract(p: &Path, ext: &str, language: Option<&str>) -> Result<(String, bool, bool)> {
     let path = strpath(p);
     if ["docx", "xlsx", "pptx"].contains(&ext) {
         return Ok((office_text(p, ext)?, false, false));
