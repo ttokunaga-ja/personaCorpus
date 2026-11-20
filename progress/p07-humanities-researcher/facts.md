@@ -102,3 +102,27 @@
 - 照会② 2025-03-21 09:07 GMT（18:07 JST）、阿部 → Judith、件名「Re: 会費と閲覧で確認したいこと」。①を引用、添付なし。
 - 案内 2025-04-08 09:14 BST（17:14 JST）、阿部 → Judith、件名「4月29日 比較研究会のご案内」。案内ページへのリンク、添付なし。
 - 配布物送付 2025-04-24 08:38 BST、Judith → 阿部、件名「研究会の配布稿と別紙」。新規メールで案内の引用なし。Dues and terms of entry - April discussion.pdf と Rules and surviving entries - separate sheet.pdf を添付。
+
+## 箱14の再撮影と閲覧用の再複写
+
+- 再撮影依頼の12葉は CR/14/A の153・154・157・158・161・164、CR/14/B の193・194・208・209・211・216。いずれも目録上は現存し、初回複写・9月の書簡複写・1月の地名用複写・184葉とは別。
+- 10月24日分は A153r・154r（督促待ち／未収欄）、A157v・158r（受理の裏書／回付）、B193r・194r（水曜の告知／当番交代の追記）、B208r・209r（鍵控え／受領印）。四つのPDFに各2葉、記載順の各1面を収録し、研究閲覧用のみ。
+- 翻刻保留の4葉は A161r（綴じ側の末尾）、A164v（裏当てと筆線）、B211r（余白の重なり）、B216r（開けない内側）。番号の欠落ではなく、支持台で許される開きの範囲で読みが確定しない。
+- 10月24日08:48 BST（09:48 CEST）、Camille が B208r の撮影前に支持台と折り返しの位置を撮る。10月30日午前に Judith と Julie が B194r を見直し、当番交代の追記を確認するが、筆線の交差する部分から交代時刻は確定しない。
+- 別紙 LHT-20251022-REQ-001 v1.0 は10月22日のWordと23日09:21 BSTの送信用PDFで同じ内容。12葉の所在・面・見たい余白を載せる。
+- 依頼① 2025-10-23 09:36 BST、Judith Morris → Camille Laurent、件名「Reprises de vues du carton 14」。Carton 14 - feuillets à reprendre.pdf を添付。
+- 依頼② 同日11:07 BST（12:07 CEST）、Camille → Judith、件名「Re: Reprises de vues du carton 14」。①の取扱い条件を引用、翌朝の支持台での撮影を案内。添付なし。
+- 納品 2025-10-24 11:38 BST（12:38 CEST）、Camille → Judith、件名「Carton 14 : huit reprises disponibles」。新規メールで、8葉入りの4 PDF（délai de quinzaine、visa de réception、avis du mercredi、bordereau des clefs）と支持台のJPGを添付。
+
+## Florianとの引用研修と本文へ戻す前の相互点検
+
+- 2025-11-17 10:00–11:10 GMT、York で Judith Morris と Florian Schulte が第2章の既存の典拠から20箇所を点検。葉番号の誤り4件を同日14:00–14:45 GMTに二人で開き直し、葉・面・行を確定。10月の翻刻保留とは対象も判断も別。
+- 出典注4、CR/12/A の候補024r → 023r、4–6行。四半期会費1フラン50とランプ寄付を別会計とする行。出典注9、CR/13/A の候補084r → 085r、3–5行。同伴者1人と寄付しない客も歓迎する行。
+- 出典注13、CR/14/A の候補185r → 186r、3–9行。館内閲覧を認める3–4行と持出し・引渡しに関わる5–9行。出典注12、CR/14/B の候補201r → 202r、3–5行。75サンチームの未使用寄付の返却と会費とは別に扱う指示。
+- 20箇所の注番号は LHT-20250212-CHP-001 v1.1 の出典注に対応。元の4候補は研修用の控えに含む転記違いで、2月提出版の訂正履歴ではない。訂正不要の16箇所は同稿の参照範囲を使う。
+- 訂正不要の16箇所は、注5の CR/12/A 021r・022r・025r、注6–7の CR/12/B 034r–039r、注8の CR/14/A 171r・173r・174r・175r、注10の CR/13/A 083r・086r、注11の CR/14/A 182r。
+- Citation exercise LHT-20251114-EVD-001 v0.1 は11月14日15:28 GMTの Judith の演習稿。v0.2 は11月17日11:12 GMTに Florian が4件の Word コメントを付けた版で、元の候補を保持する。
+- 午後の作業用PDF LHT-20251117-PAP-001 v0.1 は11:53 GMT。書き込み入りのスキャンは14:51 GMT。同じ4欄を使い、紙に記入した確認者は J.M. と F.S.。
+- 研修① 2025-11-14 15:42 GMT、Judith → Florian Schulte <florian@langley-history.example>、件名「Twenty references for Monday」。Find the passage before fixing the note.docx を添付。
+- 研修② 2025-11-17 11:24 GMT、Florian → Judith、件名「Re: Twenty references for Monday」。①の各自で開く指示を引用し、Find the passage - Florian's comments.docx を添付。
+- 二人が独立に請求記号・葉・面・行を照合し、確認者名・日付・反映先を記録してから作業章稿の本文と注を突き合わせる。11月17日の時点で4件は参照確定、次の作業稿への反映は待ち。提出済みの章稿は保存する。

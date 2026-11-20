@@ -3,6 +3,9 @@
 \LoadClass[11pt,a4paper]{article}
 \RequirePackage[left=24mm,right=24mm,top=29mm,bottom=24mm,headheight=18pt,headsep=7mm,footskip=12mm]{geometry}
 \RequirePackage{fontspec,luatexja-fontspec,xcolor,fancyhdr,tabularx,titlesec,needspace}
+% Keep Latin curly quotes in the proportional Latin font.
+\ltjdefcharrange{10}{"2018-"2019,"201C-"201D}
+\ltjsetparameter{jacharrange={-10}}
 \setmainfont{Liberation Sans}
 \setsansfont{Liberation Sans}
 \setmainjfont{Noto Sans CJK JP}
