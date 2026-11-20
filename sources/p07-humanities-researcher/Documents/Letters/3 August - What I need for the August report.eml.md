@@ -1,0 +1,22 @@
+---
+path: Documents/Letters/3 August - What I need for the August report.eml
+kind: text
+author: Roger Hewitt
+derived_from:
+---
+
+From: Roger Hewitt <roger@langley-history.example>
+To: Judith Morris <judith@langley-history.example>
+Cc:
+Date: Mon, 03 Aug 2026 10:26:00 +0100
+Subject: What I need for the August report
+Message-ID: <5d056c5edf4f4d8087386d4f026bc5b4@langley-history.example>
+
+Judith,
+
+Could you let me have the interim report on Thursday 27 August for internal review? I need a line for each of the six chapters. Give me the state of the manuscript and enough of a reference to open the passage or working record behind your judgement. Where you have a complete draft, say so plainly and keep its publication status separate. For the chapters still being written, say what you would need in hand before calling the draft complete.
+
+Put the effect of the outstanding work on the publication date in the body of the report. I want to see which jobs have to follow one another and what that leaves for a read of the whole book. Please give copy charges their own section so I can check the amount awarded against what Frances has actually booked.
+
+Best,
+Roger

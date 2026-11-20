@@ -1,0 +1,17 @@
+---
+path: Documents/Grants-and-talks/22 September - Questions after the two cases.txt
+kind: text
+author: Judith Morris
+derived_from:
+---
+
+22 September 2026 — questions after the two cases
+Online, 09:30–10:05 BST. Yukiko Abe chaired. Twenty minutes for the paper and fifteen for discussion.
+
+Abe — 「客と会員に関する規則」, with 「記録の単位」 alongside it.
+Could we call it a breach if there is no mention of an introduction? I went back to what the April 1887 Japanese rule requires of a guest on a meeting day. Then I asked where we would expect the introduction to be written down. The May cash account records dues received and has no visitor or introduction column in the extract we saw. The York attendant's sheets are a separate example: there is a guest column with marks, but no names or accompanying members' signatures. Neither provides a record of the introduction on the Japanese occasion. To call it a breach we would need a record of the visit that could also establish whether a member introduced the guest.
+
+Participant — 「直接影響の判断に必要なもの」.
+Could the receipt stamp alone establish that the British rules were consulted? I took the two boxes on the slide in order. First identify what reached whom, and when. A date stamp on an acknowledgment with no description of the enclosure gives no basis for identifying it as the February 1874 York rules. A dispatch and matching receipt that identify the text and the recipient before April 1887 would help establish that the text was available to read. Then ask what the recipients considered. For that we need a record of drafting or adoption that identifies the wording and the clause discussed. The stamp supplies neither identification of the text nor evidence of that deliberation.
+
+For my next note to Abe: keep the search for a named enclosure and the search for drafting or adoption minutes as two separate enquiries. Leave the status in Chapter 6 open.

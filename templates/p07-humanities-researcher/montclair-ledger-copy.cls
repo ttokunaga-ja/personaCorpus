@@ -12,7 +12,8 @@
 \setlength{\parskip}{5pt}
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{\textcolor{MontclairOchre}{\rule{11pt}{2pt}\hspace{-4pt}\rule{2pt}{11pt}}\hspace{8pt}%
+\fancyhead[L]{\textcolor{MontclairOchre}{%
+  \rlap{\rule[4.5pt]{11pt}{2pt}}\makebox[11pt][c]{\rule{2pt}{11pt}}}\hspace{8pt}%
   {\bfseries Montclair Reading Archive}}
 \fancyhead[R]{\small Service des reproductions}
 \fancyfoot[L]{\small Copie de consultation}

@@ -1,16 +1,25 @@
 # Judith Morris の文書の型
 
+## Langley Historical Trust の型
+
 | 型 | 組織・用途 | ファイル | 見た目 |
 |---|---|---|---|
 | Working outline | Langley Historical Trust。Judith が章順を整理し Roger Hewitt に回覧する草稿 | [langley-outline.docx](langley-outline.docx) | A4縦。題の下に回覧情報、章順に小見出し。レビューコメントは Word の校閲欄 |
 | Evidence note / Translation draft / Citation exercise | Langley Historical Trust。Judith が史料の所在と推論の限界を記し、Julie と仏語書簡の訳、Florian と引用の参照先を確認する | [langley-evidence-note.docx](langley-evidence-note.docx) | A4縦。本文、参照表または対訳表。淡い葡萄色の見出しと細い横罫 |
 | Chapter manuscript | Langley Historical Trust。Judith が Edward Fairclough に提出する章稿や、阿部 由紀子に回覧する英語草稿 | [langley-chapter-manuscript.docx](langley-chapter-manuscript.docx) | A4縦。表紙なし。広めの行間と節・小節、典拠注、連続頁番号 |
+| Interim grant report | Langley Historical Trust。Judith が章の進捗・残作業・助成費・刊行見通しを Roger Hewitt に報告する | [langley-interim-grant-report.docx](langley-interim-grant-report.docx) | A4縦。表紙なし。5節、題の下に提出管理欄。典拠注と連続頁番号 |
 | Access brief | Langley Historical Trust。Judith が Camille Laurent 宛の閲覧申請で使う照会書や添付案 | [langley-access-brief.docx](langley-access-brief.docx) | A4縦。宛先、対象史料、取扱いと受渡しの希望を一続きに読める配置 |
 | Research discussion | Langley Historical Trust。Judith と研究班の章構成・典拠の検討、比較研究会の説明順の検討 | [langley-research-briefing.pptx](langley-research-briefing.pptx) | 16:9。白地の上下に細い罫線。表紙・本文・2段・表・図を収録したマスター |
 | Leaf register | Langley Historical Trust。Judith が箱・請求記号・葉範囲と閲覧／複写条件を照合する表 | [langley-leaf-register.xlsx](langley-leaf-register.xlsx) | A4横印刷。組織名と管理欄、淡い葡萄色の列見出し。件数列は右揃え |
 | Subscription count review | Langley Historical Trust。Judith と Julie が受領明細を再集計し、第2章の表の見出しと式を照合する | [langley-subscription-review.xlsx](langley-subscription-review.xlsx) | A4横。受領明細と見出し照合の2シート。淡い葡萄色の列見出しと繰返し管理欄 |
+| Chapter progress | Langley Historical Trust。Judith と Roger が章単位の進捗、確認残、次の作業を照合する | [langley-chapter-progress.xlsx](langley-chapter-progress.xlsx) | A4横。組織名・管理欄と7列の見出しを各頁に反復。章番号と確認残は右揃え |
 | Research paper | Langley Historical Trust。Judith が章の論点、仏英対訳、編集者への著者回答、比較研究会の配布稿や引用の相互点検手順を直接PDFに組む | [langley-research-paper.cls](langley-research-paper.cls) | A4縦。セリフ体、番号付きの節、典拠注、自動頁番号。対訳は出典と注を添えた左右2列 |
 | Person index | Langley Historical Trust。Judith と Stefan が付録の人物同定を整理し、同じ表記の候補を典拠から引けるようにする | [langley-person-index.cls](langley-person-index.cls) | A4縦のテキストPDF。淡い葡萄色の帯、索引語・典拠・同定注の3列。列見出しを各頁に繰り返す |
+
+## 社外の組織と史料の型
+
+| 型 | 組織・用途 | ファイル | 見た目 |
+|---|---|---|---|
 | Peer review report | Ainsworth Scholarly Press。Edward が匿名査読者の意見を Judith に伝える直接 PDF | [ainsworth-peer-review.cls](ainsworth-peer-review.cls) | A4縦。開いた本を表す2枚の矩形と社名、紺と淡い青灰色の管理欄、番号付きの査読指摘 |
 | Extrait du registre de circulation | Montclair Reading Archive。Isabelle Chevalier が Judith に渡す貸本台帳の閲覧用複写 | [montclair-ledger-copy.cls](montclair-ledger-copy.cls) | A4横。交差する2本の短い線と館名、黄土色の見出し、薄い砂色の複写管理欄。原紙の画像または活字の台帳を置く |
 | Inventaire sommaire | Archives de Saint-Aubin-sur-Rive。Camille が閲覧室で交付する紙の箱別目録 | [saint-aubin-inventory.cls](saint-aubin-inventory.cls) | A4縦。高さの異なる3本の背表紙と仏語の所蔵館名、深緑の帯、サンセリフ体、5列の目録 |
@@ -25,7 +34,7 @@
 - Langley の発行番号は `LHT-YYYYMMDD-用途-連番3桁`。用途は `OUT`（章構成）、`CHP`（提出する章稿）、`EVD`（典拠メモ・訳稿）、`REQ`（閲覧照会書）、`BRF`（研究説明）、`REG`（葉別台帳）、`PAP`（論点稿・対訳資料・著者回答）。Archives の現代の目録文書は `ASR-YYYYMMDD-INV-連番3桁`。目録文書の番号と各明細の史料請求記号は別に扱う。
 - Ainsworth は紺 `18374D`、本文の濃い青灰 `29353C`、管理欄の淡い青灰 `E6EEF2`。欧文は `Liberation Sans`、和文は `Noto Sans CJK JP`。開いた本の印と社名をヘッダに、編集部名・守秘区分・頁をフッタに置く。査読番号は `ASP-YYYY-REV-連番3桁`。扱った章稿の発行番号や著者回答の番号とは別に付ける。
 - Montclair は黄土色 `825019` の印と見出し、砂色 `F1E8D7` の帯、黒鉛色 `292B2E` の本文。欧文は `Liberation Sans`、和文は `Noto Sans CJK JP`。右上に複写窓口、左下に `Copie de consultation`、右下に頁番号を置く。複写番号は `MRA-YYYYMMDD-COP-連番3桁`。複写日・担当者・元の台帳の請求記号と葉はそれぞれの欄に入れる。
-- 日付は英国式 `25 April 2024`、仏語目録は `9 juillet 2024` の順で記す。実番号・版・日付・著者は計画と原稿で確定する。改稿は同じ番号の版で追い、同じ文書をPDF保存する場合は番号・版を引き継ぐ。作成者と確認者または宛先は別の欄に置く。メール・個人メモ・歴史史料に現代の発行番号を付けない。
+- 日付は英国式 `25 April 2024`、仏語目録は `9 juillet 2024` の順で記す。日本語の配布要旨と投影稿では `2026年9月22日` の表記を使う。実番号・版・日付・著者は計画と原稿で確定する。改稿は同じ番号の版で追い、同じ文書をPDF保存する場合は番号・版を引き継ぐ。作成者と確認者または宛先は別の欄に置く。メール・個人メモ・歴史史料に現代の発行番号を付けない。
 
 ## Word の成形
 
@@ -113,32 +122,29 @@
 - 6月25日の照合では台帳9冊の117回覧先記録を扱い、同定不能14記録は原表記と典拠を残す。対応 CSV は1記録1行。台帳の請求記号、葉・行、原表記、照合結果が追える形にする。作業図 PNG は裏付けのある接続と途切れている箇所を示す。CSV・作業図・確認依頼 EML はそれぞれの形式で保存する。
 - 訂正前の Word は Chapter manuscript を開き、対象段落の run に校閲コメントを付ける。7月8日の訂正後の直接 PDF は Research paper を使う。箱14・184葉の LA-042 の年記を1864年から1867年へ訂正した根拠を典拠注へ入れ、書き直した因果説明の2段落を直前・直後の文脈と一緒に載せる。Desktop の作業用ページは確認中の葉と箇所をすぐ引けるようにし、数字の読みと判断根拠は TXT に残す。
 
+## 2026年8〜9月の助成中間報告と比較研究会
+
+### 助成中間報告
+
+- 中間報告には **Interim grant report** を使う。発行番号の用途コードは `GRT`。題、番号、提出日、作成者、Roger 宛、版は「Word の成形」1の要領で先頭の節の前へ入れる。型のタイトルプロパティは `Interim grant report`。成形時は `doc.core_properties.title` に紙面の題と同じ報告題を入れ、作成者と作成・更新日時を原稿・計画に合わせる。本文は Chapter manuscript と同じ11.5 pt・行間1.5・段落後8 pt。章別の本文は `Heading 2`、補足と典拠は `LHT Note`。表が必要なら Word の表の手順を使う。
+- Reporting scope に対象期間と報告範囲、Chapter progress に完了4章と未完2章、Evidence and outstanding checks に章別の典拠と残る確認、Grant expenditure に採択された複写費と報告対象の支出、Revised publication timetable に刊行の3か月繰下げと残作業を置く。章の完了は原稿の進捗として扱う。8月27日の報告を18頁に組み、`bin/office-pdf <中間報告.docx> <提出用.pdf>` で本文・発行番号・版を引き継いだ検索可能なPDFを出す。両方の全頁で見出し、頁番号、表の改頁を確認する。
+- **Chapter progress** の番号は用途コード `PRG`。B3:D3 に発行番号、F3:G3 に実日付、B4:D4 に作成者、F4:G4 に確認者を入れる。日付は日付型、表示は英国式。入力先の細部と行高は共通の Excel 手順に従う。
+- 7行目から1章1行。Aは章番号、Eは確認残の件数で `LHT Integer`。Bの論点、Cの状態、Dの確認済み典拠、Fの次の作業は `LHT Text`、Gの確認者向け注は `LHT Note`。実際に確認したゼロは0とし、未確認の数は空欄。状態は `Complete` と `In progress` を使う。AとB、EとFの間に各セルのインデントを保つ。明細の高さは47 ptを目安に、長い典拠や注の折返しに合わせて広げる。
+- 状態別件数は明細の直後に2行を作る。各行の A:D を結合し、`LHT Total Label` で `Chapters complete` と `Chapters in progress` を入れる。Eに `LHT Total Integer` で状態別の `COUNTIF` を入れる。6章なら `=COUNTIF(C7:C12,"Complete")` と `=COUNTIF(C7:C12,"In progress")`。行高は23 ptが目安。刊行の見通しなど全体の注が要る場合は次の行の A:G を結合し、`LHT Note` を用いる。
+- A4横・幅1頁・縦自動。上1〜6行を繰り返し、画面はB7で固定。フィルタは列見出しから最終明細、印刷範囲は A1 から G列の最終使用行まで。明細が複数頁なら2頁目以降も管理番号全文と列見出しが読めること、集計が直前の明細と同じ頁にあることを確認する。`bin/recalc` で件数を計算し、`bin/render` で全頁を見る。
+
+### 比較研究会
+
+- 9月15日の配布要旨は **Research paper** で2頁に組む。題、PAPの番号、日付、Judith、回覧先を `\ResearchHeading` に入れる。比較資料を示したうえで、受取記録から支払者・来室者数を求める限界、規則と利用記録を区別する必要、直接の影響の判断に要る証拠を本文に置く。英語版の留保と日本語の対応箇所は別の Markdown に残す。
+- 阿部の校正紙は対象版の2頁を原紙にする。活字の校正なら書き込みを該当節に対応する欄として置き、校正者と修正箇所が紙面で読めるようにする。手書きの校正を指定された行は imagegen skill の手順に従う。印刷用PDFを `bin/scan --gray --quality 78` に通し、2頁の本文・修正箇所・頁番号を画像で確認する。
+- 9月22日の600字要旨は独立した文書として **Research paper** の本文に組む。投影稿は **Research discussion**。表紙にBRFの番号、日付・発表者を入れる。閲覧・貸出の条件、記録の範囲、因果の判断に欠ける証拠は文字・表・PowerPoint図形で説明する。許諾未取得の画像2枚はスライドにも添付にも入れない。
+- 配布連絡は送受信日・時差、添付する版を本文と EML のヘッダで照合する。案内 HTML は「あおぞら比較文化研究室」の日本語ページとして、室名、開催日時とタイムゾーン、題、発表者、参加方法を記す。2025年の案内の形式は参照できるが、日時やリンク先は当年の原稿に従う。
+
 ## 見本と画像
 
-b007 の見本。組版と印刷の確認に用いた抜粋で、配布物の内容と管理欄は計画と原稿で確定する。
+b008 の中間報告の組版確認用。必須5節、提出管理欄、連続頁番号を2頁の抜粋で確認する。配布物の本文と管理欄は計画・原稿に従う。
 
 | 型と確認内容 | 見本 | レンダリング画像 |
 |---|---|---|
-| Working outline（Roger の校閲コメント） | [langley-outline.docx](../../scratch/p07-humanities-researcher/b007/work/templates-0002/examples/langley-outline.docx) | [1頁](../../scratch/p07-humanities-researcher/b007/work/templates-0002/render/langley-outline/langley-outline-1.png) |
-| Chapter manuscript（節構成と連続頁番号） | [langley-chapter-manuscript.docx](../../scratch/p07-humanities-researcher/b007/work/templates-0002/examples/langley-chapter-manuscript.docx) | [1頁](../../scratch/p07-humanities-researcher/b007/work/templates-0002/render/langley-chapter-manuscript/langley-chapter-manuscript-1.png)、[2頁](../../scratch/p07-humanities-researcher/b007/work/templates-0002/render/langley-chapter-manuscript/langley-chapter-manuscript-2.png) |
-| Chapter manuscript（訂正前の2段落と Julie のコメント） | [langley-chapter-before-correction.docx](../../scratch/p07-humanities-researcher/b007/work/templates-0002/examples/langley-chapter-before-correction.docx) | [1頁](../../scratch/p07-humanities-researcher/b007/work/templates-0002/render/langley-chapter-before-correction/langley-chapter-before-correction-1.png) |
-| Evidence note（短い典拠表） | [langley-evidence-note.docx](../../scratch/p07-humanities-researcher/b007/work/templates-0002/examples/langley-evidence-note.docx) | [1頁](../../scratch/p07-humanities-researcher/b007/work/templates-0002/render/langley-evidence-note/langley-evidence-note-1.png) |
-| Evidence note（複数頁の典拠表） | [langley-evidence-note-long.docx](../../scratch/p07-humanities-researcher/b007/work/templates-0002/examples/langley-evidence-note-long.docx) | [1頁](../../scratch/p07-humanities-researcher/b007/work/templates-0002/render/langley-evidence-note-long/langley-evidence-note-long-1.png)、[2頁](../../scratch/p07-humanities-researcher/b007/work/templates-0002/render/langley-evidence-note-long/langley-evidence-note-long-2.png)、[3頁](../../scratch/p07-humanities-researcher/b007/work/templates-0002/render/langley-evidence-note-long/langley-evidence-note-long-3.png) |
-| Access brief（閲覧照会） | [langley-access-brief.docx](../../scratch/p07-humanities-researcher/b007/work/templates-0002/examples/langley-access-brief.docx) | [1頁](../../scratch/p07-humanities-researcher/b007/work/templates-0002/render/langley-access-brief/langley-access-brief-1.png) |
-| Research discussion（全5レイアウト） | [langley-research-briefing.pptx](../../scratch/p07-humanities-researcher/b007/work/templates-0002/examples/langley-research-briefing.pptx) | [1頁](../../scratch/p07-humanities-researcher/b007/work/templates-0002/render/langley-research-briefing/langley-research-briefing-1.png)、[2頁](../../scratch/p07-humanities-researcher/b007/work/templates-0002/render/langley-research-briefing/langley-research-briefing-2.png)、[3頁](../../scratch/p07-humanities-researcher/b007/work/templates-0002/render/langley-research-briefing/langley-research-briefing-3.png)、[4頁](../../scratch/p07-humanities-researcher/b007/work/templates-0002/render/langley-research-briefing/langley-research-briefing-4.png)、[5頁](../../scratch/p07-humanities-researcher/b007/work/templates-0002/render/langley-research-briefing/langley-research-briefing-5.png) |
-| Leaf register（短い明細） | [langley-leaf-register-short.xlsx](../../scratch/p07-humanities-researcher/b007/work/templates-0002/examples/langley-leaf-register-short.xlsx) | [1頁](../../scratch/p07-humanities-researcher/b007/work/templates-0002/render/langley-leaf-register-short/langley-leaf-register-short-1.png) |
-| Leaf register（複数頁の明細） | [langley-leaf-register-long.xlsx](../../scratch/p07-humanities-researcher/b007/work/templates-0002/examples/langley-leaf-register-long.xlsx) | [1頁](../../scratch/p07-humanities-researcher/b007/work/templates-0002/render/langley-leaf-register-long/langley-leaf-register-long-1.png)、[2頁](../../scratch/p07-humanities-researcher/b007/work/templates-0002/render/langley-leaf-register-long/langley-leaf-register-long-2.png) |
-| Subscription count review（短い明細、2シート） | [langley-subscription-review-short.xlsx](../../scratch/p07-humanities-researcher/b007/work/templates-0002/examples/langley-subscription-review-short.xlsx) | [1頁](../../scratch/p07-humanities-researcher/b007/work/templates-0002/render/langley-subscription-review-short/langley-subscription-review-short-1.png)、[2頁](../../scratch/p07-humanities-researcher/b007/work/templates-0002/render/langley-subscription-review-short/langley-subscription-review-short-2.png) |
-| Subscription count review（複数頁、2シート） | [langley-subscription-review-long.xlsx](../../scratch/p07-humanities-researcher/b007/work/templates-0002/examples/langley-subscription-review-long.xlsx) | [1頁](../../scratch/p07-humanities-researcher/b007/work/templates-0002/render/langley-subscription-review-long/langley-subscription-review-long-1.png)、[2頁](../../scratch/p07-humanities-researcher/b007/work/templates-0002/render/langley-subscription-review-long/langley-subscription-review-long-2.png)、[3頁](../../scratch/p07-humanities-researcher/b007/work/templates-0002/render/langley-subscription-review-long/langley-subscription-review-long-3.png) |
-| Research paper（対訳と典拠注） | [langley-research-paper.pdf](../../scratch/p07-humanities-researcher/b007/work/templates-0002/examples/langley-research-paper.pdf) | [1頁](../../scratch/p07-humanities-researcher/b007/work/templates-0002/render/langley-research-paper/langley-research-paper-1.png) |
-| Research paper（訂正後の2段落と前後） | [langley-revised-passages.pdf](../../scratch/p07-humanities-researcher/b007/work/templates-0002/examples/langley-revised-passages.pdf) | [1頁](../../scratch/p07-humanities-researcher/b007/work/templates-0002/render/langley-revised-passages/langley-revised-passages-1.png) |
-| Person index（短い索引） | [langley-person-index-short.pdf](../../scratch/p07-humanities-researcher/b007/work/templates-0002/examples/langley-person-index-short.pdf) | [1頁](../../scratch/p07-humanities-researcher/b007/work/templates-0002/render/langley-person-index-short/langley-person-index-short-1.png) |
-| Person index（複数頁の索引） | [langley-person-index.pdf](../../scratch/p07-humanities-researcher/b007/work/templates-0002/examples/langley-person-index.pdf) | [1頁](../../scratch/p07-humanities-researcher/b007/work/templates-0002/render/langley-person-index/langley-person-index-1.png)、[2頁](../../scratch/p07-humanities-researcher/b007/work/templates-0002/render/langley-person-index/langley-person-index-2.png) |
-| Peer review report（複数頁の査読票） | [ainsworth-peer-review.pdf](../../scratch/p07-humanities-researcher/b007/work/templates-0002/examples/ainsworth-peer-review.pdf) | [1頁](../../scratch/p07-humanities-researcher/b007/work/templates-0002/render/ainsworth-peer-review/ainsworth-peer-review-1.png)、[2頁](../../scratch/p07-humanities-researcher/b007/work/templates-0002/render/ainsworth-peer-review/ainsworth-peer-review-2.png) |
-| Inventaire sommaire（短い目録） | [saint-aubin-inventory-short-scan.pdf](../../scratch/p07-humanities-researcher/b007/work/templates-0002/examples/saint-aubin-inventory-short-scan.pdf) | [1頁](../../scratch/p07-humanities-researcher/b007/work/templates-0002/render/saint-aubin-inventory-short-scan/saint-aubin-inventory-short-scan-1.png) |
-| Inventaire sommaire（複数頁の目録） | [saint-aubin-inventory-scan.pdf](../../scratch/p07-humanities-researcher/b007/work/templates-0002/examples/saint-aubin-inventory-scan.pdf) | [1頁](../../scratch/p07-humanities-researcher/b007/work/templates-0002/render/saint-aubin-inventory-scan/saint-aubin-inventory-scan-1.png)、[2頁](../../scratch/p07-humanities-researcher/b007/work/templates-0002/render/saint-aubin-inventory-scan/saint-aubin-inventory-scan-2.png) |
-| Correspondance imprimée（活字原紙のスキャン） | [reading-society-letterprint-scan.pdf](../../scratch/p07-humanities-researcher/b007/work/templates-0002/examples/reading-society-letterprint-scan.pdf) | [1頁](../../scratch/p07-humanities-researcher/b007/work/templates-0002/render/reading-society-letterprint-scan/reading-society-letterprint-scan-1.png) |
-| Cotisations reçues（短い明細） | [reading-society-subscriptions-short-scan.pdf](../../scratch/p07-humanities-researcher/b007/work/templates-0002/examples/reading-society-subscriptions-short-scan.pdf) | [1頁](../../scratch/p07-humanities-researcher/b007/work/templates-0002/render/reading-society-subscriptions-short-scan/reading-society-subscriptions-short-scan-1.png) |
-| Cotisations reçues（複数葉の明細） | [reading-society-subscriptions-scan.pdf](../../scratch/p07-humanities-researcher/b007/work/templates-0002/examples/reading-society-subscriptions-scan.pdf) | [1頁](../../scratch/p07-humanities-researcher/b007/work/templates-0002/render/reading-society-subscriptions-scan/reading-society-subscriptions-scan-1.png)、[2頁](../../scratch/p07-humanities-researcher/b007/work/templates-0002/render/reading-society-subscriptions-scan/reading-society-subscriptions-scan-2.png) |
-| Extrait du registre de circulation（短い活字抜粋） | [montclair-ledger-copy-short-scan.pdf](../../scratch/p07-humanities-researcher/b007/work/templates-0002/examples/montclair-ledger-copy-short-scan.pdf) | [1頁](../../scratch/p07-humanities-researcher/b007/work/templates-0002/render/montclair-ledger-copy-short-scan/montclair-ledger-copy-short-scan-1.png) |
-| Extrait du registre de circulation（複数頁の活字抜粋） | [montclair-ledger-copy-long-scan.pdf](../../scratch/p07-humanities-researcher/b007/work/templates-0002/examples/montclair-ledger-copy-long-scan.pdf) | [1頁](../../scratch/p07-humanities-researcher/b007/work/templates-0002/render/montclair-ledger-copy-long-scan/montclair-ledger-copy-long-scan-1.png)、[2頁](../../scratch/p07-humanities-researcher/b007/work/templates-0002/render/montclair-ledger-copy-long-scan/montclair-ledger-copy-long-scan-2.png) |
+| Interim grant report（5節と提出管理欄） | [langley-interim-grant-report.docx](../../scratch/p07-humanities-researcher/b008/work/templates-0004/examples/langley-interim-grant-report.docx) | [1頁](../../scratch/p07-humanities-researcher/b008/work/templates-0004/render/langley-interim-grant-report/langley-interim-grant-report-1.png)、[2頁](../../scratch/p07-humanities-researcher/b008/work/templates-0004/render/langley-interim-grant-report/langley-interim-grant-report-2.png) |
+| Interim grant report（紙面に同じ題・番号・版を載せたテキストPDF） | [langley-interim-grant-report.pdf](../../scratch/p07-humanities-researcher/b008/work/templates-0004/examples/langley-interim-grant-report.pdf) | [1頁](../../scratch/p07-humanities-researcher/b008/work/templates-0004/render/langley-interim-grant-report-pdf/langley-interim-grant-report-1.png)、[2頁](../../scratch/p07-humanities-researcher/b008/work/templates-0004/render/langley-interim-grant-report-pdf/langley-interim-grant-report-2.png) |

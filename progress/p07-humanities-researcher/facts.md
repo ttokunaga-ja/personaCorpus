@@ -179,3 +179,30 @@
 - 複写受領 2026-07-02 09:31 BST（10:31 CEST）、Camille → Judith、件名「Feuillet 184, recto et verso」。Carton 14 - billet au préposé f184.pdf を添付。
 - 年記確認の依頼 2026-07-06 11:26 BST、Judith → Julie、件名「Would you read the last digit?」。新規メールで 184 - turn the leaf before dating it.pdf を添付。
 - 改稿の確認依頼 2026-07-13 09:52 BST、Judith → Roger、件名「Two passages after the date check」。新規メールで Chapter 2 - two passages in context.pdf を添付。7月15日に二人が確認し、§2と§4の改稿箇所を独立した事例として残すことを決定。
+
+## 助成中間報告と6章の刊行見通し
+
+- 8月26日10:00 BST に York で Judith Morris と Roger Hewitt が確認。2024年4月に決めた章題・章順を使い、1〜4章は原稿が通読・典拠確認できる状態、5 Committee correspondence と6 Limits of comparison は未完。第4章 Print and supply の原稿と貸本回覧図の別課題を分ける。
+- 第5章は箱14の保留4葉と委員会決定の典拠を9月30日までに照合する計画。第6章は採用前の閲読と条文検討の証拠が揃わないため、10月30日までに比較の射程を確定する。11月に通読し、刊行予定を2026年10月から2027年1月へ3か月繰り下げる。
+- Henderson Humanities Fund への申請日は2025-05-21、申請額GBP 24,000、複写費の採択額GBP 3,200、追加渡航費の採択なし。Frances Dixon が8月6日に照合した複写費は計上済みGBP 2,640、残GBP 560。2月の出張精算と返金待ち券はこの計算の外。
+- Judith の中間報告「Interim report on reading societies」は LHT-20260827-GRT-001。8月13日の Roger の Word コメント付き v0.2 から8月27日に v1.0 を確定し、同題・番号・版の18頁テキストPDFを送る。報告対象は2025-05-21〜2026-08-26。
+- 章別進捗表は LHT-20260826-PRG-001 v1.0。1〜4章の確認残は確認済みの0、5章は確認対象の4葉を数えて4、6章は未確認で空欄。進捗表は報告PDFと別添。
+- 依頼 2026-08-03 10:26 BST、Roger Hewitt <roger@langley-history.example> → Judith、件名「What I need for the August report」。8月27日の内部提出を依頼、添付なし。
+- 提出 2026-08-27 14:16 BST、Judith → Roger、件名「Interim report and chapter sheet」。新規メールで Interim report to Roger.pdf と Chapters at the August close.xlsx を実添付。8月28日の確認で助成先宛の送付は Roger の担当とした。
+
+## 9月の比較研究会と日本語要旨の校正
+
+- 題は「読書会の規則と残された記録」。2026-09-22 09:30–10:05 BST（17:30–18:05 JST）、オンライン、阿部 由紀子の進行・Judith の報告20分と質疑15分。参加希望者は阿部宛に申し込む。案内は https://aozora-comparative.example/seminars/2026-09-22 。
+- 阿部と Judith は9月15日09:00 BST（17:00 JST）の通話で2頁稿を校正。Judith は英語説明稿 LHT-20260904-CHP-001 v1.0 の §1〜3 に対応する留保を戻す。①受取7記入と当番控え4晩から固有の支払者・来室者数を出さない、②閲覧・貸出の規定を実際の利用の証拠にしない、③類似や先後だけで直接影響を言わず、採用前の閲読と条文の検討の証拠を求める。
+- 日本語2頁稿は LHT-20260908-PAP-001。9月8日の v0.1 と9月15日の赤字校正紙は同じ本文・頁番号・版（1頁に①②、2頁に③）。同日確定の v1.0 は3箇所を反映。規則・受取・当番控えの年代、単位、比較の範囲は「月例読書会と York の会員制読書室の比較」のとおり。
+- 22日の600字本文は別文書 LHT-20260922-PAP-001 v1.0。投影稿 LHT-20260917-BRF-001 は画像枠だけの v0.1 と当日用 v1.0。仏語史料2面は許諾未取得で枠ごと外し、典拠と説明を残す。配布締切は22日09:00 BST（17:00 JST）。
+- 案内 2026-09-02 09:10 BST、阿部 <abe@aozora-comparative.example> → Judith、件名「9月の比較研究会の進め方」。案内ページへのリンク、添付なし。
+- 校正依頼 2026-09-09 08:48 BST、Judith → 阿部、件名「日本語要旨の読み合わせ」。新規メール、読書会の規則と残された記録_読み合わせ前.pdf（v0.1）を実添付。
+- 事前配布便 2026-09-16 09:02 BST、Judith → 阿部、件名「二頁の配布稿をお送りします」。新規メール、読書会の規則と残された記録.pdf（v1.0）を実添付。
+- 当日便 2026-09-22 08:54 BST、Judith → 阿部、件名「600字要旨ときょうの投影稿」。新規メール、9月22日 発表要旨.pdf と読書会の規則と残された記録_9月22日.pptx を実添付。
+
+## 閲覧用複写2面の投影・配布許諾
+
+- 対象は Archives de Saint-Aubin-sur-Rive の CR/12/B 043r（受取記入、Bernard の分納の初回は4行）、CR/14/A 184r（LA-042、1867年5月16日の個別持出しの指示）。日英の比較例を分析する際の分類を点検する仏語史料で、2面とも閲覧用。
+- 照会① 2026-09-10 14:38 BST（15:38 CEST）、Judith → Camille Laurent、件名「Deux images pour une présentation」。投影・配布許可を確認できなければ請求記号と説明を使うと伝える。添付なし。
+- 返信② 2026-09-18 10:42 BST（11:42 CEST）、Camille → Judith、件名「Re: Deux images pour une présentation」。①を引用。所蔵館の許可確認が会期に間に合わず、2面とも許諾未取得のまま22日の投影・添付から外す。添付なし。
