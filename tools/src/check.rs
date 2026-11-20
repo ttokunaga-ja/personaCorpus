@@ -2215,7 +2215,9 @@ fn inspect(
                                         ["photo", "handwriting", "chart", "diagram"].contains(&s)
                                     })
                                 });
-                            if !visual {
+                            // Audio decoding produces frames, without a text transcription.
+                            let audio = matches!(ext.as_str(), "m4a" | "mp3" | "wav");
+                            if !visual && !audio {
                                 let derived =
                                     scfg.get("derived_from").is_some_and(|s| !s.is_empty());
                                 if missing {

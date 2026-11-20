@@ -1629,3 +1629,29 @@ fn literal_html_notice_allows_added_styles_and_decorative_geometry() {
         present(&f, "notice.html", "source");
     }
 }
+
+#[test]
+fn recorded_speech_uses_decoding_and_listening_instead_of_text_extraction() {
+    let f = Fixture::new();
+    for ext in ["m4a", "mp3", "wav"] {
+        let name = format!("interview.{ext}");
+        let status = std::process::Command::new("ffmpeg")
+            .args([
+                "-v",
+                "error",
+                "-f",
+                "lavfi",
+                "-i",
+                "flite=text=Please check the handoff note",
+            ])
+            .arg(f.home.join(&name))
+            .status()
+            .unwrap();
+        assert!(status.success());
+        f.source(&name, "Please check the handoff note.", "");
+        absent(&f, &name, "source");
+        absent(&f, &name, "opens");
+        f.bytes(&name, b"broken recording");
+        present(&f, &name, "opens");
+    }
+}
