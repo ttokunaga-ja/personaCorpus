@@ -1,0 +1,11 @@
+---
+path: Desktop/2026-05-05 Why I had seven in the folder.txt
+kind: text
+author: Jennifer Salazar
+derived_from:
+---
+May 5
+
+I pulled seven files, but not seven reports. The training PPTX and the PDF sent to Ms. Nakayama are the same CWR-TC-20250212-BRF-01 v1.0. All five slides correspond; the PDF is the copy she received. Use its page numbers in the read with Patrick, not an extra row for the deck.
+
+That leaves six reports across five studies. Dispatch contributes two decisions: the January withdrawal of the novice explanation and the April comparison of handoff patterns. Keep those separate even though the source study is the same.

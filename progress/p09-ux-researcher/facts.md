@@ -275,3 +275,24 @@
 - 9/28は Jennifer が英語分5件を09:20まで、金子が日本語分4件を09:31までに、チーム用領域と担当者の作業コピーの両方で消去確認。合計9件処理、延長0件、未了0件、期日前6件は既存の2027年1月期限を維持、録音対象外16件は処置対象外。
 - 9/28 09:35 CDT、金子 → Jennifer、件名「9月28日分の録音4件を消去しました」。添付なしの日本語初信。
 - 9/28 09:52 CDT、Jennifer → Ayesha・金子、件名 `September audio deletions closed`。英語の新規メールに内部管理用の9件の処理結果CSVのみ添付。いずれも調査チーム内の業務連絡。
+
+## 半期評価 — 5月12日に読んだ提出時の6報告
+
+- 2026-05-12 10:00–10:50 CDT、Jennifer Salazar と Patrick Delgado。既に相手に渡した版を1報告1件で読み、提言を限定する具体的な観察を報告本文・投影面で辿れるかを判定。元データだけにある観察、人数表の正答欄だけ、一般的な留保だけでは「記載あり」にしない。提出時の判定は記載あり4件、補足要2件で固定。
+- 記載あり：`Documents/Night-shift/2024-09-26 Finding the place again.pdf`、CWR-NS-20240926-RPT-01 v1.0、p.2「Interpretation」。N05 は同僚から C-12 を聞いた21:14のうちに再開し、全員が場所を探したという読みを退ける。提言は最後に確定した棚番の表示。
+- 記載あり：`Documents/配車の見通し調査/Findings/2025-01-24 Where the novice explanation breaks.pdf`、CWR-DR-20250124-RPT-01 v1.0、p.1「The four counterexamples」。実務経験のある4人が別の情報源と照合しており、初心者特有説を撤回。
+- 記載あり：`Documents/Personas-and-journeys/2025-04-10 Three titles or two handoff patterns.pptx`、CWR-DR-20250410-BRF-01 v1.0（会議後に追記して Patrick へ渡した版）、スライド4–5。UX-042 は直近5勤務のうち交代5回でも便・予定時間帯から入り、回数だけでは開始手順を決められない。
+- 記載あり：`Documents/交代申し送り調査/Handover/2025-10-08 Every item needs somewhere to go.pdf`、CWR-HO-20251008-RPT-01 v1.0、p.1「What the explanations leave open」。HH-03 と HH-10 は一覧案で保存しても別々の誤解が残り、次の試作で別々に確かめる。提出先は Jeremy と Patrick。
+- 補足要：`Documents/Training-comprehension/2025-02-12 研修の完了と途中保存 文言比較.pdf`、CWR-TC-20250212-BRF-01 v1.0、pp.2–3。集計は誤解5・正答3だが、正しく判断した人が何を根拠に読み分けたかは文言案に結び付いていない。同版の PPTX は別件に数えない。
+- 補足要：`Documents/Screen-reader/2025-05-15 Keep the stop note with its row.docx`、CWR-SR-20250515-DEC-01 v1.0、p.1「Why not move all four to the top?」「Follow-up」。Jennifer の点検を受けて Jeremy が返した共同作業の報告で、抜けた4項目の修正案に対し、同じ通しで読めた Note の対照が本文にない。Amanda の観察PDFと Jennifer の項目表は根拠資料。
+- 5月12日に Patrick が2件の補足を5月19日までに求めた。研修の頁で正答者の手掛かりを、配車の頁で同じ条件のまま通った項目を示す。提出当時の4/6は更新せず、改訂2件の受領は別に記す。配車の2報告は同一調査内の別判断で、全体は5調査・6報告。
+
+## 半期評価 — 根拠の再照合と Patrick への再提出
+
+- 5月13日、Jennifer と金子が2月の初回記録を照合。TC-04 は途中保存で停止したが未提出と答え、TC-06 は確認画面の「提出する」を指し提出前と正しく判断。5人の誤解は保存の「完了」を全体へ掛けた3人と、確認を任意と読んだ2人。提言は保存範囲・未完了・提出条件を区別して伝える文案の次回確認まで。
+- 5月14日、Jennifer と Jeremy が R-226 の既存記録を照合。選択後にページ先頭から始めた通しでは停車01・02・04の識別子と Note は順に聞こえ、03は識別子だけ。Held 値・Van 16 値・Stops 見出し・03の Note の4項目をその位置で再点検し、読めた行も同じ通しで維持を確認する。別便・別環境や修正後の結果は未確認。
+- 5月18日 11:18、Jennifer が研修報告の pp.2–3 を基に Word の社内改訂抜粋 CWR-TC-20250212-BRF-01 v1.1 を保存。「最初に止まった時の判断」に正答の根拠を、「保存時の表示をどう変えるか」に提案範囲を変更履歴で加える。番号は元報告から引き継ぎ、顧客配布版 v1.0 はそのまま。
+- 5月18日 15:26、Jennifer が Jeremy の読み上げ判断記録 CWR-SR-20250515-DEC-01 を v1.1 として保存。Jeremy の原文・修正表を残し、「Why not move all four to the top?」「Follow-up」に対照と再点検範囲を変更履歴で加える。両改訂の行き先は Patrick の半期評価の控え。
+- 5月4日 09:12 Patrick（patrick.delgado@carver-workplace.example）→ Jennifer（jennifer@carver-workplace.example）、件名 `Six reports for our May review`。見直し依頼の新規メール、添付なし。
+- 5月19日 10:34 Jennifer → Patrick、件名 `Two report revisions from the May review`。再提出の新規メールに `2026-05-18 途中保存と提出の判断 追記.docx` と `2026-05-18 Keep the stop note with its row - scope edits.docx` の2点を添付。
+- 5月20日 09:17 Patrick → Jennifer、件名 `Re: Two report revisions from the May review`。前日の初信の該当段落を引用し、2件を半期評価の追補として受領。添付なし。顧客への再配布やデザインの承認は行っていない。

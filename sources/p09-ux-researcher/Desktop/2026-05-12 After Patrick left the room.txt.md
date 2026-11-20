@@ -1,0 +1,13 @@
+---
+path: Desktop/2026-05-12 After Patrick left the room.txt
+kind: text
+author: Jennifer Salazar
+derived_from:
+---
+May 12, after the review
+
+I could open all six pages quickly, but I could not explain from “correct: 3” what those learners had relied on. Patrick's question was which learner knew it was still open, not whether the table had a correct-answer column.
+
+This week: pull the response notes back with Mihoko Kaneko and read the stopped point alongside the answer. Also reopen the reading-order sheet I sent Jeremy and compare the things that were heard in the same pass with the omissions. Do not reconstruct either contrast from the recommendation alone.
+
+The submitted versions stood at four explicit, two needing detail today. If we add detail later, keep that May 12 count as it was; record any revised documents separately.

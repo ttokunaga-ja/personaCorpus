@@ -1,0 +1,13 @@
+---
+path: Documents/Team-and-expenses/2026-05-21 Keep the May 12 count for the review.txt
+kind: text
+author: Jennifer Salazar
+derived_from:
+---
+May 21 — for the next time I open the review
+
+Use “Evidence in the submitted reports” in this folder for the May 12 baseline: four of six submitted reports made the limiting observation explicit, two needed detail. That is a count of reports, not participants. The later additions do not change the count for the versions Patrick and I read in the room.
+
+The original training PDF is in Training-comprehension; the original Jeremy decision is in Screen-reader. The tracked revisions are beside them: “2026-05-18 途中保存と提出の判断 追記.docx” and “2026-05-18 Keep the stop note with its row - scope edits.docx”. Patrick's May 20 reply to “Two report revisions from the May review” records receipt of both as supplements to the review. Receipt is separate from customer redistribution or approval to implement a change.
+
+I took the two slips I had held aside for these questions out of the self-review draft bundle. The table and Patrick's reply are the pointers to keep.
