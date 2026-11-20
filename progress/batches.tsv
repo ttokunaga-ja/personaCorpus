@@ -163,7 +163,7 @@ p19-educator-instructional-designer	b008	2026-11-20	33	3	2	2	2	accepted	5567.34
 p16-clinical-researcher	b008	2026-11-20	28	1	3	0	0	accepted	8576.36
 p05-bi-data-analyst	b008	2026-11-20	30	4	4	3	0	done	5850.61
 p18-manufacturing-quality-engineer	b007	2026-11-20	25	5	5	1	0	accepted	8990.37
-p03-security-grc-analyst	b008	2026-11-20	26	5	4	0	0	done	5477.37
+p03-security-grc-analyst	b008	2026-11-20	26	5	4	0	0	accepted	11442.62
 p02-site-reliability-engineer	b009	2026-11-20	24	1	4	1	1	accepted	6055.48
 p10-management-consultant	b006	2026-11-20	33	6	13	0	0	accepted	10120.81
 p06-life-science-researcher	b008	2026-11-20	23	4	5	1	0	done	8018.04
@@ -171,3 +171,4 @@ p11-account-executive	b008	2026-11-20	31	3	2	3	0	done	6519.87
 p20-investigative-journalist	b006	2026-11-20	30	2	1	0	0	accepted	5285.03
 p19-educator-instructional-designer	b009	2026-11-20	25	4	2	0	0	accepted	5909.35
 p16-clinical-researcher	b009	2026-11-20	32	10	6	7	0	done	8128.05
+p18-manufacturing-quality-engineer	b008	2026-11-20	31	10	4	6	0	done	7738.71
