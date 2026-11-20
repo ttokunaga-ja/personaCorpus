@@ -21,5 +21,5 @@ That leaves GBP 1,120 as the confirmed Denton internal billing basis: rail GBP 3
 Thanks,
 Teresa
 
-Attachment: 10 Feb - Travel receipts checked with Nicholas.xlsx
-Attachment source: OneDrive - Holt/Team-room/10 Feb - Travel receipts checked with Nicholas.xlsx
+Attachment: 10 Feb - Denton travel expenses.xlsx
+Attachment source: OneDrive - Holt/Team-room/10 Feb - Denton travel expenses.xlsx

@@ -11,7 +11,7 @@ Cc: Connor Atkinson <connor@holt-reeves.example>, Neha Patel <neha@holt-reeves.e
 Date: Mon, 20 Jan 2025 09:16:00 +0000
 Subject: Papers for the implementation review
 Message-ID: <d8f1a6b92c314e57a407f2689e5cbd13@holt-reeves.example>
-Attachments: 20 Jan - Response to Elizabeth.docx
+Attachments: 20 Jan - Implementation review reply.docx
 
 Elizabeth,
 
@@ -24,4 +24,4 @@ Nicholas
 
 ## 添付ファイル
 
-- `Documents/Internal-review/20 Jan - Response to Elizabeth.docx`
+- `Documents/Internal-review/20 Jan - Implementation review reply.docx`

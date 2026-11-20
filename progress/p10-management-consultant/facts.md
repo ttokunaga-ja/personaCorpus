@@ -108,7 +108,7 @@
 
 - 現行要領は Meera 発行の PTD-BUY-EXC-2025-001 Rev 2、2025-01-06 発効。理由・必要日・数量・依頼元・根拠を記入し、緊急も Buying の判断と時刻を残してから発注する。需要初認時刻の照合や7月の先行共有票は現行の必須手順に含まれない。
 - Meera は `meera@pioneer-trade.example`、Nicholas、Neha、Connor、Paul、Oliver はそれぞれ `nicholas@holt-reeves.example`、`neha@holt-reeves.example`、`connor@holt-reeves.example`、`paul@holt-reeves.example`、`oliver@holt-reeves.example`。
-- 「The procedure Buying uses today」、2025-04-09 13:40 BST、Meera → Nicholas（Cc Neha）。現行要領 `Buying exception requests - evidence and approval.pdf` を実添付。
+- 「The procedure Buying uses today」、2025-04-09 13:40 BST、Meera → Nicholas（Cc Neha）。現行要領 `Buying exception procedure Rev 2.pdf` を実添付。
 - 例外は2025-04-01〜06-30に受付、全仕入先横断で一意の申請IDを数える。93件のうち申請時に Urgent が37件、非緊急が56件。再送は同一IDに束ね、時刻は Pioneer の現地表示 EDT を使用。
 - 需要初認は数量と必要日が確認できる最初の証跡。通常手配の基準は必要日の前営業日15:00 EDT。締切前に需要が判明し、Buying への初回共有が締切後だと確認できたものを計画遅れ、締切後の新規・増量を突発需要、発注済み分の供給変更を供給側変更、根拠が足りないものを証拠不足とする。
 - 7月8日の暫定内訳は計画遅れ22、突発需要8、供給側変更4、保留3。7月10日の照会回答を反映した確定内訳は23、8、4、証拠不足2（合計37）、明細は HRA-PIO-BUY-EXC-2025-001 v1.0。非緊急56件の原因内訳は集計していない。
@@ -120,7 +120,7 @@
 
 - HRA-PIO-BUY-BRF-2025-005 は Nicholas の7月11日 v0.4、同日13:18 BSTの Elizabeth 赤字入り v0.5、Nicholas の7月16日 v1.0。曖昧な「late demand」を v1.0 で「Known before cut-off, shared late」に替え、23・8・4・2の分母37を示す。7月16日配布PDFは v1.0 と同じ版。
 - 7月15日11:00 BST、Nicholas・Neha・Siobhan が EX-052 と EX-077 で机上確認。提案は依頼元の数量・必要日・需要初認時刻を前営業日15:00 EDTまでに Buying へ渡すこと。締切後の突発需要と供給側変更には現行例外経路を使い、時刻不明は Buying に確認する。
-- 「Papers for the buying discussion」、2025-07-16 13:29 BST、Nicholas → Meera（Cc Neha、Connor）。v1.0 の `16 Jul - Demand sharing first.pdf` と別添集計 `15 Jul - Coverage and urgent breakdown.xlsx` を実添付。
+- 「Papers for the buying discussion」、2025-07-16 13:29 BST、Nicholas → Meera（Cc Neha、Connor）。v1.0 の `16 Jul - Buying diagnosis.pdf` と別添集計 `15 Jul - Coverage and urgent breakdown.xlsx` を実添付。
 - 2025-07-16 14:00〜14:40 BST、Meera・Nicholas・Neha・Connor。Meera は4月の全社再交渉見送りと12社の診断範囲を維持し、需要共有の詰めを先行することに同意。Meera が Buying の窓口を指名し、Neha が共有票を詰める。開始日と窓口名は未確定。
 - 23件は当時の証跡で需要の共有が遅かった件数。先行共有で回避できる件数、削減額、運用後の実績はこの診断では測っていない。
 
@@ -183,7 +183,7 @@
 - HRA-PIO-BUY-SAV-2026-001 v1.0（1月16日、Deepa）の合計は見込 USD 81,000（8.1%）、実績 USD 56,000（5.6%）。差 USD 25,000（2.50ポイント）は数量未達 USD 12,000（1.20）、受領時期 USD 7,500（0.75）、要確認 USD 5,500（0.55）。
 - T1 の未達分は実購入10,000 cases × (USD 19.60 − USD 18.40)。T3 の時期差は (計画10,000 − 実績6,250) cases × USD 2。T4 の USD 5,500は見込と計上実績の既知残差で、追加貸方そのものの確定額は空欄。
 - HRA-PIO-BUY-BRF-2026-001 は Nicholas の1月16日 v0.3 と1月20日 v1.0。Elizabeth は1月16日に「Discounts lost」を指摘。v1.0 では取引条件どおりの価格適用と、しきい値を満たさなかったことによる見込との差を区別する。
-- 「Papers for the savings checkpoint」、1月21日10:14 GMT、Nicholas → Meera（Cc Deepa）。v1.0 配布PDF `21 Jan - Savings at the January checkpoint.pdf` と別添集計表 `20 Jan - Q4 bridge for Buying.xlsx` の2件を実添付。
+- 「Papers for the savings checkpoint」、1月21日10:14 GMT、Nicholas → Meera（Cc Deepa）。v1.0 配布PDF `21 Jan - Q4 savings review.pdf` と別添集計表 `20 Jan - Q4 bridge for Buying.xlsx` の2件を実添付。
 - 1月21日14:00〜14:45 GMT、Meera・Nicholas・Deepa。中間値5.6%と差の3区分を確認。Meera は T4 の追加貸方の承認経路と伝票を1月28日までに確認し、Deepa は証拠が揃うまで中間値を据え置く。
 
 ## Whitfield 日本事業の次契約の依頼と Finance への絞り込み
@@ -232,7 +232,7 @@
 - 9月18日 14:00〜14:45 BST、Meera・Nicholas・Neha・Deepa。Meera が Buying の点検責任を持ち、9月分の初回確認を10月7日に設定。送信履歴と S036 の条件書は Buying、S011 の承認は Buying・転記は Finance に照会する。
 - 「Leave Buying something we can rerun」8月26日13:22 BST、Meera → Nicholas（Cc Neha、Deepa）、添付なし。独立した依頼。
 - 「August dispatch rows for the handover」9月3日13:22 BST、Meera → Connor（Cc Nicholas、Neha）、August - Order dispatch extract.csv を実添付。独立した送付。
-- 「Can Buying trace these two August lines」9月11日13:11 BST、Deepa → Meera（Cc Nicholas）、10 Sep - Price proof for the two held lines.xlsx を実添付。9月15日14:18 BST「Re: Can Buying trace these two August lines」、Meera → Deepa（Cc Nicholas）が元の問いを引用、新規添付なし。
+- 「Can Buying trace these two August lines」9月11日13:11 BST、Deepa → Meera（Cc Nicholas）、10 Sep - August price evidence requests.xlsx を実添付。9月15日14:18 BST「Re: Can Buying trace these two August lines」、Meera → Deepa（Cc Nicholas）が元の問いを引用、新規添付なし。
 - 「Final results and the Buying checks」9月18日15:48 BST、Nicholas → Meera（Cc Neha、Deepa）。独立した送付で、確定報告PDF、発注明細CSV、確定の点検XLSX・手順DOCX・画面注記PNGの5点を実添付。
 
 ## Denton の月次締め比較の境界と日程

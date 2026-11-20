@@ -23,4 +23,4 @@ Kenneth
 
 ## Attachment
 
-- Japan Finance - Supplier payment procedure.pdf — Documents/Clients/Whitfield/Diagnosis/Japan Finance - Supplier payment procedure.pdf
+- Japan supplier payment procedure.pdf — Documents/Clients/Whitfield/Diagnosis/Japan supplier payment procedure.pdf

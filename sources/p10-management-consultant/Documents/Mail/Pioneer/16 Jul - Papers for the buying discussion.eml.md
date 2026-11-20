@@ -27,5 +27,5 @@ Nicholas
 
 ## Attachments
 
-- `16 Jul - Demand sharing first.pdf` — `Documents/Clients/Pioneer/Buying/16 Jul - Demand sharing first.pdf`
+- `16 Jul - Buying diagnosis.pdf` — `Documents/Clients/Pioneer/Buying/16 Jul - Buying diagnosis.pdf`
 - `15 Jul - Coverage and urgent breakdown.xlsx` — `Documents/Clients/Pioneer/Buying/15 Jul - Coverage and urgent breakdown.xlsx`

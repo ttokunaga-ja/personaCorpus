@@ -26,5 +26,5 @@ Kenneth Townsend
 Chief Financial Officer
 Whitfield Components Ltd
 
-Attachment: Whitfield Japan - Request for the next engagement.pdf
-Attachment source: Downloads/Whitfield Japan - Request for the next engagement.pdf
+Attachment: Whitfield Japan engagement request.pdf
+Attachment source: Downloads/Whitfield Japan engagement request.pdf

@@ -27,5 +27,5 @@ Nicholas
 Nicholas Hargreaves
 Holt & Reeves Advisory Ltd
 
-Attachment: 25 Aug - Disposition of the seven requests.pdf
-Attachment source: Documents/Clients/Whitfield/Finance/25 Aug - Disposition of the seven requests.pdf
+Attachment: 25 Aug - Change request decision note.pdf
+Attachment source: Documents/Clients/Whitfield/Finance/25 Aug - Change request decision note.pdf

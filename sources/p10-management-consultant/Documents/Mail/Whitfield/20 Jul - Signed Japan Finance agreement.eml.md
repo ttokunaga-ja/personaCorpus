@@ -25,5 +25,5 @@ Nicholas
 Nicholas Hargreaves
 Holt & Reeves Advisory Ltd
 
-Attachment: 20 Jul - Japan Finance Phase 1 signed agreement.pdf
-Attachment source: Documents/Clients/Whitfield/Meetings/20 Jul - Japan Finance Phase 1 signed agreement.pdf
+Attachment: 20 Jul - Phase 1 signed agreement.pdf
+Attachment source: Documents/Clients/Whitfield/Meetings/20 Jul - Phase 1 signed agreement.pdf

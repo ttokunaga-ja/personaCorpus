@@ -21,6 +21,6 @@ For S036, the receipt date determines which price applies. On S011, the document
 Best,
 Meera
 
-Attachment: 30 Oct - Trading terms held by Buying.pdf
+Attachment: 30 Oct - Q4 trading terms Rev 1.pdf
 
-Attachment source: Documents/Clients/Pioneer/Buying/30 Oct - Trading terms held by Buying.pdf
+Attachment source: Documents/Clients/Pioneer/Buying/30 Oct - Q4 trading terms Rev 1.pdf

@@ -1,0 +1,15 @@
+Connor, Neha — thanks for getting the two desks through the hand-off.
+
+Angela has the three items sent this afternoon: the results PDF, the desk-check note and Connor's two-line workbook. Our copies are in Documents/Clients/Denton:
+
+16 Mar - Feb close trial results.pdf
+16 Mar - Close evidence desk guide.pdf
+13 Mar - Next-close checklist.xlsx
+
+For the underlying customer records, look in Downloads: Denton February close calendar.pdf, December close - Finance event extract.csv and February trial - Close events.csv. The 16 March email to Angela is in Documents/Mail/Denton.
+
+Please keep the 16 March result fixed: nine working days for December, seven for the February trial, against a target of six. The two desk rows for the next close are for Denton to complete; leave the actual times and outcome empty until Angela or the desks respond. The February rows in the workbook are the observed example.
+
+Keep the 28 January workbook, The date on the pack export, as a working paper. Its 13 January pack-assembly candidate would give eight days and is not the agreed approval endpoint. The customer event record establishes 14 January as the approval. If a question comes back about the Monday window, the stock extract at 09:18 was unsigned; the usable replacement was at 11:26.
+
+Nicholas

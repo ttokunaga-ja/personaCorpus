@@ -23,4 +23,4 @@ Best,
 Nicholas
 
 ## Attachments
-- 07 Oct - Common standards before new equipment.pdf — Documents/Clients/Marston/07 Oct - Common standards before new equipment.pdf
+- 07 Oct - Cost diagnosis recommendations.pdf — Documents/Clients/Marston/07 Oct - Cost diagnosis recommendations.pdf

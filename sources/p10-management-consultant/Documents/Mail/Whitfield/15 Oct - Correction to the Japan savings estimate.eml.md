@@ -11,7 +11,7 @@ Cc: Connor Atkinson <connor@holt-reeves.example>, Neha Patel <neha@holt-reeves.e
 Date: Tue, 15 Oct 2024 13:42:00 +0100
 Subject: Correction to the Japan savings estimate
 Message-ID: <c7a24d9f1e654b38a672f403b8931ed2@holt-reeves.example>
-Attachments: 15 Oct - Correction to the Japan savings estimate.pdf
+Attachments: 15 Oct - Japan savings correction.pdf
 
 Kenneth,
 

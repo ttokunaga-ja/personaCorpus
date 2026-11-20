@@ -26,8 +26,8 @@ Best,
 Nicholas
 
 Attachments (actual files, paths relative to the user folder):
-- Documents/Clients/Pioneer/Handover/18 Sep - Final results and monthly checks.pdf
+- Documents/Clients/Pioneer/Handover/18 Sep - Final procurement report.pdf
 - Documents/Clients/Pioneer/Handover/August - Order dispatch extract.csv
 - Documents/Clients/Pioneer/Handover/17 Sep - August monthly checks v1.0.xlsx
-- Documents/Clients/Pioneer/Handover/16 Sep - When to count an order v1.0.docx
+- Documents/Clients/Pioneer/Handover/16 Sep - Order timing guide v1.0.docx
 - Documents/Clients/Pioneer/Handover/17 Sep - Read the order timing cells.png

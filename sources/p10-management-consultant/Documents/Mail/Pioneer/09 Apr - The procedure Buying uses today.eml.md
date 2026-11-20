@@ -22,4 +22,4 @@ Neha, please let me know if the team needs help locating the supporting records.
 Best,
 Meera
 
-Attachment: Buying exception requests - evidence and approval.pdf
+Attachment: Buying exception procedure Rev 2.pdf

@@ -25,9 +25,9 @@ For the next close, please arrange for Accounts Payable to take the supplier acc
 Best,
 Nicholas
 
-Attachment: 16 Mar - February close trial results.pdf
-Attachment source: Documents/Clients/Denton/16 Mar - February close trial results.pdf
-Attachment: 16 Mar - Desk checks before the pack goes round.pdf
-Attachment source: Documents/Clients/Denton/16 Mar - Desk checks before the pack goes round.pdf
-Attachment: 13 Mar - Check these two lines at the next close.xlsx
-Attachment source: Documents/Clients/Denton/13 Mar - Check these two lines at the next close.xlsx
+Attachment: 16 Mar - Feb close trial results.pdf
+Attachment source: Documents/Clients/Denton/16 Mar - Feb close trial results.pdf
+Attachment: 16 Mar - Close evidence desk guide.pdf
+Attachment source: Documents/Clients/Denton/16 Mar - Close evidence desk guide.pdf
+Attachment: 13 Mar - Next-close checklist.xlsx
+Attachment source: Documents/Clients/Denton/13 Mar - Next-close checklist.xlsx

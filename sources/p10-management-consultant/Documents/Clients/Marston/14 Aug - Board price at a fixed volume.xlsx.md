@@ -7,7 +7,7 @@ derived_from:
 
 ## Sheet: Purchase lines
 
-Source: Caroline Wood’s 06 Aug 2024 email, “Marston board costs and current work standard”, attachment “Marston board material costs Jun-Jul 2024.csv”. June and July purchase lines for Trafford T2 and Warrington W1 under the same price contract only. The extract covers neither all T2 contracts nor all B420 fed through the T2 feeder. Purchase kg is the weight on the purchasing records.
+Source: Caroline Wood’s 06 Aug 2024 email, “Marston board costs and current work standard”, attachment “Marston board costs Jun-Jul 2024.csv”. June and July purchase lines for Trafford T2 and Warrington W1 under the same price contract only. The extract covers neither all T2 contracts nor all B420 fed through the T2 feeder. Purchase kg is the weight on the purchasing records.
 
 | Excel row | A Month | B Site | C Board grade | D Purchase kg | E Net material GBP |
 |---:|---|---|---|---:|---:|

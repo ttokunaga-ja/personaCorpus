@@ -23,4 +23,4 @@ Neither difference is in the confirmed August calculation. If a record cannot be
 Many thanks,
 Deepa
 
-Attachment: 10 Sep - Price proof for the two held lines.xlsx
+Attachment: 10 Sep - August price evidence requests.xlsx

@@ -4,6 +4,7 @@ period: 2024-04-01..2026-09-30
 timezone: Europe/London
 allowed_terms: scope of work, engagement scope, scope of analysis
 photo_dirs: Pictures
+date_prefix: DD Mon -
 ---
 
 # p10 経営コンサルタント
@@ -115,6 +116,23 @@ Pictures/                                   工程図、会議画面、ワーク
 Documents/Mail/                             顧客別に保存した合意メール
 ```
 
+## 名前の付け方
+
+- 自分で名を付けるときは、会議日・受領日・版の日付を付けるなら `DD Mon - ` に統一する。英語の月略称と 2 桁の日、前後に半角スペースを置いたハイフンを使う。日付で分けたフォルダでは同じ日付をファイル名に重ねない。繰り返し参照する方法メモや顧客からの元資料は日付なしでもよい。
+- 名前は英語で、Desktop や共有フォルダでは顧客名や相手の名前を添える。顧客別のフォルダでは、会議、照合表、手順書など、開くと何が見つかるかを短く書く。下書き・レビュー稿は版と必要に応じて確認者のイニシャル、署名済みの合意書は `signed` で見分ける。
+- 説明用に清書した図や頻繁に参照する白板写真には手で名前を付ける。撮ったままの写真、Windows が保存した画面、Downloads に置く顧客配布ファイルやシステム出力は、短く自然なら機器や配布元の名前のまま残す。保存メールには日付と件名を使い、返信の `Re:` は `Re ` にする。用件が分かる範囲で件名を短くすることがあり、デスクトップの会議用の控えには相手と用件を付けることもある。
+- 拡張子を除いて通常は 40 文字、保存メールは 60 文字までに収める。数字は 5 桁以上続けない。
+
+| 保存するもの | 例 |
+|---|---|
+| 次回会議用のスライド | `16 Jul - Pioneer buying diagnosis v1.0.pptx` |
+| 赤字入りの社内レビュー稿 | `06 Oct - Pilot expansion v0.4 EH markup.pptx` |
+| 署名済みの契約書 | `20 Jul - Phase 1 signed agreement.pdf` |
+| 引用し直すための方法メモ | `Handoff interview prompts.txt` |
+| 撮ったままの訪問写真 | `IMG_0412.jpg` |
+| Windows の画面キャプチャ | `Screenshot (12).png` |
+| ダウンロードした月次出力 | `close_events_2026-02.csv` |
+| 顧客別フォルダの保存メール | `13 Apr - Re Two areas for the next engagement.eml` |
 
 ## 形式の目安
 
