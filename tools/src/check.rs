@@ -686,7 +686,7 @@ fn slides_without_notes(parent: &str, request: &str) -> bool {
             {
                 return true;
             }
-            if request.trim() == "違いなし" || re(r"(?i)^(?:The [a-z0-9]+ slide faces are unchanged and in the same order\.\s*)?Export the slide faces only; omit speaker notes\.(?:\s*No post-meeting additions\.)?$").is_match(request.trim())
+            if matches!(request.trim(), "違いなし" | "スライド面に違いなし。発表者メモは含めない。") || re(r"(?i)^(?:The [a-z0-9]+ slide faces are unchanged and in the same order\.\s*)?Export the slide faces only; omit speaker notes\.(?:\s*No post-meeting additions\.)?$").is_match(request.trim())
                 || re(r"(?i)^All [a-z0-9]+ slides in the same order and with the same slide content as v[0-9]+(?:\.[0-9]+)*\.\s+Speaker notes are omitted from the distributed PDF\.$").is_match(request.trim()) {
                 return true;
             }
@@ -962,7 +962,7 @@ fn source(
     let mut body = body.to_string();
     if let Some(parent) = cfg.get("derived_from").filter(|s| !s.is_empty()) {
         chain.push(rel.into());
-        let parent_body = source(root, parent, chain)?.1;
+        let (parent_cfg, mut parent_body) = source(root, parent, chain)?;
         body = if rel.ends_with(".pdf")
             && cfg
                 .get("kind")
@@ -975,6 +975,18 @@ fn source(
                 printed + "\n" + &body
             }
         } else if rel.ends_with(".pdf") && parent.ends_with(".pdf") {
+            // The original scan's paper description was never printed on the copy.
+            // Keep its page headings, numbers and transcript, and all changes on the copy.
+            if cfg.get("kind").and_then(|kind| kind.strip_prefix("scan:")) == Some(parent.as_str())
+                && parent_cfg
+                    .get("kind")
+                    .is_some_and(|kind| kind.starts_with("scan:"))
+                && parent_cfg.get("derived_from").is_none_or(String::is_empty)
+                && scan_transcript(&parent_body).is_some()
+                && let Some(appearance) = re(SCAN_APPEARANCE).find(&parent_body)
+            {
+                parent_body.truncate(appearance.start());
+            }
             shortened_pdf_source(parent, &parent_body, rel, &body)
                 .unwrap_or_else(|| parent_body + "\n" + &body)
         } else if rel.ends_with(".docx") && parent.ends_with(".docx") {
@@ -1332,10 +1344,13 @@ fn strip_transcript_list_labels(page: String) -> String {
         .into_owned()
 }
 
+const SCAN_APPEARANCE: &str =
+    r"(?im)^[ \t]*## (?:Paper and scan|Papier et (?:numérisation|copie))[ \t]*\r?$";
+
 fn scan_transcript(expected: &str) -> Option<Vec<String>> {
     let heading = re(r"(?i)^## Page ([1-9][0-9]*)(?:\s+[—–:-]\s+.+)?$");
     let folio = re(r"^## [A-Z]+/[0-9]+/[A-Z]+ f\. [0-9]+[rv]$");
-    let appearance = re(r"(?i)^## (?:Paper and scan|Papier et (?:numérisation|copie))$");
+    let appearance = re(SCAN_APPEARANCE);
     let mut lines = expected.trim_start().lines().map(str::trim);
     let mut pages = Vec::<String>::new();
     let first = lines.clone().next()?;
@@ -3018,6 +3033,29 @@ mod scan_transcript_tests {
     use super::*;
 
     #[test]
+    fn annotated_copy_retains_parent_transcript_and_all_child_changes() {
+        let dir = tempfile::tempdir().unwrap();
+        let original =
+            "## Page 1 — letter\nOriginal letter.\n## Paper and scan\nUneven paper and shadows.";
+        std::fs::write(
+            dir.path().join("original.pdf.md"),
+            format!("---\nkind: scan:manuscript.pdf\n---\n{original}"),
+        )
+        .unwrap();
+        for (kind, omit_appearance) in [("scan:original.pdf", true), ("office:form.docx", false)] {
+            std::fs::write(dir.path().join("copy.pdf.md"),
+                format!("---\nkind: {kind}\nderived_from: original.pdf\n---\nInitials and a marginal note.")).unwrap();
+            let (_, expected) = source(dir.path(), "copy.pdf", &mut vec![]).unwrap();
+            assert!(expected.contains("Original letter."));
+            assert!(expected.contains("Initials and a marginal note."));
+            assert_eq!(
+                expected.contains("Uneven paper and shadows."),
+                !omit_appearance
+            );
+        }
+    }
+
+    #[test]
     fn reads_folio_transcripts_and_unheaded_single_leaf() {
         let note = "\n## Papier et copie\nPli horizontal.";
         let leaves = "## CR/14/A f. 176r\nVu la demande.\n## CR/14/A f. 177r\nAu secrétaire.";
@@ -3162,6 +3200,14 @@ mod print_scope_tests {
     #[test]
     fn derived_pdf_uses_only_the_requested_print_content() {
         let slides = "## 1枚目\n本文：見出し\n発表者メモ：社内用\n## 2枚目\n本文：数字";
+        assert_eq!(
+            print_source(
+                "a.pptx",
+                slides,
+                "スライド面に違いなし。発表者メモは含めない。"
+            ),
+            "## 1枚目\n本文：見出し\n## 2枚目\n本文：数字"
+        );
         assert_eq!(
             print_source(
                 "a.pptx",
