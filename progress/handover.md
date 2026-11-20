@@ -1,5 +1,48 @@
 # 統括の引継ぎ
 
+最終更新：2026-11-20（coordinator-r127）
+
+## いまの状態
+
+自動運転は稼働中。前回のp11 b009は23件受入、4件除外、保留解除と再成形起動に成功。再成形後の結果報告で成形待ちは0件となった。
+
+p18 b009の全28候補と、連続一致が0に戻った時点の確認対象21 batchから211件、合計239件を実見。p18は固定後写真と荷重曲線を除く26件を受入予定。受入済み21 batchの判定は各結果報告と確認台帳に記録した。監査済みファイルが全件のbatchでは各形式を独立に再確認し、p19 b009の監査外は現存7件すべてを含めた。今回の変更は判断・確認の記録のみ。
+
+操作前の受入は計5,335件。
+
+| persona | 受入 | 累積破棄 |
+|---|---:|---:|
+| p01-software-engineer | 317 | 2 |
+| p02-site-reliability-engineer | 276 | 12 |
+| p03-security-grc-analyst | 249 | 19 |
+| p04-ml-research-engineer | 279 | 9 |
+| p05-bi-data-analyst | 287 | 11 |
+| p06-life-science-researcher | 217 | 16 |
+| p07-humanities-researcher | 190 | 8 |
+| p08-product-manager | 293 | 11 |
+| p09-ux-researcher | 249 | 8 |
+| p10-management-consultant | 229 | 15 |
+| p11-account-executive | 273 | 11 |
+| p12-support-success-lead | 291 | 2 |
+| p13-corporate-privacy-counsel | 296 | 24 |
+| p14-finance-controller | 318 | 135 |
+| p15-recruiter-people-ops | 302 | 12 |
+| p16-clinical-researcher | 238 | 10 |
+| p17-construction-project-manager | 327 | 57 |
+| p18-manufacturing-quality-engineer | 207 | 41 |
+| p19-educator-instructional-designer | 288 | 11 |
+| p20-investigative-journalist | 209 | 23 |
+
+## 次の手
+
+1. 自動運転が記録を取り込み、p18 b009を2件除外して受入後に保留を解除する。成功時はp18が207件から233件になる。午前・午後の装置履歴、代表波形、締結後写真の再制作は見送る。
+2. p11 b009の再成形分は独立監査の判定を受けて追加受入を決める。以降の確認頻度は取り込み後の台帳で判定する。
+3. p20 b008は進行中。前回記録にあるp20 b007再制作行は同personaの計画が編集可能になった時点で扱う。
+
+ユーザーに聞くことはない。
+
+## 前回の記録（coordinator-r126）
+
 最終更新：2026-11-20（coordinator-r126）
 
 ## いまの状態
