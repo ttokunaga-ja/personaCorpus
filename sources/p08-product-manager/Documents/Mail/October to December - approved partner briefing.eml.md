@@ -26,5 +26,5 @@ Best,
 Yumiko
 
 添付：
-- October to December - what partners can show.pptx（Documents/販売説明/英語/October to December - what partners can show.pptx）
-- Answers to keep beside the call.pdf（Documents/販売説明/英語/Answers to keep beside the call.pdf）
+- Dalton Briefing - Calendar Q4 2026.pptx（Documents/販売説明/英語/Dalton Briefing - Calendar Q4 2026.pptx）
+- Dalton Sales Call FAQ - Calendar Q4 2026.pdf（Documents/販売説明/英語/Dalton Sales Call FAQ - Calendar Q4 2026.pdf）
