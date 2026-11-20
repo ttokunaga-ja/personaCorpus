@@ -1,6 +1,6 @@
 # 経営コンサルタントの文書の型
 
-Whitfield Components Ltd 日本事業の支払診断・実行案・試行、Marston Carton Packaging Ltd の2工場の原価診断、Pioneer Trade Distribution Inc の仕入先選定と例外申請の診断に使う。本文は英語、Holt の日付は `07 Oct 2024` の形式。Nicholas の PC の時刻は Europe/London。受領した記録の時刻とタイムゾーンは原資料に従う。Office の型は開いて別名保存する。
+Whitfield Components Ltd 日本事業の支払診断・実行案・試行、Marston Carton Packaging Ltd の2工場の原価診断、Pioneer Trade Distribution Inc の仕入先選定・例外申請の診断・削減実績の中間確認に使う。本文は英語、Holt の日付は `07 Oct 2024` の形式。Nicholas の PC の時刻は Europe/London。受領した記録の時刻とタイムゾーンは原資料に従う。Office の型は開いて別名保存する。
 
 | 型 | 組織と用途 | ファイル | 見た目 |
 |---|---|---|---|
@@ -13,12 +13,14 @@ Whitfield Components Ltd 日本事業の支払診断・実行案・試行、Mars
 | Whitfield finance schedules | Holt & Reeves。Connor Atkinson が旧試算、二重計上の訂正内訳、初期費用の発生時期を管理する | `holt-whitfield-finance.xlsx` | A4横。共通ロゴ、淡色の管理欄、濃い紫灰の8列見出し。円額を右寄せし、根拠と参照キーを並べる |
 | Whitfield payment pilot | Holt & Reeves。Connor Atkinson が2部門の平均承認日数を再計算し、保留案件の扱いを原記録に照合する | `holt-whitfield-pilot.xlsx` | A4横。共通ロゴ、紫灰の8列見出し。比較、案件別時刻、保留照合の3シート |
 | Pioneer buying schedules | Holt & Reeves。Nicholas が Meera Kulkarni と仕入先の絞込み条件を確認し、Neha Patel が例外申請の理由と需要が判明した時点を照合する | `holt-pioneer-buying.xlsx` | A4横。共通ロゴ、淡色の管理欄、濃い紫灰の8列見出し。仕入先選定と例外理由の再分類の2シート |
+| Pioneer savings reconciliation | Holt & Reeves。Deepa Desai が取引条件書と購入抜粋を照合し、Nicholas が Meera と削減見込・実績の差を確認する | `holt-pioneer-savings-reconciliation.xlsx` | A4横。Holt のロゴ、淡い茶灰の管理欄、紫灰の9列見出し。単価照合と削減額の差額内訳の2シート |
 | Diagnosis briefing | Holt & Reeves。Nicholas が Kenneth Townsend に支払診断と試行拡大の判断材料を説明し、Elizabeth に Whitfield の実行案を提示する。Marston では設備案と作業標準統一、Pioneer では全社再交渉の旧案と Meera 向けの判断資料に使う | `holt-diagnosis.pptx` | 16:9。上に社名と茶赤の罫線、下に社名と管理情報。表紙、見出しと本文、2段、表、図の5レイアウト |
 | Client note | Holt & Reeves。Nicholas が Kenneth Townsend に見込の訂正を文書で伝える | `holt-client-note.cls` | A4縦、表紙なし。共通ロゴ、茶赤の上罫と節見出し、淡い管理欄、3列の対照表 |
 | Supplier payment procedure | Whitfield Components Ltd。日本事業の Finance が発行し、Kenneth Townsend が承認する支払手順と試行の現場手順 | `whitfield-payment-procedure.cls` | A4縦。表紙なし。深緑の三つのブロックと社名、右に `JAPAN FINANCE`。セリフ体、薄緑の発行欄、深緑の表見出し |
 | Payment pilot scope change | Whitfield Components Ltd。Japan Finance が管理する試行範囲の変更合意書。Kenneth と Holt & Reeves 側の承認者が署名する | `whitfield-scope-change.cls` | A4縦。Whitfield 共通の深緑とセリフ体、右上に `JAPAN FINANCE / CHANGE CONTROL`。薄緑の4項目の管理欄、両社の署名欄 |
 | Production work standard | Marston Carton Packaging Ltd。生産部門が発行し、Caroline Wood が診断時に現行版を提供する | `marston-work-standard.cls` | A4縦。表紙なし。折り箱のロゴ、青い文字と琥珀色の帯、淡青灰の版管理欄。4列の作業手順表 |
 | Buying exception guidance | Pioneer Trade Distribution Inc。調達部長の Meera Kulkarni が、申請に必要な証拠、回付先、判断の記録方法を示す現行要領 | `pioneer-exception-guidance.cls` | Letter縦。表紙なし。合流する経路のロゴ、青緑の縦帯と節見出し、白地の管理欄、淡い青緑の手順表 |
+| Trading terms on file | Pioneer Trade Distribution Inc。Meera が Buying で保管する仕入先別の数量条件と単価の記録 | `pioneer-trading-terms.cls` | Letter縦。表紙なし。Pioneer の合流経路ロゴと青緑の縦帯、右上に `BUYING / COMMERCIAL TERMS`。淡青緑の5列の条件表 |
 
 ## Holt & Reeves 共通
 
@@ -118,6 +120,36 @@ Holt の案件符号は既存の `WHI-DIAG` を使う。試行ワークブック
 例外理由の再分類では申請理由、需要が判明した時点、申請した時点、再分類の根拠を並べる。日時は原資料のタイムゾーンを添え、確認中ならその状態を記す。全93件と、その内数の緊急37件を区別する。緊急件数の集計が必要な場合は、明細の次行で A:G を結合して集計範囲を記し、`Holt Total Label` を使う。H に対象範囲の優先度を数える式（例 `=COUNTIF(C7:C99,"Urgent")`）と `Holt Total Count` を使う。分類理由が不明な行は照会先と確認事項を H に残す。
 
 合計行は25 ptを目安とする。注記が必要なときは次行の A:H を結合して `Holt Note` を適用し、27 ptを目安に行高を調整する。印刷はA4横、横1ページ、縦自動。続頁には6行目の列見出しを繰り返す。印刷範囲は `A1:H<注記または表の最終行>` に更新する。
+
+### Excel — Pioneer の取引条件別の削減見込と実績
+
+`holt-pioneer-savings-reconciliation.xlsx` の `Unit prices` で条件と適用単価を照合し、`Savings bridge` で条件別の削減額と差額内訳を示す。文書番号は Holt の案件符号 `PIO-BUY`、種別 `SAV`（`HRA-PIO-BUY-SAV-<西暦4桁>-<連番3桁>`）。見本は `HRA-PIO-BUY-SAV-2026-001`、`21 Jan 2026`、`Deepa Desai`。実際の値は計画と事実の台帳に従う。
+
+両シートで、表題は `A2`、文書番号は `A4`（A:C 結合）、日付型の値は `D4`（D:E 結合）、作成者は `F4`（F:I 結合）に入力する。管理値行は34 pt。印刷フッタ左に番号・日付・作成者を ` | ` でつなぎ、Liberation Sans 9 pt・紫灰 `302435` を指定する。フッタ右のページ番号は型にある。
+
+6行目は列見出し。7行目から実データの行だけを作り、次のスタイル名に `Holt ` を付けて指定する。数値は右寄せ、文字は左インデント1と折返し。行高は30 ptを目安に、折り返し行数に応じて広げる。数量は桁区切りと小数1桁、単価は小数4桁、金額は小数2桁で表示する。
+
+| 列 | `Unit prices` | `Savings bridge` |
+|---|---|---|
+| A | 行番号、`Index` | 行番号、`Index` |
+| B | 条件書と仕入先を照合できる参照、`Text` | 条件の名称と照合先の参照、`Text` |
+| C | 数量・単価の単位、`Text` | 比較の基準仕入額（USD）、`Amount` |
+| D | 条件の最低数量、`Quantity` | 削減見込額（USD）、`Amount` |
+| E | 比較期間の実購入数量、`Quantity` | 実現削減額（USD）、`Amount` |
+| F | 比較基準の単価（USD/単位）、`Unit Price` | 数量条件未達による差（USD）、`Amount` |
+| G | 条件達成時の単価（USD/単位）、`Unit Price` | その他の確認済み差（USD）、`Amount` |
+| H | 請求に適用された単価（USD/単位）、`Unit Price` | 要確認の差（USD）、`Amount` |
+| I | 台帳・抜粋の参照、適用された段階、未確認事項、`Text` | 差の根拠、未確認事項、確認先、`Text` |
+
+仕入先、条件書の番号・版・条件行、有効期間、購入単位で取引条件と抜粋を対応づける。B と I に追跡できる参照を入れる。実購入数量は同じ条件期間と単位で集計する。適用単価が確認できない場合は H（単価）を空欄にして I に確認事項を記す。単価や異なる単位の数量の合計は設けない。
+
+差額は `見込 − 実績` の符号でそろえる。最低数量に届かず通常の価格段階が適用されたことを確認でき、実購入数量に対して直接比較できる条件では、F に `(実適用単価 − 条件達成時単価) × 同じ対象の実購入数量` を使う。値引きの適用誤り、他の要因による差、未確認分はそれぞれ根拠に従って G または H に記す。D〜G の金額が揃うとき、H に `=D7-E7-F7-G7` のように残差を計上できる。未確認の金額は空欄とし、確認済みのゼロと区別する。
+
+同じ期間・通貨・税の扱い・比較基準で、重複のない完結した明細を集計する場合、直後の行で A:B を結合して `Holt Total Label`、C:H にそれぞれ列の `SUM` と `Holt Total Amount` を指定する。合計行は25 pt。I は `Holt Total Label` とし、D−E と F〜H の合計が一致するかを確認する。注記は次行の A:I を結合し `Holt Note`、行高27 ptを目安に入れる。同一の基準仕入額に対する削減率なら、見込率は D の合計 ÷ C の合計、実績率は E の合計 ÷ C の合計、ポイント差はその差 ×100。中間確認の 8.1% と 5.6% を示す場合は期間と分母を併記する。
+
+各シートのフィルタを `A6:I<明細最終行>`、印刷範囲を `A1:I<合計・注記を含む最終行>` に指定する。A4横・横1ページ・縦自動、続頁で6行目を繰り返す。数値列の右に続く参照・根拠列と、先頭の番号列に続く条件列は、`Holt Text` の左インデント1を保つ。
+
+b006 の Team-room の Deepa の照合論点には `holt-handoffs.docx`（`EV`）、Desktop の中間説明には `holt-diagnosis.pptx`（`BRF`）を使う。中間説明の表では見込・実績・数量条件未達・その他の差・未確認分を示し、分母と中間確認の時点を添える。取引数量・単価の CSV は受領時の列・単位を保ち、手控えは TXT、Meera の返信は EML で保存する。
 
 ### Excel — Whitfield の試行前後の承認日数と保留理由
 
@@ -258,3 +290,13 @@ Letter縦、表紙なし。ヘッダ左に合流経路の図形と社名、右�
 手順番号は `PTD-BUY-EXC-<西暦4桁>-<連番3桁>`。見本は `PTD-BUY-EXC-2025-001`。LuaLaTeX の入力で `\documentclass{pioneer-exception-guidance}` を指定し、プリアンブルで `\ptdcontrol{手順番号}{版}{発効日}{発行者}` を設定する。初頁の管理欄は手順番号・版・発効日・発行者の順。各ページのフッタには手順番号・版・発効日とページ番号が入る。
 
 本文では `\ptdtitle{表題}` と `\ptdsection{節見出し}` を使う。手順表は `\begin{ptdroute}` から `\end{ptdroute}` までに実データ分の `\ptdrow{番号}{申請事項・証拠}{回付先と対応}` を書く。番号は右寄せで、次の文字列との間には両セル各6 ptの余白を取る。続頁には列見出しを繰り返す。クラスを入力と同じ作業フォルダに置くか、型のディレクトリを `TEXINPUTS` に追加し、`bin/tex <入力.tex> <出力.pdf>` で組む。発効日と発行者は顧客文書の計画と原稿に従う。
+
+## Pioneer 保管の取引条件書 PDF
+
+`tex:pioneer-trading-terms.cls` を使う。Pioneer の例外申請要領と同じロゴ、墨色 `20262A`、青緑 `11677C`、淡青緑 `E5F3F5` を使用する。欧文本文は Liberation Sans、番号は Liberation Mono、日本語は Noto Sans CJK JP。全ページに社名と `BUYING / COMMERCIAL TERMS`、フッタに番号・版・発行日・ページ番号を載せる。
+
+番号は `PTD-BUY-TRM-<西暦4桁>-<連番3桁>`。新規の条件書には別の連番、同じ条件書の更新は番号を維持して版を更新する。見本は `PTD-BUY-TRM-2025-001`、`Rev. 1`、`10/30/2025`、`Meera Kulkarni`。実際の値は計画と事実の台帳に従う。発行日は米国式の `MM/DD/YYYY` を使い、適用期間は本文に記す。
+
+LuaLaTeX の入力に `\documentclass{pioneer-trading-terms}` と `\ptdcontrol{条件書番号}{版の数字}{発行日}{発行者}` を指定する。本文で `\ptdtermstitle{表題}` の後に `\ptdscope{仕入先と口座・対象範囲}{適用期間}{通貨と税の扱い}` を置き、節は `\ptdsection{節見出し}` で作る。`ptdterms` 環境内に `\ptdterm{条件行参照}{品目と購入単位}{最低数量}{条件単価}{適用方法・精算条件}` を実際の条件分だけ追加する。原資料にある基準単価や複数段階の条件、返品の扱い、遡及適用の対象を必要に応じて最後の列か本文に記す。続頁の先頭に列見出しが入る。第3・4列は右寄せ、第5列は左寄せで、単価と適用方法の間は両セルの各5 ptの余白を取る。
+
+両クラス（`pioneer-trading-terms.cls` と `pioneer-exception-guidance.cls`）が見つかるよう、この型のディレクトリを `TEXINPUTS` に指定し、末尾に `:` を付けて標準の検索先も含める。`bin/tex <入力.tex> <出力.pdf>` でテキスト層付き PDF にし、`bin/render` で全ページを点検する。

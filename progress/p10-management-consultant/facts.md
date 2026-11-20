@@ -154,3 +154,34 @@
 - 件名「Papers for the payment pilot decision」、2025-10-08 15:18 BST Nicholas → Kenneth（Cc Neha、Siobhan）。配布PDFと Connor の集計 XLSX を別々に実添付。
 - 件名「Re: Papers for the payment pilot decision」、2025-10-09 10:28 BST Kenneth → Nicholas（Cc Elizabeth、Neha、Siobhan）。前日の依頼に返信し、決裁依頼を引用して対象と条件を明記。添付なし。
 - 件名「Signed change and desk copy」、2025-10-09 14:24 BST Nicholas → Kenneth（Cc Elizabeth、Neha、Siobhan）。署名済みスキャンと担当者向け手順PDFを実添付。
+
+## Pioneer の中間確認の範囲と取引条件
+
+- 2025-10-13 14:00 BST、Meera・Nicholas・Deepa が中間確認の対象を確定。4月の診断対象12社のうち S018・S042・S036・S011・S008 の各1条件・各1品目。Q4（2025-10-01〜12-31）の受領と紐づく返品を取り、2026-01-12までの計上を締めとする。
+- 率の分母は5条件の Q4 実購入純数量を10月の税抜 USD 基準単価で評価した USD 1,000,000。10月の条件・移行時期の見込を同じ数量に当てた比較で、全社、通年、別品目、運賃、税、需要共有案の効果は含めない。
+- Buying 保管の PTD-BUY-TRM-2025-001 Rev. 1 は Meera 発行、2025-10-30。条件行 T1〜T5 は順に S018（shipping labels）、S042（sealing tape）、S036（protective sleeves）、S011（bin liners）、S008（packing dispensers）。S036 の切替前を含め各行の根拠は10〜12月の取引に対応する。
+- T1 / S018：基準 USD 20.00／case。Q4に12,000 net cases以上なら対象全量 USD 18.40、未達なら USD 19.60。6件各1,700 casesを受領し、元行に紐づけた返品200 casesを USD 19.60 で控除。10,000 net casesに USD 19.60 が適用され、追加の精算なし。
+- T2 / S042：基準 USD 20.00／case。7,000 net cases以上なら対象全量 USD 18.00、未達なら USD 20.00。10 cases入り pack を5件各150 packs、USD 180／packで仮請求し、Q4の7,500 casesで達成したため期末調整なし。
+- T3 / S036：基準 USD 20.00／case。最低数量なし。12月1日以降の受領分に USD 18.00、以前は USD 20.00。各1,250 cases×5件を境界の両側に受領。11月28日受領・12月2日計上の行は USD 20.00、12月1日受領の行は USD 18.00。
+- T4 / S011：基準 USD 20.00／case、書面価格 USD 19.50。5件各1,000 casesを USD 19.50 で計上。数量しきい値なし。10月試算で見込んだ追加 USD 1.10／case 相当の商業貸方は、別承認が必要で、締め時点で計上なし。
+- T5 / S008：基準 USD 30.00／unit、固定 USD 27.80。最低数量なし。5件各2,000 unitsに同単価を適用した。
+
+## Pioneer の購入抜粋と差額の照会
+
+- 1月13日に受領した Q4 抜粋は5条件の対象全32行（T1〜T5順に7・5・10・5・5）。T1 貸方行は1件、符号付き数量と明細額を使う。他の行は請求行で、数量・単価を相殺せず保持する。
+- S018 返品の原伝票は AP-62114、貸方は AP-62851（−200 cases、−USD 3,920）。S036 の境界例は AP-62418（11月28日受領・12月2日計上）と AP-62431（12月1日受領）。S042 の換算例は AP-61972（150 packs、USD 27,000）。
+- 「The terms Buying has on file」（10月30日14:26 GMT、Meera → Nicholas、Cc Deepa）は条件書PDFを実添付。「The cleared Q4 purchase lines」（1月13日13:24 GMT、Meera → Deepa、Cc Nicholas）は Q4 CSV を実添付。いずれも独立した送付。
+- 「Three checks before Wednesday」は1月14日14:14 GMT、Nicholas → Meera（Cc Deepa）。返品・受領日・追加貸方の照会表を実添付し、1月16日までの回答を依頼。
+- 「Re: Three checks before Wednesday」は1月15日14:34 GMT、Meera → Nicholas（Cc Deepa）。14日の3問を引用して T1 の返品と T3 の受領日を確認。T4 の承認も計上も証拠なしと回答。返信に新規添付なし。
+- Deepa は `deepa@holt-reeves.example`。Meera と Nicholas のアドレスは「Pioneer の現行例外要領と緊急申請の照会」の記録を使う。
+
+## Pioneer の差額表示の改訂と1月中間確認
+
+- 10月モデルの計画数量を使った基準額 USD 1,060,000、見込 USD 86,000は10月の作業表の数値。1月は条件達成時単価と計画の切替割合を Q4 の実購入純数量に当て直して比較する。
+- 1月の比較では S018 の条件達成単価を実購入10,000 casesに当てる。S036 は実購入12,500 casesの80%（10,000）を切替後、2,500を従前価格と置く。S011 は書面単価に加えて USD 5,500の追加貸方を見込む。
+- 基準額／見込削減／実現削減（税抜 USD）は T1 が200,000／16,000／4,000、T2 が150,000／15,000／15,000、T3 が250,000／20,000／12,500、T4 が100,000／8,000／2,500、T5 が300,000／22,000／22,000。
+- HRA-PIO-BUY-SAV-2026-001 v1.0（1月16日、Deepa）の合計は見込 USD 81,000（8.1%）、実績 USD 56,000（5.6%）。差 USD 25,000（2.50ポイント）は数量未達 USD 12,000（1.20）、受領時期 USD 7,500（0.75）、要確認 USD 5,500（0.55）。
+- T1 の未達分は実購入10,000 cases × (USD 19.60 − USD 18.40)。T3 の時期差は (計画10,000 − 実績6,250) cases × USD 2。T4 の USD 5,500は見込と計上実績の既知残差で、追加貸方そのものの確定額は空欄。
+- HRA-PIO-BUY-BRF-2026-001 は Nicholas の1月16日 v0.3 と1月20日 v1.0。Elizabeth は1月16日に「Discounts lost」を指摘。v1.0 では取引条件どおりの価格適用と、しきい値を満たさなかったことによる見込との差を区別する。
+- 「Papers for the savings checkpoint」、1月21日10:14 GMT、Nicholas → Meera（Cc Deepa）。v1.0 配布PDF `21 Jan - Savings at the January checkpoint.pdf` と別添集計表 `20 Jan - Q4 bridge for Buying.xlsx` の2件を実添付。
+- 1月21日14:00〜14:45 GMT、Meera・Nicholas・Deepa。中間値5.6%と差の3区分を確認。Meera は T4 の追加貸方の承認経路と伝票を1月28日までに確認し、Deepa は証拠が揃うまで中間値を据え置く。
