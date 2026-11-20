@@ -53,6 +53,36 @@
 - 期間を揃えるスレッド：①04-17 10:48 Michelle → Janet「JDH - confirm May through July coverage」→ ②同日11:17 Janet → Michelle「Re: JDH - confirm May through July coverage」。②は①を引用、両通とも添付なし。
 - 延長の受諾スレッド：①04-17 14:03 Michelle → Janet「JDH - May to July service extension」（延長契約PDFを実添付）→ ②同日15:14 Janet → Michelle「Re: JDH - May to July service extension」（①を引用、新規添付なし）。期間確認とは別スレッド。
 
+## 8月更新の購買訪問と追加40席の割当条件
+
+- 2026-06-03 10:00、JDHでJanet・Michelle・Divyaが、既存480席の継続と追加40席、年60時間の使途、8月1日の契約開始を別々に確認。候補額はUSD 248,000、購買上限はUSD 250,000。
+- 06-12にJanetが追加40席の名簿窓口を引き取った。部門別配分と夜間練習の承認者は07-17時点も未確定。Divyaが準備条件を確認し、JDHが名簿・現場責任者を確定して昼夜別練習と指摘解消を経て承認した後に、追加枠を二組に分けて段階割当する。
+- 1月の9週は初回名簿と責任者が揃ってからの条件付き移行見積。追加40席の割当日と各組の人数は合意せず、08-01は年間契約の開始日としてのみ確定した。
+- 訪問用PPTXと書き出しPDFは HBC-JDH-20260602-BRF-01 v1.0。候補条件の版で、PDFにはスライド表と開始日の区別を示す図を引き継ぐ。
+- 独立メールの順：①05-12 09:18 Janet → Michelle「JDH August renewal - three things purchasing needs」（添付なし）。②06-03 15:12 Michelle → Janet、Cc Divya「JDH June 3 - seats, hours and the August date」（`JDH August - the purchasing questions.pdf`を実添付）。
+- ③06-12 11:34 Janet → Michelle、Divya「JDH roster routing for the extra seats」（添付なし）。②で依頼した名簿窓口の回答を別件名で送る。
+
+## 年60時間の使途と月次残高
+
+- 05-27の社内草案 HBC-JDH-20260527-SVC-01 v0.1 は担当者説明24・遠隔練習支援24・稼働後レビュー12時間。Darrenの06-18の検討を受け、06-24 11:00にJanet・Darren・Michelleが24・20・16時間を計画配分として確認した。年60時間は3用途の共通枠。
+- 実施分を0.25時間単位で記録し、予約だけでは差し引かない。Darrenが実施日・使途・時間・残高をJanetへ月次共有。現地作業・実際の座席割当は支援対象外で、対象外や超過を依頼する場合は別見積とJDHの事前書面承認が必要。
+- 顧客向け支援範囲 HBC-JDH-20260716-SVC-01 v1.0 を年次条件PDFとJDH購買確認で参照する。契約開始からの年60時間で、1月の移行工数や5〜7月の支援消化とは別管理。
+
+## 7月の価格再確認と署名条件
+
+- 初回の520席・年60時間の価格USD 248,000は07-10 17:00 MDTまで。07-10 16:30予定は署名条件が未確認のため取り下げ、07-13 09:30に組み直した予定も期限切れで止めた。いずれも未送信。
+- 07-16にDonaldが同額を07-17 16:00 MDTまで再承認。07-17 11:30送信予定との差は4時間30分。署名条件は価格と別にJonathanが07-16に確認し、07-17 10:24にDonaldが発行版をHalstead側の書面承認として認めた。
+- 署名条件の社内検討は HBC-JDH-20260714-LEG-01 v0.1（Michelle初稿）→ v0.2（07-15 Jonathan赤字）。契約開始日に全席を一括有効化する文言を削り、追加40席の段階割当と、発行版を指定した双方の書面による合意を条件とした。
+- 07-09 10:02 Donald → Michelle「JDH August terms - first price window」（独立、添付なし）。再承認スレッド「JDH August terms - renew the price window」①07-16 09:10 Michelle → Donald、②同日10:03 Donald → Michelle（Re:、①の価格と予定を引用）。両通とも添付なし。
+- 独立メールの順：①07-16 14:26 Jonathan → Michelle、Donald「JDH August renewal - signature conditions cleared」。②07-17 10:24 Donald → Michelle「JDH August renewal - Halstead approval on the issue copy」。いずれも添付なし。
+
+## 7月17日の年間更新合意と保管
+
+- 発行内容は HBC-JDH-20260717-REN-01 v1.0、2026-08-01〜2027-07-31、契約上限520席・年60時間・年額USD 248,000。2026-05-01〜07-31の延長対価USD 58,000は独立した契約の金額で、年額に含めない。
+- Janetが JDH-PO-20260717-01 v1.0 を07-17 14:32に作成し、発行条件PDFと支援範囲DOCXの番号・版を指定。14:44に同書面を返送し、16:00 MDTの期限内に双方の合意が成立した。08-01から既存480席を継続する。
+- 独立メールの順：①07-17 11:30 Michelle → Janet「JDH August renewal - terms for written acceptance」（`JDH annual renewal - August 2026.pdf`と`JDH August renewal - how the 60 hours work.docx`を実添付）。
+- ②07-17 14:44 Janet → Michelle「JDH purchasing acceptance - August annual term」（`JDH purchasing confirmation - August annual renewal.docx`を実添付）。
+
 # Aldridge Service Group
 
 時刻は Denver 現地時刻（America/Denver。2024-11-03の切替前は MDT、切替後は MST）。Ahmed Farouk は Aldridge Service Group の事業企画責任者（`ahmed@aldridge-service.example`）。Halstead の Allison Kim、Marisol Torres、Jonathan Salgado はそれぞれ `allison`、`marisol`、`jonathan` @ `halstead-branch.example`。
