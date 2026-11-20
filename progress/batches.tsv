@@ -176,7 +176,7 @@ p07-humanities-researcher	b006	2026-11-20	33	5	6	4	4	accepted	8501.16
 p10-management-consultant	b007	2026-11-20	37	0	9	3	3	accepted	8820.82
 p20-investigative-journalist	b007	2026-11-20	35	10	5	10	8	accepted	8156.85
 p03-security-grc-analyst	b009	2026-11-20	27	4	3	2	2	accepted	5694.18
-p11-account-executive	b009	2026-11-20	28	4	3	4	4	done	5148.27
+p11-account-executive	b009	2026-11-20	28	4	3	4	0	accepted	5148.27
 p05-bi-data-analyst	b009	2026-11-20	35	3	3	1	0	accepted	6172.89
 p18-manufacturing-quality-engineer	b009	2026-11-20	30	6	4	2	0	done	6280.10
 p09-ux-researcher	b008	2026-11-20	28	6	4	1	1	accepted	5359.71
