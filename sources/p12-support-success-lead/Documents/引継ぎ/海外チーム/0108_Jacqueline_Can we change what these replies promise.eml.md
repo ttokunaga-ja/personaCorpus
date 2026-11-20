@@ -20,5 +20,5 @@ Could we read the attached list of 54 saved replies together from 11:00 JST toda
 Thanks,
 Jacqueline
 
-添付: Corley investigation replies 8 Jan.csv
-添付元: Downloads/Corley investigation replies 8 Jan.csv
+添付: 0108_Corley investigation replies.csv
+添付元: Downloads/0108_Corley investigation replies.csv
