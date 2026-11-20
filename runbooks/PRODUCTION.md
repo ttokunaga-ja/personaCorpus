@@ -326,5 +326,6 @@ bin/autopilot stop --now                                       # 自動運転の
 1. Sol が persona の命名規則と `progress/<persona>/rename.tsv` を書き、`validate` で確かめる。
 2. `apply` が配布物と原稿を移し、テキストの参照を更新する。Sol が `rename-refs.tsv` に挙がった配布物の参照を修正する。
 3. `verify` が参照と配布物を検査し、元の更新時刻で manifest を更新する。Astra が `rename.audit.md` に監査結果を記録し、合格した persona ごとに `commit` が付け直しに関係するパスをまとめて commit する。
+4. 監査が保留なら、Sol が「見直し」（`revise`）で指摘された行の新パスと理由を直し、`validate` を通す。`apply` は適用済みの記録と対応表を比べ、変わった行の配布物・原稿を現在の名前から移し、参照も更新する。必要な参照の修正、`verify`、監査を繰り返す。見直しは 2 回までとし、3 回目の監査保留で停止する。
 
-保留は `scratch/rename/<persona>/state.json` と `scratch/rename/log.tsv` で確認する。統括が監査の所見や検査理由を読み、付け直し済みのパス・原稿・manifest の状態を確認してから再開方法を決める。適用後は同じ対応表で参照の修正、`verify`、再監査、`commit` を手で進められる。対応表を変更する必要があるときは、その persona の付け直しによる変更を適用前の状態に戻してから計画し直す。
+保留は `scratch/rename/<persona>/state.json` と `scratch/rename/log.tsv` で確認する。理由が「監査 hold」で始まり、見直しが 2 回未満の既存の保留は、`run` の再起動時に見直しから再開する。それ以外の保留では、統括が監査の所見や検査理由、適用済みの状態を確認する。手で再開するときは、対応表の旧パスを保ち、新パスと理由を直して `validate` と `apply` を実行する。その後、必要な参照の修正、`verify`、再監査、`commit` を進める。

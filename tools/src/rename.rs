@@ -5,7 +5,7 @@
 //! file are listed in `rename-refs.tsv` for a Codex job to rebuild. `verify`
 //! restores the recorded modification times, rewrites the manifest and runs
 //! the corpus checks. `commit` stages exactly the touched paths. `run` drives
-//! the Codex jobs (names, content fixes, audit) and the steps above.
+//! the Codex jobs (names, content fixes, audit, revision) and the steps above.
 use crate::manifest::{Locations, Row, absolute, accepted, digest, entries, read_rows, resolve};
 use anyhow::{Context, Result, bail};
 use clap::Parser;
@@ -27,6 +27,8 @@ use unicode_normalization::UnicodeNormalization;
 pub const STEM_MAX: usize = 40;
 pub const EML_STEM_MAX: usize = 60;
 const TEXT: [&str; 8] = ["txt", "md", "csv", "tsv", "html", "json", "xml", "log"];
+type Pairs = Vec<(String, String)>;
+type Inventory = BTreeMap<String, Row>;
 const DATE_FORMS: &[&str] = &[
     "YYYY-MM-DD",
     "YYYY_MM_DD",
@@ -312,7 +314,7 @@ impl Ctx {
     }
 
     /// (old, new) pairs from rename.tsv.
-    fn pairs(&self) -> Result<Vec<(String, String)>> {
+    fn pairs(&self) -> Result<Pairs> {
         let text = fs::read_to_string(self.map_path())
             .with_context(|| format!("{} がない", self.map_path().display()))?;
         let mut lines = text.lines().filter(|l| !l.trim().is_empty());
@@ -354,6 +356,10 @@ impl Ctx {
         Ok(rows)
     }
     fn validation(&self) -> Result<Vec<String>> {
+        if self.state_dir().join("applied.json").try_exists()? {
+            let (current, delta) = revision_plan(&load_record(self)?, &self.pairs()?)?;
+            return self.validate(&delta, &current);
+        }
         let rows = self.inventory()?;
         match self.pairs() {
             Ok(pairs) => self.validate(&pairs, &rows),
@@ -496,7 +502,7 @@ impl References {
             }
         }
         // A new name can itself contain an old name (for example "Revised notes.txt").
-        for (_, new) in pairs {
+        for new in finals.keys().filter(|_| !pairs.is_empty()) {
             for new in [new.as_str(), basename(new)] {
                 replacements.entry(new.into()).or_insert_with(|| new.into());
             }
@@ -578,7 +584,7 @@ fn ext_of(p: &str) -> String {
         .to_string_lossy()
         .to_ascii_lowercase()
 }
-fn md_files(dir: &Path) -> Result<Vec<PathBuf>> {
+fn text_files(dir: &Path, extensions: &[&str]) -> Result<Vec<PathBuf>> {
     if !dir.try_exists()? {
         return Ok(Vec::new());
     }
@@ -588,18 +594,24 @@ fn md_files(dir: &Path) -> Result<Vec<PathBuf>> {
         if entry.file_type().is_symlink() {
             bail!("リンクを含むパス: {}", entry.path().display());
         }
-        if entry.file_type().is_file() && entry.path().extension().is_some_and(|e| e == "md") {
+        if entry.file_type().is_file()
+            && entry
+                .path()
+                .extension()
+                .and_then(|e| e.to_str())
+                .is_some_and(|e| extensions.contains(&e))
+        {
             paths.push(entry.into_path());
         }
     }
     Ok(paths)
 }
-fn project_markdown(c: &Ctx) -> Result<impl Iterator<Item = PathBuf>> {
-    let audit = c.audit();
-    Ok(md_files(&c.sources())?.into_iter().chain(
-        md_files(&c.progress())?
+fn project_text(c: &Ctx) -> Result<impl Iterator<Item = PathBuf>> {
+    let rename_records = [c.audit(), c.map_path(), c.refs_path()];
+    Ok(text_files(&c.sources(), &["md"])?.into_iter().chain(
+        text_files(&c.progress(), &TEXT)?
             .into_iter()
-            .filter(move |p| *p != audit),
+            .filter(move |p| !rename_records.contains(p)),
     ))
 }
 fn read_text(p: &Path) -> Result<String> {
@@ -648,6 +660,54 @@ fn final_paths(
         .map(|old| (renamed.get(old).map_or(old, |&p| p).clone(), old.clone()))
         .collect()
 }
+fn inventory_at(rows: &Inventory, pairs: &Pairs) -> Inventory {
+    final_paths(rows, pairs)
+        .into_iter()
+        .map(|(path, old)| (path, rows[&old].clone()))
+        .collect()
+}
+fn revision_plan(record: &Value, pairs: &Pairs) -> Result<(Inventory, Pairs)> {
+    let previous: Pairs = serde_json::from_value(record["pairs"].clone())?;
+    let rows: Inventory = serde_json::from_value(record["rows"].clone())?;
+    let applied: BTreeMap<_, _> = previous.iter().map(|(old, new)| (old, new)).collect();
+    let requested: BTreeSet<_> = pairs.iter().map(|(old, _)| old).collect();
+    if requested.len() != pairs.len() || requested.into_iter().ne(applied.keys().copied()) {
+        bail!("見直しで rename.tsv の旧パスが変更された");
+    }
+    let delta = pairs
+        .iter()
+        .filter_map(|(old, new)| {
+            let current = applied[old];
+            (current != new).then(|| (current.clone(), new.clone()))
+        })
+        .collect();
+    Ok((inventory_at(&rows, &previous), delta))
+}
+fn previous_pairs(record: &Value) -> Result<Vec<Pairs>> {
+    match record.get("previous_pairs") {
+        Some(value) => Ok(serde_json::from_value(value.clone())?),
+        None => Ok(Vec::new()),
+    }
+}
+
+type Fingerprints = BTreeMap<String, Option<String>>;
+
+fn check_revision_inputs(c: &Ctx, record: &Value) -> Result<()> {
+    if record["report_hash"] != digest(&c.refs_path())? {
+        bail!("適用済みの rename-refs.tsv が変更された");
+    }
+    let verified = c.state_dir().join("verified.json");
+    if metadata_if_exists(&verified)?.is_some() {
+        let mut expected: Fingerprints = serde_json::from_str(&read_text(&verified)?)?;
+        let previous_hash = expected.remove(&c.relative(&c.map_path())?).flatten();
+        if previous_hash.as_deref() == record["map_hash"].as_str()
+            && expected != fingerprints(c, &expected.keys().cloned().collect())?
+        {
+            bail!("verify の後に対応表以外の付け直しに関係するファイルが変わった");
+        }
+    }
+    Ok(())
+}
 fn extract_reference_text(p: &Path, rel: &str, ocr: Option<&str>) -> Result<String> {
     let ext = ext_of(rel);
     if ["wav", "mp3", "m4a"].contains(&ext.as_str()) {
@@ -673,27 +733,58 @@ fn apply(c: &Ctx) -> Result<Vec<String>> {
     let pending = c.state_dir().join("applying.json");
     let map_hash = digest(&c.map_path())
         .with_context(|| format!("対応表が読めない: {}", c.map_path().display()))?;
-    if record_path.try_exists()? {
-        let record = load_record(c)?;
-        if record["map_hash"] != map_hash {
-            bail!("適用済みの rename.tsv が変更された");
+    let applied = if metadata_if_exists(&record_path)?.is_some() {
+        Some(load_record(c)?)
+    } else {
+        None
+    };
+    if pending.try_exists()? {
+        let unfinished: Value = serde_json::from_str(&read_text(&pending)?)?;
+        if applied.as_ref() != Some(&unfinished) {
+            bail!("前回の apply が中断された: {}", pending.display());
         }
+        fs::remove_file(&pending)?;
+    }
+    if let Some(record) = &applied
+        && record["map_hash"] == map_hash
+    {
         return Ok(serde_json::from_value(record["ref_rows"].clone())?);
     }
-    if pending.try_exists()? {
-        bail!("前回の apply が中断された: {}", pending.display());
-    }
-    let rows = c.inventory()?;
     let pairs = c.pairs()?;
-    let errors = c.validate(&pairs, &rows)?;
+    let (current, delta) = match &applied {
+        Some(record) => revision_plan(record, &pairs)?,
+        None => (c.inventory()?, pairs.clone()),
+    };
+    let errors = c.validate(&delta, &current)?;
     if !errors.is_empty() {
         bail!("rename.tsv が不正:\n{}", errors.join("\n"))
     }
-    let finals = final_paths(&rows, &pairs);
-    let keys = References::new(&pairs, &rows, &finals, &c.persona)?;
-    let mut changed = BTreeSet::from([c.relative(&c.refs_path())?, c.relative(&c.map_path())?]);
+    let mut history = Vec::new();
+    let mut previous_changes: BTreeSet<String> = BTreeSet::new();
+    let mut previous_edits: BTreeMap<String, String> = BTreeMap::new();
+    let mut previous_refs: BTreeMap<String, String> = BTreeMap::new();
+    let rows = if let Some(record) = &applied {
+        check_revision_inputs(c, record)?;
+        history = previous_pairs(record)?;
+        if !delta.is_empty() {
+            history.push(serde_json::from_value(record["pairs"].clone())?);
+        }
+        previous_changes = serde_json::from_value(record["changed"].clone())?;
+        previous_edits = serde_json::from_value(record["edited_text"].clone())?;
+        for row in serde_json::from_value::<Vec<String>>(record["ref_rows"].clone())? {
+            let (p, names) = row.split_once('\t').context("参照の記録が不正")?;
+            previous_refs.insert(p.into(), names.into());
+        }
+        serde_json::from_value(record["rows"].clone())?
+    } else {
+        current.clone()
+    };
+    let finals = final_paths(&current, &delta);
+    let keys = References::new(&delta, &current, &finals, &c.persona)?;
+    let mut changed = previous_changes.clone();
+    changed.extend([c.relative(&c.refs_path())?, c.relative(&c.map_path())?]);
     let mut moves = BTreeMap::new();
-    for (old, new) in &pairs {
+    for (old, new) in &delta {
         for (from, to) in [
             (c.home().join(old), c.home().join(new)),
             (
@@ -714,18 +805,28 @@ fn apply(c: &Ctx) -> Result<Vec<String>> {
     // Read and check all inputs before moving or rewriting any of them.
     let mut edits = Vec::new();
     let mut edited_text = BTreeMap::new();
-    let mut refs = BTreeMap::new();
-    let ocr = if pairs.is_empty() {
+    let mut refs = BTreeMap::<String, BTreeSet<String>>::new();
+    let ocr = if delta.is_empty() {
         None
     } else {
         crate::check::ocr_language()?
     };
     for (rel, old) in &finals {
         let path = c.home().join(old);
-        if metadata_if_exists(&path)?.is_none() || digest(&path)? != rows[old][1] {
-            bail!("配布物が元の manifest と一致しない: {old}");
+        crate::batch::safe_file(&c.home(), old)?;
+        let expected = previous_edits.get(old).unwrap_or(&current[old][1]);
+        if metadata_if_exists(&path)?.is_none()
+            || (!previous_refs.contains_key(old) && digest(&path)? != *expected)
+        {
+            bail!("配布物の中身が適用済みの記録または元の manifest と一致しない: {old}");
         }
-        if pairs.is_empty() {
+        if let Some(hash) = previous_edits.get(old) {
+            edited_text.insert(rel.clone(), hash.clone());
+        }
+        if let Some(names) = previous_refs.get(old) {
+            refs.entry(rel.clone()).or_default().insert(names.clone());
+        }
+        if delta.is_empty() {
             continue;
         }
         if TEXT.contains(&ext_of(rel).as_str()) {
@@ -744,14 +845,14 @@ fn apply(c: &Ctx) -> Result<Vec<String>> {
                 .with_context(|| format!("参照の検査で中身を読めない: {old}"))?;
             let stale = keys.stale(&text);
             if !stale.is_empty() {
-                refs.insert(rel.clone(), stale);
+                refs.entry(rel.clone()).or_default().extend(stale);
             }
         }
     }
     // Scan the original text so a replacement is never applied twice to a moved source.
     let mut originals = BTreeSet::new();
-    if !pairs.is_empty() {
-        for path in project_markdown(c)? {
+    if !delta.is_empty() {
+        for path in project_text(c)? {
             let text = read_text(&path)?;
             let destination = moves.get(&path).unwrap_or(&path);
             if let Some(new) = keys.rewrite(&text) {
@@ -767,7 +868,24 @@ fn apply(c: &Ctx) -> Result<Vec<String>> {
             }
         }
     }
+    originals.retain(|p| !previous_changes.contains(p));
     ensure_unmodified(c, &originals)?;
+    if applied.is_some() && !moves.is_empty() {
+        // Intermediate names never recorded in HEAD cannot be staged as deletions.
+        let from = moves
+            .keys()
+            .map(|p| c.relative(p))
+            .collect::<Result<Vec<_>>>()?;
+        let mut args = vec!["ls-tree", "-rz", "--name-only", "HEAD", "--"];
+        args.extend(from.iter().map(String::as_str));
+        let head = git(&c.base, &args)?;
+        let tracked: BTreeSet<_> = head.split_terminator('\0').collect();
+        for path in from {
+            if !tracked.contains(path.as_str()) {
+                changed.remove(&path);
+            }
+        }
+    }
     let ref_rows: Vec<_> = refs
         .iter()
         .map(|(p, names)| {
@@ -790,7 +908,7 @@ fn apply(c: &Ctx) -> Result<Vec<String>> {
         fs::create_dir_all(to.parent().context("新しいパスの親がない")?)?;
     }
     let record = json!({
-        "pairs": pairs, "map_hash": map_hash, "report_hash": text_digest(&report),
+        "pairs": pairs, "previous_pairs": history, "map_hash": map_hash, "report_hash": text_digest(&report),
         "rows": rows, "changed": changed,
         "edited_text": edited_text, "refs": refs.keys().collect::<Vec<_>>(), "ref_rows": ref_rows,
     });
@@ -889,25 +1007,46 @@ fn verify(c: &Ctx) -> Result<Vec<String>> {
     {
         bail!("適用済みの rename.tsv または rename-refs.tsv が変更された");
     }
-    let pairs: Vec<(String, String)> = serde_json::from_value(record["pairs"].clone())?;
+    let pairs: Pairs = serde_json::from_value(record["pairs"].clone())?;
     let refs: BTreeSet<String> = serde_json::from_value(record["refs"].clone())?;
     let edited_text: BTreeMap<String, String> =
         serde_json::from_value(record["edited_text"].clone())?;
-    let rows: BTreeMap<String, Row> = serde_json::from_value(record["rows"].clone())?;
+    let rows: Inventory = serde_json::from_value(record["rows"].clone())?;
     let finals = final_paths(&rows, &pairs);
-    let keys = References::new(&pairs, &rows, &finals, &c.persona)?;
+    let targets: BTreeMap<_, _> = pairs.iter().map(|(old, new)| (old, new)).collect();
+    let mut keys = Vec::new();
+    let mut past_paths = BTreeSet::new();
+    // Verify against the original names and every applied intermediate name.
+    for previous in std::iter::once(Vec::new()).chain(previous_pairs(&record)?) {
+        let previous_paths = final_paths(&rows, &previous);
+        let superseded: Pairs = previous_paths
+            .into_iter()
+            .filter(|(path, _)| !finals.contains_key(path))
+            .map(|(path, old)| (path, targets[&old].clone()))
+            .collect();
+        past_paths.extend(superseded.iter().cloned());
+        keys.push(References::new(
+            &superseded,
+            &inventory_at(&rows, &previous),
+            &finals,
+            &c.persona,
+        )?);
+    }
+    let stale_names = |text: &str| -> BTreeSet<String> {
+        keys.iter().flat_map(|keys| keys.stale(text)).collect()
+    };
     let mut errors = Vec::new();
     let prefix = c
         .date_prefix()?
         .context("persona の定義の先頭設定に date_prefix がない")?;
     let names = NameRules::new(Some(&prefix))?;
-    for (old, new) in &pairs {
+    for (old, new) in &past_paths {
         if c.home().join(old).try_exists()? || c.sources().join(format!("{old}.md")).try_exists()? {
             errors.push(format!("旧パスが残る: {old} → {new}"));
         }
     }
-    for path in project_markdown(c)? {
-        let stale = keys.stale(&read_text(&path)?);
+    for path in project_text(c)? {
+        let stale = stale_names(&read_text(&path)?);
         if !stale.is_empty() {
             errors.push(format!("古い名前が残る: {}: {stale:?}", path.display()));
         }
@@ -936,7 +1075,7 @@ fn verify(c: &Ctx) -> Result<Vec<String>> {
                     }
                 }
             };
-            let stale = keys.stale(&text);
+            let stale = stale_names(&text);
             if !stale.is_empty() {
                 errors.push(format!("中身に古い名前が残る: {rel}: {stale:?}"));
             }
@@ -1022,7 +1161,7 @@ fn commit_paths(c: &Ctx, record: &Value) -> Result<BTreeSet<String>> {
     paths.insert(c.relative(&c.definition())?);
     Ok(paths)
 }
-fn fingerprints(c: &Ctx, paths: &BTreeSet<String>) -> Result<BTreeMap<String, Option<String>>> {
+fn fingerprints(c: &Ctx, paths: &BTreeSet<String>) -> Result<Fingerprints> {
     paths
         .iter()
         .map(|path| {
@@ -1055,7 +1194,7 @@ fn commit(c: &Ctx) -> Result<String> {
         paths.insert(c.relative(&audit)?);
     }
     check_index(c, &paths)?;
-    let verified: BTreeMap<String, Option<String>> = serde_json::from_str(
+    let verified: Fingerprints = serde_json::from_str(
         &read_text(&c.state_dir().join("verified.json")).context("verify が合格していない")?,
     )?;
     let original_paths = commit_paths(c, &record)?;
@@ -1093,6 +1232,20 @@ struct Driver {
     base: PathBuf,
 }
 const LIMIT: &str = r"(?i)利用上限|usage limit|rate limit|\b429\b|\bquota\b";
+const MAX_REVISIONS: u64 = 2;
+
+fn revisions(state: &Value) -> u64 {
+    state["revisions"].as_u64().unwrap_or(0)
+}
+
+fn resumable_audit_hold(state: &Value) -> bool {
+    state["stage"] == "hold"
+        && revisions(state) < MAX_REVISIONS
+        && state["reason"]
+            .as_str()
+            .is_some_and(|reason| reason.starts_with("監査 hold"))
+}
+
 impl Driver {
     fn ops(&self) -> PathBuf {
         std::env::var_os("AGENT_OPS_HOME")
@@ -1211,10 +1364,21 @@ impl Driver {
     fn store(&self, p: &str, v: &Value) -> Result<()> {
         save_json(&self.state_path(p), v)
     }
+    fn start_revision(&self, p: &str, state: &Value, reason: &str) -> Result<()> {
+        self.store(
+            p,
+            &json!({"stage": "revise", "attempts": 0, "revisions": revisions(state) + 1}),
+        )?;
+        self.log(p, "revise", reason)
+    }
     /// One step for one persona. Returns true when the persona is finished.
     fn step(&self, p: &str, paused: &mut Option<SystemTime>) -> Result<bool> {
         let mut s = self.state(p)?;
         let stage = s["stage"].as_str().context("stage が不正")?.to_string();
+        if resumable_audit_hold(&s) {
+            self.start_revision(p, &s, s["reason"].as_str().unwrap())?;
+            return Ok(false);
+        }
         if ["done", "hold"].contains(&stage.as_str()) {
             return Ok(true);
         }
@@ -1244,7 +1408,9 @@ impl Driver {
                     let reason = format!("Codex ジョブが正常終了しなかった: {job} ({status})");
                     let attempts = s["attempts"].as_i64().unwrap_or(0);
                     if attempts >= 2 {
-                        self.store(p, &json!({"stage": "hold", "reason": reason}))?;
+                        s["stage"] = json!("hold");
+                        s["reason"] = json!(reason);
+                        self.store(p, &s)?;
                         self.log(p, "hold", &reason)?;
                         return Ok(true);
                     }
@@ -1258,6 +1424,8 @@ impl Driver {
             self.store(p, &s)?;
         }
         let attempts = s["attempts"].as_i64().unwrap_or(0);
+        let revision_count = revisions(&s);
+        let next = |stage: &str, attempts: i64| json!({"stage": stage, "attempts": attempts, "revisions": revision_count});
         let hold = |s: &mut Value, reason: String| -> Result<bool> {
             s["stage"] = json!("hold");
             s["reason"] = json!(reason);
@@ -1281,12 +1449,17 @@ impl Driver {
         }
         let can_launch = stopped.is_none() && paused.is_none_or(|t| SystemTime::now() >= t);
         match stage.as_str() {
-            "names" => {
+            "names" | "revise" => {
                 if s["ran"].is_null() {
                     if !can_launch {
                         return Ok(false);
                     }
-                    s["job"] = json!(self.launch(p, "rename", "gpt-6.2-sol", &errors_note(&s))?);
+                    let kind = if stage == "revise" {
+                        "rename-revise"
+                    } else {
+                        "rename"
+                    };
+                    s["job"] = json!(self.launch(p, kind, "gpt-6.2-sol", &errors_note(&s))?);
                     self.store(p, &s)?;
                     return Ok(false);
                 }
@@ -1295,7 +1468,7 @@ impl Driver {
                     Ok(e) if e.is_empty() => {
                         let refs = apply(&ctx)?;
                         self.log(p, "applied", &format!("refs {}", refs.len()))?;
-                        s = json!({"stage": if refs.is_empty() {"verify"} else {"fix"}, "attempts": 0});
+                        s = next(if refs.is_empty() { "verify" } else { "fix" }, 0);
                     }
                     other => {
                         let e = match other {
@@ -1305,7 +1478,8 @@ impl Driver {
                         if attempts >= 2 {
                             return hold(&mut s, e);
                         }
-                        s = json!({"stage": "names", "attempts": attempts + 1, "errors": e});
+                        s = next(&stage, attempts + 1);
+                        s["errors"] = json!(e);
                     }
                 }
                 self.store(p, &s)?;
@@ -1320,17 +1494,18 @@ impl Driver {
                     self.store(p, &s)?;
                     return Ok(false);
                 }
-                s = json!({"stage": "verify", "attempts": attempts});
+                s = next("verify", attempts);
                 self.store(p, &s)?;
             }
             "verify" => {
                 let errors = verify(&ctx)?;
                 if errors.is_empty() {
-                    s = json!({"stage": "audit", "attempts": 0});
+                    s = next("audit", 0);
                 } else if attempts >= 2 {
                     return hold(&mut s, errors.join("\n"));
                 } else {
-                    s = json!({"stage": "fix", "attempts": attempts + 1, "errors": errors.join("\n")});
+                    s = next("fix", attempts + 1);
+                    s["errors"] = json!(errors.join("\n"));
                 }
                 self.store(p, &s)?;
             }
@@ -1357,14 +1532,15 @@ impl Driver {
                         return Ok(true);
                     }
                     Some("verdict: hold") => {
-                        return hold(
-                            &mut s,
-                            "監査 hold: progress/".to_string() + p + "/rename.audit.md",
-                        );
+                        let reason = format!("監査 hold: progress/{p}/rename.audit.md");
+                        if revision_count >= MAX_REVISIONS {
+                            return hold(&mut s, reason);
+                        }
+                        self.start_revision(p, &s, &reason)?;
                     }
                     _ if attempts >= 2 => return hold(&mut s, "監査の書式が不正".into()),
                     _ => {
-                        s = json!({"stage": "audit", "attempts": attempts + 1});
+                        s = next("audit", attempts + 1);
                         self.store(p, &s)?;
                     }
                 }
@@ -1460,7 +1636,10 @@ fn execute(o: Options) -> Result<i32> {
                 let mut open = 0;
                 for p in &names {
                     if !locks.contains_key(p) {
-                        if matches!(d.state(p)?["stage"].as_str(), Some("done" | "hold")) {
+                        let state = d.state(p)?;
+                        if state["stage"] == "done"
+                            || (state["stage"] == "hold" && !resumable_audit_hold(&state))
+                        {
                             continue;
                         }
                         match lock_file(&base, &format!("scratch/{p}/.lock"), false) {

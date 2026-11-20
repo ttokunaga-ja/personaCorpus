@@ -6,6 +6,8 @@ use std::{fs, os::unix::fs::PermissionsExt, path::PathBuf, process::Output};
 
 const OLD: &str = "Documents/I wrote down what was decided at the supplier meeting.txt";
 const NEW: &str = "Documents/Supplier minutes.txt";
+const REVISED: &str = "Documents/Meetings/Supplier follow-up.txt";
+const REVISED_AGAIN: &str = "Documents/Procurement follow-up.txt";
 const OTHER: &str = "Desktop/Schedule.txt";
 const MAIL: &str = "Documents/Sent.eml";
 const OLD_ATTACHMENT: &str = "I wrote down what was decided at the supplier meeting.txt";
@@ -236,13 +238,39 @@ fn apply_updates_references_and_verify_can_be_repeated() {
 
 #[test]
 fn run_applies_fixes_and_commits_only_an_accepted_audit() {
-    for verdict in ["accept", "hold"] {
+    for scenario in ["accept", "revise", "resume", "hold"] {
         let r = Rename::new();
         r.f.put(OLD, BODY);
         r.f.put(MAIL, &email(OLD_ATTACHMENT));
+        let other = r.f.put(OTHER, &format!("Review {OLD}."));
+        r.f.plan(&[(OLD, "2026-01-01", "Supplier minutes")]);
+        let notes = r.progress.join("notes.txt");
+        r.f.write(&notes, format!("Review {OLD}.\n").as_bytes());
         r.accept();
         r.map(&format!("{OLD}\t{NEW}\t短縮\n"));
-        for prompt in ["rename", "rename-fix", "rename-audit"] {
+        if scenario == "resume" {
+            success(&r.run("apply"));
+            let record_path =
+                r.f.base
+                    .join("scratch/rename")
+                    .join(&r.f.name)
+                    .join("applied.json");
+            let mut record: serde_json::Value =
+                serde_json::from_slice(&fs::read(&record_path).unwrap()).unwrap();
+            record.as_object_mut().unwrap().remove("previous_pairs");
+            fs::write(&record_path, serde_json::to_vec(&record).unwrap()).unwrap();
+            fs::write(r.f.home.join(MAIL), email("Supplier minutes.txt")).unwrap();
+            success(&r.run("verify"));
+            r.f.write(&r.progress.join("rename.audit.md"), b"verdict: hold\n");
+            r.f.write(
+                &r.f.base
+                    .join("scratch/rename")
+                    .join(&r.f.name)
+                    .join("state.json"),
+                r#"{"stage":"hold","reason":"監査 hold: rename.audit.md"}"#.as_bytes(),
+            );
+        }
+        for prompt in ["rename", "rename-fix", "rename-audit", "rename-revise"] {
             r.f.write(
                 &r.f.base.join(format!("prompts/{prompt}.md")),
                 prompt.as_bytes(),
@@ -259,36 +287,158 @@ case "$1" in
         case "${{11}}" in *"codex-once --model $7 --brief "*) ;; *) exit 3 ;; esac
         printf '%s\t%s\t%s\n' "$3" "$5" done >> scratch/jobs.tsv
         printf '%s\t%s\n' "$5" "$7" >> scratch/models.tsv
+        map=progress/{persona}/rename.tsv
         case "$5" in
-            *-fix) sed -i 's/{old}/Supplier minutes.txt/g' people/{persona}/{mail} ;;
-            *-audit) printf 'verdict: {verdict}\n' > progress/{persona}/rename.audit.md ;;
+            *-fix|*-fix-r*)
+                obsolete=$(sed -n 's/^The attached file is \(.*\)\.$/\1/p' people/{persona}/{mail})
+                grep -F -- "$obsolete" progress/{persona}/rename-refs.tsv
+                name=$(awk -F '\t' 'NR == 2 {{print $2}}' "$map")
+                name=$(basename "$name")
+                sed -i "s/The attached file is .*/The attached file is $name./" people/{persona}/{mail}
+                ;;
+            *-audit|*-audit-r*)
+                if [ {scenario} = hold ] || {{ [ {scenario} = revise ] && [ "$5" = p01-rename-audit ]; }}; then
+                    printf 'verdict: hold\n' > progress/{persona}/rename.audit.md
+                else
+                    printf 'verdict: accept\n' > progress/{persona}/rename.audit.md
+                fi
+                ;;
+            *-revise|*-revise-r*)
+                [ "$(head -n 1 progress/{persona}/rename.audit.md)" = 'verdict: hold' ]
+                case "$5" in *-r2) target='{again}' ;; *) target='{revised}' ;; esac
+                sed -i "2s|\t[^[:space:]]*/[^\t]*\t|\t$target\t|" "$map"
+                CORPUS_BASE={base} {corpus} rename validate p01
+                ;;
         esac
         ;;
     status) cat scratch/jobs.tsv ;;
 esac
 "#,
             base = common::quote(r.f.base.to_str().unwrap()),
-            old = OLD_ATTACHMENT,
+            corpus = common::quote(env!("CARGO_BIN_EXE_corpus")),
             persona = r.f.name,
             mail = MAIL,
+            revised = REVISED,
+            again = REVISED_AGAIN,
         );
         r.f.write(&script, body.as_bytes());
         fs::set_permissions(script, fs::Permissions::from_mode(0o755)).unwrap();
         let output = r.f.cli("rename", &["run", "p01", "--interval", "0"]);
-        if verdict == "accept" {
+        if scenario != "hold" {
             success(&output);
             success(&r.f.cli("manifest", &["p01", "--verify"]));
+            if scenario != "accept" {
+                let sources = r.f.base.join("sources").join(&r.f.name);
+                for (dir, suffix) in [(&r.f.home, ""), (&sources, ".md")] {
+                    assert!(!dir.join(format!("{NEW}{suffix}")).exists());
+                    assert!(dir.join(format!("{REVISED}{suffix}")).is_file());
+                }
+                for path in [
+                    other,
+                    r.f.home.join(MAIL),
+                    sources.join(format!("{OTHER}.md")),
+                    sources.join(format!("{MAIL}.md")),
+                    r.progress.join("b001.md"),
+                    notes,
+                    r.manifest.clone(),
+                ] {
+                    let text = fs::read_to_string(path).unwrap();
+                    assert!(text.contains("Supplier follow-up.txt"), "{text}");
+                    assert!(!text.contains("Supplier minutes.txt"), "{text}");
+                }
+            }
         } else {
             failure(&output);
             assert!(err(&output).contains("監査 hold"), "{}", err(&output));
             failure(&r.f.cli("manifest", &["p01", "--verify"]));
             failure(&r.run("commit"));
+            assert!(r.f.home.join(REVISED_AGAIN).is_file());
+            assert!(!r.f.home.join(REVISED).exists());
+            let restarted = r.f.cli("rename", &["run", "p01", "--interval", "0"]);
+            failure(&restarted);
         }
-        assert_eq!(
-            fs::read_to_string(r.f.base.join("scratch/models.tsv")).unwrap(),
-            "p01-rename\tgpt-6.2-sol\np01-rename-fix\tgpt-6.2-sol\np01-rename-audit\tgpt-6.2-astra\n"
-        );
+        let model_log = fs::read_to_string(r.f.base.join("scratch/models.tsv")).unwrap();
+        let jobs: Vec<_> = model_log.lines().collect();
+        let initial = [
+            "p01-rename\tgpt-6.2-sol",
+            "p01-rename-fix\tgpt-6.2-sol",
+            "p01-rename-audit\tgpt-6.2-astra",
+        ];
+        let revision = "p01-rename-revise\tgpt-6.2-sol";
+        match scenario {
+            "accept" => assert_eq!(jobs, initial),
+            "revise" => assert_eq!(
+                jobs,
+                [
+                    initial.as_slice(),
+                    &[
+                        revision,
+                        "p01-rename-fix-r2\tgpt-6.2-sol",
+                        "p01-rename-audit-r2\tgpt-6.2-astra"
+                    ]
+                ]
+                .concat()
+            ),
+            "resume" => assert_eq!(jobs, [revision, initial[1], initial[2]]),
+            "hold" => assert_eq!(
+                jobs,
+                [
+                    initial.as_slice(),
+                    &[
+                        revision,
+                        "p01-rename-fix-r2\tgpt-6.2-sol",
+                        "p01-rename-audit-r2\tgpt-6.2-astra",
+                        "p01-rename-revise-r2\tgpt-6.2-sol",
+                        "p01-rename-fix-r3\tgpt-6.2-sol",
+                        "p01-rename-audit-r3\tgpt-6.2-astra",
+                    ]
+                ]
+                .concat()
+            ),
+            _ => unreachable!(),
+        }
     }
+}
+
+#[test]
+fn reapply_rejects_a_collision_before_moving_any_files() {
+    let r = Rename::new();
+    let old_second = "Desktop/Meeting schedule.txt";
+    let new_second = "Desktop/Weekly schedule.txt";
+    r.f.put(OLD, BODY);
+    r.f.put(old_second, "The May meeting starts at ten in room 11.");
+    r.f.put(OTHER, "The supplier inspection is next Monday.");
+    r.accept();
+    r.map(&format!(
+        "{OLD}\t{NEW}\t短縮\n{old_second}\t{new_second}\t分類\n"
+    ));
+    success(&r.run("apply"));
+    success(&r.run("verify"));
+    let applied =
+        r.f.base
+            .join("scratch/rename")
+            .join(&r.f.name)
+            .join("applied.json");
+    let manifest_before = fs::read(&r.manifest).unwrap();
+    let record_before = fs::read(&applied).unwrap();
+    let sources = r.f.base.join("sources").join(&r.f.name);
+    r.map(&format!(
+        "{OLD}\t{REVISED}\t分類\n{old_second}\t{OTHER}\t分類\n"
+    ));
+    let validation = r.run("validate");
+    failure(&validation);
+    assert!(err(&validation).contains(OTHER), "{}", err(&validation));
+    let apply = r.run("apply");
+    failure(&apply);
+    assert!(err(&apply).contains(OTHER), "{}", err(&apply));
+    for (dir, suffix) in [(&r.f.home, ""), (&sources, ".md")] {
+        for name in [NEW, new_second, OTHER] {
+            assert!(dir.join(format!("{name}{suffix}")).is_file());
+        }
+        assert!(!dir.join(format!("{REVISED}{suffix}")).exists());
+    }
+    assert_eq!(fs::read(&r.manifest).unwrap(), manifest_before);
+    assert_eq!(fs::read(applied).unwrap(), record_before);
 }
 
 #[test]
