@@ -173,3 +173,20 @@
 - R00 omits the two label exclusions in Figure 7's caption only and says in §5 “The results support short-term storage before measurement.” The Sep 9 annotated print retains those two original passages and carries Anthony's red directions.
 - R01 DOCX (Sep 9 13:34) and its typeset PDF (15:08) share the same full text, seven graphics and captions, §4.2 evidence table, and document number BCE-CE-2026-RPT-001-R01. In R01 Figure 7 names the two label discrepancies, one at 24 h and one at 48 h, and §5 limits routine storage to a documented elapsed time of ≤24 h under the evaluated Bennett nonclinical supernatant workflow, citing BCE-CE-2025-DEC-001-R00.
 - BCE-CE-2026-TBL-006-R00 (Sep 9 14:04) checks the seven figures in report R01. On Sep 9 at 15:36, following the Aug 18 request and the morning review, Melissa → Angela, Cc Anthony, “Revised report and seven figure checks”, opens a new thread with the actual R01 PDF and separate TBL-006-R00 XLSX attached.
+
+## Medium exchange — June measurements and September reassessment
+
+- The 2024-08-23 study design compares 24, 48 and 72 h exchange intervals, 10 sample IDs per group. The September 2026 review uses archived June 2025 measurements in ng/mL.
+- Initial round MX-250617 was measured 2025-06-17. Within each group, IDs ending 01–05 were prepared 2025-06-12 and 06–10 on 2025-06-13. Melissa and Patricia saw a 72 h group CV of 21.0% in the initial review.
+- Matched-prep repeat MX-250626 was measured 2025-06-26, with one prep date, 2025-06-23, for all three groups. Use the same study sample labels within each interval (MX24-01–10, MX48-01–10, MX72-01–10) to trace the two rounds, with measurement round part of the record key.
+- September's extract and trace include 30 adopted repeat readings and only the ten initial 72 h readings for comparison. The early pooled view counted 40 readings, or 20 for 72 h. The decision counts 30 distinct sample IDs, with one adopted value each.
+- The group criterion is CV ≤15.0%, calculated as sample standard deviation divided by mean, expressed as a percentage rounded to one decimal for display. On MX-250626, 24/48/72 h each have n=10 and CV 8.0/12.0/21.0%. The 72 h repeat exceeds the criterion by 6.0 percentage points.
+- BCE-CE-2026-TBL-008-R00 is the decision-basis and reading-trace workbook. Anthony's 2026-09-17 confirmation BCE-CE-2026-QCF-002-R00 covers the mapping and CVs, with no finding on the cause of the spread.
+- Findings BCE-CE-2026-REV-005-R00 is the Sep 16 draft underlying Melissa's Sep 18 marked scan. R01 is the Sep 21 recommendation identifying MX-250626 as the decision basis, also exported verbatim to PDF.
+- Philadelphia times are EDT (UTC−04:00). Sep 10 at 09:08, Robert Nguyen → Melissa Watkins, “What we need for the Sept 23 review”, opens the review request with no attachment. Sep 21 at 13:38, Melissa → Robert, “Readings behind the 48-hour proposal”, starts a separate pre-read thread with the actual REV-005-R01 PDF and TBL-008-R00 XLSX attached.
+
+## September 23 evaluation — next-cycle exchange intervals
+
+- Sep 23, 2026 at 10:00–10:35 EDT, Melissa Watkins and Robert Nguyen meet for the evaluation (BCE-CE-2026-MIN-005-R00). Robert agrees to consider only 24 and 48 h in the next cycle, based on the matched-prep repeat's 72 h CV of 21.0% against 15.0%.
+- Melissa retains the 72 h evidence, saves the briefing with the decision added after the meeting, and issues Robert's agreement as BCE-CE-2026-DEC-002-R00 at 13:22 EDT. Next-cycle measurement dates are still open.
+- Sep 23 at 14:04 EDT, Melissa → Lauren Brooks and Patricia Jensen, Cc Robert Nguyen and Anthony Mendoza, “Exchange intervals for the next cycle”, starts the distribution thread with the actual DEC-002-R00 PDF attached. The same afternoon, Melissa leaves both historical reader exports in their original round folders and removes only the duplicate working import.

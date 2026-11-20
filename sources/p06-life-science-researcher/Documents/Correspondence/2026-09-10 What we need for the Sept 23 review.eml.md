@@ -1,0 +1,26 @@
+---
+path: Documents/Correspondence/2026-09-10 What we need for the Sept 23 review.eml
+kind: text
+author: Robert Nguyen
+derived_from:
+---
+
+From: Robert Nguyen <robert@bennett-cell.example>
+To: Melissa Watkins <melissa@bennett-cell.example>
+Cc:
+Date: Thu, 10 Sep 2026 09:08:00 -0400
+Subject: What we need for the Sept 23 review
+Message-ID: <a92f04b9-e374-4a7c-9b1e-7436e452e791@bennett-cell.example>
+
+Hi Melissa,
+
+Could you go back through the medium-exchange readings before we meet on September 23 at 10 a.m.? I'd like to see all three intervals side by side, with ten samples each at 24, 48 and 72 hours.
+
+We saw 21% CV for the 72-hour group at the June 17, 2025 review. Was that group still above our 15% criterion in the round where all the preparation dates matched? Please give me the measurement date and round behind each result so I can follow the comparison back to the readings.
+
+I'd like your recommendation on which intervals to take into the next cycle. A short table I can read before the meeting would help us spend the time on that decision.
+
+Thanks,
+Robert
+
+Attachments: none
