@@ -1,0 +1,12 @@
+---
+path: Desktop/Citation check - Filing notes.txt
+kind: text
+author: Judith Morris
+derived_from:
+---
+
+Leave the marked one beside the clean one
+
+Keep the original twenty-place exercise and Florian's commented copy as separate files. The four old candidates need to remain visible in the first; his comments show why he wanted the leaves opened again. For the next Chapter 2 working draft take the record of both our checks with the four decisions, and check the wording and the note together. The submitted chapter stays as it is.
+
+Box 14 is a different task. Keep “Feuillets laissés en attente.txt” where I can open it alongside “Index des huit reprises.csv” in the Box-14 folder. The four held leaves still need a better view before transcription; they are not the four corrected exercise references. Leave the chapter citation decisions in Chapter-2, not in the index folder.

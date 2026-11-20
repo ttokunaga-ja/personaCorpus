@@ -25,5 +25,5 @@ Judith
 
 ## Attachments
 
-- Scope and sources - after the check.pdf — Documents/Book/Chapter-1/Scope and sources - after the check.pdf
-- Notes back to the leaves.csv — Documents/Book/Chapter-1/Notes back to the leaves.csv
+- Scope and sources - v0.3.pdf — Documents/Book/Chapter-1/Scope and sources - v0.3.pdf
+- Chapter 1 - Citation register.csv — Documents/Book/Chapter-1/Chapter 1 - Citation register.csv

@@ -30,7 +30,9 @@ dGgNCg==
 Content-Type: application/pdf
 Content-Transfer-Encoding: base64
 Content-Disposition: attachment;
- filename="Dues and terms of entry - April discussion.pdf"
+ filename*0*=utf-8''4%E6%9C%8829%E6%97%A5%20%E4%BC%9A%E8%B2%BB%E3%81%A8;
+ filename*1*=%E5%85%A5%E5%AE%A4%E6%9D%A1%E4%BB%B6%E3%81%AE%E9%85%8D%E5%B8%83;
+ filename*2*=%E7%A8%BF.pdf
 MIME-Version: 1.0
 
 JVBERi0xLjUKJczVwdTF2NDExgoxIDAgb2JqCjw8L0ZvbnQ8PC9GNjQgNCAwIFIvRjQzIDUgMCBS
@@ -982,7 +984,9 @@ CnN0YXJ0eHJlZgo1MzE5OQolJUVPRg==
 Content-Type: application/pdf
 Content-Transfer-Encoding: base64
 Content-Disposition: attachment;
- filename="Rules and surviving entries - separate sheet.pdf"
+ filename*0*=utf-8''4%E6%9C%8829%E6%97%A5%20%E6%97%A5%E8%8B%B1%E8%AA%AD;
+ filename*1*=%E6%9B%B8%E4%BC%9A%E3%81%AE%E8%A6%8F%E5%89%87%E6%AF%94%E8%BC%83;
+ filename*2*=%E8%A1%A8.pdf
 MIME-Version: 1.0
 
 JVBERi0xLjUKJczVwdTF2NDExgoxIDAgb2JqCjw8L0ZvbnQ8PC9GNjYgNCAwIFIvRjQzIDUgMCBS

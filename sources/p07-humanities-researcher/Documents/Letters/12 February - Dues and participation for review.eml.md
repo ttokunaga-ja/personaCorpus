@@ -23,4 +23,4 @@ Judith
 
 ## Attachment
 
-- Dues and participation - sent to Edward.docx — Documents/Book/Chapter-2/Dues and participation - sent to Edward.docx
+- Dues and participation - v1.0 Edward.docx — Documents/Book/Chapter-2/Dues and participation - v1.0 Edward.docx

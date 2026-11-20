@@ -25,5 +25,5 @@ Judith
 
 ## Attachments
 
-- Dues and participation - revised for Edward.docx — Documents/Book/Chapter-2/Dues and participation - revised for Edward.docx
-- Response to the reader on Dues and participation.pdf — Documents/Book/Chapter-2/Response to the reader on Dues and participation.pdf
+- Dues and participation - v1.1 Edward.docx — Documents/Book/Chapter-2/Dues and participation - v1.1 Edward.docx
+- Dues and participation - Author reply.pdf — Documents/Book/Chapter-2/Dues and participation - Author reply.pdf

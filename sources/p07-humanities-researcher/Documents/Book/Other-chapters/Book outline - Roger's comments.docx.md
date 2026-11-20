@@ -4,7 +4,7 @@ kind: langley-outline.docx
 author: Judith Morris
 modified_by: Roger Hewitt
 created: 2024-04-24 16:18
-derived_from: Documents/Book/Other-chapters/Book outline - print first.docx
+derived_from: Documents/Book/Other-chapters/Book outline - v0.1.docx
 ---
 
 管理欄の版を Version 0.1 から Version 0.2 に変更。章本文と章順は元のまま。

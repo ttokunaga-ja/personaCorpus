@@ -101,7 +101,7 @@
 - 照会① 2025-03-19 14:38 GMT、Judith Morris → 阿部 由紀子、件名「会費と閲覧で確認したいこと」。Questions about dues and use.pdf を添付。
 - 照会② 2025-03-21 09:07 GMT（18:07 JST）、阿部 → Judith、件名「Re: 会費と閲覧で確認したいこと」。①を引用、添付なし。
 - 案内 2025-04-08 09:14 BST（17:14 JST）、阿部 → Judith、件名「4月29日 比較研究会のご案内」。案内ページへのリンク、添付なし。
-- 配布物送付 2025-04-24 08:38 BST、Judith → 阿部、件名「研究会の配布稿と別紙」。新規メールで案内の引用なし。Dues and terms of entry - April discussion.pdf と Rules and surviving entries - separate sheet.pdf を添付。
+- 配布物送付 2025-04-24 08:38 BST、Judith → 阿部、件名「研究会の配布稿と別紙」。新規メールで案内の引用なし。4月29日 会費と入室条件の配布稿.pdf と 4月29日 日英読書会の規則比較表.pdf を添付。
 
 ## 箱14の再撮影と閲覧用の再複写
 
@@ -123,8 +123,8 @@
 - 訂正不要の16箇所は、注5の CR/12/A 021r・022r・025r、注6–7の CR/12/B 034r–039r、注8の CR/14/A 171r・173r・174r・175r、注10の CR/13/A 083r・086r、注11の CR/14/A 182r。
 - Citation exercise LHT-20251114-EVD-001 v0.1 は11月14日15:28 GMTの Judith の演習稿。v0.2 は11月17日11:12 GMTに Florian が4件の Word コメントを付けた版で、元の候補を保持する。
 - 午後の作業用PDF LHT-20251117-PAP-001 v0.1 は11:53 GMT。書き込み入りのスキャンは14:51 GMT。同じ4欄を使い、紙に記入した確認者は J.M. と F.S.。
-- 研修① 2025-11-14 15:42 GMT、Judith → Florian Schulte <florian@langley-history.example>、件名「Twenty references for Monday」。Find the passage before fixing the note.docx を添付。
-- 研修② 2025-11-17 11:24 GMT、Florian → Judith、件名「Re: Twenty references for Monday」。①の各自で開く指示を引用し、Find the passage - Florian's comments.docx を添付。
+- 研修① 2025-11-14 15:42 GMT、Judith → Florian Schulte <florian@langley-history.example>、件名「Twenty references for Monday」。Citation exercise - Question sheet.docx を添付。
+- 研修② 2025-11-17 11:24 GMT、Florian → Judith、件名「Re: Twenty references for Monday」。①の各自で開く指示を引用し、Citation exercise - Florian comments.docx を添付。
 - 二人が独立に請求記号・葉・面・行を照合し、確認者名・日付・反映先を記録してから作業章稿の本文と注を突き合わせる。11月17日の時点で4件は参照確定、次の作業稿への反映は待ち。提出済みの章稿は保存する。
 
 ## 箱12の会費受領控えと第2章の表注
@@ -137,8 +137,8 @@
 - 052r l. 6 は1864年1月15日受領、内訳は「reste du terme de décembre」（前年12月期の残額）。受領期の集計では1864年1〜3月に置く。
 - 2026-01-14 10:00–11:20 GMT、York で Judith Morris と Julie Perrin が184件を照合。第2章 §2 作業用 Table 2.1 の「Participants」を「Payment entries」（延べ支払件数）へ変更し、集計値は維持。単位は記帳された会費の受領1回で、分納は別々、同時に受け取った取りまとめは1件。実人数・来室率は推計しない。
 - 表と表注の文書 LHT-20260112-EVD-001 は1月12日 v0.1、1月14日 v0.2（Julie のコメントは同日11:42・11:47 GMT）、1月15日 v0.3（表・注を Judith が訂正、PDFも同番号・同版）。第2章の提出済み LHT-20250212-CHP-001 v1.1 とは別文書。
-- メール① 2026-01-12 15:28 GMT、Judith → Julie Perrin <julie@langley-history.example>、件名「Could we read the receipts against the heading?」。Numbers under Participants.docx を添付。
-- メール② 2026-01-14 12:14 GMT、Julie → Judith、件名「Re: Could we read the receipts against the heading?」。①を引用し、Numbers under Participants - Julie in the margin.docx を添付。
+- メール① 2026-01-12 15:28 GMT、Judith → Julie Perrin <julie@langley-history.example>、件名「Could we read the receipts against the heading?」。Table 2.1 - Participants draft.docx を添付。
+- メール② 2026-01-14 12:14 GMT、Julie → Judith、件名「Re: Could we read the receipts against the heading?」。①を引用し、Table 2.1 - Julie comments.docx を添付。
 - 別便 2026-01-15 16:04 GMT、Judith → Roger Hewitt <roger@langley-history.example>、件名「The table heading has changed」。Table note - payment entries.pdf を添付し、内部作業稿での扱いを求める。
 
 ## 出張精算の処理済み分と返金待ちの券
@@ -153,8 +153,8 @@
 - Pierre Giraud は CR/12/B 046r l. 5 の取次ぎの当番（préposé）と048r l. 7の本人分の支払名。同じ綴りでも勘定同士を結ぶ参照がない。
 - Claire Martin は049r l. 8 の rue du Four と051r l. 4 の rue des Tanneurs。双方とも記載名は同じで、異なる居所を結ぶ勘定の記載を確認できない。
 - Jules Petit は052r l. 9 の製本工（relieur）と054r l. 8 の事務員（commis）。職名に加えて葉・行を併記し、職名だけで人物を確定しない。
-- 送付① 2026-04-09 14:52 BST、Judith → Stefan Albrecht <stefan@langley-history.example>、件名「Three tables for next Thursday」。How the three tables will be used.docx を添付。
-- 送付② 2026-04-17 14:32 BST、Judith → Roger、件名「Appendix tables for the working chapter」。研究班用の3表を添付。Aは Receipts by quarter of payment.pdf、Bは What was entered as received.pdf、Cは Names in the subscription papers.pdf。①とは別のメールで引用なし。
+- 送付① 2026-04-09 14:52 BST、Judith → Stefan Albrecht <stefan@langley-history.example>、件名「Three tables for next Thursday」。Appendix tables - Working plan.docx を添付。
+- 送付② 2026-04-17 14:32 BST、Judith → Roger、件名「Appendix tables for the working chapter」。研究班用の3表を添付。Aは Table A - Receipts by quarter.pdf、Bは Table B - Receipt evidence.pdf、Cは Names in the subscription papers.pdf。①とは別のメールで引用なし。
 
 ## Montclair の貸本台帳と回覧図の発表見送り
 
@@ -167,7 +167,7 @@
 - 6月25日10:00〜11:05 BST、Judith、Isabelle、Susan Atkinson がオンラインで117記録を確認。回覧先確認103記録、未同定14記録。確認先の件数は固有の人物・都市や経路の数に換算せず、書簡と会費控えの索引とは名寄せしない。
 - 完全な都市間移動図の発表を見送り、『Les Veillées du jeudi』の図は内部確認用に残す。次の手掛かりは Isabelle が受領側の控え、Susan が宛先の目録記載を探す。6月26日に Judith は Roger と内部説明の範囲だけを検討する。
 - 複写の連絡 2026-06-11 09:24 BST（10:24 CEST）、Isabelle Chevalier <isabelle@montclair-reading.example> → Judith Morris、件名「Extraits pour le dépouillement」。-001〜004 の閲覧用複写4 PDFを添付。
-- 照合依頼 2026-06-23 10:16 BST、Judith → Isabelle、Susan Atkinson <susan@langley-history.example>、件名「Could we check the destinations on Thursday?」。新規メールで、From ledger line to destination.csv と Where the Veillées trail stops.png を添付。
+- 照合依頼 2026-06-23 10:16 BST、Judith → Isabelle、Susan Atkinson <susan@langley-history.example>、件名「Could we check the destinations on Thursday?」。新規メールで、Circulation ledger - Destination index.csv と Les Veillées - Ledger route diagram.png を添付。
 
 ## LA-042 の年記と第2章の二段落
 
@@ -177,8 +177,8 @@
 - 旧作業稿の §2 は LA-042 が1866-01-29の173rの徴収猶予に先行しその運用を準備したとし、§4 は1866-03-19の186rの館外貸出前の未納徴収が先行運用を狭めたとした。年記訂正により前提の順序が崩れ、§2は期限付き猶予の記述、§4は1866年の指示と1867年の個別許可の併記に改める。
 - LHT-20260703-CHP-001 は第2章 §2・§4 の内部作業抜粋。v0.1 は7月3日保存（Roger Hewitt のコメントは同日15:39 BST）、7月8日に2段落を試し書きし、v0.2は10日保存・13日PDF書き出し。各節の対象段落の直前・直後を保持し、撤回は2段落の因果説明に限定する。2025年の提出稿と2026年1月の会費表注は別文書。
 - 複写受領 2026-07-02 09:31 BST（10:31 CEST）、Camille → Judith、件名「Feuillet 184, recto et verso」。Carton 14 - billet au préposé f184.pdf を添付。
-- 年記確認の依頼 2026-07-06 11:26 BST、Judith → Julie、件名「Would you read the last digit?」。新規メールで 184 - turn the leaf before dating it.pdf を添付。
-- 改稿の確認依頼 2026-07-13 09:52 BST、Judith → Roger、件名「Two passages after the date check」。新規メールで Chapter 2 - two passages in context.pdf を添付。7月15日に二人が確認し、§2と§4の改稿箇所を独立した事例として残すことを決定。
+- 年記確認の依頼 2026-07-06 11:26 BST、Judith → Julie、件名「Would you read the last digit?」。新規メールで f184 - Date check worksheet.pdf を添付。
+- 改稿の確認依頼 2026-07-13 09:52 BST、Judith → Roger、件名「Two passages after the date check」。新規メールで Chapter 2 - July extracts v0.2.pdf を添付。7月15日に二人が確認し、§2と§4の改稿箇所を独立した事例として残すことを決定。
 
 ## 助成中間報告と6章の刊行見通し
 
@@ -188,7 +188,7 @@
 - Judith の中間報告「Interim report on reading societies」は LHT-20260827-GRT-001。8月13日の Roger の Word コメント付き v0.2 から8月27日に v1.0 を確定し、同題・番号・版の18頁テキストPDFを送る。報告対象は2025-05-21〜2026-08-26。
 - 章別進捗表は LHT-20260826-PRG-001 v1.0。1〜4章の確認残は確認済みの0、5章は確認対象の4葉を数えて4、6章は未確認で空欄。進捗表は報告PDFと別添。
 - 依頼 2026-08-03 10:26 BST、Roger Hewitt <roger@langley-history.example> → Judith、件名「What I need for the August report」。8月27日の内部提出を依頼、添付なし。
-- 提出 2026-08-27 14:16 BST、Judith → Roger、件名「Interim report and chapter sheet」。新規メールで Interim report to Roger.pdf と Chapters at the August close.xlsx を実添付。8月28日の確認で助成先宛の送付は Roger の担当とした。
+- 提出 2026-08-27 14:16 BST、Judith → Roger、件名「Interim report and chapter sheet」。新規メールで Interim report to Roger.pdf と August report - Chapter progress.xlsx を実添付。8月28日の確認で助成先宛の送付は Roger の担当とした。
 
 ## 9月の比較研究会と日本語要旨の校正
 
@@ -199,7 +199,7 @@
 - 案内 2026-09-02 09:10 BST、阿部 <abe@aozora-comparative.example> → Judith、件名「9月の比較研究会の進め方」。案内ページへのリンク、添付なし。
 - 校正依頼 2026-09-09 08:48 BST、Judith → 阿部、件名「日本語要旨の読み合わせ」。新規メール、読書会の規則と残された記録_読み合わせ前.pdf（v0.1）を実添付。
 - 事前配布便 2026-09-16 09:02 BST、Judith → 阿部、件名「二頁の配布稿をお送りします」。新規メール、読書会の規則と残された記録.pdf（v1.0）を実添付。
-- 当日便 2026-09-22 08:54 BST、Judith → 阿部、件名「600字要旨ときょうの投影稿」。新規メール、9月22日 発表要旨.pdf と読書会の規則と残された記録_9月22日.pptx を実添付。
+- 当日便 2026-09-22 08:54 BST、Judith → 阿部、件名「600字要旨ときょうの投影稿」。新規メール、9月22日 発表要旨.pdf と9月22日 読書会の規則と残された記録_投影稿.pptx を実添付。
 
 ## 閲覧用複写2面の投影・配布許諾
 
@@ -227,6 +227,6 @@
 - 旧注61（§4）Friedrich Hartmann『Lesestunden am Fluss』p.112、CR/14/A f.165 候補・欠落。会費免除が館外貸出まで認めたという文を外し、委員会の決定で免除・猶予の別と許可の対象、期間、館外貸出を含むかを読む。
 - 旧注62（§5）Hartmann p.114、CR/14/B f.212 候補・欠落。木曜は冬季も恒常的に20時まで開いたという文を外し、10月の試行と区別できる冬の日付入り告知と当番の実施記録を探す。
 - 旧注63（§5）Hartmann p.115、CR/14/B f.217 候補・現存範囲内で未確認。委員会が10月の試行を延長したという文を外し、回覧と決議を区別できる採決日・署名・適用期限を照合する。
-- 所蔵館スレッド① 2025-07-16 15:02 BST（16:02 CEST）、Judith → Camille Laurent、件名「Deux feuillets à vérifier et des renvois」。候補9件を整理した Feuillets et renvois pour la vérification.pdf（LHT-20250716-PAP-001 v1.0）を実添付。
+- 所蔵館スレッド① 2025-07-16 15:02 BST（16:02 CEST）、Judith → Camille Laurent、件名「Deux feuillets à vérifier et des renvois」。候補9件を整理した Camille - Demande de vérification.pdf（LHT-20250716-PAP-001 v1.0）を実添付。
 - 所蔵館スレッド② 2025-07-24 10:44 BST（11:44 CEST）、Camille → Judith、件名「Re: Deux feuillets à vérifier et des renvois」。①を引用し、欠落7候補は現行目録に別写しへの参照なし、f.126・217は両面指定で手配候補、葉の内容は未確認と回答。添付なし。
-- 章稿送付 2025-07-22 14:24 BST、Judith → Roger Hewitt、件名「Chapter one after 10 July」。新規で Scope and sources - after the check.pdf（v0.3）と Notes back to the leaves.csv（旧注63件）を別々に実添付。
+- 章稿送付 2025-07-22 14:24 BST、Judith → Roger Hewitt、件名「Chapter one after 10 July」。新規で Scope and sources - v0.3.pdf（v0.3）と Chapter 1 - Citation register.csv（旧注63件）を別々に実添付。

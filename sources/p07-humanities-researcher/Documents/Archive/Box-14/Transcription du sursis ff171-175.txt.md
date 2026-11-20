@@ -1,0 +1,60 @@
+---
+path: Documents/Archive/Box-14/Transcription du sursis ff171-175.txt
+kind: text
+author: Julie Perrin
+derived_from:
+---
+
+CR/14/A, ff. 171–175
+Transcription — Julie Perrin, pour Judith Morris
+[mot?] : lecture proposée ; [illisible] : lecture impossible.
+
+f. 171r — 24 janvier 1866
+Au secrétaire,
+1. Je vous prie de soumettre ma demande au comité.
+2. Je ne pourrai remettre ma cotisation à la date prévue.
+3. Pourriez-vous m'accorder un délai pour le paiement ?
+Un sociétaire
+f. 171v — sans texte.
+
+f. 172r — 27 janvier 1866
+Au préposé de service,
+1. Je vous prie de garder les papiers de la salle ensemble
+2. jusqu'à la prochaine réunion du comité. Les membres
+3. examineront alors le rangement des registres.
+4. Veuillez ne rien remettre au dehors avant leur décision.
+5. Je vous préviendrai dès que le jour sera fixé.
+Le secrétaire
+Ajout sous la signature : Réunion reportée jusqu'au 2 février.
+f. 172v — sans texte.
+
+f. 173r — 29 janvier 1866
+Au trésorier,
+1. Le comité a examiné la demande du sociétaire
+2. dont je vous ai entretenu lors de notre dernière séance.
+3. Il m'a chargé de vous faire connaître sa décision
+4. au sujet de la cotisation encore due par ce membre.
+5. Le comité accorde une dispense jusqu'au 12 février :
+6. ne lui demandez pas cette cotisation avant cette date ;
+7. après le 12, reprenez les rappels ordinaires.
+8. Veuillez inscrire cette décision sur votre état.
+Le secrétaire
+f. 173v — sans texte.
+
+f. 174r — 30 janvier 1866
+Monsieur,
+1. Le comité a pris connaissance de votre demande.
+2. J'ai communiqué sa décision au trésorier ce matin.
+3. Il ne vous sera pas demandé de paiement avant le 12 février.
+4. Après cette date les rappels ordinaires reprendront.
+Le secrétaire
+f. 174v — sans texte.
+
+f. 175r — 3 février 1866
+Au secrétaire,
+1. J'ai inscrit la décision sur l'état des cotisations.
+2. Je garderai la note avec les autres [pièces?] du comité.
+3. Les rappels seront repris suivant votre lettre.
+Le trésorier
+Note griffonnée sous la signature : [comm.?] à revoir.
+f. 175v — sans texte.

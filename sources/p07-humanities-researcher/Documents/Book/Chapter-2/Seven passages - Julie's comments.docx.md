@@ -4,7 +4,7 @@ kind: langley-evidence-note.docx
 author: Judith Morris
 modified_by: Julie Perrin
 created: 2024-10-17 15:26 BST
-derived_from: Documents/Book/Chapter-2/Seven passages for Julie.docx
+derived_from: Documents/Book/Chapter-2/Seven passages - Draft translations.docx
 ---
 
 管理欄を次に替える。本文の仏文、仮訳、注記はそのまま残す。

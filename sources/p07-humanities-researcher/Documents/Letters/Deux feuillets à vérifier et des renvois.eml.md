@@ -23,5 +23,5 @@ Si vous pouvez m'indiquer les possibilités, ainsi qu'une estimation des délais
 Bien cordialement,
 Judith
 
-添付: Feuillets et renvois pour la vérification.pdf
-添付元: Documents/Archive/Other-boxes/Feuillets et renvois pour la vérification.pdf
+添付: Camille - Demande de vérification.pdf
+添付元: Documents/Archive/Camille - Demande de vérification.pdf

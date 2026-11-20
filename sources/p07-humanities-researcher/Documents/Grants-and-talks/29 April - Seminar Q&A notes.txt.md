@@ -1,0 +1,23 @@
+---
+path: Documents/Grants-and-talks/29 April - Seminar Q&A notes.txt
+kind: text
+author: Judith Morris
+derived_from:
+---
+
+29 April 2025 — Dues and terms of entry
+Online, 09:00–09:45 BST. Abe chair; my paper 25 minutes, discussion 20 minutes.
+
+Abe (§3, p.15): Are introduction and dues the same condition?
+
+Judith: No. The April Japanese rules place the member's introduction with a guest's reading on the meeting day. The monthly dues are a member's obligation; the extract does not establish a payment by the guest. The clause on borrowing outside the room is a separate one, limited to members. In York, the member signs and accompanies the guest in the evening; the borrowing clause specifies paid-up members. We can put the conditions alongside one another only if we keep the person and occasion in view.
+
+Abe (§2, p.9): Are the seven people who came to the room?
+
+Judith: Seven entries for money received, not a count of visitors. One entry covers both May and June, and the cash account cannot be matched to an attendance register. It does not give monthly numbers of payers either. The York attendant's guest marks are from four evenings and have neither guest names nor the accompanying members' signatures; they cannot be linked person by person to the dues book. I should not make the two records into one attendance measure.
+
+Abe (§6, pp.25–26): What would let us say that they read the earlier British rules?
+
+Judith: The dates and similar wording are not enough. First look for a dated translation or dispatch and receipt record, addressed to the relevant recipient before adoption in April 1887, with the translation's source identified. That could establish access to the wording before the decision. Then look separately for minutes of drafting or adoption in which the particular clauses were considered. Even receipt alone does not show what the meeting did with the text. Neither set is established by the material we have examined.
+
+Afterwards: retain the comparison of conditions in §§2–3; keep the question of direct influence open in §6. Ask separately about receipt and about deliberation.

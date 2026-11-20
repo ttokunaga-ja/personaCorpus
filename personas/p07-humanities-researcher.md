@@ -4,6 +4,7 @@ period: 2024-04-01..2026-09-30
 timezone: Europe/London
 allowed_terms: textual corpus, corpus analysis, scope of chapter
 photo_dirs: Pictures
+date_prefix: D Month - | M月D日
 ---
 
 # p07 人文学研究者
@@ -105,6 +106,23 @@ Pictures/Reading-diagrams/                  年表、関係図、転記照合画
 Documents/Letters/                          閲覧依頼と共同研究の eml
 ```
 
+
+## 名前の付け方
+
+面談、閲覧、配布などの日で探すものは、英語・仏語・独語の名前なら `D Month - `（英国式で日をゼロ埋めせず、英語の月名を省略しない）、日本語なら `M月D日 `（月日をゼロ埋めせず、日の後ろに半角空白）を先頭に置く。日付別フォルダではその日付を省く。
+
+章稿や事務の手控えは英語で、章・相手・用途・版などから名前を付ける。仏語史料の複写・転記には原語の題材と葉番号を使い、複数の箱を置くフォルダでは必要に応じて箱や系列も添える。読書メモは読んだ資料の著者名から始め、書名や頁、原語の用語で引けるようにする。阿部との校正や研究会の配布・投影資料には日本語を使う。拡張子の前は40文字以内、保存メールは60文字以内とする。
+
+保存メールには件名を使い、必要なら送受信日を前に付ける。返信の `Re:` はファイル名では `Re` とし、長い件名は用件が分かる形に詰める。閲覧時の写真や確認用に撮ったままのスクリーンショットは機器・アプリの名前で残し、章や葉から引き直す画像には自分で名前を付ける。Downloads では配布元の添付名や保存したページの題を使う。自動名の数字が5桁以上続く場合は短い名前を付ける。
+
+- `10 July - Roger citation check.txt`（面談日と引用点検）
+- `Bordereau des clefs ff208-209.pdf`（仏語の複写と葉番号）
+- `Hartmann - der Donnerstag im Winter.md`（著者名から引く独語の読書メモ）
+- `9月22日 発表要旨.pdf`（日本語の研究会資料）
+- `2 July - Key for Thursday's upstairs room.eml`（送信日と件名）
+- `IMG_0412.jpg`（閲覧室で撮った写真のカメラ名）
+- `Screenshot 2025-10-28 at 14.05.12.png`（画面確認用の macOS の自動名）
+- `Dues and participation - reader's report.pdf`（Downloads に残した査読票）
 
 ## 形式の目安
 

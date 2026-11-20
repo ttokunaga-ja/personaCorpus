@@ -1,0 +1,68 @@
+---
+path: Documents/Archive/Other-boxes/12B ff034-039 - Transcription remises.txt
+kind: text
+author: Judith Morris
+derived_from:
+---
+
+CR/12/B, ff. 034–039
+Transcription — Judith Morris, pour Julie Perrin
+[mot?] : lecture proposée ; [illisible] : lecture impossible.
+
+f. 034r — 9 février 1863
+Au préposé de service,
+1. Les membres peuvent laisser leurs enveloppes à la salle.
+2. Je passerai les chercher après la réunion du comité.
+3. Veuillez les garder avec les papiers de la caisse.
+Le trésorier
+f. 034v — sans texte.
+
+f. 035r — 12 février 1863
+Monsieur le Trésorier,
+1. Une enveloppe est arrivée ce matin par un membre.
+2. Je l'ai mise avec les papiers de la caisse ;
+3. elle vous attendra à votre prochain passage.
+Le préposé de service
+f. 035v — adresse : Au trésorier.
+
+f. 036r — 14 février 1863
+Au préposé de service,
+1. Les enveloppes laissées pour la caisse se ressemblent.
+2. Avant de me les porter, veuillez inscrire sur chacune
+3. le nom de la personne qui l'a envoyée et la somme
+4. qu'elle contient, sans y substituer votre propre nom.
+5. Gardez les enveloppes closes jusqu'à leur remise.
+6. Je pourrai ainsi vérifier chaque indication à la réception.
+Le trésorier
+f. 036v — sans texte.
+
+f. 037r — 16 février 1863
+Au préposé de service,
+1. J'ai appris qu'une enveloppe a été laissée pour la caisse.
+2. Elle porte le nom de son expéditeur et son montant.
+3. Je vous remercie de l'avoir gardée jusqu'à mon retour.
+4. La somme a été offerte pour l'achat de charbon ;
+5. elle ne doit pas être confondue avec les cotisations.
+6. Veuillez me remettre l'enveloppe contenant les deux francs
+7. de cette offrande pour le charbon dès votre passage.
+8. Portez séparément au cahier les cotisations reçues.
+9. Je vérifierai les inscriptions avec vous à la caisse.
+Le trésorier
+f. 037v — sans texte.
+
+f. 038r — 18 février 1863
+Monsieur le Trésorier,
+1. Je vous porterai demain les enveloppes gardées à la salle.
+2. Le nom de chaque expéditeur est inscrit sur la sienne.
+3. Je laisserai le cahier avec elles pour votre vérification.
+Le préposé de service
+f. 038v — sans texte.
+
+f. 039r — 20 février 1863
+Au préposé de service,
+1. J'ai reçu les enveloppes que vous m'avez apportées.
+2. Je vous rendrai le cahier après comparaison des entrées.
+3. Merci de m'avoir signalé les sommes laissées séparément.
+Le trésorier
+Marge : [illisible]
+f. 039v — sans texte.

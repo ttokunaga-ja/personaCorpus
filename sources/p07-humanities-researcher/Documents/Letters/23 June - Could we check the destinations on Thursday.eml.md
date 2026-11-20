@@ -25,5 +25,5 @@ Many thanks,
 Judith
 
 Attachments:
-- From ledger line to destination.csv
-- Where the Veillées trail stops.png
+- Circulation ledger - Destination index.csv
+- Les Veillées - Ledger route diagram.png

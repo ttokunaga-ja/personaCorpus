@@ -29,5 +29,5 @@ Archives de Saint-Aubin-sur-Rive
 - Carton 14 - délai de quinzaine ff153-154.pdf
 - Carton 14 - visa de réception ff157-158.pdf
 - Carton 14 - avis du mercredi ff193-194.pdf
-- Carton 14 - bordereau des clefs ff208-209.pdf
+- Bordereau des clefs ff208-209.pdf
 - 24 October - folded side of the cradle.jpg

@@ -37,8 +37,7 @@ Judith
 --===============1997647940748131937==
 Content-Type: application/pdf
 Content-Transfer-Encoding: base64
-Content-Disposition: attachment;
- filename="Scope and sources - after the check.pdf"
+Content-Disposition: attachment; filename="Scope and sources - v0.3.pdf"
 MIME-Version: 1.0
 
 JVBERi0xLjcKJcOkw7zDtsOfCjEgMCBvYmoKPDwvVHlwZS9QYWdlL1BhcmVudCAxMTAgMCBSL1Jl
@@ -1585,7 +1584,7 @@ CiUlRU9G
 --===============1997647940748131937==
 Content-Type: text/csv
 Content-Transfer-Encoding: base64
-Content-Disposition: attachment; filename="Notes back to the leaves.csv"
+Content-Disposition: attachment; filename="Chapter 1 - Citation register.csv"
 MIME-Version: 1.0
 
 T2xkIG5vdGUsU2VjdGlvbiBpbiB2MC4yLFNlbnRlbmNlIG9wZW5pbmcgaW4gdjAuMixTZWNvbmRh

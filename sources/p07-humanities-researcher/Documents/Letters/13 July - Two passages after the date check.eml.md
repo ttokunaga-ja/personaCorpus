@@ -22,4 +22,4 @@ Could you look at the two new paragraphs in their surrounding text on the 15th, 
 Many thanks,
 Judith
 
-Attachment: Chapter 2 - two passages in context.pdf
+Attachment: Chapter 2 - July extracts v0.2.pdf

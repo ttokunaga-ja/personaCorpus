@@ -42,7 +42,7 @@ Judith
 Content-Type: text/csv
 Content-Transfer-Encoding: base64
 Content-Disposition: attachment;
- filename="From ledger line to destination.csv"
+ filename="Circulation ledger - Destination index.csv"
 MIME-Version: 1.0
 
 UmVnaXN0ZXIsRm9saW8sU2lkZSxMaW5lLE9yaWdpbmFsIGRhdGUsVGl0bGUsRGVzdGluYXRpb24g
@@ -425,7 +425,7 @@ IMOgIGxhIHNhbGxlIGF2ZWMgc2EgZmV1aWxsZQ0K
 Content-Type: image/png
 Content-Transfer-Encoding: base64
 Content-Disposition: attachment;
- filename*=utf-8''Where%20the%20Veill%C3%A9es%20trail%20stops.png
+ filename*=utf-8''Les%20Veill%C3%A9es%20-%20Ledger%20route%20diagram.png
 MIME-Version: 1.0
 
 iVBORw0KGgoAAAANSUhEUgAAB2QAAAMDCAYAAAB9wKWoAAAAGGlUWHRBdXRob3IAAAAAAEp1ZGl0
