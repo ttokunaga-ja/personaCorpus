@@ -192,3 +192,25 @@
 - Claire Hutchinson's Westbury desk tally covers full Monday–Sunday UTC weeks of 10–16 August and 7–13 September 2026. The confirmation-delay and refund-progress counts are 11 + 6 = 17 and 4 + 2 = 6. Count newly opened questions once per case and question under the first category; follow-ups on the same question add nothing. Two weeks do not establish cause.
 - At 10:30 UTC Daniel Jennings, Claire and Anjali Shah review the figures. Anjali approves moving four team-training hours in October–December to Riderpass. Daniel owns planning, dates stay open, and Westbury preparation and Support guidance stay in use. BRT-MT-20260915-001 is the issued record and unchanged PDF.
 - At 13:00 UTC Claire explains the counting rule and refund contact route to Stephen Cartledge. “Westbury September desk figures and guidance”, 15 September 14:34 BST, Claire → Stephen, Cc Daniel, standalone with Westbury September desk update.pdf (BRT-CU-20260915-001) attached.
+
+## Daniel's February appraisal and post-incident report deadlines
+
+- Daniel Jennings and Anjali Shah meet at 10:30 GMT on 23 February 2026. Use Daniel's required first post-incident reports with closures from 1 September 2025 through 19 February 2026 inclusive, from the review register saved 20 February.
+- Due means 17:00 Europe/London on the next UK working day, inclusive. Compare the first formal issue timestamp to the due timestamp after converting both to UTC. Count each required report once, by closure date; a draft save never counts as issue.
+- Review-register keys RR-201–RR-222 run in closure order. On time/required by cohort: Sep–Oct 4/5, Nov 3/4, Dec 4/4, Jan 4/5, Feb through the 19th 3/4. Overall 18/22 = 81.8%, displayed as 82% at the appraisal.
+- RR-218: closure 29 January 15:10 UTC; due 30 January 17:00 UTC; draft 30 January 16:42 UTC; first formal issue 2 February 09:07 UTC. It is January's late entry and the sole mistaken extra success in the scratch count of 19/22.
+- RR-221: closure Friday 6 February 16:20 UTC; due Monday 9 February 17:00 UTC; first formal issue Monday 9 February 09:16 UTC. It is on time in the February cohort.
+- BRT-MT-20260223-001 is Daniel's agreed objectives record (DOCX and unchanged PDF). The new March–August 2026 goal is at least 95% of his required first reports by the same deadline; first checkpoint with Anjali is 1 June at 10:00 BST, to see March–May results.
+- Daniel owns the pre-submit check of closure and due time, evidence/impact wording and actual issue time. When away before the due time, he leaves the deadline and outstanding evidence with a named duty handover recipient and checks that the issue timestamp is captured.
+- Standalone emails, GMT: “Monday appraisal - review timings”, Anjali → Daniel, 20 February 09:26; “Objectives and timing extract”, Daniel → Anjali, 23 February 12:11, attaching the agreed objectives PDF and the separate deadline CSV.
+
+## September Westbury travel claim and month-end close
+
+- Daniel's Westbury visit is 21–22 September 2026, with a single night at Henmere House on 21 September. Henmere House accounts issues folio HH-48217 at checkout on 22 September; Daniel saves it on the 23rd.
+- HH-48217 lists one room charge of GBP 168 for 21 September and one GBP 168 card settlement on 22 September with reference HHR-8516, leaving no balance. HHR-8516 is the separate merchant card receipt, linked back to HH-48217. Daniel scans only his marked merchant receipt.
+- BRT-EC-20260923-001 refers to the original GBP 760 claim and its correction; preserve the six line IDs. L02 (21 September room, GBP 168, HH-48217) stays. L05 (22 September “Room balance”, GBP 168, HHR-8516) is the same stay's payment and is withdrawn in full.
+- Unchanged lines: L01 rail return, GBP 218, 21 September, RT-60724; L03 workshop registration, GBP 164, 21 September, WB-REG-134; L04 outbound taxi, GBP 18, 21 September, TX-3953; L06 return taxi, GBP 24, 22 September, TX-4021.
+- Daniel and Richard Fenner reconcile the two room lines at 11:00 BST on 23 September. Daniel's BRT-ER-20260923-001 shows GBP 760 originally claimed, GBP 168 withdrawn and GBP 592 retained across five lines, with L05 visible at zero admitted.
+- Claim correction thread, 23 September BST: (1) “Two room lines on Westbury”, Richard → Daniel at 09:18, no attachment; (2) “Re: Two room lines on Westbury”, Daniel → Richard at 13:48, quotes (1) and attaches the reconciliation XLSX and the marked merchant receipt PDF.
+- “September travel - correction recorded”, Richard → Daniel, 24 September 09:21 BST, standalone; Finance kept the claim reference and marked L05 withdrawn. On 30 September the close extract is as of 10:00 BST.
+- Richard issues BRT-ES-20260930-001 at 15:05 BST on 30 September, approving GBP 592 for reimbursement with bank confirmation pending. “September travel close copy”, Richard → Daniel at 15:24 BST, is standalone and attaches that PDF.

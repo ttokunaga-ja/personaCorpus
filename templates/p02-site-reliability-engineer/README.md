@@ -15,10 +15,12 @@
 | Ticket office switch contact card | BRT Customer Support。Claire が Fairfield と読み合わせた切替文面、連絡順、受領確認を窓口配布用に確定するときに使用 | `brt-ticket-office-contact-card.docx` | A4 縦、独立表紙なし。青い見出しと橙罫。Customer Support とページ番号をフッタに表示 |
 | Recovery point comparison | BRT Reliability Engineering。Daniel と Sanjay が基準時刻、復旧点、時点の差と目標を照合 | `brt-recovery-point-comparison.xlsx` | A4 横。青地白字の繰返し見出し、橙の罫線、二つの UTC 日時列と右寄せの分・目標列 |
 | Refund and booking reconciliation | BRT Reliability Engineering。Daniel が返金予定日別に返金の提出状況と予約の突合結果を照合する内部用集計。予約明細は載せない | `brt-refund-reconciliation.xlsx` | A4 横。共通の段形マークと青・橙、青地白字の繰返し見出し、右寄せの件数 |
+| Travel claim reconciliation | Daniel が Finance の Richard に申請行単位の証憑・取下げと訂正前後の金額を示す | `brt-travel-reconciliation.xlsx` | A4 横。BRT 共通の社名・青い繰返し見出し・橙の罫。GBP は右寄せ、小数 2 桁 |
 | Reliability briefing | BRT Reliability Engineering。Daniel が運用上の判断と根拠を共有し、Emma と Passenger Identity の初回・再演習の結果を比較する。引継ぎ研修の説明にも使う | `brt-reliability-briefing.pptx` | 16:9 白地。全レイアウト共通で上部に社名と段形のマーク、上下に橙の細い罫線 |
 | Customer service update | BRT Customer Support。Claire が Westbury などへ復旧と引き続き適用する制約を説明する直接組版 PDF | `brt-customer-update.cls` | A4 縦、独立表紙なし。青の題と小見出し。各ページ下部に Customer Support とページ番号 |
 | Handover retraining record | BRT Reliability Engineering。Daniel が模擬引継ぎで確認した誤り、再受講の確認、当番入りの判断を記録する直接組版 PDF | `brt-handover-retraining.cls` | A4 縦、表紙なし。青の題と段階別の確認表、橙の罫線、各ページ下部に Reliability Engineering とページ番号 |
 | Service recovery exercise report | BRT Reliability Engineering。Daniel が Emma と確認した Passenger Identity の復旧演習について、計測範囲・承認待ち・判断を記録する直接組版 PDF | `brt-recovery-exercise.cls` | A4 縦、表紙なし。青い題と区間・所要分・観察事項の表、橙の罫線。段形の社名マークと Reliability Engineering • Internal、ページ番号 |
+| Travel expense close | BRT Finance。Richard が申請者に月末の承認額と支給状況を通知する直接組版 PDF | `brt-travel-close.cls` | A4 縦。共通の青と橙、金額は右寄せ。Finance • Internal のフッタ |
 
 ## 社外の型
 
@@ -28,6 +30,7 @@
 | Demand forecast and capacity assessment | Palmer Capacity Services。Louise が予測値、共通基準、繁忙帯、見積もりの前提を報告する直接組版 PDF | `palmer-capacity-forecast.cls` | A4 縦、独立表紙なし。右上に重ねた菱形と社名。紫のセリフ体の表題、薄紫の管理欄、ページ下部に部門名と頁 |
 | Storage recovery witness observations | RJS Data Storage Ltd、Patrick。BRT の乗車券保管復旧点検に立ち会い、時計の読み合わせ、確認した復旧点と目標の比較、持ち帰り事項を記す直接組版 PDF | `rjs-storage-witness.cls` | A4 縦、表紙なし。左上に積層マークと社名、右上に Storage Assurance、青緑の短い太罫と薄緑灰の管理欄。頁番号は下中央 |
 | Staffed desk switch receipt record | Fairfield Ticket Services Ltd。Hannah が演習時に各有人窓口が受け取った時刻と例外を記録し、BRT に返す直接組版 PDF | `fairfield-desk-receipt.cls` | A4 縦、表紙なし。左上に社名、右上に切取線つきの切符マーク。臙脂の題と薄い桜灰の管理欄・繰返し表見出し |
+| Guest folio and merchant card receipt | Henmere House。チェックアウトで宿泊明細と別発行のカード支払控えを渡す | `henmere-house-folio.cls` | 明細は緑のセリフ体の屋号を持つ A4 縦。控えは小型の黒字等幅レイアウト |
 
 Westbury、RJS、Fairfield の型は各社が発行する文書に用いる。Claire が Westbury に送る PDF には BRT の型を用いる。配布物の形式と必要性はファイル計画に従う。Desktop の調査図やメモ、監視集計 CSV、メールには、それぞれの自然な形式を使う。当番の聞取り MD、判断に迷った事例の TXT、交代確認 EML、連絡順の板書写真 JPG も、各形式のまま残す。
 
@@ -42,6 +45,8 @@ Westbury、RJS、Fairfield の型は各社が発行する文書に用いる。Cl
 - 管理欄は完全な番号、発行日（例 `14 Jul 2026`）、作成者のフルネームを入れる。障害の時刻は UTC で表記する。勤務表の日時は Europe/London の現地時刻で、BST または GMT を明記する。初報と確定した内容を両方記す場合は、対象範囲と確認時点を添える。
 - 返金照合表の種別は `RF`。日付と連番の扱いは他の BRT 文書と共通。
 - Office のファイル内部の作成者と日時は、配布物の成形後に進行役が `bin/stamp` で原稿の作成者と計画の日時にそろえる。Excel は保存時に更新日時が書き換わるため、この処理は保存と再計算の後に行う。
+
+- 出張経費では `EC` が原申請・訂正共通の参照番号、`ER` が照合表、`ES` が月末精算控え。発行日の日付と連番は共通書式に従う。評価面談の合意記録には打合せ記録の `MT` を使い、配布 PDF にも同じ番号を残す。
 
 ## Word
 
@@ -88,6 +93,8 @@ Westbury、RJS、Fairfield の型は各社が発行する文書に用いる。Cl
 
 ### Refund and booking reconciliation
 
+型のシート上の表題とブックの内部表題は `Refund and booking reconciliation`。シート上の表題を変更する場合は、保存前にブックの内部表題（openpyxl の `workbook.properties.title`）も同じ値にする。
+
 1. `Reconciliation` シートの B3 に管理番号、E3 に作成者、B4 に発行日、E4 に対象と UTC の照合時点を入れる。対象・照合時点が複数行になる場合は 4 行目を広げる。
 2. 7 行目から返金予定日（UTC）ごとに A に日付、B に遅延返金件数、C にそのうち予約と突合できた件数、D に決済事業者への提出を確認した件数を入力する。E は提出待ち `=B7-D7`、F は対応する予約が見つからない件数 `=B7-C7`。差分の算出は全対象を照合済みの場合に行い、照合中の値を 0 として扱わない。A は `BRT Date`、B:F は `BRT Count`。
 3. 最終明細の直後に A を `BRT Total Text`、B:F を `BRT Total Count` として列ごとに SUM を入れる。全体にかかる注記は次行の A:F を結合し `BRT Note` を用いる。返金の提出と着金の違いを明記する。A4 横、横 1 ページ・縦自動、1〜6 行を繰り返し、実際の最終行までを印刷範囲にする。 `bin/recalc` で計算結果を保存し、 `bin/render` で全ページを確認する。
@@ -107,6 +114,12 @@ Westbury、RJS、Fairfield の型は各社が発行する文書に用いる。Cl
 | Figure | idx 0 に題、idx 1 に図（枠 11.90 × 3.825 インチ）、idx 2 に図注（14 pt）。挿入時に図の文字や凡例が裁ち落とされないよう元画像の縦横比を枠に合わせる |
 
 表の先頭行は青地 `#233E8B` に白の太字、明細は白地に濃い青灰。見本の表は 17 pt、左右のセル余白は約 0.19 インチ。右寄せの数値の次に左寄せの文字を置くときも、この余白を保つ。載せきれない表は後続のスライドに分け、同じ列名を表示する。
+
+### Travel claim reconciliation
+
+1. `Claim check` シートの B3 に照合表の完全な番号、E3 に作成者、B4 に発行日、E4 に申請番号を入れる。A4 横、横 1 ページ・縦自動。1〜6 行目を各ページに繰り返す。
+2. 7 行目から A に申請行 ID、B に費目と日付、F に証憑番号・扱い・理由を `BRT Text` で入れる。C に元の申請額、D に取下げ後の額、E に `=D7-C7` の形式で符号付き差額を入れ、C:E に `BRT Money` を使う。取下げ行は元の金額と証憑を残し、訂正額を 0.00 にする。
+3. 明細直後に合計行を置き、C:E は各列の SUM と `BRT Total Money`、A:B と F は `BRT Total Text` を使う。折返しに合わせて行高を確保し、注記を挿入する場合は A:F を結合して `BRT Note` を使う。印刷範囲を最終使用行まで設定し、再計算後に確認する。
 
 ## TeX
 
@@ -143,6 +156,16 @@ Westbury、RJS、Fairfield の型は各社が発行する文書に用いる。Cl
 - `\documentclass{fairfield-desk-receipt}` を指定し、冒頭で `\FairfieldReceipt{題}{完全な文書番号}{発行日}{記録者}{演習名}` を呼ぶ。表題は 23 pt、左揃えで折り返す。節は `\FairfieldSection{見出し}`、本文の注記は `\FairfieldNote{注記}`。
 - `FairfieldReceipts` に `連絡順 & 窓口名 & 受領時刻（UTC） & 受領記録または例外 \\` を入れる。番号列は右寄せ、窓口名との間隔は 6 mm。明細は確認した窓口分だけ作り、見出しは改ページ後も繰り返す。時刻は発信・着信・受領のうち記録が実際に表すものを照合し、判明していない受領時刻は未確認と示す。
 - 表全体の注記を付ける場合は最終明細を `\\*` で閉じ、次行に `\FairfieldReceiptNote{注記}` を入れる。最終明細と注記は同じページに載る。初回の 7 分の遅れと再演習の最終窓口までの所要 2 分は別の指標として記す。組版と確認は上記の `TEXINPUTS`・`bin/tex`・`bin/render` を使う。
+
+### Henmere House の宿泊明細とカード領収書
+
+- `\documentclass{henmere-house-folio}` と `\HenmereFolio{明細番号}{発行日}{宿泊者}{到着日}{出発日}` で明細を作る。`HenmereEntries` は日付、明細または決済の参照、請求 GBP、入金 GBP の順。残額は表の後に示す。
+- カード領収書は `\documentclass[receipt]{henmere-house-folio}` と `\HenmereCardReceipt{領収書番号}{支払日}{明細番号}{GBP 金額}{決済結果}` で組む。明細書を縮小して流用せず、独立した購入控えとして出力する。手書き付きの行では印字を先にレンダリングし、原稿指定の丸と注記を足して `bin/scan` に通す。
+
+### Finance の月末精算控え
+
+- `\documentclass{brt-travel-close}` を指定し、冒頭に `\BRTTravelClose{題}{控え番号}{発行日}{発行者}{申請者}{申請番号}` を入れる。`\BRTSection` で照合と支給状況を分ける。
+- `BRTTravelAmounts` に行または段階、扱い、GBP 金額を入れる。申請、取下げ、承認の差額が分かるようにし、支給状況は原稿にある時点の状態を書く。
 
 ## 成形見本
 

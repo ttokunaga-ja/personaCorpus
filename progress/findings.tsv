@@ -3555,3 +3555,5 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-20	p03-security-grc-analyst	b008	build-review	0	V2	Documents/総務点検/入室カード/0618_木村さんの貸出台帳再照合.xlsx	第1シート「先行確認」の返却欄G7:G8は未記入指定だが、印刷1頁のA・B両行に「空欄」と印字される。第2シート「残り62枚」の印刷2頁では、型のフッター「中京文書配送サービス｜情報管理統制」とページ番号が欠けている。
 2026-11-20	p19-educator-instructional-designer	b008	coordinator	0	other	Google Drive/My Drive/Assessment/Moderation/From the receipt list to the close figures.xlsx	統括の抜き取りで不合格
 2026-11-20	p19-educator-instructional-designer	b008	coordinator	0	other	My files/Downloads/Reading memo receipts - September close.csv	統括の抜き取りで不合格
+2026-11-20	p02-site-reliability-engineer	b009	build-review	0	V2	Documents/Personal-admin/February review - agreed objectives.docx	前回指摘の管理欄2段落・表見出し行の繰返し・全行の分割禁止は解消済み。1ページ目の Evidence and timing 表で「Check」「Evidence and result」の両セルが型の主色 #233E8B を #174A70 で上書きしており、レンダリングでも指定色と異なる。
+2026-11-20	p02-site-reliability-engineer	b009	coordinator	0	other	Downloads/Review register through 19 February.csv	統括の抜き取りで不合格

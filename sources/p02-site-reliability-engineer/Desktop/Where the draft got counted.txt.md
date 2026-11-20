@@ -1,0 +1,14 @@
+---
+path: Desktop/Where the draft got counted.txt
+kind: text
+author: Daniel Jennings
+derived_from:
+---
+Monday, before the review
+
+RR-218: closure Thu 29 Jan 15:10 UTC. Due Fri 30 Jan 17:00 GMT = 17:00 UTC.
+Draft saved 30 Jan 16:42 UTC. Using that stamp gives:
+~~19 / 22 on time~~
+Wrong stamp. First formal issue was Mon 2 Feb 09:07 UTC, after the deadline. Correct total: 18 / 22 (82% rounded).
+
+Separate check: RR-221 closed Friday 6 Feb 16:20 UTC. Next working day is Monday 9 Feb, due 17:00 GMT (17:00 UTC); issued 09:16 UTC Monday. Don't make it due on Saturday.
