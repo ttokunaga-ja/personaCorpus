@@ -1,5 +1,42 @@
 # 統括の引継ぎ
 
+最終更新：2026-11-20（coordinator-r131）
+
+## いまの状態
+
+自動運転は稼働中。受入済み5,389件。今回の対象はp20 b008の初回受入前の監査保留。現存全32件を開き、追加受入・破棄は各0件。r130の3操作は成功し、p03 b010は27件受入済み。
+
+| persona | 受入 | 累積破棄 |
+|---|---:|---:|
+| p01-software-engineer | 317 | 2 |
+| p02-site-reliability-engineer | 276 | 12 |
+| p03-security-grc-analyst | 276 | 18 |
+| p04-ml-research-engineer | 279 | 9 |
+| p05-bi-data-analyst | 287 | 11 |
+| p06-life-science-researcher | 217 | 16 |
+| p07-humanities-researcher | 190 | 8 |
+| p08-product-manager | 293 | 11 |
+| p09-ux-researcher | 249 | 8 |
+| p10-management-consultant | 229 | 16 |
+| p11-account-executive | 274 | 11 |
+| p12-support-success-lead | 291 | 2 |
+| p13-corporate-privacy-counsel | 296 | 24 |
+| p14-finance-controller | 318 | 135 |
+| p15-recruiter-people-ops | 302 | 12 |
+| p16-clinical-researcher | 238 | 10 |
+| p17-construction-project-manager | 327 | 57 |
+| p18-manufacturing-quality-engineer | 233 | 44 |
+| p19-educator-instructional-designer | 288 | 11 |
+| p20-investigative-journalist | 209 | 24 |
+
+## 次の手
+
+1. p20 b008の計画・台帳の発行番号を再計画差分で訂正し、Solで再制作する。再計画を使う回には掲載稿の破棄行が含まれない。次の保留時に通常のredraftで掲載稿を復元し、必要なrebuild後に判断記録の検査を行う。区役所回答の実添付と、掲載稿から承認・保管までの現物を照合する。
+2. p20の次のroadmap更新でb007の再制作と8月25日の再面談録音を扱う。録音ができたら2区間の逐語・留保を実聴で確認する。
+3. p03・p06の型と再監査についてはr130の残件を引き継ぐ。ユーザーへの確認事項はない。
+
+## 前回の記録（coordinator-r130）
+
 最終更新：2026-11-20（coordinator-r130）
 
 ## いまの状態
