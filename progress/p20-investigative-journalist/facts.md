@@ -149,3 +149,31 @@
 - 2026-03-24 17:41 EDT、Leslie → Richard Espinoza、Cc Veronica “Housing stays on hold”（保留メモPDFと22件照合XLSXを添付）。翌25日09:17、Richard → Leslie、Cc Veronica “Keep the March slot clear”（新規の編成連絡で保留を維持）。
 - 次の根拠は R-17 の交換完了票、R-20 の予約後の作業報告、R-22 の原伝票の完了欄。Leslie が照会、Veronica が再照合、Richard が掲載を再判断する。
 - 2026-03-26 10:36 EDT、Leslie → Theresa “Three closeout questions left”（新規の3件照会、3月31日を折り返しの目安）。3月31日終業時点で追加記録は届かず、完了日と掲載判断は保留のまま。
+
+## 4月の工事項目別価格照合と差し替え
+
+- 2026-04-15、Eleanor Briggs が Leslie に PW-FY23-PRICE-EXTRACT を提供。税別で同じ範囲を比較できる FY23 の3区画5項目の積算で、施工量、支払実績、契約全体の増減は示さない。
+- 価格抜粋の当初→改訂（USD）は p.2 PW-23-01 Alder 表層 120,000→120,000、pp.3–5 PW-23-02 Mill の入口 64,000→82,000、排水口周囲 98,000→148,000、復帰 38,000→52,000、p.6 PW-23-03 Quarry 補修振替 180,000→180,000。
+- p.4 の排水口保護 USD 28,000 は改訂 USD 148,000 の内数。転記では欄の関係を保つため5つの独立項目と内訳1行を残す（p.4 親行の直後、当初欄は空）。4月24日旧案はこの行まで加算して USD 500,000→610,000、差 USD 110,000、22%。
+- 2026-04-28 13:40–14:05 EDT、Leslie Crawford と Miguel Valenzuela が原表を照合し、内訳を合計から除外。ACN-INV-20260428-LOG-001 v1.0 の独立5項目だけで USD 500,000→582,000、差 USD 82,000、82,000÷500,000＝16.4%。2024年の見込税 USD 310,000 の撤回とは別の比較。
+- 差し替え段落 ACN-INV-20260424-DRF-001 は4月24日 Leslie v0.1、4月28日 Miguel の変更履歴・コメント v0.2、同日 Leslie の差し替え v0.3。v0.3 と訂正図の出典は同じ4月28日の検算ブックと4月価格抜粋 pp.2–6。
+- 件名 “Use 16.4 for the price paragraph”、2026-04-28 16:21 EDT Leslie → Richard、Cc Veronica・Miguel・Francesca。添付は Price paragraph to put back in.docx、Road work prices - same lines both times.png、Apr 28 - same priced work on both sides.xlsx。
+
+## 3区画の追加照会と8月19日の出典点検
+
+- ACN-INV-20260604-REQ-001 は2024-07-31・2025-02-06の両請求を参照し、Alder FY23 CO-02 の決裁、Mill FY23 PW-23-02 の完成実測、Quarry FY23 CO-01 の変更作業の日報を照会。
+- 件名 “Decision and field copies for three FY23 jobs”。①2026-06-04 09:15 EDT Leslie → Dorothy、June 4 - decision and field copies.pdf 添付。②06-10 14:07 EDT Dorothy → Leslie、①を引用、添付なし。登録簿と紙の現場票を探すと答える。
+- 2026-08-19 14:00–14:40 EDT、Veronica Huang、Leslie Crawford、Miguel Valenzuela、Keith Sandoval が主要事実28件を照合し25件確認、3件保留。2025年4月の43出典・7保留とは別の点検対象。
+- 8月の H1 は Alder FY23 CO-02 の委任決裁日（Leslie、執行署名 p.46 のみでは不足）、H2 は Mill FY23 の完成実測面積（Miguel、予定840平方ヤードの初回 p.63 と Keller 補足のみでは不足）、H3 は Quarry FY23 CO-01 が10月3日署名前に着工したか（Keith、署名 p.95・9月28日交通準備票では不足）。Veronica が再照合する。
+- ACN-INV-20260819-MEM-001 v1.0 は3件対照表付きの保留メモと同内容のPDF。ACN-INV-20260819-LOG-001 v1.0 は別の28件出典表で、Sources の26～28行が順に H1～H3 に対応。
+- 件名 “Aug 19 desk check: three lines on hold”、2026-08-19 16:05 EDT Veronica → Richard、Cc Leslie・Miguel・Keith。添付は Aug 19 - three lines to hold.pdf と Aug 19 - twenty-eight claims.xlsx。
+
+## FOIA batch 17の8月22日追加交付と残る日報
+
+- MFB-PRO-20260822-001 は6月4日請求への追加交付。通し頁 S001–S093 の93ページに送付状は含めない。初回124ページ、2025年3月の紙4面、2026年4月の価格抜粋も別扱い。
+- 件名 “FOIA batch 17 — supplemental release”、2026-08-22 09:14 EDT Dorothy → Leslie。09:06発行の Aug 22 - supplemental release letter.pdf のみ添付。電子決裁登録簿 S001–S061 は固定閲覧リンク、Mill の紙の完成実測綴り S062–S093 は同日10:30の窓口受け取り。
+- H1 は S036 の Briggs による2023-09-11の委任決裁で確認。初回 p.46 は9月12日の契約当事者の執行署名、3月交付の入構票は9月7日の車の受付。決裁記録は車の用途や着工を裏付けない。
+- H2 は S092 の2023-09-05付 Public Works 確認欄付き完成実測で確認。Mill は入口186、排水口周囲477、復帰149の計812平方ヤード。初回 p.63 と Keller KMP-20250715-WS-001 の840は同じ予定値。
+- H3 は保留。追加 S057 は Quarry の回付、初回 p.95 は2023-10-03の執行署名、3月交付紙の9月28日準備票は施工欄が空。CO-01 の Weighhouse Gate 側下層補修と実作業日を結び付ける同時期の署名・確認入り日報または着手票が要る。
+- 2026-08-22 13:50–14:18 EDT、Leslie と Veronica が3件を再照合し、H1・H2を確認へ移して27／28。H3 は Keith が追跡する。8月22日の編集部内文書は新しい根拠と保留を引き継ぐ段階。
+- 件名 “Saturday records: two answers and one hold”、2026-08-22 15:29 EDT Leslie → Richard、Cc Veronica・Keith。添付は What we can add after the Saturday release.docx と Aug 22 - evidence against the three holds.xlsx。

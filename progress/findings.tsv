@@ -3823,3 +3823,21 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-20	p07-humanities-researcher	b006	coordinator	0	other	Documents/Book/Appendices/Receipts behind the counts.csv	統括の抜き取りで不合格
 2026-11-20	p07-humanities-researcher	b006	coordinator	0	other	Documents/Book/Appendices/What the old heading counted.xlsx	統括の抜き取りで不合格
 2026-11-20	p07-humanities-researcher	b006	coordinator	0	other	Documents/Letters/17 April - Appendix tables for the working chapter.eml	統括の抜き取りで不合格
+2026-11-20	p05-bi-data-analyst	b009	templates-review	0	other	README.md	記載の8型とツールの参照先は実在し、Excelの行追加手順も動作したが、35行目の共通ヘッダ説明にある「文書種別」が営業会議資料の5レイアウトのヘッダに表示されない。
+2026-11-20	p05-bi-data-analyst	b009	templates-review	0	other	oriba-weekly.pptx	16:9の5レイアウトはロゴ・社名・藍帯・社内資料・追加したページ番号に崩れがないが、マスターの上部はロゴと社名のみでREADMEの共通意匠にある文書種別が表示されない。
+2026-11-20	p05-bi-data-analyst	b009	draft-review	0	D10	Documents/在庫/欠品と滞留/9月8日_小型8店を先にする確認記録.docx	表題直下の管理欄（9〜11行）に文書番号・版・日付・作成者・宛先はあるが、oriba-condition.docxの型一覧が求める当該記録の確認者が指定されておらず、宛先や本文の協議参加者・メール送信者からは管理欄の値を確定できない。
+2026-11-20	p05-bi-data-analyst	b009	draft-review	0	D3	Desktop/600個案は棚に96個分入らない.xlsx	「比較」7〜9行の根拠欄はC列の売場上限に対応する「8店の棚と補充場所」のみで、B列240・200・160個を転記した吉田の9月2日付配荷試算v0.1を表や注記から特定できず、岡田が両入力の根拠をたどれない。
+2026-11-20	p05-bi-data-analyst	b009	draft-review	0	D1	Documents/在庫/欠品と滞留/補充場所が片側使えないとき.xlsx	「片側が使えない場合」の末尾注記は藤田に両店舗への確認を依頼するところまでで、計画が求める稲波と青笹の現地確認の順序を示していない。
+2026-11-20	p05-bi-data-analyst	b009	build-review	0	V2	Documents/海外購買/8日朝_小型店と残りの枠を説明する.xlsx	「売場の上限」シートのF6に見出しも明細もない藍色の欄が残り、印刷2ページ目で原稿指定の5列（A:E）の右に空の第6見出しとして表示されている。
+2026-11-20	p05-bi-data-analyst	b009	build-review	0	V2	Documents/在庫/欠品と滞留/小型8店_前冬に売れた構成.xlsx	「前冬比較」の印刷1ページ目で、原稿の5列目「現地確認事項」の右に型の6列目F6の見出し書式が残り、見出しも明細もない列Fまで藍色の表見出しが延びている。
+2026-11-20	p05-bi-data-analyst	b009	check	0	source	Documents/営業会議/2026/09/9月7日_冬物の見込と初回配荷.pdf	body token overlap 0.482 < 0.5
+2026-11-20	p05-bi-data-analyst	b009	check	1	source	Documents/営業会議/2026/09/9月7日_冬物の見込と初回配荷.pdf	body token overlap 0.482 < 0.5
+2026-11-20	p05-bi-data-analyst	b009	check	2	source	Documents/営業会議/2026/09/9月7日_冬物の見込と初回配荷.pdf	body token overlap 0.482 < 0.5
+2026-11-20	p20-investigative-journalist	b007	coordinator	0	other	Documents/Desk-notes/Start Monday with the signed field log.txt	統括の抜き取りで不合格
+2026-11-20	p20-investigative-journalist	b007	coordinator	0	other	Documents/Mail/Saturday records - two answers and one hold.eml	統括の抜き取りで不合格
+2026-11-20	p20-investigative-journalist	b007	coordinator	0	other	Documents/Stories/Road-contracts/Checks/Aug 22 - evidence against the three holds.xlsx	統括の抜き取りで不合格
+2026-11-20	p20-investigative-journalist	b007	coordinator	0	other	Documents/Stories/Road-contracts/Checks/What we can add after the Saturday release.docx	統括の抜き取りで不合格
+2026-11-20	p20-investigative-journalist	b007	coordinator	0	other	Documents/Stories/Road-contracts/Records/Alder - decision date is on S036.txt	統括の抜き取りで不合格
+2026-11-20	p20-investigative-journalist	b007	coordinator	0	other	Documents/Stories/Road-contracts/Records/Mill - read the total after the three runs.txt	統括の抜き取りで不合格
+2026-11-20	p20-investigative-journalist	b007	coordinator	0	other	Documents/Stories/Road-contracts/Records/Mill FY23 - paper measurement book from the counter.pdf	統括の抜き取りで不合格
+2026-11-20	p20-investigative-journalist	b007	coordinator	0	other	Documents/Stories/Road-contracts/Records/Quarry - the space between prep and work.txt	統括の抜き取りで不合格
