@@ -1,0 +1,16 @@
+---
+path: Documents/Desk-notes/Two things the public index can't date.txt
+kind: text
+author: Leslie Crawford
+derived_from:
+---
+
+September 10, 2026
+
+I went back through the public minutes listing looking for a date I could put beside the first time someone could read either set. The listing as it appears now is not a dated history of what was available last year. A present link would show what can be opened now; its absence would not establish what was available then. Stop trying to infer the old state from either.
+
+Finance, February 13, 2025: the meeting date is not the date the minutes were approved, and approval is not necessarily the first public viewing date. Dorothy's June 10, 2025 notice said the Clerk held an unapproved draft. It did not tell us where an approved copy could be viewed or when. MIN-26-041 asks for the approved copy and existing approval and posting records.
+
+Work session, March 4, 2025: a meeting notice identifies a meeting, not an index of minutes made or circulated after it. The June 17 notice sent the location question to the Clerk; it did not answer it. MIN-26-042 asks for minutes or a draft and the Clerk's index or circulation record.
+
+Keep the current listing as a lead, not proof of last year's access. Wait for the records or a written identification of the record and its custodian.

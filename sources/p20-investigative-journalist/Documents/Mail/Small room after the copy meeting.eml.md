@@ -1,0 +1,24 @@
+---
+path: Documents/Mail/Small room after the copy meeting.eml
+kind: text
+author: Wayne Fletcher
+derived_from:
+---
+
+From: Wayne Fletcher <wayne@allegheny-civic.example>  
+To: Leslie Crawford <leslie@allegheny-civic.example>, Keith Sandoval <keith@allegheny-civic.example>  
+Cc:  
+Date: Fri, 11 Sep 2026 15:20:00 -0400  
+Subject: Small room after the copy meeting  
+Message-ID: <d49e9358-6e89-49d2-86ab-513c058a8790@allegheny-civic.example>
+
+Leslie and Keith,
+
+The small room is available for your Monday afternoon read-through from 1:45. The previous meeting's papers will still be on the table until 1:30, so please wait until 1:45 to go in.
+
+When you close the room, could you clip the circulation sheets together by district and leave them in their groups? That will make it easier to return them to the right people.
+
+Thanks,
+Wayne
+
+Attachments: none
