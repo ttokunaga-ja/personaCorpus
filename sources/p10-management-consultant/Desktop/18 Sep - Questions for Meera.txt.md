@@ -1,0 +1,19 @@
+---
+path: Desktop/18 Sep - Questions for Meera.txt
+kind: text
+author: Nicholas Hargreaves
+derived_from:
+---
+
+Questions for Meera — 18 Sep
+
+Can we put 6.0% into next month's check?
+No. It is the August result for five confirmed groups, receipts and linked returns with postings through 04 Sep. September needs its own net quantities, approved comparison prices and confirmed net purchases. Carry the method and unresolved enquiries, not the August percentage as September's result.
+
+A dispatch date is the same as its 15:00 deadline; can we call it on time?
+Not without the time. PO-84255 stays Review with the late flag blank. Ask Buying for the first supplier send in the history and compare it with the last deadline approved before that send, in EDT. Exactly 15:00 is on time; later is late.
+
+What if the resend is late?
+Count the first supplier dispatch once against the applicable approved deadline. Exclude the duplicate resend even if later. If the first event cannot be identified, obtain the history rather than decide from the resend.
+
+Ask Meera: who in Buying will own the October check of September, and on what date? Who is the Finance contact for the S011 credit posting enquiry?

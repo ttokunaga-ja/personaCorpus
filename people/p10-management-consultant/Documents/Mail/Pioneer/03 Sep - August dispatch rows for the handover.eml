@@ -1,0 +1,63 @@
+From: Meera Kulkarni <meera@pioneer-trade.example>
+To: Connor Atkinson <connor@holt-reeves.example>
+Cc: Nicholas Hargreaves <nicholas@holt-reeves.example>,
+ Neha Patel <neha@holt-reeves.example>
+Date: Thu, 03 Sep 2026 13:22:00 +0100
+Subject: August dispatch rows for the handover
+Message-ID: <0b7da9efbcae4edc9ba327896af72921@pioneer-trade.example>
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="===============4662536096041787905=="
+
+--===============4662536096041787905==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hi Connor,
+
+Attached are the 14 August register rows we can use to trace the handover exa=
+mples. They include the first send and resend of the same order, a cancellati=
+on before dispatch, and records where the original time is not present in the=
+ extract.
+
+Please use Buying's closed register reconciliation for the full-month count, =
+rather than treating these rows as the population. Where the original time is=
+ missing, leave the case as an enquiry example; the date alone may not settle=
+ the comparison with the deadline.
+
+Thanks,
+Meera
+
+--===============4662536096041787905==
+Content-Type: text/csv
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment;
+ filename="August - Order dispatch extract.csv"
+MIME-Version: 1.0
+
+UmVnaXN0ZXIgcm93LFBPLFNpdGUsUmVjb3JkZWQgZGlzcGF0Y2gsQXBwcm92ZWQgZGVhZGxpbmUs
+UmVnaXN0ZXIgZXZlbnQsRXZpZGVuY2UgcmVmCkEwMDEsUE8tODQyMTcsU2l0ZSAxLDIwMjYtMDgt
+MThUMTU6MDg6MDAtMDQ6MDAsMjAyNi0wOC0xOFQxNTowMDowMC0wNDowMCxGaXJzdCBkaXNwYXRj
+aCxFVi04NDIxNwpBMDAyLFBPLTg0MjQxLFNpdGUgMiwyMDI2LTA4LTE5VDE1OjAwOjAwLTA0OjAw
+LDIwMjYtMDgtMTlUMTU6MDA6MDAtMDQ6MDAsRmlyc3QgZGlzcGF0Y2gsRVYtODQyNDEKQTAwMyxQ
+Ty04NDI1NSxTaXRlIDEsMjAyNi0wOC0yMCwyMDI2LTA4LTIwVDE1OjAwOjAwLTA0OjAwLERpc3Bh
+dGNoIHJlY29yZGVkLEVWLTg0MjU1CkEwMDQsUE8tODQyNjMsU2l0ZSAyLCwyMDI2LTA4LTIxVDE1
+OjAwOjAwLTA0OjAwLENhbmNlbGxlZCBiZWZvcmUgZGlzcGF0Y2gsRVYtODQyNjMKQTAwNSxQTy04
+NDI3OSxTaXRlIDEsMjAyNi0wOC0yNFQxNDo1MzowMC0wNDowMCwyMDI2LTA4LTI0VDE1OjAwOjAw
+LTA0OjAwLEZpcnN0IGRpc3BhdGNoLEVWLTg0Mjc5LTEKQTAwNixQTy04NDI3OSxTaXRlIDEsMjAy
+Ni0wOC0yNFQxNjoxMDowMC0wNDowMCwyMDI2LTA4LTI0VDE1OjAwOjAwLTA0OjAwLFJlc2VuZCxF
+Vi04NDI3OS0yCkEwMDcsUE8tODQyODMsU2l0ZSAyLDIwMjYtMDgtMjRUMTM6MjA6MDAtMDQ6MDAs
+MjAyNi0wOC0yNFQxNTowMDowMC0wNDowMCxGaXJzdCBkaXNwYXRjaCxFVi04NDI4MwpBMDA4LFBP
+LTg0Mjg4LFNpdGUgMSwyMDI2LTA4LTI1VDE1OjEyOjAwLTA0OjAwLDIwMjYtMDgtMjVUMTU6MDA6
+MDAtMDQ6MDAsRmlyc3QgZGlzcGF0Y2gsRVYtODQyODgKQTAwOSxQTy04NDI5MSxTaXRlIDIsMjAy
+Ni0wOC0yNVQxNDoxMTowMC0wNDowMCwyMDI2LTA4LTI1VDE1OjAwOjAwLTA0OjAwLEZpcnN0IGRp
+c3BhdGNoLEVWLTg0MjkxCkEwMTAsUE8tODQyOTUsU2l0ZSAxLDIwMjYtMDgtMjZUMTA6MzA6MDAt
+MDQ6MDAsMjAyNi0wOC0yNlQxNTowMDowMC0wNDowMCxGaXJzdCBkaXNwYXRjaCxFVi04NDI5NQpB
+MDExLFBPLTg0MzAyLFNpdGUgMiwyMDI2LTA4LTI3VDE0OjA1OjAwLTA0OjAwLDIwMjYtMDgtMjdU
+MTU6MDA6MDAtMDQ6MDAsRmlyc3QgZGlzcGF0Y2gsRVYtODQzMDIKQTAxMixQTy04NDMwOCxTaXRl
+IDEsMjAyNi0wOC0yOFQxMjo0MDowMC0wNDowMCwyMDI2LTA4LTI4VDE1OjAwOjAwLTA0OjAwLEZp
+cnN0IGRpc3BhdGNoLEVWLTg0MzA4CkEwMTMsUE8tODQzMTEsU2l0ZSAyLCwyMDI2LTA4LTI4VDE1
+OjAwOjAwLTA0OjAwLERpc3BhdGNoIHJlY29yZGVkLEVWLTg0MzExCkEwMTQsUE8tODQzMTYsU2l0
+ZSAxLDIwMjYtMDgtMzFUMTQ6NTA6MDAtMDQ6MDAsMjAyNi0wOC0zMVQxNTowMDowMC0wNDowMCxG
+aXJzdCBkaXNwYXRjaCxFVi04NDMxNgo=
+
+--===============4662536096041787905==--

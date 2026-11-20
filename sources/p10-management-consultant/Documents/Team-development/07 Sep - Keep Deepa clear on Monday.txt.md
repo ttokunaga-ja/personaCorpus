@@ -1,0 +1,15 @@
+---
+path: Documents/Team-development/07 Sep - Keep Deepa clear on Monday.txt
+kind: text
+author: Nicholas Hargreaves
+derived_from:
+---
+
+Paul — placement conversation
+7 September
+
+Keep Deepa available for the 14 September Pioneer walk-through: 30 minutes. The internal estimate discussion overlaps; I will take that one myself rather than have her split the session.
+
+Ask Deepa to bring only the two price queries: S036's applicable approved version and S011's August credit approval and posting. The confirmed five-group calculation is already with me. Neha needs to see how an unresolved line is carried through, not a complete rework of the January analysis.
+
+Tell Paul which half-hour is released from the estimate discussion and return that time to him for allocation. Confirm the handover with Deepa before Monday.

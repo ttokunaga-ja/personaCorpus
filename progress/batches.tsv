@@ -182,9 +182,9 @@ p18-manufacturing-quality-engineer	b009	2026-11-20	30	6	4	4	2	accepted	6280.10
 p09-ux-researcher	b008	2026-11-20	28	6	4	1	1	accepted	5359.71
 p06-life-science-researcher	b009	2026-11-20	20	5	4	0	0	accepted	10553.09
 p03-security-grc-analyst	b010	2026-11-20	27	9	8	0	0	accepted	6125.16
-p20-investigative-journalist	b008	2026-11-20	36	3	1	4	0	done	4513.03
-p07-humanities-researcher	b007	2026-11-20	31	7	7	2	0	done	8074.21
-p10-management-consultant	b008	2026-11-20	30	10	7	4	0	done	8955.85
+p20-investigative-journalist	b008	2026-11-20	36	3	1	4	0	done	10184.01
+p07-humanities-researcher	b007	2026-11-20	31	7	7	0	0	done	9944.99
+p10-management-consultant	b008	2026-11-20	30	10	7	5	1	accepted	10218.39
 p16-clinical-researcher	b010	2026-11-20	24	5	7	0	0	accepted	5423.22
 p18-manufacturing-quality-engineer	b010	2026-11-20	30	4	9	1	0	done	6148.25
 p09-ux-researcher	b009	2026-11-20	23	3	2	0	0	accepted	5665.17

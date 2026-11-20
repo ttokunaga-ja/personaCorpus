@@ -213,3 +213,24 @@
 - 8月25日09:00〜09:40 BST、Nicholas・Connor・Joanne・Elizabeth。01〜02を既存作業へ、03〜07は着手せず保留。契約は JPY 42.8m・12週のまま、Joanne が書面変更の窓口、Nicholas が顧客への回答担当。
 - 8月25日13:18 BST「Five requests held for written approval」は Nicholas → Kenneth（Cc Joanne、Elizabeth、Siobhan）。顧客用判定 HRA-WHI-DIAG-NTE-2026-002 v1.0 のPDFを実添付し、進めたい項目があれば優先順位を求める。
 - Holt 側メールは `elizabeth@holt-reeves.example`、`siobhan@holt-reeves.example`、`joanne@holt-reeves.example`、`paul@holt-reeves.example` を使用。
+
+## Pioneer の6月・8月の発注遅延と8月の削減実績
+
+- 発注の対象は前年に選んだ12社への2拠点の発注。Pioneer の発注登録の対象月（承認期限日 EDT が属する2026年6月1〜30日／8月1〜31日）で切り、9月4日に比較を確定。2025年の例外93件や需要初認・共有時刻とは別の観測。
+- 発注は PO ごとの対仕入先初回送信。期限はその送信前に有効だった最後の承認済み期限。EDT（UTC−04:00）で送信＞期限を遅延、同時刻は期限内。日付だけで同日の前後が確かめられない行は Review とし、時刻を補わない。
+- 6月は原行416、重複再送5と初回送信前取消5を Exclude、時刻要照会6を Review。判定済み400＝期限内364＋遅延36で9%。8月は原行438、再送7・取消5を Exclude、時刻要照会6を Review。判定済み420＝期限内399＋遅延21で5%（4ポイント低下）。
+- 8月の削減は対象12社のうち条件を確認済みの5購買群。8月1〜31日の受領と紐づく返品を9月4日計上締めで照合。実購入純数量を各群の承認済み比較基準単価で評価し、税・運賃を除いた USD 800,000 に対し、確認済み純仕入 USD 752,000、実績差 USD 48,000（6.0%）。
+- 5購買群の基準／確認済み純仕入（税抜 USD）は S018 180,000／168,000、S042 160,000／152,000、S008 140,000／133,000、S036の照合済み範囲 200,000／187,000、S011の照合済み範囲 120,000／112,000。要照会行との明細重複なし。
+- S036 の別受領群は8月に適用する承認済み条件書版が未確認。S011 の別受領群は8月分貸方の承認と Finance の転記を要確認。両群は差額空欄で確定集計の分子・分母から外す。1月の中間5.6%と S011 の USD 5,500 の既知残差は当時の集計のまま。
+- HRA-PIO-BUY-BRF-2026-003 は9月7日 v0.2（Nicholas）、9日 v0.3（Elizabeth の赤字）、18日 v1.0（Nicholas、報告会用）。6.0%と9%→5%を分けて示し、指標間の因果は認定しない。顧客報告 HRA-PIO-BUY-NTE-2026-001 v1.0 は同日付の別文書。
+
+## Pioneer の発注明細による通し確認と Buying への引継ぎ
+
+- 8月登録の抜粋14行は判定済み10（期限内8、遅延2）、除外2（送信前取消1、再送1）、要照会2。HRA-PIO-BUY-MCK-2026-001 は9月8日 v0.3（PO-84255 を誤って期限内として2/11）、9月17日 v1.0（Review に訂正し2/10）。
+- 注記図と手順に使う抜粋冒頭は PO-84217（8月18日15:08送信／同日15:00期限）、PO-84241（8月19日15:00／同日15:00）、PO-84255（8月20日の日付のみ／同日15:00）。時刻はすべて EDT。PO-84263 は送信前取消、PO-84279 は初回のみ算入（期限内）、再送行は除外。
+- 9月14日 14:00〜14:30 BST、Nicholas・Neha・Deepa が8月データで通し確認。Neha が日付だけの PO-84255 の期限内扱いを指摘、Deepa が未確認の価格差は空欄と確認。手順 HRA-PIO-BUY-EV-2026-002 は9月10日 v0.4 から16日 v1.0 へ改訂。
+- 9月18日 14:00〜14:45 BST、Meera・Nicholas・Neha・Deepa。Meera が Buying の点検責任を持ち、9月分の初回確認を10月7日に設定。送信履歴と S036 の条件書は Buying、S011 の承認は Buying・転記は Finance に照会する。
+- 「Leave Buying something we can rerun」8月26日13:22 BST、Meera → Nicholas（Cc Neha、Deepa）、添付なし。独立した依頼。
+- 「August dispatch rows for the handover」9月3日13:22 BST、Meera → Connor（Cc Nicholas、Neha）、August - Order dispatch extract.csv を実添付。独立した送付。
+- 「Can Buying trace these two August lines」9月11日13:11 BST、Deepa → Meera（Cc Nicholas）、10 Sep - Price proof for the two held lines.xlsx を実添付。9月15日14:18 BST「Re: Can Buying trace these two August lines」、Meera → Deepa（Cc Nicholas）が元の問いを引用、新規添付なし。
+- 「Final results and the Buying checks」9月18日15:48 BST、Nicholas → Meera（Cc Neha、Deepa）。独立した送付で、確定報告PDF、発注明細CSV、確定の点検XLSX・手順DOCX・画面注記PNGの5点を実添付。

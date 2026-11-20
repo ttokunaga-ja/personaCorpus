@@ -1,6 +1,6 @@
 # 経営コンサルタントの文書の型
 
-Whitfield Components Ltd 日本事業の支払診断・実行案・試行、Marston Carton Packaging Ltd の2工場の原価診断、Pioneer Trade Distribution Inc の仕入先選定・例外申請の診断・削減実績の中間確認に使う。本文は英語、Holt の日付は `07 Oct 2024` の形式。Nicholas の PC の時刻は Europe/London。受領した記録の時刻とタイムゾーンは原資料に従う。Office の型は開いて別名保存する。
+Whitfield Components Ltd 日本事業の支払診断・実行案・試行、Marston Carton Packaging Ltd の2工場の原価診断、Pioneer Trade Distribution Inc の購買診断・削減実績の報告・月次点検の引継ぎに使う。本文は英語、Holt の日付は `07 Oct 2024` の形式。Nicholas の PC の時刻は Europe/London。受領した記録の時刻とタイムゾーンは原資料に従う。Office の型は開いて別名保存する。
 
 | 型 | 組織と用途 | ファイル | 見た目 |
 |---|---|---|---|
@@ -14,8 +14,9 @@ Whitfield Components Ltd 日本事業の支払診断・実行案・試行、Mars
 | Whitfield payment pilot | Holt & Reeves。Connor Atkinson が2部門の平均承認日数を再計算し、保留案件の扱いを原記録に照合する | `holt-whitfield-pilot.xlsx` | A4横。共通ロゴ、紫灰の8列見出し。比較、案件別時刻、保留照合の3シート |
 | Pioneer buying schedules | Holt & Reeves。Nicholas が Meera Kulkarni と仕入先の絞込み条件を確認し、Neha Patel が例外申請の理由と需要が判明した時点を照合する | `holt-pioneer-buying.xlsx` | A4横。共通ロゴ、淡色の管理欄、濃い紫灰の8列見出し。仕入先選定と例外理由の再分類の2シート |
 | Pioneer savings reconciliation | Holt & Reeves。Deepa Desai が取引条件書と購入抜粋を照合し、Nicholas が Meera と削減見込・実績の差を確認する | `holt-pioneer-savings-reconciliation.xlsx` | A4横。Holt のロゴ、淡い茶灰の管理欄、紫灰の9列見出し。単価照合と削減額の差額内訳の2シート |
+| Pioneer monthly checks | Holt & Reeves。Nicholas が Meera と Buying の担当者へ引き渡す月次点検表 | `holt-pioneer-monthly-checks.xlsx` | A4横。共通ロゴと8列の紫灰の見出し。発注時刻・採否の照合と、削減額・取引条件の照合を別シートにする |
 | Diagnosis briefing | Holt & Reeves。Nicholas が Kenneth Townsend に支払診断と試行拡大の判断材料を説明し、Elizabeth に Whitfield の実行案を提示する。Marston では設備案と作業標準統一、Pioneer では全社再交渉の旧案と Meera 向けの判断資料に使う | `holt-diagnosis.pptx` | 16:9。上に社名と茶赤の罫線、下に社名と管理情報。表紙、見出しと本文、2段、表、図の5レイアウト |
-| Client note | Holt & Reeves。Nicholas が Kenneth Townsend に見込の訂正を文書で伝える | `holt-client-note.cls` | A4縦、表紙なし。共通ロゴ、茶赤の上罫と節見出し、淡い管理欄、3列の対照表 |
+| Client note | Holt & Reeves。Nicholas が Kenneth Townsend に見込の訂正を伝え、Meera には調達診断の確定結果と引継ぎ範囲を文書で渡す | `holt-client-note.cls` | A4縦、表紙なし。共通ロゴ、茶赤の上罫と節見出し、淡い管理欄、3列の対照表 |
 | Supplier payment procedure | Whitfield Components Ltd。日本事業の Finance が発行し、Kenneth Townsend が承認する支払手順と試行の現場手順 | `whitfield-payment-procedure.cls` | A4縦。表紙なし。深緑の三つのブロックと社名、右に `JAPAN FINANCE`。セリフ体、薄緑の発行欄、深緑の表見出し |
 | Payment pilot scope change | Whitfield Components Ltd。Japan Finance が管理する試行範囲の変更合意書。Kenneth と Holt & Reeves 側の承認者が署名する | `whitfield-scope-change.cls` | A4縦。Whitfield 共通の深緑とセリフ体、右上に `JAPAN FINANCE / CHANGE CONTROL`。薄緑の4項目の管理欄、両社の署名欄 |
 | Japan engagement papers | Whitfield Components Ltd。Kenneth の依頼書と、両社が署名する日本事業の契約合意書 | `whitfield-engagement.cls` | A4縦。Whitfield の深緑・セリフ体・薄緑の発行欄。依頼書は宛先、合意書は両社の署名欄を表示 |
@@ -333,12 +334,6 @@ def finish_phase_sheet(sheet, last_row):
 
 印刷プレビューでは各シートの社名・管理情報・ページ番号、続頁の6行目、明細から集計・注記までの範囲を確認する。社内作業表は型一覧の Working sheet（型なし）を使える。決裁・提案には `holt-diagnosis.pptx`、契約コメントには `holt-review-memo.docx`、顧客への文書回答には `holt-client-note.cls` を使う。
 
-b007 の印刷見本
-
-- [12週工程と要員別予算](../../scratch/p10-management-consultant/b007/work/templates-0006/whitfield-phase1-plan.xlsx)（[前半](../../scratch/p10-management-consultant/b007/work/templates-0006/render/whitfield-phase1-plan-1.png)、[後半](../../scratch/p10-management-consultant/b007/work/templates-0006/render/whitfield-phase1-plan-2.png)、[予算](../../scratch/p10-management-consultant/b007/work/templates-0006/render/whitfield-phase1-plan-3.png)）
-- [追加要求の1ページ版](../../scratch/p10-management-consultant/b007/work/templates-0006/whitfield-requests-short.xlsx)（[印刷画像](../../scratch/p10-management-consultant/b007/work/templates-0006/render/whitfield-requests-short-1.png)）
-- [作業内訳を詳記した2ページ版](../../scratch/p10-management-consultant/b007/work/templates-0006/whitfield-requests-continued.xlsx)（[1ページ目](../../scratch/p10-management-consultant/b007/work/templates-0006/render/whitfield-requests-continued-1.png)、[2ページ目](../../scratch/p10-management-consultant/b007/work/templates-0006/render/whitfield-requests-continued-2.png)）
-
 ### Whitfield 発行の依頼書と署名済み合意書
 
 `\documentclass{whitfield-engagement}` とし、プリアンブルで `\wcecontrol{文書番号と版}{発行日}{発行者}{右上の区分}{宛先}` を設定する。本文は `\wcetitle{表題}`、節は `\wcsection{節見出し}`。区分は依頼書が `ENGAGEMENT REQUEST`、合意書が `ENGAGEMENT AGREEMENT`。番号は依頼書 `WCL-JP-FIN-REQ-<年>-<3桁>`、合意書 `WCL-JP-FIN-AGR-<年>-<3桁>`。日付は `20 Jul 2026` の形式で、着手日・期間は条項に記す。合意書では条項番号を本文の見出しに含める。
@@ -368,3 +363,42 @@ Letter縦、表紙なし。ヘッダ左に合流経路の図形と社名、右�
 LuaLaTeX の入力に `\documentclass{pioneer-trading-terms}` と `\ptdcontrol{条件書番号}{版の数字}{発行日}{発行者}` を指定する。本文で `\ptdtermstitle{表題}` の後に `\ptdscope{仕入先と口座・対象範囲}{適用期間}{通貨と税の扱い}` を置き、節は `\ptdsection{節見出し}` で作る。`ptdterms` 環境内に `\ptdterm{条件行参照}{品目と購入単位}{最低数量}{条件単価}{適用方法・精算条件}` を実際の条件分だけ追加する。原資料にある基準単価や複数段階の条件、返品の扱い、遡及適用の対象を必要に応じて最後の列か本文に記す。続頁の先頭に列見出しが入る。第3・4列は右寄せ、第5列は左寄せで、単価と適用方法の間は両セルの各5 ptの余白を取る。
 
 両クラス（`pioneer-trading-terms.cls` と `pioneer-exception-guidance.cls`）が見つかるよう、この型のディレクトリを `TEXINPUTS` に指定し、末尾に `:` を付けて標準の検索先も含める。`bin/tex <入力.tex> <出力.pdf>` でテキスト層付き PDF にし、`bin/render` で全ページを点検する。
+
+## Pioneer の最終実績報告と月次点検の引継ぎ
+
+Nicholas が 2026 年 9 月 18 日に Meera に渡す報告では、削減実績 6.0% と発注遅延率の 9% → 5% をそれぞれの分子・分母、観測期間、照合根拠と併記する。数値の分解や対象期間別の詳細は計画・原稿による。Buying の翌月点検用に、発注日・期限の原記録、分母の採否、取引条件と証憑の照会先を渡す。
+
+| 文書 | 発行元と使う型 | 管理欄と成形 |
+|---|---|---|
+| Buying 担当者への点検手順 | Holt & Reeves の `holt-handoffs.docx` | `HRA-PIO-BUY-EV-<年>-<3桁>`。冒頭の `Holt Kicker` を `MONTHLY CHECK PROCEDURE` とし、Word 共通の管理欄と証跡表を使う。表は番号、迷う場面、確認する記録と担当の3列 |
+| 報告会の説明 | Holt & Reeves の `holt-diagnosis.pptx` | `HRA-PIO-BUY-BRF-<年>-<3桁>`。2段で二つの指標を説明し、証跡表で採否や照会、図で点検画面の注記を示す |
+| 顧客配布用の確定報告 PDF | Holt & Reeves の `holt-client-note.cls` | `HRA-PIO-BUY-NTE-<年>-<3桁>`。宛先欄に Meera Kulkarni と社名を入れ、指標・値・根拠の3列表と引継ぎの節を設ける |
+| 記録と連絡 | Pioneer の取引記録 CSV、送信者の EML、Nicholas の TXT | 受領 CSV は原資料の列・時刻表記・単位を保つ。PNG の点検画面は採否・時刻・証拠欄を指す注記を付け、PPTX の図に使う場合は縦横比を保つ |
+
+### Excel — 発注遅延と削減実績の月次点検
+
+`holt-pioneer-monthly-checks.xlsx` を開き、`Order timing` と `Savings checks` を使う。文書番号は `HRA-PIO-BUY-MCK-<年>-<3桁>`。管理欄の記入例は `HRA-PIO-BUY-MCK-2026-001 v1.0`、`18 Sep 2026`、`Nicholas Hargreaves`。各シートの A2 に表題と対象期間、A4 に番号と版、D4 に日付型の値、F4 に作成者を入れる。管理値行は34 pt。印刷フッタ左に番号・日付・作成者を ` | ` でつなぎ、Liberation Sans 9 pt、紫灰 `302435` を設定する。フッタ右は型のページ番号を使う。
+
+6行目の見出しを保ち、7行目から実データの行を作る。次のスタイル名に `Holt ` を付け、値を入れた後に `cell.style` で指定する。実データ行の未確認欄にも列の書式を指定する。数値は右寄せ、文字は左インデント1で折り返す。行高は32 ptから始め、根拠の長さに応じて広げる。
+
+| 列 | Order timing | Savings checks |
+|---|---|---|
+| A | 点検順、`Index` | 点検順、`Index` |
+| B | 発注記録・行参照、`Text` | 取引・行参照、`Text` |
+| C | 原資料で確認した発注日時、`Local Time` | 比較基準額（USD）、`Amount` |
+| D | 適用する発注期限、`Local Time` | 確認済み純仕入額（USD）、`Amount` |
+| E | 分母の採否、`Text` | 確認済み削減額（USD）、`Amount` |
+| F | 遅延の判定値、`Late Flag` | 取引条件の確認状況、`Text` |
+| G | 採否の理由・次の照会、`Text` | 条件書・版・照合証拠、`Text` |
+| H | 原記録の参照・元の時刻帯、`Text` | 確認事項・照会先、`Text` |
+
+**Order timing** は原資料で使う発注イベントと期限を確認する。同じ現地時刻にそろえた値を C・D に Excel 日時型で入れ、照合に使った時刻帯・オフセットと参照先を H に残す。日付までしか分からない欄は `Holt Date` で日付だけを表示し、原記録の粒度で判定できるかを確認する。E は `Count`（算入）、`Exclude`（除外理由確定）、`Review`（判定待ち）。F は `Count` のうち判定を確認した行で遅延を 1、期限内を 0 とする。除外・保留は F を空欄とし、G に理由を記す。期間と対象範囲ごとにブックを別名保存し、抜粋と集計対象全体の違いを注記する。
+
+**Savings checks** は同じ対象・単位・比較基準の税抜 USD で照合する。F は `Confirmed`（根拠を確認済み）、`Review`（要照会）、`Out of scope`（対象外）。確認済みの行では E に C−D を入れる。例えば7行目は `=IF(AND(F7="Confirmed",ISNUMBER(C7),ISNUMBER(D7)),C7-D7,"")`。条件書の発効、数量単位、適用単価や貸方の証拠が足りない場合は、F と H に状態と確認先を残す。要照会の差額を集計に入れず、確認済みのゼロは数値で残す。
+
+集計行は明細の直後に必要なときだけ作る。以下は明細が7〜10行の例。数式の参照末尾は実データに合わせる。
+
+- `Order timing` は A:D を結合し `Holt Total Label`。E は `=COUNTIFS(E7:E10,"Count",F7:F10,0,F7:F10,"<>")+COUNTIFS(E7:E10,"Count",F7:F10,1)`（判定が揃った件数）、F は `=COUNTIFS(E7:E10,"Count",F7:F10,1)`（遅延件数）。E と F は `Holt Total Count`、G は `=IF(E11=0,"",F11/E11)` と `Holt Total Share`。H に `Holt Total Label` で `Late / counted orders` を表示し、A:D のラベルに点検範囲を書く。集計前に E 列の `Count` 件数と E の集計値が一致するか照合する。
+- `Savings checks` は A:B と G:H をそれぞれ結合し `Holt Total Label`。C〜E は `Holt Total Amount`。C に `=SUMIFS(C7:C10,F7:F10,"Confirmed",E7:E10,"<>")`、D に同じ条件を D 列に適用した式、E に集計した C−D を入れる。F は `=IF(C11=0,"",E11/C11)` と `Holt Total Share`。G:H は `Realised / verified basis` とし、注記に確認済みの対象範囲を書く。
+
+集計行は高さ25 pt以上。注記は次行の A:H を結合して `Holt Note` を適用し、27 pt以上とする。フィルタを `A6:H<明細最終行>`、印刷範囲を `A1:H<集計・注記を含む最終行>` にする。A4横、横1ページ・縦自動。続頁で6行目を繰り返し、管理番号の末尾と隣接欄、連番や金額の次に来る文字列、集計のラベル、続頁の見出しを全ページで点検する。
