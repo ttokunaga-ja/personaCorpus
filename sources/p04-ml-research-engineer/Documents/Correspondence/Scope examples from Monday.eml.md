@@ -23,5 +23,5 @@ Thanks for checking whether the examples reflect what we read together.
 Vanessa
 
 Attachments:
-- What the no belongs to.pdf
+- Negation scope counterexamples.pdf
 - Scope decisions by first read.tsv

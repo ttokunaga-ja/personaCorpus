@@ -21,4 +21,4 @@ Please bring an example where the same word appears but the sender wants a diffe
 Thanks,
 Vanessa
 
-Attachments: Jan 12 reading packet notes.pdf
+Attachments: Jan 12 - Intake error reading guide.pdf

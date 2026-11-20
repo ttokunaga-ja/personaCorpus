@@ -24,4 +24,4 @@ Vanessa
 
 ## 添付
 
-- Inspection classification for July 28.pdf — `Documents/長文点検記録分類/Long-documents/Inspection classification for July 28.pdf`
+- Jul 28 - Inspection scope proposal.pdf — `Documents/長文点検記録分類/Long-documents/Jul 28 - Inspection scope proposal.pdf`

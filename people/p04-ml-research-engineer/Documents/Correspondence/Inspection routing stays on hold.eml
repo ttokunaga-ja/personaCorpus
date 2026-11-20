@@ -39,7 +39,7 @@ Vanessa
 Content-Type: application/pdf
 Content-Transfer-Encoding: base64
 Content-Disposition: attachment;
- filename="Inspection use decision - August 11.pdf"
+ filename="Aug 11 - Inspection use decision.pdf"
 MIME-Version: 1.0
 
 JVBERi0xLjUKJczVwdTF2NDExgoxIDAgb2JqCjw8L0ZvbnQ8PC9GNDcgNCAwIFIvRjQ2IDUgMCBS
@@ -699,7 +699,7 @@ YW0gCmVuZG9iagoKc3RhcnR4cmVmCjM2NjQ5CiUlRU9G
 Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 Content-Transfer-Encoding: base64
 Content-Disposition: attachment;
- filename="August costs at the same monthly volume.xlsx"
+ filename="Aug 11 - Matched-volume costs.xlsx"
 MIME-Version: 1.0
 
 UEsDBBQAAAAIAKBUC13flIaonwAAANsAAAAQAAAAZG9jUHJvcHMvYXBwLnhtbE2OTQvCMAxA/0rp

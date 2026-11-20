@@ -32,6 +32,6 @@ On Thu, Aug 8, 2024 at 9:38 AM Vanessa Nguyen <vanessa@mercer-document.example> 
 > Thanks,
 > Vanessa
 >
-> Attachment: Conditions for the August routing replay.pdf
+> Attachment: August routing replay conditions.pdf
 
 Attachments: none

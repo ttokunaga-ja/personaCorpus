@@ -21,4 +21,4 @@ In particular, please see whether the text makes it clear that both scores use t
 Thanks,
 Vanessa
 
-Attachments: Comparison conditions for the editor copy.xlsx
+Attachments: Short intake comparison conditions.xlsx

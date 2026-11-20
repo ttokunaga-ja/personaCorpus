@@ -36,4 +36,4 @@ On Fri, Jul 25, 2025 at 10:36 AM Vanessa Nguyen <vanessa@mercer-document.example
 
 ## 添付
 
-なし。引用元のメールには Inspection classification for July 28.pdf が添付されていた。
+なし。引用元のメールには Jul 28 - Inspection scope proposal.pdf が添付されていた。

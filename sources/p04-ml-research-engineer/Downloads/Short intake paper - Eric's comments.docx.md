@@ -4,7 +4,7 @@ kind: mercer-research-note.docx
 author: Vanessa Nguyen
 modified_by: Eric Sandoval
 created: 2026-04-20 16:44
-derived_from: Documents/Publications/Revision/Short intake paper - conditions added.docx
+derived_from: Documents/Publications/Revision/Short intake paper - April revision.docx
 ---
 
 The body and issue information are unchanged. The retained management fields are:

@@ -23,4 +23,4 @@ Please let me know if anything in the editable files needs clarification for the
 Best,
 Vanessa
 
-Attachments: Short intake paper - Sep 17.docx; Response to the final methods comments.docx; Locations of the September edits.xlsx
+Attachments: Sep 17 - Short intake paper R03.docx; Response to the final methods comments.docx; Locations of the September edits.xlsx

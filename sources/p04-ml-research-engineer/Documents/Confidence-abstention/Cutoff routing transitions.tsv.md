@@ -1,0 +1,15 @@
+---
+path: Documents/Confidence-abstention/Cutoff routing transitions.tsv
+kind: text
+author: Vanessa Nguyen
+derived_from:
+---
+
+```tsv
+Destination at 0.60	Destination at 0.45	Documents	Saved prediction differs from reference	Saved prediction matches reference
+Hold	Hold	72	15	57
+Hold	Automatic	72	7	65
+Automatic	Automatic	656	78	578
+Automatic	Hold	0	0	0
+```
+

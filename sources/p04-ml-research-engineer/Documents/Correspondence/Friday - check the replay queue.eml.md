@@ -22,4 +22,4 @@ Thanks,
 Vanessa
 
 Attachments:
-- Conditions for the August routing replay.pdf
+- August routing replay conditions.pdf

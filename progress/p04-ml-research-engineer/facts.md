@@ -49,7 +49,7 @@
 ## 4月17日の再評価報告
 
 - 4月の案件分割の線形分類器 macro-F1 は0.832、多数クラス基準は0.021（各935文書）。旧0.851は比較値として撤回済みであり、丸め値の差0.019は別の割付・別の評価集合をまたぐため、漏洩の効果量には使わない。
-- “April intake rerun for our review” は Vanessa → Michael（Cc Fatima）、4月17日11:48 PDT。報告 `MDR-STI-20250417-RM-01-R01` の “Case split reevaluation Apr 17.pdf” と “January score withdrawn April rerun.png” を添付する。14:00にこの3人で報告を確認し、0.832の引用に評価条件を付けると決めた。
+- “April intake rerun for our review” は Vanessa → Michael（Cc Fatima）、4月17日11:48 PDT。報告 `MDR-STI-20250417-RM-01-R01` の “Apr 17 - Case split reevaluation.pdf” と “Intake scores by split method.png” を添付する。14:00にこの3人で報告を確認し、0.832の引用に評価条件を付けると決めた。
 
 ## 5月の分割台帳の出所点検
 
@@ -59,7 +59,7 @@
 ## 長文点検記録の対象確定と区画の固定
 
 - 2025-07-28 14:00 PDT、Vanessa・Michael・Fatima・Joshua が対象を確認。Michael が長文点検記録2,400件・8分類の研究開始を承認し、短文課題と別の母数で管理する。開始提案は `MDR-LDI-20250725-RP-01-R01`、対象文書説明は `MDR-LDI-20250731-DD-01-R01`。
-- 1通目 “Which inspection records count” は Vanessa → Michael、7月25日10:36 PDT。“Inspection classification for July 28.pdf” を添付。2通目 “Re: Which inspection records count” は Michael → Vanessa、7月28日15:16 PDT。1通目を引用し、返信側に新しい添付はない。アドレスは既出の `vanessa@mercer-document.example` と `michael@mercer-document.example`。
+- 1通目 “Which inspection records count” は Vanessa → Michael、7月25日10:36 PDT。“Jul 28 - Inspection scope proposal.pdf” を添付。2通目 “Re: Which inspection records count” は Michael → Vanessa、7月28日15:16 PDT。1通目を引用し、返信側に新しい添付はない。アドレスは既出の `vanessa@mercer-document.example` と `michael@mercer-document.example`。
 - 1記録は点検票1件。冒頭の状態、途中の所見、追記、最終処置、署名を含む本文を使い、台帳の系列キーと構造化正解ラベルは入力の外。正解は署名時に有効な処置を表す8分類のうち1つで、取り消された指示や過去の引用と区別する。
 - 分類順は Repair required / Repeat inspection / Remove from service / Engineering review / Routine closeout / Monitor at next service / Record correction / No equipment finding。先頭4分類を要処置とする。判定手引きは `MDR-LDI-20250805-GD-01-R01`。
 - Joshua と Fatima が8月7日に、同じ機器の原点検・再点検・訂正でつながる系列を分けず、学習1,440／開発480／評価480件で固定。区画間の共有系列は0で、固定後の窓の検討は開発区画で行う。
@@ -88,8 +88,8 @@
 - 合議で否定の作用域に関わる41件は、動作の拒否18、属性の否定14、代わりの依頼9。明示された別の動作を求めるものを「代わりの依頼」、動作自体の拒否と日付など属性だけの拒否は別区分とし、1文書は1区分に数える。
 - 合議後の上記3区分の、両者の当初の作用域フラグの一致／不一致は順に12／6、10／4、7／2（計29／12）。残る119件は102／17で、同じ原因とみなさず文面ごとの根拠を記録する。
 - 考察の旧稿は `MDR-STI-20260108-RM-01-R01`（1月8日）、一括説明を撤回した改稿は同系列の `MDR-STI-20260108-RM-01-R02`（Issued 2月6日）。41件は読解上の観察で、モデル内部の原因を実証したものではない。
-- 独立した連絡 “Reading the intake misses on Monday” は Vanessa → Nicole（Cc Fatima）、1月9日10:38 PST。Jan 12 reading packet notes.pdf を添付。
-- 独立した連絡 “Scope examples from Monday” は Vanessa → Nicole、1月15日11:12 PST。What the no belongs to.pdf と Scope decisions by first read.tsv を添付。
+- 独立した連絡 “Reading the intake misses on Monday” は Vanessa → Nicole（Cc Fatima）、1月9日10:38 PST。Jan 12 - Intake error reading guide.pdf を添付。
+- 独立した連絡 “Scope examples from Monday” は Vanessa → Nicole、1月15日11:12 PST。Negation scope counterexamples.pdf と Scope decisions by first read.tsv を添付。
 
 ## 編集者向け初稿の比較条件点検と送付日変更
 
@@ -98,7 +98,7 @@
 - 6項目の順は (1) 案件分割と非重複 (2) 共通の採点対象と参照ラベル (3) 受信本文のみの入力 (4) 開発区画だけでの特徴・設定選択 (5) 学習多数クラス基準 (6) 12分類の macro-F1 算定。値は既存の「案件単位の再割付と採点条件」「4月17日の再評価報告」に従う。
 - 条件表は `MDR-STI-20260427-AW-01-R01`（Issued 4月27日）。Vanessa が根拠を照合して6行を埋め、Emily が4月30日までに改稿中の反映箇所を確認。固定評価の比較と開発誤分類の読解を分けた。
 - 1通目 “Moving the short intake draft to May 15” は Vanessa → Eric Sandoval（`eric@ellis-technical.example`）、4月23日15:12 PDT。2通目 “Re: Moving the short intake draft to May 15” は Eric → Vanessa、4月24日09:34 PDT。1通目を引用して新日程を了承する。両方とも添付なし。
-- 独立した連絡 “Six conditions to check in Methods” は Vanessa → Emily（`emily@mercer-document.example`、Cc Michael）、4月28日09:48 PDT。Comparison conditions for the editor copy.xlsx を添付。
+- 独立した連絡 “Six conditions to check in Methods” は Vanessa → Emily（`emily@mercer-document.example`、Cc Michael）、4月28日09:48 PDT。Short intake comparison conditions.xlsx を添付。
 
 ## 6月の低信頼度分類の保留閾値と読解
 
@@ -110,13 +110,13 @@
 - 戻る誤りは参照 Reschedule／予測 Schedule check が3件（CA-281・CA-342 は Shared inbox、CA-718 は Web form）、参照 Job status／予測 Cancel request が2件（CA-614 は Service desk relay、CA-547 は Shared inbox）、参照 Quote request／予測 New work request が2件（CA-390 は Web form、CA-433 は Shared inbox）。
 - CA-281 は “Thursday instead” が変更依頼で月曜の確認は背景。CA-614 は以前の取消に触れた後の “Has the pump repair been signed off?” が現在の照会。CA-390 は “what a replacement seal would cost” が見積依頼で作業は未発注。
 - 条件メモの初稿は `MDR-CA-20260603-RM-01-R01`（Issued June 3）。6月4日の Emily のコメント付き控えは初稿の発行情報を保持し、境界値の包含と捕捉の分母を指摘。確認後の改稿は同系列の `MDR-CA-20260603-RM-01-R02`（Issued June 9）。
-- 1通目 “Monday - read what comes off hold” は Vanessa → Emily（`emily@mercer-document.example`）、6月5日10:22 PDT。What counts as an error caught.pdf を添付。2通目 “Re: Monday - read what comes off hold” は Emily → Vanessa、同日11:08 PDT。1通目を引用し、添付なしで6月8日の読み方を確認する。
+- 1通目 “Monday - read what comes off hold” は Vanessa → Emily（`emily@mercer-document.example`）、6月5日10:22 PDT。Error capture metric definitions.pdf を添付。2通目 “Re: Monday - read what comes off hold” は Emily → Vanessa、同日11:08 PDT。1通目を引用し、添付なしで6月8日の読み方を確認する。
 
 ## 6月の用途判断と次回の確認条件
 
 - 6月11日14:00 PDTに Vanessa、Michael Serrano、Emily、Brandon Romero が研究会。Michael は用途採用を保留し現行の振分けに変更を入れない。Emily は次回の比較条件、Brandon は誤振分けの復旧担当・計測点、Vanessa は独立した次回評価案を6月19日までに持ち寄る。
 - 6月19日時点では、検知から正しい担当への受渡しまでを測る案を残した。正しい担当が受領した時刻の取得方法と許容する作業負担は未合意。次回の独立評価と復旧時間の計測はいずれも未実施。
-- “June routing review - measures and movement” は Vanessa → Michael（`michael@mercer-document.example`）・Brandon（`brandon@mercer-document.example`）、Cc Emily、6月12日09:26 PDTの独立した連絡。What counts as an error caught.pdf と Where the decisions moved.tsv を添付。
+- “June routing review - measures and movement” は Vanessa → Michael（`michael@mercer-document.example`）・Brandon（`brandon@mercer-document.example`）、Cc Emily、6月12日09:26 PDTの独立した連絡。Error capture metric definitions.pdf と Cutoff routing transitions.tsv を添付。
 
 ## M-14の7月評価集合と候補の選択
 
@@ -136,7 +136,7 @@
 ## R184の口頭発表資料と許可
 
 - 発表資料は `MDR-STI-20260715-LM-01-R01`（Issued July 15）の結果先行案から、Emily の7月15日14:00 PDTの読み合わせを経て、同系列 `MDR-STI-20260715-LM-01-R02`（Issued July 16）で集合・比較条件を先にした。
-- 1通目 “R184 figure and wording for the talk” は Vanessa → Michael、Cc Fatima、7月16日16:18 PDT。Intake talk - conditions before the score.pptx、R184 on the same July set.png、July 16 R184 frozen results.pdf、R184 run comparison.tsv を添付。PDF と TSV は社内の判断資料。
+- 1通目 “R184 figure and wording for the talk” は Vanessa → Michael、Cc Fatima、7月16日16:18 PDT。Jul 16 - R184 talk slides.pptx、R184 talk figure.png、Jul 16 - R184 fixed results.pdf、R184 run comparison.tsv を添付。PDF と TSV は社内の判断資料。
 - 2通目 “Re: R184 figure and wording for the talk” は Michael → Vanessa、Cc Fatima、7月16日17:11 PDT。1通目を引用し、返信自体の添付なし。Michael が許可したのは Applied Document Research Forum の口頭発表での R02 と 0〜1軸の指定図、同じ1,200文書の評価条件・差・分類によるばらつきの説明。
 - 本文例・固定報告・集計表の外部配布、会場外での再公開、用途採用・運用効果の主張は許可の範囲外。6月に保留した用途判断はこの評価で進めず、誤振分けの復旧時間は未計測。
 
@@ -166,7 +166,7 @@
 
 - 2026年8月11日14:00 PDT、Vanessa Nguyen と Brandon Romero が同じ月100,000原記録で費目を再計算し、二度読み案は上限をUSD 300超過と確認。研究結果は保持し、用途採用は保留して現行の担当者確認を続ける。判断文書は8月12日発行 `MDR-LDI-20260812-RM-01-R01`。
 - 独立した事前連絡 “For two - August inspection costs” は8月11日13:06 PDT、Vanessa → Brandon。“Can the second read fit in August.pptx” を添付。
-- 1通目 “Inspection routing stays on hold” は8月12日11:18 PDT、Vanessa → Michael、Cc Brandon。“Inspection use decision - August 11.pdf” と “August costs at the same monthly volume.xlsx” を添付。
+- 1通目 “Inspection routing stays on hold” は8月12日11:18 PDT、Vanessa → Michael、Cc Brandon。“Aug 11 - Inspection use decision.pdf” と “Aug 11 - Matched-volume costs.xlsx” を添付。
 - 2通目 “Re: Inspection routing stays on hold” は8月13日09:42 PDT、Michael → Vanessa、Cc Brandon。本文の引用・添付はなし。両通の Message-ID は順に `<b38e1b4d-f8c4-41dc-9ee4-840cf70d5327@mercer-document.example>` と `<8bfd5d87-d24d-4a6d-9dda-12e2d7cec825@mercer-document.example>`。2通目の In-Reply-To と References に1通目のIDを入れる。
 - Brandon はピーク時の到着と費用の計測、Vanessa は遅延・誤振分け時の人への引き継ぎを8月25日までに論点化する。8月21日の指摘で初回予測を自動で返す案を外し、確認担当への引き継ぎは未実装の計測案に留める。
 - 8月25日14:00 PDT、Vanessa、Michael、Brandon、Emily、Fatima が保留を維持。Brandon は時間帯別の到着・処理時間、Emily と Fatima は別系列での見落とし・誤警報、Vanessa は確認担当と復旧工数を追う。応答時間と許容負担の基準、再審議日は未設定。
@@ -186,7 +186,7 @@
 - 送付用改訂稿は `MDR-STI-20260420-RM-01-R03`、回答書は `MDR-STI-20260917-RM-01-R01`、9件の箇所照合表は `MDR-STI-20260917-AW-01-R01`（いずれも Issued September 17, 2026）。ローカルの改訂稿PDFは同じ R03 の Word 出力。
 - 独立した受領メール “Short intake copy back from Ellis” は9月8日09:21 PDT、Eric → Vanessa。“Short intake paper - Eric's comments.docx” を添付。
 - 独立した受領メール “Nine final points on short intake” は9月9日10:18 PDT、Nicole → Vanessa。“Short intake final methods comments.pdf” を添付。
-- 1通目 “Short intake revision for Ellis” は9月17日11:26 PDT、Vanessa → Eric。“Short intake paper - Sep 17.docx”、“Response to the final methods comments.docx”、“Locations of the September edits.xlsx” を添付。ページ確認用PDFと注釈画像は手元用。
+- 1通目 “Short intake revision for Ellis” は9月17日11:26 PDT、Vanessa → Eric。“Sep 17 - Short intake paper R03.docx”、“Response to the final methods comments.docx”、“Locations of the September edits.xlsx” を添付。ページ確認用PDFと注釈画像は手元用。
 - 2通目 “Re: Short intake revision for Ellis” は9月18日09:46 PDT、Eric → Vanessa。3添付の受領と編集工程への引き渡しを知らせる。本文の引用なし、新規添付なし、採否は未定。
 - 改訂稿返送2通の Message-ID は順に `<b2e78d44-5287-4802-9e49-b311fb296fc3@mercer-document.example>`、`<6fabe157-f37d-4244-80f5-dd27a01b17b5@ellis-technical.example>`。返信の In-Reply-To・References は1通目のID。
 
@@ -207,7 +207,7 @@
 - 確認待ちは正解122＋誤り22＝144、自動側は正解578＋誤り78＝656。誤分類捕捉率22/100＝22%、確認待ち率144/800＝18%。捕捉は分類の訂正を意味しない。
 - 確認待ちの正解／誤りは Web form 49／10、Shared inbox 49／9、Service desk relay 24／3。各入口の確認待ち合計は59／58／27。
 - 8月9日14:00 PDTに Vanessa と Emily Chen は各セルから1例ずつ計4例を持ち寄り、先に本文の動作を読み、保存予測と参照ラベルを突き合わせた。Vanessa は 8月14日に Michael と Brandon に144件の負担を伝え、現行の受付を維持し閾値を再検討する。
-- 1通目 “Friday - check the replay queue” は Vanessa → Emily、2024-08-08 09:38 PDT。Conditions for the August routing replay.pdf を添付。2通目 “Re: Friday - check the replay queue” は Emily → Vanessa、同日10:51 PDT。1通目を引用し、添付なし。
+- 1通目 “Friday - check the replay queue” は Vanessa → Emily、2024-08-08 09:38 PDT。August routing replay conditions.pdf を添付。2通目 “Re: Friday - check the replay queue” は Emily → Vanessa、同日10:51 PDT。1通目を引用し、添付なし。
 
 ## 9月の短文大型案の開発比較と同量の計時（2024年）
 
@@ -221,4 +221,4 @@
 - 10月8日午前に Vanessa と Brandon Romero が全経路を共通の端点に揃えた。ワーカー配賦単価は両案 USD 1.20/時。各回1,000受付から10,000受付に換算して線形 USD 0.3333、大型 USD 0.7000（表示4桁）、丸め前の単位費用の比は2.10。
 - 10月3日の作業稿 `MDR-STI-20241003-LM-01-R01` の費用比較を、10月8日発行の `MDR-STI-20241003-LM-01-R02` で1.50倍から2.10倍へ差し替えた。開発結果の表は同じ。
 - 10月8日14:00 PDTに Vanessa、Michael Serrano、Brandon、Emily が研究会。Michael は大型案を自動受付用途に不採用とし、Vanessa が研究用の比較結果と確定試算、Emily が計時表を残す。8月試行の閾値はこの場で決めない。
-- “October intake decision and timing sheet” は Vanessa → Michael・Brandon（Cc Emily）、2024-10-09 10:47 PDTの独立した連絡。Where the bigger model stays.pdf と Intake cost at equal volume.xlsx の2本を添付する。
+- “October intake decision and timing sheet” は Vanessa → Michael・Brandon（Cc Emily）、2024-10-09 10:47 PDTの独立した連絡。Larger model decision memo.pdf と Intake cost at equal volume.xlsx の2本を添付する。

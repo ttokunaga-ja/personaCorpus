@@ -25,5 +25,5 @@ Vanessa
 
 ## 添付
 
-- What counts as an error caught.pdf — `Documents/Confidence-abstention/What counts as an error caught.pdf`
-- Where the decisions moved.tsv — `Documents/Confidence-abstention/Where the decisions moved.tsv`
+- Error capture metric definitions.pdf — `Documents/Confidence-abstention/Error capture metric definitions.pdf`
+- Cutoff routing transitions.tsv — `Documents/Confidence-abstention/Cutoff routing transitions.tsv`

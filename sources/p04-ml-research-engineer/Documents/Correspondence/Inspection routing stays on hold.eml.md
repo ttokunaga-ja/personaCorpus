@@ -25,5 +25,5 @@ Vanessa
 
 ## 添付
 
-- Inspection use decision - August 11.pdf — `Documents/長文点検記録分類/Cost-discussions/Inspection use decision - August 11.pdf`
-- August costs at the same monthly volume.xlsx — `Documents/長文点検記録分類/Cost-discussions/August costs at the same monthly volume.xlsx`
+- Aug 11 - Inspection use decision.pdf — `Documents/長文点検記録分類/Cost-discussions/Aug 11 - Inspection use decision.pdf`
+- Aug 11 - Matched-volume costs.xlsx — `Documents/長文点検記録分類/Cost-discussions/Aug 11 - Matched-volume costs.xlsx`

@@ -23,9 +23,9 @@ The report gives the conditions and the reason for withdrawal. I suggest we use 
 Vanessa
 
 Attachments:
-- Case split reevaluation Apr 17.pdf
-- January score withdrawn April rerun.png
+- Apr 17 - Case split reevaluation.pdf
+- Intake scores by split method.png
 
 Actual attachments:
-- Documents/短文受付意図分類/Measurements/Case split reevaluation Apr 17.pdf
-- Pictures/Charts/January score withdrawn April rerun.png
+- Documents/短文受付意図分類/Measurements/Apr 17 - Case split reevaluation.pdf
+- Pictures/Charts/Intake scores by split method.png

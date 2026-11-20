@@ -22,5 +22,5 @@ Thanks,
 Vanessa
 
 Attachments:
-- Where the bigger model stays.pdf
+- Larger model decision memo.pdf
 - Intake cost at equal volume.xlsx

@@ -4,6 +4,7 @@ period: 2024-04-01..2026-09-30
 timezone: America/Los_Angeles
 allowed_terms: batch size, synthetic data, scope of experiment
 photo_dirs: Pictures
+date_prefix: Mon D -
 ---
 
 # p04 ML リサーチエンジニア
@@ -111,6 +112,24 @@ Pictures/
 Documents/Correspondence/                   レビュー依頼と発表許可メール
 ```
 
+
+## 名前の付け方
+
+- ファイル名は英語。議事録や手元の確認メモを日付で探すときは、英語の月略称、ゼロ埋めしない日、半角スペースで挟んだハイフンの順で先頭に置く。年別の研究会フォルダでは年を省き、日付フォルダではフォルダと同じ日付をファイル名から省く。
+- 報告書や図表は、実験名・ラン番号・比較条件と資料の種類で探せるようにする。同じ報告の下書き・コメント付き控え・改訂稿は、版や相手の名前で見分ける。英単語の間はスペースを使う。
+- 読み返す板書写真には論点を付け、控えの写真や撮ったままのスクリーンショットは機器の名前を残す。Downloads の添付資料は送付元の名前を残し、表の出力も元の名前で見分けられる間はそのまま保存する。保存メールは件名を使い、返信の `Re:` は `Re ` とする。件名の冒頭の日付が締切を指すときは、差出人を前に添えることもある。
+- 拡張子を除いて40文字までとし、保存メールは60文字までとする。名前に付ける連続した数字は4桁まで。
+
+| 使い方 | 例 |
+|---|---|
+| 研究会の議事録 | `Jul 16 - R184 comparison signoff.docx` |
+| 固定評価の集計表 | `R184 results by intent.csv` |
+| 編集者から返った添付資料 | `Short intake paper - Eric's comments.docx` |
+| 保存メールの返信 | `Re R184 figure and wording for the talk.eml` |
+| 話題で引く板書写真 | `Sep 11 - Input windows whiteboard.jpg` |
+| 撮ったままの板書写真 | `IMG_0473.jpg` |
+| 撮ったままのスクリーンショット | `Screenshot 2026-07-16 at 13.42.08.png` |
+| ダウンロードした表 | `export_2026-07.csv` |
 
 ## 形式の目安
 

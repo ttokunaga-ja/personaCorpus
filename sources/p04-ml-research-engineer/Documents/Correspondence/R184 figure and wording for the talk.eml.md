@@ -27,7 +27,7 @@ Vanessa
 
 ## 添付
 
-- Intake talk - conditions before the score.pptx — `Documents/Lab-meetings/2026/Intake talk - conditions before the score.pptx`
-- R184 on the same July set.png — `Desktop/R184 on the same July set.png`
-- July 16 R184 frozen results.pdf — `Documents/短文受付意図分類/Measurements/July 16 R184 frozen results.pdf`
+- Jul 16 - R184 talk slides.pptx — `Documents/Lab-meetings/2026/Jul 16 - R184 talk slides.pptx`
+- R184 talk figure.png — `Desktop/R184 talk figure.png`
+- Jul 16 - R184 fixed results.pdf — `Documents/短文受付意図分類/Measurements/Jul 16 - R184 fixed results.pdf`
 - R184 run comparison.tsv — `Documents/短文受付意図分類/Measurements/R184 run comparison.tsv`
