@@ -693,7 +693,9 @@ fn slides_without_notes(parent: &str, request: &str) -> bool {
             first.split_inclusive('。').any(|sentence| {
                 matches!(
                     sentence.trim(),
-                    "発表者ノートを含めない。" | "発表者ノートは含めない。"
+                    "発表者ノートを含めない。"
+                        | "発表者ノートは含めない。"
+                        | "発表者ノートは配布 PDF に含めない。"
                 )
             })
         })
@@ -3261,6 +3263,7 @@ mod handout_and_revision_tests {
         let body = "Sales\nSpeaker notes: private\n発表者メモ：補足\nCosts";
         for request in [
             "違いなし",
+            "全スライドのスライド面は元の v1.0 と同じ。発表者ノートは配布 PDF に含めない。",
             "The eight slide faces are unchanged and in the same order. Export the slide faces only; omit speaker notes. No post-meeting additions.",
         ] {
             assert_eq!(print_source("deck.pptx", body, request), "Sales\nCosts");
