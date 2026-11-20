@@ -1,0 +1,8 @@
+---
+path: Documents/月次/2026/2026-01/CFO締め報告_配布用.pdf
+kind: office:cedar-close-report.pptx
+author: 千田 真理子
+derived_from: Documents/月次/2026/2026-01/CFO締め報告.pptx
+---
+
+違いなし。2026年1月締め報告の版1.0、全6枚を上記PowerPointから直接PDFに変換する。

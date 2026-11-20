@@ -4,6 +4,7 @@ period: 2024-04-01..2026-09-30
 timezone: Asia/Tokyo
 allowed_terms: batch payment, payment batch, batch number, scope of audit, audit scope, scope of work, synthetic lease
 photo_dirs: Pictures
+date_prefix: YYYY-MM_
 ---
 
 # p14 財務コントローラー
@@ -13,7 +14,7 @@ photo_dirs: Pictures
 - **Mariko Senda（千田 真理子）**、Cedar Works 株式会社 経理財務部 コントローラー。入社 9 年目、現職 3 年目。
 - PC は会社支給の Windows 11 ノート。Excel が仕事の中心で、Outlook、Teams、PowerPoint、ERP（社内呼称「Ledgerline」）の Web 画面を使う。
 - 言語は日本語と英語。社内の資料とメモは日本語、親会社（米国）への報告と監査法人のグローバル書式は英語。金額は円、親会社向けは米ドル換算を併記する。
-- 月次の作業は「年月」のフォルダで分け、ファイル名は `2026-03_現預金調整.xlsx` のように年月を先頭に付ける。作業中のものは Desktop に置き、締めが終わると Documents に移す。移し忘れた古い版（`_v2`、`_確認用`、`_千田修正`）が残っている。
+- 月次の作業は「年月」のフォルダで分ける。作業中のものは Desktop に置き、締めが終わると Documents の該当月に移す。移し忘れた古い版（`_v2`、`_確認用`、`_千田修正`）が残っている。
 
 ## 組織と関係者
 
@@ -128,6 +129,21 @@ OneDrive - Cedar Works/
 Outlook 保存/                保存したメール（eml）。相手や案件ごとのフォルダ
 Pictures/                    スクリーンショット、棚卸立会いの写真、ホワイトボードの写真
 ```
+
+## 名前の付け方
+
+手で名前を付けるとき、月で探すものは対象の年月を `YYYY-MM_` で先頭に置く。締めや報告では作成月よりも会計期間を使う。月次・支払などの年月フォルダに入れたら、同じ年月は省く。社内資料は日本語、親会社報告は英語で、文書の種類、相手や案件、必要な版を短く付ける。補足を付けるときはアンダースコアで区切る。
+
+写真や画面の控えは、よく開く証憑だけ案件名や画面名を付け、撮ったままのものはカメラや Windows が付けた名前で残す。Downloads では ERP の出力名や受け取った添付名も使う。Outlook 保存では案件のフォルダに件名かその短い形で残し、返信の `Re:` は `Re_` にする。
+
+- `2026-03_現預金調整_確認用.xlsx`（Desktop の作業版）
+- `現預金調整.xlsx`（月次の `2026-03` フォルダに置く締め版）
+- `北斗合板_請求書HK-2511-084-R1.pdf`（仕入先と訂正後の請求番号で探す紙の控え）
+- `2026-03_Monthly Financial Review.pdf`（親会社への英語報告）
+- `IMG_0412.jpg`（静岡の棚卸立会いで撮った写真）
+- `Screenshot (42).png`（精算ポータルの照会画面の保存名）
+- `ap_vendor_balance_2026-02.csv`（Ledgerline の仕入先残高出力）
+- `2026-06_Re_原価と先行手配.eml`（予測の案件フォルダに置く返信）
 
 ## 形式の目安
 
