@@ -1,0 +1,8 @@
+Event date,Time GMT,Process,Event,Evidence reference,Status
+2026-03-06,15:42,Supplier accounts,Statement received,Supplier month-end statement,Received; after 15:00 window
+2026-03-09,10:25,Supplier accounts,Reconciliation completed,Supplier month-end statement; AP close log,Complete
+2026-03-09,09:18,Stock cutoff,GRNI extract received,Initial GRNI extract,Held; unsigned
+2026-03-09,11:26,Stock cutoff,Replacement received,Signed GRNI extract,Usable
+2026-03-09,13:10,Stock cutoff,Reconciliation completed,Signed GRNI extract; Stock Finance close log,Complete
+2026-03-10,10:37,Close pack,Pack circulated,Close pack circulation record,Circulated
+2026-03-10,14:48,Close pack,Pack approved,Finance approval history,Approved

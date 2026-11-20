@@ -234,3 +234,31 @@
 - 「August dispatch rows for the handover」9月3日13:22 BST、Meera → Connor（Cc Nicholas、Neha）、August - Order dispatch extract.csv を実添付。独立した送付。
 - 「Can Buying trace these two August lines」9月11日13:11 BST、Deepa → Meera（Cc Nicholas）、10 Sep - Price proof for the two held lines.xlsx を実添付。9月15日14:18 BST「Re: Can Buying trace these two August lines」、Meera → Deepa（Cc Nicholas）が元の問いを引用、新規添付なし。
 - 「Final results and the Buying checks」9月18日15:48 BST、Nicholas → Meera（Cc Neha、Deepa）。独立した送付で、確定報告PDF、発注明細CSV、確定の点検XLSX・手順DOCX・画面注記PNGの5点を実添付。
+
+## Denton の月次締め比較の境界と日程
+
+- 1月22日、Angela Wilkins が日程 DPF-FIN-CAL-2026-001 v1.0 を発行。1月26日に Angela・Nicholas・Connor が D1 を月末後の第1営業日、終点を Angela の締めパック承認日（当日を含む）と決めた。
+- Denton の時刻は GMT。土日と England and Wales の祝日を除く。証憑の当日照合枠は15:00、パック回付締切は11:00、Angela の当日承認枠は15:00。
+- 従来の2025年12月締めは2026年1月2日 D1〜1月14日 D9（10:42回付、14:36承認）。1月13日 D8 のパック組立は途中の時刻で、1月28日の暫定表にだけ終点候補として残った。
+- 従来の仕入先明細は1月12日 D7 15:49着・13日 D8 10:19照合、在庫証憑は13日 D8 11:28着・13:08照合。Angela が2月2日に元の時刻をイベント抜粋で渡した。
+- 2月締め試行は3月2日 D1〜3月10日 D7（10:37回付、14:48承認）。目標は3月9日 D6。比較はD9→D7で2営業日短縮、目標との差は1営業日。
+
+## Denton の二つの照合待ちと顧客側の点検
+
+- 仕入先勘定（Accounts Payable）は3月6日 D5 15:42の明細着で当日の15:00枠を過ぎ、3月9日 D6 10:25に照合完了。D6の11:00回付には間に合う時刻だった。
+- 在庫カットオフ（Stock Finance）は3月9日 D6 09:18着が署名なし、11:26着の差替えが利用可能で13:10に照合完了。D6の11:00回付を過ぎ、パックはD7へ繰り越し。
+- 仕入先は対象月と口座が一致し月末残高のある仕入先明細、在庫は締め対象日・受領参照・署名のある GRNI（Goods Received Not Invoiced）抜粋を受領・検証して照合を再開する。
+- 次回用の点検表に保留理由・担当・次回確認時刻を残し、回付日の11:00までにパック担当へ完了または保留を連絡する。試行で済んだ照合は完了、次回の実績欄は未記入。
+- 3月16日11:30の結果会は Angela・Nicholas・Connor・Neha が出席。Angela が Denton 側での点検を引き取り、Accounts Payable と Stock Finance が各工程を担当する。
+- HRA-DEN-CLOSE-BRF-2026-004 は3月11日 v0.2（Nicholas の説明案）、12日 v0.3（Elizabeth の赤字）、16日 v1.0（会議用 PPTX と回覧 PDF）。配布の点検手順は別文書 HRA-DEN-CLOSE-NTE-2026-001 v1.0、点検 XLSX は別添。
+
+## Denton の日程・イベント記録と結果の送付
+
+- 顧客窓口は Angela Wilkins <angela@denton-prepared-foods.example>。Nicholas は nicholas@holt-reeves.example、Connor は connor@holt-reeves.example。以下のメールは新規件名で、日時は GMT。
+- 1月22日09:24 Angela→Nicholas「Calendar for the February close trial」（Denton 日程 PDF）。2月2日10:11 Angela→Nicholas、Cc Connor「The December approval time」（12月イベント CSV）。
+- 3月10日15:22 Angela→Nicholas、Cc Connor「February trial event log」（2月試行イベント CSV）。3月16日15:05 Nicholas→Angela「February close results and the two desk checks」（結果 PDF、手順 PDF、点検 XLSX）。
+
+## Holt の Denton 出張費照合と振替
+
+- 2月10日 Teresa Green と Nicholas が仮配賦 GBP 1,340 を照合。別顧客の宿泊 GBP 220 を正しい請求先へ同日振り替え、Denton の社内請求根拠は GBP 1,120。振替理由と明細は Holt 内部の請求資料に限る。
+- Teresa <teresa@holt-reeves.example> → Nicholas、2月10日10:37 GMT「Move the extra hotel night」。照合済みの社内経費 XLSX を添付。

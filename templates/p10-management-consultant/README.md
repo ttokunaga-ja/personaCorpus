@@ -402,3 +402,13 @@ Nicholas が 2026 年 9 月 18 日に Meera に渡す報告では、削減実績
 - `Savings checks` は A:B と G:H をそれぞれ結合し `Holt Total Label`。C〜E は `Holt Total Amount`。C に `=SUMIFS(C7:C10,F7:F10,"Confirmed",E7:E10,"<>")`、D に同じ条件を D 列に適用した式、E に集計した C−D を入れる。F は `=IF(C11=0,"",E11/C11)` と `Holt Total Share`。G:H は `Realised / verified basis` とし、注記に確認済みの対象範囲を書く。
 
 集計行は高さ25 pt以上。注記は次行の A:H を結合して `Holt Note` を適用し、27 pt以上とする。フィルタを `A6:H<明細最終行>`、印刷範囲を `A1:H<集計・注記を含む最終行>` にする。A4横、横1ページ・縦自動。続頁で6行目を繰り返し、管理番号の末尾と隣接欄、連番や金額の次に来る文字列、集計のラベル、続頁の見出しを全ページで点検する。
+
+## Denton の月次締め試行
+
+| 型 | 組織と用途 | ファイル | 見た目 |
+|---|---|---|---|
+| Close calendar | Denton Prepared Foods Ltd。Angela Wilkins が Finance 内の締め日程を発行し、照合用に Nicholas へ渡す | `denton-close-calendar.cls` | A4縦。社名と締め担当部門、緑灰の罫線、淡い緑の発行欄、4列の日程表 |
+
+顧客の日程表は `tex:denton-close-calendar.cls` を使う。LuaLaTeX の入力に `\documentclass{denton-close-calendar}`、プリアンブルに `\dentoncontrol{日程表番号と版}{発行日}{発行者}` を指定する。日付は `22 Jan 2026` の形とし、番号と版は計画・台帳に従う。本文では `\dentontitle{表題}` と `\dentonsection{節見出し}` を使う。日程は `dentonschedule` に4つの列見出しを渡し、`\dentonentry{営業日}{日付}{工程と担当}{締切または証拠}` を実データ分追加する。日程の予定と確認済みの実績は節と列見出しで区別する。型のディレクトリを `TEXINPUTS` に追加し、末尾を `:` として `bin/tex` で組む。
+
+Holt の案件符号は `DEN-CLOSE`。定例の資料には Holt 共通の Word・PowerPoint の型、顧客向け点検手順には `holt-client-note.cls` を使う。日付・証憑の受領・照合・締め承認を突き合わせる Excel と Teresa の社内経費照合は、各担当者が明細にフィルタをかける `Working sheet`（型なし）を使う。営業日、時刻、GBP の列は目的に合わせて書式を分ける。
