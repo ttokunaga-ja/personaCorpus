@@ -4,3 +4,4 @@
 |---|---|---|---|
 | p18-manufacturing-quality-engineer | b010 | 監査 hold: progress/p18-manufacturing-quality-engineer/b010.audit.md | 2026-11-20T05:25:07.818737+00:00 |
 | p20-investigative-journalist | b008 | 監査 hold: progress/p20-investigative-journalist/b008.audit.md | 2026-11-20T05:37:54.788773+00:00 |
+| p10-management-consultant | b009 | 監査 hold: progress/p10-management-consultant/b009.audit.md | 2026-11-20T09:15:07.856213+00:00 |
