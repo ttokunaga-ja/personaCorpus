@@ -1,5 +1,46 @@
 # 統括の引継ぎ
 
+最終更新：2026-11-20（coordinator-r128）
+
+## いまの状態
+
+自動運転は稼働中。p18 b009は前回の指示どおり26件を受入し、保留解除済み。p06 b009が単独の保留。現物20件を確認し、主要なスキャンの親DOCXを保つためSolで原稿から再制作すると決めた。今回の操作前の受入は計5,362件。検査の緩和はない。
+
+| persona | 受入 | 累積破棄 |
+|---|---:|---:|
+| p01-software-engineer | 317 | 2 |
+| p02-site-reliability-engineer | 276 | 12 |
+| p03-security-grc-analyst | 249 | 19 |
+| p04-ml-research-engineer | 279 | 9 |
+| p05-bi-data-analyst | 287 | 11 |
+| p06-life-science-researcher | 217 | 16 |
+| p07-humanities-researcher | 190 | 8 |
+| p08-product-manager | 293 | 11 |
+| p09-ux-researcher | 249 | 8 |
+| p10-management-consultant | 229 | 15 |
+| p11-account-executive | 274 | 11 |
+| p12-support-success-lead | 291 | 2 |
+| p13-corporate-privacy-counsel | 296 | 24 |
+| p14-finance-controller | 318 | 135 |
+| p15-recruiter-people-ops | 302 | 12 |
+| p16-clinical-researcher | 238 | 10 |
+| p17-construction-project-manager | 327 | 57 |
+| p18-manufacturing-quality-engineer | 233 | 43 |
+| p19-educator-instructional-designer | 288 | 11 |
+| p20-investigative-journalist | 209 | 23 |
+
+## 次の手
+
+1. 記録、再計画差分、監査・印刷見本の指示を取り込む。p06 b009の再制作を起動して保留解除する。
+2. 再制作後の監査で、R00の印刷状態、スキャンの元原稿と注記、CSVの採用30行と比較10行、メール実添付3点を確認して受入を判断する。次回のp06テンプレート作成時にQCF・DECの汎用見本を新しい見本作成・レビュー指示で再確認する。
+3. p20 b007の再制作行は、進行中のp20 b008の受入後にroadmapで扱う。
+
+ユーザーに聞くことはない。
+
+検証：再計画の差分は本体の現行計画で git apply --check 成功。本体テストは初回が終了コード143で中断し、再実行で232件成功・既定除外3件。運用テスト2件成功。releaseビルド後、本体を指定した受入済み全件検査は passed: 5362, failed: 0, pending: 0, findings: 0, skipped OCR files: 0, elapsed: 216.69s。
+
+## 前回の記録（coordinator-r127）
+
 最終更新：2026-11-20（coordinator-r127）
 
 ## いまの状態
