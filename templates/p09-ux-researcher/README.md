@@ -16,10 +16,11 @@
 | 募集条件照合 | Carver、Carolyn。候補を符号で扱い、3条件の回答と最初に外れた条件を週次の募集会議で照合する | `carver-participant-eligibility.xlsx` | Letter 横、共通ロゴ、黒鉛色の6列見出しと麻色の集計欄。1候補1行で根拠欄を広く取る |
 | 配車追加調査の割当 | Carver、Brian と Jennifer。直近5勤務の交代頻度別に面談枠と配置の根拠を確認する | `carver-dispatch-allocation.xlsx` | Letter 横、共通ロゴと管理欄。面談枠を1行ずつ並べ、頻度別の小計を麻色で示す |
 | 面談の録音管理 | Carver、Ayesha と金子。許可の確認時刻、音声の消去日時または保存期限を対応させる | `carver-recording-register.xlsx` | Letter 横、共通ロゴと管理欄。音声の取扱いと日時の列を離し、確認者と用途を右端に置く |
+| 配車の観察場面と人数の照合 | Carver、Jennifer と Brian。場面、人数に含める行、確認できた範囲を突き合わせる | `carver-dispatch-findings.xlsx` | Letter 横、共通ロゴと管理欄。人数欄は右寄せ、隣の照合結果は1字下げ。人数の集計は麻色 |
 | 会場費精算 | Carver、Jennifer。運営が発行した紙の明細と会場ごとの申請額を照合する | `carver-venue-expenses.xlsx` | Letter 横、共通ロゴと黒鉛色の列見出し。USD は小数2桁を右寄せ、理由欄は折り返す |
 | 場面共有スライド | Carver、Jennifer。引継ぎの四場面、夜勤棚卸の再開、研修画面の文言案を説明 | `carver-field-brief.pptx` | 16:9、白地。小さな社名と図形ロゴを上に、ページの区切り線を下に置く。マスター1種・レイアウト5種 |
 | 質問試行用紙 | Carver、金子。読み合わせに使う旧質問を余白のある紙面に組む | `carver-pilot-questionnaire.cls` | Letter 縦。麻色の管理欄、煉瓦色の区間見出し、番号付きの日英対。手で削除や言い直しを書き込める質問間隔 |
-| 現地調査報告 | Carver、Jennifer。Ronald に観察範囲、中断と再開の根拠、再開位置の表示、他の勤務帯への留保を伝える | `carver-field-report.cls` | Letter 縦、表紙なし。共通ロゴと煉瓦色の見出し。麻色の管理欄に提出先を独立表示し、根拠を黒鉛色の見出し付きの二列表にできる |
+| 現地調査報告 | Carver、Jennifer。Ronald に棚卸の再開位置を、Christine に配車の保留理由を表示する場面と観察範囲を伝える | `carver-field-report.cls` | Letter 縦、表紙なし。共通ロゴ、本文幅で折り返す26ptの題、煉瓦色の見出し。麻色の管理欄に提出先を独立表示し、根拠を黒鉛色の見出し付きの二列表にできる |
 | 会場費明細 | Carver Research Operations、Carolyn。利用枠と取消料を紙で発行する | `carver-venue-statement.cls` | Letter 縦、共通ロゴ、右上に Venue Charge Statement、左下に Research Operations、黒鉛色の明細見出しと麻色の合計行 |
 | 配送計画画面の説明 | Oakridge Dispatch Cooperative、Christine。Dispatch Systems から渡された画面説明 PDF | `oakridge-screen-reference.cls` | Letter 縦。分岐する配送路の図形と社名、濃紺のセリフ体の題、氷青色の管理欄と表見出し |
 | 棚卸手順 | Kenton Contract Warehousing Inc、Ronald。Kenton 発の棚卸手順書や現場掲示の印刷原版 | `kenton-count-instructions.cls` | Letter 縦。アンバーの枠内に棚のマーク、太い上罫、濃い青灰の太字、薄い青灰の管理欄 |
@@ -32,6 +33,8 @@
 交代申し送り調査の案件コードは `HO`。参加案内は用途 `INV`、募集条件照合は `ELG` を使う。それ以外は共通の用途を使う。
 
 研修・精算の社内文書は案件コード `OPS`。運営の会場費明細は用途 `VEN`、精算表は `EXP`。配車の引用照合は案件 `DR`・用途 `XLT` とし、調査判断記録の型に「照合範囲」「引用対照」「配布範囲」の見出しと日英の実表を置く。他の文書にまたがる番号・版は事実の台帳と揃える。
+
+8月の配車追加調査では、照合表に配車の観察場面と人数の型を、留保を残す草稿に調査判断記録を使う。Christine への説明は場面共有スライド（`BRF`）、Carver が発行する共有報告は現地調査報告（`RPT`）。顧客からの質疑は EML、反例の読解メモは TXT、省いた仮説の記録は Markdown とする。表示位置の注釈図では提案箇所を明示する。
 
 ## Carver の書式
 
@@ -51,7 +54,7 @@
 
 ## Excel の成形
 
-`load_workbook(型のパス)` で開く。シート名は `Prompt review`。1行目にロゴ、2行目に題、3・4行目に管理欄、6行目に列見出し。明細・集計・注記は7行目から成形時に作る。
+`load_workbook(型のパス)` で開く。日英質問対照のシート名は `Prompt review`。Carver の各型では1行目にロゴ、2行目に題、3・4行目に管理欄、6行目に列見出しを置く。明細・集計・注記は7行目から成形時に作る。
 
 1. `B3:D3` の結合セルへ番号全文、`F3` へ版、`B4:C4` へ実日付（`yyyy-mm-dd`）、`E4:F4` へ作成者を入れる。3・4行目は24pt。入力先は空の状態で Noto Sans CJK JP 10pt、黒鉛色、左寄せ・インデント1、縦中央の設定を持つ。結合と幅を保ち、長い版名を使用するときは左右の管理欄をすべて埋めて印刷範囲内に収まるよう調整する。
 2. A列の順番は `CWR Integer`（整数・右寄せ）、B〜E列の文字は `CWR Text`（左寄せ・インデント1）、F列の聞き手向け注記は `CWR Note`（9pt、左寄せ・インデント1）。列幅は A〜F の順に10、22、34、34、17、31。見本は明細42pt。日英を読める長さまで折り返し、長い行の高さは個別に増やす。先頭の番号列から区間名が離れて読めるよう、B列のインデントを維持する。
@@ -81,15 +84,23 @@
 
 ### 配車追加調査の割当
 
-`carver-dispatch-allocation.xlsx` のシート `Dispatch allocation` を開く。共通管理欄の案件は `DR`、用途は `DEC`。6行目の既存列を使い、7行目から1枠1行で、A・C列は `CWR Integer`、B・D・E列は `CWR Text`、F列は `CWR Note` を使う。C列の0は確認済みの0回とし、未確認の空欄と分ける。
+`carver-dispatch-allocation.xlsx` のシート `Dispatch allocation` を開く。ブックの題名は `Dispatch follow-up allocation`。共通管理欄の案件は `DR`、用途は `DEC`。6行目の既存列を使い、7行目から1枠1行で、A・C列は `CWR Integer`、B・D・E列は `CWR Text`、F列は `CWR Note` を使う。C列の0は確認済みの0回とし、未確認の空欄と分ける。
 
 - 明細直後に原稿の頻度区分名ごとの小計（D列の `COUNTIF`）と合計（A列の `COUNT`）を置く。集計ラベルはB〜Cを結合し、`CWR Total` と本文の字下げを使う。面談担当の内訳を併記する場合は区分と担当を条件にして数える。
 
 ### 面談の録音管理
 
-`carver-recording-register.xlsx` のシート `Recording register` を開く。共通管理欄の案件は `DR`、用途は `DEC`。7行目から1面談1行で、A〜E列は `CWR Text`、F列は `CWR Note` を使う。B・D列は日時（`yyyy-mm-dd hh:mm`）、E列は日付（`yyyy-mm-dd`）。消去日時と期限のうち該当しない列は空欄にする。期限は面談日＋180日を式で持たせる。
+`carver-recording-register.xlsx` のシート `Recording register` を開く。ブックの題名は `Dispatch interview recording register`。共通管理欄の案件は `DR`、用途は `DEC`。7行目から1面談1行で、A〜E列は `CWR Text`、F列は `CWR Note` を使う。B・D列は日時（`yyyy-mm-dd hh:mm`）、E列は日付（`yyyy-mm-dd`）。消去日時と期限のうち該当しない列は空欄にする。期限は面談日＋180日を式で持たせる。
 
-- 明細直後に許可区分別の件数をC列の `COUNTIF` で置き、`CWR Total` を適用する。両方の型ともフィルターは A6:F最終明細行、ペインは B7、印刷は A1:F最終使用行。Letter 横・幅1頁・高さ自動で1〜6行を繰り返し、集計後に全印刷面を確認する。
+- 明細直後に24ptの行を作り、A列に許可区分別の件数を出すC列の `COUNTIF`、B列に許可区分名を置く。A〜F に `CWR Total` を適用し、B列に `CWR Text` の位置揃えをコピーする。割当表と録音管理表のフィルターは A6:F最終明細行、ペインは B7、印刷は A1:F最終使用行。Letter 横・幅1頁・高さ自動で1〜6行を繰り返し、集計後に全印刷面を確認する。
+
+### 配車の観察場面と人数の照合
+
+`carver-dispatch-findings.xlsx` のシート `Dispatch findings` を開く。共通管理欄の案件は `DR`、用途は `DEC`。列幅は A〜F の順に15、13、11、23、38、39。6行目の見出しの下に1場面1行で、A〜B列は `CWR Text`、C列は `CWR Integer`、D〜E列は `CWR Text`、F列は `CWR Note`。明細は38ptを目安にし、確認内容や留保の文量に合わせて行高を調整する。
+
+- A列は場面の参照、B列は参加者符号。C列は参加者ごとに人数集計の根拠とする1行だけを1、同じ人の残る場面は0とする。D列の参加者単位の照合結果は C が1の行に記載し、提言を支える観察、理由未確認、別項目のみ確認、保留場面なしなど、原稿の判定語で区別する。E・F列には場面ごとに確認できた内容と、その限界を置く。未確認や保留への未遭遇を明記する。
+- 明細直後に、A列へ照合結果ごとの `SUMIF(D7:D最終明細行,判定語,C7:C最終明細行)` と全参加者数の `SUM(C7:C最終明細行)` を置く。場面数を載せるときは別行で A列の `COUNTA` を使う。各行は24pt以上で、A〜F に `CWR Total`、B〜Dの結合ラベルに `CWR Text` の位置揃えを適用する。注記があれば次の行のA〜Fを結合し `CWR Note` で書く。
+- フィルターは A6:F最終明細行、ペインは B7、印刷範囲は A1:F最終使用行。Letter 横、幅1頁・高さ自動、1〜6行を繰り返す。管理欄を埋め、`bin/recalc` 後に `bin/render` で全頁を確認する。C列とD列、集計値とラベルの間隔を保つ。
 
 ### 会場費精算
 

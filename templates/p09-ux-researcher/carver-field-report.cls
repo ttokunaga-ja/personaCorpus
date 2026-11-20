@@ -29,7 +29,7 @@
 \renewcommand{\headrule}{{\color{CarverBrick}\hrule width\headwidth height .8pt\vskip-.8pt}}
 \newcommand{\CarverReport}[5]{%
   \hypersetup{pdftitle={#1},pdfauthor={#4}}%
-  {\fontsize{26}{31}\selectfont\bfseries #1\par}\vspace{6pt}%
+  {\raggedright\fontsize{26}{31}\selectfont\bfseries #1\par}\vspace{6pt}%
   \begingroup\setlength{\fboxsep}{8pt}\noindent\colorbox{CarverLinen}{%
     \parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
       \small #2\hfill #3\hfill #4\par
