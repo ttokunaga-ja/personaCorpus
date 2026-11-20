@@ -186,7 +186,7 @@ p20-investigative-journalist	b008	2026-11-20	36	3	1	0	0	accepted	13152.46
 p07-humanities-researcher	b007	2026-11-20	31	7	7	0	0	accepted	13075.16
 p10-management-consultant	b008	2026-11-20	30	10	7	5	1	accepted	10218.39
 p16-clinical-researcher	b010	2026-11-20	24	5	7	0	0	accepted	5423.22
-p18-manufacturing-quality-engineer	b010	2026-11-20	30	4	9	1	0	done	26071.65
+p18-manufacturing-quality-engineer	b010	2026-11-20	30	4	9	1	0	accepted	28622.50
 p09-ux-researcher	b009	2026-11-20	23	3	2	0	0	accepted	5665.17
 p09-ux-researcher	b010	2026-11-20	18	3	1	0	0	accepted	5822.82
 p06-life-science-researcher	b010	2026-11-20	26	3	2	1	1	accepted	8693.84
@@ -194,5 +194,5 @@ p16-clinical-researcher	b011	2026-11-20	22	3	3	0	0	accepted	5253.15
 p10-management-consultant	b009	2026-11-20	34	10	10	0	0	accepted	11705.95
 p07-humanities-researcher	b008	2026-11-20	34	5	8	0	0	accepted	20974.14
 p06-life-science-researcher	b011	2026-11-20	23	6	2	1	0	accepted	14243.04
-p07-humanities-researcher	b009	2026-11-20	26	7	0	3	0	done	18771.70
+p07-humanities-researcher	b009	2026-11-20	26	7	0	1	0	done	20268.59
 p20-investigative-journalist	b009	2026-11-20	28	6	1	0	0	accepted	6169.10
