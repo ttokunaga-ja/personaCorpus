@@ -1,0 +1,8 @@
+diff --git a/progress/p18-manufacturing-quality-engineer/b010.request.md b/progress/p18-manufacturing-quality-engineer/b010.request.md
+index 200e7809267645683a08c34eda9b6bac75706170..de814f7084278009f846b8cac183a122d2d33b4d 100644
+--- a/progress/p18-manufacturing-quality-engineer/b010.request.md
++++ b/progress/p18-manufacturing-quality-engineer/b010.request.md
+@@ -7 +7,3 @@
+ - 避けるもの：30個の個票化、打痕だけから輸送中の発生を断定すること、2026年6月の3ロットの確認と初品承認の先取り
++
++- 再制作で共有する現物の条件：GR-3080は胴外径約30 mm、突出軸を含む全長約48 mm。左を溝付き基準端（端面中央に穴）、右を細い突出軸として、初回の近接像・全景・現物票・試験用見本に共通させる。箱札側から3列×5枠を数えられる全景とする。箱を部分撮影するときは切取範囲が分かる構図にする。再提出の寸法は保管された集計値までを伝え、個別記録を補作しない。
