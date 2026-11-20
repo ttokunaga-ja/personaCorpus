@@ -4,6 +4,7 @@ period: 2024-04-01..2026-09-30
 timezone: Europe/London
 allowed_terms: scope of incident, batch processing, batch window
 photo_dirs: Pictures
+date_prefix: YYYY-MM-DD_
 ---
 
 # p02 サイト信頼性エンジニア
@@ -109,6 +110,20 @@ Documents/Mail/                             障害連絡と承認メール
 Documents/Shared-drive/                     部内共有文書のオフライン控え
 ```
 
+
+## 名前の付け方
+
+- 手で付ける名前は英語で、語の間は空白、下書きやコメント版の区切りは ` - `。Desktop のメモは短くし、同じフォルダに並ぶ記録を日で探すときだけ、先頭に `YYYY-MM-DD_` を付ける。障害や演習の日付フォルダでは、その日付を名前に重ねず、サービス・記録の種類・版で見分ける。月や四半期が集計対象なら名前に残す。
+- 手で付けた図はサービスと指標で探せる名前にする。撮ったままのボード写真や画面を保存しただけのスクリーンショットは、カメラや Ubuntu のキャプチャ名のまま置くことがある。Downloads では監視画面の出力名や相手が付けた添付名を残し、照合で繰り返し使う表に短い名前を付ける。
+- 保存メールは英語の件名を使い、コロンなどは省く。同じ件名の返信を並べるときは、末尾に差出人名ややり取りを区別できる短い語を足す。拡張子を除いて名前は 40 文字以内、保存メールは 60 文字以内に収める。
+
+- `Desktop/Faregate bridge timeline.txt`
+- `Documents/Incidents/2026/2026-07-13/Faregate incident review.docx`
+- `Documents/On-call/2025-11-06_Handover retake marks.csv`
+- `Pictures/Workshop-boards/IMG_0472.jpg`
+- `Pictures/Reliability-charts/Screenshot from 2026-08-18 09-38-00.png`（画面を保存した場合）
+- `Downloads/faregate_checkout_hourly.csv`
+- `Documents/Mail/Re Please check the four June Friday exchanges - Andrew.eml`
 
 ## 形式の目安
 

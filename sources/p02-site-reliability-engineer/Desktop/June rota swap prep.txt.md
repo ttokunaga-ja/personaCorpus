@@ -1,0 +1,16 @@
+---
+path: Desktop/June rota swap prep.txt
+kind: text
+author: Daniel Jennings
+derived_from:
+---
+Friday 9 May, before the rota meeting
+
+The first pass has put the split watch under my name because the rota
+had me down for it. Ask Andrew who answered after midnight. Start with
+the call at 01:42 BST on 25 April, then check which side of the handover
+it fell on.
+
+Bring the answered-call counts for 7 April to 4 May, by person who
+answered. Count each answered call once. Get that comparison straight
+before putting names against any of the June Fridays.

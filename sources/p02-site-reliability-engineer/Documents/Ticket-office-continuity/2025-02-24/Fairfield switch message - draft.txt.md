@@ -1,0 +1,15 @@
+---
+path: Documents/Ticket-office-continuity/2025-02-24/Fairfield switch message - draft.txt
+kind: text
+author: Claire Hutchinson
+derived_from:
+---
+
+Monday — opening with Hannah
+
+~~Switch now to the continuity procedure for the exercise booking.~~
+No: a desk might act on “Switch now” before it hears that this is an exercise.
+
+Exercise only: switch to the continuity procedure for the exercise booking. Keep serving live customers as usual.
+
+CIRCLE: keep the live queue separate. Ask Hannah to put that in the first breath, not as an afterthought. We should be able to hear each desk confirm the message without pulling anyone away from a customer.

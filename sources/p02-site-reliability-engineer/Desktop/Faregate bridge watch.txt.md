@@ -1,0 +1,15 @@
+---
+path: Desktop/Faregate bridge watch.txt
+kind: text
+author: Daniel Jennings
+derived_from:
+---
+
+Faregate — don't close bridge yet
+
+08:41 UTC: payment recovery signal observed.
+Watch the eligible payment path for 15 minutes through 08:56 UTC; check each five-minute window for the same failure before calling verification complete.
+
+Claire: if a receipt is still pending, can Support check the booking and payment outcome before anyone asks for another payment?
+
+Keep the bridge open until the watch and receipt handling are checked.

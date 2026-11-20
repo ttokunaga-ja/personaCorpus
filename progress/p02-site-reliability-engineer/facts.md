@@ -24,7 +24,7 @@
 ## Westbury desk guidance after Faregate recovery
 
 - “Westbury desk wording for pending receipts” thread, July 13: (1) Stephen Cartledge → Claire Hutchinson, Cc Daniel, at 13:02 UTC (14:02 BST); (2) Claire → Stephen, Cc Daniel, at 14:15 UTC (15:15 BST), “Re: Westbury desk wording for pending receipts”.
-- Claire's BRT-CU-20260713-001, issued July 13 at 14:05 UTC, is sent as Faregate recovery and change restriction.pdf with her reply. Desk guidance is to check the booking and payment outcome or contact Support before asking for a second payment.
+- Claire's BRT-CU-20260713-001, issued July 13 at 14:05 UTC, is sent as Faregate recovery and change freeze.pdf with her reply. Desk guidance is to check the booking and payment outcome or contact Support before asking for a second payment.
 
 ## Fare Payments peak capacity review, 28 April 2025
 
@@ -88,7 +88,7 @@
 - 16 October UTC boundaries for scope/request, approval wait, restoration and verification: 09:00 cue → 09:04 logged request → 09:16 Emma records approval → 09:26 ready to verify → 09:34 second good sign-in (first at 09:33). The intervals are 4, 12, 10 and 8 minutes, 34 total and 14 over target.
 - Daniel, Emma and Carys read the timings back at 13:00 UTC on 16 October. Acknowledging receipt did not release restoration; BRT-MT-20241016-001 names Andrew Cartwright to cover future Identity exercises, subject to checking the handover and authority.
 - BRT-EX-20241018-001 is Daniel's 18 October baseline report, with the four original intervals intact and the 17–18 October actions dated separately. Retain the report and October CSV as issued; keep both exercises outside actual incident and availability totals.
-- Standalone mail, BST: 15 October 15:06 “16 October exercise - who has the clock”, Emma → Daniel and Carys; 18 October 15:03 “October Identity exercise baseline for the review file”, Daniel → Emma and Anjali, with Passenger Identity recovery exercise - October baseline.pdf attached.
+- Standalone mail, BST: 15 October 15:06 “16 October exercise - who has the clock”, Emma → Daniel and Carys; 18 October 15:03 “October Identity exercise baseline for the review file”, Daniel → Emma and Anjali, with Identity recovery exercise baseline.pdf attached.
 
 ## Passenger Identity exercise decision cover and access, 17–18 October 2024
 
@@ -104,14 +104,14 @@
 - 20 January UTC boundaries: 09:00 cue → 09:03 logged request → 09:05 Andrew first accepts ownership then records approval → 09:12 ready to verify → 09:18 second good sign-in (first at 09:17). The same four intervals are 3, 2, 7 and 6 minutes, 18 total and two under target.
 - Compared with October, the four intervals shrink by 1, 10, 3 and 2 minutes. The decision wait accounts for 10 of the 16 minutes saved; the cause of the other six minutes is unresolved.
 - Daniel's comparison deck is BRT-RB-20260120-001. Daniel, Emma and Anjali meet at 14:00 UTC. Daniel's BRT-MT-20260120-001 and its PDF export retain one decision owner for the next rehearsal, assign Daniel to file the two runs separately that day and assign Andrew to recheck his access before the next run.
-- Standalone mail, GMT: 19 January 14:12 “Tuesday Identity repeat - preflight clear”, Daniel → Emma, Andrew and Carys; 20 January 15:46 “January Identity exercise readout and interval extract”, Daniel → Anjali and Emma, Cc Andrew and Carys, attaches January exercise readout decisions.pdf and 20 January Identity recovery timings.csv.
+- Standalone mail, GMT: 19 January 14:12 “Tuesday Identity repeat - preflight clear”, Daniel → Emma, Andrew and Carys; 20 January 15:46 “January Identity exercise readout and interval extract”, Daniel → Anjali and Emma, Cc Andrew and Carys, attaches January exercise readout decisions.pdf and 2026-01-20_Identity timing repeat.csv.
 
 ## Ticket archive recovery check with RJS, 19–20 August 2024
 
 - The 19 August check used an isolated exercise archive. Daniel Jennings and Sanjay Mehta read back the clocks with Patrick Sutcliffe of RJS Data Storage Ltd at 10:18 UTC. The fixed reference was 10:00 UTC.
 - The latest complete eligible set covered through 09:38 UTC and finished writing at 09:44 UTC. Eligibility requires the set to be complete by the reference; age is reference minus coverage: 22 minutes, seven over the inclusive 15-minute limit. The abandoned completion-clock calculation was 16 minutes. Neither calculation represents time spent restoring.
 - Patrick issued RJS-WS-20240819-001 on 19 August for Daniel and Sanjay. The witness observations support the clock readings and the missed target. The record leaves the cause of the miss open.
-- “19 August ticket archive witness notes” thread, BST: (1) 19 August 13:23 Patrick → Daniel and Sanjay, attaches RJS 19 August archive witness observations.pdf; (2) 19 August 14:04 Daniel → Patrick, Cc Sanjay, quotes (1) and attaches 19 August archive timestamp correspondence.csv.
+- “19 August ticket archive witness notes” thread, BST: (1) 19 August 13:23 Patrick → Daniel and Sanjay, attaches RJS archive witness notes.pdf; (2) 19 August 14:04 Daniel → Patrick, Cc Sanjay, quotes (1) and attaches 2024-08-19_Archive timestamps.csv.
 - (3) 20 August 09:17 Patrick → Daniel and Sanjay, quotes (2), no new attachment. Both replies use “Re: 19 August ticket archive witness notes”. Patrick's address is `patrick@rjs-storage.example`.
 - Daniel's BRT-MT-20240820-001 is the 20 August 12:00 UTC review with Sanjay and Anjali and has a same-number PDF. Anjali keeps the miss open, Sanjay and Patrick take the interval review, and Daniel retains both clock readings and the original evidence for a comparable repeat.
 
@@ -120,7 +120,7 @@
 - Daniel and Sanjay kept the 10:00 UTC reference and inclusive 15-minute limit. At 08:10 UTC Sanjay confirmed a 10-minute capture schedule in the isolated exercise environment, a separate coverage marker and an isolated restored copy.
 - The eligible set covered through 09:51 UTC and finished writing at 09:55 UTC. Daniel and Sanjay confirmed it at 10:16 UTC. Its age was nine minutes, six inside the limit and 13 minutes younger than the August observation.
 - Daniel issued BRT-RP-20260511-001 on 11 May for the two comparable checks. The maximum observed age was 22 minutes. The repeat demonstrates one pass under the exercise conditions. The evidence establishes neither a universal bound nor the cause of the difference between the runs.
-- Standalone mail “May archive check for the wording review”, 11 May 13:10 BST, Daniel → Claire Hutchinson, Cc Sanjay, attaches 11 May evidence for the wording review.csv. The attached extract is internal.
+- Standalone mail “May archive check for the wording review”, 11 May 13:10 BST, Daniel → Claire Hutchinson, Cc Sanjay, attaches 2026-05-11_Archive guidance evidence.csv. The attached extract is internal.
 - Daniel, Sanjay, Claire and Anjali met at 13:15 UTC on 11 May (BRT-MT-20260511-001, same number on the PDF). Anjali accepted the exercise result. Daniel files both runs, Sanjay retains the comparison conditions and Claire issues the updated evidence-bound wording.
 
 ## Westbury ticket archive recovery guidance, 11 May 2026
@@ -135,7 +135,7 @@
 - Coach Yard's 10:13 UTC entry is a phone ring. Fairfield has exact readback times for 11 desks and confirms coverage at all 12 by the 10:22 UTC roll call; the exact final-readback time and elapsed time remain unverified.
 - Original 12-desk order (February, still on 12 September and on the printed v0.1): North Hall, South Hall, Station Road, Market Street, Bus Station, High Street, Park Lane, East Gate, West Gate, Harbour Road, Riverside, Coach Yard.
 - At 14:00 UTC Daniel, Claire and Hannah agree that Hannah alone calls the desks and follows up, Claire agrees the wording before the cue, and Daniel measures the repeat. Daniel's meeting record and shared-drive PDF are BRT-MT-20250224-001.
-- “Fairfield February exercise receipts”, 24 February 11:32 GMT, Hannah → Claire and Daniel, standalone with Fairfield desk receipt record - 24 February.pdf (FTS-DR-20250224-001) attached. Hannah uses `hannah@fairfield-ticket.example`.
+- “Fairfield February exercise receipts”, 24 February 11:32 GMT, Hannah → Claire and Daniel, standalone with Fairfield desk receipt record.pdf (FTS-DR-20250224-001) attached. Hannah uses `hannah@fairfield-ticket.example`.
 - “Fairfield - who had the release at 10:03?” thread, 24 February GMT: (1) 12:08 Claire → Daniel, (2) 12:48 Daniel → Claire, “Re: Fairfield - who had the release at 10:03?”, quoting (1) and attaching February release clock checks.csv.
 
 ## Fairfield staffed desk switch repeat and issue, 12–16 September 2025
@@ -156,14 +156,14 @@
 - Q4 availability is 99.94% rounded, from 1 − 4,800 / 7,948,800. Take the ratio across the whole window; the 81% uses unavailable seconds as its denominator. The service's 99.9% target is monthly.
 - On 14 January at 11:00 UTC Daniel Jennings reports to Anjali Shah with Matthew Pickering present. Anjali prioritises Matthew's previous-route rehearsal by 24 January, then Daniel's checkout watch check by 31 January, deferring broader work. BRT-MT-20250114-001 is the issued readout/report and its unchanged PDF.
 - “Q4 Faregate windows for the Tuesday report” thread, GMT: (1) 13 January 14:06 Daniel → Matthew, requests confirmation by 14 January 09:30 UTC; (2) 14 January 08:47 Matthew → Daniel, “Re: Q4 Faregate windows for the Tuesday report”, quotes (1). Neither message has attachments.
-- “Q4 Fare Payments report and monthly figures”, 14 January 12:32 GMT, Daniel → Anjali, Cc Matthew, standalone with Fare Payments availability - October to December.pdf and Fare Payments availability Oct to Dec 2024.csv attached.
+- “Q4 Fare Payments report and monthly figures”, 14 January 12:32 GMT, Daniel → Anjali, Cc Matthew, standalone with Fare Payments Q4 availability.pdf and Fare Payments Q4 2024 availability.csv attached.
 
 ## Fare Payments change closeout evidence review, 9 July 2025
 
 - Daniel Jennings and Matthew Pickering review 14 checks at 10:00 UTC on 9 July. The retained change material supports 11; the three unlocated completion records concern fallback route confirmation, the first watched checkout outcome and the second engineer's closeout readback. Execution of those three is undetermined.
 - BRT-MT-20250709-001 records the review. The historical rollout end stamp is present and remains separate from verification; the two engineers leave the three gaps open. The Bristol board photo is Daniel's at 11:36 BST.
 - Daniel's 8 July wording accepts the spoken all-clear. The guidance issued 9 July requires a time and observed result for the fallback/checkout checks and a named, timed second-engineer readback; while anything is outstanding, duty carries a named owner and next check with closeout open.
-- “Three gaps for Wednesday”, 8 July 16:02 BST, Matthew → Daniel, standalone with no attachment. “Fare Payments closeout from the next change”, 9 July 15:37 BST, Daniel → Matthew and Carys Morgan, standalone with When a payments change is complete.md attached.
+- “Three gaps for Wednesday”, 8 July 16:02 BST, Matthew → Daniel, standalone with no attachment. “Fare Payments closeout from the next change”, 9 July 15:37 BST, Daniel → Matthew and Carys Morgan, standalone with Fare Payments closeout checklist.md attached.
 
 ## SVC-17 feature deferral, 7 April 2026
 
@@ -185,7 +185,7 @@
 - The late cohort covers Westbury refunds still outstanding at their due times on 20–21 October UTC, all due by the 21 October 10:00 UTC cutoff. Of 62 refunds, 62 match their original bookings and zero have no match. At cutoff, 54 have been submitted and eight await submission; actual bank arrival is unverified.
 - At the 21 October 12:00 UTC readback Daniel Jennings, Stephen Cartledge and Claire Hutchinson agreed to keep existing bookings. Matthew Pickering checks submissions on 22 October at 12:00 UTC; Claire gives the next update by 14:00 UTC (15:00 BST), including if some are still waiting.
 - BRT-CU-20251021-001 and Claire's Support reference (published 21 October 15:05 BST) give an indicative 3–5 UK working days from submission. The desk keeps the original booking and asks Support for a status check.
-- “Westbury refunds still showing as due” thread, 21 October BST: (1) 09:08 Stephen → Claire and Daniel; (2) 14:48 Claire → Stephen, Cc Daniel, same subject with “Re:”, quoting (1) and attaching Westbury refund timing and booking advice.pdf.
+- “Westbury refunds still showing as due” thread, 21 October BST: (1) 09:08 Stephen → Claire and Daniel; (2) 14:48 Claire → Stephen, Cc Daniel, same subject with “Re:”, quoting (1) and attaching Westbury refund guidance.pdf.
 
 ## Westbury desk enquiry review and Riderpass training allocation, 15 September 2026
 

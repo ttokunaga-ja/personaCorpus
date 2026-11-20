@@ -14,7 +14,7 @@ For Anjali Shah and Andrew Cartwright
 
 ## 4 November mock handover
 
-Andrew observed two notification decisions per trainee at 10:00 GMT. His *4 November mock handover observations.csv* records four correct destinations from six attempts.
+Andrew observed two notification decisions per trainee at 10:00 GMT. His *2025-11-04_Handover mock observations.csv* records four correct destinations from six attempts.
 
 | Stage | Check | Evidence or result |
 |---|---|---|
@@ -26,7 +26,7 @@ I held supervised duty for all three after the two routing errors. Each trainee 
 
 ## 6 November repeat
 
-Andrew observed the repeat at 10:00 GMT. For each trainee, clearance requires two correct destinations and both readbacks to name the owner and next check without coaching. I checked each chosen destination, spoken readback and recorded time against Andrew's *6 November handover repeat marks.csv* before issuing this record. All next-check times below are GMT and refer to the exercise.
+Andrew observed the repeat at 10:00 GMT. For each trainee, clearance requires two correct destinations and both readbacks to name the owner and next check without coaching. I checked each chosen destination, spoken readback and recorded time against Andrew's *2025-11-06_Handover retake marks.csv* before issuing this record. All next-check times below are GMT and refer to the exercise.
 
 | Stage | Check | Evidence or result |
 |---|---|---|

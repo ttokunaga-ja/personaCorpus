@@ -24,4 +24,4 @@ Thanks,
 Daniel
 
 Attachments:
-- When a payments change is complete.md — Documents/Change-decisions/When a payments change is complete.md
+- Fare Payments closeout checklist.md — Documents/Change-decisions/Fare Payments closeout checklist.md

@@ -4,7 +4,7 @@ kind: brt-ticket-office-contact-card.docx
 author: Claire Hutchinson
 modified_by: Claire Hutchinson
 created: 2025-09-15 09:08 BST
-derived_from: Desktop/Fairfield desk card - before the calls.docx
+derived_from: Desktop/Fairfield desk card - draft.docx
 ---
 
 Change the version from “v0.1 — working copy” to “v1.0 — issued”. Change the addressee to “Hannah Cartwright and Fairfield staffed desks”. Retain the reference, date, author and title.

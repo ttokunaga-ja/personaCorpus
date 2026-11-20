@@ -24,5 +24,5 @@ Thanks,
 Daniel
 
 Attachments:
-- Fare Payments availability - October to December.pdf — Documents/Service-reviews/BRT Fare Payments/2025-01-14/Fare Payments availability - October to December.pdf
-- Fare Payments availability Oct to Dec 2024.csv — Downloads/Fare Payments availability Oct to Dec 2024.csv
+- Fare Payments Q4 availability.pdf — Documents/Service-reviews/BRT Fare Payments/2025-01-14/Fare Payments Q4 availability.pdf
+- Fare Payments Q4 2024 availability.csv — Downloads/Fare Payments Q4 2024 availability.csv

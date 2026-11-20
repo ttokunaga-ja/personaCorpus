@@ -2,7 +2,7 @@
 path: Documents/Customer-updates/Ticket archive recovery guidance.docx
 kind: brt-ticket-recovery-guidance.docx
 author: Claire Hutchinson
-derived_from: Documents/Customer-updates/How far back we can check - Claire's draft.docx
+derived_from: Documents/Customer-updates/Archive guidance - Claire draft.docx
 modified_by: Claire Hutchinson
 created: 2026-05-11T13:52:00+01:00
 ---

@@ -21,6 +21,6 @@ The 10:22 UTC roll call confirms that all 12 desks, including Coach Yard, had he
 Thanks,
 Hannah
 
-Attachment: Fairfield desk receipt record - 24 February.pdf
+Attachment: Fairfield desk receipt record.pdf
 
-添付元: Downloads/Fairfield desk receipt record - 24 February.pdf
+添付元: Downloads/Fairfield desk receipt record.pdf

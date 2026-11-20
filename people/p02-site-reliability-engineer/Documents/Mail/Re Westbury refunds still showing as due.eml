@@ -48,7 +48,7 @@ ers? We'd like to know what to say about the refund as well as the booking.
 Content-Type: application/pdf
 Content-Transfer-Encoding: base64
 Content-Disposition: attachment;
- filename="Westbury refund timing and booking advice.pdf"
+ filename="Westbury refund guidance.pdf"
 MIME-Version: 1.0
 
 JVBERi0xLjUKJczVwdTF2NDExgoxIDAgb2JqCjw8Pj4KZW5kb2JqCjIgMCBvYmoKPDw+PgplbmRv

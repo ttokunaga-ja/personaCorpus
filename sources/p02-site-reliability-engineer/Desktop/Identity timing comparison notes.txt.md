@@ -1,0 +1,17 @@
+---
+path: Desktop/Identity timing comparison notes.txt
+kind: text
+author: Daniel Jennings
+derived_from:
+---
+
+Before showing Anjali the comparison:
+
+34 - 18 = 16 minutes overall, measured from the cue to the second successful sign-in in both exercises.
+
+Decision wait: 12 - 2 = 10 minutes. The other six are not decision wait:
+  cue to request: 4 - 3 = 1 minute
+  decision to ready for verification: 10 - 7 = 3 minutes
+  verification: 8 - 6 = 2 minutes
+
+Do not put all sixteen under delegation. The repeat rehearsed the two-minute transfer, but we do not know how much of the other six minutes was familiarity with the rehearsal, or what would happen on another run. Use the interval figures when talking through it, not a claim that the role change caused the whole difference.

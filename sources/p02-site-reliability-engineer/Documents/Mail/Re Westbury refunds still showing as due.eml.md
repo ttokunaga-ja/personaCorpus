@@ -36,4 +36,4 @@ On Tue, 21 Oct 2025 at 09:08 BST, Stephen Cartledge wrote:
 
 ## 添付
 
-- Documents/Customer-updates/Westbury refund timing and booking advice.pdf
+- Documents/Customer-updates/Westbury refund guidance.pdf
