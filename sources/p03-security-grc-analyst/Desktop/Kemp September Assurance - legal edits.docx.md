@@ -4,7 +4,7 @@ kind: chukyo-response.docx
 author: 山田 美由紀
 modified_by: 清水 宏之
 created: 2026-09-08 10:12
-derived_from: Desktop/Kemp September Assurance - working scope.docx
+derived_from: Desktop/Kemp September Assurance_draft v0.1.docx
 ---
 
 ## 変更履歴
