@@ -16,6 +16,7 @@ Office の型は通常の DOCX・XLSX・PPTX。開いて別名で保存する。
 | Contract Terms Review | Halstead の Marisol と Jonathan が条項を確認し、Michelle が責任上限の対案を Ahmed に返す | `halstead-terms-redline.docx` | 縦、表紙なし。煉瓦色の取消線と下線で条項の削除案と追加案を示す |
 | Renewal Terms / Service Extension | Halstead の Michelle。年間更新や短期延長の対象期間、席数、対価、支援範囲を記録する | `halstead-renewal.cls` | LuaLaTeX、縦。青緑の反復見出し、右寄せの数値、青灰色の集計帯。短期延長ではヘッダを SERVICE EXTENSION にする |
 | Initial Adoption Terms | Halstead の Michelle。新規導入の席数と対価を注文条件として記録する | `halstead-adoption-terms.cls` | LuaLaTeX、縦、表紙なし。Halstead のロゴと煉瓦色の罫を継承し、ヘッダに ADOPTION TERMS。続きページにも青緑の表見出し |
+| Commercial Proposal | Halstead の Michelle が Aldridge Service Group の Ahmed に渡す、再協議時点の未契約の縮小提案 | `halstead-commercial-proposal.cls` | LuaLaTeX、Letter 縦、表紙なし。Halstead のロゴ、煉瓦色の上罫、COMMERCIAL PROPOSAL のヘッダ。右寄せの提案値と青緑の反復見出し |
 | Product Handoff | Halstead の Michelle。Redfield の購買条件と失注理由を Allison へ引き渡し、製品側で扱う要件を記録する | `halstead-product-handoff.docx` | 縦、表紙なし。Halstead の青緑と煉瓦色。顧客要件・営業判断・製品受付の見出し |
 
 ## 社外の型
@@ -58,6 +59,12 @@ Redfield の2025年2月の購買記録では、Rebecca が Purchasing Comparison
 
 HPT の2026年2月の予備商談には、Michelle が Adoption Workshop / Proposal Briefing を使う。Cover に HPT Regional Freight LLC と訪問日を入れ、Two Columns で現行サービスの範囲と提供範囲外の専用接続を並べ、Figure に訪問用構成図 PNG を置く。PNG は Halstead の青緑でサービスの範囲、煉瓦色の破線とラベルで専用接続の境界を示す。Albert への回答は EML、USD 150,000 を予測から外す社内の根拠は TXT に記す。TXT の商談区分は予備商談とし、顧客に伝えた提供範囲と予測除外の根拠を対応づける。
 
+## Sutton の増席保留と Aldridge の再提案
+
+Sutton Wholesale Foods LLC の増席比較は下記の Seat Expansion Comparison、Reza 向け説明は Adoption Workshop / Proposal Briefing を使う。現契約 220 席、追加候補 80 席、提案時の合計 300 席を区別し、2026年8月27日の確認後も更新の基準は既存 220 席とする。予算の確認は EML で残す。
+
+Aldridge の縮小範囲 DOCX は Scope of Services を開き、節見出しを縮小した対象、双方の確認事項、開始前の条件に合わせる。機内修正版は Adoption Workshop / Proposal Briefing を使い、縮小範囲と合意前の確認事項を先に説明できる順に並べる。Ahmed 向けの 200 席・USD 96,000 の提案 PDF は Commercial Proposal を使う。顧客向けの文面には未契約の状態を記し、予測確度 40% とその根拠は Donald 向けの社内記録に置く。
+
 ## 共通の体裁と文書番号
 
 - Halstead のロゴは、支柱から分岐する青緑の横棒と煉瓦色の端点に社名を添える。題・見出し・フッタは青緑 `133D45`、罫や注意は煉瓦色 `AF5636`、本文は墨 `26353B`。白と青灰 `EBF2F1` は背景。欧文は Liberation Sans、和文は Noto Sans CJK JP。Excel のセルは Liberation Sans を基本とし、和文セルを追加する場合は Noto Sans CJK JP を指定する。
@@ -65,7 +72,7 @@ HPT の2026年2月の予備商談には、Michelle が Adoption Workshop / Propo
 - Aldridge は、右上に高さの異なる紫の3本柱と社名を置く。題・見出しとフッタは紫紺 `343454`、細罫と部門ラベルは紫 `575483`、本文は墨紫 `2C2B34`、表帯は淡紫 `EEEDF5`。欧文本文は Liberation Serif、社名・部門ラベルとフッタは Liberation Sans、和文は Noto Serif CJK JP。フッタに Business Planning と通しページ番号を入れる。
 - Hollis は、段違いの紺と青の正方形を左上の社名に添える。本文・題・フッタは紺 `243752`、節見出し・細い横罫・IT 部門名は青 `3B6190`、表見出しの背景は淡青 `E9EFF8`。欧文は DejaVu Sans、和文は Noto Sans CJK JP。全ページの左下に `Hollis Medical Supply Inc / IT Operations`、右下に `Page` と通しページ番号を入れる。
 - Redfield は、傾いたえんじと銅色の帯に社名を添える。社名・題・列見出し帯はえんじ `692C40`、明細罫は銅色 `AA7951`、本文は墨 `282528`、管理欄と集計帯の背景は砂色 `F5EEE7`。欧文は Liberation Serif。既定フォント、管理欄の空セル、列見出しにも指定済み。和文が必要なセルでは Noto Serif CJK JP を指定する。フッタ左に組織と Procurement、右にページ番号と総ページ数を置く。
-- Halstead は `HBC-顧客略号-YYYYMMDD-用途-NN`。用途は `ADP`（利用レビュー・集計）、`IMP`（導入負荷）、`WRK`（改善会・訪問質問票）、`SVC`（支援範囲）、`REN`（更新比較・更新条件・短期延長・送信前の価格確認）、`MAT`（要求と回答の対応表）、`BRF`（顧客説明）、`RFP`（提案回答）、`LEG`（条項の修正案）、`ORD`（新規注文条件）、`PRD`（製品引継ぎ）。顧客略号は `JDH`、`ALD`、`HOL`、`RED`、`WAV`、`MER`、`HPT`。同一発行日・用途内で文書ごとに2桁の番号を割り振る。別文書では固有番号を使い、同じ文書を別形式に出すときは番号を引き継ぐ。JDH 購買文書は `JDH-PO-YYYYMMDD-NN`、Aldridge の提案依頼は `ASG-RFP-YYYYMMDD-NN`、Hollis IT の試行結果は `HMS-IT-YYYYMMDD-NN`、Redfield 購買比較は `RSS-PROC-YYYYMMDD-NN`。
+- Halstead は `HBC-顧客略号-YYYYMMDD-用途-NN`。用途は `ADP`（利用レビュー・集計）、`IMP`（導入負荷）、`WRK`（改善会・訪問質問票）、`SVC`（支援範囲）、`REN`（更新比較・更新条件・短期延長・送信前の価格確認）、`EXP`（増席比較）、`MAT`（要求と回答の対応表）、`BRF`（顧客説明）、`PRP`（顧客向け商用提案）、`RFP`（提案回答）、`LEG`（条項の修正案）、`ORD`（新規注文条件）、`PRD`（製品引継ぎ）。顧客略号は `JDH`、`ALD`、`HOL`、`RED`、`WAV`、`SUT`（Sutton Wholesale Foods LLC）、`MER`、`HPT`。同一発行日・用途内で文書ごとに2桁の番号を割り振る。別文書では固有番号を使い、同じ文書を別形式に出すときは番号を引き継ぐ。JDH 購買文書は `JDH-PO-YYYYMMDD-NN`、Aldridge の提案依頼は `ASG-RFP-YYYYMMDD-NN`、Hollis IT の試行結果は `HMS-IT-YYYYMMDD-NN`、Redfield 購買比較は `RSS-PROC-YYYYMMDD-NN`。
 - 見本の番号は組版確認用。実際の番号、担当者、日付、根拠はファイル計画と台帳に従う。2024年4月の基準は稼働318席・契約420席、同年7月に決めた80%は2か月後の確認目標。2025年5月開始の年次更新は運用支援を含む480席・USD 232,000。見本の試験用明細を実績へ転記しない。
 
 ## Word
@@ -119,6 +126,14 @@ Hollis の審査用には B8〜D8 を `Pilot cohort`、`Pilot seats`、`Weekly a
 2. 年額上限と比較の扱いは最終明細の直後で A:F を行内結合し、`HB Note` と折り返しで記入する。各案の年額と延長契約の対価は独立した金額として扱う。
 3. フィルターと印刷範囲は Department Adoption と同じ手順で設定する。A→B と E→F の余白、番号・日付・作成者の全文、続きページの列見出しを確認する。
 
+### Seat Expansion Comparison
+
+`halstead-adoption.xlsx` を開き、シート名を Seat Expansion Comparison、A3 を表題、A5 を As of にする。C4:C6 の結合と折返しを保ち、文書番号（例 `HBC-SUT-20250812-EXP-01`）、基準日（実日付）、作成者を入力する。A:F の列幅を `10, 25, 15, 16, 22, 44` にし、8行目を No.、Seat component、Current seats、Incremental seats、Annual amount (USD)、Budget status or basis にする。
+
+1. 9行目から現契約と追加候補を別行に記す。A と C:E は `HB Integer`、B と F は `HB Text`。E に金額を入れる場合は `"USD "#,##0` を指定し、現契約分と追加候補分を区別する。金額の根拠がない行は E を空欄にする。インデント1と折返しを保ち、偶数行は `EBF2F1`、行高は31 ptを目安に調整する。
+2. 比較のため席数を集計する場合は明細の直下に `HB Total`（C・D は `HB Total Integer`）で合計行を作る。C と D は別々に SUM し、合計 300 席は増席実施時のシナリオとして F に記す。更新売上の合計欄は設けない。注記は直下で A:F を結合し `HB Note` と折返しを適用する。
+3. フィルターは8行目から最終明細まで、印刷は注記を含む最終使用行まで。Letter 横で横1ページ・縦は必要なページ数とし、8行目を繰り返す。A→B と E→F の余白、管理欄の全文、続きページの見出しを画像で確認する。
+
 ### Price Release Check
 
 `halstead-adoption.xlsx` を開き、シート名と A3 の表題を `Price Release Check`、A5 を `As of` にする。C4:C6 に文書番号（用途 `REN`）、基準日、作成者を入力する。A:F の幅は順に8・26・19・23・23・38。8行目の見出しを `No.`、`Package or revision`、`Annual price (USD)`、`Valid through (MDT)`、`Planned send (MDT)`、`Approval reference / release status` に置き換える。対象期間の時刻は Denver の MDT。
@@ -157,6 +172,8 @@ Halstead の回答は `\documentclass{halstead-rfp-response}` と `\HBResponse{�
 Aldridge の発行文書は `\documentclass{aldridge-rfp}` と `\ASGRequest{題}{依頼番号}{発行日}{発行者}{宛先}` を使う。回答方法と要求事項を `\section` で分け、`ASGRequirements` 環境に `\ASGRequirement{要求番号}{要求内容}{優先区分}` を並べる。番号は右寄せで、その右に12 ptの列間余白が入る。ページをまたいでも要求番号を通し、表見出しを繰り返す。
 
 Halstead の新規導入条件は `\documentclass{halstead-adoption-terms}` と `\HBAdoptionTerms{題}{文書番号}{発行日}{作成者}{顧客名}` を使う。検索パスに `halstead-renewal.cls` も置く。条件、値、適用範囲を `HBTerms` と `\HBTerm` で並べ、契約金額とそれに付随する注記は `\HBTotalWithNote{条件}{値}{適用の説明}{注記本文}` で同じページに載せる。独立した試行結果の参照には表外の `\HBNote` を使う。
+
+Aldridge Restart の顧客向け商用提案は `\documentclass{halstead-commercial-proposal}` と `\HBProposal{題}{文書番号}{発行日}{作成者}{顧客名}` を使う。検索パスに `halstead-renewal.cls` も置く。番号の用途は `PRP`（例 `HBC-ALD-20260819-PRP-01`）。冒頭に提案の段階を示し、`HBTerms` と `\HBTerm{提案項目}{値}{範囲または条件}` で席数・提示額・適用範囲を対応させる。見出しは Proposed item / Value / Scope or condition で、続きページにも繰り返す。先方の確認事項と発注前の前提は節か表外の `\HBNote{本文}` に置く。金額の注記が付くときは `\HBTotalWithNote` を使って同じページに載せる。
 
 Hollis IT の報告は `\documentclass{hollis-pilot-result}` と `\HMSPilotResult{題}{報告番号}{発行日}{作成者}{宛先}` を使う。対象、結果、審査での扱いを `\section` で分ける。`HMSResults` 環境に `\HMSResult{指標}{席数}{集計の根拠}` を必要な数だけ置く。数値は右寄せ、次の説明列まで15 pt。続きページにも列見出しを繰り返す。
 

@@ -121,6 +121,22 @@
 - 01-13 09:30にMichelle、Marisol、Jonathanが社内確認。対象注文書で定める年間継続料金を§11.2のHalsteadの総責任上限とする案を一条項に限って返す。他条項に関する判断と署名は保留。外部版 HBC-ALD-20250113-LEG-01 v1.0 はMarisolの内部コメントを含めない。
 - ①01-08 10:11 Ahmed → Michelle「Aldridge agreement - Section 11.2」（条文は本文、添付なし）。②01-10 15:42 Jonathan → Marisol、Michelle「Aldridge 11.2 - use the order form fee」（添付なし）。③01-13 14:06 Michelle → Ahmed「Halstead counterproposal on Section 11.2」（`Aldridge 11.2 - proposed annual cap.docx`を実添付）。3通は独立メール。01-13時点で先方の回答・合意なし。
 
+## 予算凍結と当期予測からの除外
+
+- 2025-10-14の凍結で、当期（2025年Q4）に算入していた社内見込USD 180,000を全額除外。扱いは保留。額は顧客提示額として扱わず、再開の条件は顧客側の予算確認、見込み日は未定。
+- 2025-10-14 MDT、スレッド「Aldridge - please hold the branch project」：①09:26 Ahmed → Michelle（購買回付と協議を停止、再開時期未定）、②10:07 Michelle → Ahmed（Re:、①の停止依頼を引用）。両通とも添付なし。
+- 2025-10-15 11:16 MDT、Denise → Michelle、Cc Donald「Aldridge - use the budget decision as the trigger」（独立、添付なし）。Q4からの除外を確認。導入相談用の仮枠は解除し、既提出の技術回答と未合意の§11.2対案は履歴に残す。
+
+## 1拠点への縮小と8月19日の再協議
+
+- 2026年8月の時刻はDenver（MDT）。対象は1拠点・200席、初年度USD 96,000の未契約案。業務引継ぎ、中央管理者向け説明、顧客確認済みCSVの手動取込みが対象で、他拠点展開と顧客管理の記録保管は範囲外。
+- Aldridgeが中央で名簿を確認し、Halsteadが手動取込みと練習を支援。拠点内の送受信を確認し、両社で開始可否と日程を詰める。旧RFPの6例外の扱いと§11.2は未合意のまま。
+- 2026-08-10 09:22、Ahmed → Michelle「Aldridge - a smaller starting point for August 19」（独立、添付なし）。8月19日10:00にAhmedとMichelleが再協議。Ahmedは縮小案を社内で検討できると述べ、名簿担当名と購買承認手順を持ち帰った。
+- 2026-08-18 11:26、Donald → Michelle「Aldridge - August 19 discussion price」（独立、添付なし）。USD 96,000を8月19日17:00 MDTまで検討用に提示可。これは顧客への承諾期限の設定や契約承認を意味しない。
+- 2026-08-19の送付文書は商用提案 HBC-ALD-20260819-PRP-01 v1.0 と、参照先でもある縮小範囲 HBC-ALD-20260814-SVC-01 v1.0。商用提案は独立したPDF。
+- スレッド「Aldridge - first-site proposal for review」：①2026-08-19 14:21 Michelle → Ahmed（商用提案PDFと縮小範囲DOCXを実添付、名簿担当と購買手順を8月26日までに照会）、②08-26 15:06 Ahmed → Michelle（Re:、①の質問を引用、両方を引き続き確認中、新規添付なし）。
+- 2026-08-19 16:18、Michelle → Donald、Cc Denise「Aldridge - reasons for carrying 40%」（独立、添付なし）。縮小案を先方が社内検討できるため確度40%。予算の書面承認・購買手順・契約条件が未確定で、旧USD 180,000は戻さず、8月26日時点も発注書・開始日なし。
+
 # Hollis Medical Supply Inc
 
 - 時刻・日付は Denver（America/Denver、8月と2025年3月18日はMDT）。Lawrence Sutton（Hollis IT部長）は lawrence@hollis-medical.example。Halstead関係者は michelle、divya、jonathan、donald、denise @ halstead-branch.example。
@@ -211,3 +227,13 @@
 
 - USD 150,000は当初の社内概算見込み。顧客予算・提示価格・受注額に使わない。2月17日にMichelleがQ1予測から全額除外し、2月19日の締めでDeniseが反映を確認。区分は予備商談。再評価はAlbertが接続要件を見直した場合。
 - 独立メールの順：①02-17 15:11 Michelle → Donald、Denise「HPT - remove the preliminary amount from Q1」。②02-19 10:16 Denise → Michelle、Donald「Feb 19 forecast cut - HPT excluded」。いずれも添付なし。
+
+# Sutton Wholesale Foods LLC
+
+## 追加80席の予算確認と翌年の持ち越し
+
+- Reza Moradi（業務部長）は `reza@sutton-wholesale.example`。時刻はDenver（両年8月はMDT）。現契約220席、追加候補80席で、300席は増席実施時の合計。現契約額や追加単価は今回の資料で扱わない。
+- 2025-08-07 09:41、Reza → Michelle「Sutton - room for 80 more seats?」（独立、添付なし）。08-12午前にRezaとMichelleが面談し、増席の判断材料を先に提出。
+- 2025-08-12の独立メール：①13:12 Michelle → Reza「Sutton - figures for the budget check」（HBC-SUT-20250812-BRF-01 v1.0 の書き出しPDFを実添付）、②16:38 Reza → Michelle「Sutton - move the extra seats to next year」（追加予算不足で翌年度へ持ち越し、添付なし）。
+- スレッド「Sutton - August 27 seat and budget check」：①2026-08-24 10:04 Michelle → Reza（8月27日の予算照会）、②08-27 13:36 Reza → Michelle（Re:、①の予算質問を引用）。両通とも添付なし。08-27午前の確認でも予算承認は得られず、220席を維持、300席案は保留。
+- 2025年の見送り後も2026年8月27日の再確認後も、更新基準は現行220席。追加80席は更新売上と別管理し、追加予算の根拠が得られたときにのみ再開する。
