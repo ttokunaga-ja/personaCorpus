@@ -6,7 +6,7 @@
 |---|---|---|---|
 | Working outline | Langley Historical Trust。Judith が章順を整理し Roger Hewitt に回覧する草稿 | [langley-outline.docx](langley-outline.docx) | A4縦。題の下に回覧情報、章順に小見出し。レビューコメントは Word の校閲欄 |
 | Evidence note / Translation draft / Citation exercise | Langley Historical Trust。Judith が史料の所在と推論の限界を記し、Julie と仏語書簡の訳、Florian と引用の参照先を確認する | [langley-evidence-note.docx](langley-evidence-note.docx) | A4縦。本文、参照表または対訳表。淡い葡萄色の見出しと細い横罫 |
-| Chapter manuscript | Langley Historical Trust。Judith が Edward Fairclough に提出する章稿や、阿部 由紀子に回覧する英語草稿 | [langley-chapter-manuscript.docx](langley-chapter-manuscript.docx) | A4縦。表紙なし。広めの行間と節・小節、典拠注、連続頁番号 |
+| Chapter manuscript | Langley Historical Trust。Judith が Roger Hewitt と照合する章稿、Edward Fairclough への提出稿、阿部 由紀子に回覧する英語草稿 | [langley-chapter-manuscript.docx](langley-chapter-manuscript.docx) | A4縦。表紙なし。広めの行間と節・小節、典拠注、連続頁番号 |
 | Interim grant report | Langley Historical Trust。Judith が章の進捗・残作業・助成費・刊行見通しを Roger Hewitt に報告する | [langley-interim-grant-report.docx](langley-interim-grant-report.docx) | A4縦。表紙なし。5節、題の下に提出管理欄。典拠注と連続頁番号 |
 | Access brief | Langley Historical Trust。Judith が Camille Laurent 宛の閲覧申請で使う照会書や添付案 | [langley-access-brief.docx](langley-access-brief.docx) | A4縦。宛先、対象史料、取扱いと受渡しの希望を一続きに読める配置 |
 | Research discussion | Langley Historical Trust。Judith と研究班の章構成・典拠の検討、比較研究会の説明順の検討 | [langley-research-briefing.pptx](langley-research-briefing.pptx) | 16:9。白地の上下に細い罫線。表紙・本文・2段・表・図を収録したマスター |
@@ -85,6 +85,13 @@
 - 説明順を検討するスライドは Research discussion を使う。会費の定め、徴収の記録、入室・貸出の条件、実際の利用を比較し、どの組み合わせを史料で照合できるかを示す。直接の影響を検討するのに要る史料は、たとえば規則採用前に相手方の文面を読めたことが分かる日付入りの翻訳・送付記録や、受け手が規則を検討した議事録。草稿の節と報告時の問いから該当箇所を追えるようにする。
 - 阿部から届く案内は、あおぞら比較文化研究室の日本語 EML と保存 HTML。メールは実際の送受信情報を持たせ、保存ページは研究室名・開催日・案内本文を中心にした日本語ページとして組む。Langley のロゴや発行番号は付けない。日本語の読書メモは著者名で始まる Markdown、当日の質疑は発言者・論点・該当節を追える UTF-8 の TXT。
 
+## 2025年7月10日の第1章の典拠点検
+
+- 削除前の Word は **Chapter manuscript**。題、CHP の番号・日付・Judith・Roger 宛・版を入れる。導入の文と脚注の対応を保ち、Roger の疑問は該当する文の run に校閲コメントとして付ける。コメントの作成者・日時とアンカーを DOCX で確認する。
+- 紙稿のスキャンはコメントの対象と同じ版を印刷原紙にする。本文・脚注・頁番号が読める余白に、対応する疑問と書き手を置く。活字の校閲を印刷する見本では右59 mmを注記用に確保し、対象文の横に Roger のコメントを組んだ。手書きの注記を作る場合は imagegen skill に従う。注記入りの原紙を `bin/scan --gray --quality 78` に通し、全頁で対象文と注記の位置を照合する。
+- 改稿のテキストPDFは **Research paper**。独立して組む論点稿には PAP の番号、日付、Judith、回覧先を `\ResearchHeading` に渡す。番号はクラスが印刷する `Ref.` に続く値だけを渡す。比較範囲を定める各記述には Judith が開いた箇所を `\SourceNote` で示す。目録で確認した所在と現物で読んだ記述を区別する。
+- 照合CSVは、脚注番号と本文箇所、引用元の著者・頁、原資料の請求記号と葉・面・行、Judith の確認状況、本文への扱いを結ぶ。原資料の所在が候補の段階では、その状態を記す。二次引用で止まった9件は調査控えに移し、外した記述ごとに、探す原資料と再掲に必要な確認箇所を記す。読書メモMDのファイル名は著者名から始め、Desktop の再照会用TXTには次に開くものと確認したい文言を残す。
+
 ## 既出の文書と保存形式
 
 2025年1月15日の Stefan との照合は異綴り46件。同定不能8件は原綴りで検索できるようにし、地名対照CSVには原綴り、典拠（請求記号・葉の表裏・行）、照合結果、判断根拠を残す。未確定の場所は地図に置かず、人物索引とも分ける。独語の読解メモは UTF-8 の Markdown、照合 PNG は対象の字形と典拠が追えるようにする。活字刷りの書簡は Correspondance imprimée で原紙を組む。手書きの原紙を指定した行は imagegen skill の手順に従い、いずれも原紙からスキャンする。
@@ -142,9 +149,13 @@
 
 ## 見本と画像
 
-b008 の中間報告の組版確認用。必須5節、提出管理欄、連続頁番号を2頁の抜粋で確認する。配布物の本文と管理欄は計画・原稿に従う。
+中間報告は未完の2章を載せる1頁の抜粋と、章別表が2頁に続く抜粋で、必須5節、管理欄、列見出しの繰返し、連続頁番号を確認する。第1章は1頁の抜粋で章稿・活字の余白注・改稿の組版を確認する。第1章の見本の番号・版・コメント日時は組版確認用の値。配布物の本文と管理欄は計画・原稿に従う。
 
 | 型と確認内容 | 見本 | レンダリング画像 |
 |---|---|---|
-| Interim grant report（5節と提出管理欄） | [langley-interim-grant-report.docx](../../scratch/p07-humanities-researcher/b008/work/templates-0004/examples/langley-interim-grant-report.docx) | [1頁](../../scratch/p07-humanities-researcher/b008/work/templates-0004/render/langley-interim-grant-report/langley-interim-grant-report-1.png)、[2頁](../../scratch/p07-humanities-researcher/b008/work/templates-0004/render/langley-interim-grant-report/langley-interim-grant-report-2.png) |
-| Interim grant report（紙面に同じ題・番号・版を載せたテキストPDF） | [langley-interim-grant-report.pdf](../../scratch/p07-humanities-researcher/b008/work/templates-0004/examples/langley-interim-grant-report.pdf) | [1頁](../../scratch/p07-humanities-researcher/b008/work/templates-0004/render/langley-interim-grant-report-pdf/langley-interim-grant-report-1.png)、[2頁](../../scratch/p07-humanities-researcher/b008/work/templates-0004/render/langley-interim-grant-report-pdf/langley-interim-grant-report-2.png) |
+| Interim grant report（未完2章の表と5節を1頁に組版） | [langley-interim-grant-report-short.docx](../../scratch/p07-humanities-researcher/b009/work/templates-0002/examples/langley-interim-grant-report-short.docx) | [1頁](../../scratch/p07-humanities-researcher/b009/work/templates-0002/render/langley-interim-grant-report-short/langley-interim-grant-report-short-1.png) |
+| Interim grant report（5節と提出管理欄） | [langley-interim-grant-report.docx](../../scratch/p07-humanities-researcher/b009/work/templates-0002/examples/langley-interim-grant-report.docx) | [1頁](../../scratch/p07-humanities-researcher/b009/work/templates-0002/render/langley-interim-grant-report/langley-interim-grant-report-1.png)、[2頁](../../scratch/p07-humanities-researcher/b009/work/templates-0002/render/langley-interim-grant-report/langley-interim-grant-report-2.png) |
+| Interim grant report（同じ題・番号・版のテキストPDF） | [langley-interim-grant-report.pdf](../../scratch/p07-humanities-researcher/b009/work/templates-0002/examples/langley-interim-grant-report.pdf) | [1頁](../../scratch/p07-humanities-researcher/b009/work/templates-0002/render/langley-interim-grant-report-pdf/langley-interim-grant-report-1.png)、[2頁](../../scratch/p07-humanities-researcher/b009/work/templates-0002/render/langley-interim-grant-report-pdf/langley-interim-grant-report-2.png) |
+| Chapter manuscript（削除前の章稿、Roger の校閲コメント付き） | [scope-and-sources-review.docx](../../scratch/p07-humanities-researcher/b009/work/templates-0002/examples/scope-and-sources-review.docx) | [本文1頁](../../scratch/p07-humanities-researcher/b009/work/templates-0002/render/scope-and-sources-review/scope-and-sources-review-1.png) |
+| Chapter manuscript（余白に活字の校閲コメントを置いた紙稿のスキャン） | [scope-and-sources-scan.pdf](../../scratch/p07-humanities-researcher/b009/work/templates-0002/examples/scope-and-sources-scan.pdf) | [1頁](../../scratch/p07-humanities-researcher/b009/work/templates-0002/render/scope-and-sources-scan/scope-and-sources-scan-1.png) |
+| Research paper（比較範囲と典拠注を組んだ改稿のテキストPDF） | [scope-and-sources-revised.pdf](../../scratch/p07-humanities-researcher/b009/work/templates-0002/examples/scope-and-sources-revised.pdf) | [1頁](../../scratch/p07-humanities-researcher/b009/work/templates-0002/render/scope-and-sources-revised/scope-and-sources-revised-1.png) |

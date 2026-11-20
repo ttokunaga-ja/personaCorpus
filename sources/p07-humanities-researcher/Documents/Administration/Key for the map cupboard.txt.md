@@ -1,0 +1,12 @@
+---
+path: Documents/Administration/Key for the map cupboard.txt
+kind: text
+author: Judith Morris
+derived_from:
+---
+
+Monday 30 June — after clearing the shared desk with Frances
+
+Two A3 map backing sheets came off the shared desk. Put both back in the map cupboard. Return the shared key to Frances Dixon’s in-tray by noon on Tuesday 1 July.
+
+Leave the paper copies from boxes 12–14 on my desk. I still need all three boxes for the chapter collation.

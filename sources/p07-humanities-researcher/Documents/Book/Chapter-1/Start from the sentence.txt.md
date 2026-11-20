@@ -1,0 +1,16 @@
+---
+path: Documents/Book/Chapter-1/Start from the sentence.txt
+kind: text
+author: Judith Morris
+derived_from:
+---
+
+Start from the sentence
+
+Underline the subject before opening the note. Do I mean the body that arranges the reading, the room where it takes place, or the officer who wrote the record? If I have put ‘the society decided’ over a secretary’s instruction, find out who gave the instruction and what the officer was actually asked to do.
+
+Start with §§1–3. Underlined subject → footnote → copy → words on the leaf. Check that the actor, the action and the date all survive the trip back to the sentence. Where a sentence makes two claims, make two checks.
+
+If the same address crops up as a destination for papers and as a place of meeting, ask two questions. Who was supposed to receive the papers there, and is there any record that they did? What dated record puts a reading or a gathering in that room? A direction to deliver papers can answer part of the first question. Look for a separate record of use before joining the two.
+
+Put the limit next to the sentence while the copy is open. ‘The secretary instructed the attendant’ will often do better than ‘the society admitted’.
