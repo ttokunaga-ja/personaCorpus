@@ -1,0 +1,22 @@
+---
+path: Documents/Stories/Road-contracts/Drafts/Open on the record that changed.txt
+kind: text
+author: Leslie Crawford
+derived_from:
+---
+
+August 24, 2026
+
+Two openings for the road story
+
+Old opening — leave out:
+
+On September 28, 2023, barricades stood near Quarry Road's Weighhouse Gate. Five days later, the order shifting work to the gate approach was signed.
+
+The two dates are right, but the juxtaposition invites a reader to put the changed work behind those barricades before the signature. The September 28 sheet says traffic preparation; its construction-work field is blank. S057 is a routing record, not a field log. We still need a record identifying the CO-01 work and its date.
+
+Try instead:
+
+A revised schedule called for 840 square yards of milling on Mill Road, where the cut narrowed to pass a drainage outlet before returning to its previous width. A separate Public Works sheet recorded 812 square yards of completed milling. The first number came from laying out the work. The second came from measuring it.
+
+This gets us into what the records can actually tell a reader. The 28-square-yard difference alone does not locate an unfinished patch or explain why the figures differ. The revised schedule is in the first release, p. 63; the September 5, 2023 completed measurement is S092 in the supplemental release. The outlet and supporting edge are the reason Keller gave for the partial-width layout. Keep the company's explanation attributed.

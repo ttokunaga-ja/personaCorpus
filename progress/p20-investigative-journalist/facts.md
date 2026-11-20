@@ -177,3 +177,36 @@
 - H3 は保留。追加 S057 は Quarry の回付、初回 p.95 は2023-10-03の執行署名、3月交付紙の9月28日準備票は施工欄が空。CO-01 の Weighhouse Gate 側下層補修と実作業日を結び付ける同時期の署名・確認入り日報または着手票が要る。
 - 2026-08-22 13:50–14:18 EDT、Leslie と Veronica が3件を再照合し、H1・H2を確認へ移して27／28。H3 は Keith が追跡する。8月22日の編集部内文書は新しい根拠と保留を引き継ぐ段階。
 - 件名 “Saturday records: two answers and one hold”、2026-08-22 15:29 EDT Leslie → Richard、Cc Veronica・Keith。添付は What we can add after the Saturday release.docx と Aug 22 - evidence against the three holds.xlsx。
+
+## Quarry の最終照会と掲載文からの削除
+
+- “Quarry field log before the desk closes” は①2026-08-24 09:42 EDT Leslie → Dorothy、②08-27 10:31 Dorothy → Leslie（Re:、①を引用）。両方添付なし。窓口が確認した CO-01 の回付・準備の控えには日報が見当たらず、Public Works の着手票は照会継続。
+- 8月31日15:00の Keith の締め時点でも、CO-01 の Weighhouse Gate 側下層補修を10月3日の執行署名前に結び付ける署名・確認入りの同時期の日報または着手票は未入手。9月8日の承認でも H3 は保留のまま。
+- 9月2日の読み合わせは Leslie・Veronica・Francesca。署名前着工を暗示するデック、9月28日の準備から工事開始を推定する本文段落、図枠の旧時系列注を削除。400平方ヤードは CO-01 による予定振替としてのみ本文に残す。
+
+## Keller の掲載前の再確認
+
+- “Keller follow-up before we close the road story” は①2026-08-24 10:18 EDT Leslie → Raymond（8月28日正午を回答期限）、②08-28 10:46 Raymond → Leslie（Re:、①を引用）。両方添付なし。
+- Raymond は2025-07-15の説明を2026-08-28に維持。本文は初回回答日・再確認日・会社への帰属を添える。Alder の優先理由や Quarry の下層判断は会社見解。Mill の840は予定、812は区役所の実測で、再回答による独立確認ではない。Quarry の着工日を示す新しい日報は回答にない。
+
+## Public Works による決裁欄と完成実測欄の再確認
+
+- “Can Public Works confirm these two fields” は①2026-08-28 13:09 EDT Leslie → Dorothy（8月31日正午まで、添付なし）、②08-31 09:24 Dorothy → Leslie（Re:、①を引用）。②の添付1点は同日09:02発行の Aug 31 - Public Works confirms the two fields.pdf（MFB-PRO-20260831-001）。
+- Dorothy の8月31日回答は Briggs が原記録で再確認した、S036 の2023-09-11委任決裁と S092 の2023-09-05付完成実測812平方ヤードを記す。記事と面積図は当該記録欄とこの掲載前の回答に帰属させる。Quarry の着工に新しい確認はない。
+
+## Wheeler の記名引用の再面談と音声照合
+
+- 2026-08-25 14:20–14:28 EDT、Leslie と Suzanne の再面談。冒頭で録音と元調達担当としての記名に再同意。1月27日の話題位置は Alder FY23 34:42、Quarry FY23 45:15。掲載の逐語は8月の再面談の原音を使い、二つの録音を混ぜない。
+- 8月の 02:14–02:34 は Alder の資材車と用途の留保。掲載引用の2文は “I saw a materials truck at the Depot Gate booth. I didn't know what the truck was there for.” とし、9月7日の観察として帰属。05:06–05:33 は Quarry のバリケードと施工は見ていないという発言で、掲載引用から外す。8月27日に Alicia が両方の原音を照合。
+
+## 道路記事の写真と面積図の割付
+
+- Leslie の撮影は2026-08-26 EDT。Mill の引き10:21・寄り10:26、Alder の補修面11:09、Quarry の側溝11:48。掲載用は Mill の引きのみ。キャプションは2026年8月26日、Stone Culvert 側で見える排水口と曲がる路面の継ぎ目、Leslie Crawford の撮影クレジットを記す。
+- 面積図は PW-23-02 の予定840（初回 p.63）と実測812（2023-09-05付 S092、186＋477＋149）を平方ヤードで比較。施工開始の時系列や税別5項目の価格差は図に含めない。
+- “Use the Mill frame in the page proof” は①2026-09-03 09:26 EDT Leslie → Francesca、Cc Veronica（Mill の引きの JPG、The photos show the road now.docx、Mill - planned and measured area.png の3点を添付）、②14:12 Francesca → Leslie、Cc Veronica（Re:、①を引用、再添付なし）。
+
+## 道路記事の掲載稿と9月8日の承認
+
+- 通し稿 ACN-INV-20260901-DRF-001 は Leslie の本文に Veronica が赤字を入れた2026-09-01の v0.8 と Leslie の2026-09-08の v1.0。v1.0 の題は “What the road records show after a change”。3,200語は掲載本文の語数で、見出し・デック・署名・管理欄・図や写真のキャプションは外数。
+- 9月8日10:46の v1.0 Word と11:18の確認用PDFは同じ本文・図・写真。Richard が印刷した同版には鉛筆の照合印だけを残し、Leslie が14:27にスキャンする。主要事実の内部点検は27／28のまま、H3 の文言だけを掲載から外す。
+- “Road copy for approval this afternoon” は①2026-09-08 11:34 EDT Leslie → Richard、Cc Veronica・Francesca（16:00までの判断を依頼、v1.0の DOCX 1点添付）、②15:42 Richard → Leslie、Cc Veronica・Francesca（Re:、①を引用、添付なし）。承認対象は道路記事 v1.0。設備 LP-25-04 は二つの議事録を追う取材継続。
