@@ -686,7 +686,11 @@ fn slides_without_notes(parent: &str, request: &str) -> bool {
             {
                 return true;
             }
-            if request.trim() == "通常のスライド表示で出力。スライドの順序と内容は元と同じ。話者ノートは出力しない。" {
+            if matches!(
+                request.trim(),
+                "通常のスライド表示で出力。スライドの順序と内容は元と同じ。話者ノートは出力しない。"
+                    | "投影順のスライド面を書き出し、発表者ノートは配布面に含めない。その他の違いなし。"
+            ) {
                 return true;
             }
             if matches!(request.trim(), "違いなし" | "スライド面に違いなし。発表者メモは含めない。") || re(r"(?i)^(?:The [a-z0-9]+ slide faces are unchanged and in the same order\.\s*)?Export the slide faces only; omit speaker notes\.(?:\s*No post-meeting additions\.)?$").is_match(request.trim())
@@ -3268,6 +3272,7 @@ mod handout_and_revision_tests {
             "違いなし",
             "全スライドのスライド面は元の v1.0 と同じ。発表者ノートは配布 PDF に含めない。",
             "通常のスライド表示で出力。スライドの順序と内容は元と同じ。話者ノートは出力しない。",
+            "投影順のスライド面を書き出し、発表者ノートは配布面に含めない。その他の違いなし。",
             "The eight slide faces are unchanged and in the same order. Export the slide faces only; omit speaker notes. No post-meeting additions.",
         ] {
             assert_eq!(print_source("deck.pptx", body, request), "Sales\nCosts");
