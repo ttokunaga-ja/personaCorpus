@@ -185,3 +185,31 @@
 - HRA-PIO-BUY-BRF-2026-001 は Nicholas の1月16日 v0.3 と1月20日 v1.0。Elizabeth は1月16日に「Discounts lost」を指摘。v1.0 では取引条件どおりの価格適用と、しきい値を満たさなかったことによる見込との差を区別する。
 - 「Papers for the savings checkpoint」、1月21日10:14 GMT、Nicholas → Meera（Cc Deepa）。v1.0 配布PDF `21 Jan - Savings at the January checkpoint.pdf` と別添集計表 `20 Jan - Q4 bridge for Buying.xlsx` の2件を実添付。
 - 1月21日14:00〜14:45 GMT、Meera・Nicholas・Deepa。中間値5.6%と差の3区分を確認。Meera は T4 の追加貸方の承認経路と伝票を1月28日までに確認し、Deepa は証拠が揃うまで中間値を据え置く。
+
+## Whitfield 日本事業の次契約の依頼と Finance への絞り込み
+
+- WCL-JP-FIN-REQ-2026-001 v1.0（2026-04-13、Kenneth）の候補は Japan Finance の支払統制と Sales の受注例外。決裁希望日は7月20日、依頼時点の金額・期間は未定。
+- 4月13日10:00〜10:40 BST、Elizabeth・Nicholas。既存の引渡し証跡と担当を確認できる Finance だけを提案し、Sales は対象外。候補併記案 HRA-WHI-DIAG-BRF-2026-001 v0.1（4月13日）は社内旧案、v0.2（4月17日）は Finance のみ。
+- スレッド「Two areas for the next engagement」1. 4月13日08:46 BST Kenneth → Nicholas（Cc Elizabeth、依頼PDF実添付）。2. 同日12:08 BST Nicholas → Kenneth（Cc Elizabeth）「Re: Two areas for the next engagement」で1を引用し、Finance に絞ると回答。返信の添付なし。
+
+## Whitfield Japan Finance Phase 1 の納入条件、工程と決裁
+
+- 検討・契約範囲は Components・Packaging・Tooling・Maintenance・Facilities の通常国内仕入先支払。2025年の条件付き拡大承認は追加3部門の移行完了を意味しない。Treasury の12の二重確認を維持し、給与、税金、緊急手動送金、Sales を除外。
+- 6月8日09:00〜09:35 BST、Kenneth・Nicholas・Siobhan・Neha。Kenneth が7月24日までに Japan Finance から各部門の正副担当、両者の07承認処理権限と証跡受領の確認、許可済み週次CSVを手配。確認を満たさない部門は経路を変更せず従来運用を続ける。
+- WCL-JP-FIN-AGR-2026-001 v1.0 第2条の納入物は (a) 5部門の07・08・09の担当・権限・証跡・差戻しを記した引渡しカード、(b) 許可済み週次CSVを手動で取り込む滞留表（既存5部門、初回適格06を起点、再回付は別記）、(c) Japan Finance への移管パック。ライブ連携、過年度の再処理、新規部門と新規自動化は含まない。
+- 契約コメント HRA-WHI-DIAG-REV-2026-001 は6月17日 Nicholas v0.3、6月19日 Joanne の赤字 v0.4。第4条は新規作業の範囲・費用・日程への影響を両社権限者が書面承認してから着手。第5条は W12 に5枚の引渡しカード、週次CSVから照合できる滞留表、移管パックの3納入物を Kenneth が確認して書面受入。
+- HRA-WHI-DIAG-PLN-2026-001 v1.0（7月10日、Connor）の人日×円/人日は Nicholas 18×400,000、Siobhan 48×350,000、Neha 30×300,000、Connor 28×250,000、Elizabeth 7×400,000。計131人日、JPY 42,800,000 税別。通常の訂正用の別料金枠は置かない。
+- 12週は W1開始 7月27日、W12終了 10月16日。確認点は W2 8月7日（記録源）、W6 9月4日（カード案と滞留表初版）、W10 10月2日（確認事項の整理）、W12 10月16日（移管と受入）。8月25日時点で W6 以降は予定。
+- HRA-WHI-DIAG-BRF-2026-005 v1.0（7月13日、Nicholas）は決裁用の PPTX と同一表示面の配布PDF。7月13日11:04 BST「Papers for the 20 July decision」は Nicholas → Kenneth（Cc Elizabeth、Siobhan）。配布PDFと PLN v1.0 XLSX の2点を実添付。
+- 7月20日09:30〜10:15 BST、Kenneth・Elizabeth・Nicholas・Siobhan・Joanne。Finance 限定の12週、JPY 42.8m 税別を承認。着手・W6設計確認・W12書面受入で30%・40%・30%（JPY 12.84m・17.12m・12.84m）。
+- 7月20日発効の上記合意書に Kenneth Townsend（Whitfield CFO）と Elizabeth Hargreaves（Holt Partner）が同日署名。7月20日14:51 BST「Signed Japan Finance agreement」は Nicholas → Kenneth（Cc Elizabeth、Joanne、Siobhan）、同日付の署名済みスキャンPDFを実添付。
+
+## Whitfield Japan Finance Phase 1 の8月追加要求と保留
+
+- 2026-08-12 に顧客側作業会で7件受領。Connor の HRA-WHI-DIAG-CHG-2026-001 は8月19日 v0.2（01・02の条項照合待ち）、8月24日 v0.3（Joanne の8月21日の照合を反映）。基準は WCL-JP-FIN-AGR-2026-001 v1.0。
+- CH-01「Return reason on the hand-off card」は既存差戻し理由欄への追記、2(a)、Siobhan。CH-02「Department filter in the weekly sheet」は既存5部門の手動滞留表に部門フィルターを付ける、2(b)、Connor。両方とも既存範囲で追加料金 JPY 0。
+- CH-03「Daily dashboard feed」JPY 1,400,000（日次自動接続）。CH-04「2025 queue backfill」JPY 1,250,000（前年分の滞留再構成）。CH-05「Add Warehouse」JPY 950,000（6番目の部門）。
+- CH-06「Read invoice references by OCR」JPY 1,100,000（請求書参照の自動読取）。CH-07「Sales credit holds」JPY 1,500,000（販売の与信保留）。03〜07はすべて追加要求で第4条の書面承認待ち、税別小計 JPY 6,200,000。
+- 8月25日09:00〜09:40 BST、Nicholas・Connor・Joanne・Elizabeth。01〜02を既存作業へ、03〜07は着手せず保留。契約は JPY 42.8m・12週のまま、Joanne が書面変更の窓口、Nicholas が顧客への回答担当。
+- 8月25日13:18 BST「Five requests held for written approval」は Nicholas → Kenneth（Cc Joanne、Elizabeth、Siobhan）。顧客用判定 HRA-WHI-DIAG-NTE-2026-002 v1.0 のPDFを実添付し、進めたい項目があれば優先順位を求める。
+- Holt 側メールは `elizabeth@holt-reeves.example`、`siobhan@holt-reeves.example`、`joanne@holt-reeves.example`、`paul@holt-reeves.example` を使用。

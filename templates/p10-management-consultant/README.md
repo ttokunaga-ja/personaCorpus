@@ -10,7 +10,7 @@ Whitfield Components Ltd 日本事業の支払診断・実行案・試行、Mars
 | Working sheet | 型なし。Connor が同僚との照合用に使う作業表。案件符号ごとのイベント対の採否や時間の内訳を確認する | — | 列に見出しとフィルタを付けた通常の Excel ブック。時刻と時間の単位を区別する |
 | Process timings | Holt & Reeves。Connor Atkinson が工程別に実作業、滞留、承認待ちの時間を比較する | `holt-process-timings.xlsx` | A4横。淡い管理欄、濃い紫灰の8列見出し、時間は小数1桁、割合は小数1桁の百分率 |
 | Cost diagnosis | Holt & Reeves。Connor Atkinson と Deepa Desai が対象工場の歩留まりを比較し、設備更新の回収年数の根拠を確認する | `holt-cost-diagnosis.xlsx` | A4横。共通ロゴ、濃い紫灰の列見出し、淡い管理欄。歩留まり比較と設備回収で列構成を分ける |
-| Whitfield finance schedules | Holt & Reeves。Connor Atkinson が旧試算、二重計上の訂正内訳、初期費用の発生時期を管理する | `holt-whitfield-finance.xlsx` | A4横。共通ロゴ、淡色の管理欄、濃い紫灰の8列見出し。円額を右寄せし、根拠と参照キーを並べる |
+| Whitfield finance schedules | Holt & Reeves。Connor Atkinson が旧試算・訂正内訳・費用の発生時期を管理し、次契約の週別工程・要員別予算・追加要求見積りを作る | `holt-whitfield-finance.xlsx` | A4横。共通ロゴ、淡色の管理欄、濃い紫灰の8列見出し。人日・円額は右寄せ、続頁に列見出しを繰り返す |
 | Whitfield payment pilot | Holt & Reeves。Connor Atkinson が2部門の平均承認日数を再計算し、保留案件の扱いを原記録に照合する | `holt-whitfield-pilot.xlsx` | A4横。共通ロゴ、紫灰の8列見出し。比較、案件別時刻、保留照合の3シート |
 | Pioneer buying schedules | Holt & Reeves。Nicholas が Meera Kulkarni と仕入先の絞込み条件を確認し、Neha Patel が例外申請の理由と需要が判明した時点を照合する | `holt-pioneer-buying.xlsx` | A4横。共通ロゴ、淡色の管理欄、濃い紫灰の8列見出し。仕入先選定と例外理由の再分類の2シート |
 | Pioneer savings reconciliation | Holt & Reeves。Deepa Desai が取引条件書と購入抜粋を照合し、Nicholas が Meera と削減見込・実績の差を確認する | `holt-pioneer-savings-reconciliation.xlsx` | A4横。Holt のロゴ、淡い茶灰の管理欄、紫灰の9列見出し。単価照合と削減額の差額内訳の2シート |
@@ -18,6 +18,7 @@ Whitfield Components Ltd 日本事業の支払診断・実行案・試行、Mars
 | Client note | Holt & Reeves。Nicholas が Kenneth Townsend に見込の訂正を文書で伝える | `holt-client-note.cls` | A4縦、表紙なし。共通ロゴ、茶赤の上罫と節見出し、淡い管理欄、3列の対照表 |
 | Supplier payment procedure | Whitfield Components Ltd。日本事業の Finance が発行し、Kenneth Townsend が承認する支払手順と試行の現場手順 | `whitfield-payment-procedure.cls` | A4縦。表紙なし。深緑の三つのブロックと社名、右に `JAPAN FINANCE`。セリフ体、薄緑の発行欄、深緑の表見出し |
 | Payment pilot scope change | Whitfield Components Ltd。Japan Finance が管理する試行範囲の変更合意書。Kenneth と Holt & Reeves 側の承認者が署名する | `whitfield-scope-change.cls` | A4縦。Whitfield 共通の深緑とセリフ体、右上に `JAPAN FINANCE / CHANGE CONTROL`。薄緑の4項目の管理欄、両社の署名欄 |
+| Japan engagement papers | Whitfield Components Ltd。Kenneth の依頼書と、両社が署名する日本事業の契約合意書 | `whitfield-engagement.cls` | A4縦。Whitfield の深緑・セリフ体・薄緑の発行欄。依頼書は宛先、合意書は両社の署名欄を表示 |
 | Production work standard | Marston Carton Packaging Ltd。生産部門が発行し、Caroline Wood が診断時に現行版を提供する | `marston-work-standard.cls` | A4縦。表紙なし。折り箱のロゴ、青い文字と琥珀色の帯、淡青灰の版管理欄。4列の作業手順表 |
 | Buying exception guidance | Pioneer Trade Distribution Inc。調達部長の Meera Kulkarni が、申請に必要な証拠、回付先、判断の記録方法を示す現行要領 | `pioneer-exception-guidance.cls` | Letter縦。表紙なし。合流する経路のロゴ、青緑の縦帯と節見出し、白地の管理欄、淡い青緑の手順表 |
 | Trading terms on file | Pioneer Trade Distribution Inc。Meera が Buying で保管する仕入先別の数量条件と単価の記録 | `pioneer-trading-terms.cls` | Letter縦。表紙なし。Pioneer の合流経路ロゴと青緑の縦帯、右上に `BUYING / COMMERCIAL TERMS`。淡青緑の5列の条件表 |
@@ -123,7 +124,7 @@ Holt の案件符号は既存の `WHI-DIAG` を使う。試行ワークブック
 
 ### Excel — Pioneer の取引条件別の削減見込と実績
 
-`holt-pioneer-savings-reconciliation.xlsx` の `Unit prices` で条件と適用単価を照合し、`Savings bridge` で条件別の削減額と差額内訳を示す。文書番号は Holt の案件符号 `PIO-BUY`、種別 `SAV`（`HRA-PIO-BUY-SAV-<西暦4桁>-<連番3桁>`）。見本は `HRA-PIO-BUY-SAV-2026-001`、`21 Jan 2026`、`Deepa Desai`。実際の値は計画と事実の台帳に従う。
+`holt-pioneer-savings-reconciliation.xlsx` の `Unit prices` で条件と適用単価を照合し、`Savings bridge` で条件別の削減額と差額内訳を示す。ブックのプロパティのタイトルは `Pioneer savings reconciliation`。文書番号は Holt の案件符号 `PIO-BUY`、種別 `SAV`（`HRA-PIO-BUY-SAV-<西暦4桁>-<連番3桁>`）。見本は `HRA-PIO-BUY-SAV-2026-001`、`16 Jan 2026`、`Deepa Desai`。実際の値は計画と事実の台帳に従う。
 
 両シートで、表題は `A2`、文書番号は `A4`（A:C 結合）、日付型の値は `D4`（D:E 結合）、作成者は `F4`（F:I 結合）に入力する。管理値行は34 pt。印刷フッタ左に番号・日付・作成者を ` | ` でつなぎ、Liberation Sans 9 pt・紫灰 `302435` を指定する。フッタ右のページ番号は型にある。
 
@@ -276,6 +277,73 @@ LuaLaTeX で `\documentclass{holt-client-note}` を指定し、プリアンブ�
 LuaLaTeX で `\documentclass{whitfield-scope-change}` を指定し、プリアンブルに `\wcscontrol{変更番号}{発効日}{作成者}{基準文書}`、本文先頭に `\wcstitle{表題}` を入れる。`\wcsection{節見出し}` を使い、既存の試行範囲、承認された変更と発効条件、移行する手順と担当を記す。必要なら `wcsteps` に実データを入れる。末尾の `\wcsapprovals{Whitfield の署名者・役職}{署名日}{Holt の署名者・役職}{署名日}` が2社の署名欄を作る。署名者、発効日、各署名日は承認メールと計画・原稿に合わせる。
 
 この型と `whitfield-payment-procedure.cls` があるディレクトリを `TEXINPUTS` に追加して `bin/tex <入力.tex> <署名欄つきの原本.pdf>` で組む。署名済みの紙面を作り、`bin/scan <署名済みの原本.pdf> <配布するスキャン.pdf>` を実行して全ページを確認する。
+
+## Whitfield 日本事業の次契約
+
+### Holt の工程・予算・見積り
+
+`holt-whitfield-finance.xlsx` の `Cost timing` を原稿のシート数だけ複製する。6行目の旧見出しは各シートの列に合わせて上書きする。各シートの `A2` に表題、`A4` に文書番号と版、`D4` に日付型の値、`F4` に作成者を入れる。種別は工数・固定報酬が `PLN`、追加要求の見積りが `CHG`、案件符号は `WHI-DIAG`。管理欄の例は `HRA-WHI-DIAG-PLN-2026-001 v1.0`、`10 Jul 2026`、`Connor Atkinson`。
+
+openpyxl の `copy_worksheet` は印刷ヘッダとフッタ、印刷タイトルと範囲、ロゴ、ウィンドウ枠の固定を引き継がない。次の手順で複製先に再設定する。各シートの明細・集計・注記を作った後、最後に値を入れた行を `last_row` に渡して印刷範囲を確定する。全シートを作り、数式の参照先を確認してから、元の3シートを除いて別名保存する。
+
+```python
+from copy import copy, deepcopy
+from io import BytesIO
+from openpyxl.drawing.image import Image
+
+def copy_phase_sheet(workbook, name):
+    source = workbook["Cost timing"]
+    sheet = workbook.copy_worksheet(source)
+    sheet.title = name
+    sheet.freeze_panes = source.freeze_panes
+    sheet.oddHeader = deepcopy(source.oddHeader)
+    sheet.oddFooter = deepcopy(source.oddFooter)
+    sheet.page_margins = copy(source.page_margins)
+    sheet.page_setup.paperSize = sheet.PAPERSIZE_A4
+    sheet.page_setup.orientation = sheet.ORIENTATION_LANDSCAPE
+    sheet.page_setup.fitToWidth = 1
+    sheet.page_setup.fitToHeight = 0
+    sheet.sheet_properties.pageSetUpPr.fitToPage = True
+    sheet.print_title_rows = "6:6"
+
+    original_logo = source._images[0]
+    logo = Image(BytesIO(original_logo.ref.getvalue()))
+    sheet.add_image(logo, deepcopy(original_logo.anchor))
+    return sheet
+
+def finish_phase_sheet(sheet, last_row):
+    control = f"{sheet['A4'].value} | {sheet['D4'].value:%d %b %Y} | {sheet['F4'].value}"
+    footer = sheet.oddFooter.left
+    footer.text = control.replace("&", "&&")
+    footer.font = "Liberation Sans"
+    footer.size = 9
+    footer.color = "302435"
+    sheet.print_area = f"A1:H{last_row}"
+```
+
+6行目の見出しは、文字列列に `Holt Text Header`、数値列に `Holt Number Header` を使う。明細は7行目から作り、担当者名・要求番号・説明は `Holt Text`（左インデント1、折返し）、週別人日は `Holt Hours`（右寄せ、小数1桁）、円額は `Holt JPY`（右寄せ、円単位）を指定する。A 列は型の幅25を保つ。担当者のフルネームと `CH-01` などが1行に収まる。明細行高は30 pt を起点とし、説明が3行なら44 pt 以上を目安に広げる。
+
+| シート | A〜H の配置 | 列幅 A〜H の目安 |
+|---|---|---|
+| 週別工程 | 要員、6週分の人日、区間人日計。12週は W1〜W6 と W7〜W12 の2シートに分ける | 25 / 12 / 12 / 12 / 12 / 12 / 12 / 17 |
+| 要員別予算 | 要員、役割、前半人日、後半人日、全人日、円/人日、税別円額、根拠。前半・後半の人日は工程シートの区間計を参照し、税別円額は全人日×円/人日 | 25 / 23 / 13 / 13 / 12 / 16 / 18 / 24 |
+| 追加要求 | 要求番号、要望、条項、作業内訳、人日、税別円額、扱い、担当・次の対応 | 25 / 28 / 12 / 30 / 10 / 16 / 23 / 24 |
+
+集計行は明細の直後に必要な行だけを作る。週別工程は A に `Holt Total Label`、B:H の列合計に `Holt Total Hours` を使う。予算は A:B、追加要求は A:D を結合して `Holt Total Label` を指定し、加算する人日・円額のセルにはそれぞれ `Holt Total Hours`・`Holt Total JPY` を使う。予算の人日単価は加算しない。追加要求の小計は書面承認待ちの行を対象とし、契約の固定報酬は別の注記に記す。集計行高は25 pt を目安に折返しに応じて広げる。注記を加えるときは次行の A:H を結合して `Holt Note`、行高27 pt 以上を指定する。
+
+印刷プレビューでは各シートの社名・管理情報・ページ番号、続頁の6行目、明細から集計・注記までの範囲を確認する。社内作業表は型一覧の Working sheet（型なし）を使える。決裁・提案には `holt-diagnosis.pptx`、契約コメントには `holt-review-memo.docx`、顧客への文書回答には `holt-client-note.cls` を使う。
+
+b007 の印刷見本
+
+- [12週工程と要員別予算](../../scratch/p10-management-consultant/b007/work/templates-0006/whitfield-phase1-plan.xlsx)（[前半](../../scratch/p10-management-consultant/b007/work/templates-0006/render/whitfield-phase1-plan-1.png)、[後半](../../scratch/p10-management-consultant/b007/work/templates-0006/render/whitfield-phase1-plan-2.png)、[予算](../../scratch/p10-management-consultant/b007/work/templates-0006/render/whitfield-phase1-plan-3.png)）
+- [追加要求の1ページ版](../../scratch/p10-management-consultant/b007/work/templates-0006/whitfield-requests-short.xlsx)（[印刷画像](../../scratch/p10-management-consultant/b007/work/templates-0006/render/whitfield-requests-short-1.png)）
+- [作業内訳を詳記した2ページ版](../../scratch/p10-management-consultant/b007/work/templates-0006/whitfield-requests-continued.xlsx)（[1ページ目](../../scratch/p10-management-consultant/b007/work/templates-0006/render/whitfield-requests-continued-1.png)、[2ページ目](../../scratch/p10-management-consultant/b007/work/templates-0006/render/whitfield-requests-continued-2.png)）
+
+### Whitfield 発行の依頼書と署名済み合意書
+
+`\documentclass{whitfield-engagement}` とし、プリアンブルで `\wcecontrol{文書番号と版}{発行日}{発行者}{右上の区分}{宛先}` を設定する。本文は `\wcetitle{表題}`、節は `\wcsection{節見出し}`。区分は依頼書が `ENGAGEMENT REQUEST`、合意書が `ENGAGEMENT AGREEMENT`。番号は依頼書 `WCL-JP-FIN-REQ-<年>-<3桁>`、合意書 `WCL-JP-FIN-AGR-<年>-<3桁>`。日付は `20 Jul 2026` の形式で、着手日・期間は条項に記す。合意書では条項番号を本文の見出しに含める。
+
+合意書には `\wcesignatures{顧客署名者と役職}{署名日}{顧客署名の像}{Holt 署名者と役職}{署名日}{Holt 署名の像}` を使う。署名の像は名前の活字表示とは別に置き、紙面と一緒に取り込む。手書き部分は成形段階で `prompts/build.md` の手書きの手順に従う。TeX のクラス2つが見つかるよう `TEXINPUTS` に型のディレクトリを追加し、依頼書は `bin/tex`、合意書は `bin/tex` で作った署名済み原紙を `bin/scan` に通す。
 
 ## Marston 発行の作業標準 PDF
 
