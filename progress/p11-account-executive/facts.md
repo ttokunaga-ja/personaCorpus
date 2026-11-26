@@ -258,6 +258,23 @@
 - 年40時間に含む業務は管理者相談、運用整理、担当交代の引継ぎ。Nasrinが繁忙期の候補日を伝え、Darrenが予約時に残高を知らせ、実績時間を差し引く。枠外は別見積とMerrittの書面承認の後に着手する。
 - Nasrinのメールは `nasrin@merritt-equipment.example`。11-12 10:14 Nasrin → Michelle「Merritt - time for the busy weeks」（独立、添付なし）。11-21 13:08 Michelle → Nasrin「Merritt - agreed December renewal and support」（独立、更新条件PDFと確定支援範囲DOCXを実添付）。
 
+## 繁忙週の予約と管理者相談の振替
+
+- 更新初日の2025-12-01は支援使用0.00 h・残高40.00 h。以降の時刻はDenver（MST）、予約計は実施の控除と別。変更票HBC-MER-20251212-WRK-01はWordと送付PDFで同じ発行番号。
+- MER-OPS-20251208-01でNasrinが計6.00 hを希望。DarrenはMER-2417＝12-16 09:00–10:30（運用整理1.50 h）、MER-2418＝12-17 10:00–12:00（管理者相談2.00 h）、MER-2419＝12-18 13:00–15:30（担当交代2.50 h）を確保。
+- 12-12に当番の都合でMER-2418を取消し、2026-01-08 10:00–11:15を別予約MER-2441にした。12月の取消は実施0.00 h。16日と18日は動かさない。
+- 12-16 09:00–10:15にNasrin・Darren・Michelleが運用整理を実施（1.25 h）。12-18 13:00–14:45にNasrinと前任・後任、Darren・Michelleが担当交代を実施（1.75 h）。01-08はNasrin・管理者・Darrenが振替相談を全枠実施（1.25 h）。
+- 独立メール：12-08 09:21「Merritt - support for the December peak」Nasrin → Darren、Cc Michelle（依頼書PDF）。12-09 10:15「Merritt - December support times」Darren → Nasrin、Cc Michelle（添付なし）。
+- 同一スレッド：①12-12 09:18「Merritt - move the December 17 consult」Nasrin → Darren、Cc Michelle。②同日11:30「Re: Merritt - move the December 17 consult」Darren → Nasrin、Cc Michelle（①の取消依頼段落を引用し変更票PDFを添付）。
+
+## 12月締めの訂正と1月の実施報告
+
+- 2026-01-06の12月仮明細はMER-2418の予約時間2.00 hを控除に残し、控除5.00 h・残高35.00 hとなった。同日15:15にDarrenとMichelleが確認し、顧客送付を保留した。
+- 01-07正午までの訂正でMER-2418の控除のみ2.00→0.00 h。12月の確定控除は1.25＋1.75＝3.00 h、12月末残高は40.00−3.00＝37.00 h。照合表はHBC-MER-20260106-ADP-01 v0.1（初稿とMichelleの指摘版）からv1.0（訂正済み）に改訂。
+- 1月はMER-2441の1.25 hだけを控除し、年枠の累計実績4.25 h、1月末残高35.75 h。12月の取消枠に対する加算・控除は1月に記帳しない。
+- 独立メール：01-06 10:20「Merritt - hold the December statement」Michelle → Darren（指摘版XLSXを添付、01-07正午までに確認）。
+- 独立メール：01-09 10:10「Merritt - December support statement」Michelle → Nasrin、Cc Darren（HBC-MER-20260109-ADP-01 v1.0のPDFと訂正済み12月CSVを添付）。02-04 10:06「Merritt - January support statement」同じ宛先（HBC-MER-20260204-ADP-01のPDFを添付）。
+
 # Redfield Site Services LLC
 
 - 2025年2月の時刻はDenver（MST）。購買部長 Rebecca Cruz は `rebecca@redfield-site.example`。Michelle、Divya、Allison は Halstead の既存アドレスを使用。

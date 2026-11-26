@@ -1,0 +1,23 @@
+---
+path: Documents/Mail/Merritt/Merritt - move the December 17 consult.eml
+kind: text
+author: Nasrin Rahman
+derived_from:
+---
+From: Nasrin Rahman <nasrin@merritt-equipment.example>
+To: Darren Vasquez <darren@halstead-branch.example>
+Cc: Michelle Whitaker <michelle@halstead-branch.example>
+Date: Fri, 12 Dec 2025 09:18:00 -0700
+Subject: Merritt - move the December 17 consult
+Message-ID: <7abbe574-a7c3-473b-b827-46e9db65a821@merritt-equipment.example>
+
+Hi Darren,
+
+Could you cancel the administrator consultation booked for December 17 at 10:00? We have a gap in repair intake coverage and our administrator cannot step away while covering it. Would the morning of January 8 be possible instead?
+
+The December 18 handoff at 1:00 p.m. is still on. The outgoing and incoming contacts can both attend that afternoon, so please keep that reservation as it is.
+
+Thank you,
+Nasrin
+
+Attachments: none

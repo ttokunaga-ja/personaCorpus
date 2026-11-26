@@ -27,6 +27,7 @@ Office の型は通常の DOCX・XLSX・PPTX。開いて別名で保存する。
 | Request for Proposal | Aldridge Service Group の Ahmed。提案依頼を発行し、要求番号と優先区分を回答者に渡す | `aldridge-rfp.cls` | LuaLaTeX、縦、表紙なし。右上に3本の段違いの柱と社名。紫の細罫、セリフ体と節番号、淡紫の表見出し |
 | Pilot Results | Hollis Medical Supply Inc の Lawrence。IT が確認した試行の対象と週次利用結果を Halstead に送る | `hollis-pilot-result.cls` | LuaLaTeX、縦、表紙なし。左上に段違いの青い正方形と社名、右上に INFORMATION TECHNOLOGY。淡青の表見出し、右寄せの席数、IT Operations のフッタ |
 | Purchasing Comparison | Redfield Site Services LLC の Rebecca。仕入先の価格と必須購入条件を照合し、購買判断の根拠を残す | `redfield-comparison.xlsx` | 横。左上に傾いた2本の帯と社名。えんじ色のセリフ体と列見出し、淡い砂色の管理欄と銅色の明細罫 |
+| Support Request | Merritt Equipment Repair Inc の Nasrin。候補日、用途、希望時間を Halstead へ渡す | `merritt-support-request.cls` | LuaLaTeX、Letter 縦。紺の社名と Operations Planning、黄土色の罫、砂色の反復表見出し |
 
 CSV は利用明細を出力した時点の列定義、EML は差出人と宛先が分かるメール、訪問 JPG は許可された掲示物の写真として扱う。
 
@@ -52,6 +53,10 @@ Hollis の訪問用 PPTX は Adoption Workshop / Proposal Briefing を用いる�
 Waverley Commercial Storage Inc の導入では、Divya が Department Adoption を下記の Implementation Load に組み替え、120席・USD 54,000 の導入を6週で進められるかを確認する。導入説明と2026年6月11日の更新面談は、それぞれ Adoption Workshop / Proposal Briefing で作る。更新面談では利用率74%を根拠として、120席・USD 54,000 の据え置きを示す。利用内訳の CSV は集計日と列の意味を保ち、会議室の JPG は撮影の許可範囲に合わせる。
 
 Merritt Equipment Repair Inc の2025年11月の更新では、Scope of Services に支援の範囲と年40時間の取扱いを記し、顧客向けの Renewal Terms に年額 USD 72,000 と支援範囲の参照先を載せる。Nasrin の追加支援の要望、期限付き旧案、Donald が無償追加10時間を却下した経緯は Pricing-approvals の社内記録と EML に残す。旧案を PDF にする場合は Renewal Terms を開き、題に社内案と分かる表示を置き、発行日とは別に有効期限を記す。Waverley と Merritt の文書は顧客別に作る。
+
+- Merritt の予約変更票は Workshop Record の管理欄と表を使い、変更前・変更後と影響を受けない予約を記録する。月次報告の Word 原本は Adoption Review の節を対象月・用途別実績・残高に合わせ、配布用 PDF は同じ原本から出力する。
+- 予約・実施・残高訂正の集計には Department Adoption の管理欄と6列の書式を使う。時間の列は小数2桁の `0.00` 表示とし、予約枠・実施時間・旧控除・訂正後控除のうち、その表で扱う値を別の列に置く。実施時間が未確認のセルは空欄にし、照合表の合計・差分・残高は数式で求める。
+- TeX で直接発行する Halstead の引継ぎ控えと利用報告は `halstead-renewal.cls` の体裁を使う。ヘッダは `\HBDocumentType` を `SUPPORT HANDOFF` または `SUPPORT USAGE REPORT` に、`\HBHeadRow` の列見出しは用途に合わせて変更する。
 
 ## Redfield と HPT
 
@@ -184,6 +189,8 @@ Halstead の新規導入条件は `\documentclass{halstead-adoption-terms}` と 
 Aldridge Restart の顧客向け商用提案は `\documentclass{halstead-commercial-proposal}` と `\HBProposal{題}{文書番号}{発行日}{作成者}{顧客名}` を使う。検索パスに `halstead-renewal.cls` も置く。番号の用途は `PRP`（例 `HBC-ALD-20260819-PRP-01`）。冒頭に提案の段階を示し、`HBTerms` と `\HBTerm{提案項目}{値}{範囲または条件}` で席数・提示額・適用範囲を対応させる。見出しは Proposed item / Value / Scope or condition で、続きページにも繰り返す。先方の確認事項と発注前の前提は節か表外の `\HBNote{本文}` に置く。金額の注記が付くときは `\HBTotalWithNote` を使って同じページに載せる。
 
 Hollis IT の報告は `\documentclass{hollis-pilot-result}` と `\HMSPilotResult{題}{報告番号}{発行日}{作成者}{宛先}` を使う。対象、結果、審査での扱いを `\section` で分ける。`HMSResults` 環境に `\HMSResult{指標}{席数}{集計の根拠}` を必要な数だけ置く。数値は右寄せ、次の説明列まで15 pt。続きページにも列見出しを繰り返す。
+
+Merritt の支援依頼は `\documentclass{merritt-support-request}` と `\MERSupportRequest{題}{依頼番号}{発行日}{作成者}{宛先}` を使う。依頼番号は `MER-OPS-YYYYMMDD-NN`。`MERRequests` 環境に `\MERRequest{用途}{希望時間}{候補日と希望理由}` を必要な数だけ入れ、回答希望や立会条件は本文に書く。
 
 ## 見本とレンダリング
 
