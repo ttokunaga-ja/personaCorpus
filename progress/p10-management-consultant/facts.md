@@ -262,3 +262,36 @@
 
 - 2月10日 Teresa Green と Nicholas が仮配賦 GBP 1,340 を照合。別顧客の宿泊 GBP 220 を正しい請求先へ同日振り替え、Denton の社内請求根拠は GBP 1,120。振替理由と明細は Holt 内部の請求資料に限る。
 - Teresa <teresa@holt-reeves.example> → Nicholas、2月10日10:37 GMT「Move the extra hotel night」。照合済みの社内経費 XLSX を添付。
+
+## Marston の班長指名と4週間の初品試行
+
+- 2024-10-09、Caroline が Trafford T2 の取りまとめ役を朝班 Gareth Pritchard（夕班 Julie Naylor）、Warrington W1 を朝班 Martin Devlin（夕班 Helen Rigby）に決めた。4人とも Marston の班長で、自班の初品承認と交代時の確認を受け持つ。
+- 件名「Leads for T2 and W1」、10月9日09:14 BST Caroline → Nicholas（Cc Siobhan）。指名を知らせ10日の開始確認へつなぐ新規メール。添付なし。
+- 10月10日10:00 BST、Caroline・Nicholas・Siobhan・Gareth・Martin が T2／W1 の B420・S3 で10月14日〜11月10日の4週を試行と決定。両取りまとめ役が週次原票を確かめ、Connor が重量を照合する。
+- W1 は10月16日に Siobhan が朝夕の切替と班内の承認を各1回確認。T2 は17日に Siobhan・Oliver が朝夕を観察。W1 の16日の2例では、交代をまたぐ未処理箱は発生しなかった。
+
+## Trafford の戻し時刻の欠測と保留札の採用
+
+- Siobhan の朝班用 HRA-MAR-COST-EV-2024-002 v0.1 は10月11日14:10 BST。Julie が17日17:26 BSTに同番号の v0.2 を返し、班をまたぐ箱の札、受取側の記録と戻し時刻の記入先を追記した。
+- T2-241017-B は10月17日16:42 BSTに切替、17:00の交代時に初品3枚・1.8 kgを保留。18日朝の照合でも次班が良品へ戻した署名・時刻は裏づけられず、戻し後の良品量も補記しない。
+- 10月18日11:30 BST、Caroline・Nicholas・Siobhan・Gareth・Julie・Martin・Helen が、21日から札を箱に付けたまま受け渡す方式を採用。仕様照合と班長承認の後、受取側班長が実際の良品戻しに立ち会い署名と戻し時刻を記録する。札なし・不一致・未承認なら保留を続ける。
+- 基準は MCP-OPS-STD-2024-014 Rev 3。切替・詰まり復旧とも3枚の照合と班長承認を続け、切替ロスと再始動ロスは別記する。追加する保留札は交代をまたぐ箱に使い、受取・承認・実戻しを同一の時刻として転記しない。
+- 件名「Tagged boxes from today」、10月21日09:20 BST Siobhan → Caroline・Gareth・Julie・Martin・Helen。HRA-MAR-COST-BRF-2024-009 v1.0 の回覧PDFと保留札台帳 XLSX を実添付する新規メール。
+- 班長のアドレスは `gareth.pritchard@marston-carton.example`、`julie.naylor@marston-carton.example`、`martin.devlin@marston-carton.example`、`helen.rigby@marston-carton.example`。
+
+## Marston の試行票と交代時重量の照合
+
+- T2-241022-B は10月22日 BST の夕班 Julie が HT-07 の箱に S3 初品3枚・1.8 kgを残す。Siobhan が16:54に箱、16:56に札を撮影。翌23日08:12 Gareth 承認、08:16署名・良品戻し。
+- W1-241029-B の HW-04 は10月29日 GMT の夕班 Helen から朝班へ残した切替後の初品3枚・1.5 kg。翌30日08:18 Martin 承認、08:24署名・良品戻し。
+- 夕班の対象ラン全体の交代時点を、投入／良品／切替ロス／再始動ロス／その他／保留の順に kg で記す。T2 10月17日＝480.0／457.2／15.0／0.0／6.0／1.8、T2 10月22日＝510.0／488.2／14.0／0.0／6.0／1.8、W1 10月29日＝500.0／476.5／12.0／5.0／5.0／1.5。良品は先行ラン分を含み、W1 の再始動5.0 kgは先行ランの別事象。
+- 照合は夕班枠の交代時点と、後でその枠に箱の戻しだけを反映した時点を比較する。良品／保留は HT-07 が490.0／0.0 kg、HW-04 が478.0／0.0 kgになり、他の重量は据え置く。17日の戻し反映後の値は不明。翌朝の班の新規生産とは合算しない。
+- 件名「HT-07 back in good stock」、10月23日10:39 BST Gareth → Siobhan・Julie（Cc Connor）。08:12承認と08:16署名・戻しを連絡する新規メール。添付なし。
+- 11月11日11:00 GMT、Caroline・Nicholas・Siobhan・Connor・Gareth・Martin が4週の記録を締めた。17日の欠測は未立証のまま残し、札と重量の照合2例と交代演習を引取判断に使う。試行例から歩留まりへの効果は推計しない。
+
+## Marston の交代演習と班長への引渡し
+
+- 11月14日 T2、15日 W1 の交代演習では札 EX-04 で3枚を扱い、仕様照合が通る場面と別仕様で保留を続ける場面を練習。T2 は受取りで署名欄を先に埋めかけて再演し、W1 は別仕様を止めたが実戻し時刻欄を探した。
+- Caroline 発行の両面早見表 MCP-OPS-QRC-2024-001 Rev 1 は11月21日発行、22日発効。表面は送出、裏面は受取側の承認・署名・実戻しを扱う。参照元の作業標準番号と版は MCP-OPS-STD-2024-014 Rev 3。
+- 11月22日10:00 GMT、Caroline・Nicholas・Siobhan・Gareth・Julie・Martin・Helen。T2 と W1 の班長が札方式を引き取り、Gareth・Martin が22日中の旧指示紙回収を確認し、25日の週から未解除札点検を主導する。
+- HRA-MAR-COST-BRF-2024-011 は11月20日の確認稿 v0.3 と11月22日の投影・回覧 v1.0。引取の確定は22日10:00の会議で記録する。
+- 件名「First-off handover papers」、11月22日13:14 GMT Nicholas → Caroline・Gareth・Julie・Martin・Helen（Cc Siobhan・Connor）。BRF-2024-011 v1.0 回覧PDF、試行票・重量の照合 XLSX、早見表 Rev 1 PDF の3点を実添付する新規メール。

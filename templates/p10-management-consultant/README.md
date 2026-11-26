@@ -21,6 +21,7 @@ Whitfield Components Ltd 日本事業の支払診断・実行案・試行、Mars
 | Payment pilot scope change | Whitfield Components Ltd。Japan Finance が管理する試行範囲の変更合意書。Kenneth と Holt & Reeves 側の承認者が署名する | `whitfield-scope-change.cls` | A4縦。Whitfield 共通の深緑とセリフ体、右上に `JAPAN FINANCE / CHANGE CONTROL`。薄緑の4項目の管理欄、両社の署名欄 |
 | Japan engagement papers | Whitfield Components Ltd。Kenneth の依頼書と、両社が署名する日本事業の契約合意書 | `whitfield-engagement.cls` | A4縦。Whitfield の深緑・セリフ体・薄緑の発行欄。依頼書は宛先、合意書は両社の署名欄を表示 |
 | Production work standard | Marston Carton Packaging Ltd。生産部門が発行し、Caroline Wood が診断時に現行版を提供する | `marston-work-standard.cls` | A4縦。表紙なし。折り箱のロゴ、青い文字と琥珀色の帯、淡青灰の版管理欄。4列の作業手順表 |
+| First-off bench card | Marston Carton Packaging Ltd。Caroline Wood が Trafford T2・Warrington W1 の作業台に置く交代用の早見表 | `marston-bench-card.cls` | A5縦2頁（両面・長辺とじ）。Marston の折り箱ロゴと琥珀の上罫、番号・版・発効日のフッタ |
 | Buying exception guidance | Pioneer Trade Distribution Inc。調達部長の Meera Kulkarni が、申請に必要な証拠、回付先、判断の記録方法を示す現行要領 | `pioneer-exception-guidance.cls` | Letter縦。表紙なし。合流する経路のロゴ、青緑の縦帯と節見出し、白地の管理欄、淡い青緑の手順表 |
 | Trading terms on file | Pioneer Trade Distribution Inc。Meera が Buying で保管する仕入先別の数量条件と単価の記録 | `pioneer-trading-terms.cls` | Letter縦。表紙なし。Pioneer の合流経路ロゴと青緑の縦帯、右上に `BUYING / COMMERCIAL TERMS`。淡青緑の5列の条件表 |
 
@@ -345,6 +346,12 @@ def finish_phase_sheet(sheet, last_row):
 折り箱の輪郭と社名をヘッダ左、`PRODUCTION / WORK STANDARD` を右に置く。英字は Liberation Sans、日本語は Noto Sans CJK JP。青 `15374C` を本文と表見出し背景、琥珀色 `D89C36` を箱の輪郭と上罫、淡青灰 `EDF2F4` を版管理欄に使う。フッタに標準番号・版・発効日・ページ番号。
 
 標準番号は `MCP-OPS-STD-<西暦4桁>-<連番3桁>`。見本は `MCP-OPS-STD-2024-001`。LuaLaTeX の入力で `\documentclass{marston-work-standard}` を指定する。プリアンブルの `\mccontrol{標準番号}{版}{発効日}{発行者}` で管理欄を埋め、本文では `\mctitle{表題}`、`\mcsection{節見出し}` を使う。手順は `mcsteps` 環境に実データ分の `\mcstep{番号}{作業}{管理・判定基準}{記録・対応}` を書く。番号は右寄せ。隣の文字列との間に両セルの余白を設け、続頁には列見出しを繰り返す。クラスを TeX ソースと同じ作業フォルダに置くか、型のディレクトリを `TEXINPUTS` に追加し、`bin/tex <入力.tex> <出力.pdf>` で組む。
+
+## Marston 発行の両面早見表
+
+`tex:marston-bench-card.cls` は同じディレクトリの `marston-work-standard.cls` からロゴ・色・書体・版管理を引き継ぐ。LuaLaTeX のプリアンブルで `\mccontrol{早見表番号}{版}{発効日}{発行者}` を設定する。早見表の番号は `MCP-OPS-QRC-<西暦4桁>-<連番3桁>`。参照する作業標準の番号・版は本文に置く。
+
+本文は `\mcbface{Front}{表面タイトル}` で送出側を始め、`\newpage` の直後に `\mcbface{Back}{裏面タイトル}` で受取側を始める。各面の操作は `\mcbaction{短い見出し}{手順本文}` で組む。テンプレートのディレクトリを `TEXINPUTS` に追加して末尾を `:` にし、`bin/tex` でテキスト PDF にする。両面印刷用の A5 縦2頁で、用紙端の切れや3頁目へのあふれがないことを確かめる。
 
 ## Pioneer 発行の例外申請要領 PDF
 

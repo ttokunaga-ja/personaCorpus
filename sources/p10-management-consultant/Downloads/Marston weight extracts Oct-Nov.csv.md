@@ -1,0 +1,36 @@
+---
+path: Downloads/Marston weight extracts Oct-Nov.csv
+kind: text
+author: Caroline Wood
+derived_from:
+---
+
+```csv
+Run,Weighing / record time,Frame position,Weight type,kg,Source reference
+T2-241017-B,2024-10-17 17:00 +0100,Handover,Input,480.0,T2 17 Oct evening input ticket
+T2-241017-B,2024-10-17 17:00 +0100,Handover,Good,457.2,T2 17 Oct evening good record
+T2-241017-B,2024-10-17 17:00 +0100,Handover,Changeover,15.0,T2 17 Oct evening weight record
+T2-241017-B,2024-10-17 17:00 +0100,Handover,Restart,0.0,T2 17 Oct evening weight record
+T2-241017-B,2024-10-17 17:00 +0100,Handover,Other,6.0,T2 17 Oct evening weight record
+T2-241017-B,2024-10-17 17:00 +0100,Handover,Hold,1.8,T2 17 Oct evening hold record
+T2-241022-B,,Handover,Input,510.0,T2 22 Oct evening input ticket
+T2-241022-B,,Handover,Good,488.2,T2 22 Oct evening good record
+T2-241022-B,,Handover,Changeover,14.0,T2 22 Oct evening weight record
+T2-241022-B,,Handover,Restart,0.0,T2 22 Oct evening weight record
+T2-241022-B,,Handover,Other,6.0,T2 22 Oct evening weight record
+T2-241022-B,,Handover,Hold,1.8,HT-07 hold record
+T2-241022-B,2024-10-23 08:16 +0100,After return,Good,490.0,T2 good record / HT-07
+T2-241022-B,2024-10-23 08:16 +0100,After return,Hold,0.0,HT-07 return record
+W1-241029-B,,Handover,Input,500.0,W1 29 Oct evening input ticket
+W1-241029-B,,Handover,Good,476.5,W1 29 Oct evening good record
+W1-241029-B,,Handover,Changeover,12.0,W1 29 Oct evening weight record
+W1-241029-B,,Handover,Restart,5.0,W1 29 Oct earlier-run restart record
+W1-241029-B,,Handover,Other,5.0,W1 29 Oct evening weight record
+W1-241029-B,,Handover,Hold,1.5,HW-04 hold record
+W1-241029-B,2024-10-30 08:24 +0000,After return,Good,478.0,W1 good record / HW-04
+W1-241029-B,2024-10-30 08:24 +0000,After return,Hold,0.0,HW-04 return record
+```
+
+## Extract scope
+
+The CSV consists of the header and 22 data rows above. For each run reference, Handover covers all in-scope runs on that evening shift, including earlier runs. Good and Hold under After return are updated cumulative weights within the same evening frame. A blank record time means the source identifies the handover position without a clock time. Keep this scope note outside the CSV.

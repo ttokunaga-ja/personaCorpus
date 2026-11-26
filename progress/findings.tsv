@@ -4833,3 +4833,41 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-26	p13-corporate-privacy-counsel	b014	build-review	0	V1	Documents/メール/2024-12-26_年末窓口への引継ぎ.eml	小島の署名の後に成形用の「添付：12月26日_年末の受付引継ぎ.docx」が受信者の本文として残っている。MIME添付は指定保存版とバイト一致。
 2026-11-26	p20-investigative-journalist	b011	check	0	source	Documents/Staff-and-grants/October mileage notebook.pdf	body token overlap 0.185 < 0.3
 2026-11-26	p20-investigative-journalist	b011	check	2	source	Documents/Staff-and-grants/October mileage notebook.pdf	body token overlap 0.272 < 0.3
+2026-11-26	p02-site-reliability-engineer	b012	templates-review	0	other	README.md	成形見本の b011 休日当番と引継ぎの10リンクと b010 月次可用性報告と上下限計算の13リンクが、存在しない b011/work/templates-0002 配下を指す。
+2026-11-26	p02-site-reliability-engineer	b012	draft-check	0	trace	Desktop/Ticket archive trial - draft.docx	制作の痕跡
+2026-11-26	p02-site-reliability-engineer	b012	draft-check	0	trace	Documents/Recovery-evidence/Archive candidate review minutes.docx	制作の痕跡
+2026-11-26	p02-site-reliability-engineer	b012	draft-check	0	trace	Documents/Recovery-evidence/Ticket archive interval comparison.xlsx	制作の痕跡
+2026-11-26	p02-site-reliability-engineer	b012	draft-check	0	trace	Downloads/RJS archive interval findings.pdf	制作の痕跡
+2026-11-26	p02-site-reliability-engineer	b012	draft-review	0	D3	Documents/Recovery-evidence/Archive load trial entry criteria.md	固定時点の読戻しを定める段落の「identify a set complete by that time」は任意の適格セットを選べる記述で、8月20日の議事録が求める復元可能な適格セット間で最新の収録時刻を選ぶ手順がなく、古いセットで15分目標を誤判定しうる。
+2026-11-26	p02-site-reliability-engineer	b012	draft-check	1	trace	Documents/Recovery-evidence/Archive candidate review minutes.docx	制作の痕跡
+2026-11-26	p02-site-reliability-engineer	b012	draft-check	1	trace	Downloads/RJS archive interval findings.pdf	制作の痕跡
+2026-11-26	p02-site-reliability-engineer	b012	draft-check	2	trace	Documents/Recovery-evidence/Archive candidate review minutes.docx	制作の痕跡
+2026-11-26	p02-site-reliability-engineer	b012	draft-check	2	trace	Downloads/RJS archive interval findings.pdf	制作の痕跡
+2026-11-26	p02-site-reliability-engineer	b012	draft-check	0	trace	Documents/Recovery-evidence/Ticket archive candidate review.pptx	制作の痕跡
+2026-11-26	p02-site-reliability-engineer	b012	draft-review	0	D10	Documents/Change-decisions/Ticket archive trial scope.docx	先頭7行目のderived_fromが空欄で、計画が元とするDesktop/Ticket archive trial - draft.docxから同じ文書番号・作成日時を引き継ぐv1.0の派生元が指定されていない。
+2026-11-26	p02-site-reliability-engineer	b012	draft-check	1	trace	Documents/Recovery-evidence/Ticket archive candidate review.pptx	制作の痕跡
+2026-11-26	p02-site-reliability-engineer	b012	draft-review	2	D10	Documents/Recovery-evidence/Ticket archive candidate review.pptx	第3枚（42〜53行）は Layout: Two columns に4列の候補比較表と本文を指定しているが、指定の型では Two columns の idx 1・2 は左右の本文欄で、表の入力欄（idx 1、type=tbl）は Table レイアウトにある。原稿のレイアウト指定のままでは、型の表欄に計画所定の比較表を入れられない。
+2026-11-26	p02-site-reliability-engineer	b012	check	0	trace	Documents/Recovery-evidence/Archive interval measurements.md	production trace: synthetic
+2026-11-26	p02-site-reliability-engineer	b012	check	0	trace	Documents/Recovery-evidence/Archive trial handover.md	production trace: synthetic
+2026-11-26	p02-site-reliability-engineer	b012	build-review	0	V2	Documents/Recovery-evidence/Ticket archive interval comparison.xlsx	Interval comparisonシートの印刷設定が縦1ページ固定（fitToHeight=1）で、型と見本が指定する縦自動（fitToHeight=0）と異なる。
+2026-11-26	p02-site-reliability-engineer	b012	check	1	trace	Documents/Recovery-evidence/Archive interval measurements.md	production trace: synthetic
+2026-11-26	p02-site-reliability-engineer	b012	check	1	trace	Documents/Recovery-evidence/Archive trial handover.md	production trace: synthetic
+2026-11-26	p02-site-reliability-engineer	b012	check	2	trace	Documents/Recovery-evidence/Archive interval measurements.md	production trace: synthetic
+2026-11-26	p02-site-reliability-engineer	b012	check	2	trace	Documents/Recovery-evidence/Archive trial handover.md	production trace: synthetic
+2026-11-26	p02-site-reliability-engineer	b012	check	0	source	Documents/Change-decisions/Ticket archive trial scope.docx	body token overlap 0.481 < 0.5
+2026-11-26	p02-site-reliability-engineer	b012	check	1	source	Documents/Change-decisions/Ticket archive trial scope.docx	body token overlap 0.481 < 0.5
+2026-11-26	p02-site-reliability-engineer	b012	check	2	source	Documents/Change-decisions/Ticket archive trial scope.docx	body token overlap 0.481 < 0.5
+2026-11-26	p19-educator-instructional-designer	b011	build-review	0	V1	Google Drive/Shared drives/Elmwood/Planning/Handoff practice notes.docx	10月28日13:10の当番練習の振り返りと翌日の引継ぎを記録した現物を確認した。日付フォルダではない Planning にある実ファイル名に、persona の命名規則で必要な 2024-10-28_ がない。計画と原稿も同じ日付なしのパスを指定しており、前回指摘は未解消。
+2026-11-26	p19-educator-instructional-designer	b011	build-review	2	V1	Google Drive/Shared drives/Elmwood/Planning/Handoff practice notes.docx	10月28日13:10の当番練習の振り返りと翌日の引継ぎを記録した現物のファイル名に、日付フォルダではないPlanningで必要な2024-10-28_がなく、計画と原稿も日付なしのパスを指定しており前回のV1は未解消。V2も確認し、1頁目の題下の管理欄は原稿どおり28 October 2024だが型のREADMEが定める28 Oct 2024と異なる。
+2026-11-26	p10-management-consultant	b010	draft-review	0	other	Documents/Clients/Marston/17 Oct - First-off instructions v0.2 JN.docx	判定なし
+2026-11-26	p10-management-consultant	b010	draft-review	0	other	Documents/Clients/Marston/21 Oct - Tagged box briefing.pdf	判定なし
+2026-11-26	p10-management-consultant	b010	draft-review	0	other	Pictures/IMG_0644.jpg	判定なし
+2026-11-26	p10-management-consultant	b010	draft-review	0	other	Documents/Clients/Marston/12 Nov - Ticket and weight tie-out.xlsx	判定なし
+2026-11-26	p10-management-consultant	b010	draft-review	0	other	Documents/Clients/Marston/22 Nov - Marston handover v1.0.pptx	判定なし
+2026-11-26	p10-management-consultant	b010	draft-review	0	D3	Documents/Clients/Marston/22 Nov - First-off handover.pdf	2頁目が継承する元PPTXの「What the tickets and weights establish」のT2-241017-B列から、前回判定で確認されたConnorの「18 Oct - T2 ticket query」への参照が抜けているため、回覧面の17:00保留3枚・1.8 kgと「Unproved」を、Julieの交代時の説明、試行票の枚数、重量記録、翌朝の署名・実戻し時刻の照会にたどれない。
+2026-11-26	p03-security-grc-analyst	b012	draft-review	0	D10	Documents/再審査/日高/2024-09-26_日高_配布差替えの確認記録.docx	表題下12行目には井上・松本の「現物確認者」しかなく、前回判定で確認した山田による記録自体の確認が現稿から欠けているため、chukyo-reading.docxの管理欄に入れる当該記録の確認／承認者または確認状態が特定できない。
+2026-11-26	p03-security-grc-analyst	b012	check	0	source	Desktop/日高_立会いの確認項目案_井上修正.docx	body token overlap 0.584 < 0.6
+2026-11-26	p03-security-grc-analyst	b012	check	1	source	Desktop/日高_立会いの確認項目案_井上修正.docx	body token overlap 0.584 < 0.6
+2026-11-26	p03-security-grc-analyst	b012	check	2	source	Desktop/日高_立会いの確認項目案_井上修正.docx	body token overlap 0.584 < 0.6
+2026-11-26	p03-security-grc-analyst	b012	check	0	source	Documents/メール保存/社内/2024-10-18_日高の年内発注条件を返します.eml	body token overlap 0.766 < 0.8
+2026-11-26	p03-security-grc-analyst	b012	check	1	source	Documents/メール保存/社内/2024-10-18_日高の年内発注条件を返します.eml	body token overlap 0.766 < 0.8
