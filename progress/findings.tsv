@@ -5093,3 +5093,6 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-26	p15-recruiter-people-ops	b013	build-review	1	V2	Documents/入社支援/2025-03-19_集合場所の行き違い_伊藤さん赤字.docx	1ページ目の「経過」「受付での滞在と約束からの遅れ」は型の配色・書式に修正されたが、両表とも幅166 mmで型の上限162 mmを超え、14:06の挿入明細行には型で指定する行分割禁止がない。管理欄と8:52のコメントは一致し、12分の行の挿入履歴は行全体に付いている。
 2026-11-26	p15-recruiter-people-ops	b013	build-review	1	V2	OneDrive - みらい職場研修/チーム会議/2025-03-28_3月入社の受入確認.pptx	スライド2の表見出しとスライド3の枠・矢印の指定色は修正されたが、スライド2の「対象」列の4人・4人と「前営業日16時の残件」列の0件が左寄せで、型の数値右寄せ指定と一致しない。表の内容、5時点の図、4枚の発表者ノートは原稿と一致する。
 2026-11-26	p04-ml-research-engineer	b011	coordinator	0	other	Documents/Review-notes/Dec 20 - Replay files to keep.md	統括の抜き取りで不合格
+2026-11-26	p03-security-grc-analyst	b012	draft-review	0	D10	Documents/再審査/日高/2024-09-26_日高_配布差替えの確認記録.docx	表題下10〜13行は当該記録の番号・版と現物確認者を示すが、Wordの管理欄に必要な文書自体の確認・承認の状態がなく、前回確認された「山田による配布控えとの照合済み」の記載が欠けている。
+2026-11-26	p03-security-grc-analyst	b012	check	0	source	Documents/メール保存/社内/2024-10-18_日高の年内発注条件を返します.eml	body token overlap 0.787 < 0.8
+2026-11-26	p03-security-grc-analyst	b012	check	1	source	Documents/メール保存/社内/2024-10-18_日高の年内発注条件を返します.eml	body token overlap 0.787 < 0.8

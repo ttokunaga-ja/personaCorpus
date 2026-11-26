@@ -203,7 +203,7 @@ p19-educator-instructional-designer	b010	2026-11-26	34	2	4	0	0	accepted	21942.17
 p04-ml-research-engineer	b010	2026-11-26	27	3	2	1	0	accepted	13780.15
 p11-account-executive	b010	2026-11-26	31	4	5	7	5	accepted	8041.17
 p06-life-science-researcher	b012	2026-11-26	27	7	13	0	0	accepted	14705.14
-p05-bi-data-analyst	b010	2026-11-26	31	6	6	1	0	done	32831.63
+p05-bi-data-analyst	b010	2026-11-26	31	6	6	1	0	accepted	32831.63
 p20-investigative-journalist	b010	2026-11-26	31	3	4	5	4	accepted	9176.03
 p13-corporate-privacy-counsel	b012	2026-11-26	31	13	6	0	0	accepted	8051.59
 p15-recruiter-people-ops	b011	2026-11-26	32	3	8	0	0	accepted	9263.89
@@ -218,7 +218,7 @@ p17-construction-project-manager	b012	2026-11-26	36	6	5	4	0	done	39211.37
 p14-finance-controller	b016	2026-11-26	34	13	9	1	0	accepted	25429.50
 p16-clinical-researcher	b012	2026-11-26	30	4	13	0	0	accepted	17831.23
 p01-software-engineer	b012	2026-11-26	36	9	4	2	0	done	18962.87
-p03-security-grc-analyst	b012	2026-11-26	30	6	3	1	0	done	17972.61
+p03-security-grc-analyst	b012	2026-11-26	30	6	3	0	0	done	28554.52
 p11-account-executive	b011	2026-11-26	32	4	2	1	0	accepted	6105.22
 p13-corporate-privacy-counsel	b013	2026-11-26	28	4	1	0	0	accepted	6434.24
 p02-site-reliability-engineer	b011	2026-11-26	27	0	1	0	0	accepted	5104.36
