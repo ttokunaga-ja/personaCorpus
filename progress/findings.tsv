@@ -4558,3 +4558,4 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-26	p20-investigative-journalist	b010	coordinator	0	other	Documents/Interviews/Coleman - quote listening notes.txt	統括の抜き取りで不合格
 2026-11-26	p20-investigative-journalist	b010	coordinator	0	other	Documents/Stories/Housing-repairs/Parkview file handoff.txt	統括の抜き取りで不合格
 2026-11-26	p20-investigative-journalist	b010	coordinator	0	other	Documents/Stories/Housing-repairs/Parkview repair date fields.csv	統括の抜き取りで不合格
+2026-11-26	p06-life-science-researcher	b012	draft-review	0	D10	Documents/Lab-share/2024-08-13_Repeat reservation minutes.docx	表題直下の管理行（原稿10行目）で、前回pass時の文書状態「Final」が文書種別「Meeting record」に置き換わっており、bennett-lab-minutes.docxに適用されるBennett共通書式の状態欄を埋める値がない。

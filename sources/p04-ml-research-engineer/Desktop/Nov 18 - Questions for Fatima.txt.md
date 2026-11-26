@@ -1,0 +1,14 @@
+---
+path: Desktop/Nov 18 - Questions for Fatima.txt
+kind: text
+author: Vanessa Nguyen
+derived_from:
+---
+
+Fatima, 2 pm
+
+Start with Q91. Find where the sender comes back in after “Ignore my cancellation below.” and the old cancellation. Put a finger on “Please send me a receipt.” Is it below the line we cut?
+
+If either of us reads the remaining line as cancel: did a request to cancel actually survive, or did we just recognize the cancellation the sender withdrew? Ask for the words that tell us what to do now.
+
+Then the sheet. Q27 first. Say “move,” Apr 23, and Apr 26 separately. What lets me connect “that one” to Apr 23 in the original? Can I make the same connection with the excerpt in front of me? Do that for the other eleven.

@@ -222,3 +222,18 @@
 - 10月3日の作業稿 `MDR-STI-20241003-LM-01-R01` の費用比較を、10月8日発行の `MDR-STI-20241003-LM-01-R02` で1.50倍から2.10倍へ差し替えた。開発結果の表は同じ。
 - 10月8日14:00 PDTに Vanessa、Michael Serrano、Brandon、Emily が研究会。Michael は大型案を自動受付用途に不採用とし、Vanessa が研究用の比較結果と確定試算、Emily が計時表を残す。8月試行の閾値はこの場で決めない。
 - “October intake decision and timing sheet” は Vanessa → Michael・Brandon（Cc Emily）、2024-10-09 10:47 PDTの独立した連絡。Larger model decision memo.pdf と Intake cost at equal volume.xlsx の2本を添付する。
+
+## 11月の短文受付返信と引用除去の試行（2024年）
+
+- 11月6日の小研究会で Vanessa Nguyen と Emily Chen が文書単位の開発934通を照合ID順に確認し、受信本文に返信部と以前の文面がある120通を照合IDごとに一度選んだ。件名・経路・後付けの転送コメントは根拠にせず、評価940通は開かない。
+- 境界明瞭86通は行頭引用符62・独立した帰属行24、不明瞭34通は折り返し混じりの帰属語22・文脈のみ12。1通1区分とし、行頭引用符と独立した帰属行が併存するときは前者に取る。
+- 11月12〜13日に原文と最初の引用候補行から末尾を落とした抜粋を対で読んだ。不明瞭群も推定開始行を置き、途中に戻る現行文は復元しない。既存の正解と予測は開かず、読める現在の動作と対象を比べた。
+- 変化の区分は同じ読解／日程変更の変更元の日付だけ特定不能（変更動作と希望日は残る）／別の動作として読める／動作が特定不能。明瞭は70／9／4／3、不明瞭は21／3／5／5。総計91／12／9／8で1通1区分。
+- 変更元の日付を落とした12通の手掛かり内訳は、行頭引用符7・独立した帰属行2・折り返し混じりの帰属語2・文脈のみ1。変更元・返信で希望した日・抜粋に残る日を照合表で別欄に置く。
+- Q27は明瞭（行頭引用符）。返信 “Could we move that one to Apr 26?” の “that one” が引用中の Apr 23 の予約枠を指す。抜粋にも希望日の Apr 26 は残り、変更元の Apr 23 は消える。
+- Q91は不明瞭（折り返し混じりの帰属語）。現在部の “Ignore my cancellation below.” の後に古い取消し文が挟まり、その後に現在の領収書依頼がある。抜粋には冒頭の撤回文だけが残り、動作が特定不能になる。Q54は明瞭で引用除去後も現在部の Apr 29 の予約取消しが読める。
+- 11月14日の対照読解PDFは `MDR-STI-20241114-RM-01-R01`、変更元の日付の照合表は `MDR-STI-20241114-AW-01-R01`。11月18日14:00 PST に Vanessa と Fatima Rahman が原文・抜粋を読み比べ、変更元の日付を落とした12通を確認した。
+- 1通目 “Reply excerpts for Monday” は Vanessa → Fatima、2024-11-14 14:23 PST。“Intake reply paired readings.pdf” と “Reschedule date check.xlsx” を添付。2通目 “Re: Reply excerpts for Monday” は Fatima → Vanessa、2024-11-15 10:03 PST。1通目の本文を引用し、新規添付なし。
+- 11月21日14:00 PST の研究会は Vanessa、Emily、Fatima、Michael Serrano が出席。一律除去を採用せず原文を保持し、後続の比較には境界群と群の件数、動作の変化、変更元の日付の欠落を区別して残すと決めた。正解の改訂や採点は行わない。
+- 決定メモの11月19日初稿は `MDR-STI-20241119-RM-01-R01`。同日の Emily コメント付き控えは初稿の番号・発行欄を保持。11月22日発行の Word と配布PDFは同じ版 `MDR-STI-20241119-RM-01-R02`。
+- 独立した連絡 “November intake reply decision” は Vanessa → Michael・Emily（Cc Fatima）、2024-11-25 10:21 PST。“Quote strip decision memo.pdf” と “Reply reading changes.csv” を添付。Emily の社内メールは `emily@mercer-document.example`。
