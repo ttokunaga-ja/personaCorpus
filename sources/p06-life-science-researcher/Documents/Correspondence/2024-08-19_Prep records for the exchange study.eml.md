@@ -1,0 +1,21 @@
+---
+path: Documents/Correspondence/2024-08-19_Prep records for the exchange study.eml
+kind: text
+author: Melissa Watkins
+derived_from:
+---
+
+From: Melissa Watkins <melissa@bennett-cell.example>
+To: Patricia Jensen <patricia@bennett-cell.example>
+Date: Mon, 19 Aug 2024 09:22:00 -0400
+Subject: Prep records for the exchange study
+Message-ID: <b6d3f960-18c7-4d25-845f-a9f49b0e4712@bennett-cell.example>
+
+Hi Patricia,
+
+Before we meet on Friday to design the exchange-interval study, I'd like to check whether Lauren can work back from an observation sheet to the right line in your preparation record when preparation spans more than one date.
+
+What fields are in the current prep record, and which reference number remains visible when you print it? If you have an example of the way the date and row reference appear on paper, please bring it on the 23rd. We can then decide what Lauren needs on her sheet without relying on the group name alone.
+
+Thanks,
+Melissa

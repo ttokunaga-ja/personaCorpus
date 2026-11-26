@@ -1,0 +1,7 @@
+Exchange record questions — before Friday
+
+Ask Lauren: if someone reads “48 h, 10:00” aloud, where would you write the interval in hours and where would you write the observation time in HH:MM? Can the two be picked out quickly on the sheet?
+
+Ask Patricia and Lauren: who will copy the preparation date from the original ledger, and who will check it against the source? What reference will still be visible on a printout?
+
+If an observation is left blank, how should the next day's check show that it is still missing rather than implying an observation was made? Who follows it up? Bring the existing sheet to the meeting.

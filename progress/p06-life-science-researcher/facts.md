@@ -259,3 +259,19 @@
 - BCE-CE-2024-DEC-001-R00, issued by Melissa Aug 13 at 13:14 with Robert's approval of the reservation decision, holds Sep 10 09:00–10:30 and Sep 12 13:00–14:30 EDT tentatively. The decision covers calendar handling and record layouts. Run authorization remains pending throughout Aug 16.
 - Hold thread in order: Aug 13 14:02 Melissa → Lauren and Anthony, Cc Robert, “Keep the two September holds”, with the actual DEC-001-R00 PDF and separate position map TSV. Aug 15 09:47 Lauren → Melissa and Anthony, Cc Robert, “Re: Keep the two September holds”, quotes the Thursday withdrawal request and attaches the actual BCE-CE-2024-TBL-012-R00 XLSX.
 - Lauren's Aug 15 diary update leaves two tentative holds and releases Sep 12 morning. Melissa indexes the planning evidence on Aug 16 and keeps the marked desk sheet with the rejected morning option.
+
+## Medium exchange — August 2024 scope and record design
+
+- August 2024 times are Philadelphia EDT (UTC−04:00). Melissa Watkins, Patricia Jensen and Lauren Brooks meet Aug 23 at 10:30–11:00 (BCE-CE-2024-MIN-006-R00) and settle the three-group design. The 30 planned labels are MX24-01–10, MX48-01–10 and MX72-01–10.
+- The planning workbook BCE-CE-2024-TBL-014-R00 separates 30 study places from three month-end desk examples. Its checkpoints are Aug 26 at 11:00 for Patricia and Lauren's lookup, Aug 28 at 14:00 for Lauren and Benjamin's rack check, and Aug 30 for the three desk entries.
+- Prep-record thread: Aug 19 09:22 Melissa → Patricia, “Prep records for the exchange study”; Aug 20 10:12 Patricia → Melissa, “Re: Prep records for the exchange study”, quoting the question on fields visible in print. Neither message has an attachment.
+- In the Aug 26 group-only desk copy BCE-CE-2024-LAB-012-R00, the 48 h row has a 10:00 planned time but cannot distinguish prep refs P02 (Aug 26) and P04 (Aug 27). Lauren's markup preserves both candidate refs on the same copy.
+- Aug 27 at 10:15–10:40 (BCE-CE-2024-MIN-007-R00), Melissa, Patricia and Lauren adopt separate Sample ID and Prep date fields. Verify the pair against Patricia's source and carry the prep-row reference. Lauren records planned and actual times separately and refers missing prep dates back to Patricia.
+- At the Aug 28 check, the empty rack's cards read 24 h, 48 h and 72 h from left to right. Lauren and Benjamin verify the labels, with the middle card clear of the label slot. The Aug 29 kickoff is 13:30–14:00 with Melissa, Robert, Patricia, Lauren and Benjamin.
+
+## Medium exchange — three-group desk rehearsal and plan issue
+
+- Practice prep refs and date entries: P01 / MX24-03 / Aug 26; P02 / MX48-03 / Aug 26; P03 / MX72-03 / Aug 27; P04 / MX48-08 / Aug 27. P04 is the separate 48 h lookup candidate, outside the three observation examples.
+- On Aug 30, Lauren fills the observation sheet BCE-CE-2024-LAB-014-R00 with Patricia and Benjamin. P01, P02 and P03 have planned/actual desk times 09:30/09:32, 10:00/10:06 and 10:30/10:30. Melissa's check BCE-CE-2024-TBL-015-R00 has +2, +6 and 0 min and three unique matches. These times are for the paperwork rehearsal.
+- Robert approves the plan and record layout at 13:10 on Aug 30. Melissa saves BCE-CE-2024-PLN-006-R00 and exports that approved version without changes. The study date remains open.
+- Aug 30 at 14:04 Melissa → Patricia and Lauren, Cc Robert and Benjamin, “Exchange plan and rehearsal check”, starts a distribution thread with the actual PLN-006-R00 PDF and separate TBL-015-R00 XLSX attached.

@@ -1,0 +1,40 @@
+---
+path: Documents/Medium-exchange/Exchange sample roster.csv
+kind: text
+author: Melissa Watkins
+derived_from:
+---
+
+```csv
+Exchange interval (h),Sample ID
+24,MX24-01
+24,MX24-02
+24,MX24-03
+24,MX24-04
+24,MX24-05
+24,MX24-06
+24,MX24-07
+24,MX24-08
+24,MX24-09
+24,MX24-10
+48,MX48-01
+48,MX48-02
+48,MX48-03
+48,MX48-04
+48,MX48-05
+48,MX48-06
+48,MX48-07
+48,MX48-08
+48,MX48-09
+48,MX48-10
+72,MX72-01
+72,MX72-02
+72,MX72-03
+72,MX72-04
+72,MX72-05
+72,MX72-06
+72,MX72-07
+72,MX72-08
+72,MX72-09
+72,MX72-10
+```

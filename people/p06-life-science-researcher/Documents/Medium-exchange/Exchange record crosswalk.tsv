@@ -1,0 +1,7 @@
+Item	Preparation source field	Observation sheet field	Entered by	Check
+Sample ID	Sample ID	Sample ID	Patricia at preparation; Lauren on observation sheet	Match with Prep date as a pair against the preparation register; do not identify by group alone.
+Preparation date	Preparation date	Prep date	Patricia at preparation; Lauren copies confirmed date	Match with Sample ID; return a missing or unreadable date to Patricia for confirmation. Do not infer it from group or time.
+Exchange interval	Exchange interval (h)	Exchange interval	Patricia at preparation; Lauren on observation sheet	Check the interval and rack section against the matched pair; neither is the identifier.
+Preparation register row	Prep row reference	Prep register row	Patricia supplies source reference; Lauren carries it to the observation sheet	Use the retained reference to retrieve the preparation row and verify the pair.
+Planned time	Not recorded in preparation extract	Planned time	Lauren	Enter before observation; keep separate from actual time.
+Actual time	Not recorded in preparation extract	Actual time	Lauren	Leave blank until Lauren reads the clock and enters the actual time; do not substitute planned time.
