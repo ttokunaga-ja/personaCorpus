@@ -1526,6 +1526,16 @@ fn a_stop_left_by_a_coordinator_is_cleared_when_its_actions_are_applied() {
         g.once();
     }
     assert!(g.r.join("scratch/autopilot/stop").exists());
+    // A stop the user makes with `stop` while a coordinator runs is kept too,
+    // and the coordinator's `start` action does not lift it.
+    let h = Fixture::new();
+    hold_row(&h);
+    h.once();
+    h.cli(&["stop"]);
+    finish_coordinator(&h, json!({"actions":[{"do":"start"}]}));
+    h.once();
+    assert!(h.r.join("scratch/autopilot/stop").exists());
+    assert_eq!(h.called("batch", "start"), 0);
 }
 
 #[test]

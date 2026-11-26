@@ -1906,8 +1906,10 @@ impl Pilot {
         let launched = self.state["coordinator"]["launched"]
             .as_str()
             .and_then(|t| chrono::DateTime::parse_from_rfc3339(t).ok());
-        if let (Some(launched), Ok(made)) =
-            (launched, fs::metadata(&stop).and_then(|m| m.modified()))
+        // A stop the user made with `bin/autopilot stop` (marked "user") stays.
+        let by_user = read(&stop).is_ok_and(|t| t.contains("user"));
+        if let (Some(launched), Ok(made), false) =
+            (launched, fs::metadata(&stop).and_then(|m| m.modified()), by_user)
         {
             if chrono::DateTime::<chrono::Utc>::from(made) >= launched {
                 fs::remove_file(&stop)?;
@@ -1960,6 +1962,9 @@ impl Pilot {
         }
         if kind == "start" {
             let stop = self.home.join("stop");
+            if read(&stop).is_ok_and(|t| t.contains("user")) {
+                return Ok("ユーザーの停止の指示なので解除しない".into());
+            }
             if stop.exists() {
                 fs::remove_file(stop)?;
             }
@@ -2768,10 +2773,15 @@ fn execute(a: Action) -> Result<i32> {
         Action::Stop { now } => {
             pilot.refresh()?;
             fs::create_dir_all(&pilot.home)?;
-            OpenOptions::new()
+            // Outside a codex-job (a person at the terminal) the stop is marked
+            // as the user's, so a coordinator's actions never lift it.
+            let mut stop = OpenOptions::new()
                 .create(true)
                 .append(true)
                 .open(pilot.home.join("stop"))?;
+            if std::env::var_os("CORPUS_JOB").is_none() {
+                std::io::Write::write_all(&mut stop, b"user\n")?;
+            }
             if now {
                 OpenOptions::new()
                     .create(true)

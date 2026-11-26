@@ -309,6 +309,7 @@ fn run_job(path: &Path) -> Result<()> {
         .open(path.join("log"))?;
     let outcome = Command::new(arguments[0])
         .args(&arguments[1..])
+        .env("CORPUS_JOB", path.file_name().unwrap_or_default())
         .current_dir(meta["cwd"].as_str().context("missing cwd")?)
         .stdin(Stdio::null())
         .stdout(log.try_clone()?)

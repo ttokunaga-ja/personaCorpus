@@ -40,7 +40,7 @@
 - あなたは Codex の sandbox の中にいて、`.git` に書けません。commit、worktree の作成、`bin/batch accept`・`discard`・`resume`、push はできません。これらは **操作の指示**（JSON の `actions` のパス）に書きます。あなたが終わったあと、自動運転が上から順に実行し、結果を次の統括の `previous` に渡します。
 - ファイルの編集は、自動運転が main から作り直した worktree（JSON の `worktree`、`scratch/autopilot/wt`）だけで行います。本体の作業フォルダの成果物・資料・道具は編集しません（`scratch/` の一時物は除く）。
 - 道具を直すときは、worktree で先に失敗するテストを書き、`tests/run.sh` と `ops/tests/run.sh` を通し、`cargo build --release --manifest-path tools/Cargo.toml` のあと、`CORPUS_BASE=<本体の repo の絶対パス> tools/target/release/corpus check --all --accepted` で受入済みの全ファイルが通ることを確かめます（worktree でビルドした実行ファイルは、`CORPUS_BASE` が無いと worktree を repo の根として読みます）。自動運転も取り込む前に同じことを確かめ、通らなければ取り込みません。
-- 自動運転から起動された統括は、`bin/autopilot stop`・`start`・`stop --now` を実行しません。監査が甘いと分かったときは、監査の指示を直して `merge` に入れます。取り込みはジョブの終わりにすぐ行われ、次の監査から効くので、止める必要はありません。ジョブ中に作られた stop は、自動運転が解除します。
+- 自動運転から起動された統括は、`bin/autopilot stop`・`start`・`stop --now` を実行しません。監査が甘いと分かったときは、監査の指示を直して `merge` に入れます。取り込みはジョブの終わりにすぐ行われ、次の監査から効くので、止める必要はありません。ジョブ中に作られた stop は、自動運転が解除します。ただし、ユーザーが端末で `bin/autopilot stop` を実行した停止（中身に `user` と書かれる）は解除されず、`start` の操作でも解除できません。
 
 ### 操作の指示（actions.json）
 
