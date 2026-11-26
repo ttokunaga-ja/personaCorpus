@@ -4831,3 +4831,5 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-26	p13-corporate-privacy-counsel	b014	build-review	0	V1	Documents/メール/2024-12-09_返信_合同説明会の受付順.eml	12月6日の引用末尾の後に成形用の「添付：」欄と高瀬労務相談室_合同説明会の配布順の所見.pdfが受信者の本文として残っている。MIME添付は指定保存版とバイト一致。
 2026-11-26	p13-corporate-privacy-counsel	b014	build-review	0	V1	Documents/メール/2024-12-18_合同説明会の受付用資料.eml	小島の署名の後に成形用の「添付：」欄と早見表PDF・照合表XLSXの2ファイル名が受信者の本文として残っている。MIME添付2点は指定保存版とバイト一致。
 2026-11-26	p13-corporate-privacy-counsel	b014	build-review	0	V1	Documents/メール/2024-12-26_年末窓口への引継ぎ.eml	小島の署名の後に成形用の「添付：12月26日_年末の受付引継ぎ.docx」が受信者の本文として残っている。MIME添付は指定保存版とバイト一致。
+2026-11-26	p20-investigative-journalist	b011	check	0	source	Documents/Staff-and-grants/October mileage notebook.pdf	body token overlap 0.185 < 0.3
+2026-11-26	p20-investigative-journalist	b011	check	2	source	Documents/Staff-and-grants/October mileage notebook.pdf	body token overlap 0.272 < 0.3

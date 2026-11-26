@@ -89,10 +89,22 @@ b001は2026-08-10〜09-30の研修設計リード採用3枠を扱う。8観点�
 | 募集準備順の協議資料 | 同社、佐藤から渡辺へ。5月17日に協議した準備の順番と次の確認を共有する | `mirai-recruiting.pptx` | 16:9。桑実色の左帯。2段で先行2枠と返答待ち3枠を対照表示 |
 | 部門への準備日程 | 同社、佐藤から所管部署へ。職務確認の順番と返してほしい情報を送る | `mirai-recruiting-note.cls` | A4縦。年度人員計画のヘッダと、ページ番号が入る配布PDF |
 
-- 準備表はA〜F列を「番号／職務／開始予定月／着手条件・返答元／逆算した確認順／人事の担当」、列幅を12・25・17・36・35・20とする。A列は `MW Number`、B〜F列は `MW Text`、管理番号は `MAP`。開始予定月は年月で、確認日や引渡し日が未回答の間は条件と返答元を記す。確定した日付を独立した列に入れる原稿では、実日付に `MW Date` を使う。明細は40ptを目安にし、見本の継続表は13行目と20行目の後に改ページを入れる。合計は付けない。
+- 準備表はA〜F列を「番号／職務／開始予定月／着手条件・返答元／逆算した確認順／人事の担当」、列幅を12・25・17・36・35・20とする。A列は `MW Number`、B〜F列は `MW Text`、管理番号は `MAP`。開始予定月は年月で、確認日や引渡し日が未回答の間は条件と返答元を記す。確定した日付を独立した列に入れる原稿では、実日付に `MW Date` を使う。明細は40ptを目安にし、実際の折返しに合わせて改ページを調整する。合計は付けない。
 - DOCXはヘッダの用途を「年度人員計画」に替え、ロゴの run を保持する。「先に確認する職務」「現場から受け取る条件」「5月17日の判断」「保留を解く条件」など、記録する時点と原稿に応じて節を組む。表を入れる場合は「番号／担当範囲／受渡条件」を14／45／102mmとし、番号列を右寄せ、職務名のセルには既定の左右余白を残す。準備順の決定記録は `APR`、確認事項は `REC` を使う。
 - 協議資料（`BRF`）では、申込み受付は10月開始前に小林と受付時間帯と追加申込みの扱いを確認し、教材改訂は11月開始に向けて高橋と現行教材の引渡し日を確認する。教材・会場準備、見積補助、入社手続補助は、各部署が着手条件を返すまで保留とする。
 - 部門への日程（`REC`）は `\renewcommand{\MWDocumentUse}{年度人員計画}` を指定し、所管部署ごとの確認事項と返答先を本文に置く。加藤用のCSVは「職務／確認事項／返答元／確認予定日／状態」など原稿の列で出す。5月の文書は職務確認と準備の範囲を扱い、求人公開日や採用の確約は記載しない。
+
+### 2024年7月の研修設計面接の組み立て（b012）
+
+| 文書 | 担当と用途 | 使用する型 | 成形 |
+|---|---|---|---|
+| 職務場面と7観点の対応表 | 佐藤・高橋。7月19日に定めた観点を職務場面と質問に対応付ける | `mirai-evaluation.xlsx` | `MAP`。A4横。列は番号／職務場面／確認の観点／比較資料／聞き取る根拠／聞き直す点。幅は12・26・25・19・33・30。A列を `MW Number`、B〜F列を `MW Text` とし、原稿の明細を7行目から入れる |
+| 試問・聞き直し例と質問順への赤字 | 佐藤と高橋。回答例と、面接担当が後から確認する問いを残す | `mirai-interview.docx` | `INT`。対象と日時、観察した事実、解釈と評価、追加確認の4節を使う。赤字では削る文を取り消し線、差し替えを高橋名入りの赤字で示し、同じ文書番号で版を上げる。原著者は佐藤、最終更新者は高橋 |
+| 面接担当の読み合わせ | 佐藤。教材の修正前後を並べ、確認の順序を共有する | `mirai-recruiting.pptx` | `BRF`。2段レイアウトで修正前後、表で問いと追問、図で判断者を確認する分岐を示す |
+| 手元用の問い | 佐藤。面接担当が使う質問と追問の配布控え | `mirai-recruiting-note.cls` | `REC`。A4縦。`\renewcommand{\MWDocumentUse}{面接担当の確認事項}` とし、修正箇所、顧客要望と到達目標、変更を決めた人への問いを並べる |
+| 質問の分岐図 | 佐藤。判断者が分からないときの聞き直しを図で示す | PNGの業務図 | 図レイアウトの桑実色と灰緑、Noto Sans CJK JPで作図する。矢印に分岐条件を添え、判断者が不明なら追問へ、分かれば変更理由の確認へ進む |
+
+試問の回答は例と分かるように記し、観察した回答と聞き手の判断を別欄に置く。対応表には経験年数の得点欄や合計を設けない。観点の名称と順序には、この時期の原稿の値を使う。
 
 ## 共通の意匠と管理
 
@@ -121,10 +133,10 @@ b001は2026-08-10〜09-30の研修設計リード採用3枠を扱う。8観点�
 
 1. B3:D3の結合セルへ規定番号全文、F3へ版、B4:C4へ作成日（実日付に`yyyy-mm-dd`）、E4:F4へ作成者を入れる。入力先は空でもNoto Sans CJK JP・9pt・左寄せ・左インデント1・折返しなし・縦中央。B3:D3の結合は維持し、番号を1行で表示する。列幅A〜Fは評価表が19・38・28・14・25・21、経費表が23・39・18・18・17・30（いずれも合計145）。3・4行目は30pt。管理欄は番号全文と隣の版・日付・作成者を同時に入れて印刷し、長い番号や作成者では入力先の結合幅を広げて1行表示を保つ。題・列名・列幅は原稿に合わせて変更する。
 2. 原稿にある行だけ7行目から追加する。文字は `MW Text`（10pt、左寄せ）、整数・金額・差分の式は `MW Number`（10pt、右寄せ、`#,##0;[Red](#,##0);0`）、日付は `MW Date`、注記は `MW Note`（9pt）。すべて墨色、折返し・上揃え、細い下罫線。文字・日付・注記の名前付き書式は左インデント2と左の縦罫、数値書式は右の縦罫を持つ。縦罫はいずれも桑実色の濃淡 `A9919D`、細線。先頭の連番を含め、数値の右隣に文字が来るときは両セルの名前付き書式をそのまま適用する。列の追加・移動・並替えでもセルに対応する書式を付け、印刷で左右の値と縦罫の間隔を確認する。識別子は文字列の `MW Text`、率は数値に `MW Number` を付けて原稿に合わせた表示形式にする。
-3. 評価表は実際の8観点に従い、候補者ごとのシートまたは文書に分ける。シート名と題に対象者、管理欄の後へ原稿の評価日・評価者を追加するなど、作成日と評価日を区別する。事実と解釈を混ぜない。評価尺度は原稿に従う。保留を0点へ変えず、点数の合計を型の都合で追加しない。
+3. 観点の数と名称は案件・時点ごとの原稿に従う。職務場面の対応表は観点を行に置く。候補者別の評価表を作る場合は、候補者ごとのシートまたは文書に分け、シート名と題に対象者を入れる。管理欄の後へ原稿の評価日・評価者を追加するなど、作成日と評価日を区別する。事実と解釈を分け、評価尺度は原稿に従う。保留を0点へ変えず、点数の合計を型の都合で追加しない。
 4. 経費表は金額（円）と人数（人）を別表／シートに分け、題や列見出しに単位を明記する。3〜5列の差額は原稿の式（例：`=D7-C7`）。合計が意味を持つ場合だけ最後の明細の次へラベルと実範囲を指す`SUM`等を入れ、実セルへ `MW Total` を付ける。淡色背景、太字、上細線・下二重線・右の縦罫。ラベルの横位置は左寄せ・左インデント2に変更する。人数の内訳と応募者数を重複加算しない。未知額を0に置き換えない。
 5. 注記が原稿にある場合だけ末尾へ `MW Note` の行を追加し、必要な幅を結合する。列幅合計は評価表145、経費表145文字幅。明細行高は40pt、合計は25ptを目安とする。長文は行高を増やし、表を分ける。`auto_filter.ref`は6行目から最終明細、`print_area`はA1:F実最終行とし合計・注記まで含める。列を増減した場合は結合・印刷範囲も揃える。
-6. A4横、幅1ページ・高さ自動、左右0.3inch・上0.35・下0.45、1〜6行繰返し、C7で固定。表が長い場合は自然改ページを確認し、必要に応じて `ws.row_breaks.append(Break(id=11))` のように行の後に改ページを入れる。位置は実内容の折返しに合わせる。印刷ヘッダの余白は0.15inch、フッタ余白は0.2inch。会社・人事と `&P / &N` のフッタを維持する。`bin/recalc`で式を計算し、`bin/render`で全ページを確認する。
+6. A4横、幅1ページ・高さ自動、左右0.3inch・上0.35・下0.45、1〜6行繰返し、C7で固定。表が長い場合は自然改ページを確認し、必要に応じて `ws.row_breaks.append(Break(id=14))` のように行の後に改ページを入れる。位置は実内容の折返しに合わせ、最終頁には合計と注記の高さも確保する。部数の継続表見本では明細16行を36ptとし、14行目の後で8明細ずつに分けている。印刷ヘッダの余白は0.15inch、フッタ余白は0.2inch。会社・人事と `&P / &N` のフッタを維持する。`bin/recalc`で式を計算し、`bin/render`で全ページを確認する。
 
 ## PowerPoint
 
@@ -176,21 +188,23 @@ Miltonの研修提案書は同じ `TEXINPUTS` で `\documentclass{milton-trainin
 
 ## 今回の見本と確認先
 
-作業フォルダは `scratch/p15-recruiter-people-ops/b011/work/templates-0002/`。表のパスはこのフォルダを基準とする。長い見本の反復明細と文書番号は印刷確認用。実際の文書番号・日付・内容は計画・事実台帳・原稿に従う。
+作業フォルダは `scratch/p15-recruiter-people-ops/b012/work/templates-0002/`。表のパスはこのフォルダを基準とする。見本の内容・管理情報と継続表の反復明細は書式確認用。実際の文書番号・日付・内容は計画・事実台帳・原稿に従う。
 
 | 型／確認内容 | 見本 | 全ページの画像 |
 |---|---|---|
-| 受渡条件と保留の解除（短い表） | `examples/mirai-approval.docx` | `render/mirai-approval/` |
-| 受渡条件と保留の解除（継続表） | `examples/mirai-approval-long.docx` | `render/mirai-approval-long/` |
-| 面接記録 | `examples/mirai-interview.docx` | `render/mirai-interview/` |
+| 教材改訂を担当する職務の確認（短い表） | `examples/mirai-approval.docx` | `render/mirai-approval/` |
+| 教材改訂を担当する職務の確認（継続表） | `examples/mirai-approval-long.docx` | `render/mirai-approval-long/` |
+| 教材修正の試問と聞き直し | `examples/mirai-interview.docx` | `render/mirai-interview/` |
+| 質問順の赤字 | `examples/mirai-interview-redline.docx` | `render/mirai-interview-redline/` |
+| 質問の分岐図 | `examples/mirai-interview-branch.png` | `render/mirai-interview-branch/` |
 | 候補者への追加確認の案内 | `examples/mirai-notice.docx` | `render/mirai-notice/` |
-| 募集準備表（5枠） | `examples/mirai-evaluation-5.xlsx` | `render/mirai-evaluation-5/` |
-| 募集準備表（継続表） | `examples/mirai-evaluation-20.xlsx` | `render/mirai-evaluation-20/` |
-| 部数の照合（3行と合計） | `examples/mirai-expenses-3.xlsx` | `render/mirai-expenses-3/` |
-| 部数の照合（継続表と合計） | `examples/mirai-expenses-20.xlsx` | `render/mirai-expenses-20/` |
-| 渡辺との募集準備の協議（全5レイアウト） | `examples/mirai-recruiting.pptx` | `render/mirai-recruiting/` |
-| 部門への準備日程（短い表） | `examples/mirai-recruiting-note.tex`、`examples/mirai-recruiting-note.pdf` | `render/mirai-recruiting-note/` |
-| 部門への準備日程（継続表） | `examples/mirai-recruiting-note-long.tex`、`examples/mirai-recruiting-note-long.pdf` | `render/mirai-recruiting-note-long/` |
+| 職務場面と7観点の対応（7行） | `examples/mirai-evaluation.xlsx` | `render/mirai-evaluation/` |
+| 職務場面と観点の対応（継続表） | `examples/mirai-evaluation-long.xlsx` | `render/mirai-evaluation-long/` |
+| 部数の照合（3行と合計） | `examples/mirai-expenses.xlsx` | `render/mirai-expenses/` |
+| 部数の照合（継続表と合計） | `examples/mirai-expenses-long.xlsx` | `render/mirai-expenses-long/` |
+| 面接担当の読み合わせ（全5レイアウト） | `examples/mirai-recruiting.pptx` | `render/mirai-recruiting/` |
+| 手元用の問い（短い表） | `examples/mirai-recruiting-note.tex`、`examples/mirai-recruiting-note.pdf` | `render/mirai-recruiting-note/` |
+| 手元用の問い（継続表） | `examples/mirai-recruiting-note-long.tex`、`examples/mirai-recruiting-note-long.pdf` | `render/mirai-recruiting-note-long/` |
 | 青山の採用支援の連絡 | `examples/aoyama-recruiting-note.docx` | `render/aoyama-recruiting-note/` |
 | 青山の配布資料（短い表） | `examples/aoyama-channel-handout.tex`、`examples/aoyama-channel-handout.pdf` | `render/aoyama-channel-handout/` |
 | 青山の配布資料（継続表） | `examples/aoyama-channel-handout-long.tex`、`examples/aoyama-channel-handout-long.pdf` | `render/aoyama-channel-handout-long/` |
