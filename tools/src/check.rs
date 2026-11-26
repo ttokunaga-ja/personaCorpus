@@ -1253,6 +1253,22 @@ fn data_lines(text: &str, ext: &str) -> String {
         }
         sample.join("\n")
     } else if lines.is_empty() {
+        // A bare data block can end with a separate, explicitly labeled source note.
+        let normalized = text.replace("\r\n", "\n");
+        if let Some((data, note)) = normalized.trim().rsplit_once("\n\n")
+            && note.starts_with("表外の照合注記：")
+            && note.lines().count() == 1
+        {
+            let mut reader = csv::ReaderBuilder::new()
+                .delimiter(if ext == "tsv" { b'\t' } else { b',' })
+                .from_reader(data.as_bytes());
+            if reader.headers().is_ok_and(|h| h.len() > 1)
+                && reader.records().next().is_some_and(|r| r.is_ok())
+                && reader.records().all(|r| r.is_ok())
+            {
+                return data.into();
+            }
+        }
         text.into()
     } else {
         lines.join("\n")
@@ -1492,6 +1508,37 @@ fn retry_scan_transcript(p: &Path, expected: &str, language: &str) -> Result<Opt
         (body_token_overlap(&transcript.join("\n"), &recognized) >= SCAN_MIN_OVERLAP)
             .then_some(recognized),
     )
+}
+
+// A manuscript may describe a divisor that the sheet stores only in a formula.
+fn workbook_divisor_source(body: &str, path: &Path) -> Result<String> {
+    let instruction = re(r"([0-9]{4,})で割");
+    if !instruction.is_match(body) {
+        return Ok(body.into());
+    }
+    let mut divisors = HashSet::new();
+    let operand = re(r"/\s*([0-9]{4,})(?:$|[)\s,+*/^;&<>=-])");
+    let quoted = re(r#""(?:[^"]|"")*"|'(?:[^']|'')*'"#);
+    for (name, bytes) in zip_parts(path)? {
+        if name.starts_with("xl/worksheets/") && name.ends_with(".xml") {
+            visit(&xml(&bytes)?, &mut |node| {
+                if node.name == "f" {
+                    let formula = xml_text(node);
+                    let formula = quoted.replace_all(&formula, " ");
+                    divisors.extend(operand.captures_iter(&formula).map(|c| c[1].to_owned()));
+                }
+            });
+        }
+    }
+    Ok(instruction
+        .replace_all(body, |c: &regex::Captures<'_>| {
+            if divisors.contains(&c[1]) {
+                "で割".to_owned()
+            } else {
+                c[0].to_owned()
+            }
+        })
+        .into_owned())
 }
 
 // Workbook manuscripts may embed literal CSV rows alongside formulas and prose.
@@ -2286,6 +2333,11 @@ fn inspect(
                     match source(source_root, &rel, &mut Vec::new()) {
                         Err(e) => fail(&mut r, "source", format!("Error: {e}")),
                         Ok((scfg, body)) => {
+                            let body = if ext == "xlsx" {
+                                workbook_divisor_source(&body, p)?
+                            } else {
+                                body
+                            };
                             if ext == "eml" {
                                 match email_reasons(&body, p) {
                                     Ok(issues) => {
@@ -3487,6 +3539,38 @@ mod handout_and_revision_tests {
 #[cfg(test)]
 mod workbook_manuscript_tests {
     use super::*;
+
+    #[test]
+    fn bare_csv_with_external_note_keeps_all_data_values() {
+        let manuscript = "巡回,金額\n07,3200\n19,4500\n\n表外の照合注記：KRS-202408-RD-001";
+        assert_eq!(
+            source_reason(manuscript, "07 3200 19 4500", false, "csv", false, false),
+            None
+        );
+        assert!(source_reason(manuscript, "07 3200 19", false, "csv", false, false).is_some());
+    }
+
+    #[test]
+    fn worksheet_conversion_operand_is_present_in_formula() {
+        let dir = tempfile::tempdir().unwrap();
+        let file = dir.path().join("workbook.xlsx");
+        let mut archive = zip::ZipWriter::new(fs::File::create(&file).unwrap());
+        archive
+            .start_file(
+                "xl/worksheets/sheet1.xml",
+                zip::write::SimpleFileOptions::default(),
+            )
+            .unwrap();
+        std::io::Write::write_all(
+            &mut archive,
+            br#"<worksheet><c><f>H7/1440</f><v>0.375</v></c><c><f>"/5000"</f></c></worksheet>"#,
+        )
+        .unwrap();
+        archive.finish().unwrap();
+        let body =
+            workbook_divisor_source("1440で割る。5000で割る。別の金額1440円", &file).unwrap();
+        assert_eq!(body, "で割る。5000で割る。別の金額1440円");
+    }
 
     #[test]
     fn workbook_csv_cells_are_separate_from_prose_and_grouped_amounts() {
