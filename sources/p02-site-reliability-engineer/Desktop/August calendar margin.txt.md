@@ -1,0 +1,10 @@
+---
+path: Desktop/August calendar margin.txt
+kind: text
+author: Daniel Jennings
+derived_from:
+---
+Last August weekend
+Fri 23, 17:00 BST – ~~Mon 26, 09:00 BST~~
+Bank holiday: Tue 27, 09:00 BST.
+Ask Andrew about Monday evening too; weekend boxes alone don't cover it.

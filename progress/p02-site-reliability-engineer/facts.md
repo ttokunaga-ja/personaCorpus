@@ -226,3 +226,24 @@
 - At 10:00 UTC on 9 May, Daniel Jennings, Emma Wilkinson and Anjali Shah agree the result (BRT-MT-20240509-001). Anjali asks for unobserved minutes alongside availability from the May report. Daniel issues April on 10 May; Emma and Daniel check the May reporting field on 3 June at 10:00 UTC.
 - “April Identity availability flash” thread, BST: (1) 1 May 10:31 Daniel → Emma and Anjali, attaches April Identity availability - Flash.pdf; (2) 2 May 10:47 “Re: April Identity availability flash”, Emma → Daniel and Anjali, quotes (1) and attaches identity_verifier_apr30.csv.
 - “April Identity report and hourly figures”, standalone 10 May 10:34 BST, Daniel → Anjali, Cc Emma, attaches April Identity availability.pdf and the separate April Identity hourly figures.csv.
+
+## July–August 2024 weekend leave and cover
+
+- Eight windows begin on Fridays at 17:00 BST. End at 09:00 BST on the Monday shown, except the August bank-holiday window, which ends Tuesday 27 August at 09:00 BST. Planned primary alternates Daniel Jennings, Andrew Cartwright. The other is the mutual relief candidate in each original row.
+- 5–8 Jul Daniel / Andrew relief; 12–15 Jul Andrew / Daniel relief; 19–22 Jul Daniel planned, Matthew Pickering confirmed primary, no agreed relief; 26–29 Jul Andrew / Daniel relief.
+- 2–5 Aug Daniel / Andrew relief; 9–12 Aug Andrew planned, Sanjay Mehta confirmed primary, no agreed relief; 16–19 Aug Daniel / Andrew relief; 23–27 Aug Andrew / Daniel relief.
+- Daniel and Andrew check leave at 10:30 BST on 7 June. Both are away during 19–22 July and 9–12 August; swapping their names between those windows leaves both gaps. At 11:00 BST on 10 June they separately read back the six unchanged primary assignments and six reciprocal relief commitments, including the extended 23–27 August window.
+- Daniel's 6 June working comparison BRT-OL-20240606-001 leaves actual duty blank pending readback or acceptance. BRT-OL-20240614-001 records all eight accepted primaries and the original two overlaps. Sanjay's routine 10:00 BST storage review on 10 August can be deferred and does not interrupt duty.
+- Standalone “July and August weekend cover”, 3 June 09:18 BST, Andrew → Daniel. Both individual cover requests ask for an answer by 13 June 12:00 BST.
+- July thread, BST: (1) “Can you take the 19 July weekend”, 11 June 09:22 Daniel → Matthew; (2) “Re: Can you take the 19 July weekend”, 11 June 16:08 Matthew → Daniel, quotes (1) and accepts the full window and June readback.
+- August thread, BST: (1) “9 August storage check and weekend cover”, 11 June 10:07 Daniel → Sanjay; (2) “Re: 9 August storage check and weekend cover”, 13 June 09:41 Sanjay → Daniel, quotes (1) and accepts the full window with the review movable. Neither thread has attachments.
+- Contact order: current primary, then the named relief if primary does not answer, then Anjali Shah if still unanswered. For the two windows with no agreed relief, go from the unanswered primary straight to Anjali.
+- Daniel issues BRT-OW-20240621-001 and refreshes the shared-drive contact notice on 21 June after the readback. “Summer weekend duty sheet for the desk”, standalone at 16:31 BST, Daniel → Andrew, Matthew, Sanjay and Claire Hutchinson, Cc Anjali, attaches Summer weekend duty.pdf only.
+- On 21 June the desk PDF is issued at 16:08 BST and the contact notice is refreshed at 16:19 BST. The notice links to the issued PDF for the full rota, while the overlap workbook stays in On-call as the record of acceptance and leave.
+
+## Friday readback of the July duty change
+
+- The 21 June 15:00–15:15 BST session (14:00–14:15 UTC) is in the small Bristol meeting room. Daniel plays the outgoing engineer, Matthew the incoming primary, Andrew observes and Claire supplies the Support cue.
+- The separate simulated clock is 19 July BST: 16:58 (15:58 UTC) Claire gives one open receipt delivery follow-up for a completed Fare Payments payment; 17:00 (16:00 UTC) Matthew takes the watch, and the still-unaccepted item remains visible against Daniel with its next check.
+- At simulated 17:03 BST (16:03 UTC) Matthew reads back his name and the 17:20 BST (16:20 UTC) Support check and accepts the item. Receipt delivery is still unverified when the rehearsal ends. The 17:20 check is scheduled in the exercise, with no observed outcome.
+- BRT-MT-20240621-001 records the session in Daniel's DOCX and its unchanged PDF. Keep the rota boundary at 17:00 BST and require explicit named, timed acknowledgement per open item. Keep both the outgoing owner and the next check visible until acceptance.

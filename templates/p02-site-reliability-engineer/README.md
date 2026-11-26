@@ -13,6 +13,8 @@
 | Monthly error budget | BRT Reliability Engineering。Daniel が UTC 窓ごとの対象件数・消費量を照合し、月初来の残率を計算 | `brt-error-budget.xlsx` | A4 横。青地白抜きの見出し、橙のブランド罫線、青い上罫線の集計行 |
 | Peak capacity comparison | BRT Reliability Engineering。Daniel が混雑時間帯の同一基準需要に対し、旧上限と承認後の上限を比較 | `brt-capacity-comparison.xlsx` | A4 横。エラーバジェットと共通の段形マークと青・橙。需要・上限・符号付き差分を小数 2 桁で横に並べる |
 | On-call duty exchanges | BRT Reliability Engineering。Daniel と Andrew が翌月の交代枠、交代前と確定後の担当者を照合 | `brt-duty-exchange.xlsx` | A4 横。青地白字の見出し、橙のブランド罫線。英国現地の開始・終了、時間帯、交代前後の担当を分ける |
+| Weekend duty leave overlap | BRT Reliability Engineering。Daniel と Andrew が夏季週末の予定の一次担当、相互代行候補、承諾済みの当番を照合 | `brt-weekend-leave-overlap.xlsx` | A4 横。青地白字の繰返し見出しと橙罫。代行可否と承諾・条件を別欄に置く |
+| Weekend duty and handover | BRT Reliability Engineering。Daniel が確定した当番枠、連絡順と交代時の読合せを部内配布 | `brt-weekend-duty-sheet.cls` | A4 縦、表紙なし。青地白字の繰返し見出し、橙罫、部門名と頁番号。開始と終了はそれぞれ日付・現地時刻・時間帯を表示 |
 | Ticket archive recovery guidance | BRT Customer Support。Claire が点検で確認した復旧点と、運行側がどの時点までの乗車券記録を確認できるかを説明する修正案。確定稿は同じ Word 文書から PDF に書き出せる | `brt-ticket-recovery-guidance.docx` | A4 縦、表紙なし。青い見出しと橙の罫線。各ページのフッタに Customer Support とページ番号 |
 | Ticket office switch contact card | BRT Customer Support。Claire が Fairfield と読み合わせた切替文面、連絡順、受領確認を窓口配布用に確定するときに使用 | `brt-ticket-office-contact-card.docx` | A4 縦、独立表紙なし。青い見出しと橙罫。Customer Support とページ番号をフッタに表示 |
 | Recovery point comparison | BRT Reliability Engineering。Daniel と Sanjay が基準時刻、復旧点、時点の差と目標を照合 | `brt-recovery-point-comparison.xlsx` | A4 横。青地白字の繰返し見出し、橙の罫線、二つの UTC 日時列と右寄せの分・目標列 |
@@ -46,6 +48,7 @@ Westbury、RJS、Fairfield の型は各社が発行する文書に用いる。Cl
 - BRT の番号は `BRT-種別-YYYYMMDD-連番3桁`。種別は `IR`（事後報告）、`MT`（打合せ）、`CD`（変更判断）、`EB`（エラーバジェット）、`CP`（容量比較）、`RB`（説明資料）、`CU`（顧客説明）、`NH`（夜間引継ぎ）、`OX`（当番交代）、`TR`（再受講記録）、`EX`（復旧演習報告）、`RP`（復旧点比較）、`TC`（窓口の切替連絡票）。Westbury は `WCC-SO-YYYYMMDD-連番3桁`、Palmer の予測・再確認は `PCS-DF-YYYYMMDD-連番3桁`、RJS の立会い所見は `RJS-WS-YYYYMMDD-連番3桁`、Fairfield の受付記録は `FTS-DR-YYYYMMDD-連番3桁`。いずれも日付部分は文書の発行日、連番は組織・種別・発行日ごとに `001` から取る。業務上の障害番号 `INC-260713` を本文で引用する場合は、文書の管理番号と別に記す。
 - 管理欄は完全な番号、発行日（例 `14 Jul 2026`）、作成者のフルネームを入れる。障害の時刻は UTC で表記する。勤務表の日時は Europe/London の現地時刻で、BST または GMT を明記する。初報と確定した内容を両方記す場合は、対象範囲と確認時点を添える。
 - 可用性の月報は `AV`、上下限の計算表は `AB`。速報と確定報告は各発行日の番号を使い、確定報告の改訂経緯で速報を引用する。
+- 休日当番の休暇照合表は `OL`、確定した配布表は `OW`。いずれも BRT 共通の番号書式を使う。
 - 返金照合表の種別は `RF`。日付と連番の扱いは他の BRT 文書と共通。
 - Office のファイル内部の作成者と日時は、配布物の成形後に進行役が `bin/stamp` で原稿の作成者と計画の日時にそろえる。Excel は保存時に更新日時が書き換わるため、この処理は保存と再計算の後に行う。
 
@@ -93,6 +96,14 @@ Westbury、RJS、Fairfield の型は各社が発行する文書に用いる。Cl
 2. 7 行目から実際の交代枠だけを追加する。A は `BRT Count`、B・C は英国現地での開始と終了の実日時を `BRT Rota Time` で表示し、日付をまたぐ場合も両方の日付を残す。D は `BRT Text` で `BST` または `GMT` を入れる。切替をまたぐ枠は D に開始と終了の時間帯を順に示す（例 `BST → GMT`）。E・F は `BRT Text` で旧担当と確定担当。日時・文字は左インデント 1、行番号は右インデント 1。行高は 25 pt を目安にし、担当名が折り返す場合は広げる。
 3. 交代枠の集計が必要なら最後の明細の次に行を足し、A に `=COUNT(A7:A<最終明細行>)` を `BRT Total Count` で設定する。B:F を結合し、B に `BRT Total Text` で何を数えたかを書き、結合後の C:F に B と同じ上罫線を設定する。注記を追加するときは次行の A:F を結合して A に `BRT Note` を使い、折返しを見て行高を調整する。
 4. A4 横、横 1 ページ・縦自動、1〜6 行を繰り返す。印刷範囲を `A1:F<最後に使った行>` に広げる。式を入れた場合は `bin/recalc` を使い、`bin/render` で全ページを確認する。
+
+### Weekend duty leave overlap
+
+1. `Leave overlap` シートで C3 に完全な番号、C4 に Excel 日付、F3 に作成者、F4 に対象期間と `Europe/London` を入れる。C3:D3、C4:D4、F3:I3、F4:I4 は結合済み。左上のセルに値だけを入れる。管理欄は折返し付きで行高 26 pt。長い対象期間は 4 行目を広げる。
+2. 7 行目から実際の枠を 1 行ずつ追加する。A は `BRT Count`、B・C は現地の開始・終了を Excel 日時で入れて `BRT Rota Time`、D:I は `BRT Text`。D は `BST` または `GMT`。切替をまたぐ場合は開始・終了の順に `BST → GMT` のように記す。数値は右寄せ、文字と日時は左寄せでインデント 1 を保つ。明細は行高 42 pt を目安に、条件の折返しに合わせて調整する。
+3. E は予定の一次担当、F は照合対象の相互代行候補、G は承諾後に実際に枠を持つ担当。H に代行可否を記し、休暇が重なった行は `Leave overlaps` とする。I に承諾の根拠と適用条件を書く。承諾待ちなら G は空欄のままとし、H・I に確認待ちの状態と次の確認を記す。
+4. 重複の集計が必要なら、最終明細の直後に A を `BRT Total Count` とし、`=COUNTIF(H7:H<最終明細行>,"Leave overlaps")` で件数を出す。B:I を結合し、B に集計名と `BRT Total Text`、C:I に同じ上罫線を適用する。行高は 24 pt を目安にする。全体注記は次行で A:I を結合し、A に `BRT Note` を適用して行高を調整する。
+5. A4 横、横 1 ページ・縦自動、1〜6 行を繰り返す。印刷範囲は A1:I と実際の最終行まで。集計が単独ページに出る場合は明細の行高か改ページ位置を調整し、最終明細と同じページに載せる。式は `bin/recalc`、印刷は `bin/render` で全ページを確認する。
 
 ### Recovery point comparison
 
@@ -155,6 +166,12 @@ Westbury、RJS、Fairfield の型は各社が発行する文書に用いる。Cl
 - `\documentclass{brt-monthly-availability}` を指定する。表題・管理欄は `\BRTUpdate{題}{完全な文書番号}{発行日}{作成者}`、節は `\BRTSection`、本文注記は `\BRTNote` を使う。
 - `BRTAvailability` は `指標 & 値 & 根拠／扱い \\` の3列。中央列は右寄せで、青地白字の見出しは改ページ後も繰り返す。速報の暫定計上と確定版の根拠・報告判断は各原稿に従う。組版と確認には共通の `TEXINPUTS`・`bin/tex`・`bin/render` を使う。
 
+### 休日当番の配布表
+
+- `\documentclass{brt-weekend-duty-sheet}` を指定し、`\BRTUpdate{題}{完全な文書番号}{発行日}{作成者}` に値を入れる。`\BRTSection` で `Coverage and contact order`、`Friday readback`、`Duty windows` の順に節を作る。対象期間と連絡順、引継ぎ時点で未決の項目の状態・次の確認時刻・受領の条件、承諾を確認した当番枠を入れる。
+- `BRTRotaWindows` は `番号 & 開始 & 終了 & 当番 & 合意済みの代行 & 引継ぎ要点 \\` の6列。開始と終了はそれぞれ `\BRTRotaTime{05 Jul}{17:00 BST}` の形式で入れる。英国現地時刻で両端の時間帯を書き、対象期間に年を明記する。代行の合意がない欄は `—` と表示し、その場合の連絡先は本文の連絡順に示す。番号の右に 5 mm の間隔があり、列の見出しは改ページ後も繰り返す。
+- 組版と確認には共通の `TEXINPUTS`・`bin/tex`・`bin/render` を使う。引受け条件の MD、手控えの TXT、承諾の EML、部内連絡案内の HTML は各原稿から作り、該当する当番枠・交代時刻・連絡順を照合する。
+
 ### Passenger Identity の復旧演習
 
 - 改善前の報告 PDF は `\documentclass{brt-recovery-exercise}` を指定する。冒頭の `\BRTUpdate{題}{完全な文書番号}{発行日}{作成者}`、節の `\BRTSection{見出し}`、本文注記の `\BRTNote{注記}` は BRT 共通。管理欄の発行日と、本文の実施日・UTC 時刻はそれぞれ原稿に従う。
@@ -184,15 +201,26 @@ Westbury、RJS、Fairfield の型は各社が発行する文書に用いる。Cl
 
 ## 成形見本
 
+### b011 の休日当番と引継ぎ
+
+8 枠の見本の日付・時刻・担当は書式確認用。32 枠は複数ページの繰返し見出しと BST／GMT の切替を確認するための見本。成形ではファイル計画と原稿の値を使う。
+
+| 型 | 入力済み見本 | ページ画像 |
+|---|---|---|
+| 休暇照合・8 枠 | [XLSX](../../scratch/p02-site-reliability-engineer/b011/work/templates-0002/samples/brt-weekend-leave-overlap.xlsx) | [全ページ](../../scratch/p02-site-reliability-engineer/b011/work/templates-0002/render/brt-weekend-leave-overlap/) |
+| 休暇照合・32 枠 | [XLSX](../../scratch/p02-site-reliability-engineer/b011/work/templates-0002/samples/brt-weekend-leave-overlap-long.xlsx) | [全ページ](../../scratch/p02-site-reliability-engineer/b011/work/templates-0002/render/brt-weekend-leave-overlap-long/) |
+| 配布表・8 枠 | [PDF](../../scratch/p02-site-reliability-engineer/b011/work/templates-0002/samples/brt-weekend-duty-sheet.pdf)・[TeX 原稿](../../scratch/p02-site-reliability-engineer/b011/work/templates-0002/samples/brt-weekend-duty-sheet.tex) | [全ページ](../../scratch/p02-site-reliability-engineer/b011/work/templates-0002/render/brt-weekend-duty-sheet/) |
+| 配布表・32 枠 | [PDF](../../scratch/p02-site-reliability-engineer/b011/work/templates-0002/samples/brt-weekend-duty-sheet-long.pdf)・[TeX 原稿](../../scratch/p02-site-reliability-engineer/b011/work/templates-0002/samples/brt-weekend-duty-sheet-long.tex) | [全ページ](../../scratch/p02-site-reliability-engineer/b011/work/templates-0002/render/brt-weekend-duty-sheet-long/) |
+
 ### b010 の月次可用性報告と上下限計算
 
 | 型 | 入力済み見本 | ページ画像 |
 |---|---|---|
-| 上下限計算・4明細 | [XLSX](../../scratch/p02-site-reliability-engineer/b010/work/templates-0004/samples/brt-availability-bounds.xlsx) | [全ページ](../../scratch/p02-site-reliability-engineer/b010/work/templates-0004/render/brt-availability-bounds/) |
-| 上下限計算・日別30明細 | [XLSX](../../scratch/p02-site-reliability-engineer/b010/work/templates-0004/samples/brt-availability-bounds-daily.xlsx) | [全ページ](../../scratch/p02-site-reliability-engineer/b010/work/templates-0004/render/brt-availability-bounds-daily/) |
-| 月次可用性報告・速報 | [PDF](../../scratch/p02-site-reliability-engineer/b010/work/templates-0004/samples/brt-monthly-availability-flash.pdf)・[TeX 原稿](../../scratch/p02-site-reliability-engineer/b010/work/templates-0004/samples/brt-monthly-availability-flash.tex) | [全ページ](../../scratch/p02-site-reliability-engineer/b010/work/templates-0004/render/brt-monthly-availability-flash/) |
-| 月次可用性報告・確定版 | [PDF](../../scratch/p02-site-reliability-engineer/b010/work/templates-0004/samples/brt-monthly-availability-final.pdf)・[TeX 原稿](../../scratch/p02-site-reliability-engineer/b010/work/templates-0004/samples/brt-monthly-availability-final.tex) | [全ページ](../../scratch/p02-site-reliability-engineer/b010/work/templates-0004/render/brt-monthly-availability-final/) |
-| 月次可用性報告・日別明細付き | [PDF](../../scratch/p02-site-reliability-engineer/b010/work/templates-0004/samples/brt-monthly-availability-daily.pdf)・[TeX 原稿](../../scratch/p02-site-reliability-engineer/b010/work/templates-0004/samples/brt-monthly-availability-daily.tex) | [全ページ](../../scratch/p02-site-reliability-engineer/b010/work/templates-0004/render/brt-monthly-availability-daily/) |
+| 上下限計算・4明細 | [XLSX](../../scratch/p02-site-reliability-engineer/b011/work/templates-0002/samples/brt-availability-bounds.xlsx) | [全ページ](../../scratch/p02-site-reliability-engineer/b011/work/templates-0002/render/brt-availability-bounds/) |
+| 上下限計算・日別30明細 | [XLSX](../../scratch/p02-site-reliability-engineer/b011/work/templates-0002/samples/brt-availability-bounds-daily.xlsx) | [全ページ](../../scratch/p02-site-reliability-engineer/b011/work/templates-0002/render/brt-availability-bounds-daily/) |
+| 月次可用性報告・速報 | [PDF](../../scratch/p02-site-reliability-engineer/b011/work/templates-0002/samples/brt-monthly-availability-flash.pdf)・[TeX 原稿](../../scratch/p02-site-reliability-engineer/b011/work/templates-0002/samples/brt-monthly-availability-flash.tex) | [全ページ](../../scratch/p02-site-reliability-engineer/b011/work/templates-0002/render/brt-monthly-availability-flash/) |
+| 月次可用性報告・確定版 | [PDF](../../scratch/p02-site-reliability-engineer/b011/work/templates-0002/samples/brt-monthly-availability-final.pdf)・[TeX 原稿](../../scratch/p02-site-reliability-engineer/b011/work/templates-0002/samples/brt-monthly-availability-final.tex) | [全ページ](../../scratch/p02-site-reliability-engineer/b011/work/templates-0002/render/brt-monthly-availability-final/) |
+| 月次可用性報告・日別明細付き | [PDF](../../scratch/p02-site-reliability-engineer/b011/work/templates-0002/samples/brt-monthly-availability-daily.pdf)・[TeX 原稿](../../scratch/p02-site-reliability-engineer/b011/work/templates-0002/samples/brt-monthly-availability-daily.tex) | [全ページ](../../scratch/p02-site-reliability-engineer/b011/work/templates-0002/render/brt-monthly-availability-daily/) |
 
 ### b006 の見本
 
