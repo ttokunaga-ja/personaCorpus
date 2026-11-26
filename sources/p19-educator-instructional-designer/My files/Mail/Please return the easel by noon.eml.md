@@ -1,0 +1,24 @@
+---
+path: My files/Mail/Please return the easel by noon.eml
+kind: text
+author: Arjun Deshmukh
+derived_from:
+---
+
+From: Arjun Deshmukh <arjun@elmwood-learning.example>
+To: Heather Callahan <heather@elmwood-learning.example>
+Cc:
+Date: Wed, 15 May 2024 10:25:00 -0400
+Subject: Please return the easel by noon
+Message-ID: <e5a4319c7d654aee9d447d6f02b9c840@elmwood-learning.example>
+In-Reply-To:
+References:
+
+Hi Heather,
+
+The folding easel in the prep room is free for your 11:00 room check tomorrow. Could you bring it back to the prep room as soon as you and Erin are done? Reception needs it at noon.
+
+Thanks,
+Arjun
+
+Attachments: none
