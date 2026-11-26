@@ -246,3 +246,32 @@
 - 7月10日10:00–10:40にHeatherとErinが比較課題を実施。受講者は位置だけを変えて、そろえる条件・測る行動・結果から言える範囲を書く。比較の手順を練習した段階で、候補位置への設置・観察・全面移設は7月の引継ぎ時点でも行っていない。
 - 教材の比較例は近い平日2日の12:10から20分ずつ、北壁と東壁で同じ紙面の掲示1枚を使い、同じ入口線で停止を数える。昼と午後で位置まで変える案と、掲示を同時に2枚置く案は採らない。掲示内容の任意確認は停止回数とは別の測り方として扱う。
 - 保存メール「Wednesday notice comparison materials」2024-06-28 14:05 Heather → Erin、単発。添付は Notice comparison worksheet.pdf（ELM-BPE-2024-HO-005 v1.0）と Notice comparison peer check.pdf（ELM-BPE-2024-HO-006 v1.0）の2点。講座内メールは既存の elmwood-learning.example のアドレスを使う。
+
+## 2024年秋の一般読解講座の欠席と配布履歴
+
+- 対象は2024年秋の Elmwood 一般講座 Reading Conditions at Work。10月21日点検の母集団は9月10日〜10月15日の第1〜6回で欠席が確定した別々の28人（1人1回）。受講登録総数や課題提出数とは別で、Rosedale の24人と Ashford の郵送案件は集計の外。
+- 回・授業日・欠席用の題・匿名番号の対応は、第1回 9/10 Visitor hours F01–05、第2回 9/17 Counter instructions F06–10、第3回 9/24 Visitor badges F11–15。第4回 10/1 Booking slips F16–20、第5回 10/8 Return window F21–24、第6回 10/15 Room change check F25–28。欠席確定日は各授業日。
+- 締切は Toronto 現地日付の翌暦日末。履歴の遅延日数は実配布日から翌暦日を引いて下限0、未配布なら空欄。遅延6件以外では F01・F06・F11・F16・F21・F25 は当日、残りは翌日に届き、各時点の受付・講師間の転送や受領時刻は実配布日に数えない。
+- 教材の特定で遅れた4件は F03 9/13（+2日、通常掲示と団体用の案内が同じ略称）、F08 9/20（+2日、投影例と個人演習が未区別）、F18 10/4（+2日、汎用の束名）、F27 10/18（+2日、板書参照から演習を選べない）。
+- 配布段階で遅れた2件は F13 9/27（+2日、仕分け棚の紙束に掲示の抜粋が欠落）、F23 10/10（+1日、添付で渡す前に閲覧リンクの権限で止まった）。点検値は翌日内22人、遅延6人、締切からの遅延合計11日。いずれも10月21日の点検前に配布済み。
+- 「Which sheet goes with Tuesday」① 2024-09-18 14:22 EDT Arjun → Heather、添付なし。② 09-19 09:12 EDT Heather → Arjun、「Re: Which sheet goes with Tuesday」で①を引用、添付なし。F08 は第2回の個人演習を選び、9月20日に配布。
+
+## 第6回の教室変更演習と F27 への追補
+
+- 第6回は10月15日。教室用 ELM-CRW-2024-SLD-007 v1.0 と欠席用 ELM-CRW-2024-HO-006 は同じ三資料を使う。教材内の14:00のグループは通常 Room 2、係員向け指示は設備確認の承認が受付控えに記録された場合のみ Room 4、12:20の控えは空欄。12:30の判断は記録を確認し、未確認の間は Room 2 を案内する。
+- F27 は15日に欠席確認、16日が締切。16日夕方に Heather が board exercise の記録を調べ、17日に Kathleen と独習用の参照先を確認。HO-006 は17日午前の v0.2 と同日午後の2頁の v1.0 を残し、18日に Kathleen から本人へ届いた。
+- 「Room change sheet for Tuesday」2024-10-18 09:48 EDT Heather → Kathleen（kathleen@elmwood-learning.example）、Cc Arjun、単独メール。添付は HO-006 v1.0 の Session 6 - room change check.pdf。社内転送を本人への実配布に数えない。
+
+## 10月21日の欠席点検と当番の引継ぎ
+
+- 2024-10-21 13:30〜14:05 EDT、Arjun Deshmukh と Heather Callahan が匿名履歴を点検。欠席確定当日に受付が開催日と回を伝え、講師が教材名・版を照合する。翌日中に渡せない見込みが分かった時点で、受付または学習支援が残作業を Arjun に渡し、Arjun が受領時刻を返して持ち主となる。
+- 10月23日に Kathleen は翌日終業まで引取欄が現れない机上案へコメントした。10月28日13:10 EDT の練習は Heather・Arjun・Kathleen・Erin。実地では10月29日第8回で試し、受付側の受領時刻と本人への配布を別に記録する。
+- 「Materials for the Tuesday handoff」2024-10-24 15:12 EDT Heather → Arjun・Kathleen・Erin、単独メール。添付は ELM-CRW-2024-HO-007 v1.0 の Desk handoff reference.pdf と ELM-CRW-2024-SLD-008 v1.0 の Handoff practice.pptx。
+- 10月28日に Room 2 へ掲示した控えは ELM-CRW-2024-HO-008 v1.0、題は “Missed a class?”。案内の2行は “Tell reception the date of the class you missed.” と “If the exercise hasn’t arrived by the next day, ask reception to check with Learner Support.”。写真はその掲示を記録する。
+
+## 10月29日の当番試行と大きな文字の控え
+
+- 10月29日第8回の Print allowance は通常20頁、講師の確認が記録されれば追加10頁。26頁の依頼2例を確認欄だけ変えて比較する。第8回追補は ELM-CRW-2024-HO-009 v1.0 の2頁、1頁目は問題と資料、2頁目は根拠付きの例答。
+- 試行は T01〜T04 の4件を10/29に確定し、同日中に第8回と HO-009 v1.0 を全件照合。期限は10/30中。実配布は T01 10/30 09:20、T02 10/30 11:05、T03 10/30 14:10、T04 10/31 10:20（すべてEDT）。前3件に引取はなく、10月21日点検の28人には加えない。
+- T04 は大きな文字の控えに2頁目がなく、10/29 16:12 EDT に Kathleen が渡した残作業を Arjun が引き取った。30日の片面案は取り下げ、31日に同版の両頁を揃えて渡した。翌日内3件、引取1件。次の当番にも全頁の確認を引き継ぐ。
+- 「Tuesday make-up handoff review」2024-10-31 14:16 EDT Heather → David、Cc Arjun・Kathleen、単独メール。添付は ELM-CRW-2024-DD-005 v1.0 の Duty trial review のPDFと、別添明細 ELM-CRW-2024-REC-002 v1.0 の Tuesday duty follow-up.xlsx。

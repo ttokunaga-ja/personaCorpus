@@ -1,0 +1,18 @@
+---
+path: My files/授業前の準備/Autumn packet labels - working.txt
+kind: text
+author: Heather Callahan
+derived_from:
+---
+
+1 October — by the printouts
+
+I've just put the Session 4 Booking slips papers under the clip marked “Tuesday”. There was a Tuesday bundle from last week beside it. Had to open both to find today's write-in copy.
+
+Try in pencil on the first sheet, where Kathleen can see it with the clip still on:
+
+S2 — Counter instructions / individual
+S3 — Visitor badges / notice + exercise
+S4 — Booking slips / write-in copy
+
+Drop the date stamp on its own. It gives the classroom copy and the absence copy the same date. Open Booking slips and look for the writing space before putting that last label on.

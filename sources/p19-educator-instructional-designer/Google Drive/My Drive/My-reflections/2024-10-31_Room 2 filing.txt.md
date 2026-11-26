@@ -1,0 +1,15 @@
+---
+path: Google Drive/My Drive/My-reflections/2024-10-31_Room 2 filing.txt
+kind: text
+author: Heather Callahan
+derived_from:
+---
+
+Room 2 — next time I open up
+31 October 2024
+
+I left the Session 6 room-change draft (v0.2) in My files under 授業前の準備 for lesson prep. If reception calls about Session 6, point them to Session 6 - room change check.pdf in Learner-support (HO-006 v1.0). Check that both pages go together. Page 2 lets the learner check what to say about Room 2 while reception looks for the recorded approval to move.
+
+By the door I left just the “Missed a class?” notice. Learners can take the class date to reception and ask there for a check with Learner Support if the exercise hasn't arrived by the next day. The handoff reference stays at the duty desk.
+
+I took the filled-in example from Monday's practice out of the stack of real handoff slips. Keep the 29 October T04 slip with the duty records. The blank delivery line on that copy is how it stood when I filed it on Tuesday afternoon.
