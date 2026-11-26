@@ -113,6 +113,13 @@ PDFで保管する引継ぎ案内・施主確認書は、それぞれのWord型�
 - **設計返送図・条件整理・回答**は `hakushima-drainage.cls` を使う。図番・版と発行日、作成者、回答や保留の状態、必要な縮尺を図枠に記録する。案件の通り芯・参照図と回答状況は計画・原稿の値を使う。柱周囲4件は着工承認保留として記録する。受領した返送図はDownloads、照合に使う版・質疑回答はDocumentsの「図面と質疑」に置く。赤字返却図は対応する設計図の原紙から作る。
 - EML・手書き納まり検討・現況写真・施工区画と停止枠のPNGは、上記の型なし記録の作り方を使う。週6時間の停止条件、7月11日時点の質疑23件と保留4件を基準にする。図面改訂・通り芯・保留区画以外の扱いは計画と原稿で確定する。
 
+## 海田西配送棟のY4柱際の再協議（2024年8月）
+
+- **寸法起点の訂正・照合表**は `minatoryo-punch-list.xlsx` を開く。B1を「湊梁建設株式会社｜Y4柱際の寸法起点照合」に変え、4行目を「質疑番号、通り芯・部位、現地の起点と測定端、対応する返送断面、照合結果、定例確認日、扱い・再確認事項」とする。列幅の目安は順に17・25・42・22・18・17・38。管理欄の番号はRF系列。F列は実日付と `MB Date`、G列は `MB Note`、他の列は `MB Text`。測定面、床墨、図の寸法起点、測定端を突き合わせ、実測の片側・未測定側を記す。通知日は定例確認日と分け、通知控えで照合する。対象はRFI-24-20〜23。
+- **白島設計室の返送断面・設計回答**は `tex:hakushima-drainage.cls`。返送断面は `\DrawingHeading` の管理欄に図番・版、発行日、作成者と縮尺を記入し、通り芯、柱面、床墨、測定端、寸法線の端を図中で識別できるように描く。設計回答では図番・版欄に回答番号・版を入れ、対象質疑、寸法起点、現況照合、未測定側の確認事項を節や表で整理する。返送断面をDownloads、設計回答を「図面と質疑」に置く。
+- **8月23日の合意録**は `minatoryo-change-note.docx` のTitleと `Site Metadata` を使い、MT系列の番号、協議日、参加者、作成者を入れる。照合資料、X4・X5の着手対象、X6・X7の継続保留、次の確認先を記載する。原田に示す区画図は `diagram` とし、自社図枠が必要な場合は `minatoryo-zone-plan.cls` で組み、PNGにする。図中に各通り芯と「着手対象」「継続保留」を明記する。
+- **現況JPG・青木の手書き略図・通知EML**はそれぞれ `photo`、`scan:handwriting`、`text`。写真と略図で柱面・床墨・測定端・通り芯を対応させる。着手範囲の通知EMLには対象区画・通知日・保留区画を記録し、施工完了は施工記録で扱う。実際の寸法、図番・版、通知日は計画・台帳・原稿に従う。
+
 ## 海田西配送棟の掘削数量再計算（2024年10月）
 
 | 名前 | 組織・利用者と用途 | 実際のファイル名 | 見た目 |
@@ -125,23 +132,6 @@ PDFで保管する引継ぎ案内・施主確認書は、それぞれのWord型�
 - **追加費用試算**は同じExcel型の積算見出しを使い、数量、単位、単価（円）、金額（円）、適用範囲と根拠を分ける。試算額・説明額・施主承認の状態は原稿どおり区別する。1,260m³から1,410m³への再計算と差150m³を、CO-014や2025年の資材値上りとは別の資料として扱う。
 - **協議録と施主説明案**は `minatoryo-change-note.docx` を開き、協議録をMT、説明案をBR系列とする。PDFの提出・配布控えは同型を `bin/office-pdf` で書き出す。原田に説明した日・内容と施主承認を区別する。海田流通の承認控え型は承認の記録がある場合に使う。7月の柱周囲4件は、10月の数量照合だけで保留を解除しない。
 - **測定野帳・赤字拾い表**は `scan:handwriting` または `scan:office:minatoryo-change-cost.xlsx`。赤字の対象となる拾い表の版、再測定した筆記と照合日を対応させ、内容入りの原紙・筆記をbin/scanに通す。写真、メール、CSVは型なしとし、位置・単位・版を計画と原稿に沿ってそろえる。
-
-## 見本と画像
-
-今回の見本は `scratch/p17-construction-project-manager/b011/work/templates-0002/` の [samples](../../scratch/p17-construction-project-manager/b011/work/templates-0002/samples/) に、印刷画像は [render](../../scratch/p17-construction-project-manager/b011/work/templates-0002/render/) に置いた。管理欄・写真参照・通り芯・数量などは書式確認用。制作時の値は計画と原稿を使う。
-
-| 対象 | 見本（samples/） | 画像（render/） |
-|---|---|---|
-| Word 7型 | 各型と同名のDOCX | 拡張子を除いた同名フォルダ |
-| PowerPointの5レイアウト | `minatoryo-site-brief.pptx` | `minatoryo-site-brief/` |
-| TeX 7型 | `minatoryo-field-sheet`、`hakushima-drainage`、`minatoryo-earthwork-section`、`minatoryo-zone-plan`、`merecairn-equipment-sheet`、`shinogaki-roof-report`、`nireoka-receipt` の各 `.tex` と `.pdf` | 同名フォルダ |
-| Excel 4型 | 各型の拡張子を除いた名前に `-3.xlsx`、`-38.xlsx` を付けた各ブック | 拡張子を除いた同名フォルダ |
-| 散水記録へ転用した場合 | `minatoryo-roof-water-check-3.xlsx`、`minatoryo-roof-water-check-12.xlsx` | 拡張子を除いた同名フォルダ |
-| 設備取合い確認票・断面別比較表の複数ページ | `minatoryo-field-sheet-long`、`minatoryo-earthwork-section-long` の各 `.tex` と `.pdf` | 同名フォルダ |
-| 篠垣防水の提出票・楡岡倉庫の受領票の複数ページ | `shinogaki-roof-report-long`、`nireoka-receipt-long` の各 `.tex` と `.pdf` | 同名フォルダ |
-| 写真の位置照合・施工箇所の再確認・撮影演習の講評 | `photo-crosscheck`、`photo-recheck`、`photo-training` にそれぞれ `-3.xlsx`、`-12.xlsx` を付けた各ブック | 拡張子を除いた同名フォルダ。3明細版は1ページ、12明細版は2ページ |
-| 撮影演習の指導案と講評 | `photo-training-plan.docx`、`photo-training-feedback.docx` | 拡張子を除いた同名フォルダ |
-| 写真の位置照合図・撮影演習の持出し資料 | `photo-position-map`、`minatoryo-field-sheet-training` の各 `.tex` と `.pdf` | 同名フォルダ |
 
 ## 施工写真の位置照合と新任監督の撮影演習
 
