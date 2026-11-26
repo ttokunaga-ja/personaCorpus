@@ -11,6 +11,7 @@
 | Adjudication Worksheet | Mercer、Vanessa Nguyen・Fatima Rahman・Joshua Ramirez。判定結果、案件と分割の対応、台帳の出所、原稿の比較条件を照合 | `mercer-adjudication.xlsx` | US Letter 横。白地、プラム色の列見出し、適用範囲・発行情報を印刷時に各頁に再掲 |
 | Research Brief | Mercer、Vanessa Nguyen。研究計画、コレクション説明、再評価報告、誤分類の対例を直接 PDF に組む | `mercer-research-brief.cls` | US Letter 縦、独立表紙なし。Mercer の社名、二重罫線、番号・発行日・作成者、薄紫の表見出し |
 | Independent Methods Review | Hartwell Evaluation Institute、Nicole Foster。独立した方法レビューの所見と対応の依頼。受領した PDF はこの Word 型から `bin/office-pdf` で出力 | `hartwell-methods-review.docx` | US Letter 縦、独立表紙なし。短くなる3本の水平線と機関名を中央に置き、青緑の単線とセリフ体を使う |
+| Abstract Submission Guide | Applied Document Research Forum、Charlotte Pearson。投稿欄・語数・締切を案内する企画委員会の PDF | `adrf-submission-guide.cls` | US Letter 縦。左にフォーラム名、右に委員会名、銅色の細罫。紺のサンセリフ見出しとセリフ体の本文 |
 
 ## 2025年の短文評価の撤回と再評価
 
@@ -67,7 +68,7 @@
 
 | レイアウト | 入力先 |
 |---|---|
-| `Cover` | 48 pt の題と19 ptの管理欄。ID、Issued、Author を一行で入れる |
+| `Cover` | 48 pt の題と19 ptの管理欄。`Document ID 番号 \| Issued 発行日 \| Author 作成者` と1行に入力する |
 | `Heading and Body` | 33 pt の題、23 pt の本文欄 |
 | `Two Columns` | 題、21 pt の左右独立した本文欄。判定できる例と保留例を並べる |
 | `Table` | 題、表プレースホルダ（idx 1）、表注（idx 2）。表は `insert_table`。先頭行はプラムに白字、明細は淡色に墨、見本は19 pt。左右のセル余白を各 .16 in 取り、数値を右寄せ、文字を左寄せにする |
@@ -75,7 +76,11 @@
 
 ## TeX
 
+フォーラムの案内は `\documentclass{adrf-submission-guide}` とし、冒頭を `\ForumGuide{題}{発行日}{発行担当}` で組む。本文は段落と `\section` を使い、投稿欄と受付条件を記す。Mercer のロゴ・文書番号は使わない。作業フォルダから型を参照して `bin/tex` で組む。
+
 `\documentclass{mercer-research-brief}` とし、本文の先頭を `\MercerBrief{題}{Document ID}{Issued}{Author}` で組む。節は `\section` と `\subsection`。表は `longtable` にし、`\MercerTableHead{...}` と `\endhead` で淡色の見出しを各頁で繰り返す。文字列列は `L{幅}`、件数列は `R{幅}`。列の左右に 7 pt ずつ余白を取る。本文・セクション・管理欄・ヘッダ・フッタの各色はクラスで適用している。型を組版原稿と同じディレクトリに置くか、型のディレクトリを `TEXINPUTS` に含め、`bin/tex 原稿.tex 出力.pdf` で組む。
+
+表の先頭の参照番号にも `R{幅}` を使う。PDF では管理欄の全文、数値と右隣の文字の間隔、表見出しの再掲を確認する。明示改ページや表の途中での改ページがある場合も、節見出しはプラム `#593875`、本文は墨 `#242331` で出力される。
 
 英語の曲線アポストロフィと引用符は原稿どおり UTF-8 で入力できる。クラスは U+2018、U+2019、U+201C、U+201D を Liberation Sans で組み、英単語の内部に和欧文間隔が入るのを防ぐ。
 

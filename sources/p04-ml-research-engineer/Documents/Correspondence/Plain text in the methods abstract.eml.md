@@ -1,0 +1,26 @@
+---
+path: Documents/Correspondence/Plain text in the methods abstract.eml
+kind: text
+author: Vanessa Nguyen
+derived_from:
+---
+
+From: Vanessa Nguyen <vanessa@mercer-document.example>
+To: Charlotte Pearson <charlotte@adr-forum.example>
+Cc:
+Date: Tue, 4 Feb 2025 10:12:00 -0800
+Subject: Plain text in the methods abstract
+Message-ID: <e7a2f5d8-3c91-4b7e-a6df-6901b8c235fa@mercer-document.example>
+
+Hi Charlotte,
+
+Thank you for the submission guide. I have a few questions before I recast our short intake methods abstract for the form.
+
+Are the title and author affiliations in their separate fields excluded from the 500-word limit? I had planned a footnote defining what we mean by a held reference label. May I put that definition in the abstract text itself? Would one short pair of intake sentences also be acceptable as a quotation in the text?
+
+Our comparison has not yet been scored. May we describe the allocation and comparison as a plan, making that status explicit?
+
+Thanks for your help,
+Vanessa
+
+Attachment: none

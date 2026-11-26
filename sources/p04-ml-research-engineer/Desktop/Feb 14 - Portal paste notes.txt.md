@@ -1,0 +1,14 @@
+---
+path: Desktop/Feb 14 - Portal paste notes.txt
+kind: text
+author: Vanessa Nguyen
+derived_from:
+---
+
+Feb 14 — before sending
+
+Pasted the abstract again as plain text, with blank lines between paragraphs. Removed the Word footnote number from the body and put the Hold definition in the paragraph itself.
+
+Moved the two schedule examples out of the side-by-side table into one sentence with quotation marks: “Move the visit to Thursday.” and “Thursday visit?” Checked that the contrast still identifies the requested action in the first and the uncertainty in the second.
+
+The portal's final body counter reads 492 words, including the quoted examples. Title and author/affiliation go in their separate fields. No figure, table or footnote goes into the submission. Read the pasted paragraphs once more before sending.

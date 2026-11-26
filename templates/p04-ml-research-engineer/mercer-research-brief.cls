@@ -27,8 +27,13 @@
 \fancyhead[R]{\color{MercerPlum}\small\bfseries SACRAMENTO / RESEARCH}
 \fancyfoot[L]{\color{MercerPlum}\small Document Classification Research}
 \fancyfoot[R]{\color{MercerPlum}\small\thepage}
-\renewcommand{\headrule}{\color{MercerPlum}\hrule width\headwidth height .55pt
-  \vskip1.25pt\color{MercerOchre}\hrule width\headwidth height .35pt\vskip-2.15pt}
+% Keep each color change and its reset inside the box containing the rule.
+\renewcommand{\headrule}{%
+  \nointerlineskip
+  \hbox{\textcolor{MercerPlum}{\rule{\headwidth}{.55pt}}}%
+  \nointerlineskip\vskip1.25pt
+  \hbox{\textcolor{MercerOchre}{\rule{\headwidth}{.35pt}}}%
+  \vskip-2.15pt}
 \titleformat{\section}{\color{MercerPlum}\fontsize{15}{18}\selectfont\bfseries}{}{0pt}{}
 \titleformat{\subsection}{\color{MercerPlum}\fontsize{12}{15}\selectfont\bfseries}{}{0pt}{}
 \titlespacing*{\section}{0pt}{14pt}{5pt}

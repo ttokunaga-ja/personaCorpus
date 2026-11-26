@@ -1,0 +1,14 @@
+---
+path: Desktop/Feb 5 - Abstract field notes.txt
+kind: text
+author: Vanessa Nguyen
+derived_from:
+---
+
+Feb 5 — abstract field
+
+Charlotte confirmed: title and author / affiliation have separate fields. The 500-word limit is for the Abstract field alone; quoted examples count.
+
+Move the Hold definition out of the footnote and into the body. Choose one short pair and make the difference legible without a table. No figure, table, footnote or attachment in the field.
+
+The split diagram needs two sentences: linked documents go into the same case partition; score each received body in the common evaluation partition. Say the comparison is planned, not complete. Check the pasted text and word counter before sending.

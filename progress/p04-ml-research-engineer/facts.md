@@ -261,3 +261,14 @@
 - 12月18日14:00 PST に Vanessa、Michael Serrano、Brandon、Emily が研究会。日平均だけで配置を決める案を取り下げ、現行の受付と担当割を維持。Vanessa は翌日回覧、Brandon は代行の責任分担と許容待ち、Emily は別の到着形状の論点を後続の検討に残す。
 - 18日の会合では Brandon の説明資料 `MDR-CA-20241216-LM-01-R01` を参照。会合の記録 `MDR-CA-20241218-LR-01-R01` は19日の回覧用所見の決定根拠。
 - 独立した回覧 “December review queue findings” は12月19日10:27 PST、Vanessa → Michael・Brandon（Cc Emily）。December review workload findings.pdf と Review arrivals and completions.csv を添付。
+
+## フォーラムの短文受付意図分類の要旨（2025年2月）
+
+- Applied Document Research Forum の Methods Abstracts は2月14日17:00 PST締切。題名・著者・所属は別欄。Abstract 欄は引用例を含め本文500語までのプレーンテキストで、図・表・脚注・添付を受け付けない。実施前の比較は計画として説明できる。
+- “February methods abstract call” は Charlotte Pearson（`charlotte@adr-forum.example`）→ Vanessa、2月3日09:24 PST の独立した連絡。“ADRF Abstract Submission Guide.pdf” を添付する。
+- 照会の1通目 “Plain text in the methods abstract” は Vanessa → Charlotte、2月4日10:12 PST。2通目 “Re: Plain text in the methods abstract” は Charlotte → Vanessa、2月5日09:38 PST。2通目は1通目を引用し、どちらも添付なし。
+- “Methods abstract for Wednesday” は Vanessa → Michael、2月10日16:04 PST の独立した連絡。“Short intake abstract - Draft.docx” を添付し、12日14:00の読み合わせを頼む。
+- 題は “Reference Labels for Short Intake Text”、著者 Vanessa Nguyen、所属 Mercer Document Research Inc。2月10日の620語初稿と2月12日の Michael コメント控えは `MDR-STI-20250210-RM-01-R01`（Issued February 10）。2月14日の492語の Word と PDF は同じ `MDR-STI-20250210-RM-01-R02`（Issued February 14）。
+- 2月12日14:00 PST の読み合わせは Vanessa、Michael Serrano、Fatima Rahman。Michael は応用見込み140語の削除を指示し、保留の根拠と比較条件を残した。外部要旨の対例は7月改訂基準の日程の対で、取消し・請求書の対は内部の検討に留める。
+- 要旨が述べる比較は、案件単位の割付を採点前に固定し、本文1通を採点単位として、学習区画の多数クラス基準と単語頻度線形分類器を同じ評価文書で比べる計画。新しい評価区画の件数やスコアは2月の要旨にはない。
+- Vanessa は2月14日14:26 PST に140語の応用段落を削って他の説明を詰めた492語の本文をフォームで送信し、受付番号 `ADRF-274` を得た。14:33の提出控え PDF は Word の R02 をそのまま書き出した手元控えで、受付番号は提出ログに記す。
