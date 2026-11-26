@@ -5057,3 +5057,4 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-26	p16-clinical-researcher	b013	build-review	0	V2	Documents/講演と勉強会/1217_説明担当交代の再試行確認票.pdf	1頁の「発話なし」の赤丸と「木村が止める、問いを言い直してから開始」は読めるが、印刷面に型の淡い赤紫の項目帯とくすみ紅の筆記罫がなく、黒枠の表と罫線のない追記になっている。
 2026-11-26	p16-clinical-researcher	b013	build-review	0	V2	Documents/講演と勉強会/1217_再試行の復唱照合.xlsx	「復唱照合」のH6に型の赤紫の見出し書式が残り、G列「再開の扱い」の右に見出しも明細もない欄が印刷される。4試行の明細とG12・G13のCOUNTIF、再開3場面・停止1回は原稿どおり。
 2026-11-26	p16-clinical-researcher	b013	build-review	1	V1	Documents/講演と勉強会/1217_説明担当交代の再試行確認票.pdf	1頁目の項目帯と筆記罫は修正済みだが、手書き指定のチェック印は、場所欄の1〜4行と質問欄の1・3・4行で同じ字形・大きさ・行内位置の活字の「✓」が繰り返され、田中が手書きで印を付けた原稿の指定と異なる。
+2026-11-26	p06-life-science-researcher	b014	build-review	1	V2	Documents/Lab-share/2024-09-26_September repeat review.pptx	4枚目はBCE Figure and Captionの左図枠を越えて図を配置し、右側の説明欄を使っていない。3枚目は集計行に限る淡藤の塗りを明細3行に使用。全5枚のフッタ番号は型のslidenumフィールドではなく固定テキスト。
