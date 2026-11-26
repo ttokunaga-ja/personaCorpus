@@ -236,3 +236,26 @@
 - Budget scope is the April follow-up band (Bennett readings below 3.00 ng/mL; see BCE-CE-2026-PLN-002-R00). The budget decision leaves candidate count, schedule and any new results open and places no order for equipment or services.
 - Aug 11 14:08 Melissa → Robert, Cc Joseph, “Budget options for Thursday”, opens a thread with the actual BRF-006-R00 PPTX and TBL-010-R00 XLSX attached.
 - Aug 13 14:29 Melissa → Joseph, Cc Robert, “Use this allocation in the next draft”, opens a new thread with the actual DEC-003-R00 PDF and TBL-010-R01 XLSX attached.
+
+## August repeatability follow-up — candidate reader slots and coverage
+
+- All times are Philadelphia EDT (UTC−04:00). Lauren's Aug 1 CE-Reader-2 diary snapshot BCE-CE-2024-TBL-009-R00 lists Sep 10 09:00–10:30 and Sep 12 09:00–10:30 or 13:00–14:30 as alternative openings. The corresponding planned culture dates are Sep 9 and Sep 11 respectively.
+- Lauren's Aug 2 availability BCE-CE-2024-LAB-008-R00 is Sep 10 08:45–10:45 and Sep 12 10:00–10:45 and 12:45–14:45. The standing Thursday handoff blocks her before 10:00. Count only fully staffed 30-minute slots, each worth four planned positions.
+- Melissa's Aug 2 BCE-CE-2024-TBL-010-R00 proposes Early (Tuesday morning plus Thursday morning) and Split (Tuesday morning plus Thursday afternoon). R01 on Aug 2 retains the slot list and adds the coverage check. Each option includes the shared Tuesday block only once.
+- T1–T3 (Sep 10, starting 09:00, 09:30, 10:00) and L1–L3 (Sep 12, starting 13:00, 13:30, 14:00) are ordered Reference, Buffered, Supplemented. E1–E3 (Sep 12, starting 09:00, 09:30, 10:00) are ordered Buffered, Supplemented, Reference.
+- The Early overlap gives Sep 10 counts 4/4/4 and Sep 12 counts 4/0/0, 16 positions total, while Split gives 4/4/4 each date, 24 total. The Aug 5 desk sketch moves the full Thursday block. Keeping E3 and shifting only the other two conditions would require two Thursday visits and is dropped.
+- Aug 2 thread in order: 09:31 Melissa Watkins → Robert Nguyen, Cc Lauren Brooks and Anthony Mendoza, “Two reader holds for September”, with the actual TBL-010-R00 XLSX. At 10:43 Lauren → Melissa, Cc Robert and Anthony, “Re: Two reader holds for September”, quotes the staffed-portion request and attaches the actual LAB-008-R00 PDF.
+
+## Dated position map — desk rehearsal and schedule backcheck
+
+- The Aug 6 Split TSV records 24 Planned rows keyed by culture date plus two-character position. Each date reuses 01–04 Reference, 05–08 Buffered and 09–12 Supplemented. Sep 9 maps to Sep 10 T1–T3, and Sep 11 maps to Sep 12 L1–L3.
+- In the Aug 7 desk check with Lauren, Benjamin finds position 05 ambiguous when the clip hides the date. Lauren's Aug 8 card revision BCE-CE-2024-PLN-004-R01 moves Culture date to the upper right and retains separate Service date and Slot key fields. No actual handoff is recorded.
+- In BCE-CE-2024-TBL-011-R00 on Aug 9, Anthony starts with the six staffed slot keys and checks them against the TSV: three conditions, four per condition and 12 positions on each date, 24 unique date-position keys and zero unmatched planned rows. Position 05 alone matches T2 and L2.
+
+## August reservation decision — preparation and September review
+
+- Aug 12 13:12 Melissa → Robert, Cc Lauren and Anthony, “Reader options for tomorrow”, starts a new thread with actual BCE-CE-2024-BRF-003-R00 PPTX and separate BCE-CE-2024-TBL-010-R01 XLSX for the Aug 13 review.
+- Aug 13 10:00–10:25 review, BCE-CE-2024-MIN-005-R00: Robert, Melissa, Lauren and Anthony. Robert keeps Split for preparation only and asks Lauren to remove Thursday morning and confirm both tentative holds by Aug 15. Melissa brings the still-pending run decision back to Robert on Sep 3.
+- BCE-CE-2024-DEC-001-R00, issued by Melissa Aug 13 at 13:14 with Robert's approval of the reservation decision, holds Sep 10 09:00–10:30 and Sep 12 13:00–14:30 EDT tentatively. The decision covers calendar handling and record layouts. Run authorization remains pending throughout Aug 16.
+- Hold thread in order: Aug 13 14:02 Melissa → Lauren and Anthony, Cc Robert, “Keep the two September holds”, with the actual DEC-001-R00 PDF and separate position map TSV. Aug 15 09:47 Lauren → Melissa and Anthony, Cc Robert, “Re: Keep the two September holds”, quotes the Thursday withdrawal request and attaches the actual BCE-CE-2024-TBL-012-R00 XLSX.
+- Lauren's Aug 15 diary update leaves two tentative holds and releases Sep 12 morning. Melissa indexes the planning evidence on Aug 16 and keeps the marked desk sheet with the rejected morning option.

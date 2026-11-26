@@ -4559,3 +4559,32 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-26	p20-investigative-journalist	b010	coordinator	0	other	Documents/Stories/Housing-repairs/Parkview file handoff.txt	統括の抜き取りで不合格
 2026-11-26	p20-investigative-journalist	b010	coordinator	0	other	Documents/Stories/Housing-repairs/Parkview repair date fields.csv	統括の抜き取りで不合格
 2026-11-26	p06-life-science-researcher	b012	draft-review	0	D10	Documents/Lab-share/2024-08-13_Repeat reservation minutes.docx	表題直下の管理行（原稿10行目）で、前回pass時の文書状態「Final」が文書種別「Meeting record」に置き換わっており、bennett-lab-minutes.docxに適用されるBennett共通書式の状態欄を埋める値がない。
+2026-11-26	p14-finance-controller	b016	draft-review	0	D10	Desktop/2025-10_北斗合板_請求月判定試算.xlsx	発行月判定の6〜7行は分納予定と一致し、10月分の不足40,000円を再現できるが、cedar-reconciliation.xlsxのF3「確認」に入れる値も、自用試算として空欄にする指定も原稿の管理欄にない。
+2026-11-26	p14-finance-controller	b016	draft-review	0	D3	Documents/支払/2025/2025-10/月末請求照合_北斗・遠州・サンライン.xlsx	「明細照合」6〜14行の「一致」は請求書で期間・請求数量・金額まで確認できるが、検収日が請求対象期間のままで、独立した検収数量・保守払出・運行控えの参照先や対照値がなく、一致の根拠をたどれない。D10として管理欄の千田は宛先であり、F3「確認」の記載もない。
+2026-11-26	p14-finance-controller	b016	draft-review	0	D10	Documents/支払/2025/2025-10/支払予定_月末.xlsx	表題下に作成者・宛先と大庭の10月30日16:15承認はあるが、cedar-reconciliation.xlsxのF3「確認」の値がない。参照先の月末請求照合でも千田は宛先で、確認者としての記録がない。
+2026-11-26	p14-finance-controller	b016	draft-review	0	D10	Documents/支払/2025/2025-10/支払出力_月末.csv	3明細の請求番号・指定日・金額・承認状態は支払予定と一致するが、「CSVの全内容」のヘッダに帳票番号列がなく、表外のCW-LL-202510-PAY-01がLedgerlineの出力行に入らない。
+2026-11-26	p14-finance-controller	b016	draft-review	0	D10	Documents/支払/2025/2025-10/銀行実行取込_月末.csv	受付番号と実行額は銀行照会に、15:46の取込時刻は台帳に一致するが、「CSVの全内容」のヘッダに帳票番号列がなく、表外のCW-LL-202510-PAY-02が出力行に入らない。
+2026-11-26	p14-finance-controller	b016	draft-review	0	D10	Documents/支払/2025/2025-10/買掛補助元帳_対象3社.csv	7請求の13行を再集計すると繰越24,530,000円・計上31,570,000円・消込51,370,000円でHK-2510-083だけが残るが、CSVに帳票番号列がなく、表外のCW-LL-202510-AP-01が出力行に入らない。
+2026-11-26	p14-finance-controller	b016	draft-review	0	D10	Desktop/2025-10_10月15日支払_納品照合.xlsx	表題直下には版0.1・基準日・作成者・確認先があるが、cedar-reconciliation.xlsxのB2に入れる当該帳票の文書番号CW-FIN-202510-AP-01が原稿にない。
+2026-11-26	p14-finance-controller	b016	draft-review	0	D10	Documents/支払/2025/2025-10/臨時横持ち_運行明細照合.xlsx	表題直下には対象請求SL-2509-112・基準日・作成者・確認先があるが、cedar-reconciliation.xlsxのB2とE2に入れる本照合表の文書番号CW-FIN-202510-AP-02と版1.0が原稿にない。
+2026-11-26	p14-finance-controller	b016	draft-review	0	D10	Documents/支払/2025/2025-10/支払予定_15日.xlsx	表題直下には作成者・照合者・10月14日16:20の承認があるが、cedar-reconciliation.xlsxのB2とE2に入れる本支払予定の文書番号CW-FIN-202510-PAY-01と版1.0が原稿にない。
+2026-11-26	p14-finance-controller	b016	draft-review	0	D3	Documents/支払/2025/2025-10/支払実行確認_15日.xlsx	「実行確認」末尾は承認済み予定と受付番号・金額を照合したとするが、支払予定_15日.xlsxの6〜8行に受付番号はなく銀行実行欄も空欄で、F列の番号は銀行照会に由来し、G列の反映済みは銀行照会では確認できる項目ではなく補助元帳の同日消込などへの参照が原稿にない。
+2026-11-26	p14-finance-controller	b016	draft-review	0	D2	Documents/支払/2025/2025-10/北斗合板_請求書HK-2510-079.pdf	同じbatchのHK-2509-076と比較すると、本文の18mm構造用・12mm化粧・指定寸法加工の3明細は品目と並びが同じで、期間・番号・数量・金額の差し替えと小計の置き方以外に当該請求固有の摘要や内訳がない。
+2026-11-26	p14-finance-controller	b016	draft-review	0	D10	Documents/支払/2025/2025-10/北斗合板_単価改定覚書.pdf	末尾の乙署名欄では役職表示を「署名：北斗合板営業責任者」と繰り返しており、署名済み控えに写す北斗側の署名そのものが原稿にない。
+2026-11-26	p14-finance-controller	b016	draft-review	0	D3	Documents/支払/2025/2025-10/分納別単価確認_静岡.xlsx	「分納予定」A6:A7は両方とも「構造用18mm・同一発注」だけで、覚書も個別の発注を示さず、静岡の受入担当がどの発注や分納控えに実納品日を突き合わせるかを特定できない。
+2026-11-26	p14-finance-controller	b016	draft-review	1	D3	Documents/支払/2025/2025-10/支払実行確認_15日.xlsx	実行確認6〜8行のF列は銀行照会の受付番号・15:20実行と一致するが、末尾がG列「反映済」の根拠とする補助元帳CSVは計画上10月31日16:00出力で取込・確認時刻の列もなく、10月15日16:05時点でLedgerlineに3件反映済みという結論を裏づけない。
+2026-11-26	p14-finance-controller	b016	draft-review	1	D2	Documents/支払/2025/2025-10/北斗合板_請求書HK-2510-079.pdf	HK-2509-076と同じ18mm構造用・12mm化粧・指定寸法加工の3明細が同順で並び、追記された本文も表題欄の対象期間と加工明細を言い換えて支払を依頼するだけで、当該請求に固有の納品や加工の摘要・内訳がない。
+2026-11-26	p14-finance-controller	b016	draft-review	1	D3	Documents/支払/2025/2025-10/月末請求照合_北斗・遠州・サンライン.xlsx	明細照合D6:D14に対照値は追記されたが、SZ-R-1007・SZ-R-1014、SZ-M-1015、SL-T-1015・SL-S-1015等の控えの内容は関連原稿・台帳で確認できず、請求書から確認できる期間・請求数量を超えて、受入日別の数量・保守払出・区分別運行の一致を裏づけられない。F3の確認者も空欄のまま。
+2026-11-26	p14-finance-controller	b016	draft-review	1	D10	Documents/支払/2025/2025-10/支払予定_月末.xlsx	大庭の10月30日16:15承認を記録した支払予定の表題直下で型のF3「確認」は空欄のままで、参照先AP-03でも千田は宛先とされ、送信前の確認者を転記できる記録がない。
+2026-11-26	p14-finance-controller	b016	draft-review	2	D3	Documents/支払/2025/2025-10/支払実行確認_15日.xlsx	実行確認F6:F8の受付番号・15:20実行と予定・実績計24,530,000円は銀行照会と支払予定に一致するが、G6:G9の根拠として本文24行が挙げる10月15日16:00のLedgerline支払照会画面を照合できる原稿がなく、台帳は16:05までの確認、10月31日出力の補助元帳は会計日ベースの消込までしか裏づけない。
+2026-11-26	p14-finance-controller	b016	draft-review	2	D1	Documents/支払/2025/2025-10/月末請求照合_北斗・遠州・サンライン.xlsx	請求照合C6:C8と明細照合D6:D13は請求書の対象期間・費目を示すが、本文38行で個別の検収日を転記せず控えとの日別照合を確認できないと明記しており、計画が求める月末3件の検収日による照合結果が原稿にない。
+2026-11-26	p14-finance-controller	b016	check	0	source	Documents/支払/2025/2025-10/北斗合板_請求書HK-2510-079.pdf	body token overlap 0.289 < 0.3
+2026-11-26	p14-finance-controller	b016	build-review	0	V1	Outlook 保存/支払/2025-10_18mm合板の改定単価はいつの納品からですか.eml	MIMEに実添付は0件だが、復号した受取人向け本文の署名「堀口 颯太」の後に、原稿末尾の成形用添付指定「添付：なし」が表示される。
+2026-11-26	p14-finance-controller	b016	build-review	0	V2	Documents/支払/2025/2025-10/臨時横持ち_運行明細照合.xlsx	「臨時便」の見出し帯にF5の無題・空列が残っており、A6:A9の運行日は型が求める日付の実値ではなく文字列で保存されている。
+2026-11-26	p14-finance-controller	b016	build-review	0	V2	Documents/支払/2025/2025-10/支払予定_15日.xlsx	「15日予定」の期日C6:C8と指定日D6:D8が、型が求める日付の実値ではなく文字列で保存されている。
+2026-11-26	p14-finance-controller	b016	build-review	0	V2	Documents/支払/2025/2025-10/みなと中央銀行_10月15日振込照会.pdf	1頁の集計を型の右寄せ3行の集計表から左寄せの本文2行に置き換えている。照会番号、受付3件、15:20実行・返却0件・計24,530,000円は原稿と一致。
+2026-11-26	p14-finance-controller	b016	build-review	0	V2	Documents/支払/2025/2025-10/北斗合板_11月納品分影響試算.xlsx	「影響試算」のB1:G1にある型の社名・部門欄が試算の表題に置き換わっている。文書番号などの管理値および税抜差−180,000円・税込差−198,000円の数式と表示値は一致。
+2026-11-26	p14-finance-controller	b016	build-review	0	V5	Documents/支払/2025/2025-10/遠州金物_請求書ES-2510-211.pdf	1頁の用紙両端を拡大しても原稿指定の薄い折り跡が確認できない。遠州の型の保守交換用金物を含む3明細と税込8,360,000円は一致。
+2026-11-26	p14-finance-controller	b016	build-review	0	V5	Documents/支払/2025/2025-10/サンライン物流_請求書SL-2510-116.pdf	1頁の用紙両端を拡大しても原稿指定のわずかな折り目が確認できない。サンラインの型の定期幹線22便・区間固定横持ち5便と税込2,750,000円は一致。
+2026-11-26	p14-finance-controller	b016	build-review	0	V2	Documents/支払/2025/2025-10/支払実行確認_月末.xlsx	「10月と次便」の印刷2ページ目で型の中央ヘッダー「Cedar Works | Finance」とフッターの部門名・ページ番号が欠け、A8:C8の「10月支払計」51,370,000円も型指定の薄緑・二重下罫線の合計書式が適用されず、通常明細の書式で表示されている。
+2026-11-26	p14-finance-controller	b016	build-review	1	V2	Documents/支払/2025/2025-10/支払実行確認_月末.xlsx	「10月と次便」の印刷2ページ目で、原稿の3列（A5:C5）の右に型由来の無題の見出しセルD5:F5が深緑の帯として残る。中央ヘッダーと部門・ページ番号のフッター、A8:C8の薄緑・二重下罫線は復元され、月末計26,840,000円・10月支払計51,370,000円・繰越4,730,000円は原稿と一致した。

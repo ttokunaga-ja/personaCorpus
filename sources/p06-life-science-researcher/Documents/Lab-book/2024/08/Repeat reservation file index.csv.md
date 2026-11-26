@@ -1,0 +1,20 @@
+---
+path: Documents/Lab-book/2024/08/Repeat reservation file index.csv
+kind: text
+author: Melissa Watkins
+derived_from:
+---
+
+# Repeat reservation file index
+
+For my Aug 16 file check with Lauren. Keep the July evidence in the July file. The Status question column is part of the index.
+
+```csv
+Saved path,Record date,Owner,Status question
+Documents/上清測定再現性試験/Plans/Repeat reservation options.xlsx,2024-08-02,Melissa Watkins,Which reader slots did we propose in TBL-010-R00 before Lauren confirmed her hours?
+Documents/上清測定再現性試験/Plans/Repeat coverage comparison.xlsx,2024-08-02,Melissa Watkins,Which of those slots are fully staffed in TBL-010-R01 and what can Early and Split each accommodate?
+Documents/Lab-book/2024/08/Repeat set position map.tsv,2024-08-06,Melissa Watkins,Which planned slot and condition belong to each culture date and two-digit position under Split?
+Documents/上清測定再現性試験/Plans/Slot to condition check.xlsx,2024-08-09,Anthony Mendoza,Did all six staffed Split slots reconcile to the planned map in TBL-011-R00?
+Documents/上清測定再現性試験/Plans/Repeat reservation response.pdf,2024-08-13,Melissa Watkins,Which reservation and preparation actions did Robert approve in DEC-001-R00 and what run decision did he defer?
+Documents/Equipment/Calibration/September hold register.xlsx,2024-08-15,Lauren Brooks,Which entries were still tentative in the diary and which was released when Lauren updated TBL-012-R00?
+```
