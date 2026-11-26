@@ -800,28 +800,48 @@ impl Pilot {
             .filter(|l| !l.trim().is_empty())
             .count())
     }
+    fn valid_roadmap_count(&self, persona: &str, row: &Row) -> Result<bool> {
+        let scope = row.get("範囲");
+        let count = row.get("件数の目安");
+        let number = count.parse::<u32>().unwrap_or(0);
+        if scope.is_empty()
+            || !count.bytes().all(|b| b.is_ascii_digit())
+            || !(1..=40).contains(&number)
+        {
+            return Ok(false);
+        }
+        if number >= 30 || scope.starts_with("再制作：") {
+            return Ok(true);
+        }
+        // An extension preserves completed scopes verbatim. Older accepted
+        // reproductions can predate the required prefix for new short rows.
+        let Some(batch) = row.get("状態").strip_prefix("受入済み ") else {
+            return Ok(false);
+        };
+        if !scope.ends_with("の再制作") {
+            return Ok(false);
+        }
+        Ok(ledger(&self.root)?.iter().any(|record| {
+            [
+                ("persona", persona),
+                ("batch", batch),
+                ("planned", count),
+                ("status", "accepted"),
+            ]
+            .iter()
+            .all(|&(key, value)| record.get(key).map(String::as_str) == Some(value))
+        }))
+    }
     fn roadmap(&self, p: &str) -> Result<Vec<Row>> {
         let rows = table(
             &self.root.join("progress").join(p).join("roadmap.md"),
             &ROAD,
             &self.root,
         )?;
-        if rows.is_empty()
-            || rows.iter().any(|r| {
-                let minimum = if r.get("範囲").starts_with("再制作：") {
-                    1
-                } else {
-                    30
-                };
-                r.get("範囲").is_empty()
-                    || !r.get("件数の目安").chars().all(|c| c.is_ascii_digit())
-                    || !r
-                        .get("件数の目安")
-                        .parse::<i64>()
-                        .is_ok_and(|n| (minimum..=40).contains(&n))
-            })
-        {
-            bail!("roadmap: 範囲が空または件数が範囲外（通常30〜40、再制作1〜40）")
+        let invalid = "roadmap: 範囲が空または件数が範囲外（通常30〜40、再制作1〜40）";
+        anyhow::ensure!(!rows.is_empty(), "{invalid}");
+        for row in &rows {
+            anyhow::ensure!(self.valid_roadmap_count(p, row)?, "{invalid}");
         }
         let open: i64 = rows
             .iter()

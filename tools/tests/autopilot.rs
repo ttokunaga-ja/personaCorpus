@@ -1937,3 +1937,44 @@ fn a_roadmap_usage_limit_waits_without_using_attempts_or_accepting_partial_outpu
     }
     assert!(!f.holds().contains("| roadmap |"));
 }
+
+#[test]
+fn accepted_short_reproduction_does_not_block_the_next_roadmap_row() {
+    let f = Fixture::new();
+    f.roadmap(Some(
+        "| b001 | 予算14件の再制作 | 14 | 旧予算 | 修正表 | 重複 | 受入済み b015 |\n| b002 | 次の仕事 | 30 | 調査 | 台帳 | 重複 | |\n",
+    ));
+    fs::write(
+        f.r.join("progress/batches.tsv"),
+        "persona\tbatch\tplanned\tstatus\np01-test\tb015\t14\taccepted\n",
+    )
+    .unwrap();
+    f.once();
+    assert_eq!(f.called("batch", "start"), 1);
+}
+
+#[test]
+fn a_short_roadmap_row_needs_the_prefix_or_a_matching_accepted_reproduction() {
+    for (scope, state, count) in [
+        ("予算14件の再制作", "", "14"),
+        ("予算14件の再制作", "進行中 b015", "14"),
+        ("予算14件の再制作", "受入済み b015", "13"),
+        ("予算14件の再制作", "受入済み b016", "14"),
+        ("通常の予算", "受入済み b015", "14"),
+    ] {
+        let f = Fixture::new();
+        f.roadmap(Some(&format!(
+            "| b001 | {scope} | 14 | 旧予算 | 修正表 | 重複 | {state} |\n| b002 | 次の仕事 | 30 | 調査 | 台帳 | 重複 | |\n"
+        )));
+        fs::write(
+            f.r.join("progress/batches.tsv"),
+            format!("persona\tbatch\tplanned\tstatus\np01-test\tb015\t{count}\taccepted\n"),
+        )
+        .unwrap();
+        f.once();
+        assert!(
+            f.jobs().get("p01-roadmap").is_some(),
+            "{scope} {state} {count}"
+        );
+    }
+}
