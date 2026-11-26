@@ -815,11 +815,32 @@ fn revised_word_source(parent: &str, changes: &str) -> String {
             }
         }
     }
+    // A named replacement can supply its new paragraph and table without repeating the heading.
+    let body_and_table = re(
+        r"(?m)^- 「([^」\n]+)」の本文と表を次に置き換える。\n(?:[ \t]*\n)*[ \t]*[^ \t#|\-\n][^\n]*\n(?:[ \t]*\n)*[ \t]*(\|[^\n]+\|)\n[ \t]*(\|[-: |]+\|)\n[ \t]*(\|[^\n]+\|)",
+    );
+    let mut table_sections = HashSet::new();
+    for captures in body_and_table.captures_iter(changes) {
+        let heading = format!("## {}", &captures[1]);
+        let columns = cells(&captures[2]).len();
+        if columns > 0
+            && cells(&captures[3]).len() == columns
+            && separator(&cells(&captures[3]))
+            && cells(&captures[4]).len() == columns
+            && parent.lines().filter(|l| l.trim() == heading).count() == 1
+        {
+            table_sections.insert(heading);
+        }
+    }
     let mut replaced = false;
     let retained = parent
         .lines()
         .filter(|line| {
             if line.trim_start().starts_with('#') {
+                if table_sections.contains(line.trim()) {
+                    replaced = true;
+                    return true;
+                }
                 replaced = headings.contains(line.trim());
             }
             !replaced
@@ -3667,6 +3688,25 @@ mod workbook_manuscript_tests {
 #[cfg(test)]
 mod derived_word_tests {
     use super::*;
+
+    #[test]
+    fn named_body_and_table_replacement_keeps_unrelated_sections() {
+        let parent = "# Issue\n## Evidence\nOld rationale.\n| Item | Old count |\n|---|---|\n| A | 5 |\n## Actions\nKeep this action.";
+        let directive = "- 「Evidence」の本文と表を次に置き換える。";
+        let table = "| Item | Count |\n|---|---|\n| B | 8 |";
+        let changes = format!("{directive}\n\n  Revised rationale.\n\n{table}\n\n- 次の指示");
+        let result = revised_word_source(parent, &changes);
+        assert!(!result.contains("Old rationale."));
+        assert!(result.contains("Keep this action."));
+        assert!(result.contains(&changes));
+        for incomplete in [
+            format!("{directive}\nSome prose"),
+            format!("{directive}\n{table}"),
+            format!("{directive}\n\n- 次の指示\nSome prose\n{table}"),
+        ] {
+            assert!(revised_word_source(parent, &incomplete).contains("Old rationale."));
+        }
+    }
 
     #[test]
     fn explicit_section_replacement_excludes_only_superseded_prose() {
