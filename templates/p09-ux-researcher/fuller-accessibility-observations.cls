@@ -31,7 +31,7 @@
 \renewcommand{\footrule}{{\color{FullerWash}\hrule width\headwidth height 1pt}}
 \newcommand{\FullerObservation}[4]{%
   \hypersetup{pdftitle={#1},pdfauthor={#4}}%
-  {\color{FullerViolet}\fontsize{27}{32}\selectfont\bfseries #1\par}\vspace{6pt}%
+  {\raggedright\color{FullerViolet}\fontsize{27}{32}\selectfont\bfseries #1\par}\vspace{6pt}%
   \begingroup\setlength{\fboxsep}{9pt}\noindent\colorbox{FullerWash}{%
     \parbox{\dimexpr\linewidth-2\fboxsep\relax}{\small
     \textbf{Record} #2\hfill\textbf{Issued} #3\hfill\textbf{Observer} #4}}\par\endgroup\vspace{8pt}}

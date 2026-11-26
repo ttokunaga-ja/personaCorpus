@@ -1,0 +1,11 @@
+---
+path: Desktop/2025-03-05 Return rehearsal notes.txt
+kind: text
+author: Jennifer Salazar
+derived_from:
+---
+March 5 — immediately after read-through with Mihoko
+
+In v0.1 I said 「休憩前に開いていた章から」. As soon as I said 「章」, Mihoko's eyes moved to the chapter names in the course list. The instruction had already suggested the route I wanted to observe. Change the prompt to finding the answer entered before the break; don't name a chapter or question before the person stops.
+
+We then checked the device. Going back through browser history brought the pre-break page straight back. That would make the start depend on the browser rather than the course list. Close the tab before the break; after the break have everyone start at the course list on the same practice device. Check what they open first and where they actually recognize their entry separately. Discuss the revised wording with Mihoko before using it.

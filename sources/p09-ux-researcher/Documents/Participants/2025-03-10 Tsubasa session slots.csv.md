@@ -1,0 +1,13 @@
+---
+path: Documents/Participants/2025-03-10 Tsubasa session slots.csv
+kind: text
+author: Carolyn Davis
+derived_from:
+---
+slot,start_jst,end_jst,start_chicago_cdt,end_chicago_cdt,moderator,observer,status
+TCS-01,2025-03-13 08:00,2025-03-13 08:25,2025-03-12 18:00,2025-03-12 18:25,Mihoko Kaneko,Jennifer Salazar,confirmed
+TCS-02,2025-03-13 08:30,2025-03-13 08:55,2025-03-12 18:30,2025-03-12 18:55,Mihoko Kaneko,Jennifer Salazar,confirmed
+TCS-03,2025-03-13 09:00,2025-03-13 09:25,2025-03-12 19:00,2025-03-12 19:25,Mihoko Kaneko,Jennifer Salazar,confirmed
+TCS-04,2025-03-14 08:00,2025-03-14 08:25,2025-03-13 18:00,2025-03-13 18:25,Mihoko Kaneko,Jennifer Salazar,confirmed
+TCS-05,2025-03-14 08:30,2025-03-14 08:55,2025-03-13 18:30,2025-03-13 18:55,Mihoko Kaneko,Jennifer Salazar,confirmed
+TCS-06,2025-03-14 09:00,2025-03-14 09:25,2025-03-13 19:00,2025-03-13 19:25,Mihoko Kaneko,Jennifer Salazar,confirmed
