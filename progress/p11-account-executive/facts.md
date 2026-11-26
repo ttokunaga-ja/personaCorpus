@@ -165,6 +165,32 @@
 - HBC-HOL-20250318-ORD-01 v1.0 は03-18午後に双方締結、15:37に契約控え保存。Halstead Branch Connect、2025-04-01〜2026-03-31、上限180席・年額USD 82,000。本番の上限に試行30席を加算せず、週次利用24席はIT報告の試行値。
 - 03-18 16:06 Michelle → Donald、Denise「Hollis - March 18 order complete」（独立、確定注文PDFを実添付）。DivyaがHalstead側の割当準備を持つ。
 
+## 3月25日の未稼働席の聞取り
+
+- 試行週の送信0件はP25〜P30。Lawrenceの03-25 10:05発行HMS-IT-20250325-01 v1.0では、P25・P26は交代と練習が重複、P27・P28は閲覧担当、P29は休暇、P30は班長が代理送信。
+- P25・P26は夜勤練習を追加、P27・P28は初回名簿に推薦せず、P29は復帰後の担当を確認、P30は予備送信担当として準備する。週次24/30の判定はそのまま。
+- スレッド「Hollis - six pilot seats to check」①03-19 09:16 Michelle → Lawrence（Cc Divya、03-25までに事情を照会、添付なし）。②03-25 10:22 Lawrence → Michelle（Cc Divya、Re:、質問を引用、聞取りPDFを実添付）。
+
+## 3月27日の初回名簿照合と差戻し
+
+- 03-27 10:00、Lawrence、Divya、Michelleが初回候補50行を照合。日勤32席はR001〜R033からR017を除いた行、夜勤14席はR034〜R050からR038・R047・R050を除いた行。Hollisの原簿はLawrenceが管理し、共有する突合CSVは候補行コードだけで照合できる形にする。
+- 突合CSVで照会対象とした試行席の対応はP25→R034、P26→R035、P29→R038/R050（この時点で正本未決）、P30→R010。P27・P28は初回候補外。試行コード欄はこの4席の追跡用で、空欄から試行参加の有無を判定しない。
+- 差戻し票HBC-HOL-20250327-WRK-02 v1.0は、対1 R017/R047（正規名と通称の疑い）、対2 R038/R050（異動後と旧所属の疑い）の2対4行を取込から外す。回答期限は04-04 15:00。
+- スレッド「Hollis - two roster pairs for IT」①03-27 13:38 Michelle → Lawrence（Cc Divya、差戻し票PDFを実添付）。②04-04 11:26 Lawrence → Michelle（Cc Divya、Re:、期限と依頼を引用、添付なし）。
+- 04-04の回答でR017・R038を残し、R047・R050は照会履歴だけに残す。復帰したP29に対応する正本はR038。残した2席は次の確認済みの組で初めて割り当てる。
+
+## 4月の組別割当と支援引継ぎ
+
+- IT向け説明HBC-HOL-20250326-BRF-01は、03-26のv0.1では日勤・夜勤を同日にする仮案。03-28のv1.0と割当順HBC-HOL-20250328-IMP-01 v1.0では日勤32席を04-01、夜勤14席を04-02の練習後の04-03とする。
+- 03-28 13:00、MichelleとDivyaがLawrenceのIT担当に割当順を説明。確認済みの名簿をDivyaが組別に手動取込してLawrenceと突合する。配信ログで分かるのは送信まで。受領の折返しはHollisが扱う。
+- 03-28 13:56 Michelle → Lawrence「Hollis - April allocation briefing」（独立、IT説明PPTX v1.0と割当順XLSXを実添付）。
+- 04-01に日勤32席を割当・案内。04-02 15:30の夜勤練習でR034・R035が交代引継ぎを実演し、翌04-03に夜勤14席を割当・案内、累計46席。04-03 14:05 Michelle → Lawrence「Hollis - first groups handed over」（Cc Divya、独立、初回引渡しPDFを実添付）。
+- 04-10はR017・R038と新規R051〜R078の計30席を割当・案内し、累計76席。04-15 14:30、Michelle・Divya・Lawrence・Darrenが案内の未着、所属変更、送受信の照会経路を読み合わせる。
+- 04-17 11:00、Lawrence・Divya・Michelleが第3組の24席を確認。R079〜R096の18席だけを04-23に割当・案内し、R097〜R102の6席は交代後の現場窓口の引受け待ち。04-29の再照会で連絡先は決まったが引受けは未回答、Lawrenceが05-06に再確認する。
+- 04-29 11:14 Lawrence → Michelle、Divya「Hollis - April 29 roster check」（独立、添付なし）。04-30時点は累計割当94席、180席の上限内で未割当86席（保留6席＋名簿・日程未定80席）。内訳は席の割当で、利用人数とは別。
+- 04-30 11:00、Michelle・Lawrence・Divya・Darrenの支援引継ぎ。名簿はLawrence、取込差異はDivya、稼働後の運用相談はDarren、契約照会はMichelle。引継ぎHBC-HOL-20250430-WRK-01 v1.0のDOCX/PDFは同版、月末の割当集計HBC-HOL-20250430-IMP-01 v1.0は別文書。
+- 04-30 14:18 Michelle → Lawrence、Darren「Hollis - April support handoff」（Cc Divya、独立、引継ぎPDFと月末割当集計XLSXを実添付）。この節と前2節の時刻は2025年のDenver（MDT）。
+
 # Waverley Commercial Storage Inc
 
 ## 120席の導入負荷と6月の引継ぎ

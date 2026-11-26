@@ -4367,3 +4367,8 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-26	p05-bi-data-analyst	b010	draft-review	2	D3	Documents/営業会議/2024/04/2024-04-10_週報金額_前週との比較試算.xlsx	「参照」D7:E10に4月1日配布週報の「週次売上」B7・B8・E7・E8が追記されたが、該当する配布表の原稿を確認できず、締め控えと台帳の税区分から再計算した23,430・550・8,100・330千円が当時の実表示だったか照合できないため、「比較」D7:D10の旧表示差の根拠が不足する。
 2026-11-26	p05-bi-data-analyst	b010	draft-review	2	D3	OneDrive - 織庭生活雑貨/指標辞典/MTR-01～04_週報18欄の出典.tsv	原稿9〜17行の元表欄が引き続き「店頭POS日計」のみで、対象週や保存名がなく、共通の金額列を持つ3月25日週の控えと4月1日週の明細を9〜10行から区別できないうえ、4月1日週の金額4列は日計が週計の均等配賦と全7日で一致し、当週のPOS締めを出典として裏づけられない。
 2026-11-26	p05-bi-data-analyst	b010	draft-review	2	D3	Documents/営業会議/2024/04/2024-04-12_週報金額4欄_比較用別表.xlsx	「4欄の比較」D7:E10は12行注記が指す4月10日試算「比較」E7:F10と一致したが、E7:E8の22,000,000円・550,000円を原稿23行がたどる4月9日検算の店頭日計は、元のPOS原稿で週計を均等配賦した値と全7日で一致するため、辞典別紙の条件どおり店別POS締めから本体額を確認できない。
+2026-11-26	p11-account-executive	b010	coordinator	0	other	Documents/Accounts/Hollis/2025-04-30_Allocation ledger.xlsx	統括の抜き取りで不合格
+2026-11-26	p11-account-executive	b010	coordinator	0	other	Documents/Accounts/Hollis/2025-04-30_Support handoff.docx	統括の抜き取りで不合格
+2026-11-26	p11-account-executive	b010	coordinator	0	other	Documents/Accounts/Hollis/2025-04-30_Support handoff.pdf	統括の抜き取りで不合格
+2026-11-26	p11-account-executive	b010	coordinator	0	other	Documents/Mail/Hollis/Hollis - April support handoff.eml	統括の抜き取りで不合格
+2026-11-26	p11-account-executive	b010	coordinator	0	other	Documents/Mail/Hollis/Hollis - first groups handed over.eml	統括の抜き取りで不合格
