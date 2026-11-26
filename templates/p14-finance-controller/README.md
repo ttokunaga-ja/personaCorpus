@@ -24,6 +24,9 @@
 | 遠州金物の請求書 | 遠州金物の営業管理。紙で届く当初・訂正請求書の原紙 | `enshu-invoice.cls` | A4縦、鋼青 `384D6A` と墨、Noto Sans CJK JP／Liberation Sans。六角ナットの図形ロゴ、左寄せの大きな題と太線、白抜き請求額帯、横罫線明細 |
 | 横浜なぎさタクシーの領収証 | 横浜なぎさタクシーが乗車後に交付する紙の領収証 | `yokohama-nagisa-taxi.cls` | 幅80mmの縦長レシート、黒一色、中央に発行者と領収証の題、金額は右寄せ |
 | 新規開業の発注・納入明細 | Aoba Stayの購買窓口からCedar Worksへ。発注明細と納入予定の通知 | `aoba-order.cls` | A4縦。右上にアーチ窓と社名、赤茶の細い横罫、濃い赤紫の題と白抜きの表見出し。和文はNoto Serif CJK JP、欧文はLiberation Serif。宛先・照会番号・発行日・発行担当、購買フッタとページ番号 |
+| 北斗合板の改定条件・覚書 | 北斗合板営業管理からCedar Worksへ。提示PDFと双方締結の紙原本 | `hokuto-price.cls` | 北斗の積層ロゴ、茶色と明朝を継承。管理番号と日付、文書ごとの題、条項見出し。覚書のみ末尾に両者の署名欄 |
+| サンライン物流の運賃請求書 | サンライン物流請求担当。運行区分別の紙請求 | `sunline-invoice.cls` | A4縦、Noto Sans CJK JP、黄土茶の二本山形と題、運行対象期間、横罫の便数・運賃欄と右寄せ合計 |
+| 法人振込結果照会 | みなと中央銀行横浜支店の法人振込照会からのPDF | `minato-transfer.cls` | A4縦、残高証明書と同じえんじの銀行ロゴと墨の罫線。照会番号・指定日・受付別の振込額・実行結果。証明文や押印欄は設けない |
 
 既存の親会社・銀行・棚卸票・仕入先請求書の型は維持する。b006では経費精算の確認記録に `cedar-review.docx`、精算ポータルの稼働案内・設定修正の連絡に `cedar-notice.docx`、突合表・部門別経費集計・取消仕訳の確認・振込履歴の照合に `cedar-reconciliation.xlsx` を使用する。列名・幅は各原稿に合わせる。締め工程は `cedar-close-checklist.xlsx`、CFO報告と配布PDFは `cedar-close-report.pptx` を使い、PDFは完成したPPTXから直接変換する。LedgerlineのPDF帳票には `ledgerline-report.cls` を使う。精算ポータルのCSV・画面出力、千田の個人メモは会社の報告書の型を経由しない。b006に新しい社外組織の型は追加しない。Aoba StayとのメールはEML、画面保存はPNGであり、Officeの型は作らない。b006では監査法人の型も追加しない。個人メモ、CSV、メールやERP画面を会社の報告書風に統一しない。
 
@@ -174,3 +177,9 @@
 - 両型に明細・空の承認欄・期限・仮署名・合計は埋め込まない。必要な空欄は個別原稿が明示した箇所だけに作る。今回は印字済みの紙控えであり手書きや印影を足さない。申請控えの大庭承認欄は空欄、補完承認は別紙に正しい2月の日付を印字する。
 - TeXの探索パス・`bin/tex`の呼出しは既存と同じ。社内紙の中間PDFを当該実行のwork内に作り、`bin/scan`で画像のみのPDFへ変換する。元紙は配布物に追加しない。
 - 依頼管理・残件は `cedar-close-checklist.xlsx`、買掛照合・年間資産増減・回答根拠は `cedar-reconciliation.xlsx`、回答と改善計画は `cedar-review.docx`、打合せ記録は `cedar-minutes.docx`、CFO説明は `cedar-close-report.pptx` を開いて使う。番号はfacts.mdの年度監査用を使う。
+
+## 10月の振込照会と単価改定
+
+- 北斗の改定条件・覚書は `\documentclass{hokuto-price}`、`\PriceHeading{題}{文書番号}{日付}{宛先または当事者}`、必要に応じて `\PriceClause{条項の見出し}`。締結原紙だけに `\PriceSignatures{Cedar Works側の欄}{北斗合板側の欄}` を使い、署名・日付は原稿にあるものを入れる。条件書はテキストPDF、覚書は原紙PDFを `bin/scan` に渡す。
+- サンラインの紙請求は `\documentclass{sunline-invoice}`、`\FreightHeading{請求書番号}{発行日}{宛先}{対象期間}{支払期日}`、`FreightTable`、`\FreightSummary{税抜小計}{税率}{消費税}{税込額}` の順で組み、`bin/scan` に渡す。数量は便など原稿の単位を付ける。登録番号や口座は型で補わない。
+- 振込照会は `\documentclass{minato-transfer}`、`\TransferHeading{照会番号}{出力日時}{契約者名}{振込指定日}`、`TransferTable`、`\TransferSummary{実行日時}{実行件数}{返却件数}{合計}` で組む。照会番号と明細の受付番号を区別する。表の各行は原稿の順、TeXの改行は明細行の間だけに置く。
