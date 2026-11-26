@@ -1,0 +1,69 @@
+From: Emma Wilkinson <emma@brt-booking.example>
+To: Daniel Jennings <daniel@brt-booking.example>,
+ Anjali Shah <anjali@brt-booking.example>
+Date: Thu, 02 May 2024 10:47:00 +0100
+Subject: Re: April Identity availability flash
+Message-ID: <49d72721-92ca-44e9-8e9e-83769c857470@brt-booking.example>
+In-Reply-To: <a47e37a1-4fc3-40c1-b5d5-9d6344730a71@brt-booking.example>
+References: <a47e37a1-4fc3-40c1-b5d5-9d6344730a71@brt-booking.example>
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="===============3599263038335799223=="
+
+--===============3599263038335799223==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hi Daniel and Anjali,
+
+I've attached the separately retained verifier aggregate for the missing tail=
+. It has a row for each scheduled minute. Nine slots from 23:42 to 23:51 UTC =
+have a matched completed success, as do the five from 23:55 to 00:00 UTC. The=
+ end of each interval is exclusive.
+
+The four slots from 23:51 to 23:55 have no matched outcome in this extract. D=
+aniel, please leave those open while you check the evidence; the successes on=
+ either side don't tell us what happened in the hole.
+
+Emma
+
+On Wed, 1 May 2024 at 10:31 BST, Daniel Jennings wrote:
+> Hi Emma and Anjali,
+>
+> Attached is the April Passenger Identity availability flash. It reports 99.=
+86343% against the 99.9% target on the full 43,200-minute UTC month.
+>
+> The 59 minutes charged include 41 confirmed failed minutes and 18 minutes f=
+or which the primary collector has no outcome. I have provisionally counted a=
+ll 18 as downtime; that is not the same as having observed 18 failures.
+>
+> Emma, could you look for a separately retained minute-by-minute sign-in res=
+ult for 30 April 23:42 to 1 May 00:00 UTC? If we can match completed outcomes=
+ to the scheduled minutes, we can revisit the charge before closing the repor=
+t. Please include any minutes for which no outcome can be matched.
+>
+> Thanks,
+> Daniel
+>
+> Attachment: April Identity availability - Flash.pdf
+
+
+--===============3599263038335799223==
+Content-Type: text/csv
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="identity_verifier_apr30.csv"
+MIME-Version: 1.0
+
+c2NoZWR1bGVkX21pbnV0ZV9zdGFydF91dGMsc2NoZWR1bGVkX2NvdW50LG1hdGNoZWRfb3V0Y29t
+ZV9jb3VudCxvdXRjb21lCjIwMjQtMDQtMzBUMjM6NDI6MDBaLDEsMSxzdWNjZXNzCjIwMjQtMDQt
+MzBUMjM6NDM6MDBaLDEsMSxzdWNjZXNzCjIwMjQtMDQtMzBUMjM6NDQ6MDBaLDEsMSxzdWNjZXNz
+CjIwMjQtMDQtMzBUMjM6NDU6MDBaLDEsMSxzdWNjZXNzCjIwMjQtMDQtMzBUMjM6NDY6MDBaLDEs
+MSxzdWNjZXNzCjIwMjQtMDQtMzBUMjM6NDc6MDBaLDEsMSxzdWNjZXNzCjIwMjQtMDQtMzBUMjM6
+NDg6MDBaLDEsMSxzdWNjZXNzCjIwMjQtMDQtMzBUMjM6NDk6MDBaLDEsMSxzdWNjZXNzCjIwMjQt
+MDQtMzBUMjM6NTA6MDBaLDEsMSxzdWNjZXNzCjIwMjQtMDQtMzBUMjM6NTE6MDBaLDEsMCwKMjAy
+NC0wNC0zMFQyMzo1MjowMFosMSwwLAoyMDI0LTA0LTMwVDIzOjUzOjAwWiwxLDAsCjIwMjQtMDQt
+MzBUMjM6NTQ6MDBaLDEsMCwKMjAyNC0wNC0zMFQyMzo1NTowMFosMSwxLHN1Y2Nlc3MKMjAyNC0w
+NC0zMFQyMzo1NjowMFosMSwxLHN1Y2Nlc3MKMjAyNC0wNC0zMFQyMzo1NzowMFosMSwxLHN1Y2Nl
+c3MKMjAyNC0wNC0zMFQyMzo1ODowMFosMSwxLHN1Y2Nlc3MKMjAyNC0wNC0zMFQyMzo1OTowMFos
+MSwxLHN1Y2Nlc3MK
+
+--===============3599263038335799223==--

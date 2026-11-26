@@ -1,0 +1,6 @@
+April close — for Emma
+
+UTC window: 1 April 00:00 to 1 May 00:00, end excluded.
+1 May 00:00 UTC = 1 May 01:00 BST in Bristol.
+
+~~Stop at 1 May 00:00 local~~ — wrong: that is 30 April 23:00 UTC and drops the final UTC hour. Pull through 01:00 BST, excluding the endpoint. Check the 30 April 23:00 UTC bin separately before sending the figures.

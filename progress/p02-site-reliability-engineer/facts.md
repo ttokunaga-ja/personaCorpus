@@ -214,3 +214,15 @@
 - Claim correction thread, 23 September BST: (1) “Two room lines on Westbury”, Richard → Daniel at 09:18, no attachment; (2) “Re: Two room lines on Westbury”, Daniel → Richard at 13:48, quotes (1) and attaches the reconciliation XLSX and the marked merchant receipt PDF.
 - “September travel - correction recorded”, Richard → Daniel, 24 September 09:21 BST, standalone; Finance kept the claim reference and marked L05 withdrawn. On 30 September the close extract is as of 10:00 BST.
 - Richard issues BRT-ES-20260930-001 at 15:05 BST on 30 September, approving GBP 592 for reimbursement with bank confirmation pending. “September travel close copy”, Richard → Daniel at 15:24 BST, is standalone and attaches that PDF.
+
+## Passenger Identity April availability close, 1–10 May 2024
+
+- Monthly Passenger Identity sign-in SLI counts one scheduled end-to-end outcome per UTC minute. April runs from 1 April 00:00 through 1 May 00:00 UTC (inclusive start, exclusive end), 43,200 eligible minutes, with a 99.9% target. All intervals below use the same endpoint rule.
+- Confirmed failed slots total 41 minutes: 11 April 10:12–10:24 UTC (12) and 24 April 17:21–17:50 UTC (29). The primary collector has 43,141 successes, 41 observed failures and 18 absent outcomes at 30 April 23:42–1 May 00:00 UTC.
+- Emma's separate verifier aggregate matches completed sign-ins to the same scheduled UTC minute, one outcome per slot after deduplication. It confirms nine successful minutes at 23:42–23:51 and five at 23:55–00:00. Four at 23:51–23:55 remain unobserved.
+- Daniel's 1 May flash BRT-AV-20240501-001 treats all 18 absences as provisional downtime (59 minutes, 99.86343%). The retained flash is superseded by BRT-AV-20240510-001, issued on 10 May.
+- Final April totals are 43,155 successful, 41 known failed and four unobserved minutes. Lower bound = 1 − 45/43,200 (99.89583%); upper bound = 1 − 41/43,200 (99.90509%). Both use the full UTC window; the interval straddles the exact target, so April target status is undetermined.
+- The reconciled hourly extract has 720 rows. The three exceptional hours start 11 April 10:00, 24 April 17:00 and 30 April 23:00 UTC; primary-success/failed/recovered-success/unobserved splits are 48/12/0/0, 31/29/0/0 and 42/0/14/4.
+- At 10:00 UTC on 9 May, Daniel Jennings, Emma Wilkinson and Anjali Shah agree the result (BRT-MT-20240509-001). Anjali asks for unobserved minutes alongside availability from the May report. Daniel issues April on 10 May; Emma and Daniel check the May reporting field on 3 June at 10:00 UTC.
+- “April Identity availability flash” thread, BST: (1) 1 May 10:31 Daniel → Emma and Anjali, attaches April Identity availability - Flash.pdf; (2) 2 May 10:47 “Re: April Identity availability flash”, Emma → Daniel and Anjali, quotes (1) and attaches identity_verifier_apr30.csv.
+- “April Identity report and hourly figures”, standalone 10 May 10:34 BST, Daniel → Anjali, Cc Emma, attaches April Identity availability.pdf and the separate April Identity hourly figures.csv.

@@ -4,6 +4,8 @@
 
 | 型の名前 | 組織・作成者と用途 | ファイル名 | 見た目 |
 |---|---|---|---|
+| Monthly service availability report | BRT Reliability Engineering。Daniel が月次の速報と確定報告を直接組版 | `brt-monthly-availability.cls` | A4 縦、表紙なし。青の題と照合表、橙の罫線。Reliability Engineering • Internal とページ番号 |
+| Monthly availability bounds | BRT Reliability Engineering。Daniel が確認済みの停止と観測不能を別に入力し、可用性の上下限を計算 | `brt-availability-bounds.xlsx` | A4 横。青地白字の繰返し見出しと橙の罫線。分数と上下限を右寄せ |
 | Incident review | BRT Reliability Engineering。Daniel と Matthew が、事後報告で発生・検知・復旧の時刻、影響の根拠、対策を記録 | `brt-incident-review.docx` | A4 縦、独立表紙なし。社名と段形のマーク、青い題と節見出し、橙の罫線 |
 | Reliability meeting record | BRT Reliability Engineering。Daniel が打合せで照合した根拠、決定と担当者を記録 | `brt-reliability-meeting.docx` | A4 縦、独立表紙なし。事後報告と共通の書式で、議題・照合・決定の三節 |
 | Night duty handover | BRT Reliability Engineering。引継ぎ担当者が当番枠、未解決の通知、送付先と受領確認を記録。旧票 BRT-NH-20240408-001 は Andrew Cartwright が Daniel の当番について作成 | `brt-night-handover.docx` | A4 縦、表紙なし。共通の青と橙、当番枠・未解決事項・連絡の三節 |
@@ -43,6 +45,7 @@ Westbury、RJS、Fairfield の型は各社が発行する文書に用いる。Cl
 - Fairfield は切取線と左右の切欠きのある切符マークを右上に置く。主色は臙脂 `#762E39`、管理欄と表見出しは薄い桜灰 `#F4EAE5`、本文は墨茶 `#362E2C`。欧文は Liberation Sans、和文は Noto Sans CJK JP。
 - BRT の番号は `BRT-種別-YYYYMMDD-連番3桁`。種別は `IR`（事後報告）、`MT`（打合せ）、`CD`（変更判断）、`EB`（エラーバジェット）、`CP`（容量比較）、`RB`（説明資料）、`CU`（顧客説明）、`NH`（夜間引継ぎ）、`OX`（当番交代）、`TR`（再受講記録）、`EX`（復旧演習報告）、`RP`（復旧点比較）、`TC`（窓口の切替連絡票）。Westbury は `WCC-SO-YYYYMMDD-連番3桁`、Palmer の予測・再確認は `PCS-DF-YYYYMMDD-連番3桁`、RJS の立会い所見は `RJS-WS-YYYYMMDD-連番3桁`、Fairfield の受付記録は `FTS-DR-YYYYMMDD-連番3桁`。いずれも日付部分は文書の発行日、連番は組織・種別・発行日ごとに `001` から取る。業務上の障害番号 `INC-260713` を本文で引用する場合は、文書の管理番号と別に記す。
 - 管理欄は完全な番号、発行日（例 `14 Jul 2026`）、作成者のフルネームを入れる。障害の時刻は UTC で表記する。勤務表の日時は Europe/London の現地時刻で、BST または GMT を明記する。初報と確定した内容を両方記す場合は、対象範囲と確認時点を添える。
+- 可用性の月報は `AV`、上下限の計算表は `AB`。速報と確定報告は各発行日の番号を使い、確定報告の改訂経緯で速報を引用する。
 - 返金照合表の種別は `RF`。日付と連番の扱いは他の BRT 文書と共通。
 - Office のファイル内部の作成者と日時は、配布物の成形後に進行役が `bin/stamp` で原稿の作成者と計画の日時にそろえる。Excel は保存時に更新日時が書き換わるため、この処理は保存と再計算の後に行う。
 
@@ -61,6 +64,13 @@ Westbury、RJS、Fairfield の型は各社が発行する文書に用いる。Cl
 6. 確定した窓口連絡票は `brt-ticket-office-contact-card.docx` を開き、管理欄に `TC` の番号・発行日・作成者を入れる。Switch message に窓口へ伝える文面、Contact order に連絡役と合意済みの順番、Receipt and escalation に受領記録の担当と未着時の扱いを入れる。窓口で読む票として、短い文と番号付きの順序を使う。手書き修正の記録をスキャン PDF にする場合も、修正前の連絡票には BRT 共通の書式を使う。
 
 ## Excel
+
+### Monthly availability bounds
+
+1. `Bounds` シートの管理欄は Monthly error budget と同じセルを使う。発行日と集計対象の UTC 窓は別に記す。
+2. 7 行目から A に重複しない UTC 窓、B〜D に対象・停止確認済み・観測不能の分数を入れる。A は `BRT Text`、B〜D は `BRT Count`。E・F は `BRT Rate` を適用すると `0.00000%`（百分率の小数点以下5桁）で表示される。E は `=IF(B7=0,"",1-(C7+D7)/B7)`、F は `=IF(B7=0,"",1-C7/B7)` を例とし、行に合わせる。UTC 窓の折返しに合わせて明細の行高を決める。
+3. 最終明細の直後に合計行を足し、B〜D は各列の SUM、E・F は明細と同じ式を合計行の分数に適用する。A は `BRT Total Text`、B〜D は `BRT Total Count`、E・F は `BRT Total Rate`。合計の上下限も `0.00000%` で表示される。目標との比較は丸め前の値で行う。原稿の注記はその下で A:F を結合し、左上に `BRT Note` を適用して折返しに合わせて行高を決める。
+4. 印刷範囲は A1 から F 列の最終使用行まで。A4 横、横 1 ページ・縦自動、1〜6 行を繰り返す。式は `bin/recalc`、印刷は `bin/render` で確認する。
 
 ### Monthly error budget
 
@@ -140,6 +150,11 @@ Westbury、RJS、Fairfield の型は各社が発行する文書に用いる。Cl
 - `BRTEvents` には `段階 & 確認項目 & 証拠または結果 \\` を実際の確認項目ごとに入れる。初回演習で分かったこと、再受講で確認した結果、当番入りの条件と判断を時点ごとに記す。青地白字の列見出しは改ページ後も繰り返す。組版と確認は上記の `TEXINPUTS`・`bin/tex`・`bin/render` を使う。
 - 表全体にかかる短い注記は、最終明細を `\\*` で終え、表の中の次行に `\BRTEventNote{注記}` を入れる。最終明細と注記が同じページに載る。本文にかかる注記は `\BRTNote` を使う。
 
+### Passenger Identity の月次可用性報告
+
+- `\documentclass{brt-monthly-availability}` を指定する。表題・管理欄は `\BRTUpdate{題}{完全な文書番号}{発行日}{作成者}`、節は `\BRTSection`、本文注記は `\BRTNote` を使う。
+- `BRTAvailability` は `指標 & 値 & 根拠／扱い \\` の3列。中央列は右寄せで、青地白字の見出しは改ページ後も繰り返す。速報の暫定計上と確定版の根拠・報告判断は各原稿に従う。組版と確認には共通の `TEXINPUTS`・`bin/tex`・`bin/render` を使う。
+
 ### Passenger Identity の復旧演習
 
 - 改善前の報告 PDF は `\documentclass{brt-recovery-exercise}` を指定する。冒頭の `\BRTUpdate{題}{完全な文書番号}{発行日}{作成者}`、節の `\BRTSection{見出し}`、本文注記の `\BRTNote{注記}` は BRT 共通。管理欄の発行日と、本文の実施日・UTC 時刻はそれぞれ原稿に従う。
@@ -168,6 +183,18 @@ Westbury、RJS、Fairfield の型は各社が発行する文書に用いる。Cl
 - `BRTTravelAmounts` に行または段階、扱い、GBP 金額を入れる。申請、取下げ、承認の差額が分かるようにし、支給状況は原稿にある時点の状態を書く。
 
 ## 成形見本
+
+### b010 の月次可用性報告と上下限計算
+
+| 型 | 入力済み見本 | ページ画像 |
+|---|---|---|
+| 上下限計算・4明細 | [XLSX](../../scratch/p02-site-reliability-engineer/b010/work/templates-0004/samples/brt-availability-bounds.xlsx) | [全ページ](../../scratch/p02-site-reliability-engineer/b010/work/templates-0004/render/brt-availability-bounds/) |
+| 上下限計算・日別30明細 | [XLSX](../../scratch/p02-site-reliability-engineer/b010/work/templates-0004/samples/brt-availability-bounds-daily.xlsx) | [全ページ](../../scratch/p02-site-reliability-engineer/b010/work/templates-0004/render/brt-availability-bounds-daily/) |
+| 月次可用性報告・速報 | [PDF](../../scratch/p02-site-reliability-engineer/b010/work/templates-0004/samples/brt-monthly-availability-flash.pdf)・[TeX 原稿](../../scratch/p02-site-reliability-engineer/b010/work/templates-0004/samples/brt-monthly-availability-flash.tex) | [全ページ](../../scratch/p02-site-reliability-engineer/b010/work/templates-0004/render/brt-monthly-availability-flash/) |
+| 月次可用性報告・確定版 | [PDF](../../scratch/p02-site-reliability-engineer/b010/work/templates-0004/samples/brt-monthly-availability-final.pdf)・[TeX 原稿](../../scratch/p02-site-reliability-engineer/b010/work/templates-0004/samples/brt-monthly-availability-final.tex) | [全ページ](../../scratch/p02-site-reliability-engineer/b010/work/templates-0004/render/brt-monthly-availability-final/) |
+| 月次可用性報告・日別明細付き | [PDF](../../scratch/p02-site-reliability-engineer/b010/work/templates-0004/samples/brt-monthly-availability-daily.pdf)・[TeX 原稿](../../scratch/p02-site-reliability-engineer/b010/work/templates-0004/samples/brt-monthly-availability-daily.tex) | [全ページ](../../scratch/p02-site-reliability-engineer/b010/work/templates-0004/render/brt-monthly-availability-daily/) |
+
+### b006 の見本
 
 見本の入力済み文書と全ページ画像は b006 の `work/templates-0004` にある。見本内の日付・時刻・文書番号・集計値は書式確認用。制作で使う値は依頼・persona 定義・事実の台帳・ファイル計画を参照する。
 

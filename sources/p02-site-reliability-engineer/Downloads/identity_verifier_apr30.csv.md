@@ -1,0 +1,28 @@
+---
+path: Downloads/identity_verifier_apr30.csv
+kind: text
+author: Emma Wilkinson
+derived_from:
+---
+
+```csv
+scheduled_minute_start_utc,scheduled_count,matched_outcome_count,outcome
+2024-04-30T23:42:00Z,1,1,success
+2024-04-30T23:43:00Z,1,1,success
+2024-04-30T23:44:00Z,1,1,success
+2024-04-30T23:45:00Z,1,1,success
+2024-04-30T23:46:00Z,1,1,success
+2024-04-30T23:47:00Z,1,1,success
+2024-04-30T23:48:00Z,1,1,success
+2024-04-30T23:49:00Z,1,1,success
+2024-04-30T23:50:00Z,1,1,success
+2024-04-30T23:51:00Z,1,0,
+2024-04-30T23:52:00Z,1,0,
+2024-04-30T23:53:00Z,1,0,
+2024-04-30T23:54:00Z,1,0,
+2024-04-30T23:55:00Z,1,1,success
+2024-04-30T23:56:00Z,1,1,success
+2024-04-30T23:57:00Z,1,1,success
+2024-04-30T23:58:00Z,1,1,success
+2024-04-30T23:59:00Z,1,1,success
+```
