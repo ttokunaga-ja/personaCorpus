@@ -1,0 +1,14 @@
+---
+path: Documents/Night-shift/2024-11-20 Kenton readout rehearsal.txt
+kind: text
+author: Jennifer Salazar
+derived_from:
+---
+
+Kenton readout rehearsal — Wed Nov 20, after running it with Patrick
+
+Drop “three people on the night shift” from the opening. Say: “In three of the four times we saw a worker return to their original aisle over two nights, the last bin they had saved helped them find where to pick up the count.” Give Ronald the denominator before showing the table. We counted returns.
+
+On the F-12 slide, start by saying the worker had checked the stock and made a valid Save in F. Pause at the arrow back to E. Then say how the next E shelf was found: compare the E label and stock with the worker’s own record, then start the check at E-22. Keep the story on the two locations and what the worker could verify at each.
+
+When I get to the cards, ask Ronald what his lead would want the worker to check if the paper cue couldn't tell them the source aisle. Give him time to walk through the shelf check before moving to the last slide.

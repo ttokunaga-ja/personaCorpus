@@ -1,0 +1,25 @@
+---
+path: Documents/Night-shift/2024-11-04 Tablet moves during the night count.eml
+kind: text
+author: Ronald Perez
+derived_from:
+---
+From: Ronald Perez <ronald.perez@kenton-warehousing.example>
+To: Jennifer Salazar <jennifer@carver-workplace.example>
+Cc:
+Date: Mon, 04 Nov 2024 09:26:00 -0600
+Subject: Tablet moves during the night count
+Message-ID: <2f3adda5-9a9e-4efb-b624-2790fcdc0427@kenton-warehousing.example>
+
+Hi Jennifer,
+
+One thing I'd like you to look at after the September report: when someone carries the tablet from E over to F and then comes back to E, where do they pick up the check? I'd like to know which bin they actually start checking when they get back.
+
+Could you come by from 7:45 to 8:25 p.m. Chicago time on Thursday, Nov. 7, and again on Thursday, Nov. 14? At the south end the crew moves between the aisles to let carts through. Please let that happen as it normally does. I'll keep the crossing clear so you can watch from the side without asking anyone to stop or make the trip again.
+
+Let me know if those two evenings work.
+
+Thanks,
+Ronald
+
+添付: なし

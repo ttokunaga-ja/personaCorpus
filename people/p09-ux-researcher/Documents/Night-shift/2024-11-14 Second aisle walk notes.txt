@@ -1,0 +1,27 @@
+Kenton / second aisle walk
+Thursday, November 14, 2024 · 19:45–20:25 CST · E/F south cross aisle
+Jennifer Salazar — notes for Brian
+
+Ayesha handled consent and marked the returns. I followed the row and Save. Ronald kept the cross aisle clear for the work. Same worker and same tablet across each of the two trips below.
+
+T3 — what I saw, in order
+
+19:51  E-21 checked and saved in E.
+19:56  The worker took the tablet from E into F.
+20:02  In F, the worker checked F-12 against the stock and pressed Save on that row.
+20:05  Back in E. The last Save I had observed was F-12. The worker checked the E shelf label and the stock against their own tally.
+20:08  Started reconciling E-22.
+20:11  Save on E-22.
+
+My read: F-12 was a valid confirmation in F. At the return it located the previous Save, but it did not locate the next check in E. The worker got to E-22 by matching the shelf, stock and tally in E. Keep the 20:02 Save and the 20:05 arrival separate when we code this. F-12 comes from following the Saves in Count List. There is no separate last-confirmed-bin field on the tablet.
+
+T4 — what I saw, in order
+
+20:12  Save on F-18.
+20:13  Quantity entry on F-19 in F. Entry only.
+20:15  The worker carried the tablet through the E entrance. No Save in E.
+20:17  Back in F. The worker used F-18 to get oriented again.
+20:19  Recounted the stock at F-19.
+20:22  Pressed Save on F-19 after the recount.
+
+My read: F-18 was still the last confirmed row when the worker came back. F-19 was the row to check again. The shorthand at 20:13 refers to touching the quantity field in F. The mark at 20:15 is the passage at E. The Save for F-19 is the one after the recount. If the three marks get combined, it will look as though the worker returned to a row that was already done.

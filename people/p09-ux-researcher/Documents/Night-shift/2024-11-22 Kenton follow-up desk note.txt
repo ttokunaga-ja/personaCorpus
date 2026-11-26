@@ -1,0 +1,18 @@
+Kenton — pick up next week
+Friday, Nov 22
+
+Ronald confirmed receipt at 08:42 this morning. The two files I sent yesterday at 14:16 are here:
+
+  Documents/Night-shift/2024-11-21 Kenton aisle return readout.pptx
+  Documents/Night-shift/2024-11-21 Kenton shelf check handout.pdf
+
+He’ll check the contact route with the night-shift lead for a mismatch between the stock and the worker’s own record. The lead should hear where Save waits: resolve the mismatch, match the shelf label to the worker’s record, and recheck the quantity.
+
+Internal references if Jeremy needs the context:
+
+  Pictures/Field-visits/IMG_0476.jpg
+  Documents/Night-shift/2024-11-07 First aisle walk notes.txt
+  Documents/Night-shift/2024-11-14 Second aisle walk notes.txt
+  Documents/Night-shift/2024-11-15 Bin returns and saves.xlsx
+
+One case for Jeremy: we can’t establish which aisle the earlier Save came from, and the shelf label disagrees with the worker’s notes. Put “Aisle unknown” on the card and ask him to walk it through. I want to see where the worker would stop before choosing a row or pressing Save and how they would ask Ronald to resolve the disagreement.

@@ -296,3 +296,26 @@
 - 5月4日 09:12 Patrick（patrick.delgado@carver-workplace.example）→ Jennifer（jennifer@carver-workplace.example）、件名 `Six reports for our May review`。見直し依頼の新規メール、添付なし。
 - 5月19日 10:34 Jennifer → Patrick、件名 `Two report revisions from the May review`。再提出の新規メールに `2026-05-18 途中保存と提出の判断 追記.docx` と `2026-05-18 Stop note reading order v1.1.docx` の2点を添付。
 - 5月20日 09:17 Patrick → Jennifer、件名 `Re: Two report revisions from the May review`。前日の初信の該当段落を引用し、2件を半期評価の追補として受領。添付なし。顧客への再配布やデザインの承認は行っていない。
+
+## 夜勤棚卸観察 — E/F 列の端末持ち替えと再訪
+
+- 11月4日09:26、Ronald Perez → Jennifer Salazar、件名 `Tablet moves during the night count`。同日14:18、Jennifer → Ronald が `Re: Tablet moves during the night count` で初信を引用して両日を確定。両通とも添付なし。Ronald と Jennifer のアドレスは8月21日の初信と同じ。
+- 11月7日・14日19:45〜20:25 CST、Kenton のシカゴ倉庫で E/F 列と南端横断通路を観察。平面図では左が E、右が F、下が南。各場面で作業者本人が同じ携帯端末を持ち出し、元の列へ戻る。11月7日の入口集合は19:35。
+- Jennifer が操作を追い、Ayesha Siddiqui が各晩に本人の同意・帰着を記録し、Ronald は通路の安全と作業を担当。録音なし。11月7日19:41に Ronald の許可で無人の境界1枚（IMG_0476.jpg）を撮影し、写真・野帳・個別照合表は社内保管。
+- 訪問計画 CWR-NS-20241105-OBS-01 は11月5日11:10の Jennifer 草案 v0.1、同日16:02の Patrick Delgado の変更履歴・コメント入り v0.2、6日15:08の Jennifer 確定 v1.0。持ち出し前と帰着直前の確定棚番を分けて記録する。
+
+## 夜勤棚卸観察 — 列をまたいだ Save と元の列への帰着
+
+- 現行の Count List は棚番・数量と本人の Save を扱い、最終確定棚番の専用欄は引き続きない。観察では実際の Save を追って確定棚番を特定し、本人が使った手掛かりと分ける。次の時刻はすべて CST、分単位。
+- 11月7日 T1：19:51 E-14 Save → 19:54 F 入口へ端末を持ち出し（別列 Save なし）→ 19:58 E 帰着、開いていた E-14 を手掛かり → 20:00 E-15 の照合を再開、20:03 Save。
+- 11月7日 T2：20:08 F-06 Save → 20:11 台車を避けて E 入口へ端末を移動（別列 Save なし）→ 20:16 F 帰着、F-06 の行を指してから棚札へ → 20:18 F-07 の照合を再開、20:21 Save。
+- 11月14日 T3：19:51 E-21 Save → 19:56 F へ端末を移動 → 20:02 F-12 を現物と照合して Save → 20:05 E 帰着。F-12 は別列の正当な確定。棚札・現物・本人控えを照合し直し、20:08 E-22 で照合を再開、20:11 Save。
+- 11月14日 T4：20:12 F-18 Save → 20:13 F-19 の数量入力のみ → 20:15 E 入口へ端末を持ち出し（別列 Save なし）→ 20:17 F 帰着、F-18 を手掛かり → 20:19 F-19 を数え直し、20:22 Save。
+- 11月15日に Brian Chen と Jennifer が4場面を照合。同じ列の最後の確定棚番を使えたのは T1・T2・T4 の3場面。T3 の1場面は別列の確定で、帰着列での再開位置には使わなかった。分母は本人が元の列へ戻った4場面。
+
+## 夜勤棚卸観察 — 確定した列の紙上確認と現物照合
+
+- 11月18日11:00〜11:20、Jeremy Sutton と Jennifer が社内で紙カードを読み合わせ、E に帰着する役を Jennifer が担当。棚番だけ、確定時の列 F を棚番 F-12 に併記、Aisle unknown の順で見る。列併記で Save の出所は読めても、E の再開棚は別の照合が必要。現場参加者による試用は行っていない。
+- 11月19日、Patrick・Jeremy・Jennifer は列の出所に根拠がある場合だけ、読み取り専用の提案に確定時の列を添えることにした。別列または出所不明なら、帰着した列の棚札・現物・本人控えを照合し、一致しなければ Save を待って Ronald に確認する。未保存数量から確定せず、行の自動選択も行わない。
+- 11月21日13:00〜13:30、Jennifer が Ronald に CWR-NS-20241121-BRF-01 v1.0 で説明。Ronald は現物と本人控えが合わない場合を次の紙試行に足すよう求めた。表示の変更・導入時期・効果は未確定。
+- 11月21日14:16、Jennifer → Ronald、件名 `Kenton aisle return readout`。説明で使った `2024-11-21 Kenton aisle return readout.pptx` と責任者用の別紙 `2024-11-21 Kenton shelf check handout.pdf` を添付。11月22日08:42、Ronald → Jennifer、件名 `Re: Kenton aisle return readout` で元のメールを引用し受領。返信の添付なし。

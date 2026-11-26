@@ -28,7 +28,7 @@
 | 棚卸手順 | Kenton Contract Warehousing Inc、Ronald。Kenton 発の棚卸手順書や現場掲示の印刷原版 | `kenton-count-instructions.cls` | Letter 縦。アンバーの枠内に棚のマーク、太い上罫、濃い青灰の太字、薄い青灰の管理欄 |
 | 読み上げ観察記録 | Fuller Accessibility Lab LLC、Amanda Shah。観察条件と読み上げの経路を発行元の PDF で Carver に渡す | `fuller-accessibility-observations.cls` | Letter 縦。紫の波形と社名、薄紫の右柱と管理欄、白地に幅の広い本文 |
 
-配車の見通し調査と夜勤棚卸観察で使う型。実ファイルには計画と原稿で定めた内容を入れる。メールは差出人・宛先・日時を持つ EML とする。夜勤の野帳は TXT、場面別の照合記録は CSV、顔の写らない作業机と掲示物は JPG。手書きの照合順は原稿で定めた筆記内容を画像にしてから `bin/scan` で PDF にする。Carver が作成して Kenton に送る手引き、説明、報告には Carver の型を使う。
+配車の見通し調査と夜勤棚卸観察で使う型。実ファイルには計画と原稿で定めた内容を入れる。メールは差出人・宛先・日時を持つ EML とする。夜勤の野帳は TXT、場面別の照合記録は CSV、顔の写らない作業机と掲示物は JPG。手書きの照合順は原稿で定めた筆記内容を画像にしてから `bin/scan` で PDF にする。 型なしの手描き平面図は `scan:handwriting` とし、原稿にある書込みも同じ紙に載せてスキャンする。Carver が作成して Kenton に送る手引き、説明、報告には Carver の型を使う。
 
 研修画面理解調査は日本語の課題票と共有スライドを使う。回答の根拠は TXT、再試行結果は CSV、6月の保留連絡は EML とする。5月の配車点検は Fuller 発の観察 PDF、Carver 内部の項目表、順路の注釈 PNG に分ける。5月の配車点検と翌年6月の研修画面再試行は、同意・対象項目・判定を調査ごとに記録する。
 
