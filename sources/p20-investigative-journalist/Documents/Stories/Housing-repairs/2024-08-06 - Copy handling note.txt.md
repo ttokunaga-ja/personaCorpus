@@ -1,0 +1,12 @@
+---
+path: Documents/Stories/Housing-repairs/2024-08-06 - Copy handling note.txt
+kind: text
+author: Leslie Crawford
+derived_from:
+---
+
+August 6, 2024, after the interview
+
+Theresa showed the association register and the papers residents had provided as two separate bundles. We agreed that copies for me would omit identifying fields and retain only reporting codes to follow the requests. The same code on each bundle should refer to the same request, not a residence.
+
+Keep the two bundles distinct. Match requests by code when reading their fields; do not bring addresses or unit numbers into the comparison sheet. A missing slip or a blank completion field is not evidence that work remains unfinished. Ask Theresa to identify any date that is a transcription rather than the event itself.

@@ -231,3 +231,18 @@
 - 9月17日に Leslie が再審査用の新しい管理番号 ACN-INV-20260917-PIT-001 で v0.3 を作り、同じ本文・対照表を机上用PDFへ出力。9月21日14:00–14:35 EDT、Leslie・Keith・Richard が審査し、Richard は10月の企画枠へ持ち越すと決めた。決定の記録は ACN-INV-20260921-MEM-001 v1.0。
 - Keith が Finance の承認・掲示記録、Leslie が work session の Clerk 索引と回付を追い、10月5日に進捗を持ち寄る予定。窓口応答の中央値だけでは議事録の入手しやすさも違法性も判断できず、掲載の承認は出ていない。
 - メールはすべて新規件名で、順に①09-09 09:04 EDT Leslie → Dorothy “Approved Finance Committee minutes”（請求PDF）②09-17 15:32 Leslie → Richard、Cc Keith “Minutes pitch for the Sept 21 desk”（机上用PDFと8月の検算XLSX）③09-21 16:02 Leslie → Richard、Cc Keith “Carry the minutes pitch into October”（審査メモDOCXと説明図PNG）。
+
+## Parkview Court の修繕要望と Theresa の初回面談
+
+- 2024-07-29の協会案内は、まず管理窓口へ連絡し、協会への経過報告は任意とする。22件は協会に届き、8月6日の記名面談で Theresa Coleman が説明した要望。R-01〜R-22は要望を追う取材用符号。
+- 面談スレッド “Parkview repair records interview” は①2024-07-30 10:18 EDT Leslie Crawford → Theresa、②2024-08-01 11:42 EDT Theresa → Leslie（Re:、①を引用）。②で協会代表としての記名引用と取材・引用照合用の録音を了承。両通とも添付なし。
+- 2024-08-06 14:00 EDT、編集部の小会議室で Leslie が Theresa に初回面談。原音は8分24秒。00:00–00:41で記名と録音を再確認、01:27–02:14で22件の範囲、03:16–04:20で14件と8件、05:02–06:46で採寸・予約・転記の例を話す。聴き直しでは01:27–02:14の範囲の限定を残す。
+- 8月7日の協会控えは PCTA-RPR-20240807-001（受付簿2頁、p.1 は R-01〜11、p.2 は R-12〜22）と PCTA-RPR-20240807-002（住人用作業票16件の紙控え。p.1〜3 は完了日確認の12件を符号順に4票ずつ、p.4 は R-19・R-21 の完了欄と R-17・R-20 の採寸・予約欄）。16件の作業票の控えに R-22 の原票は入らない。
+- 完了日確認の14件は住人用の署名済み票に明記された日を使う。完了日の値と日付不明8件の符号は「住宅修繕22要望の完了日再確認」の従前確認分に従う。2024年8月時点の完了日不明8件の内訳は、手元の票に完了日がない R-17・R-20 と、当時の束に作業票がない6件。
+- R-17の2024-07-29は戸口ブラシの訪問採寸、R-20の2024-08-02は洗面排水の再訪を予約した日。R-22の2024-08-05は共用照明伝票から受付簿に転記した日。固有の欄の意味を保ち、完了日欄は3件とも空欄。
+- 新規件名 “Repair register and work slips” は2024-08-07 09:48 EDT Theresa → Leslie。添付は2024-08-07 - Repair intake register.pdf と2024-08-07 - Resident work slips.pdf の2点。
+- 机上メモ ACN-INV-20240809-MEM-001 は8月9日 Leslie v0.1、12日 Veronica Huang の赤字 v0.2。新規件名 “Can we read the repair dates on Monday” は2024-08-09 14:23 EDT Leslie → Veronica、添付は Date fields - desk memo v0.1.docx。
+- 2024-08-12 14:00–14:28 EDT、Leslie・Veronica が照合。完了日確認14件・不明8件を維持し、協会受付から管理側の初回申出は特定できないため待ち時間の集計を企画から外す。
+- 照会 ACN-INV-20240813-REQ-001 のスレッド “First repair contacts at Parkview” は①2024-08-13 09:32 EDT Leslie → Theresa（2024-08-13 - First contact inquiry.pdf を添付、8月16日までに返事を依頼）、②2024-08-15 10:48 EDT Theresa → Leslie（Re:、①を引用、添付なし）。管理側への初回連絡控えは協会から一括提供できず、住人の了解を得て探す。
+- 企画 ACN-INV-20240815-PIT-001 v1.0 は Word と共有 PDF の同版。別添の照合表は Veronica の ACN-INV-20240812-LOG-001 v1.0。新規件名 “Parkview pitch for Friday” は2024-08-15 15:28 EDT Leslie → Richard Espinoza、Cc Veronica、企画 PDF と照合 XLSX を添付。
+- 2024-08-16 14:00–14:24 EDT、Leslie・Richard・Veronica が企画を検討。Richard は協会に届いた22件の範囲で追加取材を認め、掲載判断は保留。Leslie は管理への初回連絡と住人の票を別に追い、Veronica は14件と8件の区別を維持する。

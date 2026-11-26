@@ -42,6 +42,10 @@ Allegheny Civic News Cooperative の調査報道デスク、Mapleton Falls Borou
 
 Theresa が提供する協会控えは `parkview-repair-record.cls` で組んでからスキャンする。住所・住戸・住民の識別情報を作らず、記録自体の参照と日付の意味を残す。
 
+## 住宅修繕の初回取材（2024年7〜8月）
+
+受付簿と住人用作業票の紙控えも `parkview-repair-record.cls` で組んでからスキャンする。協会配布案内の電子 PDF は同じ型の協会名・配色と管理欄を使い、右上の用途を “Resident notice”、左下を “Parkview Court Tenants Association” に替える。本文は案内の見出しと段落で組む。
+
 ## 書体・組織・管理番号
 
 - 編集部は、階段状に置いた三つの四角と社名でマストヘッドを作る。欧文は **Liberation Serif**。墨 `#232826` は本文、えんじ `#792C3D` は組織名・見出し・罫、淡い赤みの紙色 `#F6EFEB` は表の帯と強調欄。通常紙面は白。ヘッダにマストヘッド、フッタに Investigations desk。縦文書とワークブックの印刷にはページ番号を付ける。

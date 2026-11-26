@@ -1,0 +1,19 @@
+---
+path: Documents/Stories/Housing-repairs/2024-08-12 - Repair records review.txt
+kind: text
+author: Leslie Crawford
+derived_from:
+---
+
+Repair records desk read
+August 12, 2024, 2:00–2:28 p.m. EDT
+Leslie Crawford and Veronica Huang
+For Leslie and Veronica
+
+We compared the association register with the resident-slip bundle and Veronica's notes on my August 9 memo. The 22 are the requests Theresa discussed that reached the association; they are not a census of the building.
+
+Decision: 14 have a date in the completion field of a signed resident slip. For the other eight we cannot establish a completion date from this bundle, and we are not deciding whether the work was completed. Two slips are present with the completion field empty (R-17 and R-20); six slips are absent from the bundle. R-22's register transcription date is not a substitute for its missing ticket.
+
+Veronica's condition for a verified completion date is a dated completion entry on the relevant signed resident slip. A measurement, appointment or register transcription is not that entry. Association intake is likewise not evidence of the first contact with management. We will remove the proposed waiting-time calculation from the pitch; even the 14 do not have a verified common starting point for that claim.
+
+Leslie will ask Theresa about missing resident copies and separately about records of first contact with management. Veronica will keep the source and field conditions in the evidence log and review any new copies before a count changes.

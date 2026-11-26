@@ -1,0 +1,12 @@
+---
+path: Desktop/Theresa - questions to ask aloud.txt
+kind: text
+author: Leslie Crawford
+derived_from:
+---
+
+Theresa, 2 p.m.
+
+Don't start with “When was it finished?” A visit date might be the answer. Ask her to read the field name first, then the date and what that field means. Did she read the slip herself, or is she repeating what a resident told her? Keep those separate.
+
+Confirm name and recording permissions aloud. Ask what reached the association, not what happened in every home. Before leaving: can she share the two sets with identifying fields removed?

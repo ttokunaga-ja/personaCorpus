@@ -1,0 +1,7 @@
+After the Aug. 12 desk read — before recalculating anything
+
+The association date is when the request entered its record, not necessarily the first day management heard from the resident. Subtracting that date from a signed slip's completion date can describe only the interval after the association recorded the request. It can leave out earlier days altogether.
+
+Illustration, not one of the 22: resident contacts management on June 1; association records the request June 5; signed slip records completion June 12. June 5 to June 12 is 7 calendar days. June 1 to June 12 is 11. The second start requires its own evidence; neither follows from the association entry alone.
+
+Even for the same 14 with verified completion dates, do not submit association-to-completion differences as management response times. Ask separately for a first-contact record and for the missing resident copies. Eight completion dates remain unverified; do not call them eight unfinished repairs.

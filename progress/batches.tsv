@@ -204,13 +204,14 @@ p04-ml-research-engineer	b010	2026-11-26	27	3	2	1	0	done	6292.37
 p11-account-executive	b010	2026-11-26	31	4	5	7	5	accepted	8041.17
 p06-life-science-researcher	b012	2026-11-26	27	7	13	0	0	done	7529.32
 p05-bi-data-analyst	b010	2026-11-26	31	6	6	5	0	done	10573.74
-p20-investigative-journalist	b010	2026-11-26	31	3	4	2	0	done	9176.03
+p20-investigative-journalist	b010	2026-11-26	31	3	4	5	4	accepted	9176.03
 p13-corporate-privacy-counsel	b012	2026-11-26	31	13	6	0	0	accepted	8051.59
 p15-recruiter-people-ops	b011	2026-11-26	32	3	8	0	0	accepted	9263.89
-p12-support-success-lead	b011	2026-11-26	37	8	5	4	0	done	10548.27
-p09-ux-researcher	b011	2026-11-26	32	6	6	2	0	done	9301.50
+p12-support-success-lead	b011	2026-11-26	37	8	5	4	0	done	10812.65
+p09-ux-researcher	b011	2026-11-26	32	6	6	2	0	done	9855.42
 p02-site-reliability-engineer	b010	2026-11-26	27	2	4	1	1	accepted	8049.06
 p08-product-manager	b010	2026-11-26	30	4	9	2	0	done	11193.53
 p18-manufacturing-quality-engineer	b012	2026-11-26	29	5	5	1	1	accepted	9976.76
 p07-humanities-researcher	b010	2026-11-26	33	1	5	0	0	done	10916.16
 p10-management-consultant	b010	2026-11-26	36	10	6	6	0	done	11730.82
+p17-construction-project-manager	b012	2026-11-26	36	6	5	13	0	done	15057.62
