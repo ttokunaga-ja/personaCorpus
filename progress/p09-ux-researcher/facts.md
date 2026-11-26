@@ -319,3 +319,26 @@
 - 11月19日、Patrick・Jeremy・Jennifer は列の出所に根拠がある場合だけ、読み取り専用の提案に確定時の列を添えることにした。別列または出所不明なら、帰着した列の棚札・現物・本人控えを照合し、一致しなければ Save を待って Ronald に確認する。未保存数量から確定せず、行の自動選択も行わない。
 - 11月21日13:00〜13:30、Jennifer が Ronald に CWR-NS-20241121-BRF-01 v1.0 で説明。Ronald は現物と本人控えが合わない場合を次の紙試行に足すよう求めた。表示の変更・導入時期・効果は未確定。
 - 11月21日14:16、Jennifer → Ronald、件名 `Kenton aisle return readout`。説明で使った `2024-11-21 Kenton aisle return readout.pptx` と責任者用の別紙 `2024-11-21 Kenton shelf check handout.pdf` を添付。11月22日08:42、Ronald → Jennifer、件名 `Re: Kenton aisle return readout` で元のメールを引用し受領。返信の添付なし。
+
+## 配車の見通し調査 — 翌日着の説明用時刻表
+
+- Christine Wright 発行・Jennifer 受領ともに2024-12-02。Oakridge Dispatch Systems の ODC-DSP-20241202-REF-01 v1.0、ファイル名 `Overnight Dispatch Windows.pdf`。4月版の画面の Window は引き続き現在の予定帯。現地日付は12月の説明用別紙で補い、画面の追加欄や表示変更として扱わない。
+- 説明用6便の値はすべて2024年12月の発地・着地の現地予定。Chicago・Milwaukee は CST（UTC−06:00）、Detroit・Toledo・Indianapolis は EST（UTC−05:00）。帯の開始と終了はともに着地の時刻。
+- R-611：Chicago 12月5日22:30発 → Detroit 12月6日（金）06:00–07:00。R-612：Chicago 12月5日23:10発 → Toledo 12月6日（金）05:45–06:30。
+- R-613：Detroit 12月6日00:20発 → Chicago 12月6日（金）04:30–05:00。R-614：Chicago 12月12日23:00発 → Detroit 12月13日（金）06:00–07:00。
+- R-615：Chicago 12月12日19:30発 → Indianapolis 12月12日（木）23:30〜12月13日（金）00:30。R-616：Chicago 12月13日06:10発 → Milwaukee 12月13日（金）08:00–08:45。
+- 翌日開始は R-611・612・614、同日内で閉じるのは R-613・616、着地の帯内で暦日が変わるのは R-615。R-611・614は同じ金曜の時分で暦日が一週違い、R-611・612は同一暦日の06:00–06:30 ESTが重なる。
+- 12月2日09:18 CST、件名 `Overnight window examples`、Christine（christine@oakridge-dispatch.example）→ Jennifer（jennifer@carver-workplace.example）の初信。上記の時刻表PDFを1点添付。
+
+## 配車の見通し調査 — 発地と着地の日付の読み合わせ
+
+- 2024-12-05 17:00–17:35 CST（12月6日08:00–08:35 JST）に Jennifer と金子美穂子が日英で6便を社内で読み合わせた。R-611・614で「Friday, six to seven」／「金曜の6時から7時」だけでは12月6日と13日が決まらず、R-615では帯の終点の日付を別に聞き返した。
+- 英語課題 CWR-DR-20241203-OBS-01 は12月3日 Jennifer の v0.1、12月6日 金子の変更履歴・コメント付き v0.2、12月11日 Jennifer の v1.0。発地の現地出発日と着地の現地到着日・予定帯を読み、帯が着地の午前0時を越すときは両端に日付を付ける。
+- 12月12日17:00–17:30 CST（12月13日08:00–08:30 JST）の再読は、英語 R-612・614・616、日本語 R-611・613・615 で控える。金曜の2便を最初の復唱で別の日付に分け、R-615だけ帯の終了日を聞き返して12月13日00:30 ESTに揃えた。社内の読み合わせで、参加者面談・運行実績は採っていない。
+
+## 配車の見通し調査 — 遅配の留保と Christine への説明
+
+- 2024-12-16 10:30–11:00 CST、Jennifer と Patrick Delgado が予定表と復唱の記録の範囲を確認。実際の遅配件数は推計不能とし、集計には対象運行の範囲、対応する予定と実着、判定条件が必要と整理した。
+- 12月19日10:30–11:00 CSTに Jennifer が Christine に日英の例を説明。Christine は引継ぎ説明に使うことを確認し、R-615の帯の両端の日付を質問した。画面と配車手順の変更は決めていない。
+- 12月19日13:34 CST、件名 `Overnight handoff readout`、Jennifer → Christine の新規メール（Message-ID `<5be217c5-a2ce-48b3-b2a0-822dc3b739f8@carver-workplace.example>`）。添付は `2024-12-18 Oakridge overnight briefing.pptx` と `2024-12-18 Local date desk reference.pdf` の2点。後者は12月17日の Word と同じ CWR-DR-20241217-DEC-01 v1.0。
+- 12月20日09:17 CST、件名 `Re: Overnight handoff readout`、Christine → Jennifer（Message-ID `<113afc98-81f6-4860-a463-467c935c573d@oakridge-dispatch.example>`）。2点の受領と引継ぎ説明への利用を返す。本文の引用・添付なし。In-Reply-To と References は19日の Message-ID。

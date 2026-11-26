@@ -1,0 +1,11 @@
+Oakridge — overnight handoff readout
+December 19, 2024, 10:30–11:00 CST
+Christine Wright, Jennifer Salazar
+
+I walked Christine through the six planned examples, using R-611 and R-614 to show why “Friday, six to seven” is not enough. Both are Detroit windows at 06:00–07:00 EST, but R-611 is December 6 after a December 5 Chicago departure; R-614 is December 13 after a December 12 departure. The handoff needs the local date at each end as well as the time.
+
+Christine asked whether both ends of the R-615 arrival window need dates. We went back to the schedule: Indianapolis opens December 12 at 23:30 EST and closes December 13 at 00:30 EST. I showed the question to ask when the end date is missing. The start of the window is not the next day after the Chicago departure; its end is on the next calendar date.
+
+Christine said she would take the materials back to use as handoff examples. I will send the briefing and the one-page desk reference. The six examples are planned windows, with no actual arrival times; they cannot yield a late-delivery count.
+
+We did not decide to change the current screen or dispatch procedure in this meeting.

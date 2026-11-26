@@ -1,0 +1,7 @@
+Route,Arrival weekday,Window start,Window end
+R-611,Friday,06:00,07:00
+R-612,Friday,05:45,06:30
+R-613,Friday,04:30,05:00
+R-614,Friday,06:00,07:00
+R-615,Thursday,23:30,00:30
+R-616,Friday,08:00,08:45

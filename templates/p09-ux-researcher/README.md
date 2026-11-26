@@ -11,6 +11,7 @@
 | 研修画面の課題票 | Carver、Jennifer・金子。中山の新人に提示する課題と、進行者が回答根拠を控える欄を作る | `carver-training-task.docx` | Letter 縦、表紙なし。日本語の4節、共通ロゴ、煉瓦色の小見出し |
 | 調査判断記録 | Carver、Jennifer・金子。観察の範囲や質問の採否について判断・根拠・未決事項を記録 | `carver-research-decisions.docx` | Letter 縦、表紙なし。短い英語の見出しと、必要に応じて根拠の表を使用 |
 | 日英質問対照 | Carver、Jennifer・金子。並べた質問を読み合わせ、言い直しや採否を照合 | `carver-prompt-review.xlsx` | Letter 横。日英の列を同幅に取り、黒鉛色の列見出しと煉瓦色の管理ラベルを配置 |
+| 予定時間帯の現地日付照合 | Carver、Jennifer と金子。発地の出発と着地の予定帯の両端を現地日付で照合し、読み合わせの正答根拠を引く | `carver-local-date-key.xlsx` | Letter 横、Carver の共通ロゴと管理欄。3つの現地日時を左寄せで並べ、判定と根拠を右に置く |
 | 再開手掛かりの分類照合 | Carver、Brian と Jennifer。2人の初回コードと場面ごとの確定理由を照合 | `carver-field-coding.xlsx` | Letter 横。日英質問対照と同じ Carver の紙面で、場面・初回2列・確定・一致判定・行動根拠を6列で示す |
 | 読み上げ順の項目表 | Carver、Jennifer。Amanda の観察を Jeremy に渡す際、期待順・観察順・判定・修正観点を項目別に整理 | `carver-reading-order.xlsx` | Letter 横。黒鉛色の6列見出し。先頭の期待順は右寄せ、直後の項目名は1字下げ |
 | 募集条件照合 | Carver、Carolyn。候補を符号で扱い、3条件の回答と最初に外れた条件を週次の募集会議で照合する | `carver-participant-eligibility.xlsx` | Letter 横、共通ロゴ、黒鉛色の6列見出しと麻色の集計欄。1候補1行で根拠欄を広く取る |
@@ -62,6 +63,13 @@
 2. A列の順番は `CWR Integer`（整数・右寄せ）、B〜E列の文字は `CWR Text`（左寄せ・インデント1）、F列の聞き手向け注記は `CWR Note`（9pt、左寄せ・インデント1）。列幅は A〜F の順に10、22、34、34、17、31。見本は明細42pt。日英を読める長さまで折り返し、長い行の高さは個別に増やす。先頭の番号列から区間名が離れて読めるよう、B列のインデントを維持する。
 3. 件数を表示する場合は明細直後に24ptの行を1つ作り、A列へ `=COUNT(A7:A最終明細行)`、B列へその対象が分かるラベルを入れ、A〜F に `CWR Total` を適用する。B列だけは `CWR Text` の位置揃えをコピーして左寄せ・インデント1にする。集計行は麻色・太字・煉瓦色の上線と黒鉛色の二重下線。元の番号や区間の順序を合計しない。原稿に注記がある場合だけ、次の行の A:F を結合し `CWR Note` で記載する。
 4. `auto_filter.ref` は `A6:F最終明細行`、`print_area` は `A1:F最終使用行`。Letter 横、幅1頁・高さ自動、自動改ページ、1〜6行繰返し（`print_title_rows = '1:6'`）、ペインは C7。左右0.32インチ、上0.34・下0.55インチ。数式を入れた成果物は `bin/recalc` 後に `bin/render` で全ページを開き、2ページ目以降にも題・管理欄・列見出しが揃うことを確かめる。Office の最終的な作成者・日時は成形後の `bin/stamp` で設定する。
+
+### 予定時間帯の現地日付照合
+
+`carver-local-date-key.xlsx` のシート `Local date key` を開く。管理欄は日英質問対照と同じ位置で、案件は `DR`、用途は `DEC`。6行目の列は Route、Departs local、Window opens local、Window closes local、Local date check、Time zones and answer basis。7行目から1便1行。A〜E列は `CWR Text`、F列は `CWR Note` を使う。
+
+- B〜D列は各地点の現地日時をExcelの日時値で入力し、スタイルを適用した後に `mmm d, yyyy hh:mm` で表示。右端に発地と着地の都市・ゾーンと判断根拠を記す。判定は原稿の数式で日付部分を比較し、着地の帯内での日またぎを優先して区分する。経過時間の計算には使わない。
+- 列幅は A〜F が12、22、22、22、23、42。見出しや根拠が読めるよう折り返しと行高を設定する。明細に A6:F最終明細行のフィルターを付け、印刷範囲に全明細と注記を含める。ペインは B7、Letter 横、幅1頁・高さ自動、1〜6行繰返し。数式を入れたら `bin/recalc` と `bin/render` で確かめる。
 
 ### 再開手掛かりの分類照合
 
