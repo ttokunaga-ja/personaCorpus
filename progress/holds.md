@@ -4,3 +4,4 @@
 |---|---|---|---|
 | p08-product-manager | b010 | 監査 hold: progress/p08-product-manager/b010.audit.md | 2026-11-26T04:13:06.069971+00:00 |
 | p14-finance-controller | b016 | 監査 hold: progress/p14-finance-controller/b016.audit.md | 2026-11-26T04:21:34.677760+00:00 |
+| p05-bi-data-analyst | b010 | 監査 hold: progress/p05-bi-data-analyst/b010.audit.md | 2026-11-26T04:32:45.476556+00:00 |
