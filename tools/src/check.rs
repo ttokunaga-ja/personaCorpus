@@ -721,6 +721,7 @@ fn slides_without_notes(parent: &str, request: &str) -> bool {
             if matches!(
                 request.trim(),
                 "通常のスライド表示で出力。スライドの順序と内容は元と同じ。話者ノートは出力しない。"
+                    | "スライドを同じ順序で出力し、発表者ノートは印刷しない。スライドの内容に違いなし。"
                     | "投影順のスライド面を書き出し、発表者ノートは配布面に含めない。その他の違いなし。"
             ) {
                 return true;
@@ -1286,11 +1287,11 @@ fn word_revision_source(body: &str, path: &Path, zone: chrono_tz::Tz) -> Result<
     let instruction = re(
         r"(?m)^[-*] (削除|挿入|コメント) *\| *([^|\n]+?) *\| *(\d{4}-\d\d-\d\d \d\d:\d\d [+-]\d{4}) *\|",
     );
-    // Full-width pipe rows put kind, author and local time in positional fields.
+    // Pipe-delimited rows put kind, author and local time in positional fields.
     let labeled = re(concat!(
         r"(?m)^[-*][ \t]+(?:種類[:：][ \t]*)?(削除|挿入|コメント)[ \t]*",
-        r"(?:｜|(?:[;／|][ \t]*|\r?\n[ \t]+)人物[:：])[ \t]*([^\r\n]+?)[ \t]*",
-        r"(?:｜|(?:[;／|][ \t]*|\r?\n[ \t]+)日時[:：])[ \t]*(\d{4}-\d\d-\d\d \d\d:\d\d)(?: ([A-Z]{2,6}|[+-]\d{4}))?[ \t]*",
+        r"(?:(?:[;／|][ \t]*|\r?\n[ \t]+)人物[:：]|[｜|])[ \t]*([^\r\n]+?)[ \t]*",
+        r"(?:(?:[;／|][ \t]*|\r?\n[ \t]+)日時[:：]|[｜|])[ \t]*(\d{4}-\d\d-\d\d \d\d:\d\d)(?: ([A-Z]{2,6}|[+-]\d{4}))?[ \t]*",
         r"(?:[;／|｜][ \t]*|\r?\n[ \t]+)対象(?:の文)?[:：][ \t]*([^\r\n]+?)[ \t]*",
         r"(?:[;／|｜][ \t]*|\r?\n[ \t]+)新しい文[:：][ \t]*([^\r\n]+)\r?$",
     ));
@@ -1328,21 +1329,7 @@ fn word_revision_source(body: &str, path: &Path, zone: chrono_tz::Tz) -> Result<
             });
         }
     }
-    let mut result = body.to_string();
-    for captures in instruction
-        .captures_iter(body)
-        .collect::<Vec<_>>()
-        .into_iter()
-        .rev()
-    {
-        let date = captures.get(3).unwrap();
-        if let Ok(instant) = DateTime::parse_from_str(date.as_str(), "%Y-%m-%d %H:%M %z")
-            && revisions.contains(&(&captures[1], captures[2].to_string(), instant))
-        {
-            result.replace_range(date.range(), "");
-        }
-    }
-    let result = comment.replace_all(&result, |row: &regex::Captures<'_>| {
+    let result = comment.replace_all(body, |row: &regex::Captures<'_>| {
         if let Some(index) = labeled_records
             .iter()
             .position(|(kind, author, date, text)| {
@@ -1360,42 +1347,53 @@ fn word_revision_source(body: &str, path: &Path, zone: chrono_tz::Tz) -> Result<
     });
     // A tracked edit stores its payload once in OOXML. Keep the target in the
     // manuscript comparison after verifying the actual revision or comment.
-    Ok(labeled
+    let result = labeled.replace_all(&result, |row: &regex::Captures<'_>| {
+        let deleted = &row[1] == "削除";
+        let target = revision_text(&row[5]);
+        let replacement = revision_text(&row[6]);
+        let payload = if deleted { &row[5] } else { &row[6] };
+        let unwrapped = revision_text(payload);
+        let matched = labeled_records
+            .iter()
+            .enumerate()
+            .filter(|(_, (kind, author, date, text))| {
+                *kind == &row[1]
+                    && author == &row[2]
+                    && date.format("%Y-%m-%d %H:%M").to_string() == row[3]
+                    && row.get(4).is_none_or(|zone| {
+                        let label = zone.as_str();
+                        let format = if label.starts_with(['+', '-']) {
+                            "%z"
+                        } else {
+                            "%Z"
+                        };
+                        date.format(format).to_string() == label
+                    })
+                    && (text == payload || text == unwrapped)
+            })
+            .min_by_key(|(_, (_, _, _, text))| text != payload)
+            .map(|(index, _)| index);
+        if let Some(index) =
+            matched.filter(|_| !deleted || matches!(replacement, "なし" | "なし。"))
+        {
+            let (_, _, _, text) = labeled_records.swap_remove(index);
+            if text == payload {
+                row[5].to_owned()
+            } else {
+                target.to_owned()
+            }
+        } else {
+            row[0].to_owned()
+        }
+    });
+    // Older rows can describe both sides of an edit. Their verified timestamp
+    // is metadata even when the remaining instruction is still compared as text.
+    Ok(instruction
         .replace_all(&result, |row: &regex::Captures<'_>| {
-            let deleted = &row[1] == "削除";
-            let target = revision_text(&row[5]);
-            let replacement = revision_text(&row[6]);
-            let payload = if deleted { &row[5] } else { &row[6] };
-            let unwrapped = revision_text(payload);
-            let matched = labeled_records
-                .iter()
-                .enumerate()
-                .filter(|(_, (kind, author, date, text))| {
-                    *kind == &row[1]
-                        && author == &row[2]
-                        && date.format("%Y-%m-%d %H:%M").to_string() == row[3]
-                        && row.get(4).is_none_or(|zone| {
-                            let label = zone.as_str();
-                            let format = if label.starts_with(['+', '-']) {
-                                "%z"
-                            } else {
-                                "%Z"
-                            };
-                            date.format(format).to_string() == label
-                        })
-                        && (text == payload || text == unwrapped)
-                })
-                .min_by_key(|(_, (_, _, _, text))| text != payload)
-                .map(|(index, _)| index);
-            if let Some(index) =
-                matched.filter(|_| !deleted || matches!(replacement, "なし" | "なし。"))
+            if let Ok(instant) = DateTime::parse_from_str(&row[3], "%Y-%m-%d %H:%M %z")
+                && revisions.contains(&(&row[1], row[2].to_string(), instant))
             {
-                let (_, _, _, text) = labeled_records.swap_remove(index);
-                if text == payload {
-                    row[5].to_owned()
-                } else {
-                    target.to_owned()
-                }
+                row[0].replacen(&row[3], "", 1)
             } else {
                 row[0].to_owned()
             }
@@ -3437,6 +3435,7 @@ mod handout_and_revision_tests {
             "違いなし",
             "全スライドのスライド面は元の v1.0 と同じ。発表者ノートは配布 PDF に含めない。",
             "通常のスライド表示で出力。スライドの順序と内容は元と同じ。話者ノートは出力しない。",
+            "スライドを同じ順序で出力し、発表者ノートは印刷しない。スライドの内容に違いなし。",
             "投影順のスライド面を書き出し、発表者ノートは配布面に含めない。その他の違いなし。",
             "The eight slide faces are unchanged and in the same order. Export the slide faces only; omit speaker notes. No post-meeting additions.",
         ] {
@@ -3545,6 +3544,22 @@ mod handout_and_revision_tests {
         assert_eq!(
             word_revision_source(compact, file.path(), zone).unwrap(),
             "reply"
+        );
+        let ascii = "- コメント | Editor Name | 2025-03-18 13:17 MDT | 対象: reply | 新しい文: Add the reply date.";
+        assert_eq!(
+            word_revision_source(ascii, file.path(), zone).unwrap(),
+            "reply"
+        );
+        let wrong = ascii.replace("MDT", "MST");
+        assert_eq!(
+            word_revision_source(&wrong, file.path(), zone).unwrap(),
+            wrong
+        );
+        // In older redlines a deletion row also describes the following insertion.
+        let paired = "- 削除 | Editor Name | 2025-03-18 13:17 -0600 | 対象: Remove this sentence. | 新しい文: Add a sentence.";
+        assert_eq!(
+            word_revision_source(paired, file.path(), zone).unwrap(),
+            paired.replace("2025-03-18 13:17 -0600", "")
         );
         let unmatched = compact.replace("13:17", "13:18");
         assert_eq!(
