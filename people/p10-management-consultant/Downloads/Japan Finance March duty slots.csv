@@ -1,0 +1,17 @@
+Date,Start JST,End JST,Duty type,Display name,Work,Schedule status
+2025-03-17,15:00,16:30,Regular payments,JP07-P,07 domestic supplier payments,Scheduled
+2025-03-17,15:00,16:30,Regular payments,JP07-D,07 domestic supplier payments,Scheduled
+2025-03-18,15:00,16:30,Regular payments,JP07-P,07 domestic supplier payments,Scheduled
+2025-03-18,15:00,16:30,Regular payments,JP07-D,07 domestic supplier payments,Scheduled
+2025-03-19,15:00,16:30,Regular payments,JP07-P,07 domestic supplier payments,Scheduled
+2025-03-19,15:00,16:30,Regular payments,JP07-D,07 domestic supplier payments,Scheduled
+2025-03-24,15:00,16:30,Regular payments,JP07-P,07 domestic supplier payments,Scheduled
+2025-03-24,15:00,16:30,Regular payments,JP07-D,07 domestic supplier payments,Scheduled
+2025-03-25,15:00,16:30,Regular payments,JP07-P,07 domestic supplier payments,Scheduled
+2025-03-25,15:00,16:30,Regular payments,JP07-D,07 domestic supplier payments,Scheduled
+2025-03-26,15:00,16:30,Regular payments,JP07-P,07 domestic supplier payments,Scheduled
+2025-03-26,15:00,16:30,Regular payments,JP07-D,07 domestic supplier payments,Scheduled
+2025-03-19,14:30,16:30,Close preparation,JP07-P,Account reconciliation,Scheduled
+2025-03-19,14:30,16:30,Close preparation,Close Reviewer B,Account reconciliation,Scheduled
+2025-03-26,15:00,16:45,Close preparation,JP07-P,Month-end variance review,Scheduled
+2025-03-26,15:00,16:45,Close preparation,Close Reviewer B,Month-end variance review,Scheduled

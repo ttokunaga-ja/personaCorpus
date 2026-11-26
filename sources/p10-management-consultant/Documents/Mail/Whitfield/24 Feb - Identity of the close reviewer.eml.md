@@ -1,0 +1,26 @@
+---
+path: Documents/Mail/Whitfield/24 Feb - Identity of the close reviewer.eml
+kind: text
+author: Kenneth Townsend
+derived_from:
+---
+
+From: Kenneth Townsend <kenneth@whitfield-components.example>
+To: Nicholas Hargreaves <nicholas@holt-reeves.example>, Siobhan Barrett <siobhan@holt-reeves.example>
+Cc: Connor Atkinson <connor@holt-reeves.example>
+Date: Mon, 24 Feb 2025 09:21:00 +0000
+Subject: Identity of the close reviewer
+Message-ID: <d073f9bc511e44ef86ac7a255f9e867a@whitfield-components.example>
+
+Hi Nicholas and Siobhan,
+
+Japan Finance has checked the two rotas for me. Close Reviewer B on the close sheet is the same person as JP07-D on the regular payment rota. The match applies to both dates we discussed.
+
+On 19 March that person and JP07-P have to stay on the account reconciliation from 14:30 to 16:30 JST. On 26 March both are on the variance review from 15:00 to 16:45 JST. Neither person can step out of those assignments to cover 07. We have no other deputy nominated for either day.
+
+I've copied Connor so he can use the same match in the cover sheet.
+
+Regards,
+Kenneth
+
+Attachments: none

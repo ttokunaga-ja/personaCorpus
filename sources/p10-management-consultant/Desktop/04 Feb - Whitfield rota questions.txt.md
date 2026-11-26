@@ -1,0 +1,16 @@
+---
+path: Desktop/04 Feb - Whitfield rota questions.txt
+kind: text
+author: Nicholas Hargreaves
+derived_from:
+---
+
+Whitfield — for my catch-up with Siobhan, 4 February
+
+Can we join the two rotas by person? “Japan Finance” on both sheets doesn't tell us whether the deputy is the person due on close. Ask if someone appears under a role code in the payments rota and a different label on the close sheet.
+
+First ask: duty codes, start and finish in Japan time, and the work each slot is for. No list of names. Keep the labels as sent and ask Kenneth to confirm which ones refer to the same person where we can't tell.
+
+Ask Siobhan who confirms the provisional holds: Kenneth for the customer-side slots? Keep any Holt support pencilled in separately. For the deputy, ask who can verify authority to act at 07 and what record we should take as confirmation. Don't tick the authority box just because a deputy appears on the rota.
+
+Take both March weeks into the discussion. Leave the day blank on anything that goes back to Kenneth for a decision.

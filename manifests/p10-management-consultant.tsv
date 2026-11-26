@@ -1,5 +1,6 @@
 Desktop/02 Mar - Denton close timing notes.txt	45aae76684f0f4b671b59622872089498ca0476a9a367f5196c1167efe092bf9	409	2026-03-02T08:49:00Z
 Desktop/03 Jul - Whitfield payment timing v0.2.pptx	2aebd2a19c71a2d4edc40d9d912e606cbd821c6877f28d301af268468dcae17f	36846	2024-07-03T13:42:00Z
+Desktop/04 Feb - Whitfield rota questions.txt	7bf6ca836d73cde2773528ebd22db573d7f6e9e13353306d809d886f3a27aa67	937	2025-02-04T08:42:00Z
 Desktop/04 Jun - Pioneer demand timestamp notes.txt	a00f4278e7f00810be183f93309cb9a98364531ba296657c1d4e9eacd570ed2c	473	2025-06-04T08:18:00Z
 Desktop/05 Aug - Marston cost kickoff v0.1.pptx	7f91c0a9cbec393d720b85abb20170c89cbd2b6b7751ffcddf19b87794bea1e6	34289	2024-08-05T07:44:00Z
 Desktop/07 Apr - Pioneer supplier boundary v0.3.pptx	7287b781bb915a392bcaf9c6359fbe44ab2b31566355395ab102e7f40bd72adf	30847	2025-04-07T11:04:00Z
@@ -26,6 +27,7 @@ Desktop/18 Sep - Questions for Meera.txt	ff46be69927cce42b08a09077e2eac38d19f29a
 Desktop/20 Jan - Pioneer Q4 savings review v1.0.pptx	cad3f53038cf2826986843a7d1f9e6e26864b458f3fb6b2aff75a92e52d1e851	31733	2026-01-20T16:18:00Z
 Desktop/20 May - Whitfield CSV costing notes.txt	c9c4e72ae4377f79311f7f4b9500cc93ecfaa86590c2598e725f221fe9d0fbe0	986	2026-05-20T15:14:00Z
 Desktop/21 Jan - Pioneer S011 credit follow-up.txt	8071e6d0eb6b3863f88ed8ac09c239b3b8234838fbaf803d226dd8b5a08d44f6	768	2026-01-21T15:51:00Z
+Desktop/24 Mar - Whitfield decision prompts.txt	b1d1d189dc6022eda1b6e0076cac47973760bf8c7cab70d688e4c2374774aff4	1001	2025-03-24T08:51:00Z
 Desktop/25 Sep - Marston feeder case v0.2.pptx	b67ae0d9731d37ad5b18b26cf8d7789194c4f163895c99c3e6130edfdc5a0dd9	33735	2024-09-25T13:41:00Z
 Desktop/27 Aug - Pioneer Aug evidence plan v0.1.pptx	d655cabb04a79f182939e628bdd267d766067385aa728dfb7b01d6dbaf747669	30918	2026-08-27T10:05:00Z
 Desktop/30 Jan - Denton trial timing v0.2.pptx	c77ef2445b2d1bb46ecd55eeee477a36cce2f1299c889a1ee5e81e5b7052920d	30939	2026-01-30T15:34:00Z
@@ -142,8 +144,11 @@ Documents/Clients/Whitfield/Diagnosis/26 Jun - Time by payment step.xlsx	4036375
 Documents/Clients/Whitfield/Diagnosis/26 Jun - Working and waiting by case.xlsx	c37c8ad875c14699907d7eb167cc95bd4b369ad2d76db663be21ce7c76edc4fb	15953	2024-06-26T13:24:00Z
 Documents/Clients/Whitfield/Diagnosis/Japan payment events - cleared extract.csv	bcb3ad286b448334f207f35cef5c43968620809330af2a50bafbd51c332eb526	582	2024-06-05T09:31:00Z
 Documents/Clients/Whitfield/Diagnosis/Japan supplier payment procedure.pdf	0b807b3150bbf80aa18497362faf928c7ec430a2dbf65da00b5c7d7753fc62f1	38384	2024-04-08T08:05:00Z
+Documents/Clients/Whitfield/Finance/03 Mar - Alternative approval slots.xlsx	b7c4bdcc2c6b53cb7f17f81d193d8027ac053b7b6cc4fd6ddcf58819c26d8531	9115	2025-03-03T14:18:00Z
+Documents/Clients/Whitfield/Finance/04 Mar - Cover stress cases.xlsx	65513d1736f68eee90b915d9522e58666693620bffcbbfe59738010b394978bb	9120	2025-03-04T11:38:00Z
 Documents/Clients/Whitfield/Finance/04 Sep - Pilot status export review.xlsx	d9f874b1a8b332585cef1f228c4676324859d8e8981035c0874b14d080ec26f8	7745	2025-09-04T13:55:00Z
 Documents/Clients/Whitfield/Finance/06 May - Japan Finance deliverables v0.3.pptx	43d3405993d8a8138d4e45abc9f1691d9b01cdd89763060ca24eaeb00f75f058	31125	2026-05-06T13:56:00Z
+Documents/Clients/Whitfield/Finance/07 Feb - Pre-start records check.xlsx	592a1a053cfd42d58777aecfc9e0e685e0ec21db0a64138eacd49385d4aafe8f	12154	2025-02-07T11:12:00Z
 Documents/Clients/Whitfield/Finance/07 Oct - Five-department readiness.xlsx	4805c415d1ad1726db363958172d9fcd1b21f65c164773771460cac06a5fea81	7732	2025-10-07T13:44:00Z
 Documents/Clients/Whitfield/Finance/08 Jan - Pilot rollout gates.xlsx	267d53995b08a7be8c8a452c0e33bb3a5e5a5a085e85804341bdb2cd769fd3d4	6417	2025-01-08T14:31:00Z
 Documents/Clients/Whitfield/Finance/09 Oct - Pilot evidence access register.xlsx	05f06e432f1182b3a35ea47d08ae685ebd129769533f5caa37e989e776b3a7da	7874	2025-10-09T15:11:00Z
@@ -151,7 +156,9 @@ Documents/Clients/Whitfield/Finance/10 Jul - Phase 1 staffing v1.0.xlsx	3756d631
 Documents/Clients/Whitfield/Finance/10 Oct - Japan savings estimate v0.3.xlsx	86ac5b87b1190cdf8efdbff3e08f39add74da3730f79c56d638227ed240b1a9b	8893	2024-10-10T10:08:00Z
 Documents/Clients/Whitfield/Finance/11 Dec - Implementation costs v0.1.pptx	c22bae8dd8d3f232fbedfb07067f4f0034f83cc3d38eb5ac13dce99115a317cf	37294	2024-12-11T15:19:00Z
 Documents/Clients/Whitfield/Finance/12 Aug - Japan change requests.csv	ce6cd3314e41e7ddd19ed446435f20ac4baa0870e5a5562f11748c6e322f36b5	835	2026-08-12T10:16:00Z
+Documents/Clients/Whitfield/Finance/12 Feb - Japan duty windows.xlsx	d0385a7529fb14714541d8d4a57d550f61e79ad9a4815c75c3280ce77e6eeae3	12597	2025-02-12T14:10:00Z
 Documents/Clients/Whitfield/Finance/12 Jun - Phase 1 client inputs.pdf	bf30eb0144f15c6c0668ab3ec8de11ff19cdb6426d34fb9d2709245f5d2bdf07	33299	2026-06-12T14:09:00Z
+Documents/Clients/Whitfield/Finance/12 Mar - Readiness evidence register.xlsx	7e1db095d763f8605f968c49734a3c1e345002cda921f2da8f6fe399ab381b44	9436	2025-03-12T14:14:00Z
 Documents/Clients/Whitfield/Finance/12 Sep - Open pilot case tracker.xlsx	99b1c0acb3f5b214b562c3a0acc07de9cf7fea7d00dabe53578c1c47065d19f3	7426	2025-09-12T10:25:00Z
 Documents/Clients/Whitfield/Finance/13 May - Weekly CSV timing rehearsal.xlsx	ad96b82046bc1d8954f7fb0cd8a2c845d99c6e6e525fbf1eb534f914ef97eaa5	7519	2026-05-13T14:32:00Z
 Documents/Clients/Whitfield/Finance/13 Nov - Pilot handoff exceptions.docx	99d2f67f7fd72a8d077e2f89f3bae4bd006c2af99f882f64b809a189c64f2f36	40547	2024-11-13T12:18:00Z
@@ -162,6 +169,7 @@ Documents/Clients/Whitfield/Finance/15 Oct - Japan savings correction.pdf	00504a
 Documents/Clients/Whitfield/Finance/15 Oct - Savings bridge.xlsx	cf50b866538fd4d64c6f62c2fdfdf882c95c81985cf2835839e8f905deb55086	9168	2024-10-15T09:48:00Z
 Documents/Clients/Whitfield/Finance/18 Dec - Monthly benefits tracking.xlsx	9fbc93957b2e07c62a33254ad7cd066c8559e5b7c33962b36aabe865ef56aa29	7799	2024-12-18T14:55:00Z
 Documents/Clients/Whitfield/Finance/19 Aug - Change request estimates v0.2.xlsx	c26ac91eedbbde050c5282b9a6e417e9e8e9af450b6f156df59f8fb4b6e8cb90	9414	2026-08-19T13:34:00Z
+Documents/Clients/Whitfield/Finance/19 Feb - March cover model v0.1.xlsx	70499af4f3f4bb4cf6a27d62be0bdb89a86db0bbf76ef1078e2fda151d749504	9277	2025-02-19T11:24:00Z
 Documents/Clients/Whitfield/Finance/20 Jan - Implementation version register.xlsx	cb3e9281c60f133dbc20e2af20c94628fe76e9767ac4146761f2f924ba627800	6746	2025-01-20T16:24:00Z
 Documents/Clients/Whitfield/Finance/20 Nov - Pilot handoff responsibilities.xlsx	ad726e2e67f2c24c2f2a3cc03155a6a86037bc48ab5cf9e2e4a0fa642418f05b	6453	2024-11-20T15:47:00Z
 Documents/Clients/Whitfield/Finance/22 Apr - Five-department evidence note.docx	ce5ca636087b467c5f57d1071e47b693afbbc1c7fa3dc1e08c34426ca5e98203	40735	2026-04-22T13:24:00Z
@@ -171,6 +179,8 @@ Documents/Clients/Whitfield/Finance/24 Aug - Change request estimates v0.3.xlsx	
 Documents/Clients/Whitfield/Finance/24 Jul - Milestone evidence register.xlsx	a312f81ba1417e55a97923242aa4eda858c0871c40bae6fd0f72763b8ec6d1d1	6604	2026-07-24T13:36:00Z
 Documents/Clients/Whitfield/Finance/24 Jun - Phase 1 review effort.xlsx	e2bfb4b68ae8dd64e7a5d89693069611aad6c5dcf99ccb35213bad767aca0798	7629	2026-06-24T14:17:00Z
 Documents/Clients/Whitfield/Finance/25 Aug - Change request decision note.pdf	cc436bf379653271a3b126a9ba244b8f398c84cae3985f0ae2b1324959f579c6	35450	2026-08-25T11:26:00Z
+Documents/Clients/Whitfield/Finance/25 Feb - March cover model v0.2.xlsx	20ec8310bb3a07d8d5f1e045e6e4cb663362a672254d32eb5c2e50e2e67ea8e2	19217	2025-02-25T13:16:00Z
+Documents/Clients/Whitfield/Finance/25 Mar - March slot totals.xlsx	303ced4da223e8919bb3d7c9f2b06cb2cc1ed8470f35cc3ebe3e3ef61e5bcec0	12616	2025-03-25T14:22:00Z
 Documents/Clients/Whitfield/Finance/27 May - Phase 1 staffing cover.xlsx	23ffc9e0e599e4d1ca0cf948149e819db2a0f36c19309537869d0b8a94690068	7665	2026-05-27T13:47:00Z
 Documents/Clients/Whitfield/Finance/29 Apr - Japan Finance dependencies.xlsx	3099536e2b6ec25a43d07099942b284905f9f94c7a0519323ee07374f34e2f69	7735	2026-04-29T10:37:00Z
 Documents/Clients/Whitfield/Finance/30 Jul - Pilot deputy roster.xlsx	49b4782d69f355bc504924837bc4da508a9b7e9e505027dc81ad2fab517cac3b	6444	2025-07-30T13:48:00Z
@@ -181,13 +191,18 @@ Documents/Clients/Whitfield/Meetings/06 Jan - Pilot prerequisites minutes.docx	1
 Documents/Clients/Whitfield/Meetings/08 Apr - Payment diagnostic kickoff.docx	67c7825ea14947181f5722df9231e07698af6718803baf94bac186eb52d5de3a	40306	2024-04-08T11:12:00Z
 Documents/Clients/Whitfield/Meetings/08 Jun - Phase 1 input commitments.docx	56137ea848082560c370a77e04db3d809f449ff9423540644ac328a8d3ee62cb	40644	2026-06-08T09:48:00Z
 Documents/Clients/Whitfield/Meetings/08 Oct - Five-department payment guide.pdf	fd9703a9d959e920c93d6512f943b36e2c6351d87d24ce393fb9a78ec639e511	38201	2025-10-08T08:48:00Z
+Documents/Clients/Whitfield/Meetings/10 Mar - Rota check minutes.docx	750340021e9dbeb18b55caa34b9c246e7ee407ea2792812a20e8980713782bc8	40782	2025-03-10T10:56:00Z
 Documents/Clients/Whitfield/Meetings/11 Aug - Payment pilot desk instructions.pdf	0c66941bcf66d4be6159cc08dbf4d6c6e5f1d235dd4294fe3eb298665b8f2af5	33234	2025-08-11T09:05:00Z
 Documents/Clients/Whitfield/Meetings/15 Oct - Savings reconciliation minutes.docx	2c5b9b37a3d28cc5e43adab4f6f7ec71b759acfda1360a54f77ed9b5109904ec	40331	2024-10-15T09:23:00Z
+Documents/Clients/Whitfield/Meetings/17 Feb - Month-end interview.docx	e880ebccb636695c20df6dcb1adcd02277cf6df8c26485352a6d7e4caad95ac2	40595	2025-02-17T11:07:00Z
 Documents/Clients/Whitfield/Meetings/17 Jul - Japan payments diagnosis.pdf	988ca3f927ab43ed5c5bfe24ce3c68281f045444cec47d74242ab8bf54dde297	148253	2024-07-17T09:58:00Z
 Documents/Clients/Whitfield/Meetings/17 Jul - Japan payments diagnosis.pptx	eaf3f8ebebaefe92a75b6df6ccb744567f5c9c3d93ef4dec47f12381d878a730	44120	2024-07-17T07:43:00Z
 Documents/Clients/Whitfield/Meetings/17 Jul - Payment diagnosis minutes.docx	7fe638e8af84cdb1edf3663e1d4ff919ed1633382f46ce872af571e0885e138c	40563	2024-07-17T09:18:00Z
 Documents/Clients/Whitfield/Meetings/17 Jul - Pilot restart minutes.docx	2f1e37b28c298f22463f78589733ecd38207161d9f02608ad2e48e240221fbe7	40271	2025-07-17T09:18:00Z
+Documents/Clients/Whitfield/Meetings/17 Mar - March approval slot map.pdf	474f4993c5a403927f02cdd238c29aec54c0a0399b3165df6e4c5820e55c3a64	75415	2025-03-17T11:08:00Z
+Documents/Clients/Whitfield/Meetings/17 Mar - March approval slot map.pptx	76a385c148f351133b3726fa493390774608de1261d58c631a6df794a7ad1f08	29726	2025-03-17T10:46:00Z
 Documents/Clients/Whitfield/Meetings/17 Sep - Pilot observation closeout.pptx	8b5083af415bd82658e99fe70f9f20079c32e042dbd9ad1b5cf1519eb088504f	31189	2025-09-17T14:04:00Z
+Documents/Clients/Whitfield/Meetings/19 Mar - Deputy readiness checks.docx	5e9085cbe53f3b54faaa48d490726ffb37458e7891cd883094a26b23c301f403	40720	2025-03-19T10:39:00Z
 Documents/Clients/Whitfield/Meetings/20 Jul - Phase 1 approval minutes.docx	74a26c712e8563dab52d32e68a9250d433c573d183a01fd18169f5c35ee5c66f	40746	2026-07-20T09:51:00Z
 Documents/Clients/Whitfield/Meetings/20 Jul - Phase 1 signed agreement.pdf	c8161b16ded478efbfc0cd1735d6b13e13a7663232dbd874b53768fce28620a6	903271	2026-07-20T13:26:00Z
 Documents/Clients/Whitfield/Meetings/21 Oct - Savings correction follow-up.docx	05990c193522714f55057fe9d5175204f9d88eadc11dcfd154c305552f5ac1c3	40175	2024-10-21T10:26:00Z
@@ -196,6 +211,8 @@ Documents/Clients/Whitfield/Meetings/25 Aug - Scope change review minutes.docx	8
 Documents/Clients/Whitfield/Meetings/25 Aug - Scope change review.pptx	d89f14bdbba96d757059ba2e54b129ed5f4699ff5ae84bcfffeaa7a40ddc54b7	33504	2026-08-25T07:43:00Z
 Documents/Clients/Whitfield/Meetings/26 Aug - Pilot desk feedback.docx	a340bdb9b57dcf126c3db24d57658d09b52322c3c38ce72e39708324cd62a618	40164	2025-08-26T13:16:00Z
 Documents/Clients/Whitfield/Meetings/26 Jun - Timing review and limitations.docx	0d97fa9ac079b2e9bd3dfceb66ae5f30d795c2e2bd11cc755b50a12a45275c44	40535	2024-06-26T15:07:00Z
+Documents/Clients/Whitfield/Meetings/26 Mar - March start comparison.pdf	b57d22898bc310686a3a5c1750d8f934d667e173acd6c3f9b49c9353946cfa25	42058	2025-03-26T11:12:00Z
+Documents/Clients/Whitfield/Meetings/26 Mar - March start decision.docx	c70b0bb87937a603b01251972e3cef4a1b580e6ee6744807b9951a3d7e779bba	40907	2025-03-26T10:26:00Z
 Documents/Clients/Whitfield/Meetings/29 May - Approval timing workshop notes.docx	10d0a9a4a3f844beaf3e002823c595518283875a18aa8391d34f0a19685934ef	40329	2024-05-29T10:14:00Z
 Documents/Internal-review/03 Oct - Pilot expansion v0.3.pptx	627cb58df6dde9c0c45ad3533015f27a47cede1b8b082fe7c4c4074e22c00f2f	31431	2025-10-03T14:22:00Z
 Documents/Internal-review/04 Oct - Release conditions for Marston.docx	0a58115e5749a2a3dd93f8cc44ad3966e4b948e1eb5020e7b8ff9ae44a7aceb9	41947	2024-10-04T14:08:00Z
@@ -215,11 +232,13 @@ Documents/Internal-review/13 Apr - Phase 1 scope review minutes.docx	2c935126598
 Documents/Internal-review/13 Jan - Implementation case v0.4 EH.pptx	bed5f99d91c68284f805d5c94cdb5266f8c67063cf72392278939ba62071a110	38756	2025-01-13T11:26:00Z
 Documents/Internal-review/16 Jan - Q4 savings review EH comments.docx	988bce91775af9ef29158f62f622f1eafd8f3d7c1e476b589bcc576328040661	40375	2026-01-16T15:26:00Z
 Documents/Internal-review/17 Jun - Delivery clauses v0.3.docx	08d62f5440e5ef7572ef0432ead72bdab8564182cd0722ffd9244993a55be22a	40614	2026-06-17T13:52:00Z
+Documents/Internal-review/19 Feb - Whitfield cover walk-through.pptx	a9d9c7f2aec93e11e0fdee082e577c94a869fdad1426e607e74d33ea1aba80ee	28867	2025-02-19T15:22:00Z
 Documents/Internal-review/19 Jun - Delivery clauses v0.4 JH markup.docx	8e4a73dec28beaa265bccf9a0e978f4459a288d211b122843d9346a0ecbc1891	41611	2026-06-19T14:26:00Z
 Documents/Internal-review/20 Jan - Implementation case v1.0.pptx	101719c4907ed3b2bf87af71b1a798f0dc270c2b6cd1bc365c462ffc7ddf30e5	37528	2025-01-20T08:54:00Z
 Documents/Internal-review/20 Jan - Implementation review minutes.docx	100bb7d081e60f229891138f7e0889b0e044510662c04662f2c83b72d4466b0d	40559	2025-01-20T11:52:00Z
 Documents/Internal-review/20 Jan - Implementation review reply.docx	bc67104faca53c66ba42bd8f5bd7237014a013c0347db93c4f058be95189b3dc	41021	2025-01-20T08:39:00Z
 Documents/Internal-review/21 Aug - Change requests clause review.docx	50f7cc654b3f7c53f467e90b899702f19865af8169069a625e599503b8e2ac6b	40622	2026-08-21T13:42:00Z
+Documents/Internal-review/26 Feb - Cover model correction.docx	8a6fed2e083a073f37ed66bc1127ac4bf3fd30cd59b005fd95e26d276b78fac2	40721	2025-02-26T10:43:00Z
 Documents/Internal-review/26 Sep - Marston feeder v0.3 NH markup.pptx	d840e4fcf9079bd99a80caba3936b111b579abdb308495289b24cd06ae45d37c	35593	2024-09-26T09:23:00Z
 Documents/Mail/Denton/02 Feb - The December approval time.eml	86e653b7fae7c9a0ff943b83527f1e1cc6370e69300efa19c278657d0af4a476	1905	2026-02-02T10:11:00Z
 Documents/Mail/Denton/10 Mar - February trial event log.eml	5eb485a2aca98411ef9387c935f594c06704415664a0dfdc2bbdc7acaa828471	2300	2026-03-10T15:22:00Z
@@ -249,11 +268,13 @@ Documents/Mail/Pioneer/21 Jan - Papers for the savings checkpoint.eml	6f6408f970
 Documents/Mail/Pioneer/26 Aug - Leave Buying something we can rerun.eml	0aef5b8756b4e3b788b11d73b99691cf57b9551d2392a2c749794573373fcfad	1306	2026-08-26T12:22:00Z
 Documents/Mail/Pioneer/30 Oct - The terms Buying has on file.eml	d02b90a469b89623ba74171b4f52d369de1c9292cf1b01f81127ff264f8d2452	61128	2025-10-30T14:26:00Z
 Documents/Mail/Whitfield/01 Oct - Cleared pilot event extract.eml	adc13d317d28d6c09e242e035d54e267cfcbdf97da4867999c6b0393194f938e	3919	2025-10-01T10:37:00Z
+Documents/Mail/Whitfield/03 Feb - March windows for Japan payments.eml	9c0106d0bcd1f07955c98f2e7cbca1be55c096c9110cae9b503dac07a4b56e6e	1153	2025-02-03T09:18:00Z
 Documents/Mail/Whitfield/05 Jun - Cleared timestamp extract.eml	f9c6fdc466b521aa99db6e822b75a9dfc8ed5e93a2a5d39f81fb94248fd754a2	2469	2024-06-05T09:46:00Z
 Documents/Mail/Whitfield/08 Apr - Current supplier payment procedure.eml	fb147d9df7a57dc30bf70c89bfa8d0b033cc951dbc43d0f26706e6dfefcf4044	53797	2024-04-08T08:25:00Z
 Documents/Mail/Whitfield/08 Apr - Re Current supplier payment procedure.eml	91afa5f97e3d1462ab4b240445c7493320bf24a99a6e6a4643e528e83176a8bd	2316	2024-04-08T09:16:00Z
 Documents/Mail/Whitfield/08 Oct - Basis for the Japan savings figure.eml	a82424ec5e71dbc9cf06c4fd8d1f82b19bc2a075b81e318018ce99af77dcd48e	1045	2024-10-08T08:12:00Z
 Documents/Mail/Whitfield/09 Oct - Re Papers for the payment pilot decision.eml	420d09f12f7d400b809c28dbde3f7c55f44fa6f4de0c8dd4aaffbcc541783831	2021	2025-10-09T09:28:00Z
+Documents/Mail/Whitfield/10 Feb - Japan Finance duty slots.eml	bb4fb4f4507dc3717e34f934cad216afc75b3d17410cb4658eaf909786250bc4	3440	2025-02-10T09:14:00Z
 Documents/Mail/Whitfield/11 Aug - Desk instructions for 18 August.eml	287cdf95cbb2916bfd9f963c0e0411c3c8ad5849315d32c32260d74f7b8f3d4f	46952	2025-08-11T09:26:00Z
 Documents/Mail/Whitfield/13 Apr - Re Two areas for the next engagement.eml	c0e2a0a9719f0e5b95165fc6f84332d86f063b4cd70f6470e609e7b9079e6442	2131	2026-04-13T11:08:00Z
 Documents/Mail/Whitfield/13 Apr - Two areas for the next engagement.eml	120a8d8bba118c6cb7db2e8759f3c176263e6d738efe41651209f208e5c5b9bd	47928	2026-04-13T07:46:00Z
@@ -261,15 +282,21 @@ Documents/Mail/Whitfield/15 Oct - Correction to the Japan savings estimate.eml	1
 Documents/Mail/Whitfield/16 Oct - Re Correction to the Japan savings estimate.eml	17a1c40726135184233b8087fdf1358d1d296b12bf5b4a4a9ecff98c31a2a5c3	1767	2024-10-16T08:07:00Z
 Documents/Mail/Whitfield/17 Jul - Diagnostic readout to Kenneth.eml	4b9859bc11d9225290c1deaff5f178b9bd3704e77638b23f36b2655aaf207395	204518	2024-07-17T10:26:00Z
 Documents/Mail/Whitfield/17 Jul - Re Diagnostic readout to Kenneth.eml	bd3711e9a371355af6122b87e143522a594ddb0a6fb2fd36687eab85f0cef504	1419	2024-07-17T13:08:00Z
+Documents/Mail/Whitfield/17 Mar - March approval slot map.eml	37369489ebc79e8cf9b199c913c4d22557915fd6620b234ccb667f662c229537	104894	2025-03-17T11:21:00Z
 Documents/Mail/Whitfield/20 Jan - Before we date the Japan changes.eml	313330126f0ebe159b628882d6787db62e5d24d4e7309c5e8446df7ecd4623e1	1564	2025-01-20T14:12:00Z
 Documents/Mail/Whitfield/20 Jan - Papers for the implementation review.eml	cf093c8aadd1d40670d5382712f92e32c64bc6ba60a0eb22a9211258fd02808e	57672	2025-01-20T09:16:00Z
 Documents/Mail/Whitfield/20 Jul - Signed Japan Finance agreement.eml	6a0e4c3d1d43b2232bd7e18d4c325b5bea21ad7847e70e9701c92dfd8e9c5a94	1237833	2026-07-20T13:51:00Z
+Documents/Mail/Whitfield/24 Feb - Identity of the close reviewer.eml	af044b89c51aa70f3004ed745a630e6e8eb5dfd427b784084789556d5194a89e	1095	2025-02-24T09:21:00Z
 Documents/Mail/Whitfield/25 Aug - Five requests held for written approval.eml	bf7281faa90cf9d59bf6b493880c30f68558e3204648f2ef979a1f3e396821c0	50596	2026-08-25T12:18:00Z
+Documents/Mail/Whitfield/26 Mar - March decision and next window.eml	15c9f3ff979a7c27148f724f2773679d30682dc43125a75948ceaf2a7455d0a4	76911	2025-03-26T11:34:00Z
+Documents/Mail/Whitfield/27 Mar - Re March decision and next window.eml	c7f70b16406c26581882cae7fe9df172bc00df52eab4f08ca2700360c43f53bf	2163	2025-03-27T09:16:00Z
 Documents/Practice-notes/15 Oct - Savings deduplication notes.md	9b8fafba813b26d4a75a827cc9b68ff974e2731547867c1424ac298743d8d190	1334	2024-10-15T10:16:00Z
 Documents/Practice-notes/Handoff interview prompts.txt	8b433240f8ea006a3c0aee3985710684d8d7691a7737c75a4b2ddabfd7335dd7	885	2024-04-10T14:27:00Z
 Documents/Practice-notes/Volume-tier forecasting.md	c4d9500fbce41d5a600e51f74ceab36ea7bd5d7e44365507fdd485540f0269e5	968	2025-12-17T16:38:00Z
 Documents/Practice-notes/Weekend timing notes.txt	82b9e72dba518384b6d05d81c53a8eaaa3aa3b65e4b8bce4ba4784d26fbab6ec	618	2024-06-14T14:29:00Z
 Documents/Proposals/05 Dec - Q4 price queries proposal v0.1.pptx	de7dec3adecd60e6344533185dbd62c0e443e2c563bc39ebfad2239270bf6fff	30707	2025-12-05T15:17:00Z
+Documents/Proposals/05 Feb - Whitfield fixed start v0.1.pptx	9c4bf50d31ee17bda94005f8e8ee885c47ce6ba980126b8af86ec33f58996fe7	29239	2025-02-05T15:26:00Z
+Documents/Proposals/05 Mar - Whitfield cover first v0.2.pptx	631d6cdb8f52f95beb26a58dc4b3eede611950a36d6b75241d128497d6b26ed4	32177	2025-03-05T14:47:00Z
 Documents/Proposals/06 Nov - Joint handoff rollout v0.1.pptx	44ad0ae3b6add5b7831dc2c759ef817775140814b01d358ccefc3fe9611d9fd6	28574	2024-11-06T14:36:00Z
 Documents/Proposals/07 Apr - Supplier-wide terms v0.2.pptx	942afa0868430256229aa7fd99d8d5adbe1137215c4e5e9aeccb86bc22028d63	33025	2025-04-07T07:36:00Z
 Documents/Proposals/13 Apr - Japan Finance and Sales v0.1.pptx	2ab3ab359ef6f68273f73e366e3de8b933cde030d5eef5aa13e2236125671d09	31008	2026-04-13T08:21:00Z
@@ -288,6 +315,7 @@ Downloads/December close - Finance event extract.csv	e7ab23389172ae3c2c199c2231b
 Downloads/Denton February close calendar.pdf	6d54fd7e39446b53069511159a531dbd0cad794327ac9361a331d855a9df5807	32425	2026-01-22T09:19:00Z
 Downloads/February trial - Close events.csv	4e77bd45a27081d4cce2fed30d59786565637381d1c43043b6fc67bc3a6a8852	720	2026-03-10T15:16:00Z
 Downloads/First-off bench card Rev 1.pdf	c5c858b181b32a34cdd0d2774dd4727cdc498c03eb49cb9b780d3db99c4c819e	32887	2024-11-21T14:34:00Z
+Downloads/Japan Finance March duty slots.csv	03cfe72aaecae5aa3eac9e054cfe19cac0dc621e3ec821c61aaf11c4e22b8d51	1478	2025-02-10T09:06:00Z
 Downloads/Marston board costs Jun-Jul 2024.csv	2af54c808b448ed7b9db7533d0518b03aece53d727c75002bb6fb533f15b4a32	348	2024-08-06T09:02:00Z
 Downloads/Marston trial tickets Oct-Nov.csv	cb23546eebd3550367885b861ac56600654863a0a32c6d178c83a4056d9144fe	511	2024-11-11T08:52:00Z
 Downloads/Marston weight extracts Oct-Nov.csv	da666586f01b80be3e57bedc38f2cfd9e2e8c33405c3f51311691b566d105b49	1672	2024-11-11T09:03:00Z
@@ -302,6 +330,7 @@ OneDrive - Holt/Team-room/10 Oct - Marston floor rota.xlsx	752238da50c4da6a8e059
 OneDrive - Holt/Team-room/12 Nov - Pioneer Q4 variance evidence.docx	c1e4684e56f397b255500be6f47227efc2f9a95d91c68197819e59797f99674b	40683	2025-11-12T14:26:00Z
 OneDrive - Holt/Team-room/13 Sep - Marston shift interview guide.pdf	0fe3e5d542d5182a674f7558627c1238264b91a826c404a11d456b36e3156904	44384	2024-09-13T14:47:00Z
 OneDrive - Holt/Team-room/14 Jan - Pioneer Q4 evidence queries.xlsx	cd18bc077a5a68bd444676e07aae194eb9e350299c876b4dacb1d3c4d162352a	6927	2026-01-14T10:46:00Z
+OneDrive - Holt/Team-room/14 Mar - Whitfield staffing holds.xlsx	9824b7b34964598cc4ab21dc9fe38df15c56a6a0ee5627492bb26f66c78e0098	8881	2025-03-14T15:05:00Z
 OneDrive - Holt/Team-room/16 Jul - Open points after Pioneer.xlsx	83c411c72dea2e3a3491cb4ed08841a7da31d2303b3ed5cf68833254e37c6613	6775	2025-07-16T15:22:00Z
 OneDrive - Holt/Team-room/16 Mar - Denton close records handover.txt	abf680167945592ddc4aec3c65d1cc09dbf4002bea473a2e28fb55a699aa2c15	1293	2026-03-16T16:18:00Z
 OneDrive - Holt/Team-room/16 Sep - Pioneer evidence query tracker.xlsx	af244b42f92ef802fa8b324cc548ddf1f9bc3c4a81f0856356e2dbf6f1e2d45c	6174	2026-09-16T08:42:00Z
@@ -314,6 +343,7 @@ OneDrive - Holt/Team-room/25 Feb - Denton evidence timing check.xlsx	12a939f4e47
 OneDrive - Holt/Team-room/25 Oct - Marston room bookings.xlsx	6d0c6c3155eaff737f33dea487740d99ce7261ebbac23bc864865a24558f6efd	7550	2024-10-25T13:15:00Z
 OneDrive - Holt/Team-room/27 Nov - Whitfield payment rollout v0.2.pptx	2c54f11ce09622fae3325c7f9470bb9209f53c9586e890590057c713b76b64a7	28622	2024-11-27T15:38:00Z
 OneDrive - Holt/Team-room/28 Aug - Pioneer dispatch date check.xlsx	f4a6fd4b56c6dc712d7d9d5fbd67fcc964b8aa04401d0ddd9148a9c585ab5204	6175	2026-08-28T14:46:00Z
+OneDrive - Holt/Team-room/28 Mar - Whitfield April planning note.pptx	48dcff75ab64cdf31a59bb7ca631492c23405c74dd0a49e30f3823a7648b7c55	32873	2025-03-28T14:26:00Z
 OneDrive - Holt/Travel-reading/25 Sep - Feeder replacement economics.pdf	087996dbae8deed4af038018d936ad29bc2ace9896a7221ea9c36730b3db66d0	41290	2024-09-25T15:43:00Z
 Pictures/06 Aug - Pilot briefing board.jpg	955ca9d6c9955d7f596fa9b5c1b9f9559182d73987c53e266bcb73572b1ce3f4	346378	2025-08-06T09:34:00Z
 Pictures/11 Mar - Denton close handoff timings.png	2ee713af6b4302120856170d69ee807d9b03a3532c579d6fe868e248e94ad887	105690	2026-03-11T15:03:00Z

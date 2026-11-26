@@ -295,3 +295,23 @@
 - 11月22日10:00 GMT、Caroline・Nicholas・Siobhan・Gareth・Julie・Martin・Helen。T2 と W1 の班長が札方式を引き取り、Gareth・Martin が22日中の旧指示紙回収を確認し、25日の週から未解除札点検を主導する。
 - HRA-MAR-COST-BRF-2024-011 は11月20日の確認稿 v0.3 と11月22日の投影・回覧 v1.0。引取の確定は22日10:00の会議で記録する。
 - 件名「First-off handover papers」、11月22日13:14 GMT Nicholas → Caroline・Gareth・Julie・Martin・Helen（Cc Siobhan・Connor）。BRF-2024-011 v1.0 回覧PDF、試行票・重量の照合 XLSX、早見表 Rev 1 PDF の3点を実添付する新規メール。
+
+## Whitfield の3月候補週と月末当番の照合
+
+- 2025年2月3日、Kenneth は通常の国内仕入先支払の07側について3月17日週・24日週を検討するよう依頼。対象部門、開始日、09側の変更は未承認。固定日先行の社内旧案 HRA-WHI-DIAG-BRF-2025-008 v0.1 は17日を仮の起点、24日を次点とした。
+- 開始週は初めの連続3日（17・18・19日または24・25・26日）に各90分、15:00〜16:30 JST の07枠を確保し、通常支払を続けられる正担当・代行が両方とも勤務上空いていることを条件とする。通常の完全な束は14:45 JSTにAPから届く見込みで、07の通常当番は16:30で交代枠を終える。
+- 2月10日の顧客抜粋では、通常側に正担当 JP07-P と代行 JP07-D が6日とも15:00〜16:30 JSTで載る。月末側は3月19日の勘定照合14:30〜16:30、26日の月末差異確認15:00〜16:45を JP07-P と Close Reviewer B が各々担当し、途中交代不可。
+- 2月17日09:00 GMT、Kenneth・Nicholas・Siobhan が月末の途中交代不可と通常束の時刻を確認。2月24日に Kenneth が JP07-D と Close Reviewer B は同一人で、別の代行は指名されていないと確認。
+- Connor の HRA-WHI-DIAG-PLN-2025-003 は2月19日 v0.1 から2月25日 v0.2 へ訂正。旧計算は JP07-P を外しても、JP07-D を Close Reviewer B と別人扱いし、19日と26日の枠を可とした（旧判定は正担当・代行のどちらかが残れば可）。訂正後の勤務上の人数は両週とも日順に2・2・0、両名を確保できる枠は各週2/3。これは権限や着手の確認とは別。
+- 3月10日09:00 GMT、Kenneth・Nicholas・Siobhan・Connor が月末当番を動かさず、早枠13:30は通常束の到着より75分早く、遅枠16:30は07枠の終了に当たるため採らないと確認。支援の仮押さえは顧客側の当番に算入しない。
+- 17日週の着手前4週の候補は2月17日〜3月16日、24日週は2月24日〜3月23日（両端を含む）。どちらも計画上の窓であり、記録確保や基準期間の合意は済んでいない。
+
+## Whitfield の3月見送りと次の候補を出す条件
+
+- 2025年3月26日09:00 GMT、Kenneth・Nicholas・Siobhan・Connor の判断会で Kenneth が今期の開始を見送り、通常支払を現行経路で続けると決めた。次の候補週は未定。28日に Siobhan・Neha の開始支援の仮押さえを閉じる。
+- 次の候補を出す前に Kenneth が両当番表で最初の連続3日各90分の正副担当の空きと07の代行権限を確認する。Siobhan・Neha が受渡しと証跡、Connor が着手前4週の原記録を照合し、着手には Kenneth の承認が要る。09の変更判断は別で、12の Treasury 二重確認は維持。
+- Kenneth に渡す2点は、3月26日付の候補週比較 HRA-WHI-DIAG-NTE-2025-004 v1.0（PDF）と、3月25日付の6枠集計 HRA-WHI-DIAG-PLN-2025-008 v1.0（独立した XLSX）。
+- 2月3日09:18 GMT、Kenneth → Nicholas（Cc Siobhan）「March windows for Japan payments」、候補週の検討依頼、添付なし。2月10日09:14 GMT、同じ差出人・宛先・Cc で「Japan Finance duty slots」、勤務枠 CSV を実添付。
+- 2月24日09:21 GMT、Kenneth → Nicholas・Siobhan（Cc Connor）「Identity of the close reviewer」、名寄せの回答を別件名の新規メールで送る。添付なし。
+- 3月17日11:21 GMT、Nicholas → Kenneth（Cc Siobhan）「March approval slot map」。HRA-WHI-DIAG-BRF-2025-010 v1.0 の投影資料から書き出した PDF を実添付し、Japan Finance 側の照合を頼む。
+- 3月26日11:34 GMT、Nicholas → Kenneth（Cc Siobhan・Connor）「March decision and next window」、比較 PDF と別添集計 XLSX を実添付。3月27日09:16 GMT、Kenneth → Nicholas（同Cc）が「Re: March decision and next window」で先信を引用し、現行継続と再照会を確認。返信に新規添付なし。
