@@ -183,23 +183,29 @@ Fairview案件の法務共有用の合意条件要旨と、3月18日の紙の点
 - 紙の確認控えは、東都が照合結果を記録した控えなら `toto-review-sheet.cls` と `\ReviewMatter{従業員通知改訂}`、千葉が発行した所見の紙控えなら `takase-notice-review.cls` を使う。原稿にある照合対象・結果を原紙に入れてから `bin/scan` に通す。所見本文と社内の配布判断は発行元に応じて記録する。
 - 人事担当向けの説明は `toto-legal-brief.pptx` の2段で採用時・在職中の案内を対照し、問い合わせの受付と引継ぎは本文または図のレイアウトで示す。社内掲示の保存HTMLには題・発行部署・掲載日・対象別の案内と原稿中の参照先を載せる。手元の論点メモは原稿の問いと確認先をTXTまたはMarkdownに保存する。
 
+## 2024年5〜6月の代替記録調べ
+
+- 所管との聞取りには `toto-consultation.docx` を使う。「開いた書類と担当」「参照した業務と時点」「照合で分かったこと」「残る確認」の順に記録する。代替を試した記録には `toto-review.docx` を使い、旧控えを開いた場面、代替候補と参照箇所、復元できなかった情報、留保と確認先を記す。
+- 藤本の参照元照合は `toto-hold-register.xlsx` を開き、A6:H6を「No.／対象記録／所管／参照元／照合日／照合数（件）／照合結果／引継ぎ」にする。列幅は `10, 23, 12, 24, 17, 14, 24, 30` を起点とする。A・F列は `TD Number`、Eは `TD Date`、Hは `TD Note`、ほかは `TD Text`。照合数は原稿に根拠がある行に入れる。高田の比較表は `toto-decision-comparison.xlsx` を開き、「No.／対象記録／所管／参照した代替記録／確認できた範囲／照合数（件）／確認者／根拠・留保」とし、列幅は `10, 23, 12, 27, 28, 14, 16, 26` を起点にする。A・Fは `TD Number`、Hは `TD Note`、ほかは `TD Text`。どちらも見出しは34pt、明細は42ptを起点にする。集計が必要なら最終明細の次のB列に「照合明細数」、C列にA列の実明細を数える `COUNT` を置き、`TD Total` を当てる。照合明細数と対象記録5種は区別する。
+- 保存方針の検討資料と法務共有の回答要旨は `toto-review-sheet.cls` を使い、`\ReviewMatter{文書保全期限見直し}` を指定する。購買は検収差異の解消票から添付までの参照経路、人事は未達対応中に配布控えを参照する条件を記す。支援の自由欄、開発の抽出時点、営業の条件差分は根拠不足を明記し、6月末に河野へ未確定で戻す。保存日数や処理の実施をこの照合で確定しない。
+- 人事の未達対応の紙控えは同じTeX型を使い、CHK番号と人事の作成者で組む。照合場面、配布控えと再送後の受領の照合結果、控えが必要な終点、法務への引継ぎを記し、原紙PDFを `bin/scan` に通す。支援の引継ぎ経路（PNG）は受付・転記表・引継ぎ先のつながりと自由欄の確認点を図にし、私記（Markdown）は高田が考えた原記録の用途と判断に足りない根拠を本文にする。図や控えに元データの中身を入れない。
+
 ## 見本と検証
 
-見本の文書番号・本文・明細数・日付は印刷確認用。成果物の管理欄と内容は計画と原稿に従う。TeXの原稿名とPDF名は拡張子以外は共通。 [b011の見本](../../scratch/p13-corporate-privacy-counsel/b011/work/templates-0002/examples/)・[全頁画像](../../scratch/p13-corporate-privacy-counsel/b011/work/templates-0002/render/)
+見本の文書番号・本文・明細数・日付は印刷確認用。成果物の管理欄と内容は計画と原稿に従う。TeXの原稿名とPDF名は拡張子以外は共通。 [b012の見本](../../scratch/p13-corporate-privacy-counsel/b012/work/templates-0002/examples/)・[全頁画像](../../scratch/p13-corporate-privacy-counsel/b012/work/templates-0002/render/)
 
 | 確認した型・用途 | 見本ファイル |
 |---|---|
-| Wordの社内相談・実施指示・判断資料と従業員通知2種 | `toto-consultation.docx`、`toto-instruction.docx`、`toto-review-short.docx`、`toto-review.docx`、`toto-employee-notice-001.docx`、`toto-employee-notice-002.docx` |
-| 宮坂・野田の回答とFairviewの証明明細 | `miyasaka-noda-advice.docx`、`fairview-transfer-record-short.docx`、`fairview-transfer-record.docx` |
-| Excelの追跡表・判断比較表の少量と続頁 | `toto-hold-register-3.xlsx`、`toto-hold-register-23.xlsx`、`toto-decision-comparison-3.xlsx`、`toto-decision-comparison-23.xlsx` |
-| 従業員通知の目的別対照表の少量と続頁 | `toto-employee-notice-comparison-4.xlsx`、`toto-employee-notice-comparison-18.xlsx` |
+| Wordの社内相談・実施指示・判断資料。判断資料は少量と続頁 | `toto-consultation.docx`、`toto-instruction.docx`、`toto-review-doc-short.docx`、`toto-review-doc-long.docx` |
+| 宮坂・野田の回答とFairviewの証明明細。Fairviewは少量と続頁 | `miyasaka-noda-advice.docx`、`fairview-transfer-record-3.docx`、`fairview-transfer-record-29.docx` |
+| Excelの参照元照合・判断比較の少量と続頁 | `toto-hold-register-3.xlsx`、`toto-hold-register-29.xlsx`、`toto-decision-comparison-3.xlsx`、`toto-decision-comparison-29.xlsx` |
 | PowerPointの5レイアウト | `toto-legal-brief.pptx` |
-| TeXの確認票と従業員通知の紙控え | `toto-review-sheet-3.tex`、`toto-review-sheet-39.tex`、`toto-employee-notice-paper.tex` と各PDF、紙控えの `toto-employee-notice-paper-scan.pdf` |
-| TeXの棚卸し論点表と大和田返却明細の少量と続頁 | `toto-retention-issues-3.tex`、`toto-retention-issues-39.tex`、`owada-return-record-3.tex`、`owada-return-record-39.tex` と各PDF |
+| TeXの確認票の少量と続頁、法務共有の回答要旨、人事の未達対応の原紙とスキャン控え | `toto-review-sheet-3.tex`、`toto-review-sheet-25.tex`、`toto-review-sheet-legal-answer.tex`、`toto-review-sheet-hr-undelivered.tex` と各PDF、`toto-review-sheet-hr-undelivered-scan.pdf` |
+| TeXの棚卸し論点表と大和田返却明細の少量と続頁 | `toto-retention-issues-3.tex`、`toto-retention-issues-25.tex`、`owada-return-record-3.tex`、`owada-return-record-25.tex` と各PDF |
 | 外部の英文通知・契約論点書 | `winslow-subprocessor-notice.tex`、`haruka-contract-issues.tex` と各PDF |
-| 高瀬労務相談室の所見の少量と続頁 | `takase-notice-review-4.tex`、`takase-notice-review-18.tex` と各PDF |
+| 高瀬労務相談室の所見の少量と続頁 | `takase-notice-review-3.tex`、`takase-notice-review-23.tex` と各PDF |
 
-見本ごとの画像パスとExcelの検算結果。 [render-results.json](../../scratch/p13-corporate-privacy-counsel/b011/work/templates-0002/render-results.json)
+見本ごとの画像パスとExcelの検算結果。 [render-results.json](../../scratch/p13-corporate-privacy-counsel/b012/work/templates-0002/render-results.json)
 
 OfficeとPDFの完成ファイルは、`bin/stamp --author "<原稿の作成者>" --date "<原稿の日付>" --timezone Asia/Tokyo <ファイル>` で内部属性を合わせる。更新者や初版日が異なるときは `--modified-by` と `--created` を指定する。
 
