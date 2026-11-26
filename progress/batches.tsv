@@ -218,7 +218,7 @@ p17-construction-project-manager	b012	2026-11-26	36	6	5	4	0	done	39211.37
 p14-finance-controller	b016	2026-11-26	34	13	9	1	0	accepted	25429.50
 p16-clinical-researcher	b012	2026-11-26	30	4	13	0	0	accepted	17831.23
 p01-software-engineer	b012	2026-11-26	36	9	4	2	0	done	18962.87
-p03-security-grc-analyst	b012	2026-11-26	30	6	3	0	0	done	28554.52
+p03-security-grc-analyst	b012	2026-11-26	30	6	3	0	0	accepted	28554.52
 p11-account-executive	b011	2026-11-26	32	4	2	1	0	accepted	6105.22
 p13-corporate-privacy-counsel	b013	2026-11-26	28	4	1	0	0	accepted	6434.24
 p02-site-reliability-engineer	b011	2026-11-26	27	0	1	0	0	accepted	5104.36
@@ -236,7 +236,7 @@ p07-humanities-researcher	b011	2026-11-26	34	18	6	6	0	done	13835.51
 p09-ux-researcher	b012	2026-11-26	31	3	6	0	0	accepted	8330.19
 p10-management-consultant	b011	2026-11-26	32	8	6	4	0	done	8211.94
 p08-product-manager	b012	2026-11-26	0	0	0	0	0	failed	2930.65
-p06-life-science-researcher	b014	2026-11-26	31	4	5	1	0	done	9326.12
+p06-life-science-researcher	b014	2026-11-26	31	4	5	0	0	done	9974.54
 p12-support-success-lead	b012	2026-11-26	32	2	1	0	0	accepted	4882.00
 p13-corporate-privacy-counsel	b015	2026-11-26	35	6	5	1	0	done	9649.24
 p16-clinical-researcher	b013	2026-11-26	31	4	7	0	0	accepted	10506.84
