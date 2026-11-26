@@ -5240,3 +5240,18 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-26	p05-bi-data-analyst	b011	build-review	0	V1	Documents/海外購買/購買月報5月分_数量欄の条件案_石井レビュー.docx	v0.2の候補表は販売・返品受付・差引の文字と数値に本物の変更履歴があるが、増設した右2列自体に履歴がなく、変更を却下してもv0.1の3列表に戻らず右2列が全5行で空欄のまま残る。
 2026-11-26	p05-bi-data-analyst	b011	build-review	0	V2	Documents/営業会議/2024/06/2024-06-07_購買月報_数量の出典照合.xlsx	「入荷の再計算」A7:A13の入荷日が型の実日付指定に対して文字列で、同シートでは型のC7のウィンドウ枠固定も欠けている。
 2026-11-26	p05-bi-data-analyst	b011	build-review	0	V1	Documents/メール/Stephanie/2024-06-12_May figures for a column check.eml	MIME添付の表示名が原稿指定の「May Units Review.csv」から「2024-06-12_May Units Review.csv」に変わっている。復号したCSVは指定の保存版209バイトと完全一致し、本文も原稿と一致する。
+2026-11-26	p16-clinical-researcher	b014	draft-review	0	D10	Documents/Study-評価物質の低用量観察研究/実施状況/0326_試料受渡し帳の訂正履歴.docx	katsuragawa-completion-hold.docxのWord手順6が求める当該版の扱いが表題・題下にない。表題は「試料受渡し帳の訂正履歴」、題下は番号・版・作成情報・点検依頼先までで、訂正済み・清水の点検前という状態は本文末尾まで分からない。
+2026-11-26	p16-clinical-researcher	b014	draft-review	0	D10	Desktop/0325_試料受渡しの差の調査_橋本さんコメント.docx	先頭7行目の derived_from が空欄で、計画で本文・差の表・v0.1表示を引き継いでコメント2件を係留する元稿 Desktop/0324_試料受渡しの差の調査_v0.1.docx が指定されていない。
+2026-11-26	p16-clinical-researcher	b014	draft-review	0	D10	Documents/Study-評価物質の低用量観察研究/実施状況/0326_予約と移動の突合表_v1.0.xlsx	先頭5行目の derived_from が空欄で、計画で移動5行・予約1行の番号と原控えを引き継ぎ、E13の予約先引きを0に訂正する元版 Desktop/0324_予約と移動の突合表_v0.1.xlsx が指定されていない。
+2026-11-26	p16-clinical-researcher	b014	draft-review	0	D10	Documents/Study-評価物質の低用量観察研究/実施状況/0325_試料受渡しの差の調査_v0.2.docx	原稿5行目の derived_from が空欄で、計画の「先に要るもの」が指定する同一文書 KRC-LDO-20250324-RPT-001 v0.1 の橋本コメント版 Desktop/0325_試料受渡しの差の調査_橋本さんコメント.docx を改訂元として指定せず、18〜22行目の引継ぎ表を含む全文を再掲しているため、コメント版に適用する差分原稿になっていない。
+2026-11-26	p16-clinical-researcher	b014	build-review	0	V2	Documents/事務局運営/0328_試料受渡し帳の保存索引.docx	1頁の「突合表」と「関連する控え」の両表が罫線付きのTable Gridと淡色（EBDDE3）の見出しで成形され、型に定義されたKRC Research Table、赤紫（742747）の見出し、KRC Table Header／KRC Table Bodyが使われていない。
+2026-11-26	p16-clinical-researcher	b014	build-review	0	V2	Documents/Study-評価物質の低用量観察研究/実施状況/0326_試料受渡し帳の訂正履歴.docx	両ページの上部で、指定型 katsuragawa-completion-hold.docx の組織名左にある円と観察点のロゴが欠落している。
+2026-11-26	p16-clinical-researcher	b014	build-review	0	V2	Documents/品質確認/0327_受渡し帳の点検記入票.pdf	3項目の印刷部分が、指定型 katsuragawa-submission-check.cls の各項目に付く確認・備考欄とくすみ紅の区切り罫から、黒い格子の共通表に置き換わっている。
+2026-11-26	p16-clinical-researcher	b014	build-review	0	V1	Documents/メール保存/低用量観察/0321_4月2日分の払出し予約.eml	復号したtext/plain本文の署名「橋本」の後に、原稿の成形用添付指定「添付：なし」が表示される。MIMEの添付は0件。
+2026-11-26	p16-clinical-researcher	b014	build-review	0	V1	Desktop/0324_予約と移動の突合表_v0.1.xlsx	「予約と移動」シートの帳簿残・棚現物・差の表に原稿指定の列見出し「確認項目」「箱数」「参照」がなく、A14:C14が空。V3としてE6「現物増減（箱）」の閉じ括弧だけが次行に回る。E13・F13・B15・B17の式と算出値は原稿どおり。
+2026-11-26	p07-humanities-researcher	b011	draft-review	0	D3	Documents/Book/Other-chapters/Rooms - Reading order.docx	§1の最初の箇条書きは129r本文3–4行を典拠に雨天の新聞閲覧まで述べるが、新聞閲覧は1行目、雨天条件は2行目にあり、前回判定で確認した1–4行のうち現原稿の引用範囲はその2行を欠く。
+2026-11-26	p07-humanities-researcher	b011	draft-review	0	D3	Documents/Book/Other-chapters/Room and key evidence.csv	第2データ行の動作欄は雨天の新聞閲覧を含むが、指定の129r本文3–4行は下階室と進入経路を示す箇所で、新聞閲覧の1行目と雨天条件の2行目が、前回判定で裏づけられたとされた引用範囲から外れている。
+2026-11-26	p07-humanities-researcher	b011	check	0	source	Documents/Archive/Other-boxes/Attente f131.pdf	body token overlap 0.121 < 0.3
+2026-11-26	p07-humanities-researcher	b011	check	0	source	Documents/Archive/Other-boxes/Service en bas f129.pdf	body token overlap 0.213 < 0.3
+2026-11-26	p07-humanities-researcher	b011	build-review	1	V1	Documents/Archive/Other-boxes/Service en bas f129.pdf	1頁の「Passez les journaux à l’abri…」は署名より下の右下に横書き2行で置かれ、原稿で指定された本文脇の外側余白の追記位置と異なる（独立監査時は右余白の縦書き）。
+2026-11-26	p07-humanities-researcher	b011	check	2	source	Documents/Archive/Other-boxes/Service en bas f129.pdf	body token overlap 0.191 < 0.3
