@@ -1,0 +1,27 @@
+From: Sanjay Mehta <sanjay@brt-booking.example>
+To: Patrick Sutcliffe <patrick@rjs-storage.example>
+Cc: Daniel Jennings <daniel@brt-booking.example>
+Date: Mon, 2 Sep 2024 10:16:00 +0100
+Subject: September archive observation slots
+Message-ID: <a417e5b9-4b65-42c1-9ce8-95fcf821570b@brt-booking.example>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Hi Patrick,
+
+Could you witness the two slots for the interval review we took from the 20 A=
+ugust meeting? I'd like to use the isolated ticket archive on Monday 9 Septem=
+ber for the 15-minute schedule and Wednesday 11 September for the 10-minute s=
+chedule. Both slots are 09:00=E2=80=9315:00 UTC.
+
+Could you confirm that we can check each start and the preceding write's comp=
+letion against the same clock? We need to keep the two marks distinct when we=
+ compare the intervals. Daniel is copied so he has the conditions for the evi=
+dence file.
+
+Let's look at what happens at the starts first and decide separately whether =
+to do a sustained load trial.
+
+Thanks,
+Sanjay

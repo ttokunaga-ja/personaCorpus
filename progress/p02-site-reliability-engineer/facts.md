@@ -247,3 +247,21 @@
 - The separate simulated clock is 19 July BST: 16:58 (15:58 UTC) Claire gives one open receipt delivery follow-up for a completed Fare Payments payment; 17:00 (16:00 UTC) Matthew takes the watch, and the still-unaccepted item remains visible against Daniel with its next check.
 - At simulated 17:03 BST (16:03 UTC) Matthew reads back his name and the 17:20 BST (16:20 UTC) Support check and accepts the item. Receipt delivery is still unverified when the rehearsal ends. The 17:20 check is scheduled in the exercise, with no observed outcome.
 - BRT-MT-20240621-001 records the session in Daniel's DOCX and its unchanged PDF. Keep the rota boundary at 17:00 BST and require explicit named, timed acknowledgement per open item. Keep both the outgoing owner and the next check visible until acceptance.
+
+## Ticket archive interval observations, 2–16 September 2024
+
+- Sanjay Mehta and Patrick Sutcliffe observed the 15-minute schedule on 9 September and the 10-minute schedule on 11 September, each 09:00–15:00 UTC, in the isolated ticket archive. Both used the same synthetic request profile with a busier hour from 12:00 to 13:00 UTC.
+- Both opened with no outstanding write. Count actual starts from 09:00 inclusive to 15:00 exclusive; the starts followed the respective schedules, ending at 14:45 and 14:50 UTC. Compare each start with the immediate predecessor's completion by write reference and UTC second. Completion at the start second is clear; follow any unresolved predecessor past the window without adding later starts.
+- Sanjay's observer notes and Patrick's hourly tally agree on 24 starts and 0 overlaps for 15 minutes, 36 starts and 2 overlaps for 10 minutes. Each hour contributed 4 or 6 starts respectively; both flags belong to the 11 September 12:00–13:00 UTC block, 2 of 6 starts.
+- On 11 September W-3184 started at 12:10:00 UTC, overlapped the 12:20:00 start and finished at 12:22:10 (130 seconds). W-3186 started at 12:30:00 UTC, overlapped the 12:40:00 start and finished at 12:41:35 (95 seconds). Daniel followed both to the matching finish with Sanjay and Patrick.
+- Slot thread, BST: (1) “September archive observation slots”, 2 September 10:16 Sanjay → Patrick, Cc Daniel; (2) “Re: September archive observation slots”, 3 September 11:04 Patrick → Sanjay and Daniel, quotes (1). Neither message carries attachments.
+- Patrick issues RJS-WS-20240912-001 on 12 September. “RJS September archive observations”, standalone 12 September 10:26 BST, Patrick → Daniel and Sanjay, attaches RJS archive interval findings.pdf and RJS archive hourly observations.csv. Daniel issues comparison BRT-IC-20240916-001 on 16 September.
+
+## Ticket archive load trial selection, 17–20 September 2024
+
+- Daniel's BRT-RB-20240918-001 is the meeting deck. At 10:00 UTC on 19 September, Daniel Jennings, Sanjay Mehta, Claire Hutchinson and Anjali Shah review the observations (minutes BRT-MT-20240919-001).
+- The meeting keeps 15 minutes as comparator and 10 minutes as a trial candidate under matched sustained foreground load in isolation. The live schedule and the existing operator recovery terms stay in force. September counts starts and open predecessors; it contains no fixed-reference readback of restorable coverage, and the August exception remains open.
+- Sanjay arranges comparable windows and a shared load profile with Patrick; Daniel requires paired start and finish evidence and a fixed-reference readback of the latest eligible set against the existing inclusive 15-minute test target. Claire retains the operator wording. Patrick is asked for proposed windows by 24 September, with neither window booked by 20 September.
+- BRT-CD-20240919-001 v0.1 is Anjali's 17 September working draft and Daniel's commented copy on 18 September (comment 09:41 BST); 19 September is the planned issue date on the draft. Anjali issues v1.0 on 19 September and exports the same version as a PDF for internal circulation.
+- “Ticket archive trial decision for Support”, standalone 19 September 15:19 BST, Anjali → Claire, Cc Daniel and Sanjay, attaches Ticket archive trial scope.pdf. Claire posts the internal notice that afternoon.
+- “Follow-up for the archive load trial”, standalone 20 September 10:15 BST, Sanjay → Patrick, Cc Daniel, attaches only Ticket archive overlap pairs.csv and asks for windows by 24 September.

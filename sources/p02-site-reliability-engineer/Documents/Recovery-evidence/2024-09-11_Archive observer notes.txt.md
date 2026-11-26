@@ -1,0 +1,35 @@
+---
+path: Documents/Recovery-evidence/2024-09-11_Archive observer notes.txt
+kind: text
+author: Sanjay Mehta
+derived_from:
+---
+
+11 September 2024 | 10-minute run | isolated ticket archive
+Sanjay's start sheet for Daniel, observed with Patrick. All times UTC.
+
+Before 09:00 the archive queue was empty, with no write in progress. Counted the opening start at 09:00:00 with no predecessor.
+
+09:00–10:00   09:00:00, 09:10:00, 09:20:00, 09:30:00, 09:40:00, 09:50:00
+              Six starts. No open predecessor.
+10:00–11:00   10:00:00, 10:10:00, 10:20:00, 10:30:00, 10:40:00, 10:50:00
+              Six starts, all clear.
+11:00–12:00   11:00:00, 11:10:00, 11:20:00, 11:30:00, 11:40:00, 11:50:00
+              Six starts, all clear.
+
+12:00–13:00   Busier hour. My marks at the six starts:
+  12:00:00   clear
+  12:10:00   clear
+  12:20:00   W-3184 still writing
+  12:30:00   clear
+  12:40:00   W-3186 still writing
+  12:50:00   clear
+
+13:00–14:00   13:00:00, 13:10:00, 13:20:00, 13:30:00, 13:40:00, 13:50:00
+              Six starts, all clear.
+14:00–15:00   14:00:00, 14:10:00, 14:20:00, 14:30:00, 14:40:00, 14:50:00
+              Six starts, all clear. Last start at 14:50:00.
+
+My tally at the 15:00 close: 36 starts, two with an open predecessor and 34 clear, including the opening with no predecessor. Both flags go against the starts in the 12:00 hour.
+
+Daniel stayed on with Patrick and me to follow each flagged write to the finish. Use Daniel's Ticket archive finish checks for the completion marks against W-3184 and W-3186.

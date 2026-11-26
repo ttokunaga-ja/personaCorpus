@@ -2,7 +2,7 @@
 persona: p02-site-reliability-engineer
 period: 2024-04-01..2026-09-30
 timezone: Europe/London
-allowed_terms: scope of incident, batch processing, batch window
+allowed_terms: scope of incident, batch processing, batch window, synthetic request profile, observations used the same synthetic profile
 photo_dirs: Pictures
 date_prefix: YYYY-MM-DD_
 ---
@@ -50,6 +50,8 @@ date_prefix: YYYY-MM-DD_
   - DanielとMatthewは17〜19日の集計を予約受付時刻で照合し、15:00〜16:00 UTCの確認遅延を日別に17、20、21件と確認した。22日11:30 UTCの読合せで繁忙開始を15:00 UTCとし、当番は14:30 UTC（15:30 BST）に準備を始めると決めた。
 - **2024-08-19**：Sanjayと「乗車券保管復旧」の文書を点検。Patrick立会いの復旧点は目標15分前に対し22分前だったため、保管間隔の再検討を依頼した。
   - 10:00 UTC を基準に、Daniel と Sanjay が Patrick の立会いで、書込み完了の 09:44 UTC と復旧点の 09:38 UTC を分けて照合した。20 日に Anjali と 7 分の超過を確認し、Sanjay と Patrick の間隔見直しと、同じ判定条件での再試験まで点検結果を保留した。
+- **2024-09-02〜20**：Sanjay と RJS の Patrick が、隔離した乗車券保管環境で9日に15分間隔、11日に10分間隔を各6時間観測した。15分案は24回で重複なし。10分案は36回中2回、繁忙帯に前回の書込みが次の開始に重なり、Daniel が両方とも前回の書込みの完了まで追った。
+  - 19日10:00 UTC に Daniel、Sanjay、Claire、Anjali が結果を確認した。15分案を比較対照とし、10分案を同じ負荷条件での次の試験候補に残した。運行側に保証する復旧点は据え置き、Sanjay は20日に Patrick へ試験枠の候補を24日までに出すよう依頼した。
 - **2024-10-16**：EmmaとBRT Passenger Identityの復旧演習を実施した。20分目標に対し34分かかり、承認待ち12分を短縮するため代行者を置いた。
   - Carysが09:00 UTCの模擬障害の合図から2回目の認証成功まで計測した。DanielとEmmaは09:04〜09:16 UTCの承認待ちを特定し、依頼から2分間判断が出ないかEmmaが明示的に引き渡した場合に、Andrewが引受けを記録して判断する条件を決めた。10月17日の権限点検は2項目合格・1項目不合格。Emmaが演習用の権限を調整し、18日に3項目の合格を確認した。
 - **2025-01-14**：Anjaliへ前四半期の可用性99.94%を報告した。停止時間の81%がFaregateの障害2件に集中し、この2件の対策を優先した。

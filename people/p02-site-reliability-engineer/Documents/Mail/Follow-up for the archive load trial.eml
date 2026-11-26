@@ -1,0 +1,47 @@
+From: Sanjay Mehta <sanjay@brt-booking.example>
+To: Patrick Sutcliffe <patrick@rjs-storage.example>
+Cc: Daniel Jennings <daniel@brt-booking.example>
+Date: Fri, 20 Sep 2024 10:15:00 +0100
+Subject: Follow-up for the archive load trial
+Message-ID: <8ce616ef-b0d2-4177-998e-18b05d002dde@brt-booking.example>
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="===============1805955030081449125=="
+
+--===============1805955030081449125==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
+
+SGkgUGF0cmljaywNCg0KQ291bGQgeW91IHN1Z2dlc3QgdHdvIG1hdGNoZWQgd2luZG93cyBieSBU
+dWVzZGF5IDI0IFNlcHRlbWJlciBmb3IgdGhlIGlzb2xhdGVkIGFyY2hpdmUgbG9hZCB0cmlhbD8g
+V2UnZCB1c2UgMTUgbWludXRlcyBmb3IgdGhlIGNvbXBhcmF0b3IgYW5kIDEwIG1pbnV0ZXMgZm9y
+IHRoZSBjYW5kaWRhdGUuIFBsZWFzZSBzdWdnZXN0IHNsb3RzIHdoZXJlIHdlIGNhbiBob2xkIHRo
+ZSBzYW1lIHN1c3RhaW5lZCBmb3JlZ3JvdW5kIHJlcXVlc3QgbWl4LCByYXRlIGFuZCBkdXJhdGlv
+biBmb3IgYm90aCBydW5zLiBMZXQncyBhZ3JlZSB0aG9zZSBiZWZvcmUgYm9va2luZyBlaXRoZXIg
+c2xvdC4NCg0KSSd2ZSBhdHRhY2hlZCBEYW5pZWwncyB0d28gcGFpcnMgZnJvbSAxMSBTZXB0ZW1i
+ZXIgdG8gc2hvdyB0aGUgZmluaXNoIGV2aWRlbmNlIHdlJ2QgbGlrZSB0byBrZWVwLiBDb3VsZCB5
+b3UgbGV0IHVzIGtub3cgaG93IHlvdSdkIHJldGFpbiBhbmQgY2hlY2sgdGhlIGNvbXBsZXRpb24g
+Ynkgd3JpdGUgcmVmZXJlbmNlIGlmIGEgcHJlZGVjZXNzb3IgaXMgc3RpbGwgb3BlbiB3aGVuIHRo
+ZSBvYnNlcnZhdGlvbiB3aW5kb3cgY2xvc2VzPyBXZSB3YW50IHRvIGtlZXAgdGhlIGxhdGVyIGZp
+bmlzaCBhZ2FpbnN0IHRoZSBvcmlnaW5hbCBmbGFnZ2VkIHN0YXJ0LCB3aXRoIG5vIGV4dHJhIHN0
+YXJ0cyBpbiB0aGUgY291bnQuIElmIGEgZmluaXNoIGNhbid0IGJlIGxvY2F0ZWQsIHdlJ2xsIGxl
+YXZlIHRoZSBmb2xsb3ctdXAgdW5yZXNvbHZlZC4NCg0KT25jZSB3ZSBoYXZlIHRoZSB3aW5kb3dz
+LCBEYW5pZWwgYW5kIEkgY2FuIGFncmVlIHdoZXJlIHRvIHB1dCB0aGUgZml4ZWQgVVRDIHJlYWRi
+YWNrIGluIHRoZSBzaGFyZWQgbG9hZCBwcm9maWxlLg0KDQpUaGFua3MsDQpTYW5qYXkNCg==
+
+--===============1805955030081449125==
+Content-Type: text/csv
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="Ticket archive overlap pairs.csv"
+MIME-Version: 1.0
+
+Q3VycmVudCBzdGFydCAoVVRDKSxQcmVjZWRpbmcgd3JpdGUgcmVmZXJlbmNlLFByZWNlZGluZyBz
+dGFydCAoVVRDKSxQcmVjZWRpbmcgZmluaXNoIChVVEMpLE92ZXJsYXAgKHNlY29uZHMpLEZpbmlz
+aCBjaGVjayxXaXRuZXNzIGNoZWNrCjIwMjQtMDktMTFUMTI6MjA6MDBaLFctMzE4NCwyMDI0LTA5
+LTExVDEyOjEwOjAwWiwyMDI0LTA5LTExVDEyOjIyOjEwWiwxMzAsIkRhbmllbCBKZW5uaW5ncywg
+VGlja2V0IGFyY2hpdmUgZmluaXNoIGNoZWNrcy50eHQiLCJQYXRyaWNrIFN1dGNsaWZmZSwgUkpT
+LVdTLTIwMjQwOTEyLTAwMSIKMjAyNC0wOS0xMVQxMjo0MDowMFosVy0zMTg2LDIwMjQtMDktMTFU
+MTI6MzA6MDBaLDIwMjQtMDktMTFUMTI6NDE6MzVaLDk1LCJEYW5pZWwgSmVubmluZ3MsIFRpY2tl
+dCBhcmNoaXZlIGZpbmlzaCBjaGVja3MudHh0IiwiUGF0cmljayBTdXRjbGlmZmUsIFJKUy1XUy0y
+MDI0MDkxMi0wMDEiCg==
+
+--===============1805955030081449125==--

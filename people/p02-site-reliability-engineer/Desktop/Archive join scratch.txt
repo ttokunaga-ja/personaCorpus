@@ -1,0 +1,7 @@
+13 September — for Sanjay
+
+First spreadsheet pass on the 11 September marks: take the 12:20:00 UTC start and look down the finish column for the next time. That picked up 12:22:10 UTC, but the lookup gave me nothing to show which write finished.
+
+Checked against the finish note: the 12:22:10 mark closes W-3184, which started at 12:10:00 UTC. That's the predecessor at 12:20, so the 130 seconds belong against the 12:20 start.
+
+Drop the time-only join before checking the 12:40 flag in the sheet. Get the preceding write reference from the start record, look up the finish on that reference, then subtract the current start. Leave the finish open in the sheet if the reference doesn't match.

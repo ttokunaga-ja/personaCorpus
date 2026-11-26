@@ -17,10 +17,11 @@
 | Weekend duty and handover | BRT Reliability Engineering。Daniel が確定した当番枠、連絡順と交代時の読合せを部内配布 | `brt-weekend-duty-sheet.cls` | A4 縦、表紙なし。青地白字の繰返し見出し、橙罫、部門名と頁番号。開始と終了はそれぞれ日付・現地時刻・時間帯を表示 |
 | Ticket archive recovery guidance | BRT Customer Support。Claire が点検で確認した復旧点と、運行側がどの時点までの乗車券記録を確認できるかを説明する修正案。確定稿は同じ Word 文書から PDF に書き出せる | `brt-ticket-recovery-guidance.docx` | A4 縦、表紙なし。青い見出しと橙の罫線。各ページのフッタに Customer Support とページ番号 |
 | Ticket office switch contact card | BRT Customer Support。Claire が Fairfield と読み合わせた切替文面、連絡順、受領確認を窓口配布用に確定するときに使用 | `brt-ticket-office-contact-card.docx` | A4 縦、独立表紙なし。青い見出しと橙罫。Customer Support とページ番号をフッタに表示 |
+| Ticket archive interval comparison | BRT Reliability Engineering。Daniel と Sanjay が試験用の保管間隔ごとに UTC の観測枠、開始数、前回の書込みとの重複、追跡結果を照合 | `brt-archive-interval-comparison.xlsx` | A4 横。青地白字の繰返し見出し、橙の罫線。分・件数は右寄せ、直後の観測枠と根拠欄は左インデント付き |
 | Recovery point comparison | BRT Reliability Engineering。Daniel と Sanjay が基準時刻、復旧点、時点の差と目標を照合 | `brt-recovery-point-comparison.xlsx` | A4 横。青地白字の繰返し見出し、橙の罫線、二つの UTC 日時列と右寄せの分・目標列 |
 | Refund and booking reconciliation | BRT Reliability Engineering。Daniel が返金予定日別に返金の提出状況と予約の突合結果を照合する内部用集計。予約明細は載せない | `brt-refund-reconciliation.xlsx` | A4 横。共通の段形マークと青・橙、青地白字の繰返し見出し、右寄せの件数 |
 | Travel claim reconciliation | Daniel が Finance の Richard に申請行単位の証憑・取下げと訂正前後の金額を示す | `brt-travel-reconciliation.xlsx` | A4 横。BRT 共通の社名・青い繰返し見出し・橙の罫。GBP は右寄せ、小数 2 桁 |
-| Reliability briefing | BRT Reliability Engineering。Daniel が運用上の判断と根拠を共有し、Emma と Passenger Identity の初回・再演習の結果を比較する。引継ぎ研修の説明にも使う | `brt-reliability-briefing.pptx` | 16:9 白地。全レイアウト共通で上部に社名と段形のマーク、上下に橙の細い罫線 |
+| Reliability briefing | BRT Reliability Engineering。Daniel が運用上の判断と根拠を共有し、Emma と Passenger Identity の初回・再演習の結果を比較する。引継ぎ研修や乗車券保管間隔の試験候補選定にも使う | `brt-reliability-briefing.pptx` | 16:9 白地。全レイアウト共通で上部に社名と段形のマーク、上下に橙の細い罫線 |
 | Customer service update | BRT Customer Support。Claire が Westbury などへ復旧と引き続き適用する制約を説明する直接組版 PDF | `brt-customer-update.cls` | A4 縦、独立表紙なし。青の題と小見出し。各ページ下部に Customer Support とページ番号 |
 | Handover retraining record | BRT Reliability Engineering。Daniel が模擬引継ぎで確認した誤り、再受講の確認、当番入りの判断を記録する直接組版 PDF | `brt-handover-retraining.cls` | A4 縦、表紙なし。青の題と段階別の確認表、橙の罫線、各ページ下部に Reliability Engineering とページ番号 |
 | Service recovery exercise report | BRT Reliability Engineering。Daniel が Emma と確認した Passenger Identity の復旧演習について、計測範囲・承認待ち・判断を記録する直接組版 PDF | `brt-recovery-exercise.cls` | A4 縦、表紙なし。青い題と区間・所要分・観察事項の表、橙の罫線。段形の社名マークと Reliability Engineering • Internal、ページ番号 |
@@ -32,7 +33,7 @@
 |---|---|---|---|
 | Service observation | Westbury Coach Cooperative。Stephen が発券・配車窓口の観察事項を BRT に正式な文書で返す場合 | `westbury-service-observation.docx` | A4 縦、独立表紙なし。中央に円と橋のマーク、緑の明朝体の社名・見出し、鈍い金色の罫線 |
 | Demand forecast and capacity assessment | Palmer Capacity Services。Louise が予測値、共通基準、繁忙帯、見積もりの前提を報告する直接組版 PDF | `palmer-capacity-forecast.cls` | A4 縦、独立表紙なし。右上に重ねた菱形と社名。紫のセリフ体の表題、薄紫の管理欄、ページ下部に部門名と頁 |
-| Storage recovery witness observations | RJS Data Storage Ltd、Patrick。BRT の乗車券保管復旧点検に立ち会い、時計の読み合わせ、確認した復旧点と目標の比較、持ち帰り事項を記す直接組版 PDF | `rjs-storage-witness.cls` | A4 縦、表紙なし。左上に積層マークと社名、右上に Storage Assurance、青緑の短い太罫と薄緑灰の管理欄。頁番号は下中央 |
+| Storage recovery witness observations | RJS Data Storage Ltd、Patrick。BRT の乗車券保管復旧点検に立ち会い、時計の読み合わせ、復旧点の照合、または間隔の比較観測と追跡事項を記す直接組版 PDF | `rjs-storage-witness.cls` | A4 縦、表紙なし。左上に積層マークと社名、右上に Storage Assurance、青緑の短い太罫と薄緑灰の管理欄。頁番号は下中央 |
 | Staffed desk switch receipt record | Fairfield Ticket Services Ltd。Hannah が演習時に各有人窓口が受け取った時刻と例外を記録し、BRT に返す直接組版 PDF | `fairfield-desk-receipt.cls` | A4 縦、表紙なし。左上に社名、右上に切取線つきの切符マーク。臙脂の題と薄い桜灰の管理欄・繰返し表見出し |
 | Guest folio and merchant card receipt | Henmere House。チェックアウトで宿泊明細と別発行のカード支払控えを渡す | `henmere-house-folio.cls` | 明細は緑のセリフ体の屋号を持つ A4 縦。控えは小型の黒字等幅レイアウト |
 
@@ -49,6 +50,7 @@ Westbury、RJS、Fairfield の型は各社が発行する文書に用いる。Cl
 - 管理欄は完全な番号、発行日（例 `14 Jul 2026`）、作成者のフルネームを入れる。障害の時刻は UTC で表記する。勤務表の日時は Europe/London の現地時刻で、BST または GMT を明記する。初報と確定した内容を両方記す場合は、対象範囲と確認時点を添える。
 - 可用性の月報は `AV`、上下限の計算表は `AB`。速報と確定報告は各発行日の番号を使い、確定報告の改訂経緯で速報を引用する。
 - 休日当番の休暇照合表は `OL`、確定した配布表は `OW`。いずれも BRT 共通の番号書式を使う。
+- 乗車券保管間隔の比較表は `IC`。候補選定の説明資料は `RB`、RJS の間隔観測の所見は同社の `WS` を使う。
 - 返金照合表の種別は `RF`。日付と連番の扱いは他の BRT 文書と共通。
 - Office のファイル内部の作成者と日時は、配布物の成形後に進行役が `bin/stamp` で原稿の作成者と計画の日時にそろえる。Excel は保存時に更新日時が書き換わるため、この処理は保存と再計算の後に行う。
 
@@ -105,6 +107,13 @@ Westbury、RJS、Fairfield の型は各社が発行する文書に用いる。Cl
 4. 重複の集計が必要なら、最終明細の直後に A を `BRT Total Count` とし、`=COUNTIF(H7:H<最終明細行>,"Leave overlaps")` で件数を出す。B:I を結合し、B に集計名と `BRT Total Text`、C:I に同じ上罫線を適用する。行高は 24 pt を目安にする。全体注記は次行で A:I を結合し、A に `BRT Note` を適用して行高を調整する。
 5. A4 横、横 1 ページ・縦自動、1〜6 行を繰り返す。印刷範囲は A1:I と実際の最終行まで。集計が単独ページに出る場合は明細の行高か改ページ位置を調整し、最終明細と同じページに載せる。式は `bin/recalc`、印刷は `bin/render` で全ページを確認する。
 
+### Ticket archive interval comparison
+
+1. `Interval comparison` シートの B3 に完全な番号（例 `BRT-IC-20240920-001`）、E3 に発行者、B4 に Excel の日付、E4 に観測日と対象を入れる。B3:C3、B4:C4、E3:F3、E4:F4 は結合済み。管理欄の入力先は Noto Sans CJK JP 10 pt、青灰、折返し付き。4 行目の高さは対象が 2 行になる場合に 33 pt を目安に広げる。
+2. 7 行目から、間隔ごとに重ならない観測枠を 1 行ずつ入れる。A に通し番号、B に候補間隔（分）、C に日付と UTC の開始・終了、D に観測開始数、E にそのうち前回の書込みが続いていた開始数、F に根拠・追跡結果。A・B・D・E は `BRT Count`（整数、右寄せ）、C・F は `BRT Text`（左寄せ、インデント 1）。明細は 25 pt を目安にし、折り返す場合は広げる。観測枠を細分した版では、同じ観測の全枠集計行を明細に混ぜない。重複数が分からない場合は E を空欄にし、F に理由を記す。
+3. 最終明細の次から候補別の集計行を作る。A:C を結合し A に `BRT Total Text`、D・E に `BRT Total Count`、F に `BRT Total Text`。結合後の B・C にも A と同じ上罫線を付ける。例えば 7〜8 行目が明細の場合、10 分案の D は `=SUMIF(B7:B8,10,D7:D8)`、E は `=IF(COUNTIFS(B7:B8,10,E7:E8,"")>0,"",SUMIF(B7:B8,10,E7:E8))`。B・D の値は全明細で確認してから集計し、E の空欄を 0 として表示しない。F に比較対象または負荷試験への扱いを入れる。
+4. 集計直後に A:F を結合した `BRT Note` の行を作り、重複の判定、欠けている観測値の扱い、運行側に示す復旧点の扱いを記す。高さは集計 25 pt、注記 30 pt を目安に調整する。印刷は A4 横、横 1 ページ・縦自動、1〜6 行を繰り返し、範囲を注記までとする。集計と注記が明細から離れる場合は行高か改ページ位置を調整する。`bin/recalc` で集計値を保存し、`bin/render` で全ページを見る。
+
 ### Recovery point comparison
 
 1. `Recovery points` シートを開く。B3 に完全な番号（例 `BRT-RP-20260511-001`）、E3 に作成者、B4 に Excel の日付、E4 に対象と点検日を入れる。B3:C3、E3:F3、B4:C4、E4:F4 は結合済み。管理欄は折返し付きで、行高は 26 pt。対象が長い場合は 4 行目を広げる。
@@ -134,7 +143,7 @@ Westbury、RJS、Fairfield の型は各社が発行する文書に用いる。Cl
 | Table | idx 0 に題、idx 1 に表。openpyxl で作った表を貼る場合も、実データ行だけを入れる。python-pptx では `placeholders[1].insert_table(行数, 列数)` |
 | Figure | idx 0 に題、idx 1 に図（枠 11.90 × 3.825 インチ）、idx 2 に図注（14 pt）。挿入時に図の文字や凡例が裁ち落とされないよう元画像の縦横比を枠に合わせる |
 
-表の先頭行は青地 `#233E8B` に白の太字、明細は白地に濃い青灰。見本の表は 17 pt、左右のセル余白は約 0.19 インチ。右寄せの数値の次に左寄せの文字を置くときも、この余白を保つ。載せきれない表は後続のスライドに分け、同じ列名を表示する。
+表の先頭行は青地 `#233E8B` に白の太字、明細は白地に濃い青灰。見本の表は 17 pt、左右のセル余白は約 0.19 インチ。右寄せの数値の次に左寄せの文字を置くときも、この余白を保つ。載せきれない表は後続のスライドに分け、同じ列名を表示する。間隔候補の選定では、観測条件、両候補の扱い、重複数とその母数、開始と完了の二段図、運行側に示す復旧点の扱いを入れる。
 
 ### Travel claim reconciliation
 
@@ -183,6 +192,8 @@ Westbury、RJS、Fairfield の型は各社が発行する文書に用いる。Cl
 - `\documentclass{rjs-storage-witness}` を指定し、`\RJSWitnessReport{題}{完全な文書番号}{発行日}{立会い担当者}{提出先}` で管理欄を入れる。表題は 24 pt の左揃えで、管理欄と同じ幅（左余白 22 mm、右余白 24 mm）で折り返す。見出しは `\RJSSection{見出し}`、本文注記は `\RJSNote{注記}`。
 - `RJSObservations` には `番号 & 照合した根拠 & 立会い所見 \\` を入れる。番号は右寄せで、隣の左寄せ欄との間に 10 pt の余白がある。所見の列見出しは改ページ後も出る。表の注記は最終明細を `\\*` で閉じ、表の中の次の行に `\RJSObservationNote{注記}` を入れる。`TEXINPUTS` を上記と同じように指定し、`bin/tex` と `bin/render` を使う。
 
+- 間隔の比較所見では `Observation conditions`、`Observed overlaps`、`Follow-up` に、各候補の観測枠、重複の判定と追跡結果、次の試験と運行側に示す復旧点の扱いを書く。表には新しい書込みの開始と前回の書込みの完了を区別して記す。
+
 ### Fairfield の窓口受付記録
 
 - `\documentclass{fairfield-desk-receipt}` を指定し、冒頭で `\FairfieldReceipt{題}{完全な文書番号}{発行日}{記録者}{演習名}` を呼ぶ。表題は 23 pt、左揃えで折り返す。節は `\FairfieldSection{見出し}`、本文の注記は `\FairfieldNote{注記}`。
@@ -201,66 +212,12 @@ Westbury、RJS、Fairfield の型は各社が発行する文書に用いる。Cl
 
 ## 成形見本
 
-### b011 の休日当番と引継ぎ
-
-8 枠の見本の日付・時刻・担当は書式確認用。32 枠は複数ページの繰返し見出しと BST／GMT の切替を確認するための見本。成形ではファイル計画と原稿の値を使う。
+9 月の観測結果を使った書式確認用。発行日・文書番号・観測枠の時刻・個別明細は見本用で、配布物の成形ではファイル計画と原稿の値を使う。
 
 | 型 | 入力済み見本 | ページ画像 |
 |---|---|---|
-| 休暇照合・8 枠 | [XLSX](../../scratch/p02-site-reliability-engineer/b011/work/templates-0002/samples/brt-weekend-leave-overlap.xlsx) | [全ページ](../../scratch/p02-site-reliability-engineer/b011/work/templates-0002/render/brt-weekend-leave-overlap/) |
-| 休暇照合・32 枠 | [XLSX](../../scratch/p02-site-reliability-engineer/b011/work/templates-0002/samples/brt-weekend-leave-overlap-long.xlsx) | [全ページ](../../scratch/p02-site-reliability-engineer/b011/work/templates-0002/render/brt-weekend-leave-overlap-long/) |
-| 配布表・8 枠 | [PDF](../../scratch/p02-site-reliability-engineer/b011/work/templates-0002/samples/brt-weekend-duty-sheet.pdf)・[TeX 原稿](../../scratch/p02-site-reliability-engineer/b011/work/templates-0002/samples/brt-weekend-duty-sheet.tex) | [全ページ](../../scratch/p02-site-reliability-engineer/b011/work/templates-0002/render/brt-weekend-duty-sheet/) |
-| 配布表・32 枠 | [PDF](../../scratch/p02-site-reliability-engineer/b011/work/templates-0002/samples/brt-weekend-duty-sheet-long.pdf)・[TeX 原稿](../../scratch/p02-site-reliability-engineer/b011/work/templates-0002/samples/brt-weekend-duty-sheet-long.tex) | [全ページ](../../scratch/p02-site-reliability-engineer/b011/work/templates-0002/render/brt-weekend-duty-sheet-long/) |
-
-### b010 の月次可用性報告と上下限計算
-
-| 型 | 入力済み見本 | ページ画像 |
-|---|---|---|
-| 上下限計算・4明細 | [XLSX](../../scratch/p02-site-reliability-engineer/b011/work/templates-0002/samples/brt-availability-bounds.xlsx) | [全ページ](../../scratch/p02-site-reliability-engineer/b011/work/templates-0002/render/brt-availability-bounds/) |
-| 上下限計算・日別30明細 | [XLSX](../../scratch/p02-site-reliability-engineer/b011/work/templates-0002/samples/brt-availability-bounds-daily.xlsx) | [全ページ](../../scratch/p02-site-reliability-engineer/b011/work/templates-0002/render/brt-availability-bounds-daily/) |
-| 月次可用性報告・速報 | [PDF](../../scratch/p02-site-reliability-engineer/b011/work/templates-0002/samples/brt-monthly-availability-flash.pdf)・[TeX 原稿](../../scratch/p02-site-reliability-engineer/b011/work/templates-0002/samples/brt-monthly-availability-flash.tex) | [全ページ](../../scratch/p02-site-reliability-engineer/b011/work/templates-0002/render/brt-monthly-availability-flash/) |
-| 月次可用性報告・確定版 | [PDF](../../scratch/p02-site-reliability-engineer/b011/work/templates-0002/samples/brt-monthly-availability-final.pdf)・[TeX 原稿](../../scratch/p02-site-reliability-engineer/b011/work/templates-0002/samples/brt-monthly-availability-final.tex) | [全ページ](../../scratch/p02-site-reliability-engineer/b011/work/templates-0002/render/brt-monthly-availability-final/) |
-| 月次可用性報告・日別明細付き | [PDF](../../scratch/p02-site-reliability-engineer/b011/work/templates-0002/samples/brt-monthly-availability-daily.pdf)・[TeX 原稿](../../scratch/p02-site-reliability-engineer/b011/work/templates-0002/samples/brt-monthly-availability-daily.tex) | [全ページ](../../scratch/p02-site-reliability-engineer/b011/work/templates-0002/render/brt-monthly-availability-daily/) |
-
-### b006 の見本
-
-見本の入力済み文書と全ページ画像は b006 の `work/templates-0004` にある。見本内の日付・時刻・文書番号・集計値は書式確認用。制作で使う値は依頼・persona 定義・事実の台帳・ファイル計画を参照する。
-
-| 型 | 入力済み見本 | ページ画像 |
-|---|---|---|
-| 事後報告・短い表 | [DOCX](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/brt-incident-review-short.docx) | [全ページ](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/render/brt-incident-review-short/) |
-| 事後報告・長い表 | [DOCX](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/brt-incident-review.docx) | [全ページ](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/render/brt-incident-review/) |
-| 打合せ記録 | [DOCX](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/brt-reliability-meeting.docx) | [全ページ](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/render/brt-reliability-meeting/) |
-| 変更判断・限定再開 | [DOCX](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/brt-change-decision.docx)・[PDF](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/brt-change-decision.pdf) | [DOCX](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/render/brt-change-decision/)・[PDF](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/render/brt-change-decision-pdf/) |
-| Westbury の観察記録 | [DOCX](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/westbury-service-observation.docx) | [全ページ](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/render/westbury-service-observation/) |
-| エラーバジェット・短い表 | [XLSX](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/brt-error-budget-short.xlsx) | [全ページ](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/render/brt-error-budget-short/) |
-| エラーバジェット・長い表 | [XLSX](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/brt-error-budget.xlsx) | [全ページ](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/render/brt-error-budget/) |
-| 旧引継ぎ票 | [DOCX](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/brt-night-handover.docx) | [全ページ](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/render/brt-night-handover/) |
-| 当番交代・短い表 | [XLSX](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/brt-duty-exchange-short.xlsx) | [全ページ](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/render/brt-duty-exchange-short/) |
-| 当番交代・長い表 | [XLSX](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/brt-duty-exchange.xlsx) | [全ページ](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/render/brt-duty-exchange/) |
-| 説明資料・5 レイアウト | [PPTX](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/brt-reliability-briefing.pptx) | [全ページ](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/render/brt-reliability-briefing/) |
-| 顧客説明・短い表 | [PDF](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/brt-customer-update.pdf)・[TeX 原稿](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/brt-customer-update.tex) | [全ページ](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/render/brt-customer-update/) |
-| 顧客説明・長い表 | [PDF](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/brt-customer-update-long.pdf)・[TeX 原稿](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/brt-customer-update-long.tex) | [全ページ](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/render/brt-customer-update-long/) |
-| 顧客説明・17 明細 | [PDF](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/brt-customer-update-page-boundary.pdf)・[TeX 原稿](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/brt-customer-update-page-boundary.tex) | [全ページ](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/render/brt-customer-update-page-boundary/) |
-| 容量比較・短い表 | [XLSX](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/brt-capacity-comparison-short.xlsx) | [全ページ](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/render/brt-capacity-comparison-short/) |
-| 容量比較・長い表 | [XLSX](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/brt-capacity-comparison.xlsx) | [全ページ](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/render/brt-capacity-comparison/) |
-| Palmer 予測・3 明細 | [PDF](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/palmer-capacity-forecast.pdf)・[TeX 原稿](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/palmer-capacity-forecast.tex) | [全ページ](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/render/palmer-capacity-forecast/) |
-| Palmer 予測・長い表 | [PDF](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/palmer-capacity-forecast-long.pdf)・[TeX 原稿](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/palmer-capacity-forecast-long.tex) | [全ページ](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/render/palmer-capacity-forecast-long/) |
-| Palmer 予測・16 明細 | [PDF](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/palmer-capacity-forecast-page-boundary.pdf)・[TeX 原稿](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/palmer-capacity-forecast-page-boundary.tex) | [全ページ](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/render/palmer-capacity-forecast-page-boundary/) |
-| Palmer 予測・長い表題 | [PDF](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/palmer-capacity-forecast-long-title.pdf)・[TeX 原稿](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/palmer-capacity-forecast-long-title.tex) | [全ページ](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/render/palmer-capacity-forecast-long-title/) |
-| 再受講記録・短い表 | [PDF](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/brt-handover-retraining.pdf)・[TeX 原稿](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/brt-handover-retraining.tex) | [全ページ](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/render/brt-handover-retraining/) |
-| 再受講記録・長い表 | [PDF](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/brt-handover-retraining-long.pdf)・[TeX 原稿](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/brt-handover-retraining-long.tex) | [全ページ](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/render/brt-handover-retraining-long/) |
-| 再受講記録・19 明細 | [PDF](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/brt-handover-retraining-page-boundary.pdf)・[TeX 原稿](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/brt-handover-retraining-page-boundary.tex) | [全ページ](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/render/brt-handover-retraining-page-boundary/) |
-| 復旧演習報告・短い表 | [PDF](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/brt-recovery-exercise.pdf)・[TeX 原稿](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/brt-recovery-exercise.tex) | [全ページ](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/render/brt-recovery-exercise/) |
-| 復旧演習報告・長い表 | [PDF](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/brt-recovery-exercise-long.pdf)・[TeX 原稿](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/brt-recovery-exercise-long.tex) | [全ページ](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/render/brt-recovery-exercise-long/) |
-| 復旧演習報告・17 明細 | [PDF](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/brt-recovery-exercise-page-boundary.pdf)・[TeX 原稿](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/brt-recovery-exercise-page-boundary.tex) | [全ページ](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/render/brt-recovery-exercise-page-boundary/) |
-| 乗車券保管復旧の顧客説明 | [DOCX](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/brt-ticket-recovery-guidance.docx)・[配布用 PDF](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/brt-ticket-recovery-guidance.pdf) | [DOCX](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/render/brt-ticket-recovery-guidance/)・[PDF](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/render/brt-ticket-recovery-guidance-pdf/) |
-| 復旧点比較・短い表 | [XLSX](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/brt-recovery-point-comparison-short.xlsx) | [全ページ](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/render/brt-recovery-point-comparison-short/) |
-| 復旧点比較・長い表 | [XLSX](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/brt-recovery-point-comparison.xlsx) | [全ページ](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/render/brt-recovery-point-comparison/) |
-| RJS 立会い所見・長い表題・3 明細 | [PDF](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/rjs-storage-witness.pdf)・[TeX 原稿](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/rjs-storage-witness.tex) | [全ページ](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/render/rjs-storage-witness/) |
-| RJS 立会い所見・長い表題・26 明細 | [PDF](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/rjs-storage-witness-boundary.pdf)・[TeX 原稿](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/rjs-storage-witness-boundary.tex) | [全ページ](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/render/rjs-storage-witness-boundary/) |
-| RJS 立会い所見・長い表題・31 明細 | [PDF](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/rjs-storage-witness-long.pdf)・[TeX 原稿](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/rjs-storage-witness-long.tex) | [全ページ](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/render/rjs-storage-witness-long/) |
-| 窓口切替連絡票 | [DOCX](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/brt-ticket-office-contact-card.docx) | [全ページ](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/render/brt-ticket-office-contact-card/) |
-| Fairfield 受付記録・4 窓口の抜粋 | [PDF](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/fairfield-desk-receipt.pdf)・[TeX 原稿](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/fairfield-desk-receipt.tex) | [全ページ](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/render/fairfield-desk-receipt/) |
-| Fairfield 受付記録・12 窓口 | [PDF](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/fairfield-desk-receipt-long.pdf)・[TeX 原稿](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/fairfield-desk-receipt-long.tex) | [全ページ](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/render/fairfield-desk-receipt-long/) |
-| Fairfield 受付記録・12 窓口・長い表題 | [PDF](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/fairfield-desk-receipt-boundary.pdf)・[TeX 原稿](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/samples/fairfield-desk-receipt-boundary.tex) | [全ページ](../../scratch/p02-site-reliability-engineer/b006/work/templates-0004/render/fairfield-desk-receipt-boundary/) |
+| 間隔比較・候補別 2 明細 | [XLSX](../../scratch/p02-site-reliability-engineer/b012/work/templates-0002/samples/brt-archive-interval-comparison.xlsx) | [全ページ](../../scratch/p02-site-reliability-engineer/b012/work/templates-0002/render/brt-archive-interval-comparison/) |
+| 間隔比較・開始枠別 60 明細 | [XLSX](../../scratch/p02-site-reliability-engineer/b012/work/templates-0002/samples/brt-archive-interval-comparison-long.xlsx) | [全ページ](../../scratch/p02-site-reliability-engineer/b012/work/templates-0002/render/brt-archive-interval-comparison-long/) |
+| RJS 所見・3 明細 | [PDF](../../scratch/p02-site-reliability-engineer/b012/work/templates-0002/samples/rjs-storage-witness.pdf)・[TeX 原稿](../../scratch/p02-site-reliability-engineer/b012/work/templates-0002/samples/rjs-storage-witness.tex) | [全ページ](../../scratch/p02-site-reliability-engineer/b012/work/templates-0002/render/rjs-storage-witness/) |
+| RJS 所見・36 明細 | [PDF](../../scratch/p02-site-reliability-engineer/b012/work/templates-0002/samples/rjs-storage-witness-long.pdf)・[TeX 原稿](../../scratch/p02-site-reliability-engineer/b012/work/templates-0002/samples/rjs-storage-witness-long.tex) | [全ページ](../../scratch/p02-site-reliability-engineer/b012/work/templates-0002/render/rjs-storage-witness-long/) |
+| 候補選定・5 レイアウト | [PPTX](../../scratch/p02-site-reliability-engineer/b012/work/templates-0002/samples/brt-reliability-briefing.pptx)・[二段図](../../scratch/p02-site-reliability-engineer/b012/work/templates-0002/samples/archive-start-and-completion.png) | [全ページ](../../scratch/p02-site-reliability-engineer/b012/work/templates-0002/render/brt-reliability-briefing/) |

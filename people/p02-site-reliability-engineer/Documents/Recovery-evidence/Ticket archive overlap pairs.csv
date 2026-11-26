@@ -1,0 +1,3 @@
+Current start (UTC),Preceding write reference,Preceding start (UTC),Preceding finish (UTC),Overlap (seconds),Finish check,Witness check
+2024-09-11T12:20:00Z,W-3184,2024-09-11T12:10:00Z,2024-09-11T12:22:10Z,130,"Daniel Jennings, Ticket archive finish checks.txt","Patrick Sutcliffe, RJS-WS-20240912-001"
+2024-09-11T12:40:00Z,W-3186,2024-09-11T12:30:00Z,2024-09-11T12:41:35Z,95,"Daniel Jennings, Ticket archive finish checks.txt","Patrick Sutcliffe, RJS-WS-20240912-001"
