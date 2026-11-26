@@ -1,0 +1,9 @@
+diff --git a/progress/p06-life-science-researcher/b012.request.md b/progress/p06-life-science-researcher/b012.request.md
+index aab10b1af057a78bae2b94d9018cefae892ca16c..caa4bcbc9f3bfb725e4b5d627f0cb7c4266011fe 100644
+--- a/progress/p06-life-science-researcher/b012.request.md
++++ b/progress/p06-life-science-researcher/b012.request.md
+@@ -5,3 +5,4 @@
+ - 重点：8月2日にMelissaが2通りの予約案を示す。Laurenが担当できる2日と装置の空きを重ねると、片方の案では一方の日に1条件しか置けない。Anthonyは予定表から各日の3条件を逆引きし、Robertは各日12件・各条件4件を割り付けられる案を準備用に残す。実施の可否は9月に持ち越す。
+ - 含めたいもの：Plansの枠別割付XLSX、Laurenの空き時間表PDF、机上で枠を移した手書き案のスキャンPDF、日と位置の対応TSV、室長用の比較PPTX、予約と実施許可を区別した回答PDF。
+ - 避けるもの：b001の初回24値・7月の申入れと議事録の再録、仮予約を根拠に測定済みとすること
++- 初回の予約案R00はSlots・Optionsそれぞれの印刷ページに型の左フッタ LABORATORY RECORD と右のページ番号を残す。09:31の送信控えの実添付を復号し、索引が指す保存版との一致と2頁の表示を確認する。
