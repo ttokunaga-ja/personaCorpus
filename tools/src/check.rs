@@ -1271,10 +1271,10 @@ fn word_revision_source(body: &str, path: &Path, zone: chrono_tz::Tz) -> Result<
         r"(?m)^[-*] (削除|挿入|コメント) *\| *([^|\n]+?) *\| *(\d{4}-\d\d-\d\d \d\d:\d\d [+-]\d{4}) *\|",
     );
     let labeled = re(concat!(
-        r"(?m)^[-*][ \t]+種類[:：][ \t]*(削除|挿入|コメント)[ \t]*[;／|][ \t]*",
-        r"人物[:：][ \t]*([^\r\n]+?)[ \t]*[;／|][ \t]*",
-        r"日時[:：][ \t]*(\d{4}-\d\d-\d\d \d\d:\d\d)(?: ([A-Z]{2,6}|[+-]\d{4}))?[ \t]*[;／|][ \t]*",
-        r"対象(?:の文)?[:：][ \t]*([^\r\n]+?)[ \t]*[;／|][ \t]*",
+        r"(?m)^[-*][ \t]+種類[:：][ \t]*(削除|挿入|コメント)[ \t]*(?:[;／|][ \t]*|\r?\n[ \t]+)",
+        r"人物[:：][ \t]*([^\r\n]+?)[ \t]*(?:[;／|][ \t]*|\r?\n[ \t]+)",
+        r"日時[:：][ \t]*(\d{4}-\d\d-\d\d \d\d:\d\d)(?: ([A-Z]{2,6}|[+-]\d{4}))?[ \t]*(?:[;／|][ \t]*|\r?\n[ \t]+)",
+        r"対象(?:の文)?[:：][ \t]*([^\r\n]+?)[ \t]*(?:[;／|][ \t]*|\r?\n[ \t]+)",
         r"新しい文[:：][ \t]*([^\r\n]+)\r?$",
     ));
     let comment = re(concat!(
@@ -3448,6 +3448,16 @@ mod handout_and_revision_tests {
             "Activation"
         );
         let wrong = pipes.replace("Send the roster", "Send the contract");
+        assert_eq!(
+            word_revision_source(&wrong, file.path(), zone).unwrap(),
+            wrong
+        );
+        let multiline = insert.replacen("; ", "\n  ", 4);
+        assert_eq!(
+            word_revision_source(&multiline, file.path(), zone).unwrap(),
+            "Activation"
+        );
+        let wrong = multiline.replace("Editor Name", "Other Editor");
         assert_eq!(
             word_revision_source(&wrong, file.path(), zone).unwrap(),
             wrong
