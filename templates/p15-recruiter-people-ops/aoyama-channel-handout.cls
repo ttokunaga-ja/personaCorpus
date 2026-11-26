@@ -31,6 +31,10 @@
 \newcommand{\AYSection}[1]{\par\bigskip\noindent{\large\bfseries\color{AYblue}#1}\par\smallskip}
 \newcommand{\AYNote}[1]{\par\smallskip{\footnotesize\noindent #1\par}}
 \newenvironment{AYTable}[1]{%
-  \renewcommand{\arraystretch}{1.32}\begin{longtable}{#1}%
+  \renewcommand{\arraystretch}{1.22}\begin{longtable}{#1}%
 }{\end{longtable}}
 \newcommand{\AYHeader}{\rowcolor{AYpale}}
+% End the final detail row with \\* to keep this note with that row.
+\newcommand{\AYTableNote}[2]{%
+  \multicolumn{#1}{@{}p{\textwidth}@{}}{%
+    \smallskip\footnotesize\noindent #2}\\}

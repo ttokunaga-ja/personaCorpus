@@ -106,6 +106,13 @@ b001は2026-08-10〜09-30の研修設計リード採用3枠を扱う。8観点�
 
 試問の回答は例と分かるように記し、観察した回答と聞き手の判断を別欄に置く。対応表には経験年数の得点欄や合計を設けない。観点の名称と順序には、この時期の原稿の値を使う。
 
+### 2025年3月の入社支援（b013）
+
+- 出迎え場所の行き違いの経過と初月面談の要旨は `mirai-approval.docx` を使う。ロゴを保持してヘッダを「入社支援の振り返り」に替える。経過は時点・案内された場所・合流までの対応を原稿に沿って並べる。面談要旨は「本人から聞いたこと」「担当間で照合したこと」「次の受入に引き継ぐこと」などに分ける。用途コードは `REV`。
+- 担当交代の記録と初朝の待ち時間の照合は `mirai-evaluation.xlsx` を開く。照合表の列は「番号／匿名区分／開始日／待ち時間（分）／確認結果／引継ぎの扱い」、幅は12・24・23・20・32・34。A・D列は `MW Number`、C列は `MW Date`、B・E・F列は `MW Text`。待ち時間は照合で確定した値を入れ、未確認は空欄とする。交代表には原稿にある交代時点・場所の伝達と受領確認を記す。用途コードは `MAP`。
+- 当日係が手元に持つ案内は `mirai-recruiting-note.cls` で直接PDFにする。用途コードは `REC`。プリアンブルに `\renewcommand{\MWDocumentUse}{受入手順}` を置き、担当が替わったときに誰が出迎え場所を伝え、誰が復唱するかを短い節で示す。3月28日に決めた手順の適用時点は原稿に従う。
+- 時点別の匿名記録はCSV。受入担当向けの案内HTMLと集合場所の画面PNGは原稿から作り、同じ場所の呼び方を使う。3日・17日開始の各4人の記録では、事前確認の未準備3件の解消と、当日の担当交代に伴う案内遅れ1件を区別する。
+
 ## 共通の意匠と管理
 
 - 178人の研修会社として、小さな「開いた本」の図形と社名を使う。本の左ページは桑実色 `963A65`、右ページは灰緑 `7B8270`。本文は墨 `34383C`、白地、合計の淡色は桑実色の濃淡 `F5EDF1`。Word・Excelの図形は埋込みPNG、PowerPointはネイティブ図形、TeXはTikZ。外部画像リンクはない。
@@ -172,7 +179,9 @@ b001は2026-08-10〜09-30の研修設計リード採用3枠を扱う。8観点�
 
 直接PDFを作る質問票・確認事項・決定時点の配布控えに使う。Office由来のPDFはOfficeから変換する。
 
-青山の直接配布PDFは同じ `TEXINPUTS` で `\documentclass{aoyama-channel-handout}` を指定する。`\AYHeading{題}{資料番号}{版}{発行日}{作成者}`、`\AYSection{見出し}`、`\AYNote{注記}` を使う。A4縦・左右25mm、上31mm、下25mm。表が必要な場合は `\begin{AYTable}{@{}rp{40mm}p{90mm}@{}}` を使い、見出し行頭に `\AYHeader`、行末の `\\` の後に `\endhead` を置く。本文幅160mm以内で列幅を決め、右寄せ数値列と左寄せ文字列の間の既定余白を維持する。原稿に従い資料番号・版・発行日・作成者を埋め、`bin/render` で全ページを確認する。
+青山の直接配布PDFは同じ `TEXINPUTS` で `\documentclass{aoyama-channel-handout}` を指定する。`\AYHeading{題}{資料番号}{版}{発行日}{作成者}`、`\AYSection{見出し}` を使う。A4縦・左右25mm、上31mm、下25mm。表が必要な場合は `\begin{AYTable}{@{}rp{40mm}p{90mm}@{}}` を使い、見出し行頭に `\AYHeader`、行末の `\\` の後に `\endhead` を置く。本文幅160mm以内で列幅を決め、右寄せ数値列と左寄せ文字列の間の既定余白を維持する。
+
+表の末尾に注記がある場合は、最後の明細行を `\\*` で終え、`\end{AYTable}` の直前に `\AYTableNote{列数}{注記}` を置く。列数は表の全列数を指定し、注記命令の後に改行命令を足さない。最終明細と注記の間では改ページしないため、収まらなければその明細と注記が続頁へ移る。本文に付ける注記には `\AYNote{注記}` を使う。原稿に従い資料番号・版・発行日・作成者を埋め、`bin/render` で続頁の見出しと最終明細・注記を確認する。
 
 明星の掲載見本は同じ `TEXINPUTS` で `\documentclass{myojo-ad-proof}` を指定する。本文10pt、A4縦・左右21mm、上33mm、下23mm。`\MAHeading{宛先}{題}{校正番号}{版}{発行日}{発行担当}` で宛先と左揃えの題、2行の管理帯を出す。掲載される本文と原稿確認の連絡を分け、`\MASection{見出し}` と `\MANote{確認してほしいこと}` で組む。表示項目を表にする場合は `\begin{MATable}{@{}rp{41mm}p{101mm}@{}}` を使い、見出し行頭に `\MATableHeader`、見出し行末の `\\` に続けて `\endhead` を置く。列間は既定の左右各7ptを残し、本文幅168mmに収める。表や注記は原稿にある場合に組む。`bin/render` で番号・発行担当と全ページの表見出し、フッタを確認する。
 
@@ -188,26 +197,26 @@ Miltonの研修提案書は同じ `TEXINPUTS` で `\documentclass{milton-trainin
 
 ## 今回の見本と確認先
 
-作業フォルダは `scratch/p15-recruiter-people-ops/b012/work/templates-0002/`。表のパスはこのフォルダを基準とする。見本の内容・管理情報と継続表の反復明細は書式確認用。実際の文書番号・日付・内容は計画・事実台帳・原稿に従う。
+作業フォルダは `scratch/p15-recruiter-people-ops/b013/work/templates-0002/`。表のパスはこのフォルダを基準とする。見本の内容・管理情報と継続表の反復明細は書式確認用。実際の文書番号・日付・内容は計画・事実台帳・原稿に従う。
 
 | 型／確認内容 | 見本 | 全ページの画像 |
 |---|---|---|
-| 教材改訂を担当する職務の確認（短い表） | `examples/mirai-approval.docx` | `render/mirai-approval/` |
-| 教材改訂を担当する職務の確認（継続表） | `examples/mirai-approval-long.docx` | `render/mirai-approval-long/` |
-| 教材修正の試問と聞き直し | `examples/mirai-interview.docx` | `render/mirai-interview/` |
-| 質問順の赤字 | `examples/mirai-interview-redline.docx` | `render/mirai-interview-redline/` |
-| 質問の分岐図 | `examples/mirai-interview-branch.png` | `render/mirai-interview-branch/` |
+| 研修設計の募集枠と承認条件（短い表） | `examples/mirai-approval.docx` | `render/mirai-approval/` |
+| 研修設計の募集枠と承認条件（継続表） | `examples/mirai-approval-long.docx` | `render/mirai-approval-long/` |
+| 3月入社の出迎えの経過と初月面談 | `examples/mirai-onboarding-review.docx` | `render/mirai-onboarding-review/` |
+| 教材の改訂経験を聞く面接記録 | `examples/mirai-interview.docx` | `render/mirai-interview/` |
 | 候補者への追加確認の案内 | `examples/mirai-notice.docx` | `render/mirai-notice/` |
-| 職務場面と7観点の対応（7行） | `examples/mirai-evaluation.xlsx` | `render/mirai-evaluation/` |
-| 職務場面と観点の対応（継続表） | `examples/mirai-evaluation-long.xlsx` | `render/mirai-evaluation-long/` |
+| 初朝の記録と担当交代の照合（3行） | `examples/mirai-evaluation.xlsx` | `render/mirai-evaluation/` |
+| 初朝の記録と担当交代の照合（継続表） | `examples/mirai-evaluation-long.xlsx` | `render/mirai-evaluation-long/` |
 | 部数の照合（3行と合計） | `examples/mirai-expenses.xlsx` | `render/mirai-expenses/` |
 | 部数の照合（継続表と合計） | `examples/mirai-expenses-long.xlsx` | `render/mirai-expenses-long/` |
-| 面接担当の読み合わせ（全5レイアウト） | `examples/mirai-recruiting.pptx` | `render/mirai-recruiting/` |
-| 手元用の問い（短い表） | `examples/mirai-recruiting-note.tex`、`examples/mirai-recruiting-note.pdf` | `render/mirai-recruiting-note/` |
-| 手元用の問い（継続表） | `examples/mirai-recruiting-note-long.tex`、`examples/mirai-recruiting-note-long.pdf` | `render/mirai-recruiting-note-long/` |
+| 入社初朝の受入確認（全5レイアウト） | `examples/mirai-recruiting.pptx` | `render/mirai-recruiting/` |
+| 出迎え担当の交代時の案内（短い表） | `examples/mirai-recruiting-note.tex`、`examples/mirai-recruiting-note.pdf` | `render/mirai-recruiting-note/` |
+| 出迎え担当の交代時の案内（継続表） | `examples/mirai-recruiting-note-long.tex`、`examples/mirai-recruiting-note-long.pdf` | `render/mirai-recruiting-note-long/` |
 | 青山の採用支援の連絡 | `examples/aoyama-recruiting-note.docx` | `render/aoyama-recruiting-note/` |
 | 青山の配布資料（短い表） | `examples/aoyama-channel-handout.tex`、`examples/aoyama-channel-handout.pdf` | `render/aoyama-channel-handout/` |
-| 青山の配布資料（継続表） | `examples/aoyama-channel-handout-long.tex`、`examples/aoyama-channel-handout-long.pdf` | `render/aoyama-channel-handout-long/` |
+| 青山の配布資料（40行・2ページ） | `examples/aoyama-channel-handout-long.tex`、`examples/aoyama-channel-handout-long.pdf` | `render/aoyama-channel-handout-long/` |
+| 青山の配布資料（44行・最終明細と注記が続頁へ移る場合） | `examples/aoyama-channel-handout-overflow.tex`、`examples/aoyama-channel-handout-overflow.pdf` | `render/aoyama-channel-handout-overflow/` |
 | 明星の掲載原稿（短い表） | `examples/myojo-ad-proof.tex`、`examples/myojo-ad-proof.pdf` | `render/myojo-ad-proof/` |
 | 明星の掲載原稿（継続表） | `examples/myojo-ad-proof-long.tex`、`examples/myojo-ad-proof-long.pdf` | `render/myojo-ad-proof-long/` |
 | 岡部の演習資料（短い表） | `examples/okabe-interviewer-exercise.tex`、`examples/okabe-interviewer-exercise.pdf` | `render/okabe-interviewer-exercise/` |
