@@ -2155,6 +2155,7 @@ struct Inspection {
 pub(crate) struct CsvMeasurements {
     header: csv::StringRecord,
     columns: Vec<Option<BTreeMap<u64, usize>>>,
+    interval_bins: BTreeMap<String, BTreeSet<u32>>,
 }
 
 impl CsvMeasurements {
@@ -2175,6 +2176,27 @@ impl CsvMeasurements {
     fn parse(text: &str) -> Option<Self> {
         let mut reader = csv::Reader::from_reader(text.as_bytes());
         let header = reader.headers().ok()?.clone();
+        // In interval-frequency exports each row represents one occupied minute bin.
+        if header.iter().eq(["区間", "分", "件数"]) {
+            let mut bins = BTreeMap::<String, BTreeSet<u32>>::new();
+            for record in reader.records() {
+                let record = record.ok()?;
+                let interval = record[0].trim();
+                let minute = record[1].parse().ok()?;
+                let count = record[2].parse::<u32>().ok()?;
+                if interval.is_empty()
+                    || count == 0
+                    || !bins.entry(interval.to_owned()).or_default().insert(minute)
+                {
+                    return None;
+                }
+            }
+            return Some(Self {
+                header,
+                columns: Vec::new(),
+                interval_bins: bins,
+            });
+        }
         let length = re(Self::LENGTH_UNIT);
         let concentration = re(Self::MASS_CONCENTRATION_UNIT);
         let mut columns = header
@@ -2208,10 +2230,28 @@ impl CsvMeasurements {
                 }
             }
         }
-        Some(Self { header, columns })
+        Some(Self {
+            header,
+            columns,
+            interval_bins: BTreeMap::new(),
+        })
     }
 
     pub(crate) fn differs_from(&self, other: &Self) -> bool {
+        if !self.interval_bins.is_empty()
+            && self.interval_bins.keys().eq(other.interval_bins.keys())
+        {
+            // Distinguish a demonstration from a larger distribution only when every
+            // interval contributes multiple bins and neither support is a subset.
+            return self.interval_bins.len() >= 2
+                && self.interval_bins.iter().all(|(interval, a)| {
+                    let b = &other.interval_bins[interval];
+                    a.len().min(b.len()) >= 2
+                        && a.len().max(b.len()) >= 2 * a.len().min(b.len())
+                        && !a.is_subset(b)
+                        && !b.is_subset(a)
+                });
+        }
         self.header == other.header
             && self
                 .header

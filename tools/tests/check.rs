@@ -1729,3 +1729,28 @@ fn scanned_print_proof_shares_text_with_its_office_original() {
     f.bytes("marked.pdf", b"%PDF proof.pdf");
     assert!(duplicate_map(&f)["marked.pdf"].contains("identical bytes"));
 }
+
+#[test]
+fn duplicates_distinguishes_interval_frequency_tables() {
+    let fixture = Fixture::new();
+    let table = |wait: &[u32], explanation: &[u32]| {
+        let mut result = String::from("区間,分,件数\n");
+        for (group, values) in [("待機", wait), ("説明", explanation)] {
+            for value in values {
+                result.push_str(&format!("{group},{value},1\n"));
+            }
+        }
+        result
+    };
+    fixture.put("demo.csv", &table(&[8, 14], &[21, 27]));
+    fixture.put(
+        "monthly.csv",
+        &table(
+            &[10, 12, 14, 15, 16, 17, 19, 20, 21, 23, 25, 28],
+            &[20, 23, 25, 27, 29, 30, 32, 33, 35, 37, 40, 42],
+        ),
+    );
+    assert!(duplicate_map(&fixture).is_empty());
+    fixture.put("subset.csv", &table(&[10, 14], &[20, 27]));
+    assert!(duplicate_map(&fixture)["monthly.csv"].ends_with("subset.csv"));
+}
