@@ -1,0 +1,70 @@
+---
+path: Downloads/JDH new work routing.csv
+kind: text
+author: Janet Morales
+derived_from:
+---
+
+```csv
+roster_key,group,department,workflow,proposed_destination,routing_check
+D01,First,Dispatch,Dispatch Handoff,Dispatch Handoff,Candidate matched
+D02,First,Dispatch,Dispatch Handoff,Dispatch Handoff,Candidate matched
+D03,First,Dispatch,Dispatch Handoff,Dispatch Handoff,Candidate matched
+D04,First,Dispatch,Dispatch Handoff,Dispatch Handoff,Candidate matched
+D05,First,Dispatch,Dispatch Handoff,Dispatch Handoff,Candidate matched
+D06,First,Dispatch,Dispatch Handoff,Dispatch Handoff,Candidate matched
+D07,First,Dispatch,Dispatch Handoff,Dispatch Handoff,Candidate matched
+D08,First,Dispatch,Dispatch Handoff,Dispatch Handoff,Candidate matched
+D09,First,Dispatch,Dispatch Handoff,Dispatch Handoff,Candidate matched
+D10,First,Dispatch,Dispatch Handoff,Dispatch Handoff,Candidate matched
+D11,First,Dispatch,Dispatch Handoff,Dispatch Handoff,Candidate matched
+D12,First,Dispatch,Dispatch Handoff,Dispatch Handoff,Candidate matched
+D13,First,Dispatch,Dispatch Handoff,Dispatch Handoff,Candidate matched
+D14,First,Dispatch,Dispatch Handoff,Dispatch Handoff,Candidate matched
+D15,First,Dispatch,Dispatch Handoff,Dispatch Handoff,Candidate matched
+D16,First,Dispatch,Dispatch Handoff,Dispatch Handoff,Candidate matched
+D17,First,Dispatch,Dispatch Handoff,Dispatch Handoff,Candidate matched
+D18,First,Dispatch,Dispatch Handoff,Dispatch Handoff,Candidate matched
+D19,First,Dispatch,Dispatch Handoff,Dispatch Handoff,Candidate matched
+D20,First,Dispatch,Dispatch Handoff,Dispatch Handoff,Candidate matched
+C01,First,Customer Care,Callback Desk,Callback Desk,Candidate matched
+C02,First,Customer Care,Callback Desk,Callback Desk,Candidate matched
+C03,First,Customer Care,Callback Desk,Callback Desk,Candidate matched
+C04,First,Customer Care,Callback Desk,Callback Desk,Candidate matched
+C05,First,Customer Care,Callback Desk,Callback Desk,Candidate matched
+C06,First,Customer Care,Callback Desk,Callback Desk,Candidate matched
+C07,First,Customer Care,Callback Desk,Callback Desk,Candidate matched
+C08,First,Customer Care,Callback Desk,Callback Desk,Candidate matched
+C09,First,Customer Care,Callback Desk,Callback Desk,Candidate matched
+C10,First,Customer Care,Callback Desk,Callback Desk,Candidate matched
+C11,First,Customer Care,Callback Desk,Callback Desk,Candidate matched
+C12,First,Customer Care,Callback Desk,Callback Desk,Candidate matched
+C13,First,Customer Care,Callback Desk,Callback Desk,Candidate matched
+C14,First,Customer Care,Callback Desk,Callback Desk,Candidate matched
+C15,First,Customer Care,Callback Desk,General Inquiries,Review required
+C16,First,Customer Care,Callback Desk,General Inquiries,Review required
+F01,Second,Field Operations,Night Handoff,,Shift handover pending
+F02,Second,Field Operations,Night Handoff,,Shift handover pending
+F03,Second,Field Operations,Night Handoff,,Shift handover pending
+F04,Second,Field Operations,Night Handoff,,Shift handover pending
+F05,Second,Field Operations,Night Handoff,,Shift handover pending
+F06,Second,Field Operations,Night Handoff,,Shift handover pending
+F07,Second,Field Operations,Night Handoff,,Shift handover pending
+F08,Second,Field Operations,Night Handoff,,Shift handover pending
+F09,Second,Field Operations,Night Handoff,,Shift handover pending
+F10,Second,Field Operations,Night Handoff,,Shift handover pending
+F11,Second,Field Operations,Night Handoff,,Shift handover pending
+F12,Second,Field Operations,Night Handoff,,Shift handover pending
+F13,Second,Field Operations,Night Handoff,,Shift handover pending
+F14,Second,Field Operations,Night Handoff,,Shift handover pending
+F15,Second,Field Operations,Night Handoff,,Shift handover pending
+F16,Second,Field Operations,Night Handoff,,Shift handover pending
+F17,Second,Field Operations,Night Handoff,,Shift handover pending
+F18,Second,Field Operations,Night Handoff,,Shift handover pending
+B01,Second,Billing,Billing Exception,,Shift handover pending
+B02,Second,Billing,Billing Exception,,Shift handover pending
+B03,Second,Billing,Billing Exception,,Shift handover pending
+B04,Second,Billing,Billing Exception,,Shift handover pending
+B05,Second,Billing,Billing Exception,,Shift handover pending
+B06,Second,Billing,Billing Exception,,Shift handover pending
+```

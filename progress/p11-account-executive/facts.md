@@ -33,6 +33,28 @@
 - ①04-15 09:18 Donald → Michelle「JDH May package price clearance」（添付なし）。②04-17 11:04 Michelle → Janet「JDH May renewal terms and support scope」（`JDH May 2025 annual renewal terms.pdf`と`JDH May renewal support scope.docx`を添付）。
 - ③04-18 11:07 Janet → Michelle「JDH purchasing confirmation for May」（新規件名、`JDH May purchasing confirmation.docx`を添付）。④04-18 15:31 Michelle → Donald、Denise「JDH May renewal confirmed」（添付なし）。①〜④はいずれも独立メール。
 
+## 新業務の第1組の宛先照合と5月の割当
+
+- 2025年の時刻はDenver（MDT）。JDH部門担当は配車のMorgan Hale（`morgan@jdh-route.example`）、折返し受付のRenee Benton（`renee@jdh-route.example`）、Field OperationsのCaleb Dunn（`caleb@jdh-route.example`）、BillingのNora Webb（`nora@jdh-route.example`）。支援窓口はDarren Vasquez（`darren@halstead-branch.example`）。
+- 60席の内訳は第1組がDispatchの配車引継ぎ20席（D01〜D20、Dispatch Handoff）とCustomer Careの折返し受付16席（C01〜C16、Callback Desk）。第2組はField Operationsの夜間引継ぎ18席（F01〜F18）とBillingの請求例外6席（B01〜B06）。既存420席の未利用枠の見直しは別途JDHが扱う。
+- 05-07のJDH照合CSVではC15・C16がGeneral Inquiries、F/Bは全行宛先空欄。05-08 10:00にJanet・Divya・Michelleが34席の宛先を確認し、05-12にReneeの訂正をJanet・Divyaが確認してC15・C16をCallback Deskへ戻し、36席の宛先が揃った。
+- 遠隔説明は05-15 10:00にMorganとの配車練習、05-22 10:00にReneeとの折返し練習を各60分。Divyaが手順を案内し、MichelleとJanetが参加。送信ログとJDH側の受領の折返しは別に残す。
+- Divyaの練習資料の草案は HBC-JDH-20250507-WRK-01 v0.1。改訂投影版と配布PDFは同番号 v1.0。05-23の確認済み名簿集計は HBC-JDH-20250523-ADP-01 v1.0。宛先確認済み36、留保24、候補60で、割当や利用の集計とは別。
+- Janetが05-27 13:30までに第1組36席の割当をJDH側で記録。05-30 11:00の30日レビュー（05-31が土曜のため前倒し）はJanet・Michelle・Divya・Darren。第1組の割当を確認し、第2組の宛先・交代条件を06-12に読み合わせる。
+- 独立メールの順。05-05 09:12 Janet → Michelle（Cc Divya）「JDH May roster and routing check」、添付なし。05-14 16:09 Michelle → Morgan・Renee（Cc Janet・Divya）「JDH exercises for Morgan and Renee」、`JDH recipient rehearsal.pdf` を実添付。
+- 05-23 13:12 Michelle → Janet（Cc Divya）「JDH first group roster clearance」は独立メール。 `2025-05-23_Confirmed roster totals.xlsx` を実添付し、JDH側で05-27の割当記録を残すよう依頼する。
+
+## 夜間交代の差戻しと日常受付の引継ぎ
+
+- 05-27〜06-03にDarrenへ転送された照会7件の分類は名簿・宛先3、手順2、受け手不明2。受け手不明のうち配車1件は06-30までにMorganの折返しで完了、夜間の請求差戻し1件は代理の引受け待ちで継続。
+- 06-12 10:00の遠隔説明は60分。Caleb・Nora・Janet・Divya・Michelleが交代直前の請求差戻しで引受けを読み合わせた。共通ボックスへの一括受付案は未採用。現当番は確認が取れるまで依頼を保持し、Calebへ、請求差戻しが関わる場合はNoraにも連絡する。
+- 06-13のスレッド「Night desk handback after Thursday」。①09:16 Caleb → Janet・Michelle（Cc Divya・Nora）、夜間代理が未記名のため第2組24席を差戻し。②11:02 Janet → Caleb（Cc Michelle・Divya・Nora）、Re:で①の問題箇所を引用し、06-19正午までの氏名と引受けの確認を求める。両通とも添付なし。
+- 06-19 12:18 Janet → Michelle・Divya（Cc Darren）「JDH night coverage checkpoint」は独立、添付なし。現当番は確認できたが代理の引受けは未確認で、第2組24席の留保を継続。解除には代理の指名・引受けと再練習が必要。
+- 日常受付の担当表 HBC-JDH-20250624-WRK-01 v1.0 はWordとPDFが同版。名簿・宛先変更はJanet、通常手順はDarren、照合差異はDarrenからDivya、当番と請求差戻しはJDHのCaleb・Nora、契約照会はMichelle。06-30に日常受付をこの分担で引き渡す。
+- 06-30 11:00の60日レビューはJanet・Michelle・Divya・Darren。第1組36席は割当済み、第2組24席は留保。07-08にJanetが返答を確認し、遠隔説明全4回の残る1回（60分）は代理の引受け後の再練習に確保して日付は未定。7月訪問では支援窓口の運用を確認する。
+- レビュー記録 HBC-JDH-20250630-WRK-01 v1.0 はWordとPDFが同版。受付例外の集計 HBC-JDH-20250630-ADP-01 v1.0 は継続1件を追う別のXLSX。
+- 06-30 14:18 Michelle → Janet・Darren（Cc Divya）「JDH June review and support contacts」は独立メール。`2025-06-30_Sixty-day review record.pdf`、`2025-06-24_Support request routing.pdf`、`2025-06-30_Support exceptions.xlsx` を実添付。
+
 ## 拡張の準備と4週時点の到達範囲
 
 - 2026-01-08のJanetの希望は開始から4週以内に通常シフトまで移すこと。01-15にDivyaとMichelleが合意した見積は9週で、着手はJDHの初回名簿と拠点責任者の確認後。実際の開始日、切替日、拡張契約はいずれも未決。

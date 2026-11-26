@@ -1,0 +1,27 @@
+---
+path: Documents/Mail/JDH/RE - Night desk handback after Thursday.eml
+kind: text
+author: Janet Morales
+derived_from:
+---
+
+From: Janet Morales <janet@jdh-route.example>
+To: Caleb Dunn <caleb@jdh-route.example>
+Cc: Michelle Whitaker <michelle@halstead-branch.example>, Divya Rao <divya@halstead-branch.example>, Nora Webb <nora@jdh-route.example>
+Date: Fri, 13 Jun 2025 11:02:00 -0600
+Subject: Re: Night desk handback after Thursday
+Message-ID: <19673c26-f6f4-47d2-b78a-b62056c55188@jdh-route.example>
+In-Reply-To: <f6139e8b-46df-4c35-9d7a-70e29e6f1a80@jdh-route.example>
+References: <f6139e8b-46df-4c35-9d7a-70e29e6f1a80@jdh-route.example>
+
+Hi Caleb,
+
+Thank you for returning this before we assign the group. We'll hold all 24 seats together: the 18 night handoff and six billing exception seats.
+
+Please confirm with Nora the name of the substitute and that the named person accepts the handoff. I'd like confirmation from both of you by noon MDT on Thursday, June 19, including who will carry the case across the shift. Until acceptance is clear, the current duty should retain the request.
+
+Thanks,
+Janet
+
+On Fri, Jun 13, 2025 at 9:16 AM Caleb Dunn wrote:
+> A billing return can arrive just before the shift changes, and we still don't have the night substitute's name. Even if Nora's billing side receives it, someone has to be responsible for getting it to the next duty and confirming that person has taken it.
