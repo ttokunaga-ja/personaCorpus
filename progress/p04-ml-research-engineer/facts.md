@@ -237,3 +237,27 @@
 - 11月21日14:00 PST の研究会は Vanessa、Emily、Fatima、Michael Serrano が出席。一律除去を採用せず原文を保持し、後続の比較には境界群と群の件数、動作の変化、変更元の日付の欠落を区別して残すと決めた。正解の改訂や採点は行わない。
 - 決定メモの11月19日初稿は `MDR-STI-20241119-RM-01-R01`。同日の Emily コメント付き控えは初稿の番号・発行欄を保持。11月22日発行の Word と配布PDFは同じ版 `MDR-STI-20241119-RM-01-R02`。
 - 独立した連絡 “November intake reply decision” は Vanessa → Michael・Emily（Cc Fatima）、2024-11-25 10:21 PST。“Quote strip decision memo.pdf” と “Reply reading changes.csv” を添付。Emily の社内メールは `emily@mercer-document.example`。
+
+## 12月の模擬受付と再生順の照合（2024年）
+
+- 模擬時計は12月4日（水）〜6日（金）の PST、各日09:00〜17:00に200通、計600通。所与の確認対象は28／32／30通（計90通）。8月の開発800本文とは別の研究室内の列で、受信本文・正解・予測・実利用記録を持たない。
+- 対象の時刻は各日とも午前09:15＋18j分、昼12:05＋3j＋（jを3で割った余り）分、午後14:15＋12j分。各区間で j は0から始め、件数は4日8／10／10、5日7／18／7、6日8／14／8。
+- 対象外は各日200通との差を09:02＋2j＋⌊j/3⌋分（j は日ごとに0から）で埋める。日付・到着時刻の昇順で同分は対象を先にし、到着順1〜600に QD-001〜QD-600 を振る。
+- 12月9日午前に Vanessa Nguyen と Brandon Romero が、対象を先頭に寄せた誤ソートで先頭が QD-001（4日09:02）から QD-007（4日09:15）に変わるのを発見。固定表へ戻し、600通の順番・キー・時刻・確認要否を照合した。QD-024（対象）と QD-025（対象外）は4日09:51。
+- 準備連絡の1通目 “December intake replay setup” は12月3日14:06 PST、Vanessa → Brandon（Cc Emily Chen）。Review timing definitions.pdf と Three-day replay design.pdf を添付。
+- 2通目 “Re: December intake replay setup” は12月10日13:07 PST、Emily → Vanessa・Brandon。1通目を引用し、Review staffing - Emily comments.docx と Review arrivals by shift window.csv を添付する。
+- 定義書 Review timing definitions.pdf は `MDR-CA-20241203-RM-01-R01`。同日発行の再生設計書がこの定義書を参照し、11日の勤務条件表も同じ定義を使う。
+- 12月3日の準備連絡の Message-ID は `<a1251371-463e-4091-83d2-bec571d27af1@mercer-document.example>`。10日の返信はこの ID を In-Reply-To と References に使う。
+- Mercer の社内宛先は Emily が `emily@mercer-document.example`、Brandon が `brandon@mercer-document.example`、Michael が `michael@mercer-document.example`。
+
+## 12月の休憩込みの確認待ちと人員判断（2024年）
+
+- 両条件とも日初は空、確認担当1人・先着順・着手から完了まで3分固定。初案は09:00〜17:00連続、修正条件では12:00〜13:00だけ確認を止め、受信は続く。今回は12:00をまたぐ作業はなく、勤務時間の理論枠は休憩なし160／あり140通。
+- 着手は到着と直前の完了の遅い方。休憩ありでその時刻が12:00以上13:00未満なら13:00へ送る。待ち＝着手−到着、完了まで＝完了−到着。未処理は到着済み・完了前（確認中を含む）、同時刻は完了を除いて到着を数える。
+- Vanessa の人員メモ初稿は `MDR-CA-20241206-RM-01-R01`（Issued December 6）。10日午前の Emily のコメント控えは発行情報を保持。Vanessa は13日に同系列 `MDR-CA-20241206-RM-01-R02` を発行し、平均30通・90分だけで1人で足りるとする記述を取り下げた。
+- 日別必要工数は84／96／90分。休憩なしの待ち0／1／2分の件数は4日23／2／3、5日22／5／5、6日22／4／4で、未処理の最大は毎日2通。休憩ありの昼外48通は待ち0分、昼42通の待ち53／54／55分は13／14／15通。両条件とも日末残0。
+- 休憩ありの13:00未処理は4日10／5日18／6日14。13:15は5／13／9、13:30は0／8／4。昼分の最終完了は13:30／13:54／13:42。5日の最大18は12:58に達し、13:03の最初の完了で17になる。
+- 5日の昼の初回 QD-287 は12:05到着、13:00着手、13:03完了。最後の QD-327 は12:58到着、13:51着手、13:54完了。13:00直後は17通が未着手で1通が確認中。全3日の最長は着手まで55分、完了まで58分。
+- 12月18日14:00 PST に Vanessa、Michael Serrano、Brandon、Emily が研究会。日平均だけで配置を決める案を取り下げ、現行の受付と担当割を維持。Vanessa は翌日回覧、Brandon は代行の責任分担と許容待ち、Emily は別の到着形状の論点を後続の検討に残す。
+- 18日の会合では Brandon の説明資料 `MDR-CA-20241216-LM-01-R01` を参照。会合の記録 `MDR-CA-20241218-LR-01-R01` は19日の回覧用所見の決定根拠。
+- 独立した回覧 “December review queue findings” は12月19日10:27 PST、Vanessa → Michael・Brandon（Cc Emily）。December review workload findings.pdf と Review arrivals and completions.csv を添付。

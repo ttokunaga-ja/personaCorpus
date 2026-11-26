@@ -3,6 +3,7 @@ Desktop/Apr 17 - Rerun talking points.md	05c066e08baca1a6fce97f73ecc6564d0dc552a
 Desktop/Apr 22 - Draft review checklist.txt	af0e3c1553f7350ad97b48bfb1d522f41757c7a7314782483d0183e9c2e2ee55	597	2026-04-22T23:38:00Z
 Desktop/Aug 11 - Monthly volume check.txt	930d5497495a42c87dbb88475d6c4d1bc5bdcda92aa2c879c60b2cec62a7c0a7	460	2026-08-11T16:19:00Z
 Desktop/Aug 9 - Hold rate slide notes.txt	2b124260b5db0921cf155d5ed0b19aa15c5eda7fbb6c65b6ed94aacbb7c659dd	539	2024-08-09T23:43:00Z
+Desktop/Dec 17 - Staffing review questions.txt	eb5804696b4eba85e17816997a2feb4cc8ed44ed495f206d9917e33381263e3b	559	2024-12-17T18:54:00Z
 Desktop/Jan 12 - Negation scope questions.txt	3c0214cfe0a6b227302556b0a05662f04133c52f60c80c120b681c9b81d7045f	550	2026-01-12T17:16:00Z
 Desktop/Jan 23 - January score usage.txt	69d22e0b53bcaf950cec5d50d413abd1c99810b68c0815b4e24b5bbb5da54adf	877	2025-01-23T19:37:00Z
 Desktop/Jul 18 - Agreement reread questions.md	29f9bb259e6a84f692e14ed3876d30d694edfdb72b917e97085de7642b91f4e0	681	2024-07-17T23:52:00Z
@@ -18,9 +19,13 @@ Documents/Conferences-and-funding/Feb 16 - Travel claim correction.txt	1597b0ab1
 Documents/Confidence-abstention/August replay decision counts.csv	1785952e04c75dbd943dec0e04c0f3ca73a50677fe8207ce7d200b0dca0acc70	130	2024-08-09T16:36:00Z
 Documents/Confidence-abstention/August routing replay conditions.pdf	7ac09d720661242eaa4d3977917dcc450512f3c892e188dc7576c01e19f8875c	31944	2024-08-07T22:26:00Z
 Documents/Confidence-abstention/August routing replay report.pdf	78e9f228ca068b3db48956abcf0bb101696f7c6002be4e74229b1aa19ee1229e	32340	2024-08-14T22:11:00Z
+Documents/Confidence-abstention/Continuous review waits.csv	57a3d4cb9e88bf22ae0f95c1190a8146dbee293bfe34476370bd7fc909e91bbd	179	2024-12-09T22:31:00Z
 Documents/Confidence-abstention/Cutoff boundary counts.csv	4b5ac2075ca6ff8f03aabce8c36cfc0a821b793cf49b7f9ba48d832ce9c1665d	122	2026-06-08T16:18:00Z
 Documents/Confidence-abstention/Cutoff comparison June.csv	9f66ca7dff29a1574a5470af7e5927c3bef4f5dc33be1790268c254a7dedc914	282	2026-06-08T16:55:00Z
 Documents/Confidence-abstention/Cutoff routing transitions.tsv	1bb26250cbda29d66a34bd78eef6047f256c836b8a07d847ca95296ed1bdb58b	219	2026-06-08T17:18:00Z
+Documents/Confidence-abstention/Dec 5 - Queue reconciliation.pdf	875d4dbbfff8a848ee341e48bcd573c6ab02ca4a89de6a031d1dd2bf08533346	42244	2024-12-13T18:17:00Z
+Documents/Confidence-abstention/Dec 9 - Replay input check.md	e014e130adccc8f09bbbe64e14435cffe840413d186d5b484569df1f77111090	1109	2024-12-09T19:21:00Z
+Documents/Confidence-abstention/December review workload findings.pdf	d99c828e44fd743d20048d759a86e2175f9a39134596ba1a3915f563afdc2884	47557	2024-12-19T17:38:00Z
 Documents/Confidence-abstention/Error capture metric definitions.pdf	6e033979595147a72401ec2459e64d0904debe2bd3c934d2c67eeba6fb4fe92e	31259	2026-06-05T16:46:00Z
 Documents/Confidence-abstention/Jun 23 - Cutoff review file index.md	430405f96a8c6cd056e36b5e3e88d76c1eae0438532acc71b551f6cf9b1caa95	2068	2026-06-23T23:09:00Z
 Documents/Confidence-abstention/June cutoff comparison - Emily comments.docx	3d888d4cb5b1f6870a84e0c720a77fde2330b34a2f645fee68e8a25abf4de1e7	40352	2026-06-04T17:18:00Z
@@ -30,11 +35,22 @@ Documents/Confidence-abstention/June review input counts.csv	2e70cfda3bfbe16c0f1
 Documents/Confidence-abstention/Misrouting cost memo.pdf	c5ee800c6d7ea8b44fee6c3d1742ec275cf130c0dd3851eda4a72d12248d6e37	33429	2026-06-10T22:37:00Z
 Documents/Confidence-abstention/Misrouting recovery timing.xlsx	bdd0bcdefee227f3705d2baa7f209aaa65ba7e0774edde34ee9440ac5c09da1a	8538	2026-06-16T21:25:00Z
 Documents/Confidence-abstention/Next cutoff evaluation plan.pdf	2bf47ff59ab5e26509bc883efbd1d6973c60e9e6f63973729aef7c7d395f209b	33796	2026-06-19T23:21:00Z
+Documents/Confidence-abstention/Queue balance checks.tsv	53d4099d9ec4d3d190a910ae7ca18a1928740e39b594ce5f516bd16e3aa40a20	486	2024-12-12T19:09:00Z
 Documents/Confidence-abstention/Release band by intake route.csv	0966efe63705651297666e996d52d9558c19554b53b630e0bbc7a65e7ed86b84	292	2026-06-08T18:06:00Z
 Documents/Confidence-abstention/Released cases - joint reading.csv	572dd5716dc88088dafefa6883e09dfc3b73ec21fcf694cd790e4b39320a121c	1060	2026-06-08T22:44:00Z
 Documents/Confidence-abstention/Released error reading notes.md	fc4b7bdcde1e608d3fea835eb919082d18fa74f3a9b21423fa16899789393765	2953	2026-06-08T23:34:00Z
+Documents/Confidence-abstention/Review arrivals and completions.csv	a9a46f7bbfb665db0abb2b89c1166b4eabeabdcd42ac05fc5a47a29e5398b394	8802	2024-12-12T18:23:00Z
+Documents/Confidence-abstention/Review arrivals by shift window.csv	cdaa9b851e53b94d0d791be9d059101c26531e7182269a9df46614501c769e43	341	2024-12-10T19:35:00Z
 Documents/Confidence-abstention/Review queue by intake route.csv	71f3824b827838e6d2576a9fc0d60a84d2fdd31ace49ed9382ff19e5ebcb3213	153	2024-08-09T17:14:00Z
+Documents/Confidence-abstention/Review staffing - Emily comments.docx	3466d9df0013de7dab5223d32167e8cfa4dfe4d23d2b446e11597b3abb9570ae	41002	2024-12-10T18:28:00Z
+Documents/Confidence-abstention/Review staffing - revised.docx	708bb6dd74c06d3155ab8ee575ed3986bcd6c47965e551e95615793726138286	40918	2024-12-13T22:23:00Z
+Documents/Confidence-abstention/Review staffing - working copy.docx	0729be7d106c088f348660c80b5668752ca118009af173a9c162f361afb89b20	40046	2024-12-06T22:14:00Z
+Documents/Confidence-abstention/Review timing definitions.pdf	2b317fd2a7bf2ebf74a6c840224c97b78b08aa1c890a770cf8cbb955d37f0d0e	31487	2024-12-03T17:42:00Z
+Documents/Confidence-abstention/Reviewer shift assumptions.xlsx	8f7509b0d8b48657ada02b0cf5c51ba5d40dc873a15477fcc53b5b99282eafbc	27096	2024-12-11T17:48:00Z
+Documents/Confidence-abstention/Three-day replay design.pdf	d874691e9f712c20f78644c06cb47ff3e14f2e9ca307844800be5486864e01c7	58146	2024-12-03T21:28:00Z
 Documents/Correspondence/April intake rerun for our review.eml	e4566528ef113ca765d5e00d1e88c1ad85a53297d4d5424465efcdce23c0d7b4	171152	2025-04-17T18:48:00Z
+Documents/Correspondence/December intake replay setup.eml	b6004da37953546d6f2dec288d8ceed4b71eccd35e8bd83e251ebd13a4b61885	124543	2024-12-03T22:06:00Z
+Documents/Correspondence/December review queue findings.eml	dabda6384d358cdca75e27a4a489e8969f5774b0867ac59726ee565bada91a58	79249	2024-12-19T18:27:00Z
 Documents/Correspondence/Friday - check the replay queue.eml	f5896ed588a3e6c02e6db39da368d6ef4caafb6327e79a2e9204e80b6a9ea393	44949	2024-08-08T16:38:00Z
 Documents/Correspondence/Inspection routing stays on hold.eml	ef6b2d23997d7ae954eb6e8da4236023287a9588e21541b1ef25f3ec41e04d17	66068	2026-08-12T18:18:00Z
 Documents/Correspondence/June routing review - measures and movement.eml	72e9ab852b7e271d8221906f26e4366ca52c4126f29212dbda6ed239136633ac	45249	2026-06-12T16:26:00Z
@@ -45,6 +61,7 @@ Documents/Correspondence/Nine final points on short intake.eml	1aa4323dbd5a70a10
 Documents/Correspondence/November intake reply decision.eml	4f6bc5d0dd90741ee9ebe4f70b9f0e3583095864373e2a9bf0d28751c1ed9996	69950	2024-11-25T18:21:00Z
 Documents/Correspondence/October intake decision and timing sheet.eml	07123cf095faf0c7b270911c8c305989d7a4085eaca2d4d46dfc683610865dde	59088	2024-10-09T17:47:00Z
 Documents/Correspondence/R184 figure and wording for the talk.eml	3c736a7aed47c0b1f61d44e5ca9119f19a0668798a230c416123e176a3c31ddd	415667	2026-07-16T23:18:00Z
+Documents/Correspondence/Re December intake replay setup.eml	a7d26ee3fb6a749c8e2d6f2baddcdbcc6a2b4833a9651eabc7b14439653b8a62	59738	2024-12-10T21:07:00Z
 Documents/Correspondence/Re Friday - check the replay queue.eml	ec8310072528e8937275f567930de0ebdb5ea3cf53e126da258f7275307f706c	1527	2024-08-08T17:51:00Z
 Documents/Correspondence/Re Inspection routing stays on hold.eml	dc821184b21e8a2d5ed2f9a1c320cc539f6df1bbbbc5a59407c1ac27b08a3f4f	926	2026-08-13T16:42:00Z
 Documents/Correspondence/Re Monday - read what comes off hold.eml	f578eb5ae3818978f0436d602bcb9c9ce1c1722a10fbca68e76aedadd9bb510a	1642	2026-06-05T18:08:00Z
@@ -80,6 +97,8 @@ Documents/Data-descriptions/Short intake collection notes.pdf	492d40903df04e3a88
 Documents/Data-descriptions/Short intake guide Fatima markup.docx	4e10dcde73bf5a5b27204fba4e87f6049a8e4ae81647e77648f696b0bb2f56ac	41746	2024-07-18T23:03:00Z
 Documents/Data-descriptions/Signed disposition reading guide.pdf	e8b28b484cb5d8a85e755b750035d451f4574569021c89516ee8ab20911962cb	32938	2025-08-05T21:44:00Z
 Documents/Lab-meetings/2024/Apr 15 - Intake scope decisions.docx	91e5a2fb26a1fa878d40b154994b3483bfa71c842df209dc70803467a1563e36	40008	2024-04-15T22:06:00Z
+Documents/Lab-meetings/2024/Dec 16 - Review workload.pptx	af7e32060ada19be4f4fe6a7bd2e3b76f8c230c745a230dc343b9b4a20e2defe	37618	2024-12-16T22:43:00Z
+Documents/Lab-meetings/2024/Dec 18 - Intake queue review.docx	59b2e7bf3868dd4326abb8b4a88a30420885eace26df2bd2c23c2444ad5c1c2e	40328	2024-12-19T00:17:00Z
 Documents/Lab-meetings/2024/Jul 18 - Adjudication decisions.docx	94eb3cf6a46675b0c92aacaa3c682df1a23f4360ed2cb9d69eef2db34152c795	40304	2024-07-18T22:44:00Z
 Documents/Lab-meetings/2024/Jul 18 - Intake adjudication slides.pptx	02cdf35cef40ef68c3bb0d55e79bf44106d19377a100b398104d24531f03884f	32016	2024-07-18T19:48:00Z
 Documents/Lab-meetings/2024/Nov 21 - Intake reply minutes.docx	617447f858a99ce67bcd2edbbb05869079c230a3a2b246efaaab8ab536a87585	40493	2024-11-22T00:20:00Z
@@ -129,6 +148,10 @@ Documents/Publications/Revision/Short intake paper - first draft.docx	6cb8983ef8
 Documents/Review-notes/Apr 22 - January deck archive.md	0909e6b72a4aca78124d8afbc4c87852ce9f42a6a150087a352000d1e4f26ee1	858	2025-04-22T17:18:00Z
 Documents/Review-notes/Aug 20 - Reviewer capacity.md	412d579e4e2f7bb73a3cdd36d70d931f5418ad6b36867f40af57c1ea78994249	1150	2024-08-20T23:07:00Z
 Documents/Review-notes/Aug 5 - Pre-truncation length check.md	4a60f91d979940ff599650e51f7ff788dfce1408825747fd9bde7a1323da1619	889	2026-08-05T18:08:00Z
+Documents/Review-notes/Dec 11 - Queue count at restart.md	a664e6f52b35e734700ceff02b7bcb3a1ad0f27b051d7c7fa533fc8a325b9d5b	873	2024-12-11T19:36:00Z
+Documents/Review-notes/Dec 16 - Lunch cover question.md	1eb1d43f8f8d0cbd37cae0ef9b68d7868a4491861b2d457cd1a436e22f6fb2a6	857	2024-12-16T17:26:00Z
+Documents/Review-notes/Dec 2 - Review load questions.md	2a8834a61d138d4dd1aa78d14a425237dade77601ee0598fd6343b08b6ac24ae	1065	2024-12-02T18:18:00Z
+Documents/Review-notes/Dec 9 - Replay sort mistake.md	e38b1d72885dd7aa218dd9bbc62d097f9ae242286bb5075cf1caad543fa564a3	890	2024-12-09T18:14:00Z
 Documents/Review-notes/Feb 24 - Intake introduction notes.md	8aa23417e88bc7baaf270b29f5354d26d90031f1db11b3c70c2329f618280d5d	744	2026-02-24T22:45:00Z
 Documents/Review-notes/Feb 3 - Frozen label check.md	7151941c6222de3fe9e91bc90abcbd988d8633705460fdfca16f67a2f8c94e0f	908	2026-02-03T19:08:00Z
 Documents/Review-notes/Feb 6 - Case split options.md	a55f4faf4692b40f9cb3e85bb71428b7c3c29cd006d942d5d28ee456aa76933d	1617	2025-02-06T23:48:00Z
@@ -155,6 +178,7 @@ Documents/Review-notes/Sep 23 - Fenwick review schedule.txt	aefe70eeba188707dfdc
 Documents/Review-notes/Sep 3 - Tail-only window trial.md	f5d0f6f22cf4817f9cc1586424b5c3a6786cdea61323e113ceb35ee6dc5c7ad4	1557	2025-09-03T22:57:00Z
 Documents/Staff-notes/Aug 14 - Chloe reading room.md	0e3429476677e5ce15610bbcd33da4ca87d60a8e14183831e38ffd1d067bff3d	347	2026-08-14T17:17:00Z
 Documents/Staff-notes/Chloe - Paired reading training.docx	4e2b6620f1e9e43cc27dffa97835d9d1417b010dc8f2871371fd9950b313eec9	39793	2025-08-11T22:12:00Z
+Documents/Staff-notes/December journal shelf.eml	02c638de9172b90956b4992c17ab1d369a35909d320965fb4a13724827b58a9e	663	2024-12-07T00:23:00Z
 Documents/Staff-notes/Friday methods hour moved.eml	c313d42eba6cd86b3fb06d506a90afa6e5beb15bd349accee2c4883c6790cc10	788	2024-10-04T16:11:00Z
 Documents/Staff-notes/HDMI cable for lab meeting.txt	a66bd0fe71f9ac938912d01ee86c00f6a920cdda65068c751d8235d59ee087fd	195	2025-09-10T23:04:00Z
 Documents/Staff-notes/Jun 4 - Projector cart return.txt	c04d36acbf08837f3118481444c34332e5e63994ef839f82a997c105071e6285	175	2024-06-04T18:19:00Z
@@ -286,6 +310,8 @@ Pictures/Charts/August paired misses by disposition.png	5718aff748484c44d03485bf
 Pictures/Charts/August replay review load by route.png	ed107fe0029eafc67d208a198511175e18d4a15ccc20dcaad3b173d4722d464b	109512	2024-08-13T16:52:00Z
 Pictures/Charts/Cutoff rates by denominator.png	42d1fbd26f6b89546609393324c8d285db362d10377fd857fdf45a1b8eeff161	82399	2026-06-09T20:46:00Z
 Pictures/Charts/Cutoff routing flows.png	1cf183addbd24c80ad22ec5665b9890bdb3db47d14f4fb7779273778955063b5	101667	2026-06-09T22:14:00Z
+Pictures/Charts/Dec 9 - Review minutes by day.png	b912022c760b55186c6d9b1e01b8b464cae8e79a2e2bf9383b5109a541d1d9e1	95043	2024-12-09T23:12:00Z
+Pictures/Charts/December review queue by time.png	843c459b9e4e1ba3156f52fce5e9ce4d7f4da86f5dc4480a52c4ae467d1ba31b	147381	2024-12-12T22:06:00Z
 Pictures/Charts/Initial scope flag agreement.png	bb932f17a065174d5cee107d0c2985cfbd8f849d112b62d0916e03c15d58ae55	84084	2026-01-20T18:54:00Z
 Pictures/Charts/Inspection bodies beyond 2048.png	6b9f8089c320607b777537e414c304b4e2d3356285cb512129e0ad4154d70f85	89841	2025-08-08T17:31:00Z
 Pictures/Charts/Intake scores by split method.png	7a6846a8ed4adde1dce21909d4388e6728f5530d854e1258b2d8cf695c76875d	90011	2025-04-16T22:08:00Z
@@ -301,5 +327,6 @@ Pictures/Charts/Missed evidence span locations.png	9c56b46a8a4f6a739ad85d8beede5
 Pictures/Charts/Monthly cost by record volume.png	94b2e0c51d8ab36705cd6e1b1fe317fe61f3a6ac927fd608ff9c4cd3c738a6b9	142253	2026-08-11T18:18:00Z
 Pictures/Charts/R184 F1 difference by intent.png	7e665ceb502c49d277e065ae0834a3c7357465b7eeda1ded0351060c743a57b1	152405	2026-07-17T21:28:00Z
 Pictures/Charts/Reply changes by quote boundary.png	84db705378677b0556a8cea0d2170eaf70de7ac79da340a6b39cbb98c849226c	100876	2024-11-13T21:09:00Z
+Pictures/Charts/Review waits with and without lunch.png	0f6f0e87f3b48d5f0c82c60a6b0b1bbeec6d9f7baa8aa6052a1b8c4976b4c510	118086	2024-12-12T23:42:00Z
 Pictures/Charts/Second-read monthly cost breakdown.png	5d0ef5e1c064d38d55d45f98f0af3068fe43e6f1d888d669c04d67309921f554	122070	2026-08-12T16:13:00Z
 Pictures/Charts/Second-read rate and monthly cost.png	cf7d4fb8833191c31566dfa2460b4d3f0b306b5ec8f6d8a896e5a6a07830716c	120500	2026-08-18T21:08:00Z
