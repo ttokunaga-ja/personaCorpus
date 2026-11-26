@@ -4,3 +4,5 @@
 |---|---|---|---|
 | p20-investigative-journalist | b011 | 監査 hold: progress/p20-investigative-journalist/b011.audit.md | 2026-11-26T08:12:46.614591+00:00 |
 | p10-management-consultant | b011 | 監査 hold: progress/p10-management-consultant/b011.audit.md | 2026-11-26T08:14:58.744990+00:00 |
+| p07-humanities-researcher | b011 | 監査 hold: progress/p07-humanities-researcher/b011.audit.md | 2026-11-26T08:18:50.716369+00:00 |
+| p15-recruiter-people-ops | b013 | 監査 hold: progress/p15-recruiter-people-ops/b013.audit.md | 2026-11-26T08:18:54.225941+00:00 |
