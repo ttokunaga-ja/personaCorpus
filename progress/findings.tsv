@@ -4871,3 +4871,26 @@ date	persona	batch	stage	round	criterion	path	reason
 2026-11-26	p03-security-grc-analyst	b012	check	2	source	Desktop/日高_立会いの確認項目案_井上修正.docx	body token overlap 0.584 < 0.6
 2026-11-26	p03-security-grc-analyst	b012	check	0	source	Documents/メール保存/社内/2024-10-18_日高の年内発注条件を返します.eml	body token overlap 0.766 < 0.8
 2026-11-26	p03-security-grc-analyst	b012	check	1	source	Documents/メール保存/社内/2024-10-18_日高の年内発注条件を返します.eml	body token overlap 0.766 < 0.8
+2026-11-26	p20-investigative-journalist	b011	check	0	source	Documents/Staff-and-grants/October mileage notebook.pdf	body token overlap 0.222 < 0.3
+2026-11-26	p20-investigative-journalist	b011	check	1	source	Documents/Staff-and-grants/October mileage notebook.pdf	body token overlap 0.210 < 0.3
+2026-11-26	p20-investigative-journalist	b011	check	2	source	Documents/Staff-and-grants/October mileage notebook.pdf	body token overlap 0.136 < 0.3
+2026-11-26	p08-product-manager	b011	templates-review	0	other	README.md	型16件と明細・合計の追加手順は照合できたが、「巡回計画見直しの組版見本」と「Dalton の組版見本」が参照する scratch/p08-product-manager/b010/work/templates-0002/ が存在せず、掲載された見本とページ画像を開けない。
+2026-11-26	p08-product-manager	b011	draft-review	0	D10	Desktop/2024-11-14_窓口交代時の案内確認.pptx	スライド1の表紙に、olta-review.pptxの表紙副題に必要な対象四半期（暦年2024年Q4／FY2024 Q3）がない。 また、スライド3の発表者メモは未取得項目を空欄のままにする指示で、品質に渡す際は「未取得」と明記する11月6日の品質照会の記入手順と整合しない（D4）。
+2026-11-26	p08-product-manager	b011	draft-review	0	D3	Documents/顧客の声/問い合わせ集計/窓口応対の引継ぎ確認_11月.xlsx	「引継ぎ確認」の11月-01〜04に、匿名照合番号から参照できる窓口の元記録や控えの所在がなく、たとえば11月-04の「条件記録を品質へ渡した」を引継ぎ記録までたどれない（11月14日の討議資料は手順例で、事後点検の元記録ではない）。
+2026-11-26	p08-product-manager	b011	draft-review	0	D4	Desktop/2024-10-11_受付相談の分類例_石田たたき.docx	訂正表の問合-09は初稿で既に「再現条件照会」になっており、10月18日のv0.2で西村が同区分へ直す計画とつながらない。変更履歴の10:03も台帳の初稿作成10:08より前で、原稿に別の作成日時指定がない。
+2026-11-26	p08-product-manager	b011	draft-review	0	D10	Desktop/2024-10-11_受付案内の話し順_石田たたき.pptx	スライド1の副題と表題下の管理情報に、olta-review.pptxの表紙副題に必要な対象四半期「暦年2024年Q4／FY2024 Q3」が欠けている。
+2026-11-26	p08-product-manager	b011	draft-review	0	D3	Pictures/Flows/受付一覧_窓口の聞き分け.png	原稿13行目の開始質問「いま、受付一覧を開いていますか」には「いいえ」の行き先がなく、別画面を開いている利用者も受付一覧の行・番号を確認する次の問いへ進む構造になっている。
+2026-11-26	p08-product-manager	b011	draft-review	0	D3	Documents/オルタ巡回チェック/利用定着/受付一覧_案内順の差し替え確認.xlsx	媒体照合の明細1「番号の手掛かり」の旧ヘルプ欄に「表の下に番号を選ぶ案内」とあるが、旧案内HTMLでは番号選択は末尾の「詳細を確認する」にあり、表直下の案内は10月10日の受付一覧画面控えの記述で出典が区別されていない。
+2026-11-26	p08-product-manager	b011	draft-check	1	source	Documents/顧客の声/問い合わせ集計/窓口応対の引継ぎ確認_11月.xlsx	/home/ttokunaga-ja/dev/github.com/ttokunaga-ja/personaCorpus/sources/p08-product-manager/Documents/顧客の声/問い合わせ集計/窓口応対の引継ぎ確認_11月.xlsx.md: No such file or directory (os error 2)
+2026-11-26	p08-product-manager	b011	draft-review	2	D3	Documents/顧客の声/問い合わせ集計/窓口応対の引継ぎ確認_11月.xlsx	「引継ぎ確認」の11月-01〜04は表内の番号と説明されるだけで、各行を窓口の元記録や控えに結び付ける参照がない。11月-04の「条件記録を品質へ渡した」は引継ぎ先への送付記録まで照合できない。11月14日資料は交代の討議例、11月22日議事録は4例の結果の要約で、いずれにも行別の参照はない。
+2026-11-26	p08-product-manager	b011	draft-review	0	D10	Desktop/2024-10-18_受付相談の分類例_西村さんコメント.docx	「訂正の根拠」の02で初稿の「02は目の前の行から詳細を開けた例。」が消え、続く「番号を選ぶ手掛かりを先に伝える余地がある。」にも加筆があるが、変更履歴の10:55の項目は新しい一文の挿入だけで、この削除・加筆を含むWordの変更履歴を原稿から再現できない。
+2026-11-26	p08-product-manager	b011	build-review	0	V1	Library/CloudStorage/オルタ現場/巡回チェック_窓口応対の場面別案内.pptx	2枚目の受付一覧図で、選ぶべき「受付番号」が左の受付番号列の下ではなく中央の受付日列寄りに置かれ、矢印は右端を指しているため、原稿指定の「表の受付番号を選べる箇所として矢印で指す」を再現していない。
+2026-11-26	p08-product-manager	b011	build-review	0	V2	Desktop/2024-10-16_受付一覧の応対練習.pptx	全6枚の右下のページ番号が墨色（#283C40）。型READMEの成形指定と組版見本では青緑（#006D77）。3場面の対話・選択表・発表者ノートは原稿と一致。
+2026-11-26	p08-product-manager	b011	build-review	0	V2	Desktop/2024-10-17_受付詳細の品質相談.pptx	全4枚の右下のページ番号が墨色（#283C40）。型READMEの成形指定と組版見本では青緑（#006D77）。02・09の分岐図、09・10の照会表と発表者ノートは原稿と一致。
+2026-11-26	p08-product-manager	b011	build-review	0	V3	Pictures/Flows/受付一覧_窓口の聞き分け.png	図の中央左、「受付一覧を開けましたか」の「はい」ラベルに「対象の行と受付番号が表示されていますか」から下へ向かう別の青緑の経路線が重なり、2本の経路が無標識の十字に見える。
+2026-11-26	p08-product-manager	b011	build-review	1	V2	Library/CloudStorage/オルタ現場/巡回チェック_窓口応対の場面別案内.pptx	2枚目の矢印は左の受付番号列へ向くようになったが、3〜5枚目の2段本文（左の会話と右の「一手」「聞き直しをやめる条件」）が、型の2段レイアウトとREADMEで指定された20ptに対して18ptで組まれている。
+2026-11-26	p12-support-success-lead	b011	check	0	source	Documents/キュー/2024/04/30日_月末件数の照合.xlsx	missing source values: 426
+2026-11-26	p12-support-success-lead	b011	build-review	1	V1	Documents/キュー/2024/04/30日_棚卸し控えの目次.html	「4月19日09:00」の会議資料リンク直後に「(0419_春のキュー棚卸し.pptx)」、「4月22日」の訂正理由リンク直後に「(0422_未解決件数の訂正理由.pdf)」が表示され、原稿でリンク先にだけ指定されたファイル名が本文へ追加されている。
+2026-11-26	p02-site-reliability-engineer	b012	build-review	0	V2	Documents/Recovery-evidence/Archive candidate review minutes.docx	第1ページの管理欄2段落が指定のRecord metadataではなくNormalで、第1ページのDecisions表と第2ページのActions表はいずれもRecord table・指定のセル段落スタイルを使わず黒い総罫線のTable Gridになっている。両表とも幅約167.6 mmで型の上限164 mmを超え、見出し行の繰り返し設定もない。
+2026-11-26	p02-site-reliability-engineer	b012	build-review	1	V2	Documents/Recovery-evidence/Archive candidate review minutes.docx	第1ページのDecisions表（Item／Decision and basis）と第2ページのActions表（Owner／Action／Timing）の見出しセルが、型のRecord tableで指定されたBRTの青 #233E8B を直接指定の青緑 #1F4E5F で上書きしており、両ページで青緑に表示される。
+2026-11-26	p14-finance-controller	b016	draft-review	0	D10	Documents/支払/2025/2025-10/支払予定_月末.xlsx	表題下の管理欄から前回判定で確認済みのF3「確認」用の堀口の自己確認が欠けており、現稿には堀口の作成・別シートの照合担当、三枝の工場控え確認、大庭の上程承認だけが記され、月末予定の確認者として指定された値がない。

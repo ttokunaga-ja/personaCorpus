@@ -10,7 +10,7 @@
 | 打合せ記録 | オルタ、石田。小野との受付観察、社内の見積り確認と決定 | `olta-minutes.docx` | 共通便箋。日時と参加者・確認事実・決定・担当と期限の4節 |
 | 管理者へのご案内 | オルタ、石田・中川。若松の管理者説明会への案内・準備連絡 | `olta-guidance.docx` | 共通便箋、3節。発信元がオルタのため自社ロゴを使う |
 | 指標の定義・集計 | オルタ、三浦・石田。期間・分母・分子と採用率の照合 | `olta-metrics.xlsx` | A4横、青緑白抜き見出し。7列、分母・分子・比率・目標を分離 |
-| 要望と工数の照合・海外要望の採否 | オルタ、石田・太田。要望の出所、工数、公開時の扱い、海外販売で伝える範囲と判断根拠を要望番号単位で照合 | `olta-requests.xlsx` | A4横、青緑白抜き見出し。先頭に照合順と要望番号。海外要望では採否・根拠・英語の説明範囲を別列にする |
+| 要望と工数・問い合わせ分類の照合 | オルタ、石田・太田・西村。要望の工数と採否、海外販売で伝える範囲、問い合わせの分類根拠と引継ぎ先を照合 | `olta-requests.xlsx` | A4横、青緑白抜き見出し。先頭に照合順と要望番号または匿名照合番号 |
 | 公開までの依存工程 | オルタ、石田・太田・松田。工程の前後関係と再判定に必要な証跡を担当別に照合 | `olta-dependencies.xlsx` | A4横、青緑白抜き見出し。工程順・先行工程・確認予定日を分け、右側に公開条件と対応を置く |
 | 拠点別の利用確認 | オルタ、石田・中川。12拠点の利用と教育を区別して整理 | `olta-sites.xlsx` | A4横、共通書式。7列、教育状況と利用状況を別列にする |
 | 投資回収の前提比較 | オルタ、中野・石田。有償社数、月次寄与、初期費用を条件別に置き、回収月数と未確認事項を比較 | `olta-payback.xlsx` | A4横、共通書式。7列、金額と回収月数を右揃え、右隣の未確認事項は字下げ |
@@ -31,6 +31,10 @@
 受付観察は `olta-minutes.docx`、再利用要件は `olta-report.docx` を使う。開発向け比較と営業向け説明は共通の `olta-review.pptx` から別々に作る。DOCXと同内容のPDFは完成したDOCXから `bin/office-pdf` で出し、小野から届く受付手順は若松の `wakamatsu-intake.cls` で組む。
 
 2024年8〜9月の巡回計画見直しでは、田村から届く巡回表に `kosaka-round-log.xlsx`、石田の聞き取りに `olta-minutes.docx`、石田が保守課の朝礼で説明する資料に `olta-review.pptx` を使う。聞き取りの「確認した事実」に36巡回の総所要時間に占める移動28%と、受付時刻の制約を書く。朝礼では固定する区間と入れ替えられる区間を先に示し、受付が開く前に着く最短順では回れない例を図で説明する。班の配付PDFと対面合意票の台紙は下のTeXの手順で組む。CSVには移動・点検・待機の分類と照合に用いた巡回番号を置く。順路図PNGや付箋写真には訪問先の住所を載せない。
+
+2024年10〜11月の巡回チェックの案内改訂では、分類が割れた例を `olta-requests.xlsx` に記録し、訂正文書には `olta-report.docx` を使う。訂正の4節は「対象と照合条件」「分類例の訂正」「訂正の根拠」「窓口と品質への引継ぎ」とし、番号は `RP`。西村と読み合わせた212件、説明不足として切り出した67件、残る145件は問い合わせの件数として記す。145件の扱いは個別の確認に従う。匿名抜粋CSVと照合表は匿名照合番号で突き合わせ、旧案内HTMLは改訂前の表示を残し、PNGには案内を見落とした画面上の位置を示す。
+
+窓口応対用と松田への品質相談用は `olta-review.pptx` から別々に作る。窓口用では画面のどこから読んで何を開くかを先に示す。品質相談用では案内どおりに進めた際に止まった画面、操作順、期待した結果と実際の応答を照会する。利用者向けの操作案内PDFは `olta-extract.cls` の `\OFGuideRecord[利用者向け配布資料]` と `NT` の番号で組む。「一覧から詳細を開く」「操作の条件」などの節に分け、場所を見つける手順と進めない場合に窓口へ伝える項目を本文で示す。
 
 2024年12月〜2025年1月の年間計画では、全体開発の旧稿と試行範囲の文書を `olta-report.docx`、福田向け投資案と試行担当者向けの説明を `olta-review.pptx` からそれぞれ作る。経営会議に直接渡すPDFには `olta-extract.cls` の経営会議用管理欄を使う。商談条件のCSVには確認済み・未確認の区別を持たせる。見込4社と有償移行の想定は別に扱い、1月24日の提案は試行に限定する。試行で確かめる項目と再判断の条件は原稿に従う。決定メール・説明資料には対象の暦年と会計年度の四半期を併記する。
 
@@ -129,6 +133,12 @@ for index, row in enumerate(table.rows):
 
 `olta-requests.xlsx` のA2に表題と対象四半期を入れ、管理番号の用途は `RQ` とする。A6:G6を照合順、要望番号、利用場面・要望、採否、採否の根拠、販売説明の範囲（英語）、保留・再確認条件に変更する。列幅は順に10、16、25、10、28、31、28、見出し行高は30pt。Aは `OF Number`、B〜Gは `OF Text`。要望番号は発行元の番号を文字列で保持し、要望1件につき1行を作る。明細行高は56ptを目安にして、英語の説明と日本語の根拠が読める高さに調整する。集計を示す場合は末尾に対象と採否の内訳を `OF Note` で記す。フィルタ・印刷範囲と管理欄は共通手順に従う。
 
+### 問い合わせ分類が割れた例の照合
+
+`olta-requests.xlsx` のA2を「巡回チェックの問い合わせ分類照合」にし、A6:G6を「照合順」「匿名照合番号」「相談時の画面・操作」「読み合わせ前の分類」「見直し後の扱い」「判断根拠」「次の対応」に変更する。列幅は順に10、17、27、18、22、26、31、見出し行高は30pt。共通手順で `RQ` の番号・版・基準日・作成者を入れる。
+
+7行目から照合する問い合わせを1件1行で入れ、Aに `OF Number`、B〜Gに `OF Text` を使う。Bは文字列で保持し、左字下げ1を保つ。明細の高さは54ptを目安にし、判断根拠や次の対応が折り返す行は必要に応じて広げる。画面内に記載があり見つからない場合は案内順の改訂、記載に沿っても先へ進めない場合は再現条件の照会へ回す。条件が不明ならFに未確認の根拠、Gに確認先を記す。匿名抜粋の末尾に照合範囲を記す場合はA:Gを結合して `OF Note` を付ける。抜粋の明細には合計を置かない。フィルタ・印刷範囲・繰返し行は共通手順に従う。
+
 ### 小坂冷熱サービスの巡回所要時間記録
 
 1. `load_workbook` で `kosaka-round-log.xlsx` を開く。C3（C3:D3）に管理番号、G3（G3:H3）に版、C4（C4:D4）に発行日、G4（G4:H4）に作成者を入れる。C4は日付値と `yyyy-mm-dd`。3〜4行目は24pt高で、入力欄の左字下げと折返しを保つ。
@@ -174,24 +184,21 @@ for index, row in enumerate(table.rows):
 
 CSVは原稿の素の列と値だけを出し、ロゴ・管理行を混入させない。EMLは送受信ヘッダと本文・引用・実添付。公開範囲の決定メールには対象四半期を記す。石田の翌朝の書き直しメモはMarkdownやTXTで、会社の便箋にしない。画面スクリーンショットはアプリの表示として作り、Officeの紙面へ貼り替えない。製品名、期間、画面に表示する集計値は計画と台帳に従う。写真・手書き画像を制作する段階ではimagegen skillを読む。
 
-## 巡回計画見直しの組版見本
+## 組版見本
 
-作業フォルダは `scratch/p08-product-manager/b010/work/templates-0002/`。見本の管理番号・明細・照会内容は組版確認用。成形には計画・台帳・原稿の値を使う。
+作業フォルダは `scratch/p08-product-manager/b011/work/templates-0002/`。見本はその下の `examples/`、ページ画像は `render/` の各フォルダにある。見本の番号・明細・操作例は印刷確認用。成形には計画・台帳・原稿の値を使う。
 
-| 用途 | `examples/` 内の見本 | `render/` 内のページ画像 |
+| 用途 | `examples/` 内の見本 | `render/` 内のページ画像フォルダ |
 |---|---|---|
-| 受領巡回表・3明細 | `kosaka-round-log-short.xlsx` | `kosaka-round-log-short/kosaka-round-log-short-1.png` |
-| 受領巡回表・36明細 | `kosaka-round-log-long.xlsx` | `kosaka-round-log-long/kosaka-round-log-long-1.png`・`kosaka-round-log-long/kosaka-round-log-long-2.png`・`kosaka-round-log-long/kosaka-round-log-long-3.png` |
-| 聞き取り記録 | `olta-minutes.docx` | `olta-minutes/olta-minutes-1.png` |
-| 朝礼資料・5レイアウト | `olta-review.pptx` | `olta-review/olta-review-1.png`・`olta-review/olta-review-2.png`・`olta-review/olta-review-3.png`・`olta-review/olta-review-4.png`・`olta-review/olta-review-5.png` |
-| 班への配付 | `olta-route-guide.tex`・`olta-route-guide.pdf` | `olta-route-guide/olta-route-guide-1.png` |
-| 対面合意票の台紙と画像化の確認 | `olta-route-agreement.tex`・`olta-route-agreement.pdf`・`olta-route-agreement-scan.pdf` | `olta-route-agreement/olta-route-agreement-1.png`・`olta-route-agreement-scan/olta-route-agreement-scan-1.png` |
-
-## Dalton の組版見本
-
-同じ作業フォルダにPartner Request Briefの短版と長版を置く。
-
-| 要望件数 | `examples/` 内の原稿と PDF | `render/` 内のページ画像 |
-|---|---|---|
-| 3件・1頁 | `dalton-request-brief-short.tex`・`dalton-request-brief-short.pdf` | `dalton-request-brief-short/dalton-request-brief-short-1.png` |
-| 16件・2頁 | `dalton-request-brief-long.tex`・`dalton-request-brief-long.pdf` | `dalton-request-brief-long/dalton-request-brief-long-1.png`・`dalton-request-brief-long/dalton-request-brief-long-2.png` |
+| 問い合わせ分類照合・3明細 | `olta-requests-inquiry-short.xlsx` | `olta-requests-inquiry-short/` |
+| 問い合わせ分類照合・24明細 | `olta-requests-inquiry-long.xlsx` | `olta-requests-inquiry-long/` |
+| 分類例の訂正記録 | `olta-report-inquiry.docx` | `olta-report-inquiry/` |
+| 分類例の訂正記録・複数頁の明細表 | `olta-report-inquiry-long.docx` | `olta-report-inquiry-long/` |
+| 窓口用の案内・5レイアウト | `olta-review.pptx` | `olta-review/` |
+| 品質担当への照会 | `olta-review-quality.pptx` | `olta-review-quality/` |
+| 利用者向けの操作案内 | `olta-extract-guide.tex`・`olta-extract-guide.pdf` | `olta-extract-guide/` |
+| 照会事項の直接出力・複数頁の明細表 | `olta-extract-long.tex`・`olta-extract-long.pdf` | `olta-extract-long/` |
+| 小坂の受領巡回表・3明細 | `kosaka-round-log-3.xlsx` | `kosaka-round-log-3/` |
+| 小坂の受領巡回表・36明細 | `kosaka-round-log-36.xlsx` | `kosaka-round-log-36/` |
+| Dalton Partner Request Brief・3件 | `dalton-request-brief-3.tex`・`dalton-request-brief-3.pdf` | `dalton-request-brief-3/` |
+| Dalton Partner Request Brief・16件 | `dalton-request-brief-16.tex`・`dalton-request-brief-16.pdf` | `dalton-request-brief-16/` |
