@@ -1286,12 +1286,13 @@ fn word_revision_source(body: &str, path: &Path, zone: chrono_tz::Tz) -> Result<
     let instruction = re(
         r"(?m)^[-*] (削除|挿入|コメント) *\| *([^|\n]+?) *\| *(\d{4}-\d\d-\d\d \d\d:\d\d [+-]\d{4}) *\|",
     );
+    // Full-width pipe rows put kind, author and local time in positional fields.
     let labeled = re(concat!(
-        r"(?m)^[-*][ \t]+種類[:：][ \t]*(削除|挿入|コメント)[ \t]*(?:[;／|][ \t]*|\r?\n[ \t]+)",
-        r"人物[:：][ \t]*([^\r\n]+?)[ \t]*(?:[;／|][ \t]*|\r?\n[ \t]+)",
-        r"日時[:：][ \t]*(\d{4}-\d\d-\d\d \d\d:\d\d)(?: ([A-Z]{2,6}|[+-]\d{4}))?[ \t]*(?:[;／|][ \t]*|\r?\n[ \t]+)",
-        r"対象(?:の文)?[:：][ \t]*([^\r\n]+?)[ \t]*(?:[;／|][ \t]*|\r?\n[ \t]+)",
-        r"新しい文[:：][ \t]*([^\r\n]+)\r?$",
+        r"(?m)^[-*][ \t]+(?:種類[:：][ \t]*)?(削除|挿入|コメント)[ \t]*",
+        r"(?:｜|(?:[;／|][ \t]*|\r?\n[ \t]+)人物[:：])[ \t]*([^\r\n]+?)[ \t]*",
+        r"(?:｜|(?:[;／|][ \t]*|\r?\n[ \t]+)日時[:：])[ \t]*(\d{4}-\d\d-\d\d \d\d:\d\d)(?: ([A-Z]{2,6}|[+-]\d{4}))?[ \t]*",
+        r"(?:[;／|｜][ \t]*|\r?\n[ \t]+)対象(?:の文)?[:：][ \t]*([^\r\n]+?)[ \t]*",
+        r"(?:[;／|｜][ \t]*|\r?\n[ \t]+)新しい文[:：][ \t]*([^\r\n]+)\r?$",
     ));
     let comment = re(concat!(
         r"(?m)^[-*] 種類：コメント。人物：([^。\n]+)。日時：(\d{4}-\d\d-\d\d \d\d:\d\d [A-Z]{2,6})。",
@@ -3538,6 +3539,17 @@ mod handout_and_revision_tests {
         assert_eq!(
             word_revision_source(&pipes, file.path(), zone).unwrap(),
             "Activation"
+        );
+        let compact =
+            "- コメント｜Editor Name｜2025-03-18 13:17｜対象：reply｜新しい文：Add the reply date.";
+        assert_eq!(
+            word_revision_source(compact, file.path(), zone).unwrap(),
+            "reply"
+        );
+        let unmatched = compact.replace("13:17", "13:18");
+        assert_eq!(
+            word_revision_source(&unmatched, file.path(), zone).unwrap(),
+            unmatched
         );
         let wrong = pipes.replace("Send the roster", "Send the contract");
         assert_eq!(
