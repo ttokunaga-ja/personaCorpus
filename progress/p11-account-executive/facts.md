@@ -224,6 +224,22 @@
 - 06-13 13:00、Michelle・Tracy・Divya・Darren Vasquezの引継ぎ。名簿更新はTracy、定着相談はDarren、契約条件の照会はMichelleが受け持つ。
 - Tracyのメールは `tracy@waverley-storage.example`。05-01 09:18 Tracy → Michelle「Waverley - can we open in six weeks?」（独立、添付なし）。05-05 15:26 Michelle → Tracy「Waverley - May 5 order and rollout briefing」（独立、注文条件PDFと面談で使った導入説明HBC-WAV-20250505-BRF-01 v1.0のPPTXを実添付）。
 
+## Chicago訪問と短時間不在時の代理受付
+
+- この節の記録日時は2025年・DenverのMDT。07-30 13:00 MDT（Chicago現地14:00 CDT）、Michelle・Divya・TracyがWaverleyを訪問。Tracyは会議室の掲示見本1枚だけ撮影を許可し、Michelleは13:24 MDTに撮影。人・連絡先・画面は写さない。
+- TracyはOfficeのシフト責任者に代理受付を依頼。08-04に本人の引受けとChicago平日09:00〜15:00を確認した。時間外はTracyの次の勤務時に回す。
+- 代理は受付・受領連絡・引継ぎまで。時刻、現場、当該照会への折返し先、用件、保留先を記録し、判断や回答時刻は約束しない。手順はDarren、名簿・送信先一覧・アクセスの判断はTracy、契約照会はMichelle。Tracyの勤務復帰時に未処理分を渡し、長期不在の承認者は別途Tracyが決める。
+- 訪問質問票 HBC-WAV-20250730-WRK-01 v1.0 はWordと書き込み済み紙控えで共通。HBC-WAV-20250730-WRK-02 v1.0 は別の訪問議事録。
+- 07-21〜07-29の匿名化した照会4件はW-01 受領確認の控えの場所（Darrenへ）、W-02 折返し希望時刻（代理が記録）、W-03 Dispatch送信先一覧の訂正、W-04 Site Operations交代者へのアクセス付与（後2件はTracy保留）。
+- 掲示文の社内草案 HBC-WAV-20250805-WRK-01 はMichelleのv0.1からDarren添削のv0.2へ。08-07 11:00 MDTにDarrenがTracy・Officeのシフト責任者・Michelleへ受付境界を説明し、説明PPTXと印刷PDFは HBC-WAV-20250807-BRF-01 v1.0。
+- 08-13 11:00 MDTの4件の再現はDarren・Tracy・Officeのシフト責任者・Michelle。初回は3件一致、W-03だけ差戻し。送信先一覧・権限の変更は行わず、折返し欄を「Callback for this inquiry」と呼び分けて08-15 10:30 MDTに同じ4人でW-03の経路を再確認し合格。
+- 08-19 10:00 MDTにTracy・Darren・Michelleが案内の記載を確認し、Tracyは同日に承認。案内 HBC-WAV-20250820-WRK-01 v1.0 のWordと配布PDFは同版で、08-25から適用する。
+- 08-25の初日実績は2件。控えの探し方1件はDarren、サイトの送信先変更1件は保留してTracyへ。08-27 11:00 MDTにTracy・Darren・Michelleがこの分担で継続し、旧掲示文は差し替えと確認。
+- 「Waverley - July 30 coverage follow-up」は①07-30 15:10 Michelle → Tracy（Cc Divya・Darren）、②08-04 09:26 Tracy → Michelle（Re:、Cc Divya・Darren、①の依頼を引用）。両方とも添付なし。
+- 08-07 13:42 Darren → Tracy（Cc Michelle）「Waverley - backup intake briefing copy」は独立、`Waverley backup intake briefing.pdf` を実添付。08-13 14:04 Darren → Michelle・Divya「Darren - separate the two contact fields」は独立、添付なし。
+- 08-19 11:48 Tracy → Michelle・Darren「Tracy - approval for the backup intake notice」は独立、添付なし。08-20 10:12 Michelle → Tracy（Cc Darren）「Waverley - August 25 backup intake notice」は独立、`Waverley backup intake notice.pdf` を実添付。
+- 08-26 08:54 Tracy → Michelle・Darren「Tracy - first day at the backup desk」、08-27 14:26 Michelle → Divya・Darren「Waverley - close the August coverage check」はそれぞれ独立、添付なし。
+
 ## 74%の確認と7月開始の更新
 
 - 利用の観測窓は2026-05-07〜06-05の現地30暦日。業務連絡の送信または受領確認が1件以上ある席を組ごとに一意に数え、ログインだけは含めない。06-08のCSVと集計表HBC-WAV-20260608-ADP-01は同じ窓・定義を使う。
