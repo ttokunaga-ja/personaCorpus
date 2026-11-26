@@ -1881,15 +1881,21 @@ impl Batch {
                     .parent()
                     .unwrap_or(Path::new(""))
                     .to_owned();
-                let local = Path::new(&link[1]).components().all(|part| match part {
-                    std::path::Component::Normal(name) => {
-                        target.push(name);
-                        true
-                    }
-                    std::path::Component::CurDir => true,
-                    std::path::Component::ParentDir => target.pop(),
-                    _ => false,
-                });
+                let Ok(decoded) = percent_encoding::percent_decode_str(&link[1]).decode_utf8()
+                else {
+                    continue;
+                };
+                let local = Path::new(decoded.as_ref())
+                    .components()
+                    .all(|part| match part {
+                        std::path::Component::Normal(name) => {
+                            target.push(name);
+                            true
+                        }
+                        std::path::Component::CurDir => true,
+                        std::path::Component::ParentDir => target.pop(),
+                        _ => false,
+                    });
                 if local
                     && let Some(path) = target.to_str()
                     && prerequisites.contains(path)

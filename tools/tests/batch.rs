@@ -423,15 +423,23 @@ fn attachment_declarations_schedule_email_after_attachment_review() {
 
 #[test]
 fn linked_plan_prerequisite_finishes_before_the_document_is_built() {
+    assert_linked_build_order(FIRST, "../Documents/記録.txt");
+}
+
+#[test]
+fn percent_encoded_link_waits_for_planned_file_with_spaces() {
+    assert_linked_build_order("Documents/Trial scope.txt", "Trial%20scope.txt");
+}
+
+fn assert_linked_build_order(parent: &str, link: &str) {
     let f = Fixture::new();
     f.planned();
     let mut rows = f.rows();
-    rows[1]["先に要るもの"] = json!(FIRST);
+    rows[0]["パス"] = json!(parent);
+    rows[1]["先に要るもの"] = json!(parent);
     rows.swap(0, 1);
     f.set_plan(&rows, true);
-    f.overrides(
-        json!({SECOND: {"body": "受領した件数は[照合記録](../Documents/記録.txt)を参照。"}}),
-    );
+    f.overrides(json!({SECOND: {"body": format!("受領した件数は[照合記録]({link})を参照。")}}));
     f.run("ok", true);
     let contexts = f.lines("contexts.jsonl");
     let first_stage = |stage: &str, path: &str| {
@@ -447,7 +455,7 @@ fn linked_plan_prerequisite_finishes_before_the_document_is_built() {
             })
             .unwrap()
     };
-    assert!(first_stage("build-review", FIRST) < first_stage("build", SECOND));
+    assert!(first_stage("build-review", parent) < first_stage("build", SECOND));
 }
 
 #[test]
