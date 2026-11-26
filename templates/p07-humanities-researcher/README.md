@@ -8,7 +8,7 @@
 | Evidence note / Translation draft / Citation exercise | Langley Historical Trust。Judith が史料の所在と推論の限界を記し、Julie と仏語書簡の訳、Florian と引用の参照先を確認する | [langley-evidence-note.docx](langley-evidence-note.docx) | A4縦。本文、参照表または対訳表。淡い葡萄色の見出しと細い横罫 |
 | Chapter manuscript | Langley Historical Trust。Judith が Roger Hewitt と照合する章稿、Edward Fairclough への提出稿、阿部 由紀子に回覧する英語草稿 | [langley-chapter-manuscript.docx](langley-chapter-manuscript.docx) | A4縦。表紙なし。広めの行間と節・小節、典拠注、連続頁番号 |
 | Interim grant report | Langley Historical Trust。Judith が章の進捗・残作業・助成費・刊行見通しを Roger Hewitt に報告する | [langley-interim-grant-report.docx](langley-interim-grant-report.docx) | A4縦。表紙なし。5節、題の下に提出管理欄。典拠注と連続頁番号 |
-| Access brief | Langley Historical Trust。Judith が Camille Laurent 宛の閲覧申請で使う照会書や添付案 | [langley-access-brief.docx](langley-access-brief.docx) | A4縦。宛先、対象史料、取扱いと受渡しの希望を一続きに読める配置 |
+| Access brief | Langley Historical Trust。Judith が Camille Laurent に閲覧を申し込む照会書や、Isabelle Chevalier に閲覧順と調べたい問いを渡す調査案 | [langley-access-brief.docx](langley-access-brief.docx) | A4縦。宛先、対象史料、取扱いと受渡しの希望を一続きに読める配置 |
 | Research discussion | Langley Historical Trust。Judith と研究班の章構成・典拠の検討、比較研究会の説明順の検討 | [langley-research-briefing.pptx](langley-research-briefing.pptx) | 16:9。白地の上下に細い罫線。表紙・本文・2段・表・図を収録したマスター |
 | Leaf register | Langley Historical Trust。Judith が箱・請求記号・葉範囲と閲覧／複写条件を照合する表 | [langley-leaf-register.xlsx](langley-leaf-register.xlsx) | A4横印刷。組織名と管理欄、淡い葡萄色の列見出し。件数列は右揃え |
 | Subscription count review | Langley Historical Trust。Judith と Julie が受領明細を再集計し、第2章の表の見出しと式を照合する | [langley-subscription-review.xlsx](langley-subscription-review.xlsx) | A4横。受領明細と見出し照合の2シート。淡い葡萄色の列見出しと繰返し管理欄 |
@@ -123,6 +123,12 @@
 - Person index は `\IndexHeading{題}{発行番号}{日付}{作成者}{確認者}` で管理欄を入れ、PersonIndex 環境に`索引語 & 典拠と行 & 同定注 \\`の順で行を置く。索引語には原綴りと識別に必要な文脈を入れる。4月16日の人物同定57件のうち別人の可能性がある6件は、同じ表記でも典拠を添えた別項目にする。読書会の人物索引は貸本台帳の利用者索引および査読時の地名索引と区別する。検索可能なテキストPDFに組む。
 - Cotisations reçues は活字刷りの受領控え用。 `\AccountHeading{会名}{会計の表題}{葉・期間などの表示}`、SubscriptionEntries 環境に`記帳順 & 受領日 & 記載名 & フラン額 & 支払いの内訳 \\`、必要に応じて `\AccountClosing{会計係の肩書または署名表記}` の順で置く。数値列の後は4 mm空ける。原紙の葉境界では改頁し、原稿に従って葉の見出しを置く。現代の管理番号は付けず、日付と仏語の金額表記は原紙のものを使う。印刷PDFを bin/scan --gray --quality 78 に通し、氏名、別々の受領日、金額と分納の内訳が読めることを全頁で確認する。手書き原紙が計画で指定された場合は imagegen skill の手順に従う。
 
+## 2024年8月の Montclair 閲覧準備
+
+- Isabelle 宛の調査案は **Access brief**。題、REQ の番号、日付、Judith、Isabelle 宛、版を入れる。Request に調査で確かめたい引渡し、Material to consult に閲覧順と各冊の目録・表紙・記入例、Handling and delivery に確認担当と資料の引き渡し方を置く。表を使う場合は共通の Word 手順に従い、記入者が書き留める役割と、照合に必要な相手側の記録が各行で対応するようにする。同じ調査案の検索可能なPDFは `bin/office-pdf` で書き出し、番号と版を引き継ぐ。独立した論点稿を直接PDFにする場合は **Research paper** の PAP 番号を使う。
+- 表題紙・欄見本の閲覧用複写は **Extrait du registre de circulation**。後述の `\MontclairHeading` と `\MontclairFacsimile` を使い、複写番号、日付、担当者、請求記号と掲載箇所を渡す。複写の管理欄と、史料そのものの表題・記入欄が同じ紙面で見分けられるようにする。活字の原紙は元の欄順と記入例を組んで載せ、手書きの原紙は imagegen skill に従う。`bin/scan --gray --quality 78` を通し、表紙と見開きの各頁を確認する。
+- Downloads の目録 HTML は Montclair 名義の仏語ページ。黄土色の印と砂色の見出しを使い、請求記号・冊名・閲覧範囲を引けるようにする。仏語の解題 MD には目録の記述と、表紙や欄から判断した記録者側の見方を記す。閲覧写真 JPG は綴じと見開きを撮ったものとして扱い、欄配置 PNG は記入者から見た左右と記入順を示す。2024年8月の問いは、貸し手・預り先・受取人のどこから記録が作られたかと、引渡しを確認するために次に開く史料に絞る。
+
 ## 2026年6〜7月の回覧経路と年記の再確認
 
 - Montclair の複写は `\MontclairHeading{題}{複写番号}{日付}{複写担当者}{台帳の請求記号と葉}` で仏語の管理欄を入れる。原紙画像を載せる場合は `\MontclairFacsimile{画像パス}` を使い、葉が変わる位置で改頁し管理欄にその葉を示す。手書きの原紙画像は imagegen skill の手順に従う。活字で組む原紙には `MontclairPrintedLedger` 環境を使い、行番号、原紙の日付、書名、原記載の回覧先、台帳の備考を並べる。次頁にも列見出しが入り、右寄せの行番号と次の文字列の間は5 mm空く。原紙の内容と葉順を確認し、組んだ PDF に `bin/scan --gray --quality 78` を通す。
@@ -149,13 +155,13 @@
 
 ## 見本と画像
 
-中間報告は未完の2章を載せる1頁の抜粋と、章別表が2頁に続く抜粋で、必須5節、管理欄、列見出しの繰返し、連続頁番号を確認する。第1章は1頁の抜粋で章稿・活字の余白注・改稿の組版を確認する。第1章の見本の番号・版・コメント日時は組版確認用の値。配布物の本文と管理欄は計画・原稿に従う。
+調査案は DOCX と同版の PDF で管理欄と閲覧順を確認する。閲覧用複写は表題紙のみと欄見本付きの両方を組む。人物索引は短い版と続頁のある版で、三つの列と見出し帯の色を確認する。
 
 | 型と確認内容 | 見本 | レンダリング画像 |
 |---|---|---|
-| Interim grant report（未完2章の表と5節を1頁に組版） | [langley-interim-grant-report-short.docx](../../scratch/p07-humanities-researcher/b009/work/templates-0002/examples/langley-interim-grant-report-short.docx) | [1頁](../../scratch/p07-humanities-researcher/b009/work/templates-0002/render/langley-interim-grant-report-short/langley-interim-grant-report-short-1.png) |
-| Interim grant report（5節と提出管理欄） | [langley-interim-grant-report.docx](../../scratch/p07-humanities-researcher/b009/work/templates-0002/examples/langley-interim-grant-report.docx) | [1頁](../../scratch/p07-humanities-researcher/b009/work/templates-0002/render/langley-interim-grant-report/langley-interim-grant-report-1.png)、[2頁](../../scratch/p07-humanities-researcher/b009/work/templates-0002/render/langley-interim-grant-report/langley-interim-grant-report-2.png) |
-| Interim grant report（同じ題・番号・版のテキストPDF） | [langley-interim-grant-report.pdf](../../scratch/p07-humanities-researcher/b009/work/templates-0002/examples/langley-interim-grant-report.pdf) | [1頁](../../scratch/p07-humanities-researcher/b009/work/templates-0002/render/langley-interim-grant-report-pdf/langley-interim-grant-report-1.png)、[2頁](../../scratch/p07-humanities-researcher/b009/work/templates-0002/render/langley-interim-grant-report-pdf/langley-interim-grant-report-2.png) |
-| Chapter manuscript（削除前の章稿、Roger の校閲コメント付き） | [scope-and-sources-review.docx](../../scratch/p07-humanities-researcher/b009/work/templates-0002/examples/scope-and-sources-review.docx) | [本文1頁](../../scratch/p07-humanities-researcher/b009/work/templates-0002/render/scope-and-sources-review/scope-and-sources-review-1.png) |
-| Chapter manuscript（余白に活字の校閲コメントを置いた紙稿のスキャン） | [scope-and-sources-scan.pdf](../../scratch/p07-humanities-researcher/b009/work/templates-0002/examples/scope-and-sources-scan.pdf) | [1頁](../../scratch/p07-humanities-researcher/b009/work/templates-0002/render/scope-and-sources-scan/scope-and-sources-scan-1.png) |
-| Research paper（比較範囲と典拠注を組んだ改稿のテキストPDF） | [scope-and-sources-revised.pdf](../../scratch/p07-humanities-researcher/b009/work/templates-0002/examples/scope-and-sources-revised.pdf) | [1頁](../../scratch/p07-humanities-researcher/b009/work/templates-0002/render/scope-and-sources-revised/scope-and-sources-revised-1.png) |
+| Access brief（閲覧順の調査案） | [montclair-consultation-brief.docx](../../scratch/p07-humanities-researcher/b010/work/templates-0002/examples/montclair-consultation-brief.docx) | [1頁](../../scratch/p07-humanities-researcher/b010/work/templates-0002/render/montclair-consultation-brief/montclair-consultation-brief-1.png) |
+| Access brief（同じ発行番号・版のテキスト PDF） | [montclair-consultation-brief.pdf](../../scratch/p07-humanities-researcher/b010/work/templates-0002/examples/montclair-consultation-brief.pdf) | [1頁](../../scratch/p07-humanities-researcher/b010/work/templates-0002/render/montclair-consultation-brief-pdf/montclair-consultation-brief-1.png) |
+| Montclair 閲覧用複写（表題紙のみ） | [montclair-facsimile-scan.pdf](../../scratch/p07-humanities-researcher/b010/work/templates-0002/examples/montclair-facsimile-scan.pdf) | [1頁](../../scratch/p07-humanities-researcher/b010/work/templates-0002/render/montclair-facsimile-scan/montclair-facsimile-scan-1.png) |
+| Montclair 閲覧用複写（表題紙と欄見本） | [montclair-cover-and-columns-scan.pdf](../../scratch/p07-humanities-researcher/b010/work/templates-0002/examples/montclair-cover-and-columns-scan.pdf) | [1頁](../../scratch/p07-humanities-researcher/b010/work/templates-0002/render/montclair-cover-and-columns-scan/montclair-cover-and-columns-scan-1.png)、[2頁](../../scratch/p07-humanities-researcher/b010/work/templates-0002/render/montclair-cover-and-columns-scan/montclair-cover-and-columns-scan-2.png) |
+| Person index（短い明細） | [langley-person-index-short.pdf](../../scratch/p07-humanities-researcher/b010/work/templates-0002/examples/langley-person-index-short.pdf) | [1頁](../../scratch/p07-humanities-researcher/b010/work/templates-0002/render/langley-person-index-short/langley-person-index-short-1.png) |
+| Person index（続頁に見出しを反復） | [langley-person-index.pdf](../../scratch/p07-humanities-researcher/b010/work/templates-0002/examples/langley-person-index.pdf) | [1頁](../../scratch/p07-humanities-researcher/b010/work/templates-0002/render/langley-person-index/langley-person-index-1.png)、[2頁](../../scratch/p07-humanities-researcher/b010/work/templates-0002/render/langley-person-index/langley-person-index-2.png) |

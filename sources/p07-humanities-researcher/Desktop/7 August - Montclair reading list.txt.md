@@ -1,0 +1,19 @@
+---
+path: Desktop/7 August - Montclair reading list.txt
+kind: text
+author: Judith Morris
+derived_from:
+---
+
+7 August — Montclair
+
+Meet Isabelle in the reading room at 09:00 BST / 10:00 CEST.
+
+Call up in order: MRC/01, MRC/02, MRC/03, MRC/04, MRC/05, MRC/06, MRC/07, MRC/08, MRC/09.
+
+Before handing each one back:
+1. Check the catalogue title and cote.
+2. Read the cover against the catalogue. If it’s a later cover, go back to the heading inside and note where it is.
+3. Read one early entry against its column headings. Jot the folio and the actual wording beside the title.
+
+At 04, keep the two facing leaves open together on the supports. If we’re running short, stop picking out names and finish the round of covers and columns.

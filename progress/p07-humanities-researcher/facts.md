@@ -230,3 +230,22 @@
 - 所蔵館スレッド① 2025-07-16 15:02 BST（16:02 CEST）、Judith → Camille Laurent、件名「Deux feuillets à vérifier et des renvois」。候補9件を整理した Camille - Demande de vérification.pdf（LHT-20250716-PAP-001 v1.0）を実添付。
 - 所蔵館スレッド② 2025-07-24 10:44 BST（11:44 CEST）、Camille → Judith、件名「Re: Deux feuillets à vérifier et des renvois」。①を引用し、欠落7候補は現行目録に別写しへの参照なし、f.126・217は両面指定で手配候補、葉の内容は未確認と回答。添付なし。
 - 章稿送付 2025-07-22 14:24 BST、Judith → Roger Hewitt、件名「Chapter one after 10 July」。新規で Scope and sources - v0.3.pdf（v0.3）と Chapter 1 - Citation register.csv（旧注63件）を別々に実添付。
+
+## Montclair の冒頭閲覧と引渡しを調べる調査案
+
+- 2024-08-07 09:00〜11:15 BST（10:00〜12:15 CEST）、Isabelle Chevalier と Judith Morris が Montclair 閲覧室で MRC/01〜09 を請求記号順に開いた。各冊で見るのは目録・表紙・冒頭の記入例一箇所。支持台上で綴じと見開きを撮り、窓口から閲覧用の部分複写8点を受け取った。
+- MRC/01 « Cahier des prêts » f.2r は貸し手の « Sorti le »・« Remis à »。次に受取側の受領控えを日付・書名・渡し先から探す。
+- MRC/02 « Sorties du dépôt » f.3v は預り先の « À remettre à »。宛先の受領控えで受領日・冊子印を探す。
+- MRC/03 « Entrées au dépôt » f.2v は受取人側の « Reçu le »・« Provenance »。差出側の送付控えを調べ、出所欄の空白は差出元不明のまま残す。
+- MRC/04 « Bureau des dépôts » f.2v–3r は預り先が左葉の « Reçu de » から右葉の « Remis à » へ控え番号を写す見開きで、例の控え47は1864年2月16日受付・18日引渡し。番号の発行元を確認し、右葉の受取先で受領控えを探す。持込人を借り手とみなさない。
+- MRC/05 « Bordereau de remise » f.2r は預り先の « Destinataire prévu » と « Remis le »。予定先だけの記入は引渡し未確認とし、相手方の受領控えを実施日と控え番号から探す。
+- MRC/06 « Retours au bureau » f.4v は返却を受ける側の « Repris le » と保管番号。1864年3月9日予定の例は受け戻し日の欄が空で、別の実日の記入と区別する。返送側の控えを同じ物の保管番号から探す。
+- MRC/07 « Nouvelles remises » f.3v は貸し手側の « N° de garde »・« Remis à nouveau »。次の受取側の控えを保管番号・物の記述・引渡し日から探す。
+- MRC/08 « Accusés de réception » f.2v は受取側の « Reçu par » と外余白の « reçu au dépôt »。受領人の空欄は残し、受領場所・日付・物の記載で発送元の控えを探す。
+- MRC/09 « Envois » f.4r は貸し手の « Expédié le »・« À l’attention de » と包み印。宛先の受領控えで包み印と日付を照らし、同じ書名だけでは結ばない。
+- 8月13日10:00 BST、Judith と Susan Atkinson が記入者側を再点検。04の持込人、05の予定先、08の欄外にある場所は、借り手・受領者本人を確定する根拠にしない。Susan の Word コメントは同日11:16 BST。
+- 8月19日14:15 BST、Judith と Roger Hewitt が York で相談。LHT-20240801-OUT-001 v0.1 の人物伝構想を取り下げ、相手側の控えを探して一度の引渡しを確かめる問いを採用。
+- LHT-20240821-REQ-001 v1.0 は Judith の Isabelle 宛調査案。9冊の表は目録順のまま、Judith は欄と物の符号、Susan は目録、Isabelle は反対側の控えの所在を確認する。DOCX と同版のテキストPDFはともに « Montclair - Further consultation »。
+- 閲覧予約① 2024-08-02 10:14 BST、Judith Morris → Isabelle Chevalier、件名「Consultation des registres」。添付なし。
+- 閲覧予約② 2024-08-05 09:26 BST（10:26 CEST）、Isabelle Chevalier → Judith Morris、件名「Re: Consultation des registres」。①の閲覧・撮影照会を引用し、7日の枠を確定。添付なし。
+- 調査案送付 2024-08-22 09:36 BST、Judith Morris → Isabelle Chevalier、件名「Proposition de consultation」。新規メールで同版の DOCX と PDF を実添付。最初に照会するのは04の控え番号と08に対応する発送控えの所在。

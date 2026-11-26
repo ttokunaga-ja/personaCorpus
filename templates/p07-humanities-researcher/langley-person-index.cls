@@ -2,7 +2,7 @@
 \ProvidesClass{langley-person-index}[2026/04/16 Langley Historical Trust person index]
 \LoadClass{langley-research-paper}
 \RequirePackage{longtable,booktabs,colortbl}
-\colorlet{LangleyIndexTint}{LangleyPlum!12}
+\definecolor{LangleyIndexTint}{HTML}{F1E8EC}
 \fancyfoot[L]{\small\color{LangleyPlum}York\hspace{0.6em}/\hspace{0.6em}Person index}
 \newcommand{\IndexHeading}[5]{%
   {\small\color{LangleyPlum}\itshape Person index\par}%

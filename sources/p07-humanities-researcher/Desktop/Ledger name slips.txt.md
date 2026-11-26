@@ -1,0 +1,18 @@
+---
+path: Desktop/Ledger name slips.txt
+kind: text
+author: Judith Morris
+derived_from:
+---
+
+8 August — first slip from yesterday's opening
+
+Pencilled beside the card: “Martin?” The word looks like a surname.
+
+Borrower:
+Book: Le foyer du dimanche
+Reference: MRC/04, Bureau des dépôts, f.2v, control 47
+
+Leave the borrower line empty. The heading over Martin is « Reçu de ». On 16 February 1864 the bureau received the book from the person entered there. That fits the person who brought it in. I have no entry saying who borrowed it. On the facing leaf the second 47 has the handover of 18 February to Salle de Brévaux. That entry gives me a destination to check and tells me nothing about a loan to Martin.
+
+Before I put any name on a card for the 1 August outline, go back to the heading. Can I find a lending entry that actually names this person as borrower?
