@@ -73,7 +73,7 @@ personaCorpus は Kio を含む他の repo に依存しない。他の repo の�
 
 - **作業場所**：個人デスクトップ WSL の `~/dev/github.com/ttokunaga-ja/personaCorpus` を正とする。Mac では作業しない。
 - **セッション分離**：personaCorpus の Claude セッションは personaCorpus だけを扱う。kio のファイルは変更しない。kio の作業は kio のセッションが行う。
-- **役割とモデル**（effort はすべて medium）
+- **役割とモデル**（effort は既定で low。2026-11-28 ユーザー決定）
 
   | 役割 | 担当 |
   |---|---|
